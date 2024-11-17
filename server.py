@@ -15,7 +15,7 @@ from color import generate_random_hex_colors
 
 load_dotenv()
 
-open_ai_key = os.getenv("OPENAI_KEY")
+open_ai_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=open_ai_key)
 stats = {
     "total_tokens": 0,
