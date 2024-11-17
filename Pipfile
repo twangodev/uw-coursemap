@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+beautifulsoup4 = "*"
+flask = "*"
+lxml = "*"
+frozendict = "*"
+python-dotenv = "*"
+openai = "*"
+flask-cors = "*"
+gunicorn = "*"
+numpy = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
