@@ -1,21 +1,31 @@
 <script>
-    import {Menu, Search} from "lucide-svelte";
+    import { Menu, Search } from "lucide-svelte";
     import * as Sheet from "$lib/components/ui/sheet";
-    import {Button} from "$lib/components/ui/button/index.ts";
-    import {Input} from "$lib/components/ui/input/index.ts";
+    import { Button } from "$lib/components/ui/button/index.ts";
+    import { Input } from "$lib/components/ui/input/index.ts";
     import Crest from "$lib/components/Crest.svelte";
+
+    // SvelteKit-specific
+    import { page } from "$app/stores";
+    $: currentPath = $page.url.pathname;
 </script>
 
 <header class="bg-background sticky top-0 flex h-16 items-center gap-4 border-b px-4 md:px-6">
     <nav class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-base lg:gap-6">
-        <a href="##" class="flex items-center gap-4 text-lg font-semibold md:text-lg whitespace-nowrap">
+        <a
+                href="/"
+                class="flex items-center gap-4 text-lg font-semibold md:text-lg whitespace-nowrap">
             <Crest/>
             <span>UW Course Map</span>
         </a>
-        <a href="##" class="text-foreground hover:text-foreground transition-colors">
+        <a
+                href="/"
+                class={`transition-colors ${currentPath === '/' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}>
             Home
         </a>
-        <a href="##" class="text-muted-foreground hover:text-foreground transition-colors">
+        <a
+                href="/explorer"
+                class={`transition-colors ${currentPath === '/explorer' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}>
             Explorer
         </a>
     </nav>
@@ -33,12 +43,22 @@
         </Sheet.Trigger>
         <Sheet.Content side="left">
             <nav class="grid gap-6 text-lg font-medium">
-                <a href="##" class="flex items-center gap-4 text-lg font-semibold md:text-lg whitespace-nowrap">
+                <a
+                        href="/"
+                        class={`flex items-center gap-4 text-lg font-semibold md:text-lg whitespace-nowrap ${currentPath === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
                     <Crest/>
                     <span>UW Course Map</span>
                 </a>
-                <a href="##" class="hover:text-foreground">Home</a>
-                <a href="##" class="text-muted-foreground hover:text-foreground"> Explorer </a>
+                <a
+                        href="/"
+                        class={`hover:text-foreground ${currentPath === '/' ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    Home
+                </a>
+                <a
+                        href="/explorer"
+                        class={`hover:text-foreground ${currentPath === '/explorer' ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    Explorer
+                </a>
             </nav>
         </Sheet.Content>
     </Sheet.Root>
