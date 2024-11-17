@@ -8,4 +8,4 @@
 
 </script>
 
-<Cytoscape url="{PUBLIC_API_URL}/graphs" styleUrl="{PUBLIC_API_URL}/graph/style/{}"/>
+<Cytoscape url="{PUBLIC_API_URL}/graphs" styleUrl="{PUBLIC_API_URL}/graph/style"/>
