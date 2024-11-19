@@ -1,12 +1,16 @@
+import json
 import re
+from typing import Optional
 
 from frozendict import frozendict
 
+from json_serializable import JsonSerializable
 
-def remove_extra_spaces(text):
+
+def remove_extra_spaces(text: str):
     return re.sub(r"\s+", " ", text).strip()
 
-def cleanup_course_reference_str(cls, course_code):
+def cleanup_course_reference_str(course_code: str):
     """Remove special HTML characters and clean up the course code."""
     if not course_code:
         return None
@@ -18,43 +22,34 @@ def cleanup_course_reference_str(cls, course_code):
         .strip()
     )
 
-class JsonSerializable:
+class Identifiable:
 
-    @classmethod
-    def from_json(cls, json_data) -> "JsonSerializable":
-        raise NotImplementedError
+        def get_identifier(self) -> str:
+            raise NotImplementedError
 
-    def to_dict(self):
-        raise NotImplementedError
+class Course(JsonSerializable):
 
-    def to_json(self):
-        return self.to_dict()
-
-    def __repr__(self):
-        return str(self.to_dict())
-
-    def __str__(self):
-        return str(self.to_dict())
-
-class Course (JsonSerializable):
-
-    class Reference (JsonSerializable):
-        def __init__(self, subjects : set[str], course_number : int):
-            self.subjects: set[str] = subjects
-            self.course_number: int = course_number
+    class Reference(JsonSerializable, Identifiable):
+        def __init__(self, subjects: set[str], course_number: int):
+            self.subjects = subjects
+            self.course_number = course_number
 
         @classmethod
-        def from_string(cls, course_reference_str):
+        def from_json(cls, json_data) -> "Course.Reference":
+            return Course.Reference(
+                subjects=set(json_data["subjects"]),
+                course_number=json_data["course_number"],
+            )
+
+        @classmethod
+        def from_string(cls, course_reference_str: str):
             course_reference_str = cleanup_course_reference_str(course_reference_str)
             match = re.match(r"(\D+)(\d+)", course_reference_str)
             course_subject_str = match.group(1).replace(" ", "").strip()  # Only keep the subject
-            course_subject = set(course_subject_str.split("/"))
+            raw_course_subjects = course_subject_str.split("/")
+            course_subject = {str(subject).replace(" ", "") for subject in raw_course_subjects}
             course_number = int(match.group(2).strip())  # Convert to integer
             return Course.Reference(course_subject, course_number)
-
-        def to_identifier(self):
-            subjects = "/".join(self.subjects)
-            return f"{subjects} {self.course_number}"
 
         def to_dict(self):
             return {
@@ -62,13 +57,17 @@ class Course (JsonSerializable):
                 "course_number": self.course_number,
             }
 
+        def get_identifier(self) -> str:
+            subjects = "/".join(self.subjects)
+            return f"{subjects} {self.course_number}"
+
         def __eq__(self, other):
             if not isinstance(other, Course.Reference):
                 return False
             return self.subjects == other.subjects and self.course_number == other.course_number
 
         def __hash__(self):
-            return hash(self.to_identifier())
+            return hash(self.get_identifier())
 
         def __repr__(self):
             return f"CourseReference(subjects={self.subjects}, course_number={self.course_number})"
@@ -79,21 +78,40 @@ class Course (JsonSerializable):
             self.prerequisites_text = prerequisites_text
             self.course_references = course_references
 
+        @classmethod
+        def from_json(cls, json_data) -> "Course.Prerequisites":
+            return Course.Prerequisites(
+                prerequisites_text=json_data["prerequisites_text"],
+                course_references=[
+                    Course.Reference.from_json(course_ref) for course_ref in json_data["course_references"]
+                ],
+            )
+
         def to_dict(self):
             return {
                 "prerequisites_text": self.prerequisites_text,
                 "course_references": [course_ref.to_dict() for course_ref in self.course_references],
             }
 
-        def __repr__(self):
-            return f"CoursePrerequisite(prerequisites_text={self.prerequisites_text}, course_references={self.course_references})"
+        def __eq__(self, other):
+            if not isinstance(other, Course.Prerequisites):
+                return False
+            return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-
-    def __init__(self, course_reference: Reference, course_title, description, prerequisites):
+    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
         self.prerequisites = prerequisites
+
+    @classmethod
+    def from_json(cls, json_data) -> "Course":
+        return Course(
+            course_reference=Course.Reference.from_json(json_data["course_reference"]),
+            course_title=json_data["course_title"],
+            description=json_data["description"],
+            prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
+        )
 
     def to_dict(self):
         return {
@@ -123,9 +141,10 @@ class Course (JsonSerializable):
 
         cb_extras = block.find("div", class_="cb-extras")
         if not cb_extras:
-            return Course(course_reference, course_title, description, set())
+            return Course(course_reference, course_title, description, )
 
-        requisites_data = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:")).find_next("span", class_="cbextra-data")
+        requisites_data = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:")).find_next(
+            "span", class_="cbextra-data")
         requisites_text = requisites_data.get_text(strip=True)
         requisites_links = requisites_data.find_all("a")
         requisites_courses = set()
@@ -167,7 +186,7 @@ class Course (JsonSerializable):
     def create_edge(self, reference):
         return frozendict({
             "data": frozendict({
-                "source": reference.to_identifier(),
+                "source": reference.get_identifier(),
                 "target": self.get_identifier(),
             }),
         })
@@ -181,7 +200,7 @@ class Course (JsonSerializable):
         })
 
     def get_identifier(self):
-        return self.course_reference.to_identifier()
+        return self.course_reference.get_identifier()
 
     def get_subgraphs(self, courses, seen, graph_set_1, graph_set_2):
         if self.get_identifier() in seen:
@@ -202,7 +221,7 @@ class Course (JsonSerializable):
             graph_set_2.add(graph_data)
 
     def get_short_summary(self):
-        return f"""Course Title: {self.course_reference.to_identifier()} - {self.course_title}
+        return f"""Course Title: {self.course_reference.get_identifier()} - {self.course_title}
         Course Description: {self.description}
         """
 
@@ -256,7 +275,6 @@ class Course (JsonSerializable):
             course = course_ref_course[reference]
             c.add(course)
 
-
         best = self.find_best_prerequisite(self, c)
         print(f"Selected {best} as the best prerequisite for {self.get_identifier()} out of {len(c)} options")
         stats["removed_requisites"] += len(self.prerequisites.course_references) - 1
@@ -270,6 +288,3 @@ class Course (JsonSerializable):
 
     def __repr__(self):
         return self.get_identifier()
-
-
-
