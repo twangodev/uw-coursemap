@@ -1,20 +1,24 @@
 import re
+import time
 from logging import Logger
 
 import requests
 from bs4 import BeautifulSoup, ResultSet
 
 from course import Course
+from timer import get_ms
 
 
 def get_course_blocks(url: str, logger: Logger) -> (str, ResultSet):
+    time_start = time.time()
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
 
     subject_title = soup.find(class_="page-title").get_text(strip=True)
 
     results = soup.find_all("div", class_="courseblock")
-    logger.info(f"Discovered {len(results)} courses for {subject_title}")
+    time_elapsed_ms = get_ms(time_start)
+    logger.info(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
 
 def add_data(subjects, course_ref_course, subject_course, full_subject, blocks):
