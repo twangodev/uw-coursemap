@@ -1,6 +1,4 @@
-import json
 import re
-from typing import Optional
 
 from frozendict import frozendict
 
@@ -231,54 +229,7 @@ class Course(JsonSerializable):
         Prerequisites: {req}
         """
 
-    @classmethod
-    def find_best_prerequisite(cls, course, prerequisites):
-        """
-        Finds the most relevant prerequisite for a given course using embeddings.
 
-        Args:
-            course: A Course object with attributes `description`.
-            prerequisites: A list of Course objects, each with `description`.
-
-        Returns:
-            The most relevant prerequisite course.
-        """
-        # Get embedding for the main course
-        course_embedding = get_embedding(course.get_full_summary())
-
-        # Get embeddings for all prerequisites
-        prerequisite_embeddings = [
-            (prereq, get_embedding(prereq.get_short_summary())) for prereq in prerequisites
-        ]
-
-        # Compute similarity scores
-        similarities = [
-            (prereq, cosine_similarity(course_embedding, prereq_embedding))
-            for prereq, prereq_embedding in prerequisite_embeddings
-        ]
-
-        # Find the prerequisite with the highest similarity score
-        best_prerequisite = max(similarities, key=lambda x: x[1])
-
-        # Return the course object of the best prerequisite
-        return best_prerequisite[0]
-
-    def optimize_prerequisites(self, course_ref_course, stats):
-        if len(self.prerequisites.course_references) <= 1:
-            return
-
-        c = set()
-        for reference in self.prerequisites.course_references:
-            if reference not in course_ref_course:
-                print(f"Prerequisite not found in courses: {reference}")
-                continue
-            course = course_ref_course[reference]
-            c.add(course)
-
-        best = self.find_best_prerequisite(self, c)
-        print(f"Selected {best} as the best prerequisite for {self.get_identifier()} out of {len(c)} options")
-        stats["removed_requisites"] += len(self.prerequisites.course_references) - 1
-        self.prerequisites.course_references = {best.course_reference}
 
     def __eq__(self, other):
         return self.get_identifier() == other.get_identifier() and self.course_title == other.course_title and self.description == other.description
