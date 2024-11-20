@@ -6,7 +6,7 @@ from color import generate_random_hex_colors
 from course import Course
 
 def create_compound(subject):
-    frozendict({
+    return frozendict({
         "data": frozendict({
             "id": subject,
             "type": "compound",
@@ -19,8 +19,9 @@ def create_node(course):
         "description": course.description,
     }
 
-    if course.determine_parent() != "CROSSLISTED":
-        data["parent"] = course.determine_parent()
+    parent = course.determine_parent()
+    if parent != "CROSSLISTED":
+        data["parent"] = parent
 
     node = {"data": frozendict(data),}
     return frozendict(node)
