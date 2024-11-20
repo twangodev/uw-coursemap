@@ -129,9 +129,9 @@ def main():
         client=open_ai_client,
         model="text-embedding-3-small",
         course_ref_to_course=course_ref_to_course,
-        max_runtime=10,
-        max_retries=6,
-        max_threads=20,
+        max_runtime=30,
+        max_retries=50,
+        max_threads=10,
         logger=logger
     )
 
