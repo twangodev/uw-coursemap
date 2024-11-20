@@ -21,12 +21,7 @@ def get_openai_client(api_key: str, logger: Logger, show_api_key: bool):
 
 
 def get_embedding(client: OpenAI, model, text, stats):
-
-    @cache
-    def get_embedding_cached(m, t):
-        return client.embeddings.create(input=t, model=m)
-
-    response = get_embedding_cached(model, text)
+    response = client.embeddings.create(model=model, input=text)
 
     stats["prompt_tokens"] += response.usage.prompt_tokens
     stats["total_tokens"] += response.usage.total_tokens
@@ -55,7 +50,7 @@ def find_best_prerequisite(client, model, course, prerequisites, stats):
     # Return the course object of the best prerequisite
     return best_prerequisite[0]
 
-def prune_prerequisites(client, model, course, course_ref_to_course, stats, logger: Logger):
+def prune_prerequisites(client, model, course: Course, course_ref_to_course, stats, logger: Logger):
     if len(course.prerequisites.course_references) <= 1:
         return
 
@@ -64,8 +59,8 @@ def prune_prerequisites(client, model, course, course_ref_to_course, stats, logg
         if reference not in course_ref_to_course:
             logger.error(f"Prerequisite not found in courses: {reference}")
             continue
-        course = course_ref_to_course[reference]
-        prerequisites.add(course)
+        c = course_ref_to_course[reference]
+        prerequisites.add(c)
 
     best = find_best_prerequisite(
         client=client,
