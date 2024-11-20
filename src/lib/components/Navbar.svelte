@@ -10,7 +10,7 @@
     $: currentPath = $page.url.pathname;
 </script>
 
-<header class="bg-background sticky top-0 flex h-16 items-center gap-4 border-b px-4 md:px-6">
+<header class="bg-background top-0 flex min-h-16 items-center gap-4 border-b px-4 md:px-8">
     <nav class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-base lg:gap-6">
         <a
                 href="/"
