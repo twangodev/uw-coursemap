@@ -8,6 +8,10 @@
     export let url: string
     export let styleUrl: string
 
+    type StyleData = {
+        [parent: string]: string;
+    };
+
     let cy: cytoscape.Core;
 
     function tippyFactory(ref: any, content: any) {
@@ -41,15 +45,13 @@
         let courseData = await response.json();
 
         let styleResponse = await fetch(styleUrl);
-        let styleData = await styleResponse.json();
+        let styleData: StyleData[] = await styleResponse.json();
 
         let cytoscapeStyles : Stylesheet[] = [
             {
                 selector: 'node',
                 style: {
-                    'label': (data: { data: (key: string) => any, id: () => string }): string => {
-                        return data.data('label') || data.id();
-                    },
+                    'label': 'data(id)',
                     'text-valign': 'center',
                     'text-halign': 'center',
                     'background-color': '#757575',
@@ -120,33 +122,13 @@
 
         cytoscapeStyles = cytoscapeStyles.concat(styles);
 
-
-        console.log(cytoscapeStyles)
-
-
         cytoscape.use(cytoscapeFcose);
         cytoscape.use(cytoscapePopper(tippyFactory))
 
-        let cytoscapeLayout: cytoscape.BreadthFirstLayoutOptions = {
-            name: 'breadthfirst',
-            directed: true,
-            padding: 10,
-        }
-
-        cy = cytoscape({
-            container: document.getElementById('cy'),
-            elements: courseData,
-            style: cytoscapeStyles,
-            layout: cytoscapeLayout,
-            minZoom: 0.01,
-            maxZoom: 2,
-            motionBlur: true,
-        });
-
         let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
             name: 'fcose',
-            quality: 'proof', // 'draft', 'default' or 'proof'
-            animate: true, // Whether to animate the layout
+            quality: 'default', // 'draft', 'default' or 'proof'
+            animate: false, // Whether to animate the layout
             animationDuration: 1000, // Duration of the animation in milliseconds
             animationEasing: 'ease-out', // Easing of the animation
             fit: true, // Whether to fit the viewport to the graph
@@ -187,7 +169,15 @@
             // ]
         }
 
-        cy.layout(newCytoscapeLayout).run();
+        cy = cytoscape({
+            container: document.getElementById('cy'),
+            elements: courseData,
+            style: cytoscapeStyles,
+            layout: newCytoscapeLayout,
+            minZoom: 0.01,
+            maxZoom: 2,
+            motionBlur: true,
+        });
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
@@ -254,10 +244,9 @@
             const fadeEdges = cy.edges().difference(highlightedEdges);
             fadeNodes.addClass('faded');
             fadeEdges.addClass('faded');
-
         }
 
     })
 
 </script>
-<div id="cy" class="h-full"></div>
+<div id="cy" class="flex-grow"></div>
