@@ -1,10 +1,12 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from functools import cache
 from logging import Logger
 
 import numpy as np
-from openai import OpenAI, models
+from openai import OpenAI
 
 from course import Course
+
 
 def get_openai_client(api_key: str, logger: Logger, show_api_key: bool):
     """
@@ -13,14 +15,19 @@ def get_openai_client(api_key: str, logger: Logger, show_api_key: bool):
     if api_key is None or api_key == "REPLACE_WITH_OPENAI_API_KEY":
         logger.warning("No OpenAI API key provided.")
         return None
-    logger.debug("Creating OpenAI client" + (f" with API key {api_key}" if show_api_key else ""))
+    logger.info("Creating OpenAI client" + (f" with API key {api_key}" if show_api_key else ""))
     return OpenAI(api_key=api_key)
 
+
+
 def get_embedding(client: OpenAI, model, text, stats):
-    """
-    Generates an embedding for the given text using OpenAI's embeddings API.
-    """
-    response = client.embeddings.create(input=text, model=model)
+
+    @cache
+    def get_embedding_cached(m, t):
+        return client.embeddings.create(input=t, model=m)
+
+    response = get_embedding_cached(model, text)
+
     stats["prompt_tokens"] += response.usage.prompt_tokens
     stats["total_tokens"] += response.usage.total_tokens
     return response.data[0].embedding
@@ -86,7 +93,7 @@ def optimize_prerequisite_thread(client, model, course, course_ref_to_course, ma
                 print(f"Optimization for course {course.get_identifier()} failed completely.")
                 return None  # Abandon optimization if all retries fail
 
-def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Reference, Course],  max_runtime, max_retries, max_threads, logger: Logger):
+def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Reference, Course], max_runtime, max_retries, max_threads, logger: Logger):
     logger.info("Optimizing prerequisites...")
 
     # Use ThreadPoolExecutor to handle multiple courses concurrently

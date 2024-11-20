@@ -81,16 +81,4 @@ def scrape_all(urls: list[str], logger: Logger):
     logger.info(f"Total subject to course mappings: {len(subject_to_courses)}")
     return subject_to_full_subject, course_ref_to_course, subject_to_courses
 
-def build_graphs():
-    logger.info("Building course graphs...")
 
-    graph = set()
-    subject_graph = dict()
-
-    for subject in subjects_course_map.keys():
-        for course in subjects_course_map[subject]:
-            if subject not in subject_graph:
-                subject_graph[subject] = set()
-            course.get_subgraphs(courses, set(), graph, subject_graph[subject])
-
-    return graph, subject_graph

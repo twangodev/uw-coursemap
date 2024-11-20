@@ -189,34 +189,11 @@ class Course(JsonSerializable):
             }),
         })
 
-    def create_parent(self):
-        return frozendict({
-            "data": frozendict({
-                "id": self.determine_parent(),
-                "type": "compound",
-            }),
-        })
 
     def get_identifier(self):
         return self.course_reference.get_identifier()
 
-    def get_subgraphs(self, courses, seen, graph_set_1, graph_set_2):
-        if self.get_identifier() in seen:
-            return
-        seen.add(self.get_identifier())
-        to_add = set()
-        to_add.add(self.create_node())
-        to_add.add(self.create_parent())
-        for reference in self.prerequisites.course_references:
-            if reference not in courses:
-                print(f"Prerequisite not found in courses: {reference}")
-                continue
-            to_add.add(self.create_edge(reference))
-            to_add.add(courses[reference].get_subgraphs(courses, seen, graph_set_1, graph_set_2))
 
-        for graph_data in to_add:
-            graph_set_1.add(graph_data)
-            graph_set_2.add(graph_data)
 
     def get_short_summary(self):
         return f"""Course Title: {self.course_reference.get_identifier()} - {self.course_title}

@@ -6,7 +6,9 @@ import coloredlogs
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from open_ai import get_openai_client, optimize_prerequisites
+from save import write_data
 from webscrape import get_course_urls, scrape_all
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
@@ -75,34 +77,9 @@ sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 #
 #     print(f"Prerequisites optimized. Total tokens used: {stats['total_tokens']}. Removed requisites: {stats['removed_requisites']}")
 #
-# def cleanup_graphs():
-#     count = 0
-#     if None in graphs:
-#         count += 1
-#     graphs.discard(None)
-#     for subject in subject_graph_map:
-#         if None in subject_graph_map[subject]:
-#             count += 1
-#         subject_graph_map[subject].discard(None)
-#     print(f"Removed {count} None graphs")
+
 #
-# def generate_style(parent, color):
-#     return { parent : color }
-#
-# def generate_style_from_graph(graph):
-#     parents = set()
-#     for el in graph:
-#         if "data" in el:
-#             data = el["data"]
-#             if "parent" in data:
-#                 parents.add(data["parent"])
-#
-#     colors = generate_random_hex_colors(len(set(parents)))
-#
-#     return [generate_style(parent, color) for parent, color in zip(set(parents), colors)]
-#
-# def generate_styles():
-#     return { subject: generate_style_from_graph(subject_graph_map[subject]) for subject in subject_graph_map }
+
 #
 
 def get_logging_level(level_name):
@@ -118,9 +95,14 @@ def main():
     load_dotenv()
 
     openai_api_key = os.getenv("OPENAI_API_KEY", None)
+    data_dir = os.getenv("DATA_DIRECTORY", None)
     max_prerequisites = os.getenv("MAX_PREREQUISITES", None)
     logging_level = os.getenv("LOGGING_LEVEL", None)
     show_api_key = os.getenv("SHOW_API_KEY", False) == "True"
+
+    warn_missing_data_dir = data_dir is None
+    if warn_missing_data_dir:
+        raise ValueError("No data directory set. Please set the DATA_DIRECTORY environment variable.")
 
     warn_missing_max_prerequisites = max_prerequisites is None
     max_prerequisites = int(max_prerequisites) if max_prerequisites is not None else 1
@@ -153,14 +135,32 @@ def main():
         logger=logger
     )
 
-    # graphs, subject_graph_map = build_graphs()
+    global_graph, subject_to_graph = build_graphs(
+        course_ref_to_course=course_ref_to_course,
+        subject_to_courses=subject_to_courses,
+        logger=logger
+    )
 
-    # cleanup_graphs()
-    #
-    # styles = generate_styles()
-    # global_style = generate_style_from_graph(graphs)
-    #
-    # app.run(debug=False)
+    cleanup_graphs(
+        global_graph=global_graph,
+        subject_to_graph=subject_to_graph,
+        logger=logger
+    )
+
+    subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
+    global_style = generate_style_from_graph(global_graph)
+
+    write_data(
+        data_dir=data_dir,
+        subject_to_full_subject=subject_to_full_subject,
+        subject_to_courses=subject_to_courses,
+        identifier_to_course=identifier_to_course,
+        global_graph=global_graph,
+        subject_to_graph=subject_to_graph,
+        global_style=global_style,
+        subject_to_style=subject_to_style,
+        logger=logger
+    )
 
 
 if __name__ == "__main__":
