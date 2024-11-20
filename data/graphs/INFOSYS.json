@@ -1,15 +1,100 @@
 [
     {
         "data": {
-            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
-            "id": "INFOSYS 424",
+            "id": "INFOSYS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "INFOSYS 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 765",
             "parent": "INFOSYS"
         }
     },
     {
         "data": {
-            "source": "INFOSYS 322",
+            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
+            "id": "INFOSYS 724",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "INFOSYS 371",
+            "target": "INFOSYS/ISYE 722"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
+            "id": "INFOSYS/ISYE 722"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
+            "id": "INFOSYS 352",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "INFOSYS 371",
             "target": "INFOSYS 424"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 365",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
+            "id": "INFOSYS 723",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+            "id": "INFOSYS 371",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
+            "id": "INFOSYS 423",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
@@ -27,74 +112,8 @@
     },
     {
         "data": {
-            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
-            "id": "INFOSYS 724",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
-            "id": "INFOSYS 423",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
-            "id": "INFOSYS 723",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 765",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
-            "id": "INFOSYS 371",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 365",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
-            "id": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-            "id": "INFOSYS 352",
+            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
+            "id": "INFOSYS 424",
             "parent": "INFOSYS"
         }
     }

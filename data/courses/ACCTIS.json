@@ -1,29 +1,44 @@
 [
     {
         "course_reference": {
-            "course_number": 725,
+            "course_number": 770,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "ANALYSIS OF INTERNATIONAL TAXATION",
-        "description": "An introduction to international tax issues. Topics covered may include tax treaties, foreign tax credit provisions, Subpart F rules, and taxation of inbound investment and business income.",
+        "course_title": "ACCOUNTING THEORY: REPORTING INCENTIVES AND CONSEQUENCES",
+        "description": "Review and analysis of theoretical foundations of corporate financial reporting; application of conceptual framework and finance/economic theories to understand development of major accounting standards.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 620,
+                    "course_number": 702,
                     "subjects": [
                         "ACCTIS"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0302or702); or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "COST MANAGEMENT SYSTEMS",
+        "description": "Design of actual and standard cost systems for reporting product costs in job costing, process costing, and activity costing production environments. Overhead allocation methods. Budgeting and profit planning procedures. Techniques for variance analysis and performance evaluation. Behavioral considerations in the design and use of cost accounting information systems.",
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 742,
+                    "course_number": 211,
                     "subjects": [
-                        "LAW"
+                        "ACCTIS"
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0620orLAW\u00a0742), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0211or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -38,12 +53,6 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 702,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
                     "course_number": 302,
                     "subjects": [
                         "ACCTIS"
@@ -51,6 +60,27 @@
                 }
             ],
             "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0302or702"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "FINANCIAL REPORTING I",
+        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users. Emphasizes asset and income determination, preparation and interpretation of financial statements, and related disclosure requirements.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0100or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -69,27 +99,13 @@
     },
     {
         "course_reference": {
-            "course_number": 401,
+            "course_number": 100,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "BUSINESS ORGANIZATIONS AND NEGOTIABLE INSTRUMENTS",
-        "description": "Commercial paper, real estate and personal property, partnerships, corporations, bankruptcy.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ACCOUNTING PRINCIPLES",
-        "description": "Examines both financial and managerial accounting for business decisions. Emphasizes preparation and interpretation of financial statements, analysis of financial information, determination of costs for products and services, and use of accounting information for planning and control of business operations.",
+        "course_title": "INTRODUCTORY FINANCIAL ACCOUNTING",
+        "description": "Examines generally accepted accounting principles for measurement and reporting of financial information in a balance sheet, income statement, and statement of cash flows; introduction to analysis and interpretation of financial accounting data for decision-making purposes.",
         "prerequisites": {
             "course_references": [
                 {
@@ -99,46 +115,18 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement. Not open to students with credit forACCT\u00a0I\u00a0S\u00a0100."
+            "prerequisites_text": "Not open to students with credit forACCT\u00a0I\u00a0S\u00a0300"
         }
     },
     {
         "course_reference": {
-            "course_number": 399,
+            "course_number": 722,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "READING AND RESEARCH-ACCOUNTING",
-        "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 601,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "PROFESSIONAL PRACTICE ISSUES IN ACCOUNTING, AUDITING, AND TAXATION",
-        "description": "Study of current accounting and audit issues within a case context. Students will be required to perform computerized research, analyze topical accounting and audit issues, and make case presentations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 772,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ANALYSIS OF TAXES & BUSINESS DECISIONS",
-        "description": "Readings and cases in taxation; analysis and integration of related tax provisions and taxpayer impact.",
+        "course_title": "ANALYSIS OF TAXATION FOR PASS-THROUGH ENTITIES",
+        "description": "Analysis of federal tax provisions and administrative rules regarding pass-through entities, such as partnerships, S-corporations, and limited liability companies; including their application to entity formation and operation, property and ownership basis, distributions, and interest transfers.",
         "prerequisites": {
             "course_references": [
                 {
@@ -148,50 +136,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "(ACCT\u00a0I\u00a0S\u00a0620and graduate/professional standing) or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 781,
-            "subjects": [
-                "ACCTIS",
-                "GENBUS",
-                "EPD"
-            ]
-        },
-        "course_title": "FINANCIAL AND BUSINESS ACUMEN",
-        "description": "This course is designed with a keen awareness for the needs of the non-financial student or professional. For this class, no previous financial training is required. The intent is to equip you with the essential concepts used to develop financial literacy. Content will cover basic financial terms and reports, analytical tools to help interpret financial data and using financial data in budgets and forecasts.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing. Not open to students declared in an MBA program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 724,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "TAX RESEARCH, PROCEDURE & ANALYSIS",
-        "description": "Methodologies and tools for tax research; utilization of tax research tools; preparation of investigative reports; professional and interprofessional responsibilities; administrative procedures and techniques.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 620,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 742,
-                    "subjects": [
-                        "LAW"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0620orLAW\u00a0742), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620and graduate/professional standing, declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
         }
     },
     {
@@ -210,12 +155,6 @@
                     "subjects": [
                         "ACCTIS"
                     ]
-                },
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
                 }
             ],
             "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0302,702, declared in Business: Accounting and Business Analysis MSB, or the Business Exchange program"
@@ -223,105 +162,53 @@
     },
     {
         "course_reference": {
-            "course_number": 740,
+            "course_number": 999,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "INFORMATION RISK, CONTROL, & FORENSICS",
-        "description": "Examines the control and security of accounting information systems with an auditing and forensic perspective.  Topics covered include: data governance frameworks, risks to information (i.e., data), internal controls related to identified risks, types of assurance services, computer assisted audit tools and techniques (CAATTs), fraud, and other related topics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 730,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ADVANCED AUDITING: ANALYSIS, POLICY, AND JUDGMENT",
-        "description": "Auditors increasingly use analytics to provide assurance over financial and non-financial information. Audit and assurance principles will be viewed through the lens of an analytics mindset. Uses analytics in combination with other audit techniques as a basis for professional judgments. Examines how the contemporary audit environment influences professional judgments. Develops the technical knowledge and skills needed in many professional roles through discussion, case studies, and group projects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 630,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Graduate/professional standing,ACCT\u00a0I\u00a0S\u00a0340, and630), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF TAXATION",
-        "description": "Application of federal tax provisions and administrative rules common to most taxpayers with introductions to rules specific to corporations, pass-through entities, and individuals.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0301or concurrent enrollment or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 771,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ANALYSIS OF PERFORMANCE MEASUREMENT & CONTROL",
-        "description": "Development and analysis of accounting data for managerial planning, control, decision-making, and costing, with a focus on the integration of financial and non-financial information needs for various managerial functions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0310or710), or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 971,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "SEMINAR IN ACCOUNTING RESEARCH",
-        "description": "Provides the tools needed for educated consumption of accounting research. Examines and synthesizes relevant accounting research to identify important research questions. Develops the knowledge and skills needed to conduct accounting research through discussion, presentations, and writing assignments.",
+        "course_title": "READING AND RESEARCH-ACCOUNTING PHD",
+        "description": "Individual work suited to the needs of Ph.D. students may be arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Business PHD"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 781,
+            "subjects": [
+                "ACCTIS",
+                "EPD",
+                "GENBUS"
+            ]
+        },
+        "course_title": "FINANCIAL AND BUSINESS ACUMEN",
+        "description": "This course is designed with a keen awareness for the needs of the non-financial student or professional. For this class, no previous financial training is required. The intent is to equip you with the essential concepts used to develop financial literacy. Content will cover basic financial terms and reports, analytical tools to help interpret financial data and using financial data in budgets and forecasts.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing. Not open to students declared in an MBA program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "FINANCIAL REPORTING I",
+        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users. Emphasizes asset and liability valuations and their relationships to income determination, preparation and interpretation of financial statements, and related disclosure requirements.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0700"
         }
     },
     {
@@ -361,131 +248,60 @@
     },
     {
         "course_reference": {
-            "course_number": 701,
+            "course_number": 765,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "FINANCIAL REPORTING I",
-        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users. Emphasizes asset and liability valuations and their relationships to income determination, preparation and interpretation of financial statements, and related disclosure requirements.",
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0700"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
         "course_reference": {
-            "course_number": 722,
+            "course_number": 781,
             "subjects": [
-                "ACCTIS"
+                "EPD",
+                "ACCTIS",
+                "GENBUS"
             ]
         },
-        "course_title": "ANALYSIS OF TAXATION FOR PASS-THROUGH ENTITIES",
-        "description": "Analysis of federal tax provisions and administrative rules regarding pass-through entities, such as partnerships, S-corporations, and limited liability companies; including their application to entity formation and operation, property and ownership basis, distributions, and interest transfers.",
+        "course_title": "FINANCIAL AND BUSINESS ACUMEN",
+        "description": "This course is designed with a keen awareness for the needs of the non-financial student or professional. For this class, no previous financial training is required. The intent is to equip you with the essential concepts used to develop financial literacy. Content will cover basic financial terms and reports, analytical tools to help interpret financial data and using financial data in budgets and forecasts.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 620,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620and graduate/professional standing, declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing. Not open to students declared in an MBA program"
         }
     },
     {
         "course_reference": {
-            "course_number": 710,
+            "course_number": 399,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "MANAGERIAL ACCOUNTING",
-        "description": "Interpretation and use of accounting data for management planning, decision making and control. Consideration of cost-volume-profit relationships, relevant costs, variable (direct) costing, activity-based costing, transfer pricing and performance evaluation of segments of the firm.",
+        "course_title": "READING AND RESEARCH-ACCOUNTING",
+        "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0700"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 401,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "FINANCIAL REPORTING I",
-        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users. Emphasizes asset and income determination, preparation and interpretation of financial statements, and related disclosure requirements.",
+        "course_title": "BUSINESS ORGANIZATIONS AND NEGOTIABLE INSTRUMENTS",
+        "description": "Commercial paper, real estate and personal property, partnerships, corporations, bankruptcy.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0100or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "FOUNDATION IN ACCOUNTING ANALYTICS",
-        "description": "Analytics has become an integral part of accounting to support decision making, coordination and control, and compliance with regulations. Being able to identify and pursue relevant questions using data is a critical skill for new hires, as is the ability to successfully communicate one's findings. This pursuit and communication requires a strong facility with a variety of analytics technologies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 307,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 317,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACCT\u00a0I\u00a0S\u00a0340or concurrent enrollment), (ACCT\u00a0I\u00a0S\u00a0100andGEN\u00a0BUS\u00a0307or317), (ACCT\u00a0I\u00a0S\u00a0700or concurrent enrollment), or declared in the Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -518,34 +334,34 @@
     },
     {
         "course_reference": {
-            "course_number": 621,
+            "course_number": 640,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "CORPORATE AND ADVANCED TAXATION",
-        "description": "Application of federal tax provisions and administrative rules pertaining to corporations and shareholders, including elective provisions for \"S\" corporations. Emphasis on tax planning and the consequences of corporate and shareholder decisions.",
+        "course_title": "FOUNDATION IN ACCOUNTING ANALYTICS",
+        "description": "Analytics has become an integral part of accounting to support decision making, coordination and control, and compliance with regulations. Being able to identify and pursue relevant questions using data is a critical skill for new hires, as is the ability to successfully communicate one's findings. This pursuit and communication requires a strong facility with a variety of analytics technologies.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 621,
+                    "course_number": 700,
                     "subjects": [
                         "ACCTIS"
                     ]
                 }
             ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620, declared in Business: Accounting and Business Analysis MSB, or declared in the Business Exchange program"
+            "prerequisites_text": "(ACCT\u00a0I\u00a0S\u00a0340or concurrent enrollment), (ACCT\u00a0I\u00a0S\u00a0100andGEN\u00a0BUS\u00a0307or317), (ACCT\u00a0I\u00a0S\u00a0700or concurrent enrollment), or declared in the Business Exchange program"
         }
     },
     {
         "course_reference": {
-            "course_number": 726,
+            "course_number": 724,
             "subjects": [
                 "ACCTIS"
             ]
         },
-        "course_title": "ADVANCED CORPORATE TAXATION",
-        "description": "The application of federal tax law to a variety of complex corporate tax topics and analysis on corporations and their shareholders. Primary legal sources of the code, regulations, and case law are applied to determine the tax treatment for advanced topics such as: 1) Tax and non-tax factors considered by buyers and sellers in both stock and asset acquisitions, 2) Taxable asset acquisitions, 3) Consolidations, 4) Divestitures and divisive D reorganizations, and 5) Codification of the economic substance doctrine. The emphasis of the class  is on tax planning and the consequences of corporate and shareholder decisions.",
+        "course_title": "TAX RESEARCH, PROCEDURE & ANALYSIS",
+        "description": "Methodologies and tools for tax research; utilization of tax research tools; preparation of investigative reports; professional and interprofessional responsibilities; administrative procedures and techniques.",
         "prerequisites": {
             "course_references": [
                 {
@@ -553,15 +369,65 @@
                     "subjects": [
                         "ACCTIS"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0620orLAW\u00a0742), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ANALYSIS OF INTERNATIONAL TAXATION",
+        "description": "An introduction to international tax issues. Topics covered may include tax treaties, foreign tax credit provisions, Subpart F rules, and taxation of inbound investment and business income.",
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 621,
+                    "course_number": 620,
                     "subjects": [
                         "ACCTIS"
                     ]
                 }
             ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620and621"
+            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0620orLAW\u00a0742), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 300,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ACCOUNTING PRINCIPLES",
+        "description": "Examines both financial and managerial accounting for business decisions. Emphasizes preparation and interpretation of financial statements, analysis of financial information, determination of costs for products and services, and use of accounting information for planning and control of business operations.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement. Not open to students with credit forACCT\u00a0I\u00a0S\u00a0100."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 971,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "SEMINAR IN ACCOUNTING RESEARCH",
+        "description": "Provides the tools needed for educated consumption of accounting research. Examines and synthesizes relevant accounting research to identify important research questions. Develops the knowledge and skills needed to conduct accounting research through discussion, presentations, and writing assignments.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Business PHD"
         }
     },
     {
@@ -587,6 +453,76 @@
     },
     {
         "course_reference": {
+            "course_number": 740,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "INFORMATION RISK, CONTROL, & FORENSICS",
+        "description": "Examines the control and security of accounting information systems with an auditing and forensic perspective.  Topics covered include: data governance frameworks, risks to information (i.e., data), internal controls related to identified risks, types of assurance services, computer assisted audit tools and techniques (CAATTs), fraud, and other related topics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "FUNDAMENTALS OF TAXATION",
+        "description": "Application of federal tax provisions and administrative rules common to most taxpayers with introductions to rules specific to corporations, pass-through entities, and individuals.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0301or concurrent enrollment or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 772,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ANALYSIS OF TAXES & BUSINESS DECISIONS",
+        "description": "Readings and cases in taxation; analysis and integration of related tax provisions and taxpayer impact.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 620,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACCT\u00a0I\u00a0S\u00a0620and graduate/professional standing) or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 601,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "PROFESSIONAL PRACTICE ISSUES IN ACCOUNTING, AUDITING, AND TAXATION",
+        "description": "Study of current accounting and audit issues within a case context. Students will be required to perform computerized research, analyze topical accounting and audit issues, and make case presentations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 630,
             "subjects": [
                 "ACCTIS"
@@ -597,185 +533,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 630,
+                    "course_number": 301,
                     "subjects": [
                         "ACCTIS"
                     ]
                 }
             ],
             "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0301,701, or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 770,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ACCOUNTING THEORY: REPORTING INCENTIVES AND CONSEQUENCES",
-        "description": "Review and analysis of theoretical foundations of corporate financial reporting; application of conceptual framework and finance/economic theories to understand development of major accounting standards.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 702,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0302or702); or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 310,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "COST MANAGEMENT SYSTEMS",
-        "description": "Design of actual and standard cost systems for reporting product costs in job costing, process costing, and activity costing production environments. Overhead allocation methods. Budgeting and profit planning procedures. Techniques for variance analysis and performance evaluation. Behavioral considerations in the design and use of cost accounting information systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0211or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 329,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "TAXATION: CONCEPTS FOR BUSINESS AND PERSONAL PLANNING",
-        "description": "An introduction to the U.S. income taxation concepts with emphasis on business and personal planning strategies. Taxes are placed in a framework which considers all costs of doing business. Includes approaches and skills needed to prepare individual, corporate, and partnership income tax returns.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                },
-                {
-                    "course_number": 811,
-                    "subjects": [
-                        "LAW"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0100,300, orLAW\u00a0811. Not open to students declared in Business: Accounting BBA program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 302,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "FINANCIAL REPORTING II",
-        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users, including dilutive securities, investments, revenue recognition, income tax allocation, pensions, leases and accounting changes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0301or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 100,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "INTRODUCTORY FINANCIAL ACCOUNTING",
-        "description": "Examines generally accepted accounting principles for measurement and reporting of financial information in a balance sheet, income statement, and statement of cash flows; introduction to analysis and interpretation of financial accounting data for decision-making purposes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forACCT\u00a0I\u00a0S\u00a0300"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-ACCOUNTING PHD",
-        "description": "Individual work suited to the needs of Ph.D. students may be arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Business PHD"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 340,
-            "subjects": [
-                "ACCTIS"
-            ]
-        },
-        "course_title": "ACCOUNTING INFORMATION SYSTEMS",
-        "description": "Understand, document, and evaluate integrated enterprise systems and critical information tracked in core business processes, applying technology to model, capture, and query data needed, and assess system design and controls.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ACCTIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0211and (ACCT\u00a0I\u00a0S\u00a0301or concurrent enrollment); or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -790,13 +554,181 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 211,
+                    "course_number": 100,
                     "subjects": [
                         "ACCTIS"
                     ]
                 }
             ],
             "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0100or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 329,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "TAXATION: CONCEPTS FOR BUSINESS AND PERSONAL PLANNING",
+        "description": "An introduction to the U.S. income taxation concepts with emphasis on business and personal planning strategies. Taxes are placed in a framework which considers all costs of doing business. Includes approaches and skills needed to prepare individual, corporate, and partnership income tax returns.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0100,300, orLAW\u00a0811. Not open to students declared in Business: Accounting BBA program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 340,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ACCOUNTING INFORMATION SYSTEMS",
+        "description": "Understand, document, and evaluate integrated enterprise systems and critical information tracked in core business processes, applying technology to model, capture, and query data needed, and assess system design and controls.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0211and (ACCT\u00a0I\u00a0S\u00a0301or concurrent enrollment); or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "MANAGERIAL ACCOUNTING",
+        "description": "Interpretation and use of accounting data for management planning, decision making and control. Consideration of cost-volume-profit relationships, relevant costs, variable (direct) costing, activity-based costing, transfer pricing and performance evaluation of segments of the firm.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0700"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 726,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ADVANCED CORPORATE TAXATION",
+        "description": "The application of federal tax law to a variety of complex corporate tax topics and analysis on corporations and their shareholders. Primary legal sources of the code, regulations, and case law are applied to determine the tax treatment for advanced topics such as: 1) Tax and non-tax factors considered by buyers and sellers in both stock and asset acquisitions, 2) Taxable asset acquisitions, 3) Consolidations, 4) Divestitures and divisive D reorganizations, and 5) Codification of the economic substance doctrine. The emphasis of the class  is on tax planning and the consequences of corporate and shareholder decisions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 621,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620and621"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "FINANCIAL REPORTING II",
+        "description": "Examines current and emerging financial accounting theory and techniques used to measure and report financial information to investors, creditors, and other external users, including dilutive securities, investments, revenue recognition, income tax allocation, pensions, leases and accounting changes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0301or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 730,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ADVANCED AUDITING: ANALYSIS, POLICY, AND JUDGMENT",
+        "description": "Auditors increasingly use analytics to provide assurance over financial and non-financial information. Audit and assurance principles will be viewed through the lens of an analytics mindset. Uses analytics in combination with other audit techniques as a basis for professional judgments. Examines how the contemporary audit environment influences professional judgments. Develops the technical knowledge and skills needed in many professional roles through discussion, case studies, and group projects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 630,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Graduate/professional standing,ACCT\u00a0I\u00a0S\u00a0340, and630), declared in Business: Accounting and Business Analysis MSB, or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 621,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "CORPORATE AND ADVANCED TAXATION",
+        "description": "Application of federal tax provisions and administrative rules pertaining to corporations and shareholders, including elective provisions for \"S\" corporations. Emphasis on tax planning and the consequences of corporate and shareholder decisions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 620,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACCT\u00a0I\u00a0S\u00a0620, declared in Business: Accounting and Business Analysis MSB, or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 771,
+            "subjects": [
+                "ACCTIS"
+            ]
+        },
+        "course_title": "ANALYSIS OF PERFORMANCE MEASUREMENT & CONTROL",
+        "description": "Development and analysis of accounting data for managerial planning, control, decision-making, and costing, with a focus on the integration of financial and non-financial information needs for various managerial functions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "ACCTIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing and (ACCT\u00a0I\u00a0S\u00a0310or710), or declared in graduate Business Exchange program"
         }
     }
 ]

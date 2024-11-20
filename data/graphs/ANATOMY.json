@@ -1,12 +1,6 @@
 [
     {
         "data": {
-            "source": "ANAT&PHY 337",
-            "target": "ANAT&PHY 338"
-        }
-    },
-    {
-        "data": {
             "description": "Takes a regional approach to cover the gross anatomy of the human body in four units: introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck. A variety of tools, including interactive software, models, and specimens, will be used.",
             "id": "ANAT&PHY 338",
             "parent": "ANAT&PHY"
@@ -14,22 +8,14 @@
     },
     {
         "data": {
+            "id": "ANATOMY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "source": "ANAT&PHY 338",
             "target": "ANATOMY 329"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
-            "id": "ANAT&PHY 337",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "description": "Dissection-based gross human anatomy relevant with a physical and occupational therapy focus. Special emphasis is placed on the musculoskeletal and peripheral nervous systems, and living subject and surface anatomy.",
-            "id": "ANATOMY 622",
-            "parent": "ANATOMY"
         }
     },
     {
@@ -43,6 +29,32 @@
         "data": {
             "description": "Directed study projects as arranged with instructor.",
             "id": "ANATOMY 699",
+            "parent": "ANATOMY"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 337",
+            "target": "ANAT&PHY 338"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
+            "id": "ANAT&PHY 337",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "description": "Dissection-based gross human anatomy relevant with a physical and occupational therapy focus. Special emphasis is placed on the musculoskeletal and peripheral nervous systems, and living subject and surface anatomy.",
+            "id": "ANATOMY 622",
             "parent": "ANATOMY"
         }
     }

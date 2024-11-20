@@ -1,13 +1,97 @@
 [
     {
         "course_reference": {
-            "course_number": 910,
+            "course_number": 510,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "SEMINAR-POETRY",
-        "description": "Advanced study in Greek poetry, secondary scholarship, and ancient and modern literary interpretation.",
+        "course_title": "HOMER",
+        "description": "Extensive reading in both Iliad and Odyssey.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 304,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SECOND SEMESTER ANCIENT GREEK",
+        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0303"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "THUCYDIDES",
+        "description": "Close reading of selections from Thucydides, with a focus on developing skills in reading and interpreting historical texts.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 541,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "GREEK PHILOSOPHICAL WRITERS",
+        "description": "Featuring close reading in the original language of canonical works for classical Greek philosophy, including but not limited to Plato and Aristotle, develop proficiency in the Greek language of the classical and post-classical periods, emphasizing grammar, style, socio-historical context, and the history of ideas.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 930,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SEMINAR-HISTORY",
+        "description": "Advanced study in Greek historiography, secondary scholarship, and ancient and modern literary interpretation.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -29,13 +113,90 @@
     },
     {
         "course_reference": {
-            "course_number": 510,
+            "course_number": 699,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "HOMER",
-        "description": "Extensive reading in both Iliad and Odyssey.",
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 103,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "FIRST SEMESTER ANCIENT GREEK",
+        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 521,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "GREEK TRAGEDY",
+        "description": "Close reading of selected plays of Aeschylus, Sophocles or Euripides.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 303,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "FIRST SEMESTER ANCIENT GREEK",
+        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 551,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "ATTIC ORATORS",
+        "description": "Selected speeches from Antiphon to Hypereides, with emphasis upon the contribution of rhetoric to the intellectual life of the fourth century.",
         "prerequisites": {
             "course_references": [
                 {
@@ -71,23 +232,100 @@
     },
     {
         "course_reference": {
-            "course_number": 306,
+            "course_number": 681,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "FOURTH SEMESTER ANCIENT GREEK",
+        "course_title": "HONORS THESIS",
+        "description": "Individual mentored study for completing theses for Honors in the Major as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "THIRD SEMESTER ANCIENT GREEK",
         "description": "Selections from Plato's Dialogues, the New Testament, Homer's Iliad, or Herodotus.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 305,
+                    "course_number": 304,
                     "subjects": [
                         "GREEK"
                     ]
                 }
             ],
-            "prerequisites_text": "GREEK\u00a0305or graduate/professional standing"
+            "prerequisites_text": "GREEK\u00a0104,304, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 801,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SURVEY OF GREEK LITERATURE",
+        "description": "Surveys a substantial portion of Ancient Greek Literature, from the Archaic Age through the Roman Imperial Period. Readings include primary sources and secondary literature.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 890,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "INDIVIDUAL RESEARCH THESIS",
+        "description": "Individual mentored study for completing theses, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 910,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SEMINAR-POETRY",
+        "description": "Advanced study in Greek poetry, secondary scholarship, and ancient and modern literary interpretation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 104,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "SECOND SEMESTER ANCIENT GREEK",
+        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0103"
         }
     },
     {
@@ -113,13 +351,13 @@
     },
     {
         "course_reference": {
-            "course_number": 890,
+            "course_number": 692,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "INDIVIDUAL RESEARCH THESIS",
-        "description": "Individual mentored study for completing theses, as arranged with a faculty member.",
+        "course_title": "SENIOR THESIS",
+        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -127,48 +365,34 @@
     },
     {
         "course_reference": {
-            "course_number": 304,
+            "course_number": 511,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "SECOND SEMESTER ANCIENT GREEK",
-        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
+        "course_title": "HESIOD",
+        "description": "The writings of Hesiod in Greek.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 304,
+                    "course_number": 306,
                     "subjects": [
                         "GREEK"
                     ]
                 }
             ],
-            "prerequisites_text": "GREEK\u00a0303"
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 681,
+            "course_number": 512,
             "subjects": [
                 "GREEK"
             ]
         },
-        "course_title": "HONORS THESIS",
-        "description": "Individual mentored study for completing theses for Honors in the Major as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 560,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "HELLENISTIC GREEK",
-        "description": "A selection of texts, chiefly religious in content, pagan, Jewish, and Christian.",
+        "course_title": "GREEK LYRIC POETS",
+        "description": "The complete corpus of Alcman, Ibycus, Stesichorus, Sappho, Alcaeus, Corinna, Anacreon, Praxilla, and Simonides. Selections from Bacchylides and Pindar.",
         "prerequisites": {
             "course_references": [
                 {
@@ -204,6 +428,48 @@
     },
     {
         "course_reference": {
+            "course_number": 560,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "HELLENISTIC GREEK",
+        "description": "A selection of texts, chiefly religious in content, pagan, Jewish, and Christian.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 306,
+            "subjects": [
+                "GREEK"
+            ]
+        },
+        "course_title": "FOURTH SEMESTER ANCIENT GREEK",
+        "description": "Selections from Plato's Dialogues, the New Testament, Homer's Iliad, or Herodotus.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 305,
+                    "subjects": [
+                        "GREEK"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GREEK\u00a0305or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 401,
             "subjects": [
                 "GREEK"
@@ -211,278 +477,6 @@
         },
         "course_title": "READINGS IN GREEK LITERATURE",
         "description": "Selected readings in ancient Greek poetry or prose.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 103,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "FIRST SEMESTER ANCIENT GREEK",
-        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "THUCYDIDES",
-        "description": "Close reading of selections from Thucydides, with a focus on developing skills in reading and interpreting historical texts.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "THIRD SEMESTER ANCIENT GREEK",
-        "description": "Selections from Plato's Dialogues, the New Testament, Homer's Iliad, or Herodotus.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                },
-                {
-                    "course_number": 304,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0104,304, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 541,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "GREEK PHILOSOPHICAL WRITERS",
-        "description": "Featuring close reading in the original language of canonical works for classical Greek philosophy, including but not limited to Plato and Aristotle, develop proficiency in the Greek language of the classical and post-classical periods, emphasizing grammar, style, socio-historical context, and the history of ideas.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 303,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "FIRST SEMESTER ANCIENT GREEK",
-        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 104,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "SECOND SEMESTER ANCIENT GREEK",
-        "description": "An introduction to ancient Greek grammar and the development of basic reading skills.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0103"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 511,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "HESIOD",
-        "description": "The writings of Hesiod in Greek.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "SURVEY OF GREEK LITERATURE",
-        "description": "Surveys a substantial portion of Ancient Greek Literature, from the Archaic Age through the Roman Imperial Period. Readings include primary sources and secondary literature.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 512,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "GREEK LYRIC POETS",
-        "description": "The complete corpus of Alcman, Ibycus, Stesichorus, Sappho, Alcaeus, Corinna, Anacreon, Praxilla, and Simonides. Selections from Bacchylides and Pindar.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 551,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "ATTIC ORATORS",
-        "description": "Selected speeches from Antiphon to Hypereides, with emphasis upon the contribution of rhetoric to the intellectual life of the fourth century.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GREEK"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GREEK\u00a0306or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 930,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "SEMINAR-HISTORY",
-        "description": "Advanced study in Greek historiography, secondary scholarship, and ancient and modern literary interpretation.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 521,
-            "subjects": [
-                "GREEK"
-            ]
-        },
-        "course_title": "GREEK TRAGEDY",
-        "description": "Close reading of selected plays of Aeschylus, Sophocles or Euripides.",
         "prerequisites": {
             "course_references": [
                 {

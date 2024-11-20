@@ -1,28 +1,21 @@
 [
     {
         "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 775"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Neurology faculty. Each student's project is individualized to meet the research goals of the student within the context of the faculty's research.",
-            "id": "NEUROL 990",
+            "description": "Offers the undergraduate student majoring in the life sciences (including biology, chemistry psychology, or related fields) and with interest in preparing for advanced coursework in graduate or medical school, an opportunity to participate in basic and translation research in neuroscience and neurological disorders.",
+            "id": "NEUROL 699",
             "parent": "NEUROL"
         }
     },
     {
         "data": {
-            "description": "Organized around physiological themes, the course includes material related to the cardiovascular system, hematology, nephrology, and pulmonology to present an integrated picture of how these systems function together to maintain homeostasis. In addition, there is significant content from other competency domains such as public health, ethics, evidence-based medicine, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 771",
-            "parent": "MEDSC-M"
+            "id": "NEUROL",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 774",
-            "target": "MEDSC-M 771"
+            "source": "MEDSC-M 812",
+            "target": "NEUROL 913"
         }
     },
     {
@@ -34,107 +27,8 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 813",
-            "target": "MEDSC-M 812"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "NEUROL 914"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 770"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 774"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 772"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
-            "id": "MEDSC-M 813",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "MEDSC-M 813"
-        }
-    },
-    {
-        "data": {
-            "description": "Organized around biomedical themes including nutrients, the digestive system, the biochemistry and endocrine control of metabolism, exercise and fitness and the removal of waste products and toxins to present an integrated picture of how these systems function together to maintain homeostasis. Integrates developmental content from competency domains, or \"longitudinal threads\", including communication, patient care, ethics, health information technology, public health, professionalism, quality improvement, patient safety, and scientific inquiry.",
-            "id": "MEDSC-M 772",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 771",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Offers the undergraduate student majoring in the life sciences (including biology, chemistry psychology, or related fields) and with interest in preparing for advanced coursework in graduate or medical school, an opportunity to participate in basic and translation research in neuroscience and neurological disorders.",
-            "id": "NEUROL 699",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic science concepts will be integrated to examine the relationship between neuroanatomy and cognition (e.g., learning and memory, executive function, visual perceptual abilities, etc.). Utilize stroke, epilepsy, dementia and other neurodegenerative disorders from clinical practice to demonstrate the connection between brain structure and cognitive function. Hands on experience in neuropsychological test administration and interpretation will be integrated into learning. Brain imaging correlates for clinical cases will be presented by a clinical neurologist.",
-            "id": "NEUROL 913",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated examination of how the immune system interacts with foreign microbes, the normal micro biome, and self tissues, both normal and malignant. Examines inflammation and the impacts of this type of response on normal cells, in wound healing, infectious disease, and inflammatory diseases including autoimmune disease and dermatologic conditions, including neoplasia of the skin. Covers the development of adaptive immune responses from vaccination, infectious processes, and organ transplantation. Covers the basic biology and pathophysiology of \"invaders\" of the human body, including viruses, fungi, and bacteria, along with their clinical diagnosis and therapy. Addresses malignant transformation of the immune effector cells themselves, including cancers of mature lymphoid cells and bone marrow derived malignancies.",
-            "id": "MEDSC-M 774",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
+            "id": "MEDSC-M",
+            "type": "compound"
         }
     },
     {
@@ -146,27 +40,22 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 811",
-            "target": "MEDSC-M 811"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain insight into the role of diet and nutrition in neurological disease while utilizing analytical and evidence-based-medicine research skills. Gain understanding of the role of diet and nutrition in the exacerbation and the treatment of neurological disorders (e.g. Epilepsy, Autism, Fragile X Syndrome, Phenylketonuria (PKU), Multiple Sclerosis).",
-            "id": "NEUROL 914",
+            "description": "Independent research under the direct supervision of Neurology faculty. Each student's project is individualized to meet the research goals of the student within the context of the faculty's research.",
+            "id": "NEUROL 990",
             "parent": "NEUROL"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 813",
-            "target": "MEDSC-M 813"
+            "source": "MEDSC-M 812",
+            "target": "NEUROL 914"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 810",
-            "target": "NEUROL 913"
+            "description": "Basic science concepts will be integrated to examine the relationship between neuroanatomy and cognition (e.g., learning and memory, executive function, visual perceptual abilities, etc.). Utilize stroke, epilepsy, dementia and other neurodegenerative disorders from clinical practice to demonstrate the connection between brain structure and cognitive function. Hands on experience in neuropsychological test administration and interpretation will be integrated into learning. Brain imaging correlates for clinical cases will be presented by a clinical neurologist.",
+            "id": "NEUROL 913",
+            "parent": "NEUROL"
         }
     },
     {
@@ -178,21 +67,9 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 772",
-            "target": "MEDSC-M 773"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "MEDSC-M 810"
+            "description": "Gain insight into the role of diet and nutrition in neurological disease while utilizing analytical and evidence-based-medicine research skills. Gain understanding of the role of diet and nutrition in the exacerbation and the treatment of neurological disorders (e.g. Epilepsy, Autism, Fragile X Syndrome, Phenylketonuria (PKU), Multiple Sclerosis).",
+            "id": "NEUROL 914",
+            "parent": "NEUROL"
         }
     }
 ]

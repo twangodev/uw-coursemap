@@ -1,30 +1,220 @@
 [
     {
         "course_reference": {
-            "course_number": 516,
+            "course_number": 783,
             "subjects": [
-                "ME",
+                "BME",
+                "CBE"
+            ]
+        },
+        "course_title": "DESIGN OF BIOLOGICAL MOLECULES",
+        "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 915,
+            "subjects": [
+                "BME",
+                "BIOCHEM",
+                "CBE",
+                "GENETICS",
+                "COMPSCI",
+                "BMI"
+            ]
+        },
+        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
+        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 567,
+            "subjects": [
+                "MEDPHYS",
                 "BME"
             ]
         },
-        "course_title": "FINITE ELEMENTS FOR BIOLOGICAL AND OTHER SOFT MATERIALS",
-        "description": "Finite element modeling of soft materials, with an emphasis on biological tissues.  Basics of the finite element method, verification and validation methods, and selection of constitutive models.  Emphasis on finite element modeling for materials that are generally nonlinear, and that generally undergo large deformation.",
+        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
+        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
+                    "course_number": 249,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "MEDICAL DEVICES ECOSYSTEM: THE PATH TO PRODUCT",
+        "description": "Development of medical devices for therapeutic or diagnostic purposes. Gap analysis, market analysis, reimbursement/distribution, regulatory approval, and manufacturing/supply chain development. Refinement and presentation of design ideas and corporate strategy within a team setting. Case studies of device design/manufacture including supply chain, intellectual property, pre-clinical testing, U.S. and European regulatory pathways and clinical trial design.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 402,
+                    "subjects": [
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0402or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
+        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 568,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Under faculty supervision.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 782,
+            "subjects": [
+                "BME",
+                "CBE"
+            ]
+        },
+        "course_title": "MODELING BIOLOGICAL SYSTEMS",
+        "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 703,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "RESPONSIBLE CONDUCT OF RESEARCH FOR BIOMEDICAL ENGINEERS",
+        "description": "Develop an understanding of the elements involved in being a responsible member of the Biomedical Engineering research community. Topics include mentor/mentee relationships, identifying research problems, research integrity, ethics, regulations, and improving the scientific climate.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Biomedical Engineering, Ph.D. or Biomedical Engineering: Research, M.S."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 715,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "ADVANCED TISSUE MECHANICS",
+        "description": "Central topics in solid mechanics applied to soft tissues, including analysis of strain in the setting of large deformations, computation of stress in multiple experimental loading configurations, constitutive modeling of biomaterials using hyperelastic strain-energy functions, modeling tissue growth and remodeling, and the main theories for soft tissue failure will be covered. Application of finite elasticity theory in practical laboratory situations, and key papers and concepts in soft tissue mechanics.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
                     "subjects": [
                         "EMA"
                     ]
                 },
                 {
-                    "course_number": 306,
+                    "course_number": 615,
                     "subjects": [
+                        "BME",
                         "ME"
                     ]
                 }
             ],
-            "prerequisites_text": "(M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(M\u00a0E/\u200bB\u00a0M\u00a0E\u00a0\u00a0615,E\u00a0M\u00a0A\u00a0710, or 622 prior to Fall 2024) and graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 511,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "TISSUE ENGINEERING LABORATORY",
+        "description": "Tissue engineering refers to the generation of biological substitutes to restore, maintain, or improve tissue function. Laboratory techniques are multi-disciplinary, from basic biological sciences, engineering, and biotechnology. Engineering approaches and analysis will be applied to these techniques.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 510,
+                    "subjects": [
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0510or concurrent enrollment, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 566,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "PHYSICS OF RADIOTHERAPY",
+        "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
         }
     },
     {
@@ -39,9 +229,9 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 315,
+                    "course_number": 306,
                     "subjects": [
-                        "BME"
+                        "ME"
                     ]
                 }
             ],
@@ -50,17 +240,51 @@
     },
     {
         "course_reference": {
-            "course_number": 619,
+            "course_number": 399,
             "subjects": [
-                "MEDPHYS",
-                "PHYSICS",
-                "BME",
-                "PHMCOL-M",
-                "RADIOL"
+                "BME"
             ]
         },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Directed study projects as arranged with instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 574,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
+        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 573,
+                    "subjects": [
+                        "BME",
+                        "MEDPHYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 578,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
+        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
         "prerequisites": {
             "course_references": [
                 {
@@ -68,34 +292,152 @@
                     "subjects": [
                         "PHYSICS"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 605,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN BIOMECHANICS",
+        "description": "Various special topics in biomechanics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 520,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "STEM CELL BIOENGINEERING",
+        "description": "Covers engineering approaches that are used to understand and manipulate stem cells. Concepts covered include: introduction to stem cell biology, quantitative modeling of stem cell signaling, methods to engineer the stem cell microenvironment, and the role of stem cells in tissue development and regeneration.",
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 248,
+                    "course_number": 383,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "MEDPHYS",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
+                        "BIOCORE"
                     ]
                 }
             ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
+            "prerequisites_text": "(MATH\u00a0319or320), (ZOOLOGY\u00a0470,570, orBIOCORE\u00a0383), and (CHEM\u00a0341or343), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 564,
+            "subjects": [
+                "BME",
+                "ISYE"
+            ]
+        },
+        "course_title": "OCCUPATIONAL ERGONOMICS AND BIOMECHANICS",
+        "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "BME"
+                    ]
+                },
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349orB\u00a0M\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN BIOMATERIALS, CELLULAR AND TISSUE ENGINEERING",
+        "description": "Various special topics in biomaterials, cellular and tissue engineering.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 560,
+            "subjects": [
+                "BME",
+                "CBE"
+            ]
+        },
+        "course_title": "BIOCHEMICAL ENGINEERING",
+        "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "SEMINAR IN BIOMEDICAL ENGINEERING",
+        "description": "Presentation of advancements in biomedical engineering research by leaders in the field, accompanied by critical analysis of related literature.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -114,16 +456,256 @@
     },
     {
         "course_reference": {
-            "course_number": 603,
+            "course_number": 556,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN BIOINSTRUMENTATION AND MEDICAL DEVICES",
-        "description": "Various special topics in bioinstrumentation and medical devices.",
+        "course_title": "SYSTEMS BIOLOGY: MAMMALIAN SIGNALING NETWORKS",
+        "description": "Introduction to the experimental and mathematical modeling techniques used in systems biology through lectures and critical analyses of relevant publications with a primary focus on gene/protein networks and mammalian systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0319,320, or375), (B\u00a0M\u00a0E\u00a0510,ZOOLOGY\u00a0470,570,PSYCH/\u200bZOOLOGY\u00a0\u00a0523, orBIOCORE\u00a0383) and Junior Standing, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Under faculty supervision.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Biomedical Engineering PhD or professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 568,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
+        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 567,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
+        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 249,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 601,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN BIOMEDICAL ENGINEERING",
+        "description": "Directed study projects as arranged with instructor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "MEDPHYS",
+                "BME",
+                "ECE"
+            ]
+        },
+        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
+        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "BME",
+                "PHYSICS",
+                "RADIOL",
+                "MEDPHYS",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "MICROSCOPY OF LIFE",
+        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 402,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "BIOMEDICAL ENGINEERING CAPSTONE DESIGN II",
+        "description": "Work in a team to evaluate, refine, document and present the client-centered biomedical engineering design started inB\u00a0M\u00a0E\u00a0400.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 400,
+                    "subjects": [
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0400"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 415,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "BIOMECHANICS OF HUMAN MOVEMENT",
+        "description": "An overview of experimental and modeling techniques used to study human movement. Specific topics will include locomotion, motion capture systems, force plates, muscle mechanics, musculoskeletal modeling, three dimensional kinematics, inverse dynamics, forward dynamic simulation and imaging based biomechanics. Homework and laboratory activities emphasize applications of movement biomechanics in orthopedics and rehabilitation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "BME"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "ME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0315andM\u00a0E\u00a0340, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 462,
+            "subjects": [
+                "BME",
+                "ECE"
+            ]
+        },
+        "course_title": "MEDICAL INSTRUMENTATION",
+        "description": "Design and application of electrodes, biopotential amplifiers, biosensors, therapeutic devices. Medical imaging. Electrical safety. Measurement of ventilation, blood pressure and flow.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "ECE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0C\u00a0E\u00a0340, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
+        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 568,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
         }
     },
     {
@@ -138,6 +720,79 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "BIOINSTRUMENTATION",
+        "description": "Bioinstrumentation covering clinical and research measurements. Laboratory experiments complement the lectures.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0104,109, or116),MATH\u00a0222, and (PHYSICS\u00a0202,208, or248), or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 662,
+            "subjects": [
+                "BME",
+                "ISYE"
+            ]
+        },
+        "course_title": "DESIGN AND HUMAN DISABILITY AND AGING",
+        "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "MEDPHYS",
+                "BME",
+                "CHEM"
+            ]
+        },
+        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
+        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "ENGINEERING PRINCIPLES OF MOLECULES, CELLS, AND TISSUES",
+        "description": "Introduction to the fundamental principles of kinetics and transport that are relevant for the analysis of biological systems. Topics covered include concepts of reaction rate, stoichiometry, equilibrium, momentum/mass transport, and the interaction between transport and kinetics in biological systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or247), (MATH\u00a0319,320, or375) and (CHEM\u00a0104,109, or116), or member of Engineering Guest Students"
         }
     },
     {
@@ -163,42 +818,262 @@
     },
     {
         "course_reference": {
-            "course_number": 463,
+            "course_number": 670,
             "subjects": [
-                "ECE",
-                "BME"
+                "BME",
+                "CRB"
             ]
         },
-        "course_title": "COMPUTERS IN MEDICINE",
-        "description": "Study of microprocessor-based medical instrumentation. Emphasis on real-time analysis of electrocardiograms. Labs and programming project involve design of biomedical digital signal processing algorithms. Knowledge of computer programming language like C, C++ or Java, strongly encouraged.",
+        "course_title": "BIOLOGY OF HEART DISEASE AND REGENERATION",
+        "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 200,
+                    "course_number": 151,
                     "subjects": [
-                        "COMPSCI"
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 },
                 {
-                    "course_number": 330,
+                    "course_number": 501,
                     "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 220,
-                    "subjects": [
-                        "COMPSCI"
+                        "BIOCHEM"
                     ]
                 }
             ],
-            "prerequisites_text": "E\u00a0C\u00a0E\u00a0330and (COMP\u00a0SCI\u00a0200,220,300, 301, or placement intoCOMP\u00a0SCI\u00a0300), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151andBIOCHEM\u00a0501) or graduate/professional standing."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 780,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "METHODS IN QUANTITATIVE BIOLOGY",
+        "description": "Focuses on understanding the key methods and principles of quantitative biology through a close reading of the primary literature. Topics covered will include deterministic and stochastic methods for modeling cellular systems, techniques in systems and synthetic biology, image processing tools and image analysis for biology, data-driven network models, genomic approaches, single-molecule approaches, and key computational biology tools. This course is intended for graduate students from a variety of backgrounds who are interested in pursuing quantitative biology during their graduate studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 389,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "HONORS IN RESEARCH",
+        "description": "Undergraduate honors research projects supervised by faculty members.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 545,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "ENGINEERING EXTRACELLULAR MATRICES",
+        "description": "Overview of the structure, function and biophysical properties of extracellular matrix (ECM) proteins, followed by discussion of how control or manipulation of ECM protein expression and distribution impacts on cell and tissue function, concluding with impacts of engineering ECM for regenerative medicine.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 430,
+                    "subjects": [
+                        "BME",
+                        "PHMSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E/\u200bPHM\u00a0SCI\u00a0\u00a0430, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "RESEARCH AND THESIS",
+        "description": "Under faculty supervision.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 501,
+            "subjects": [
+                "HONCOL",
+                "BME",
+                "MEDPHYS",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
+        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 449,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 578,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
+        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 740,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "BIOMANUFACTURING ENTREPRENEURSHIP",
+        "description": "Industry-relevant concepts of biotechnology innovation and translation, directly connecting lessons and classwork to real-world experience and career opportunities and promoting meaningful and sustained engagement between students and industry representatives.  Diverse range of translational biotechnology principles, such as product development in biotechnology, regulating biotechnology products, and quality and compliance in biomanufactured products.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 516,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "FINITE ELEMENTS FOR BIOLOGICAL AND OTHER SOFT MATERIALS",
+        "description": "Finite element modeling of soft materials, with an emphasis on biological tissues.  Basics of the finite element method, verification and validation methods, and selection of constitutive models.  Emphasis on finite element modeling for materials that are generally nonlinear, and that generally undergo large deformation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "EMA"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 604,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN BIOMEDICAL IMAGING AND OPTICS",
+        "description": "Various special topics in biomedical imaging and optics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 501,
+            "subjects": [
+                "HONCOL",
+                "MEDPHYS",
+                "BME",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
+        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 414,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "ORTHOPAEDIC BIOMECHANICS - DESIGN OF ORTHOPAEDIC IMPLANTS",
+        "description": "Apply the design process for orthopaedic implants (total joint replacements). Topics include: library skills; joint anatomy; tissue properties; surgical approach; joint loading; implants materials; preclinical testing and analysis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "EMA"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing and (M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303), or graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -225,56 +1100,84 @@
     },
     {
         "course_reference": {
-            "course_number": 606,
+            "course_number": 489,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN BIOMATERIALS, CELLULAR AND TISSUE ENGINEERING",
-        "description": "Various special topics in biomaterials, cellular and tissue engineering.",
+        "course_title": "HONORS IN RESEARCH",
+        "description": "Biomedical engineering undergraduate honors research projects supervised by faculty members.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 670,
+            "course_number": 751,
             "subjects": [
-                "BME",
-                "CRB"
+                "BME"
             ]
         },
-        "course_title": "BIOLOGY OF HEART DISEASE AND REGENERATION",
-        "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
+        "course_title": "BIOMEDICAL OPTICS AND BIOPHOTONICS",
+        "description": "The study and use of light in the life sciences. Interactions of light with cells and tissue can be used for imaging, measurement, diagnosis, and therapy. Applications include optical imaging, endoscopy, microscopy, resolution enhancement, adaptive optics, Optical Coherence Tomography (OCT), quantitative phase microscopy, spectroscopy (fluorescence, elastic scattering), diffuse optical tomography, and computational modeling of light transport in tissue. Fundamental skills, concepts, and theory used for these applications include geometric optics, lens design, Fourier transforms, polarization, interference, coherence, and scattering theory. Particular emphasis will be placed on current literature and cutting edge instruments and methods.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 615,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "TISSUE MECHANICS",
+        "description": "Focus on solid mechanics of prominent musculoskeletal and cardiovascular tissues. Their normal and pathological behaviors (stiffness, strength, relaxation, creep, adaptive remodeling, etc.) in response to physiologic loading will be examined and quantified.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 151,
+                    "course_number": 306,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
+                        "ME"
                     ]
                 },
                 {
-                    "course_number": 501,
+                    "course_number": 303,
                     "subjects": [
-                        "BIOCHEM"
+                        "EMA"
                     ]
                 }
             ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151andBIOCHEM\u00a0501) or graduate/professional standing."
+            "prerequisites_text": "M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303, or graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 890,
+            "course_number": 750,
+            "subjects": [
+                "BME",
+                "MEDPHYS",
+                "CHEM"
+            ]
+        },
+        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
+        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 790,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "PRE-DISSERTATION RESEARCH",
+        "course_title": "MASTER'S RESEARCH AND THESIS",
         "description": "Under faculty supervision.",
         "prerequisites": {
             "course_references": [],
@@ -283,52 +1186,89 @@
     },
     {
         "course_reference": {
-            "course_number": 640,
+            "course_number": 430,
             "subjects": [
-                "BME"
+                "BME",
+                "PHMSCI"
             ]
         },
-        "course_title": "MEDICAL DEVICES ECOSYSTEM: THE PATH TO PRODUCT",
-        "description": "Development of medical devices for therapeutic or diagnostic purposes. Gap analysis, market analysis, reimbursement/distribution, regulatory approval, and manufacturing/supply chain development. Refinement and presentation of design ideas and corporate strategy within a team setting. Case studies of device design/manufacture including supply chain, intellectual property, pre-clinical testing, U.S. and European regulatory pathways and clinical trial design.",
+        "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
+        "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 402,
+                    "course_number": 341,
                     "subjects": [
-                        "BME"
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 343,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0402or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383) and (CHEM\u00a0341or343)"
         }
     },
     {
         "course_reference": {
-            "course_number": 715,
+            "course_number": 580,
             "subjects": [
-                "ME",
-                "BME"
+                "BME",
+                "MEDPHYS"
             ]
         },
-        "course_title": "ADVANCED TISSUE MECHANICS",
-        "description": "Central topics in solid mechanics applied to soft tissues, including analysis of strain in the setting of large deformations, computation of stress in multiple experimental loading configurations, constitutive modeling of biomaterials using hyperelastic strain-energy functions, modeling tissue growth and remodeling, and the main theories for soft tissue failure will be covered. Application of finite elasticity theory in practical laboratory situations, and key papers and concepts in soft tissue mechanics.",
+        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
+        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 615,
+                    "course_number": 501,
                     "subjects": [
-                        "ME",
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "EMA"
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
                     ]
                 }
             ],
-            "prerequisites_text": "(M\u00a0E/\u200bB\u00a0M\u00a0E\u00a0\u00a0615,E\u00a0M\u00a0A\u00a0710, or 622 prior to Fall 2024) and graduate/professional standing"
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
         }
     },
     {
@@ -343,6 +1283,28 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 573,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS IN MEDICAL PHYSICS",
+        "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0234and319), (MATH\u00a0234and320), orMATH\u00a0376and (PHYSICS\u00a0202or208), graduate/professional standing, or declared in Medical Physics VISP"
         }
     },
     {
@@ -362,30 +1324,6 @@
                     "subjects": [
                         "PHYSICS"
                     ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
                 }
             ],
             "prerequisites_text": "Graduate/professional standing or (MATH\u00a0234,319, or320andPHYSICS\u00a0202or208)"
@@ -393,95 +1331,160 @@
     },
     {
         "course_reference": {
-            "course_number": 505,
+            "course_number": 574,
             "subjects": [
-                "ME",
+                "MEDPHYS",
                 "BME"
             ]
         },
-        "course_title": "BIOFLUIDICS",
-        "description": "Introduction to the physics of biological fluid flow with an emphasis on the cardiovascular system including blood rheology, pulsatile flow, wave travel, and topics relevant to blood flow measurement and biomedical device design.",
+        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
+        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 320,
+                    "course_number": 573,
                     "subjects": [
-                        "CBE"
+                        "BME",
+                        "MEDPHYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 463,
+            "subjects": [
+                "BME",
+                "ECE"
+            ]
+        },
+        "course_title": "COMPUTERS IN MEDICINE",
+        "description": "Study of microprocessor-based medical instrumentation. Emphasis on real-time analysis of electrocardiograms. Labs and programming project involve design of biomedical digital signal processing algorithms. Knowledge of computer programming language like C, C++ or Java, strongly encouraged.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
                     ]
                 },
                 {
                     "course_number": 330,
                     "subjects": [
-                        "BME"
+                        "ECE"
                     ]
                 },
                 {
-                    "course_number": 363,
+                    "course_number": 220,
                     "subjects": [
-                        "ME"
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 200,
+                    "subjects": [
+                        "COMPSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0330,CBE\u00a0320,M\u00a0E\u00a0363, graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "E\u00a0C\u00a0E\u00a0330and (COMP\u00a0SCI\u00a0200,220,300, 301, or placement intoCOMP\u00a0SCI\u00a0300), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 567,
+            "course_number": 566,
             "subjects": [
                 "BME",
                 "MEDPHYS"
             ]
         },
-        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
-        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+        "course_title": "PHYSICS OF RADIOTHERAPY",
+        "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 241,
+                    "course_number": 501,
                     "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
                         "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
         }
     },
     {
         "course_reference": {
-            "course_number": 601,
+            "course_number": 550,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN BIOMEDICAL ENGINEERING",
-        "description": "Directed study projects as arranged with instructor.",
+        "course_title": "INTRODUCTION TO BIOLOGICAL AND MEDICAL MICROSYSTEMS",
+        "description": "Introduction to the field of MEMS (Micro-Electro-Mechanical-Systems), as it applies to biology and medicine. Topics will cover methodology of traditional MEMS devices, how they can be incorporated with biological systems, and methods for micro-structuring biological materials.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0310and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 568,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
+        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "BME",
+                "MEDPHYS",
+                "ECE"
+            ]
+        },
+        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
+        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 300,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "BIOMEDICAL ENGINEERING DESIGN AND COMMUNICATION",
-        "description": "Technical communication for biomedical engineering practice applied to real-world, client-based projects including research methods, documentation, preparing and critiquing reports, ethical problem solving, diversity and inclusion, presenting, and professional development.",
+        "course_title": "BIOMEDICAL ENGINEERING DESIGN AND LEADERSHIP",
+        "description": "Work on a client-centered biomedical engineering design project to learn leadership styles, concept generation, product analysis, specifications, evaluation, regulation, and ethics. Provide leadership and mentorship to students inB\u00a0M\u00a0E\u00a0200.",
         "prerequisites": {
             "course_references": [
                 {
@@ -491,402 +1494,18 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Satisfied Communications A requirement andB\u00a0M\u00a0E\u00a0201"
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0201"
         }
     },
     {
         "course_reference": {
-            "course_number": 511,
+            "course_number": 890,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "TISSUE ENGINEERING LABORATORY",
-        "description": "Tissue engineering refers to the generation of biological substitutes to restore, maintain, or improve tissue function. Laboratory techniques are multi-disciplinary, from basic biological sciences, engineering, and biotechnology. Engineering approaches and analysis will be applied to these techniques.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 510,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0510or concurrent enrollment, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "PHMSCI",
-                "BME"
-            ]
-        },
-        "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
-        "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383) and (CHEM\u00a0341or343)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "STEM CELL BIOENGINEERING",
-        "description": "Covers engineering approaches that are used to understand and manipulate stem cells. Concepts covered include: introduction to stem cell biology, quantitative modeling of stem cell signaling, methods to engineer the stem cell microenvironment, and the role of stem cells in tissue development and regeneration.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 570,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 470,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0319or320), (ZOOLOGY\u00a0470,570, orBIOCORE\u00a0383), and (CHEM\u00a0341or343), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 556,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "SYSTEMS BIOLOGY: MAMMALIAN SIGNALING NETWORKS",
-        "description": "Introduction to the experimental and mathematical modeling techniques used in systems biology through lectures and critical analyses of relevant publications with a primary focus on gene/protein networks and mammalian systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 570,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 470,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 510,
-                    "subjects": [
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "PSYCH",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0319,320, or375), (B\u00a0M\u00a0E\u00a0510,ZOOLOGY\u00a0470,570,PSYCH/\u200bZOOLOGY\u00a0\u00a0523, orBIOCORE\u00a0383) and Junior Standing, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOPHOTONICS LABORATORY",
-        "description": "Learn and apply the fundamentals of optical imaging, microscopy and instrumentation via practical hands-on training with a specific emphasis on the life-sciences applications. Topics include constructing imaging systems using fundamental optical tools and instruments, illumination and aberrations, microscopy techniques, resolution and contrast measurement, optical spectroscopy, nanophotonics, bioimaging and biosensing.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "PHYSICS",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 434,
-                    "subjects": [
-                        "ECE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0202,208,248,MED\u00a0PHYS/\u200bPHYSICS\u00a0\u00a0265,E\u00a0C\u00a0E\u00a0320,434, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 703,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "RESPONSIBLE CONDUCT OF RESEARCH FOR BIOMEDICAL ENGINEERS",
-        "description": "Develop an understanding of the elements involved in being a responsible member of the Biomedical Engineering research community. Topics include mentor/mentee relationships, identifying research problems, research integrity, ethics, regulations, and improving the scientific climate.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Biomedical Engineering, Ph.D. or Biomedical Engineering: Research, M.S."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 415,
-            "subjects": [
-                "ME",
-                "BME"
-            ]
-        },
-        "course_title": "BIOMECHANICS OF HUMAN MOVEMENT",
-        "description": "An overview of experimental and modeling techniques used to study human movement. Specific topics will include locomotion, motion capture systems, force plates, muscle mechanics, musculoskeletal modeling, three dimensional kinematics, inverse dynamics, forward dynamic simulation and imaging based biomechanics. Homework and laboratory activities emphasize applications of movement biomechanics in orthopedics and rehabilitation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0315andM\u00a0E\u00a0340, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 501,
-            "subjects": [
-                "HONCOL",
-                "MEDPHYS",
-                "BME",
-                "PHYSICS"
-            ]
-        },
-        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
-        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 449,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "PHYSICS",
-                "MEDPHYS",
-                "BME",
-                "PHMCOL-M",
-                "RADIOL"
-            ]
-        },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "MEDPHYS",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 740,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOMANUFACTURING ENTREPRENEURSHIP",
-        "description": "Industry-relevant concepts of biotechnology innovation and translation, directly connecting lessons and classwork to real-world experience and career opportunities and promoting meaningful and sustained engagement between students and industry representatives.  Diverse range of translational biotechnology principles, such as product development in biotechnology, regulating biotechnology products, and quality and compliance in biomanufactured products.",
+        "course_title": "PRE-DISSERTATION RESEARCH",
+        "description": "Under faculty supervision.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -915,300 +1534,52 @@
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 301,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "RESEARCH AND THESIS",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 783,
-            "subjects": [
-                "CBE",
-                "BME"
-            ]
-        },
-        "course_title": "DESIGN OF BIOLOGICAL MOLECULES",
-        "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 915,
-            "subjects": [
-                "BMI",
-                "CBE",
-                "BIOCHEM",
-                "BME",
-                "COMPSCI",
-                "GENETICS"
-            ]
-        },
-        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
-        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 402,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOMEDICAL ENGINEERING CAPSTONE DESIGN II",
-        "description": "Work in a team to evaluate, refine, document and present the client-centered biomedical engineering design started inB\u00a0M\u00a0E\u00a0400.",
+        "course_title": "BIOMEDICAL ENGINEERING DESIGN AND COMMUNICATION",
+        "description": "Technical communication for biomedical engineering practice applied to real-world, client-based projects including research methods, documentation, preparing and critiquing reports, ethical problem solving, diversity and inclusion, presenting, and professional development.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 400,
+                    "course_number": 201,
                     "subjects": [
                         "BME"
                     ]
                 }
             ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0400"
+            "prerequisites_text": "Satisfied Communications A requirement andB\u00a0M\u00a0E\u00a0201"
         }
     },
     {
         "course_reference": {
-            "course_number": 701,
+            "course_number": 651,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "SEMINAR IN BIOMEDICAL ENGINEERING",
-        "description": "Presentation of advancements in biomedical engineering research by leaders in the field, accompanied by critical analysis of related literature.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 578,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
-        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+        "course_title": "BIOPHOTONICS LABORATORY",
+        "description": "Learn and apply the fundamentals of optical imaging, microscopy and instrumentation via practical hands-on training with a specific emphasis on the life-sciences applications. Topics include constructing imaging systems using fundamental optical tools and instruments, illumination and aberrations, microscopy techniques, resolution and contrast measurement, optical spectroscopy, nanophotonics, bioimaging and biosensing.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 208,
+                    "course_number": 434,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
+                        "ECE"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 501,
-            "subjects": [
-                "HONCOL",
-                "PHYSICS",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
-        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 449,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "ME",
-                "BME"
-            ]
-        },
-        "course_title": "TISSUE MECHANICS",
-        "description": "Focus on solid mechanics of prominent musculoskeletal and cardiovascular tissues. Their normal and pathological behaviors (stiffness, strength, relaxation, creep, adaptive remodeling, etc.) in response to physiologic loading will be examined and quantified.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Directed study projects as arranged with instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 566,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "PHYSICS OF RADIOTHERAPY",
-        "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "CAPSTONE DESIGN COURSE IN BIOMEDICAL ENGINEERING",
-        "description": "Applies classroom study and prior design course experiences for senior teams to solve a directed client-based biomedical engineering design project.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 430,
-                    "subjects": [
-                        "PHMSCI",
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(B\u00a0M\u00a0E\u00a0300orB\u00a0M\u00a0E\u00a0301) and (B\u00a0M\u00a0E\u00a0310,315, orPHM\u00a0SCI/\u200bB\u00a0M\u00a0E\u00a0\u00a0430)"
+            "prerequisites_text": "PHYSICS\u00a0202,208,248,MED\u00a0PHYS/\u200bPHYSICS\u00a0\u00a0265,E\u00a0C\u00a0E\u00a0320,434, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 535,
             "subjects": [
-                "BME",
-                "MEDPHYS"
+                "MEDPHYS",
+                "BME"
             ]
         },
         "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
@@ -1216,485 +1587,14 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
                     "course_number": 265,
                     "subjects": [
                         "MEDPHYS",
                         "PHYSICS"
                     ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
                 }
             ],
             "prerequisites_text": "PHYSICS\u00a0202,208,248, orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 330,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "ENGINEERING PRINCIPLES OF MOLECULES, CELLS, AND TISSUES",
-        "description": "Introduction to the fundamental principles of kinetics and transport that are relevant for the analysis of biological systems. Topics covered include concepts of reaction rate, stoichiometry, equilibrium, momentum/mass transport, and the interaction between transport and kinetics in biological systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 116,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or247), (MATH\u00a0319,320, or375) and (CHEM\u00a0104,109, or116), or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 414,
-            "subjects": [
-                "ME",
-                "BME"
-            ]
-        },
-        "course_title": "ORTHOPAEDIC BIOMECHANICS - DESIGN OF ORTHOPAEDIC IMPLANTS",
-        "description": "Apply the design process for orthopaedic implants (total joint replacements). Topics include: library skills; joint anatomy; tissue properties; surgical approach; joint loading; implants materials; preclinical testing and analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing and (M\u00a0E\u00a0306orE\u00a0M\u00a0A\u00a0303), or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 564,
-            "subjects": [
-                "ISYE",
-                "BME"
-            ]
-        },
-        "course_title": "OCCUPATIONAL ERGONOMICS AND BIOMECHANICS",
-        "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349orB\u00a0M\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 604,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN BIOMEDICAL IMAGING AND OPTICS",
-        "description": "Various special topics in biomedical imaging and optics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 580,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
-        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 573,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 790,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "MASTER'S RESEARCH AND THESIS",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 550,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "INTRODUCTION TO BIOLOGICAL AND MEDICAL MICROSYSTEMS",
-        "description": "Introduction to the field of MEMS (Micro-Electro-Mechanical-Systems), as it applies to biology and medicine. Topics will cover methodology of traditional MEMS devices, how they can be incorporated with biological systems, and methods for micro-structuring biological materials.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0310and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 310,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOINSTRUMENTATION",
-        "description": "Bioinstrumentation covering clinical and research measurements. Laboratory experiments complement the lectures.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0104,109, or116),MATH\u00a0222, and (PHYSICS\u00a0202,208, or248), or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 568,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
-        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 545,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "ENGINEERING EXTRACELLULAR MATRICES",
-        "description": "Overview of the structure, function and biophysical properties of extracellular matrix (ECM) proteins, followed by discussion of how control or manipulation of ECM protein expression and distribution impacts on cell and tissue function, concluding with impacts of engineering ECM for regenerative medicine.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 430,
-                    "subjects": [
-                        "BME",
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E/\u200bPHM\u00a0SCI\u00a0\u00a0430, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "CHEM",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
-        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOMEDICAL ENGINEERING DESIGN AND LEADERSHIP",
-        "description": "Work on a client-centered biomedical engineering design project to learn leadership styles, concept generation, product analysis, specifications, evaluation, regulation, and ethics. Provide leadership and mentorship to students inB\u00a0M\u00a0E\u00a0200.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E\u00a0201"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 489,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "HONORS IN RESEARCH",
-        "description": "Biomedical engineering undergraduate honors research projects supervised by faculty members.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 574,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
-        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 573,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 389,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "HONORS IN RESEARCH",
-        "description": "Undergraduate honors research projects supervised by faculty members.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -1713,34 +1613,6 @@
                     "subjects": [
                         "ZOOLOGY"
                     ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
                 }
             ],
             "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0381), graduate/professional standing, or member of Engineering Guest Students"
@@ -1748,201 +1620,82 @@
     },
     {
         "course_reference": {
-            "course_number": 778,
-            "subjects": [
-                "ECE",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
-        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Biomedical Engineering PhD or professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
+            "course_number": 535,
             "subjects": [
                 "BME",
                 "MEDPHYS"
             ]
         },
-        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
-        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+        "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
+        "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 568,
+                    "course_number": 265,
                     "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 578,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
+                        "MEDPHYS",
+                        "PHYSICS"
                     ]
                 }
             ],
-            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
+            "prerequisites_text": "PHYSICS\u00a0202,208,248, orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 782,
-            "subjects": [
-                "CBE",
-                "BME"
-            ]
-        },
-        "course_title": "MODELING BIOLOGICAL SYSTEMS",
-        "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
+            "course_number": 603,
             "subjects": [
                 "BME"
             ]
         },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 662,
-            "subjects": [
-                "ISYE",
-                "BME"
-            ]
-        },
-        "course_title": "DESIGN AND HUMAN DISABILITY AND AGING",
-        "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 670,
-            "subjects": [
-                "CRB",
-                "BME"
-            ]
-        },
-        "course_title": "BIOLOGY OF HEART DISEASE AND REGENERATION",
-        "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151andBIOCHEM\u00a0501) or graduate/professional standing."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 560,
-            "subjects": [
-                "CBE",
-                "BME"
-            ]
-        },
-        "course_title": "BIOCHEMICAL ENGINEERING",
-        "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 605,
-            "subjects": [
-                "ME",
-                "BME"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN BIOMECHANICS",
-        "description": "Various special topics in biomechanics.",
+        "course_title": "SPECIAL TOPICS IN BIOINSTRUMENTATION AND MEDICAL DEVICES",
+        "description": "Various special topics in bioinstrumentation and medical devices.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "DIAGNOSTIC ULTRASOUND IMAGING",
+        "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0234,319, or320andPHYSICS\u00a0202or208)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "BME"
+            ]
+        },
+        "course_title": "CAPSTONE DESIGN COURSE IN BIOMEDICAL ENGINEERING",
+        "description": "Applies classroom study and prior design course experiences for senior teams to solve a directed client-based biomedical engineering design project.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(B\u00a0M\u00a0E\u00a0300orB\u00a0M\u00a0E\u00a0301) and (B\u00a0M\u00a0E\u00a0310,315, orPHM\u00a0SCI/\u200bB\u00a0M\u00a0E\u00a0\u00a0430)"
         }
     },
     {
@@ -1958,155 +1711,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
                     "course_number": 208,
                     "subjects": [
                         "PHYSICS"
                     ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
                 }
             ],
             "prerequisites_text": "(MATH\u00a0234and319), (MATH\u00a0234and320), orMATH\u00a0376and (PHYSICS\u00a0202or208), graduate/professional standing, or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "BME",
-                "PHMSCI"
-            ]
-        },
-        "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
-        "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383) and (CHEM\u00a0341or343)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 462,
-            "subjects": [
-                "ECE",
-                "BME"
-            ]
-        },
-        "course_title": "MEDICAL INSTRUMENTATION",
-        "description": "Design and application of electrodes, biopotential amplifiers, biosensors, therapeutic devices. Medical imaging. Electrical safety. Measurement of ventilation, blood pressure and flow.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ECE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0C\u00a0E\u00a0340, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 780,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "METHODS IN QUANTITATIVE BIOLOGY",
-        "description": "Focuses on understanding the key methods and principles of quantitative biology through a close reading of the primary literature. Topics covered will include deterministic and stochastic methods for modeling cellular systems, techniques in systems and synthetic biology, image processing tools and image analysis for biology, data-driven network models, genomic approaches, single-molecule approaches, and key computational biology tools. This course is intended for graduate students from a variety of backgrounds who are interested in pursuing quantitative biology during their graduate studies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 751,
-            "subjects": [
-                "BME"
-            ]
-        },
-        "course_title": "BIOMEDICAL OPTICS AND BIOPHOTONICS",
-        "description": "The study and use of light in the life sciences. Interactions of light with cells and tissue can be used for imaging, measurement, diagnosis, and therapy. Applications include optical imaging, endoscopy, microscopy, resolution enhancement, adaptive optics, Optical Coherence Tomography (OCT), quantitative phase microscopy, spectroscopy (fluorescence, elastic scattering), diffuse optical tomography, and computational modeling of light transport in tissue. Fundamental skills, concepts, and theory used for these applications include geometric optics, lens design, Fourier transforms, polarization, interference, coherence, and scattering theory. Particular emphasis will be placed on current literature and cutting edge instruments and methods.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -2121,6 +1732,65 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 580,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
+        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 505,
+            "subjects": [
+                "BME",
+                "ME"
+            ]
+        },
+        "course_title": "BIOFLUIDICS",
+        "description": "Introduction to the physics of biological fluid flow with an emphasis on the cardiovascular system including blood rheology, pulsatile flow, wave travel, and topics relevant to blood flow measurement and biomedical device design.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 363,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "BME"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E\u00a0330,CBE\u00a0320,M\u00a0E\u00a0363, graduate/professional standing, or member of Engineering Guest Students"
         }
     }
 ]

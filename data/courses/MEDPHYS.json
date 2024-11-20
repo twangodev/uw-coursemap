@@ -1,146 +1,19 @@
 [
     {
         "course_reference": {
-            "course_number": 772,
+            "course_number": 722,
             "subjects": [
-                "MEDPHYS"
+                "MEDPHYS",
+                "ECE",
+                "BMI",
+                "COMPSCI"
             ]
         },
-        "course_title": "ADVANCED RADIATION TREATMENT PLANNING",
-        "description": "Physics of clinical, computer-based radiotherapy planning is taught. Topics include dose algorithms, measurement data, commissioning, contouring and volume definition, beam placement, modifiers and apertures and plan evaluation. Forward based and inverse planning (including IMRT optimization) are taught.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 566,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0566and graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "INDEPENDENT READING OR RESEARCH",
-        "description": "Provides opportunities for graduate students to gain experience using the scientific method to address specific scientific problems. This includes selection of a research topic, performing literature reviews to evaluate peer-reviewed and other publications, developing a research design, identifying possible pitfalls, and performing and reporting on experiments performed. Communication of the research findings within and outside the university is encouraged.",
+        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
+        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 563,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RADIONUCLIDES IN MEDICINE AND BIOLOGY",
-        "description": "Physical principles of radioisotopes used in medicine and biology and operation of related equipment; lecture and lab.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "MEDPHYS",
-                "PHYSICS",
-                "BME",
-                "PHMCOL-M",
-                "RADIOL"
-            ]
-        },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "MEDPHYS",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 588,
-            "subjects": [
-                "MEDPHYS",
-                "PHYSICS"
-            ]
-        },
-        "course_title": "RADIATION PRODUCTION AND DETECTION",
-        "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -159,19 +32,105 @@
     },
     {
         "course_reference": {
-            "course_number": 722,
+            "course_number": 568,
             "subjects": [
-                "BMI",
-                "MEDPHYS",
-                "COMPSCI",
-                "ECE"
+                "BME",
+                "MEDPHYS"
             ]
         },
-        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
-        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
+        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 567,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
+        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 249,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 567,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
+        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 249,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "ETHICS AND THE RESPONSIBLE CONDUCT OF RESEARCH AND PRACTICE OF MEDICAL PHYSICS",
+        "description": "Addresses the concepts of ethics in the daily practice of medical physics and other scientific disciplines and provide tools for identifying resources. Special emphasis will be placed in how these principles have to be applied to ensure the confidentiality of the patients, the safety of the research subjects (human and animals), differentiation between ethical and legal issues, as well as the understanding of the principles that deal with authorships, intellectual property in the academic- and industry- based environment.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
+        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 568,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
         }
     },
     {
@@ -188,12 +147,658 @@
                 {
                     "course_number": 578,
                     "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0578or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "MEDPHYS",
+                "BME",
+                "ECE"
+            ]
+        },
+        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
+        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 501,
+            "subjects": [
+                "HONCOL",
+                "BME",
+                "MEDPHYS",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
+        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 449,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 578,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
+        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 563,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "RADIONUCLIDES IN MEDICINE AND BIOLOGY",
+        "description": "Physical principles of radioisotopes used in medicine and biology and operation of related equipment; lecture and lab.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 241,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 581,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "LABORATORY FOR MEDICAL IMAGING WITH IONIZING RADIATION",
+        "description": "Presents concepts and principles on the physics of medical radiographic imaging systems, based on the transmission of x-rays.  Emphasis is placed on understanding the operation of imaging equipment and how it is used in clinical applications. Evaluation of imaging systems, optimization of their use and design and the solution of image quality problems is investigated.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 580,
+                    "subjects": [
                         "BME",
                         "MEDPHYS"
                     ]
                 }
             ],
-            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0578or declared in Medical Physics VISP"
+            "prerequisites_text": "B\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0580"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 662,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "RAD LAB - DIAGNOSTIC RADIOLOGICAL PHYSICS",
+        "description": "Provides hands on experience using and testing radiographic, fluoroscopic and mammographic x-ray systems.  Imaging requirements, image quality, and radiation dose aspects of each modality are covered, along with practical methods for evaluating the performance of clinical units.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 580,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0580or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 705,
+            "subjects": [
+                "MEDPHYS",
+                "PEDIAT"
+            ]
+        },
+        "course_title": "WOMEN AND LEADERSHIP: SCIENCE, HEALTH AND ENGINEERING",
+        "description": "Multiple professional and scientific groups have identified the underrepresentation and lack of advancement of women in academia as a national workforce problem. Review evolving perspectives of leadership and how unconscious assumptions about the behaviors and traits of men, women, and leaders impede women's advancement. Emphasizes the implications for women in the fields of science, health and engineering and explore the potential impact on the advancement of knowledge and improvements in health. Provides the opportunity to apply evidence-based perspectives using experiential methods.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "BME",
+                "PHYSICS",
+                "RADIOL",
+                "MEDPHYS",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "MICROSCOPY OF LIFE",
+        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 566,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "PHYSICS OF RADIOTHERAPY",
+        "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 501,
+            "subjects": [
+                "HONCOL",
+                "MEDPHYS",
+                "BME",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
+        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 664,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "RAD LAB - HEALTH PHYSICS",
+        "description": "Uses project-based learning (PBL) as a powerful teaching method to address common challenges and solutions addressed by medical health physicists.  Each semester, students work on a different project that addresses concepts that are important in the current health physics environment.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
+        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 568,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 535,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
+        "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0202,208,248, orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 410,
+            "subjects": [
+                "HONCOL",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "RADIOBIOLOGY",
+        "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (PHYSICS\u00a0202or208andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152or153)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 574,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
+        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 573,
+                    "subjects": [
+                        "BME",
+                        "MEDPHYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 578,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
+        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "BME",
+                "MEDPHYS",
+                "CHEM"
+            ]
+        },
+        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
+        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 506,
+            "subjects": [
+                "MEDPHYS",
+                "NE"
+            ]
+        },
+        "course_title": "MONTE CARLO RADIATION TRANSPORT",
+        "description": "Use of Monte Carlo technique for applications in nuclear engineering and medical physics. Major theory of Monte Carlo neutral particle transport is discussed. Standard Monte Carlo transport software is used for exercises and projects. Major emphasis is on analysis of real-world problems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 405,
+                    "subjects": [
+                        "NE"
+                    ]
+                },
+                {
+                    "course_number": 408,
+                    "subjects": [
+                        "NE"
+                    ]
+                },
+                {
+                    "course_number": 569,
+                    "subjects": [
+                        "MEDPHYS",
+                        "NE"
+                    ]
+                },
+                {
+                    "course_number": 305,
+                    "subjects": [
+                        "NE"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "N\u00a0E\u00a0305and (N\u00a0E\u00a0405,N\u00a0E\u00a0408,PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501orN\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0569) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 671,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "SELECTED TOPICS IN MEDICAL PHYSICS",
+        "description": "In-depth examination of current and newly discovered modalities and/or phenomenons in medical physics. Critical reading of literature, hands-on lab work and exploration of medical issues related to discoveries will be included.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 722,
+            "subjects": [
+                "COMPSCI",
+                "MEDPHYS",
+                "BMI",
+                "ECE"
+            ]
+        },
+        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
+        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 722,
+            "subjects": [
+                "COMPSCI",
+                "BMI",
+                "ECE",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
+        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 265,
+            "subjects": [
+                "MEDPHYS",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "INTRODUCTION TO MEDICAL PHYSICS",
+        "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 510,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "FUNDAMENTALS OF CELLULAR, MOLECULAR, AND RADIATION BIOLOGY",
+        "description": "Cellular, molecular, and radiation biology principles and their common application in medical physics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 580,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
+        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 588,
+            "subjects": [
+                "MEDPHYS",
+                "PHYSICS"
+            ]
+        },
+        "course_title": "RADIATION PRODUCTION AND DETECTION",
+        "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "INDEPENDENT READING OR RESEARCH",
+        "description": "Provides opportunities for graduate students to gain experience using the scientific method to address specific scientific problems. This includes selection of a research topic, performing literature reviews to evaluate peer-reviewed and other publications, developing a research design, identifying possible pitfalls, and performing and reporting on experiments performed. Communication of the research findings within and outside the university is encouraged.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 900,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "JOURNAL CLUB AND SEMINAR",
+        "description": "Provides medical physics graduate students with the opportunity to critically evaluate and report on published research and/or research seminar presentations by speakers, from both within the university and from the larger scientific community.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -222,13 +827,6 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 573,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
                     "course_number": 578,
                     "subjects": [
                         "BME",
@@ -241,388 +839,41 @@
     },
     {
         "course_reference": {
-            "course_number": 662,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RAD LAB - DIAGNOSTIC RADIOLOGICAL PHYSICS",
-        "description": "Provides hands on experience using and testing radiographic, fluoroscopic and mammographic x-ray systems.  Imaging requirements, image quality, and radiation dose aspects of each modality are covered, along with practical methods for evaluating the performance of clinical units.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 580,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0580or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 575,
+            "course_number": 535,
             "subjects": [
                 "BME",
                 "MEDPHYS"
             ]
         },
-        "course_title": "DIAGNOSTIC ULTRASOUND IMAGING",
-        "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+        "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
+        "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0234,319, or320andPHYSICS\u00a0202or208)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 567,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "THE PHYSICS OF DIAGNOSTIC RADIOLOGY",
-        "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 588,
-            "subjects": [
-                "PHYSICS",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RADIATION PRODUCTION AND DETECTION",
-        "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 780,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "PHARMACOKINETIC MODELING IN BIOMEDICAL IMAGING",
-        "description": "Concepts and techniques of pharmacokinetic modeling will be presented in the context of biomedical imaging. Examine applications in various specialties, e.g. neurology and oncology, using different imaging tools, e.g. positron emission tomography (PET) and magnetic resonance imaging (MRI).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 722,
-            "subjects": [
-                "BMI",
-                "ECE",
-                "COMPSCI",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
-        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 265,
-            "subjects": [
-                "PHYSICS",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "INTRODUCTION TO MEDICAL PHYSICS",
-        "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "ETHICS AND THE RESPONSIBLE CONDUCT OF RESEARCH AND PRACTICE OF MEDICAL PHYSICS",
-        "description": "Addresses the concepts of ethics in the daily practice of medical physics and other scientific disciplines and provide tools for identifying resources. Special emphasis will be placed in how these principles have to be applied to ensure the confidentiality of the patients, the safety of the research subjects (human and animals), differentiation between ethical and legal issues, as well as the understanding of the principles that deal with authorships, intellectual property in the academic- and industry- based environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 569,
-            "subjects": [
-                "NE",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "HEALTH PHYSICS AND BIOLOGICAL EFFECTS",
-        "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249), graduate/professional standing, or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 501,
-            "subjects": [
-                "HONCOL",
-                "MEDPHYS",
-                "BME",
-                "PHYSICS"
-            ]
-        },
-        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
-        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 449,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "PHYSICS",
-                "MEDPHYS",
-                "BME",
-                "PHMCOL-M",
-                "RADIOL"
-            ]
-        },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
                 {
                     "course_number": 265,
                     "subjects": [
                         "MEDPHYS",
                         "PHYSICS"
                     ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
                 }
             ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
+            "prerequisites_text": "PHYSICS\u00a0202,208,248, orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 265,
+            "course_number": 750,
             "subjects": [
                 "MEDPHYS",
-                "PHYSICS"
+                "BME",
+                "CHEM"
             ]
         },
-        "course_title": "INTRODUCTION TO MEDICAL PHYSICS",
-        "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 510,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF CELLULAR, MOLECULAR, AND RADIATION BIOLOGY",
-        "description": "Cellular, molecular, and radiation biology principles and their common application in medical physics.",
+        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
+        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -639,8 +890,8 @@
                 {
                     "course_number": 580,
                     "subjects": [
-                        "BME",
-                        "MEDPHYS"
+                        "MEDPHYS",
+                        "BME"
                     ]
                 }
             ],
@@ -649,36 +900,38 @@
     },
     {
         "course_reference": {
-            "course_number": 410,
+            "course_number": 665,
             "subjects": [
-                "HONCOL",
                 "MEDPHYS"
             ]
         },
-        "course_title": "RADIOBIOLOGY",
-        "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
+        "course_title": "RAD LAB - CT, MRI, AND DSA PHYSICS",
+        "description": "Provides hands on experience using and testing computerized tomography (CT), magnetic resonance imaging (MRI), and digital subtraction angiography (DSA) systems.  Image quality, MRI and radiation safety, accreditation, and regulatory compliance issues with these modalities are also covered.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 202,
+                    "course_number": 580,
                     "subjects": [
-                        "PHYSICS"
+                        "BME",
+                        "MEDPHYS"
                     ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0580and578or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "DIAGNOSTIC ULTRASOUND IMAGING",
+        "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+        "prerequisites": {
+            "course_references": [
                 {
                     "course_number": 208,
                     "subjects": [
@@ -686,109 +939,15 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing or (PHYSICS\u00a0202or208andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152or153)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 578,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "NON-IONIZING DIAGNOSTIC IMAGING",
-        "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234, (MATH\u00a0319or320) and (PHYSICS\u00a0202,208,241or248), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 501,
-            "subjects": [
-                "HONCOL",
-                "PHYSICS",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RADIATION PHYSICS AND DOSIMETRY",
-        "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 449,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0323,449andMATH\u00a0320) or graduate/professional standing or declared in Medical Physics VISP"
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0234,319, or320andPHYSICS\u00a0202or208)"
         }
     },
     {
         "course_reference": {
             "course_number": 651,
             "subjects": [
-                "NTP",
-                "MEDPHYS"
+                "MEDPHYS",
+                "NTP"
             ]
         },
         "course_title": "METHODS FOR NEUROIMAGING RESEARCH",
@@ -819,6 +978,73 @@
     },
     {
         "course_reference": {
+            "course_number": 573,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS IN MEDICAL PHYSICS",
+        "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0234and319), (MATH\u00a0234and320), orMATH\u00a0376and (PHYSICS\u00a0202or208), graduate/professional standing, or declared in Medical Physics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "DIAGNOSTIC ULTRASOUND IMAGING",
+        "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0234,319, or320andPHYSICS\u00a0202or208)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 574,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
+        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 573,
+                    "subjects": [
+                        "BME",
+                        "MEDPHYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 679,
             "subjects": [
                 "MEDPHYS"
@@ -832,8 +1058,8 @@
                     "course_number": 501,
                     "subjects": [
                         "HONCOL",
-                        "MEDPHYS",
                         "BME",
+                        "MEDPHYS",
                         "PHYSICS"
                     ]
                 }
@@ -857,13 +1083,57 @@
                     "course_number": 501,
                     "subjects": [
                         "HONCOL",
-                        "MEDPHYS",
                         "BME",
+                        "MEDPHYS",
                         "PHYSICS"
                     ]
                 }
             ],
             "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 772,
+            "subjects": [
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "ADVANCED RADIATION TREATMENT PLANNING",
+        "description": "Physics of clinical, computer-based radiotherapy planning is taught. Topics include dose algorithms, measurement data, commissioning, contouring and volume definition, beam placement, modifiers and apertures and plan evaluation. Forward based and inverse planning (including IMRT optimization) are taught.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 566,
+                    "subjects": [
+                        "MEDPHYS",
+                        "BME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0566and graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 573,
+            "subjects": [
+                "BME",
+                "MEDPHYS"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS IN MEDICAL PHYSICS",
+        "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0234and319), (MATH\u00a0234and320), orMATH\u00a0376and (PHYSICS\u00a0202or208), graduate/professional standing, or declared in Medical Physics VISP"
         }
     },
     {
@@ -880,8 +1150,8 @@
                 {
                     "course_number": 566,
                     "subjects": [
-                        "BME",
-                        "MEDPHYS"
+                        "MEDPHYS",
+                        "BME"
                     ]
                 }
             ],
@@ -890,400 +1160,32 @@
     },
     {
         "course_reference": {
-            "course_number": 671,
+            "course_number": 780,
             "subjects": [
                 "MEDPHYS"
             ]
         },
-        "course_title": "SELECTED TOPICS IN MEDICAL PHYSICS",
-        "description": "In-depth examination of current and newly discovered modalities and/or phenomenons in medical physics. Critical reading of literature, hands-on lab work and exploration of medical issues related to discoveries will be included.",
+        "course_title": "PHARMACOKINETIC MODELING IN BIOMEDICAL IMAGING",
+        "description": "Concepts and techniques of pharmacokinetic modeling will be presented in the context of biomedical imaging. Examine applications in various specialties, e.g. neurology and oncology, using different imaging tools, e.g. positron emission tomography (PET) and magnetic resonance imaging (MRI).",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 535,
+            "course_number": 569,
             "subjects": [
-                "BME",
-                "MEDPHYS"
+                "MEDPHYS",
+                "NE"
             ]
         },
-        "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
-        "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
+        "course_title": "HEALTH PHYSICS AND BIOLOGICAL EFFECTS",
+        "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "MEDPHYS",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0202,208,248, orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 665,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RAD LAB - CT, MRI, AND DSA PHYSICS",
-        "description": "Provides hands on experience using and testing computerized tomography (CT), magnetic resonance imaging (MRI), and digital subtraction angiography (DSA) systems.  Image quality, MRI and radiation safety, accreditation, and regulatory compliance issues with these modalities are also covered.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 580,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 578,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0580and578or declared in Medical Physics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 580,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
-        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 573,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 581,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "LABORATORY FOR MEDICAL IMAGING WITH IONIZING RADIATION",
-        "description": "Presents concepts and principles on the physics of medical radiographic imaging systems, based on the transmission of x-rays.  Emphasis is placed on understanding the operation of imaging equipment and how it is used in clinical applications. Evaluation of imaging systems, optimization of their use and design and the solution of image quality problems is investigated.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 580,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0580"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 568,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
-        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 249,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
                 {
                     "course_number": 241,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 900,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "JOURNAL CLUB AND SEMINAR",
-        "description": "Provides medical physics graduate students with the opportunity to critically evaluate and report on published research and/or research seminar presentations by speakers, from both within the university and from the larger scientific community.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "CHEM",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "BIOLOGICAL OPTICAL MICROSCOPY",
-        "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 664,
-            "subjects": [
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "RAD LAB - HEALTH PHYSICS",
-        "description": "Uses project-based learning (PBL) as a powerful teaching method to address common challenges and solutions addressed by medical health physicists.  Each semester, students work on a different project that addresses concepts that are important in the current health physics environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 506,
-            "subjects": [
-                "NE",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MONTE CARLO RADIATION TRANSPORT",
-        "description": "Use of Monte Carlo technique for applications in nuclear engineering and medical physics. Major theory of Monte Carlo neutral particle transport is discussed. Standard Monte Carlo transport software is used for exercises and projects. Major emphasis is on analysis of real-world problems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 305,
-                    "subjects": [
-                        "NE"
-                    ]
-                },
-                {
-                    "course_number": 408,
-                    "subjects": [
-                        "NE"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 569,
-                    "subjects": [
-                        "NE",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 405,
-                    "subjects": [
-                        "NE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "N\u00a0E\u00a0305and (N\u00a0E\u00a0405,N\u00a0E\u00a0408,PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501orN\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0569) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 574,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
-        "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "HONCOL",
-                        "MEDPHYS",
-                        "BME",
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 573,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andB\u00a0M\u00a0E/\u200bMED\u00a0PHYS\u00a0\u00a0573) or (STAT/\u200bMATH\u00a0\u00a0309or431) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 778,
-            "subjects": [
-                "ECE",
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
-        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "ADVANCES IN MEDICAL MAGNETIC RESONANCE",
-        "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 568,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 578,
-                    "subjects": [
-                        "BME",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0568or578"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 573,
-            "subjects": [
-                "BME",
-                "MEDPHYS"
-            ]
-        },
-        "course_title": "MATHEMATICAL METHODS IN MEDICAL PHYSICS",
-        "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 208,
                     "subjects": [
                         "PHYSICS"
                     ]
@@ -1295,37 +1197,73 @@
                     ]
                 },
                 {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 202,
+                    "course_number": 249,
                     "subjects": [
                         "PHYSICS"
                     ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
                 }
             ],
-            "prerequisites_text": "(MATH\u00a0234and319), (MATH\u00a0234and320), orMATH\u00a0376and (PHYSICS\u00a0202or208), graduate/professional standing, or declared in Medical Physics VISP"
+            "prerequisites_text": "MATH\u00a0234and (PHYSICS\u00a0241or249), graduate/professional standing, or declared in Medical Physics VISP"
         }
     },
     {
         "course_reference": {
-            "course_number": 705,
+            "course_number": 568,
             "subjects": [
-                "PEDIAT",
-                "MEDPHYS"
+                "MEDPHYS",
+                "BME"
             ]
         },
-        "course_title": "WOMEN AND LEADERSHIP: SCIENCE, HEALTH AND ENGINEERING",
-        "description": "Multiple professional and scientific groups have identified the underrepresentation and lack of advancement of women in academia as a national workforce problem. Review evolving perspectives of leadership and how unconscious assumptions about the behaviors and traits of men, women, and leaders impede women's advancement. Emphasizes the implications for women in the fields of science, health and engineering and explore the potential impact on the advancement of knowledge and improvements in health. Provides the opportunity to apply evidence-based perspectives using experiential methods.",
+        "course_title": "MAGNETIC RESONANCE IMAGING (MRI)",
+        "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing or (MATH\u00a0222andPHYSICS\u00a0202,208,241, 244,248or249)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 580,
+            "subjects": [
+                "MEDPHYS",
+                "BME"
+            ]
+        },
+        "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
+        "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "HONCOL",
+                        "BME",
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501andMED\u00a0PHYS/\u200bB\u00a0M\u00a0E\u00a0\u00a0573"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "BME",
+                "MEDPHYS",
+                "ECE"
+            ]
+        },
+        "course_title": "MACHINE LEARNING IN ULTRASOUND IMAGING",
+        "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"

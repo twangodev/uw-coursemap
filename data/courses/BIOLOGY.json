@@ -1,7 +1,7 @@
 [
     {
         "course_reference": {
-            "course_number": 681,
+            "course_number": 682,
             "subjects": [
                 "BIOLOGY"
             ]
@@ -29,39 +29,21 @@
     },
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 375,
             "subjects": [
-                "BIOLOGY",
-                "ZOOLOGY"
+                "BIOLOGY"
             ]
         },
-        "course_title": "ANIMAL BIOLOGY",
-        "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+        "course_title": "SPECIAL TOPICS",
+        "description": "Introductory special topics on contemporary issues relevant to studying biology.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
-            "course_number": 682,
+            "course_number": 681,
             "subjects": [
                 "BIOLOGY"
             ]
@@ -75,25 +57,11 @@
     },
     {
         "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "BIOLOGY"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 152,
             "subjects": [
-                "BOTANY",
                 "BIOLOGY",
-                "ZOOLOGY"
+                "ZOOLOGY",
+                "BOTANY"
             ]
         },
         "course_title": "INTRODUCTORY BIOLOGY",
@@ -103,13 +71,87 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "BOTANY",
                         "BIOLOGY",
-                        "ZOOLOGY"
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
             "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 102,
+            "subjects": [
+                "BIOLOGY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "ANIMAL BIOLOGY LABORATORY",
+        "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 522,
+            "subjects": [
+                "GENETICS",
+                "BIOLOGY"
+            ]
+        },
+        "course_title": "COMMUNICATING EVOLUTIONARY BIOLOGY",
+        "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "ANTHRO"
+                    ]
+                },
+                {
+                    "course_number": 468,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENETICS\u00a0466,468,ZOOLOGY/\u200bANTHRO/\u200bBOTANY\u00a0\u00a0410, orBIOCORE\u00a0381, or concurrent enrollment"
         }
     },
     {
@@ -128,57 +170,11 @@
     },
     {
         "course_reference": {
-            "course_number": 102,
-            "subjects": [
-                "BIOLOGY",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "ANIMAL BIOLOGY LABORATORY",
-        "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "BIOLOGY"
-            ]
-        },
-        "course_title": "DIRECTED STUDIES",
-        "description": "Introductory directed study as arranged with a faculty member. Open only to students declared in Biology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 151,
             "subjects": [
-                "BOTANY",
                 "BIOLOGY",
-                "ZOOLOGY"
+                "ZOOLOGY",
+                "BOTANY"
             ]
         },
         "course_title": "INTRODUCTORY BIOLOGY",
@@ -186,17 +182,17 @@
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 101,
                     "subjects": [
                         "BIOLOGY",
                         "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
                     ]
                 },
                 {
@@ -212,20 +208,6 @@
     },
     {
         "course_reference": {
-            "course_number": 375,
-            "subjects": [
-                "BIOLOGY"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Introductory special topics on contemporary issues relevant to studying biology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 691,
             "subjects": [
                 "BIOLOGY"
@@ -233,6 +215,20 @@
         },
         "course_title": "SENIOR THESIS",
         "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "BIOLOGY"
+            ]
+        },
+        "course_title": "DIRECTED STUDIES",
+        "description": "Introductory directed study as arranged with a faculty member. Open only to students declared in Biology.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -256,8 +252,8 @@
         "course_reference": {
             "course_number": 130,
             "subjects": [
-                "BOTANY",
-                "BIOLOGY"
+                "BIOLOGY",
+                "BOTANY"
             ]
         },
         "course_title": "GENERAL BOTANY",
@@ -269,86 +265,48 @@
     },
     {
         "course_reference": {
-            "course_number": 522,
+            "course_number": 692,
             "subjects": [
-                "BIOLOGY",
-                "GENETICS"
+                "BIOLOGY"
             ]
         },
-        "course_title": "COMMUNICATING EVOLUTIONARY BIOLOGY",
-        "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "BOTANY",
-                        "ANTHRO",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENETICS\u00a0466,468,ZOOLOGY/\u200bANTHRO/\u200bBOTANY\u00a0\u00a0410, orBIOCORE\u00a0381, or concurrent enrollment"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 522,
+            "course_number": 101,
             "subjects": [
-                "GENETICS",
-                "BIOLOGY"
+                "BIOLOGY",
+                "ZOOLOGY"
             ]
         },
-        "course_title": "COMMUNICATING EVOLUTIONARY BIOLOGY",
-        "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
+        "course_title": "ANIMAL BIOLOGY",
+        "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 381,
+                    "course_number": 151,
                     "subjects": [
-                        "BIOCORE"
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 },
                 {
-                    "course_number": 468,
+                    "course_number": 152,
                     "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "BOTANY",
-                        "ANTHRO",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "GENETICS\u00a0466,468,ZOOLOGY/\u200bANTHRO/\u200bBOTANY\u00a0\u00a0410, orBIOCORE\u00a0381, or concurrent enrollment"
+            "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
         }
     }
 ]

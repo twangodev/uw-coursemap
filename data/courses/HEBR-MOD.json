@@ -1,67 +1,25 @@
 [
     {
         "course_reference": {
-            "course_number": 302,
+            "course_number": 401,
             "subjects": [
-                "JEWISH",
-                "HEBR-MOD"
+                "HEBR-MOD",
+                "JEWISH"
             ]
         },
-        "course_title": "INTRODUCTION TO HEBREW LITERATURE",
-        "description": "Selected works from different periods and genres. Taught in Hebrew.",
+        "course_title": "TOPICS IN MODERN HEBREW / ISRAELI LITERATURE AND CULTURE I",
+        "description": "Readings in Hebrew literature. Taught in Hebrew.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 301,
+                    "course_number": 302,
                     "subjects": [
-                        "JEWISH",
-                        "HEBR-MOD"
+                        "HEBR-MOD",
+                        "JEWISH"
                     ]
                 }
             ],
-            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0301or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0302"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 102,
-            "subjects": [
-                "HEBR-MOD"
-            ]
-        },
-        "course_title": "SECOND SEMESTER HEBREW",
-        "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "HEBR-MOD"
-                    ]
-                }
-            ],
-            "prerequisites_text": "HEBR-MOD\u00a0101or placement intoHEBR-MOD\u00a0102"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 202,
-            "subjects": [
-                "HEBR-MOD"
-            ]
-        },
-        "course_title": "FOURTH SEMESTER HEBREW",
-        "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "HEBR-MOD"
-                    ]
-                }
-            ],
-            "prerequisites_text": "HEBR-MOD\u00a0201or placement intoHEBR-MOD\u00a0202"
+            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0302or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0401"
         }
     },
     {
@@ -77,9 +35,10 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 202,
+                    "course_number": 301,
                     "subjects": [
-                        "HEBR-MOD"
+                        "HEBR-MOD",
+                        "JEWISH"
                     ]
                 }
             ],
@@ -109,6 +68,66 @@
     },
     {
         "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "JEWISH",
+                "HEBR-MOD"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HEBREW LITERATURE",
+        "description": "Selected works from different periods and genres. Taught in Hebrew.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "HEBR-MOD",
+                        "JEWISH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0301or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0302"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 402,
+            "subjects": [
+                "HEBR-MOD",
+                "JEWISH"
+            ]
+        },
+        "course_title": "TOPICS IN MODERN HEBREW / ISRAELI LITERATURE AND CULTURE II",
+        "description": "Readings in Hebrew literature. Taught in Hebrew.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 401,
+                    "subjects": [
+                        "HEBR-MOD",
+                        "JEWISH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0401or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0402"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "HEBR-MOD"
+            ]
+        },
+        "course_title": "FIRST SEMESTER HEBREW",
+        "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 401,
             "subjects": [
                 "JEWISH",
@@ -120,10 +139,10 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 302,
+                    "course_number": 401,
                     "subjects": [
-                        "JEWISH",
-                        "HEBR-MOD"
+                        "HEBR-MOD",
+                        "JEWISH"
                     ]
                 }
             ],
@@ -132,25 +151,23 @@
     },
     {
         "course_reference": {
-            "course_number": 402,
+            "course_number": 202,
             "subjects": [
-                "JEWISH",
                 "HEBR-MOD"
             ]
         },
-        "course_title": "TOPICS IN MODERN HEBREW / ISRAELI LITERATURE AND CULTURE II",
-        "description": "Readings in Hebrew literature. Taught in Hebrew.",
+        "course_title": "FOURTH SEMESTER HEBREW",
+        "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 401,
+                    "course_number": 201,
                     "subjects": [
-                        "JEWISH",
                         "HEBR-MOD"
                     ]
                 }
             ],
-            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0401or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0402"
+            "prerequisites_text": "HEBR-MOD\u00a0201or placement intoHEBR-MOD\u00a0202"
         }
     },
     {
@@ -169,6 +186,73 @@
     },
     {
         "course_reference": {
+            "course_number": 402,
+            "subjects": [
+                "JEWISH",
+                "HEBR-MOD"
+            ]
+        },
+        "course_title": "TOPICS IN MODERN HEBREW / ISRAELI LITERATURE AND CULTURE II",
+        "description": "Readings in Hebrew literature. Taught in Hebrew.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 402,
+                    "subjects": [
+                        "HEBR-MOD",
+                        "JEWISH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0401or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0402"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "HEBR-MOD",
+                "JEWISH"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HEBREW LITERATURE",
+        "description": "Selected works from different periods and genres. Taught in Hebrew.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "HEBR-MOD",
+                        "JEWISH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD/\u200bJEWISH\u00a0\u00a0301or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0302"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 102,
+            "subjects": [
+                "HEBR-MOD"
+            ]
+        },
+        "course_title": "SECOND SEMESTER HEBREW",
+        "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "HEBR-MOD"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD\u00a0101or placement intoHEBR-MOD\u00a0102"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 310,
             "subjects": [
                 "HEBR-MOD"
@@ -183,16 +267,24 @@
     },
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 301,
             "subjects": [
-                "HEBR-MOD"
+                "HEBR-MOD",
+                "JEWISH"
             ]
         },
-        "course_title": "FIRST SEMESTER HEBREW",
-        "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+        "course_title": "INTRODUCTION TO HEBREW LITERATURE",
+        "description": "Selected works from different periods and genres. Taught in Hebrew.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
+            "course_references": [
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "HEBR-MOD"
+                    ]
+                }
+            ],
+            "prerequisites_text": "HEBR-MOD\u00a0202or placement intoHEBR-MOD/\u200bJEWISH\u00a0\u00a0301"
         }
     }
 ]

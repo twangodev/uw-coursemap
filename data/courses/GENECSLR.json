@@ -1,62 +1,76 @@
 [
     {
         "course_reference": {
-            "course_number": 737,
+            "course_number": 742,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "CONTEMPORARY PROFESSIONAL ISSUES IN GENETICS COUNSELING",
-        "description": "A series of selected basic issues and topics that are core curricular requirements specific to genetics counseling.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 743,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "ADVANCED INTERVIEWING AND COUNSELING FOR THE GC I",
-        "description": "Advanced topics in clinical communication skills for the genetic counselor. Emphasis on different counseling strategies and approaches including counselor self-reference, facilitating family communication, shared decision-making, crisis counseling and, applying techniques from select counseling models to GC practice (e.g., cognitive behavioral therapy, solution-focused therapy).",
+        "course_title": "CLINICAL EMBRYOLOGY AND PRENATAL GENETICS",
+        "description": "Review human development (normal and abnormal) and the influence of genetic disorders and teratogens, common indications for prenatal genetic counseling as well as available prenatal diagnosis and screening techniques. Prepares the genetic counseling student for the prenatal clinical practicum.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 741,
+                    "course_number": 721,
                     "subjects": [
                         "GENECSLR"
                     ]
                 }
             ],
-            "prerequisites_text": "GENECSLR\u00a0741"
+            "prerequisites_text": "GENECSLR\u00a0721"
         }
     },
     {
         "course_reference": {
-            "course_number": 744,
+            "course_number": 745,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "APPLICATIONS OF BIOCHEMICAL GENETICS FOR GENETIC COUNSELORS",
-        "description": "Comprehensive overview of clinical biochemical genetics through a systematic review of classic and rare inborn errors of metabolism (IEM).  Psychosocial issues are discussed as related to care of patients, and their families, with metabolic disorders.",
+        "course_title": "SEMINAR IN MEDICAL GENETIC COUNSELING RESEARCH",
+        "description": "Practice qualitative and quantitative research methods in genetic counseling.  Develop research question, prepare research proposal including internal review board application.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
+            "course_references": [
+                {
+                    "course_number": 739,
+                    "subjects": [
+                        "GENECSLR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENECSLR\u00a0739"
         }
     },
     {
         "course_reference": {
-            "course_number": 731,
+            "course_number": 990,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "ADVANCED CLINICAL GENETICS CONCEPTS",
-        "description": "An advanced course covering clinical genetic concepts including phenotype, genetic mechanisms, approach to diagnosis (medical, clinical and genetic testing protocols), and natural history (including management approaches).",
+        "course_title": "RESEARCH IN GENETIC COUNSELING",
+        "description": "Research and/or scholarly work (e.g. quality improvement, clinical case reports) supervised by faculty and/or staff member with appropriate content expertise and/or experience in research mentorship.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 745,
+                    "subjects": [
+                        "GENECSLR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENECSLR\u00a0739and745"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 724,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "CANCER GENETICS RISK ASSESSMENT AND COUNSELING",
+        "description": "Provides a background in cancer genetics from a medical, biological, and clinical perspective. Includes: general principles and topics in oncology; familial cancers and cancer syndromes; and management, counseling, social, ethical, and legal issues.",
         "prerequisites": {
             "course_references": [
                 {
@@ -92,13 +106,90 @@
     },
     {
         "course_reference": {
-            "course_number": 724,
+            "course_number": 713,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "CANCER GENETICS RISK ASSESSMENT AND COUNSELING",
-        "description": "Provides a background in cancer genetics from a medical, biological, and clinical perspective. Includes: general principles and topics in oncology; familial cancers and cancer syndromes; and management, counseling, social, ethical, and legal issues.",
+        "course_title": "INTRODUCTORY PRACTICUM IN GENETIC COUNSELING",
+        "description": "Provides opportunities to develop skills in interviewing, data collection, case management and counseling through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 743,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "ADVANCED INTERVIEWING AND COUNSELING FOR THE GC I",
+        "description": "Advanced topics in clinical communication skills for the genetic counselor. Emphasis on different counseling strategies and approaches including counselor self-reference, facilitating family communication, shared decision-making, crisis counseling and, applying techniques from select counseling models to GC practice (e.g., cognitive behavioral therapy, solution-focused therapy).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 741,
+                    "subjects": [
+                        "GENECSLR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENECSLR\u00a0741"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 748,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN GENETIC COUNSELING",
+        "description": "Advanced topics in the discipline of genetic counseling. Emphasis will be on advanced practice topics including setting boundaries, delivering life altering news, developing a socially responsible practice, moving from a novice to master counselor, and the job search.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 743,
+                    "subjects": [
+                        "GENECSLR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENECSLR\u00a0743"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 731,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "ADVANCED CLINICAL GENETICS CONCEPTS",
+        "description": "An advanced course covering clinical genetic concepts including phenotype, genetic mechanisms, approach to diagnosis (medical, clinical and genetic testing protocols), and natural history (including management approaches).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 721,
+                    "subjects": [
+                        "GENECSLR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENECSLR\u00a0721"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 740,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "LABORATORY GENETICS AND GENOMICS  FOR THE GENETIC COUNSELOR",
+        "description": "Introduction to clinical laboratory genetics with a particular focus on the relevance of human cytogenetics and molecular genetics to the practice of medical genetics. Covers the fundamental principles of human cytogenetic and molecular genetics including human chromosome structure, function, cytogenetic and molecular nomenclature, and current clinical laboratory testing methods relevant to medical genetic professionals. Apply cytogenetic and molecular genetic understanding to clinical scenarios to help diagnosis and manage individuals with genetic disease.",
         "prerequisites": {
             "course_references": [
                 {
@@ -134,44 +225,44 @@
     },
     {
         "course_reference": {
-            "course_number": 742,
+            "course_number": 739,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "CLINICAL EMBRYOLOGY AND PRENATAL GENETICS",
-        "description": "Review human development (normal and abnormal) and the influence of genetic disorders and teratogens, common indications for prenatal genetic counseling as well as available prenatal diagnosis and screening techniques. Prepares the genetic counseling student for the prenatal clinical practicum.",
+        "course_title": "RESEARCH STRATEGIES AND ANALYSIS IN CLINICAL GENETICS",
+        "description": "Introduction to a variety of tools and resources commonly used in clinical genetics. Learn to critique these resources and start thinking about developing their own research projects. Emphasizes developing oral presentation skills through a variety of student presentations.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 721,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENECSLR\u00a0721"
+            "course_references": [],
+            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
         }
     },
     {
         "course_reference": {
-            "course_number": 748,
+            "course_number": 737,
             "subjects": [
                 "GENECSLR"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN GENETIC COUNSELING",
-        "description": "Advanced topics in the discipline of genetic counseling. Emphasis will be on advanced practice topics including setting boundaries, delivering life altering news, developing a socially responsible practice, moving from a novice to master counselor, and the job search.",
+        "course_title": "CONTEMPORARY PROFESSIONAL ISSUES IN GENETICS COUNSELING",
+        "description": "A series of selected basic issues and topics that are core curricular requirements specific to genetics counseling.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 743,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENECSLR\u00a0743"
+            "course_references": [],
+            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 744,
+            "subjects": [
+                "GENECSLR"
+            ]
+        },
+        "course_title": "APPLICATIONS OF BIOCHEMICAL GENETICS FOR GENETIC COUNSELORS",
+        "description": "Comprehensive overview of clinical biochemical genetics through a systematic review of classic and rare inborn errors of metabolism (IEM).  Psychosocial issues are discussed as related to care of patients, and their families, with metabolic disorders.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
         }
     },
     {
@@ -197,82 +288,6 @@
     },
     {
         "course_reference": {
-            "course_number": 739,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "RESEARCH STRATEGIES AND ANALYSIS IN CLINICAL GENETICS",
-        "description": "Introduction to a variety of tools and resources commonly used in clinical genetics. Learn to critique these resources and start thinking about developing their own research projects. Emphasizes developing oral presentation skills through a variety of student presentations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 713,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "INTRODUCTORY PRACTICUM IN GENETIC COUNSELING",
-        "description": "Provides opportunities to develop skills in interviewing, data collection, case management and counseling through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 745,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "SEMINAR IN MEDICAL GENETIC COUNSELING RESEARCH",
-        "description": "Practice qualitative and quantitative research methods in genetic counseling.  Develop research question, prepare research proposal including internal review board application.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 745,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENECSLR\u00a0739"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "RESEARCH IN GENETIC COUNSELING",
-        "description": "Research and/or scholarly work (e.g. quality improvement, clinical case reports) supervised by faculty and/or staff member with appropriate content expertise and/or experience in research mentorship.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 739,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                },
-                {
-                    "course_number": 745,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENECSLR\u00a0739and745"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 741,
             "subjects": [
                 "GENECSLR"
@@ -283,27 +298,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Master of Genetic Counselor Studies"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 740,
-            "subjects": [
-                "GENECSLR"
-            ]
-        },
-        "course_title": "LABORATORY GENETICS AND GENOMICS  FOR THE GENETIC COUNSELOR",
-        "description": "Introduction to clinical laboratory genetics with a particular focus on the relevance of human cytogenetics and molecular genetics to the practice of medical genetics. Covers the fundamental principles of human cytogenetic and molecular genetics including human chromosome structure, function, cytogenetic and molecular nomenclature, and current clinical laboratory testing methods relevant to medical genetic professionals. Apply cytogenetic and molecular genetic understanding to clinical scenarios to help diagnosis and manage individuals with genetic disease.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 721,
-                    "subjects": [
-                        "GENECSLR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENECSLR\u00a0721"
         }
     },
     {

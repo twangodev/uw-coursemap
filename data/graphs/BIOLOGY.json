@@ -1,34 +1,14 @@
 [
     {
         "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
-            "id": "BIOLOGY 399",
-            "parent": "BIOLOGY"
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory special topics on contemporary issues relevant to studying biology.",
-            "id": "BIOLOGY 375",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
-            "id": "GENETICS/BIOLOGY 522"
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
@@ -40,8 +20,39 @@
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 104"
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
+            "id": "GENETICS/BIOLOGY 522"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 152"
+        }
+    },
+    {
+        "data": {
+            "id": "GENETICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
@@ -53,40 +64,9 @@
     },
     {
         "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
-            "id": "BOTANY/ANTHRO/ZOOLOGY 410"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
-            "id": "GENETICS 468",
-            "parent": "GENETICS"
+            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
+            "id": "BIOLOGY 692",
+            "parent": "BIOLOGY"
         }
     },
     {
@@ -98,162 +78,27 @@
     },
     {
         "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/ANTHRO/ZOOLOGY 410",
-            "target": "GENETICS 468"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Exposure to diverse topics in contemporary evolutionary biology and development of critical thinking and communication skills. Most weeks guest lecturers present their own primary research on a specialized topic in evolutionary biology. Seminars include perspectives from genetics, ecology, geoscience, zoology, botany, microbiology, systematics, molecular biology, and integrative research. Some weeks feature special topics and discussions on pedagogical, legal, outreach, or other issues in evolutionary biology. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in evolutionary biology by reading primary and secondary literature, attending seminars, discussing topics with speakers and other students, and preparing a written report.  The 3-credit version of the course delves deeper into communication of evolutionary biology to researchers, undergraduates, K-12 students, and the general public.",
-            "id": "BIOLOGY/GENETICS 522"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BOTANY/BIOLOGY 130"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
-            "id": "BIOLOGY 692",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/BIOLOGY 130",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
-            "id": "BIOLOGY 681",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 152",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BOTANY/BIOLOGY 130"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 115"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/BIOLOGY 130",
-            "target": "CHEM 115"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 151",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 468"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 468",
-            "target": "BIOCORE 381"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/ANTHRO/ZOOLOGY 410",
-            "target": "BOTANY/ANTHRO/ZOOLOGY 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
-            "id": "BIOLOGY 691",
-            "parent": "BIOLOGY"
+            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
+            "id": "GENETICS 468",
+            "parent": "GENETICS"
         }
     },
     {
         "data": {
             "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BOTANY/BIOLOGY/ZOOLOGY 151"
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 381"
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
         }
     },
     {
@@ -265,15 +110,45 @@
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 152",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
         "data": {
             "source": "BIOCORE 381",
-            "target": "BOTANY/BIOLOGY 130"
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
+            "id": "BIOLOGY 681",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
+            "id": "ZOOLOGY/BOTANY/ANTHRO 410"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -285,8 +160,27 @@
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
+            "source": "BIOCORE 381",
+            "target": "ZOOLOGY/BOTANY/ANTHRO 410"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS/BIOLOGY 522"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
+            "id": "BIOLOGY 399",
+            "parent": "BIOLOGY"
         }
     },
     {
@@ -298,57 +192,64 @@
     },
     {
         "data": {
-            "source": "BOTANY/BIOLOGY 130",
-            "target": "BOTANY/BIOLOGY 130"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY 130"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOLOGY/GENETICS 522"
+            "id": "BIOLOGY",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "GENETICS 466",
-            "target": "BOTANY/ANTHRO/ZOOLOGY 410"
+            "source": "GENETICS 467",
+            "target": "GENETICS 468"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS/BIOLOGY 522"
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 109"
+            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
+            "id": "BIOLOGY 691",
+            "parent": "BIOLOGY"
         }
     },
     {
         "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 152",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 152"
+            "description": "Introductory special topics on contemporary issues relevant to studying biology.",
+            "id": "BIOLOGY 375",
+            "parent": "BIOLOGY"
         }
     },
     {
         "data": {
-            "source": "BOTANY/BIOLOGY/ZOOLOGY 151",
-            "target": "BOTANY/BIOLOGY/ZOOLOGY 151"
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BOTANY/BIOLOGY/ZOOLOGY 152"
+            "source": "ZOOLOGY/BOTANY/ANTHRO 410",
+            "target": "BIOCORE 381"
         }
     },
     {
         "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 468",
+            "target": "ZOOLOGY/BOTANY/ANTHRO 410"
         }
     }
 ]

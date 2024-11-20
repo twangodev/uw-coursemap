@@ -1,13 +1,118 @@
 [
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 75,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "MEAT ANIMAL PRODUCTION I",
-        "description": "In this course, students will be focusing on the ruminant livestock production systems. Students will evaluate and design the implementation of foundational principles in beef cattle, sheep and goat production. Through the connecting of production system to market costs and revenues, students will gain an in-depth understanding of meat animal livestock production. Students will have hands-on experiences in beef cattle, sheep and goat management.",
+        "course_title": "SPECIAL TOPICS IN FISC",
+        "description": "Specialized subject matter of current interest to FISC students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 50,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "THE BUSINESS OF AGRICULTURE",
+        "description": "Examines the five areas of risk management of an agricultural business: production risk, human risk, financial risk, market risk, and institutional risk. Discusses the internal and external contexts affecting the management of an agricultural business. Investigates the changing structures of agriculture, creating a unique landscape for today's agricultural businesses. Students are encouraged throughout the course to reflect on and discuss examples from their own experiences, and think critically about how these factors may impact their strategy for managing a business.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 105,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "DAIRY CATTLE SELECTION AND EVALUATION",
+        "description": "In this course, students will learn the basics of genetic selection programs and the effectiveness of appropriate selection strategies specific to the dairy farm. Genomic testing research and advanced reproductive techniques will be discussed and students will learn about the correct application of these techniques on their farm. Basic anatomy of a dairy cow and linear scoring systems. After establishing dairy cow conformation and functionality and appraisal systems, students will evaluate cattle using type scorecards to improve the appearance, performance and longevity of dairy cattle. Following the understanding of the factors that impact the value of cattle, students will also learn how to apply corrective mating programs to improve perceived defects or nonexistent features in their herd(s).",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 21,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "AGRICULTURAL SALES",
+        "description": "Students will learn the basic steps to the sales process in order to prepare for a career in agricultural sales and related sales applications found in daily life; develop sales-related skills, such as negotiation skills, body language, and time management skills; and reflect on and develop personal strengths and abilities that will enhance agricultural sales presentations and customer relationships.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 102,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "MEAT ANIMAL PRODUCTION II",
+        "description": "this course, students will learn about the monogastric and ruminant meat animal, specifically swine, and poultry production systems. Focusing on swine and poultry, students will evaluate and design the implementation of foundational principles in swine and poultry production as well as build on beef, sheep and goat foundations from Meat Animal Production I. Students will learn about production costs and revenues and experience hands-on opportunities with several meat animal species.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "FISC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FISC\u00a0101"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 119,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "INTRODUCTION TO TURFGRASS MANAGEMENT",
+        "description": "Use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 134,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "REPRODUCTION OF FARM ANIMALS",
+        "description": "Students will learn the basic comparative physiology of reproduction of farm animals and apply those physiological principles to understand successful heat detection, artificial insemination, estrous synchronization, embryo transfer, pregnancy diagnosis, and improvement of reproductive efficiency through good reproductive management.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 114,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "RUMINANT NUTRITION",
+        "description": "Students will learn practical nutrition for lactating dairy cows, dairy heifers, and dairy beef. This course covers digestion and nutrient metabolism, milk synthesis and ration formulation guidelines and stresses importance of quality forage in the feeding program. Students will learn the basic anatomy and physiology of the digestive system of ruminant animals and how feeding and management are geared toward optimizing rumen function. This course will introduce the basic concepts of nutrition and how feeds provide nutrients and basic skills necessary for feeding dairy cattle. Students will learn how to assess animal performance and adequacy of the feeding program through evaluating intake, body condition, and transition cow health and learn how to feed and manage growing ruminants.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in the Farm & Industry Short Course program"
@@ -36,23 +141,37 @@
     },
     {
         "course_reference": {
-            "course_number": 133,
+            "course_number": 122,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "SOIL AND CROP NUTRIENT MANAGEMENT",
-        "description": "Students will understand how to sample and analyze soil to determine nutrient composition and deficiencies, apply knowledge of crop needs to develop nutrient management plans for various crops across a spectrum of Wisconsin soil types, and understand how other properties of soil, including drainage and erosion, can impact nutrient levels and crop productivity.",
+        "course_title": "TURFGRASS NUTRIENT MANAGEMENT",
+        "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; writing effective nutrient management plans.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 57,
+                    "course_number": 119,
                     "subjects": [
                         "FISC"
                     ]
                 }
             ],
-            "prerequisites_text": "FISC\u00a057"
+            "prerequisites_text": "FISC\u00a020and119"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 142,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "IDENTIFICATION AND MANAGEMENT OF AGRONOMIC PESTS",
+        "description": "Introduces students to principles in Integrated Pest Management with an emphasis on pest biology and management in agronomic settings.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Crops and Soils Management or Diversified Ag Operations certificate program"
         }
     },
     {
@@ -85,244 +204,13 @@
     },
     {
         "course_reference": {
-            "course_number": 121,
+            "course_number": 143,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "AGRICULTURAL COMMODITIES MARKETING",
-        "description": "This course focuses on the farm and its marketing environment and provides an overview of the economics of grain and milk markets. The course concentrates on developing skills for effective grain and dairy marketing analysis and strategies. It examines forward contracting, hedging on futures markets, delayed pricing and options trading. It will also examine farm policies and the impact on farms. Students will gain an understanding and appreciation of the commodity and futures markets, major trends and causes of trends in dairy and grain industries, market factors that influence farm commodities, risk tools and cooperatives.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 20,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "INTRODUCTION TO PLANT SCIENCE",
-        "description": "Students will learn about growing crops and plants, the basics of plant growth, how plants have diversified based on environmental locations, classifications of plants, and general plant nutrition.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 20,
-                    "subjects": [
-                        "FISC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 57,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "INTRODUCTION TO SOILS",
-        "description": "Soil formation; important physical and chemical properties; soil moisture; introduction to soil fertility; soil mapping and classification.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 75,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN FISC",
-        "description": "Specialized subject matter of current interest to FISC students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 71,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "PASTURE MANAGEMENT",
-        "description": "This course covers pasture establishment, pasture improvement and pasture plant growth. Students will also learn about the in- depth topics of pasture layouts, fencing and water systems, animal behavior on pastures, general pasture utilization and animal nutrient needs on pasture, including supplemental feeding.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 102,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "MEAT ANIMAL PRODUCTION II",
-        "description": "this course, students will learn about the monogastric and ruminant meat animal, specifically swine, and poultry production systems. Focusing on swine and poultry, students will evaluate and design the implementation of foundational principles in swine and poultry production as well as build on beef, sheep and goat foundations from Meat Animal Production I. Students will learn about production costs and revenues and experience hands-on opportunities with several meat animal species.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "FISC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FISC\u00a0101"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 104,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "GRAIN CROPS PRODUCTION & MANAGEMENT",
-        "description": "This course covers corn, soybeans, and small grains (wheat). Current production recommendations related to hybrid and variety selection, seedbed preparation, pest control, fertility management, harvest, storage, marketing, and crop ecology will be discussed. Students will be encouraged to explore resources and develop confidence to find solutions on the farm.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management or Crops & Soils Management certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 105,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "DAIRY CATTLE SELECTION AND EVALUATION",
-        "description": "In this course, students will learn the basics of genetic selection programs and the effectiveness of appropriate selection strategies specific to the dairy farm. Genomic testing research and advanced reproductive techniques will be discussed and students will learn about the correct application of these techniques on their farm. Basic anatomy of a dairy cow and linear scoring systems. After establishing dairy cow conformation and functionality and appraisal systems, students will evaluate cattle using type scorecards to improve the appearance, performance and longevity of dairy cattle. Following the understanding of the factors that impact the value of cattle, students will also learn how to apply corrective mating programs to improve perceived defects or nonexistent features in their herd(s).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 51,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "BUSINESS PRINCIPLES OF AGRICULTURAL MANAGEMENT",
-        "description": "An introduction to the working of a market economy and decision-making concepts; the role of prices and preferences in making production and consumption decisions; U.S. agricultural system and various economic policies that may be employed by government; Taxation, regulation, trade, and employment policies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 73,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "PASTURE BASED DAIRY/LIVESTOCK - MANAGING THE BUSINESS",
-        "description": "Course covers grass-fed production and marketing, risk management (specifically of pasture-based farms), pasture soil nutrient management, grazing and natural resource management, and ecological restoration through livestock. Students will present their business plans to a panel of lenders. Students will be required to attend four evening Business Plan Writing Workshops. This is the final course in the two-course series of the Wisconsin School for Beginning Dairy/Livestock Farmers (WSBDF) program.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 72,
-                    "subjects": [
-                        "FISC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FISC\u00a072"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 23,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "SAFE AND EFFECTIVE USES OF PESTICIDES IN AGRONOMIC CROPS",
-        "description": "Students will learn about the multiple aspects of pesticides (herbicides, insecticides, and diseases) use in WI agronomic crops through learning about the patterns, application methods, resistance, regulation, and safe application. Emphasis will be placed on how to utilize existing resources to use pesticides safely, legally, and effectively while minimizing environmental impacts.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 61,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "DAIRY HERD HEALTH",
-        "description": "In this course, students will learn the basic veterinary medical terminology and goals of a veterinarian as it pertains to the dairy cow and dairy young stock. Students will understand how to prevent herd health problems and will begin to recognize signs when they arise. Students will also be able to discuss health problems with the herd veterinarian. Specific topics will include: cattle disease problems; how the animal body works; digestive disorders, noninfectious diseases, principles of infection and sanitation; state regulations against disease.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 52,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "AGRICULTURAL SAFETY AND HEALTH",
-        "description": "Causes and prevention of common farm injuries and illnesses; control of hazards; types of fatal and non-fatal injuries; tractor and machinery-related injuries and operating practices; hazards to children; animal-related injuries; confined spaces; respiratory hazards; chemical exposure; personal protective equipment; OSHA, DOL, and EPA worker-related regulations; causes and prevention of injuries including inspections and hazard control, and safety management strategies and activities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 120,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "MEAT ANIMAL EVALUATION & MARKETING",
-        "description": "This course demonstrates how meat animals within a species differ in value, grade and yield. This course will also cover price determination and marketing systems for each species. The students will receive hands-on experience in evaluating, slaughtering, and cutting beef and pork. Lamb processing and manufacturing of processed meat items will be demonstrated.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 63,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "DAIRY HERD MANAGEMENT",
-        "description": "In this comprehensive course, students will learn how to care for their herd to increase production and profits. Use of business, feeding, and herd management tools in dairy farm operation will be covered in depth. Case studies of individual farms used for analysis and planning. Specific topics covered will include: cattle movement and behavior, calf care, heifer care, nutrition, reproduction, fresh cows and diseases, parlor management, milk harvest, mammary anatomy, mastitis and milk quality control, cattle comfort and housing options, herd culling decisions, and interacting with the consumer.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 140,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "FARM MACHINERY",
-        "description": "Principles of operation, construction, maintenance, and management of machines for the production of agricultural crops. Laboratory sessions include working with machine components and actual field machines. Previous experience with farm machinery is not required.",
+        "course_title": "FARM POWER",
+        "description": "Principles of operation, construction, maintenance, and management of agricultural tractors and engine power systems. Covers two- and four-stroke diesel and spark-ignition engines, lubrication, cooling, fuel systems, power measurement, electrical systems, and transmissions. Labs focus on understanding the tractor and engine but do not include tractor or engine overhauls. Course assumes no previous experience with tractors or engines.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Foundations of Farm Management or Farm and Equipment Operations certificate program"
@@ -344,16 +232,156 @@
     },
     {
         "course_reference": {
-            "course_number": 59,
+            "course_number": 136,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "FOOD SAFETY",
-        "description": "Covers basic principals of food safety including safeguarding our food supply and preventing food-born illnesses from farm to market.",
+        "course_title": "AGRICULTURAL BUSINESS LAW",
+        "description": "This course will provide a basic overview of some of the areas of the law that may impact the farm or agribusiness, and assist students in identifying practices and activities that may impact their legal liability. Students will become acquainted with basic legal terms and concepts, understand basic techniques of legal analysis, be able to identify legal issues and be better equipped to explain issues to attorneys.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 145,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "PRECISION AGRICULTURAL TECHNOLOGIES",
+        "description": "Precision agriculture can aid in reducing inputs for crop production. Course provides an overview of precision agriculture technologies and will cover Global Positioning Systems, Geographic Information Systems, variable rate technology, section/flow control, soil and yield mapping, and guidance systems. Economics of the different technologies will be discussed. Previous experience with precision agriculture systems is not required.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Foundations of Farm Management or Farm and Equipment Operations certificate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 110,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "LIVESTOCK HOUSING",
+        "description": "This covers planning of dairy, beef and swine, livestock housing for proper environmental control, manure and feed handling, and labor and capital efficiency. Topics include building materials, heat loss, silo sizing, cost estimating, computer aided design, and ventilation and manure storage. Students will develop a plan for their own farmstead. This course is useful for those who plan to construct livestock buildings within the next 5-15 years, including those who want to work in the farm building trade.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 123,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "TURFGRASS INTEGRATED PEST MANAGEMENT",
+        "description": "Using tools to effectively manage the most common weed, insect, and disease pests seen on turfgrass in the Midwest; including proper identification of each pest, the biology of each pest, and cultural and chemical control strategies for each pest.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 119,
+                    "subjects": [
+                        "FISC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FISC\u00a0119"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "MEAT ANIMAL PRODUCTION I",
+        "description": "In this course, students will be focusing on the ruminant livestock production systems. Students will evaluate and design the implementation of foundational principles in beef cattle, sheep and goat production. Through the connecting of production system to market costs and revenues, students will gain an in-depth understanding of meat animal livestock production. Students will have hands-on experiences in beef cattle, sheep and goat management.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 52,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "AGRICULTURAL SAFETY AND HEALTH",
+        "description": "Causes and prevention of common farm injuries and illnesses; control of hazards; types of fatal and non-fatal injuries; tractor and machinery-related injuries and operating practices; hazards to children; animal-related injuries; confined spaces; respiratory hazards; chemical exposure; personal protective equipment; OSHA, DOL, and EPA worker-related regulations; causes and prevention of injuries including inspections and hazard control, and safety management strategies and activities.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 133,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "SOIL AND CROP NUTRIENT MANAGEMENT",
+        "description": "Students will understand how to sample and analyze soil to determine nutrient composition and deficiencies, apply knowledge of crop needs to develop nutrient management plans for various crops across a spectrum of Wisconsin soil types, and understand how other properties of soil, including drainage and erosion, can impact nutrient levels and crop productivity.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 57,
+                    "subjects": [
+                        "FISC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FISC\u00a057"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 71,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "PASTURE MANAGEMENT",
+        "description": "This course covers pasture establishment, pasture improvement and pasture plant growth. Students will also learn about the in- depth topics of pasture layouts, fencing and water systems, animal behavior on pastures, general pasture utilization and animal nutrient needs on pasture, including supplemental feeding.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 120,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "MEAT ANIMAL EVALUATION & MARKETING",
+        "description": "This course demonstrates how meat animals within a species differ in value, grade and yield. This course will also cover price determination and marketing systems for each species. The students will receive hands-on experience in evaluating, slaughtering, and cutting beef and pork. Lamb processing and manufacturing of processed meat items will be demonstrated.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 121,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "AGRICULTURAL COMMODITIES MARKETING",
+        "description": "This course focuses on the farm and its marketing environment and provides an overview of the economics of grain and milk markets. The course concentrates on developing skills for effective grain and dairy marketing analysis and strategies. It examines forward contracting, hedging on futures markets, delayed pricing and options trading. It will also examine farm policies and the impact on farms. Students will gain an understanding and appreciation of the commodity and futures markets, major trends and causes of trends in dairy and grain industries, market factors that influence farm commodities, risk tools and cooperatives.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
         }
     },
     {
@@ -386,6 +414,62 @@
     },
     {
         "course_reference": {
+            "course_number": 63,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "DAIRY HERD MANAGEMENT",
+        "description": "In this comprehensive course, students will learn how to care for their herd to increase production and profits. Use of business, feeding, and herd management tools in dairy farm operation will be covered in depth. Case studies of individual farms used for analysis and planning. Specific topics covered will include: cattle movement and behavior, calf care, heifer care, nutrition, reproduction, fresh cows and diseases, parlor management, milk harvest, mammary anatomy, mastitis and milk quality control, cattle comfort and housing options, herd culling decisions, and interacting with the consumer.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 61,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "DAIRY HERD HEALTH",
+        "description": "In this course, students will learn the basic veterinary medical terminology and goals of a veterinarian as it pertains to the dairy cow and dairy young stock. Students will understand how to prevent herd health problems and will begin to recognize signs when they arise. Students will also be able to discuss health problems with the herd veterinarian. Specific topics will include: cattle disease problems; how the animal body works; digestive disorders, noninfectious diseases, principles of infection and sanitation; state regulations against disease.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 51,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "BUSINESS PRINCIPLES OF AGRICULTURAL MANAGEMENT",
+        "description": "An introduction to the working of a market economy and decision-making concepts; the role of prices and preferences in making production and consumption decisions; U.S. agricultural system and various economic policies that may be employed by government; Taxation, regulation, trade, and employment policies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 104,
+            "subjects": [
+                "FISC"
+            ]
+        },
+        "course_title": "GRAIN CROPS PRODUCTION & MANAGEMENT",
+        "description": "This course covers corn, soybeans, and small grains (wheat). Current production recommendations related to hybrid and variety selection, seedbed preparation, pest control, fertility management, harvest, storage, marketing, and crop ecology will be discussed. Students will be encouraged to explore resources and develop confidence to find solutions on the farm.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Foundations of Farm Management or Crops & Soils Management certificate program"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 53,
             "subjects": [
                 "FISC"
@@ -400,54 +484,13 @@
     },
     {
         "course_reference": {
-            "course_number": 122,
+            "course_number": 140,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "TURFGRASS NUTRIENT MANAGEMENT",
-        "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; writing effective nutrient management plans.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 119,
-                    "subjects": [
-                        "FISC"
-                    ]
-                },
-                {
-                    "course_number": 20,
-                    "subjects": [
-                        "FISC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FISC\u00a020and119"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 142,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "IDENTIFICATION AND MANAGEMENT OF AGRONOMIC PESTS",
-        "description": "Introduces students to principles in Integrated Pest Management with an emphasis on pest biology and management in agronomic settings.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Crops and Soils Management or Diversified Ag Operations certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 143,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "FARM POWER",
-        "description": "Principles of operation, construction, maintenance, and management of agricultural tractors and engine power systems. Covers two- and four-stroke diesel and spark-ignition engines, lubrication, cooling, fuel systems, power measurement, electrical systems, and transmissions. Labs focus on understanding the tractor and engine but do not include tractor or engine overhauls. Course assumes no previous experience with tractors or engines.",
+        "course_title": "FARM MACHINERY",
+        "description": "Principles of operation, construction, maintenance, and management of machines for the production of agricultural crops. Laboratory sessions include working with machine components and actual field machines. Previous experience with farm machinery is not required.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Foundations of Farm Management or Farm and Equipment Operations certificate program"
@@ -455,41 +498,13 @@
     },
     {
         "course_reference": {
-            "course_number": 114,
+            "course_number": 59,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "RUMINANT NUTRITION",
-        "description": "Students will learn practical nutrition for lactating dairy cows, dairy heifers, and dairy beef. This course covers digestion and nutrient metabolism, milk synthesis and ration formulation guidelines and stresses importance of quality forage in the feeding program. Students will learn the basic anatomy and physiology of the digestive system of ruminant animals and how feeding and management are geared toward optimizing rumen function. This course will introduce the basic concepts of nutrition and how feeds provide nutrients and basic skills necessary for feeding dairy cattle. Students will learn how to assess animal performance and adequacy of the feeding program through evaluating intake, body condition, and transition cow health and learn how to feed and manage growing ruminants.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 21,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "AGRICULTURAL SALES",
-        "description": "Students will learn the basic steps to the sales process in order to prepare for a career in agricultural sales and related sales applications found in daily life; develop sales-related skills, such as negotiation skills, body language, and time management skills; and reflect on and develop personal strengths and abilities that will enhance agricultural sales presentations and customer relationships.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 58,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "FORAGE CROPS",
-        "description": "Identification and characteristics of forage legumes and grasses; management and culture of legumes, grasses and grass- legume mixtures; weed, insect, and forage disease control; hay and haymaking; legume, grass, and corn silage; forage varieties and their uses; forage quality and its importance in feeding livestock; pasture types and improvement; forage production trends.",
+        "course_title": "FOOD SAFETY",
+        "description": "Covers basic principals of food safety including safeguarding our food supply and preventing food-born illnesses from farm to market.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
@@ -497,55 +512,48 @@
     },
     {
         "course_reference": {
-            "course_number": 134,
+            "course_number": 73,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "REPRODUCTION OF FARM ANIMALS",
-        "description": "Students will learn the basic comparative physiology of reproduction of farm animals and apply those physiological principles to understand successful heat detection, artificial insemination, estrous synchronization, embryo transfer, pregnancy diagnosis, and improvement of reproductive efficiency through good reproductive management.",
+        "course_title": "PASTURE BASED DAIRY/LIVESTOCK - MANAGING THE BUSINESS",
+        "description": "Course covers grass-fed production and marketing, risk management (specifically of pasture-based farms), pasture soil nutrient management, grazing and natural resource management, and ecological restoration through livestock. Students will present their business plans to a panel of lenders. Students will be required to attend four evening Business Plan Writing Workshops. This is the final course in the two-course series of the Wisconsin School for Beginning Dairy/Livestock Farmers (WSBDF) program.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+            "course_references": [
+                {
+                    "course_number": 72,
+                    "subjects": [
+                        "FISC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FISC\u00a072"
         }
     },
     {
         "course_reference": {
-            "course_number": 110,
+            "course_number": 57,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "LIVESTOCK HOUSING",
-        "description": "This covers planning of dairy, beef and swine, livestock housing for proper environmental control, manure and feed handling, and labor and capital efficiency. Topics include building materials, heat loss, silo sizing, cost estimating, computer aided design, and ventilation and manure storage. Students will develop a plan for their own farmstead. This course is useful for those who plan to construct livestock buildings within the next 5-15 years, including those who want to work in the farm building trade.",
+        "course_title": "INTRODUCTION TO SOILS",
+        "description": "Soil formation; important physical and chemical properties; soil moisture; introduction to soil fertility; soil mapping and classification.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
+            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
         }
     },
     {
         "course_reference": {
-            "course_number": 145,
+            "course_number": 23,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "PRECISION AGRICULTURAL TECHNOLOGIES",
-        "description": "Precision agriculture can aid in reducing inputs for crop production. Course provides an overview of precision agriculture technologies and will cover Global Positioning Systems, Geographic Information Systems, variable rate technology, section/flow control, soil and yield mapping, and guidance systems. Economics of the different technologies will be discussed. Previous experience with precision agriculture systems is not required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Foundations of Farm Management or Farm and Equipment Operations certificate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 136,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "AGRICULTURAL BUSINESS LAW",
-        "description": "This course will provide a basic overview of some of the areas of the law that may impact the farm or agribusiness, and assist students in identifying practices and activities that may impact their legal liability. Students will become acquainted with basic legal terms and concepts, understand basic techniques of legal analysis, be able to identify legal issues and be better equipped to explain issues to attorneys.",
+        "course_title": "SAFE AND EFFECTIVE USES OF PESTICIDES IN AGRONOMIC CROPS",
+        "description": "Students will learn about the multiple aspects of pesticides (herbicides, insecticides, and diseases) use in WI agronomic crops through learning about the patterns, application methods, resistance, regulation, and safe application. Emphasis will be placed on how to utilize existing resources to use pesticides safely, legally, and effectively while minimizing environmental impacts.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in the Farm & Industry Short Course program"
@@ -574,51 +582,30 @@
     },
     {
         "course_reference": {
-            "course_number": 123,
+            "course_number": 58,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "TURFGRASS INTEGRATED PEST MANAGEMENT",
-        "description": "Using tools to effectively manage the most common weed, insect, and disease pests seen on turfgrass in the Midwest; including proper identification of each pest, the biology of each pest, and cultural and chemical control strategies for each pest.",
+        "course_title": "FORAGE CROPS",
+        "description": "Identification and characteristics of forage legumes and grasses; management and culture of legumes, grasses and grass- legume mixtures; weed, insect, and forage disease control; hay and haymaking; legume, grass, and corn silage; forage varieties and their uses; forage quality and its importance in feeding livestock; pasture types and improvement; forage production trends.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 119,
-                    "subjects": [
-                        "FISC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FISC\u00a0119"
+            "course_references": [],
+            "prerequisites_text": "Declared in Foundations of Farm Management certificate program"
         }
     },
     {
         "course_reference": {
-            "course_number": 119,
+            "course_number": 20,
             "subjects": [
                 "FISC"
             ]
         },
-        "course_title": "INTRODUCTION TO TURFGRASS MANAGEMENT",
-        "description": "Use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
+        "course_title": "INTRODUCTION TO PLANT SCIENCE",
+        "description": "Students will learn about growing crops and plants, the basics of plant growth, how plants have diversified based on environmental locations, classifications of plants, and general plant nutrition.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in the Farm Industry Short Course program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 50,
-            "subjects": [
-                "FISC"
-            ]
-        },
-        "course_title": "THE BUSINESS OF AGRICULTURE",
-        "description": "Examines the five areas of risk management of an agricultural business: production risk, human risk, financial risk, market risk, and institutional risk. Discusses the internal and external contexts affecting the management of an agricultural business. Investigates the changing structures of agriculture, creating a unique landscape for today's agricultural businesses. Students are encouraged throughout the course to reflect on and discuss examples from their own experiences, and think critically about how these factors may impact their strategy for managing a business.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Farm Industry Short Course program"
+            "prerequisites_text": "Declared in the Farm & Industry Short Course program"
         }
     }
 ]

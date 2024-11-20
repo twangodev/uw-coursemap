@@ -1,13 +1,41 @@
 [
     {
         "course_reference": {
+            "course_number": 720,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "AGROECOLOGY FIELD STUDY",
+        "description": "Field study of farms, processing, marketing, distribution, and policy-making in the food system. Courses will be several days of visits, discussions with the operators, and student-faculty discussion sections. Presentations or written reports may be required.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 702,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "THE MULTIFUNCTIONALITY OF AGRICULTURE",
+        "description": "Agroecology systems provide a variety of social, economic, and ecological functions to society, each with a different network of stakeholders. This course explores methods of evaluating these diverse functions and perspectives, with a special focus on participatory approaches.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Agroecology MS"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 103,
             "subjects": [
-                "C&ESOC",
-                "ENVIRST",
                 "AGROECOL",
-                "AGRONOMY",
-                "ENTOM"
+                "ENVIRST",
+                "C&ESOC",
+                "ENTOM",
+                "AGRONOMY"
             ]
         },
         "course_title": "AGROECOLOGY: AN INTRODUCTION TO THE ECOLOGY OF FOOD AND AGRICULTURE",
@@ -29,9 +57,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
+                    "course_number": 103,
                     "subjects": [
-                        "AGROECOL"
+                        "AGROECOL",
+                        "ENVIRST",
+                        "C&ESOC",
+                        "ENTOM",
+                        "AGRONOMY"
                     ]
                 }
             ],
@@ -40,15 +72,71 @@
     },
     {
         "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "THE FARM AS SOCIO-ENVIRONMENTAL ENDEAVOR",
+        "description": "Farms may be analyzed as intentional entities shaped by the contexts in which they must operate. This course explores how these biophysical and social contexts both exert constraints and provide opportunities, leading to the diversity of farms observed.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "SEMINAR IN AGROECOLOGY",
+        "description": "Facilitated discussions on agroecology-related scholarship, policies, and practices. May include presentations on current or proposed research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Scholarship on special topics, under the supervision of an agroecology faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 371,
             "subjects": [
-                "DYSCI",
                 "AGROECOL",
-                "AGRONOMY"
+                "AGRONOMY",
+                "DYSCI"
             ]
         },
         "course_title": "MANAGED GRAZING FIELD STUDY",
         "description": "For those interested in developing a comprehensive understanding of the principles, practices, and conservation potential of managed grazing systems, and how these farming systems may contribute to the sustainability and diverse tapestry of Wisconsin's working landscape. Visit managed grazing systems of successful grazing-based farmers (graziers) across southern/central counties in Wisconsin, and/or research sites at UW's Arlington and/or Lancaster Research Stations and/or the Discovery Farms Program. An opportunity to discuss at length with farm managers and researchers the practices in place at each farm and research site. Includes introduction to UWEX pasture forage/nutrient management planning and budgeting software.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "AGROECOL"
+            ]
+        },
+        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
+        "description": "Internship under guidance of a faculty or instructional academic staff member in Agroecology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -68,49 +156,15 @@
                 {
                     "course_number": 103,
                     "subjects": [
-                        "C&ESOC",
-                        "ENVIRST",
                         "AGROECOL",
-                        "AGRONOMY",
-                        "ENTOM"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "AGROECOL"
+                        "ENVIRST",
+                        "C&ESOC",
+                        "ENTOM",
+                        "AGRONOMY"
                     ]
                 }
             ],
             "prerequisites_text": "ENVIR\u00a0ST/\u200bAGROECOL/\u200bAGRONOMY/\u200bC&E\u00a0SOC/\u200bENTOM\u00a0\u00a0103,AGROECOL\u00a0303, and senior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Scholarship on special topics, under the supervision of an agroecology faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 702,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "THE MULTIFUNCTIONALITY OF AGRICULTURE",
-        "description": "Agroecology systems provide a variety of social, economic, and ecological functions to society, each with a different network of stakeholders. This course explores methods of evaluating these diverse functions and perspectives, with a special focus on participatory approaches.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Agroecology MS"
         }
     },
     {
@@ -145,64 +199,6 @@
     },
     {
         "course_reference": {
-            "course_number": 720,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "AGROECOLOGY FIELD STUDY",
-        "description": "Field study of farms, processing, marketing, distribution, and policy-making in the food system. Courses will be several days of visits, discussions with the operators, and student-faculty discussion sections. Presentations or written reports may be required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "AGROECOL",
-                "DYSCI",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "MANAGED GRAZING FIELD STUDY",
-        "description": "For those interested in developing a comprehensive understanding of the principles, practices, and conservation potential of managed grazing systems, and how these farming systems may contribute to the sustainability and diverse tapestry of Wisconsin's working landscape. Visit managed grazing systems of successful grazing-based farmers (graziers) across southern/central counties in Wisconsin, and/or research sites at UW's Arlington and/or Lancaster Research Stations and/or the Discovery Farms Program. An opportunity to discuss at length with farm managers and researchers the practices in place at each farm and research site. Includes introduction to UWEX pasture forage/nutrient management planning and budgeting software.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "THE FARM AS SOCIO-ENVIRONMENTAL ENDEAVOR",
-        "description": "Farms may be analyzed as intentional entities shaped by the contexts in which they must operate. This course explores how these biophysical and social contexts both exert constraints and provide opportunities, leading to the diversity of farms observed.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "SEMINAR IN AGROECOLOGY",
-        "description": "Facilitated discussions on agroecology-related scholarship, policies, and practices. May include presentations on current or proposed research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 400,
             "subjects": [
                 "AGROECOL"
@@ -213,20 +209,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "AGROECOL"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research on the student's thesis or degree project.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -245,16 +227,16 @@
     },
     {
         "course_reference": {
-            "course_number": 399,
+            "course_number": 990,
             "subjects": [
                 "AGROECOL"
             ]
         },
-        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
-        "description": "Internship under guidance of a faculty or instructional academic staff member in Agroecology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+        "course_title": "RESEARCH",
+        "description": "Independent research on the student's thesis or degree project.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

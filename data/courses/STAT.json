@@ -1,13 +1,190 @@
 [
     {
         "course_reference": {
-            "course_number": 682,
+            "course_number": 775,
+            "subjects": [
+                "STAT",
+                "ECON",
+                "GENBUS"
+            ]
+        },
+        "course_title": "BAYESIAN STATISTICS",
+        "description": "Introduces the theory, methods, and computational procedures needed to perform advanced Bayesian data analyses. Predictive and decision-theoretic motivations including subjective probability, risk, admissibility, and exchangeability; highlights key components of Bayesian analysis (i.e., prior, likelihood, posterior, and predictive distributions) within standard parametric models and advanced hierarchical and multilevel models; demonstrates the iterative process of model specification, implementation, criticism, and revision with applied case studies; implements computational techniques (e.g., Markov chain Monte Carlo, variational inference) in modern probabilistic programming languages.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 818,
+                    "subjects": [
+                        "POLISCI"
+                    ]
+                },
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 709,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 709,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 609,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 761,
+                    "subjects": [
+                        "COMPSCI",
+                        "ECE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0609,610,611,STAT/\u200bMATH\u00a0\u00a0709,ECON\u00a0709,POLI\u00a0SCI\u00a0818, orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0761"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
             "subjects": [
                 "STAT"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
+        "course_title": "INTRODUCTORY APPLIED STATISTICS FOR THE LIFE SCIENCES",
+        "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0112and placed out ofMATH\u00a0113), (MATH\u00a0113and placed out ofMATH\u00a0112), (MATH\u00a0112and113),MATH\u00a0114,171,211or221or placement inMATH\u00a0221. Not open to students with credit for STAT 302 or324"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 803,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "EXPERIMENTAL DESIGN I",
+        "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 642,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR EPIDEMIOLOGY",
+        "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 841,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "NONPARAMETRIC STATISTICS AND MACHINE LEARNING METHODS",
+        "description": "Statistical function estimation and classification; reproducing kernel machines, support vector machines; high dimensional model selection and estimation; Bayesian, empirical Bayesian interpretation of nonparametric learning methods; log density ANOVA and graphical models; tree ensemble methods including bagging, boosting, and random forest.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 471,
+            "subjects": [
+                "COMPSCI",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COMPUTATIONAL STATISTICS",
+        "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310and (STAT\u00a0333or340), graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 698,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -15,41 +192,138 @@
     },
     {
         "course_reference": {
-            "course_number": 453,
+            "course_number": 611,
             "subjects": [
                 "STAT"
             ]
         },
-        "course_title": "INTRODUCTION TO DEEP LEARNING AND GENERATIVE MODELS",
-        "description": "Deep learning is a field that specializes in discovering and extracting intricate structures in large, unstructured datasets for parameterizing artificial neural networks with many layers. Since deep learning has pushed the state-of-the-art in many research and application areas, it's become indispensable for modern technology. Focuses on a understanding deep, artificial neural networks by connecting it to related concepts in statistics. Beyond covering deep learning models for predictive modeling, focus on deep generative models. Besides explanations on a mathematical and conceptual level, emphasize the practical aspects of deep learning. Open-source computing provides hands-on experience for implementing deep neural nets, working on supervised learning tasks, and applying generative models for dataset synthesis.",
+        "course_title": "STATISTICAL MODELS FOR DATA SCIENCE",
+        "description": "Probability, random variables and their distributions, joint and conditional distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts and limit theorems for sequences of random variables.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Data Science MS or Data Engineering MS"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 861,
+            "subjects": [
+                "COMPSCI",
+                "STAT",
+                "ECE"
+            ]
+        },
+        "course_title": "THEORETICAL FOUNDATIONS OF MACHINE LEARNING",
+        "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 375,
+                    "course_number": 761,
+                    "subjects": [
+                        "COMPSCI",
+                        "ECE"
+                    ]
+                },
+                {
+                    "course_number": 830,
+                    "subjects": [
+                        "ECE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0761orE\u00a0C\u00a0E\u00a0830"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 309,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO PROBABILITY AND MATHEMATICAL STATISTICS I",
+        "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 376,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 321,
+                    "course_number": 234,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 340,
+                    "course_number": 431,
                     "subjects": [
-                        "MATH"
+                        "MATH",
+                        "STAT"
                     ]
                 },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234,376, or concurrent enrollment. Not open to students with credit forSTAT/\u200bMATH\u00a0\u00a0431orSTAT\u00a0311"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 461,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "FINANCIAL STATISTICS",
+        "description": "Stochastic models and statistical methodologies are widely employed in modern finance. The models and their inferences are very important for academic research and financial practices. Financial stochastic models and their statistical inferences with applications to volatility analysis and risk management, introduction to discrete models such as binomial trees and GARCH and stochastic volatility models as well as simple continuous models like the Black-Scholes model. The focus will be on statistical inference, data analysis and risk management regarding these models.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0333,340, orECON\u00a0410) and (MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH\u00a0331,MATH/\u200bSTAT\u00a0\u00a0431, orMATH\u00a0531), graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO STATISTICAL INFERENCE",
+        "description": "Conditioning, distribution theory, approximation to distributions, modes of convergence, limit theorems, statistical models, parameter estimation, comparision of estimators, confidence sets, theory of hypothesis tests, introduction to Bayesian inference and nonparametric estimation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 451,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO MACHINE LEARNING AND STATISTICAL PATTERN CLASSIFICATION",
+        "description": "Pattern classification, regression analysis, clustering, and dimensionality reduction. For each category, covers fundamental algorithms and selections of contemporary, current state-of-the-art algorithms. Focus on evaluation of machine learning models using statistical methods. Statistical pattern classification approaches, including maximum likelihood estimation and Bayesian decision theory, algorithmic and nonparametric approaches. Practical use of machine learning algorithms using open source libraries from the Python programming ecosystem.",
+        "prerequisites": {
+            "course_references": [
                 {
                     "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
                     "subjects": [
                         "MATH"
                     ]
@@ -60,20 +334,84 @@
     },
     {
         "course_reference": {
-            "course_number": 760,
+            "course_number": 768,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR MEDICAL IMAGE ANALYSIS",
+        "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 360,
             "subjects": [
                 "STAT"
             ]
         },
-        "course_title": "MULTIVARIATE ANALYSIS I",
-        "description": "Multivariate normal distribution, estimation of mean and covariance matrix; Wishart distribution; distribution of partial and multiple correlation coefficients; Hotelling's T-squared, principal components.",
+        "course_title": "TOPICS IN STATISTICS STUDY ABROAD",
+        "description": "Credit is awarded for students having completed an advanced statistics course in a study abroad program for which there is no direct equivalence to the statistics department course offerings. The study abroad course must be pre-approved by the statistics department. Enrollment in a UW-Madison resident study abroad program.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "STATISTICS IN HUMAN GENETICS",
+        "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 710,
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 643,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "CLINICAL TRIAL DESIGN, IMPLEMENTATION, AND ANALYSIS",
+        "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 609,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 641,
                     "subjects": [
                         "STAT",
-                        "MATH"
+                        "BMI"
                     ]
                 },
                 {
@@ -83,37 +421,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 709,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "MATHEMATICAL STATISTICS",
-        "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 571,
-            "subjects": [
-                "STAT",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE I",
-        "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "STAT\u00a0609,610,B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0641, or graduate/professional standing"
         }
     },
     {
@@ -131,36 +439,6 @@
                     "course_number": 340,
                     "subjects": [
                         "STAT"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
                     ]
                 }
             ],
@@ -183,35 +461,198 @@
                     "subjects": [
                         "STAT"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0333or340) and (MATH\u00a0320,340,341, or375), graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 741,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "SURVIVAL ANALYSIS THEORY AND METHODS",
+        "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 849,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "THEORY AND APPLICATION OF REGRESSION AND ANALYSIS OF VARIANCE I",
+        "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 431,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO THE THEORY OF PROBABILITY",
+        "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 375,
+                    "course_number": 376,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 333,
+                    "course_number": 234,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234or376or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO PROBABILITY AND MATHEMATICAL STATISTICS II",
+        "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
                     "subjects": [
                         "STAT"
                     ]
                 },
                 {
-                    "course_number": 340,
+                    "course_number": 310,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 531,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 320,
+                    "course_number": 371,
                     "subjects": [
-                        "MATH"
+                        "STAT"
                     ]
                 },
                 {
-                    "course_number": 341,
+                    "course_number": 324,
                     "subjects": [
-                        "MATH"
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311,STAT/\u200bMATH\u00a0\u00a0431, orMATH\u00a0531) and (STAT\u00a0240,STAT\u00a0301, STAT 302,STAT\u00a0324,STAT\u00a0371, orECON\u00a0310), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 809,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "NON PARAMETRIC STATISTICS",
+        "description": "Statistical procedures valid under unrestrictive assumptions; sign test; confidence intervals; efficiency comparisons; signed rank procedures; Walsh sums; point estimators; two sample rank tests; zeros, ties, and other problems of discrete data; order statistics; Winsorized and truncated point estimators and connection with gross error models; permutation procedures; combinatorial problems, and computer applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 780,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO QUANTUM DATA SCIENCE",
+        "description": "Quantum computation issues, including probability, statistics, sensing, information, machine learning, and applying data science to quantum information science.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 601,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0601, (STAT\u00a0609and610), or (STAT\u00a0611and612)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 456,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "APPLIED MULTIVARIATE ANALYSIS",
+        "description": "Theory and applications of multivariate statistical methods. Basic concepts and statistical reasoning which underlie the techniques of multivariate analysis. Ideas rather than derivations stressed although basic models discussed to give the student some feeling for their adequacy in particular situations. Acquaintance with and use of existing computer programs in the multivariate analysis area.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
                     ]
                 }
             ],
@@ -220,19 +661,92 @@
     },
     {
         "course_reference": {
-            "course_number": 475,
+            "course_number": 877,
             "subjects": [
                 "STAT",
-                "COMPSCI",
-                "MATH"
+                "BMI"
             ]
         },
-        "course_title": "INTRODUCTION TO COMBINATORICS",
-        "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+        "course_title": "STATISTICAL METHODS FOR MOLECULAR BIOLOGY",
+        "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 998,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL CONSULTING",
+        "description": "Consulting apprenticeship.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 888,
+            "subjects": [
+                "MATH",
+                "STAT",
+                "ECE"
+            ]
+        },
+        "course_title": "TOPICS IN MATHEMATICAL DATA SCIENCE",
+        "description": "Advanced topics in the mathematical foundations of data science",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 453,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO DEEP LEARNING AND GENERATIVE MODELS",
+        "description": "Deep learning is a field that specializes in discovering and extracting intricate structures in large, unstructured datasets for parameterizing artificial neural networks with many layers. Since deep learning has pushed the state-of-the-art in many research and application areas, it's become indispensable for modern technology. Focuses on a understanding deep, artificial neural networks by connecting it to related concepts in statistics. Beyond covering deep learning models for predictive modeling, focus on deep generative models. Besides explanations on a mathematical and conceptual level, emphasize the practical aspects of deep learning. Open-source computing provides hands-on experience for implementing deep neural nets, working on supervised learning tasks, and applying generative models for dataset synthesis.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 341,
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0320,321,340,341,375, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 525,
+            "subjects": [
+                "MATH",
+                "COMPSCI",
+                "STAT",
+                "ISYE"
+            ]
+        },
+        "course_title": "LINEAR OPTIMIZATION",
+        "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 443,
                     "subjects": [
                         "MATH"
                     ]
@@ -250,13 +764,1097 @@
                     ]
                 },
                 {
-                    "course_number": 320,
+                    "course_number": 341,
                     "subjects": [
                         "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "(MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+            "prerequisites_text": "MATH\u00a0320,340,341,375, or443or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 860,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "ESTIMATION OF FUNCTIONS FROM DATA",
+        "description": "Statistical and appoximation theoretic methods of estimating functions and values of functionals from experimental data; experimental design and data analysis problems that arise as problems in approximation theory; convergence theorems; ill-posed inverse problems; Banach and Hilbert space penalty functionals.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 641,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR CLINICAL TRIALS",
+        "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 727,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "THEORY AND METHODS OF LONGITUDINAL DATA ANALYSIS",
+        "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 840,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL MODEL BUILDING AND LEARNING",
+        "description": "Theory of reproducing kernel Hilbert spaces in statistical model building; bounded linear functionals and representer theory; smoothing splines; ANOVA spines; degees of freedom for signal and the bias-variance tradeoff; Bayesian confidence intervals; model selection.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 760,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "MULTIVARIATE ANALYSIS I",
+        "description": "Multivariate normal distribution, estimation of mean and covariance matrix; Wishart distribution; distribution of partial and multiple correlation coefficients; Hotelling's T-squared, principal components.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 340,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DATA SCIENCE MODELING II",
+        "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0211,217, or221) andSTAT\u00a0240"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 612,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL INFERENCE FOR DATA SCIENCE",
+        "description": "Statistical models, methods and theory for parameter estimation, Bayesian approach to parameter estimation, methods and theory for hypothesis tests, confidence sets, two-sample testing and ANOVA, categorical data analysis, linear regression.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0611"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 732,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "LARGE SAMPLE THEORY OF STATISTICAL INFERENCE",
+        "description": "Stochastic modes of convergence. Asymptotic theory of normed sums of random variables with applications to asymptotic normality of estimators. Methods for deriving limit distributions of nonlinear statistics. Asymptotic relative efficiencies. Asymptotic confidence regions and tests of hypotheses. Models of non-identically distributed or dependent random variables.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 709,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0709"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 992,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Special topics in statistics at the graduate level. Subject matter varies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 615,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL LEARNING",
+        "description": "The development of a variety of mathematical theories and statistical concepts (1) to understand the properties of those models and methods used for the purpose of prediction from data or decision making from data, and (2) to criticize such models, methods and their consequences. Specifically, the theories and tools that will be developed will include complexity theory, Hilbert spaces, Gaussian processes, Variational Analysis, and concentration inequalities.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Statistics: Statistics and Data Science MS, Data Science MS, Data Engineering MS, or Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 834,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "EMPIRICAL PROCESSES AND SEMIPARAMETRIC INFERENCE",
+        "description": "Empirical process methods in statistics; semiparametric models; stochastic convergence in metric spaces; Glivenko-Cantelli and Donsker theorems; entropy calculations; bootstrapped empirical processes; functional delta method; Z-estimators; M-estimators; rates of convergence; semiparametric efficiency; semiparametric estimating equations; nonparametric maximum likelihood.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "MATHEMATICAL STATISTICS",
+        "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 709,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0709"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 811,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "SAMPLE SURVEY THEORY AND METHOD",
+        "description": "Simple random sampling; systematic sampling; probability sampling; stratified sampling; subsampling with units of equal and unequal size; double sampling; multi-stage and multi-phase sampling; ratio and regression estimates; model-based and model-assisted approaches; variance estimation; non-response.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 572,
+            "subjects": [
+                "F&WECOL",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE II",
+        "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 571,
+                    "subjects": [
+                        "F&WECOL",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 733,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "THEORY OF PROBABILITY I",
+        "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 850,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "THEORY AND APPLICATION OF REGRESSION AND ANALYSIS OF VARIANCE II",
+        "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 849,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0849"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 240,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DATA SCIENCE MODELING I",
+        "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 541,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO BIOSTATISTICS",
+        "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 551,
+                    "subjects": [
+                        "BMI",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing. Not open to students with credit for STAT 511 orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 403,
+            "subjects": [
+                "COMPSCI",
+                "STAT"
+            ]
+        },
+        "course_title": "INTERNSHIP COURSE IN COMP SCI AND DATA SCIENCE",
+        "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 761,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DECISION TREES FOR MULTIVARIATE ANALYSIS",
+        "description": "Tree construction, including finding splits, tree-pruning and error estimation. Categorical predictor variables, missing or censored data, prior class-probabilities, and unequal misclassification costs. Selection bias. Comparison with other statistics and machine-learning methods. Extensions to piecewise linear and non-least squares regression models.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO STATISTICAL METHODS",
+        "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement. Not open to students with credit for STAT 302,324, or371"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 628,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DATA SCIENCE PRACTICUM",
+        "description": "Provides an understanding of and experience with turning statistics concepts into practice through data science practicums inspired by realistic projects. Combine theory and methods expertise with communications skills to translate from a vaguely stated project description and complex data set into a concisely summarized analysis, including both written and graphical interpretation that can be used by decision makers in an organization.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Statistics: Statistics and Data Science MS"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 613,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR DATA SCIENCE",
+        "description": "Provides a thorough grounding in modern statistical methods. Introduces statistical techniques and methods of data analysis, including data description, linear regression models, diagnostic tools, prediction and model selection, and experimental design.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Data Science MS or Data Engineering MS"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 833,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "TOPICS IN THE THEORY OF PROBABILITY",
+        "description": "Advanced topics in probability and stochastic processes.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 726,
+            "subjects": [
+                "MATH",
+                "COMPSCI",
+                "STAT",
+                "ISYE"
+            ]
+        },
+        "course_title": "NONLINEAR OPTIMIZATION I",
+        "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 351,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTORY NONPARAMETRIC STATISTICS",
+        "description": "Distribution free statistical procedures or methods valid under nonrestrictive assumptions: basic tools; counting methods; order statistics, ranks, empirical distribution functions; distribution free tests and associated interval and point estimators; sign test; signed rank tests; rank tests; Mann Whitney Wilcoxon procedures; Kolmogorov Smirnov tests; permutation methods; kernel density estimation; kernel and spline regression estimation; computer techniques and programs; discussion and comparison with parametric methods.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 609,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "MATHEMATICAL STATISTICS I",
+        "description": "Review of probability, random variables and vectors and their distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts for sequences of random variables, laws of large numbers, central limit and other limit theorems.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 632,
+            "subjects": [
+                "MATH",
+                "OTM",
+                "STAT",
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO STOCHASTIC PROCESSES",
+        "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 531,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 421,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0431,309,STAT\u00a0311orMATH\u00a0531) and (MATH\u00a0320,340,341,375,421or531) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 601,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS I",
+        "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 772,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "LINEAR RANDOMIZED ALGORITHMS FOR DATA SCIENCE",
+        "description": "Introduce new algorithms that leverage randomization to address the scale, speed, and sensitivity needs of modern data science. Develop the mathematical foundations of such randomized algorithms. Criticize these algorithms through the lens of computational resource utilization. Implement these algorithms to address linear problems in data science.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 333,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "APPLIED REGRESSION ANALYSIS",
+        "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0240,301, 302,312,324,371,ECON\u00a0310,B\u00a0M\u00a0E\u00a0325, orI\u00a0SY\u00a0E\u00a0210) and (STAT 327 or303, or concurrent enrollment)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 311,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS I",
+        "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234,376, or concurrent enrollment or graduate/professsional standing. Not open to students with credit forSTAT/\u200bMATH\u00a0\u00a0309orSTAT/\u200bMATH\u00a0\u00a0431"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "R FOR STATISTICS III",
+        "description": "Provides an understanding of the commonly used statistical language R. Learn to combine R with high performance computing tools to do scientific computing.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 304,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0304"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 678,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO STATISTICAL CONSULTING",
+        "description": "Develop statistical consulting skills to be able to communicate design and analysis to non-technical research collaborators. Provides a supportive environment to experiment with statistical consulting in practice, which will sometimes be uncomfortable and strange. Consulting problems typically do not have a \"right\" answer, and mistakes are encouraged. Take risks in sharing developing ideas in class. Connections with external organizations, such as the private sector and government agencies, will be made through possible internship experiences.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Statistics MS"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 828,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "SEMIPARAMETRIC METHODS IN DATA SCIENCE",
+        "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 405,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DATA SCIENCE COMPUTING PROJECT",
+        "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs used include Linux, R, distributed computing, text editor(s), git/github, and other related tools. Work in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0240or303) and (COMP\u00a0SCI\u00a0200,220,300, or placement intoCOMP\u00a0SCI\u00a0300), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 709,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "MATHEMATICAL STATISTICS",
+        "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "COMPUTING IN DATA SCIENCE AND STATISTICS",
+        "description": "A survey of some of the tools and frameworks that are currently popular among data scientists and statisticians working in both academia and industry. Begins with an accelerated introduction to the Python programming language and brief introductions to object-oriented and functional programming. Covers some of the scientific computing platforms available in Python, including tools for numerical and scientific computing; training basic machine learning models; and data visualization. Discusses collecting data from the web both by scraping and using APIs. Concludes with a brief survey of distributed computing platforms, focusing on the MapReduce framework.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Statistics MS or Statistics VISP (undergraduate)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 303,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "R FOR STATISTICS I",
+        "description": "An understanding of the commonly used statistical language R. Topics will include using R to manipulate data and perform exploratory data analysis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0240,301, 302,312,324,371,MATH/\u200bSTAT\u00a0\u00a0310,ECON\u00a0310, GEN BUS 303, 304,306,307,317,PSYCH\u00a0210,B\u00a0M\u00a0E\u00a0325,I\u00a0SY\u00a0E\u00a0210,SOC/\u200bC&E\u00a0SOC\u00a0\u00a0360, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 436,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL DATA VISUALIZATION",
+        "description": "Techniques for visualization within data science workflows. Topics include data preparation; exploratory data analysis; spatial, tabular, and graph structured data; dimensionality reduction; model visualization and interpretability; interactive queries and navigation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0240or303), graduate professional/standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 411,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "AN INTRODUCTION TO SAMPLE SURVEY THEORY AND METHODS",
+        "description": "An introduction to the methods used to design sample surveys and analyze the results. Topics covered include: basic tools, simple random sampling, ratio and regression estimation, stratification, systematic sampling, cluster (area) sampling, two-stage sampling, unequal probability sampling, non-sampling errors, and missing data. For illustration and clarification, examples are drawn from diverse areas of application.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 679,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN STATISTICS",
+        "description": "Special topics in statistics at the master's level. Subject matter varies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 627,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "PROFESSIONAL SKILLS IN DATA SCIENCE",
+        "description": "Covers important aspects of professional development in statistics, including skills with internet tools, sophisticated use of statistical languages (such as R) and other emerging topics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 349,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO TIME SERIES",
+        "description": "Autocorrelation; stationarity and non-stationarity; heteroscedasticity; dynamic models; auto-regressive and moving average models; identification and fitting; forecasting; seasonal adjustment; applications for financial time series, social sciences and environmental studies.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 571,
+            "subjects": [
+                "F&WECOL",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE I",
+        "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 324,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTORY APPLIED STATISTICS FOR ENGINEERS",
+        "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0211,217, or221. Not open to students with credit for STAT 302 or371"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 443,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "CLASSIFICATION AND REGRESSION TREES",
+        "description": "Introduction to algorithms and applications of classification and regression trees. Recursive partitioning, pruning, and cross-validation estimation of prediction error. Class priors and misclassification costs. Univariate and linear splits. Linear and kernel discriminant analysis and nearest-neighbor classification. Unbiased variable selection and importance scoring of variables. Least-squares, quantile, Poisson, logistic, and proportional hazards regression tree models. Tree ensembles. Subgroup identification of differential treatment effects. Multiple and longitudinal response variables. Missing values and multiple missing value codes.  Comparisons with neural networks, support vector machines, and other methods. Bootstrap calibration and post-selection inference. Applications to business, social science, engineering, biology, medicine, and other fields.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 801,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "ADVANCED FINANCIAL STATISTICS",
+        "description": "Statistical theory and methodology for modern financial data. Topics include financial stochastic models based on time series and stochastic calculus, modern statistical inference, and statistical learning for financial data as well as their applications to financial problems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 601,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0601or701"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 542,
+            "subjects": [
+                "STAT",
+                "BMI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO CLINICAL TRIALS I",
+        "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 541,
+                    "subjects": [
+                        "STAT",
+                        "BMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0541"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 424,
+            "subjects": [
+                "ME",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL EXPERIMENTAL DESIGN",
+        "description": "Introduction to statistical design and analysis of experiments. Topics include: principles of randomization, blocking and replication, randomized blocking designs, Latin square designs, full factorial and fractional factorial designs and response surface methodology. Substantial focus will be devoted to engineering applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 312,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0240,301, 302,312,324,371, orMATH/\u200bSTAT\u00a0\u00a0310"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 421,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "APPLIED CATEGORICAL DATA ANALYSIS",
+        "description": "Analysis of multidimensional contingency tables, Poisson regression, and logistic regression, with emphasis on practical applications. Use of computer programs for such analyses. Model selection, testing goodness of fit, estimation of parameters, measures of association and methods for detecting sources of significance.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
         }
     },
     {
@@ -268,6 +1866,21 @@
         },
         "course_title": "STATISTICAL COMPUTING",
         "description": "The design of statistical software including special techniques for probability distributions, methods of simulation of random processes, numerical methods for linear models and multivariate analysis, and methods for nonlinear models.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 734,
+            "subjects": [
+                "MATH",
+                "STAT"
+            ]
+        },
+        "course_title": "THEORY OF PROBABILITY II",
+        "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -296,2139 +1909,6 @@
     },
     {
         "course_reference": {
-            "course_number": 403,
-            "subjects": [
-                "COMPSCI",
-                "STAT"
-            ]
-        },
-        "course_title": "INTERNSHIP COURSE IN COMP SCI AND DATA SCIENCE",
-        "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 461,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "FINANCIAL STATISTICS",
-        "description": "Stochastic models and statistical methodologies are widely employed in modern finance. The models and their inferences are very important for academic research and financial practices. Financial stochastic models and their statistical inferences with applications to volatility analysis and risk management, introduction to discrete models such as binomial trees and GARCH and stochastic volatility models as well as simple continuous models like the Black-Scholes model. The focus will be on statistical inference, data analysis and risk management regarding these models.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0333,340, orECON\u00a0410) and (MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH\u00a0331,MATH/\u200bSTAT\u00a0\u00a0431, orMATH\u00a0531), graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 809,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "NON PARAMETRIC STATISTICS",
-        "description": "Statistical procedures valid under unrestrictive assumptions; sign test; confidence intervals; efficiency comparisons; signed rank procedures; Walsh sums; point estimators; two sample rank tests; zeros, ties, and other problems of discrete data; order statistics; Winsorized and truncated point estimators and connection with gross error models; permutation procedures; combinatorial problems, and computer applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 732,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "LARGE SAMPLE THEORY OF STATISTICAL INFERENCE",
-        "description": "Stochastic modes of convergence. Asymptotic theory of normed sums of random variables with applications to asymptotic normality of estimators. Methods for deriving limit distributions of nonlinear statistics. Asymptotic relative efficiencies. Asymptotic confidence regions and tests of hypotheses. Models of non-identically distributed or dependent random variables.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 709,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0709"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 333,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "APPLIED REGRESSION ANALYSIS",
-        "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0240,301, 302,312,324,371,ECON\u00a0310,B\u00a0M\u00a0E\u00a0325, orI\u00a0SY\u00a0E\u00a0210) and (STAT 327 or303, or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 678,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STATISTICAL CONSULTING",
-        "description": "Develop statistical consulting skills to be able to communicate design and analysis to non-technical research collaborators. Provides a supportive environment to experiment with statistical consulting in practice, which will sometimes be uncomfortable and strange. Consulting problems typically do not have a \"right\" answer, and mistakes are encouraged. Take risks in sharing developing ideas in class. Connections with external organizations, such as the private sector and government agencies, will be made through possible internship experiences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Statistics MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 571,
-            "subjects": [
-                "F&WECOL",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE I",
-        "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 310,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO PROBABILITY AND MATHEMATICAL STATISTICS II",
-        "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311,STAT/\u200bMATH\u00a0\u00a0431, orMATH\u00a0531) and (STAT\u00a0240,STAT\u00a0301, STAT 302,STAT\u00a0324,STAT\u00a0371, orECON\u00a0310), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 309,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO PROBABILITY AND MATHEMATICAL STATISTICS I",
-        "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234,376, or concurrent enrollment. Not open to students with credit forSTAT/\u200bMATH\u00a0\u00a0431orSTAT\u00a0311"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 611,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL MODELS FOR DATA SCIENCE",
-        "description": "Probability, random variables and their distributions, joint and conditional distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts and limit theorems for sequences of random variables.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Declared in Data Science MS or Data Engineering MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 612,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL INFERENCE FOR DATA SCIENCE",
-        "description": "Statistical models, methods and theory for parameter estimation, Bayesian approach to parameter estimation, methods and theory for hypothesis tests, confidence sets, two-sample testing and ANOVA, categorical data analysis, linear regression.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0611"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 877,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR MOLECULAR BIOLOGY",
-        "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 828,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "SEMIPARAMETRIC METHODS IN DATA SCIENCE",
-        "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 421,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "APPLIED CATEGORICAL DATA ANALYSIS",
-        "description": "Analysis of multidimensional contingency tables, Poisson regression, and logistic regression, with emphasis on practical applications. Use of computer programs for such analyses. Model selection, testing goodness of fit, estimation of parameters, measures of association and methods for detecting sources of significance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 424,
-            "subjects": [
-                "ME",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL EXPERIMENTAL DESIGN",
-        "description": "Introduction to statistical design and analysis of experiments. Topics include: principles of randomization, blocking and replication, randomized blocking designs, Latin square designs, full factorial and fractional factorial designs and response surface methodology. Substantial focus will be devoted to engineering applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 312,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0240,301, 302,312,324,371, orMATH/\u200bSTAT\u00a0\u00a0310"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 803,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "EXPERIMENTAL DESIGN I",
-        "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 741,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "SURVIVAL ANALYSIS THEORY AND METHODS",
-        "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 772,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "LINEAR RANDOMIZED ALGORITHMS FOR DATA SCIENCE",
-        "description": "Introduce new algorithms that leverage randomization to address the scale, speed, and sensitivity needs of modern data science. Develop the mathematical foundations of such randomized algorithms. Criticize these algorithms through the lens of computational resource utilization. Implement these algorithms to address linear problems in data science.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 627,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "PROFESSIONAL SKILLS IN DATA SCIENCE",
-        "description": "Covers important aspects of professional development in statistics, including skills with internet tools, sophisticated use of statistical languages (such as R) and other emerging topics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 861,
-            "subjects": [
-                "ECE",
-                "COMPSCI",
-                "STAT"
-            ]
-        },
-        "course_title": "THEORETICAL FOUNDATIONS OF MACHINE LEARNING",
-        "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 830,
-                    "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 761,
-                    "subjects": [
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0761orE\u00a0C\u00a0E\u00a0830"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 840,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL MODEL BUILDING AND LEARNING",
-        "description": "Theory of reproducing kernel Hilbert spaces in statistical model building; bounded linear functionals and representer theory; smoothing splines; ANOVA spines; degees of freedom for signal and the bias-variance tradeoff; Bayesian confidence intervals; model selection.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 841,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "NONPARAMETRIC STATISTICS AND MACHINE LEARNING METHODS",
-        "description": "Statistical function estimation and classification; reproducing kernel machines, support vector machines; high dimensional model selection and estimation; Bayesian, empirical Bayesian interpretation of nonparametric learning methods; log density ANOVA and graphical models; tree ensemble methods including bagging, boosting, and random forest.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 775,
-            "subjects": [
-                "GENBUS",
-                "ECON",
-                "STAT"
-            ]
-        },
-        "course_title": "BAYESIAN STATISTICS",
-        "description": "Introduces the theory, methods, and computational procedures needed to perform advanced Bayesian data analyses. Predictive and decision-theoretic motivations including subjective probability, risk, admissibility, and exchangeability; highlights key components of Bayesian analysis (i.e., prior, likelihood, posterior, and predictive distributions) within standard parametric models and advanced hierarchical and multilevel models; demonstrates the iterative process of model specification, implementation, criticism, and revision with applied case studies; implements computational techniques (e.g., Markov chain Monte Carlo, variational inference) in modern probabilistic programming languages.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 761,
-                    "subjects": [
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 609,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 818,
-                    "subjects": [
-                        "POLISCI"
-                    ]
-                },
-                {
-                    "course_number": 709,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 709,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0609,610,611,STAT/\u200bMATH\u00a0\u00a0709,ECON\u00a0709,POLI\u00a0SCI\u00a0818, orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0761"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 860,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "ESTIMATION OF FUNCTIONS FROM DATA",
-        "description": "Statistical and appoximation theoretic methods of estimating functions and values of functionals from experimental data; experimental design and data analysis problems that arise as problems in approximation theory; convergence theorems; ill-posed inverse problems; Banach and Hilbert space penalty functionals.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 456,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "APPLIED MULTIVARIATE ANALYSIS",
-        "description": "Theory and applications of multivariate statistical methods. Basic concepts and statistical reasoning which underlie the techniques of multivariate analysis. Ideas rather than derivations stressed although basic models discussed to give the student some feeling for their adequacy in particular situations. Acquaintance with and use of existing computer programs in the multivariate analysis area.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0333or340) and (MATH\u00a0320,340,341, or375), graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "APPLIED TIME SERIES ANALYSIS, FORECASTING AND CONTROL I",
-        "description": "Theory and application of discrete time series models illustrated with forecasting problems. Principles of iterative model building. Representation of dynamic relations by difference equations. Autoregressive integrated Moving Average models. Identification, fitting, diagnostic checking of models. Seasonal model application to forecasting in business, economics, ecology, and engineering used at each stage, which the student analyzes using computer programs which have been specially written and extensively tested.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 601,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS I",
-        "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 601,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 605,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DATA SCIENCE COMPUTING PROJECT",
-        "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs utilized include Linux, R, distributed computing, powerful editor(s), git/github, and other related tools. Work in the class will be done in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Statistics MS or Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 861,
-            "subjects": [
-                "COMPSCI",
-                "ECE",
-                "STAT"
-            ]
-        },
-        "course_title": "THEORETICAL FOUNDATIONS OF MACHINE LEARNING",
-        "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 830,
-                    "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 761,
-                    "subjects": [
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0761orE\u00a0C\u00a0E\u00a0830"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 351,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTORY NONPARAMETRIC STATISTICS",
-        "description": "Distribution free statistical procedures or methods valid under nonrestrictive assumptions: basic tools; counting methods; order statistics, ranks, empirical distribution functions; distribution free tests and associated interval and point estimators; sign test; signed rank tests; rank tests; Mann Whitney Wilcoxon procedures; Kolmogorov Smirnov tests; permutation methods; kernel density estimation; kernel and spline regression estimation; computer techniques and programs; discussion and comparison with parametric methods.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 340,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DATA SCIENCE MODELING II",
-        "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0211,217, or221) andSTAT\u00a0240"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 679,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN STATISTICS",
-        "description": "Special topics in statistics at the master's level. Subject matter varies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 411,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "AN INTRODUCTION TO SAMPLE SURVEY THEORY AND METHODS",
-        "description": "An introduction to the methods used to design sample surveys and analyze the results. Topics covered include: basic tools, simple random sampling, ratio and regression estimation, stratification, systematic sampling, cluster (area) sampling, two-stage sampling, unequal probability sampling, non-sampling errors, and missing data. For illustration and clarification, examples are drawn from diverse areas of application.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 833,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "TOPICS IN THE THEORY OF PROBABILITY",
-        "description": "Advanced topics in probability and stochastic processes.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 780,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO QUANTUM DATA SCIENCE",
-        "description": "Quantum computation issues, including probability, statistics, sensing, information, machine learning, and applying data science to quantum information science.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 609,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 601,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 612,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0601, (STAT\u00a0609and610), or (STAT\u00a0611and612)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "MATHEMATICAL STATISTICS",
-        "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 709,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0709"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ISYE",
-                "STAT",
-                "OTM",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STOCHASTIC PROCESSES",
-        "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 421,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0431,309,STAT\u00a0311orMATH\u00a0531) and (MATH\u00a0320,340,341,375,421or531) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 451,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO MACHINE LEARNING AND STATISTICAL PATTERN CLASSIFICATION",
-        "description": "Pattern classification, regression analysis, clustering, and dimensionality reduction. For each category, covers fundamental algorithms and selections of contemporary, current state-of-the-art algorithms. Focus on evaluation of machine learning models using statistical methods. Statistical pattern classification approaches, including maximum likelihood estimation and Bayesian decision theory, algorithmic and nonparametric approaches. Practical use of machine learning algorithms using open source libraries from the Python programming ecosystem.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 321,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0320,321,340,341,375, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 811,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "SAMPLE SURVEY THEORY AND METHOD",
-        "description": "Simple random sampling; systematic sampling; probability sampling; stratified sampling; subsampling with units of equal and unequal size; double sampling; multi-stage and multi-phase sampling; ratio and regression estimates; model-based and model-assisted approaches; variance estimation; non-response.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 642,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR EPIDEMIOLOGY",
-        "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 443,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "CLASSIFICATION AND REGRESSION TREES",
-        "description": "Introduction to algorithms and applications of classification and regression trees. Recursive partitioning, pruning, and cross-validation estimation of prediction error. Class priors and misclassification costs. Univariate and linear splits. Linear and kernel discriminant analysis and nearest-neighbor classification. Unbiased variable selection and importance scoring of variables. Least-squares, quantile, Poisson, logistic, and proportional hazards regression tree models. Tree ensembles. Subgroup identification of differential treatment effects. Multiple and longitudinal response variables. Missing values and multiple missing value codes.  Comparisons with neural networks, support vector machines, and other methods. Bootstrap calibration and post-selection inference. Applications to business, social science, engineering, biology, medicine, and other fields.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "ISYE",
-                "STAT",
-                "COMPSCI",
-                "MATH"
-            ]
-        },
-        "course_title": "LINEAR OPTIMIZATION",
-        "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 443,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0320,340,341,375, or443or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 542,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO CLINICAL TRIALS I",
-        "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 541,
-                    "subjects": [
-                        "BMI",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0541"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 475,
-            "subjects": [
-                "COMPSCI",
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO COMBINATORICS",
-        "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "ADVANCED FINANCIAL STATISTICS",
-        "description": "Statistical theory and methodology for modern financial data. Topics include financial stochastic models based on time series and stochastic calculus, modern statistical inference, and statistical learning for financial data as well as their applications to financial problems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 701,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 601,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0601or701"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 324,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTORY APPLIED STATISTICS FOR ENGINEERS",
-        "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0211,217, or221. Not open to students with credit for STAT 302 or371"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "TOPICS IN STATISTICS STUDY ABROAD",
-        "description": "Credit is awarded for students having completed an advanced statistics course in a study abroad program for which there is no direct equivalence to the statistics department course offerings. The study abroad course must be pre-approved by the statistics department. Enrollment in a UW-Madison resident study abroad program.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 431,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THE THEORY OF PROBABILITY",
-        "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234or376or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 471,
-            "subjects": [
-                "COMPSCI",
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO COMPUTATIONAL STATISTICS",
-        "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310and (STAT\u00a0333or340), graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 761,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DECISION TREES FOR MULTIVARIATE ANALYSIS",
-        "description": "Tree construction, including finding splits, tree-pruning and error estimation. Categorical predictor variables, missing or censored data, prior class-probabilities, and unequal misclassification costs. Selection bias. Comparison with other statistics and machine-learning methods. Extensions to piecewise linear and non-least squares regression models.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 698,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STATISTICAL INFERENCE",
-        "description": "Conditioning, distribution theory, approximation to distributions, modes of convergence, limit theorems, statistical models, parameter estimation, comparision of estimators, confidence sets, theory of hypothesis tests, introduction to Bayesian inference and nonparametric estimation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 303,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "R FOR STATISTICS I",
-        "description": "An understanding of the commonly used statistical language R. Topics will include using R to manipulate data and perform exploratory data analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 312,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 307,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 317,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 360,
-                    "subjects": [
-                        "C&ESOC",
-                        "SOC"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 325,
-                    "subjects": [
-                        "BME"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0240,301, 302,312,324,371,MATH/\u200bSTAT\u00a0\u00a0310,ECON\u00a0310, GEN BUS 303, 304,306,307,317,PSYCH\u00a0210,B\u00a0M\u00a0E\u00a0325,I\u00a0SY\u00a0E\u00a0210,SOC/\u200bC&E\u00a0SOC\u00a0\u00a0360, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 349,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO TIME SERIES",
-        "description": "Autocorrelation; stationarity and non-stationarity; heteroscedasticity; dynamic models; auto-regressive and moving average models; identification and fitting; forecasting; seasonal adjustment; applications for financial time series, social sciences and environmental studies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0333,340, graduate/professional standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 733,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "THEORY OF PROBABILITY I",
-        "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 240,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DATA SCIENCE MODELING I",
-        "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 301,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STATISTICAL METHODS",
-        "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement. Not open to students with credit for STAT 302,324, or371"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS I",
-        "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234,376, or concurrent enrollment or graduate/professsional standing. Not open to students with credit forSTAT/\u200bMATH\u00a0\u00a0309orSTAT/\u200bMATH\u00a0\u00a0431"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "COMPSCI",
-                "ISYE",
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "LINEAR OPTIMIZATION",
-        "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 525,
-                    "subjects": [
-                        "COMPSCI",
-                        "ISYE",
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0320,340,341,375, or443or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 436,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL DATA VISUALIZATION",
-        "description": "Techniques for visualization within data science workflows. Topics include data preparation; exploratory data analysis; spatial, tabular, and graph structured data; dimensionality reduction; model visualization and interpretability; interactive queries and navigation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0240or303), graduate professional/standing, or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL LEARNING",
-        "description": "The development of a variety of mathematical theories and statistical concepts (1) to understand the properties of those models and methods used for the purpose of prediction from data or decision making from data, and (2) to criticize such models, methods and their consequences. Specifically, the theories and tools that will be developed will include complexity theory, Hilbert spaces, Gaussian processes, Variational Analysis, and concentration inequalities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Statistics: Statistics and Data Science MS, Data Science MS, Data Engineering MS, or Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 609,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "MATHEMATICAL STATISTICS I",
-        "description": "Review of probability, random variables and vectors and their distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts for sequences of random variables, laws of large numbers, central limit and other limit theorems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in Statistics VISP"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 726,
-            "subjects": [
-                "ISYE",
-                "STAT",
-                "COMPSCI",
-                "MATH"
-            ]
-        },
-        "course_title": "NONLINEAR OPTIMIZATION I",
-        "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 850,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "THEORY AND APPLICATION OF REGRESSION AND ANALYSIS OF VARIANCE II",
-        "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 849,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0849"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 734,
-            "subjects": [
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "THEORY OF PROBABILITY II",
-        "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 572,
-            "subjects": [
-                "F&WECOL",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE II",
-        "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 571,
-                    "subjects": [
-                        "STAT",
-                        "F&WECOL"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 834,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "EMPIRICAL PROCESSES AND SEMIPARAMETRIC INFERENCE",
-        "description": "Empirical process methods in statistics; semiparametric models; stochastic convergence in metric spaces; Glivenko-Cantelli and Donsker theorems; entropy calculations; bootstrapped empirical processes; functional delta method; Z-estimators; M-estimators; rates of convergence; semiparametric efficiency; semiparametric estimating equations; nonparametric maximum likelihood.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610orMATH/\u200bSTAT\u00a0\u00a0710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 312,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS II",
-        "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311,STAT/\u200bMATH\u00a0\u00a0431,MATH\u00a0531, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "R FOR STATISTICS III",
-        "description": "Provides an understanding of the commonly used statistical language R. Learn to combine R with high performance computing tools to do scientific computing.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 304,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0304"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 849,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "THEORY AND APPLICATION OF REGRESSION AND ANALYSIS OF VARIANCE I",
-        "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 572,
-            "subjects": [
-                "STAT",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR BIOSCIENCE II",
-        "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 571,
-                    "subjects": [
-                        "STAT",
-                        "F&WECOL"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 992,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "SEMINAR",
-        "description": "Special topics in statistics at the graduate level. Subject matter varies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ISYE",
-                "OTM",
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STOCHASTIC PROCESSES",
-        "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 421,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0431,309,STAT\u00a0311orMATH\u00a0531) and (MATH\u00a0320,340,341,375,421or531) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 641,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR CLINICAL TRIALS",
-        "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 888,
-            "subjects": [
-                "ECE",
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "TOPICS IN MATHEMATICAL DATA SCIENCE",
-        "description": "Advanced topics in the mathematical foundations of data science",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 304,
             "subjects": [
                 "STAT"
@@ -2450,174 +1930,13 @@
     },
     {
         "course_reference": {
-            "course_number": 727,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "THEORY AND METHODS OF LONGITUDINAL DATA ANALYSIS",
-        "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
+            "course_number": 990,
             "subjects": [
                 "STAT"
             ]
         },
-        "course_title": "INTRODUCTORY APPLIED STATISTICS FOR THE LIFE SCIENCES",
-        "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0112and placed out ofMATH\u00a0113), (MATH\u00a0113and placed out ofMATH\u00a0112), (MATH\u00a0112and113),MATH\u00a0114,171,211or221or placement inMATH\u00a0221. Not open to students with credit for STAT 302 or324"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 541,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO BIOSTATISTICS",
-        "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 551,
-                    "subjects": [
-                        "BMI",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing. Not open to students with credit for STAT 511 orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 606,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "COMPUTING IN DATA SCIENCE AND STATISTICS",
-        "description": "A survey of some of the tools and frameworks that are currently popular among data scientists and statisticians working in both academia and industry. Begins with an accelerated introduction to the Python programming language and brief introductions to object-oriented and functional programming. Covers some of the scientific computing platforms available in Python, including tools for numerical and scientific computing; training basic machine learning models; and data visualization. Discusses collecting data from the web both by scraping and using APIs. Concludes with a brief survey of distributed computing platforms, focusing on the MapReduce framework.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Statistics MS or Statistics VISP (undergraduate)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 768,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR MEDICAL IMAGE ANALYSIS",
-        "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 643,
-            "subjects": [
-                "BMI",
-                "STAT"
-            ]
-        },
-        "course_title": "CLINICAL TRIAL DESIGN, IMPLEMENTATION, AND ANALYSIS",
-        "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 641,
-                    "subjects": [
-                        "BMI",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 609,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0609,610,B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0641, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 613,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR DATA SCIENCE",
-        "description": "Provides a thorough grounding in modern statistical methods. Introduces statistical techniques and methods of data analysis, including data description, linear regression models, diagnostic tools, prediction and model selection, and experimental design.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Data Science MS or Data Engineering MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 726,
-            "subjects": [
-                "COMPSCI",
-                "ISYE",
-                "STAT",
-                "MATH"
-            ]
-        },
-        "course_title": "NONLINEAR OPTIMIZATION I",
-        "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with a faculty member.",
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -2639,13 +1958,68 @@
     },
     {
         "course_reference": {
-            "course_number": 998,
+            "course_number": 475,
+            "subjects": [
+                "MATH",
+                "COMPSCI",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COMBINATORICS",
+        "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 605,
             "subjects": [
                 "STAT"
             ]
         },
-        "course_title": "STATISTICAL CONSULTING",
-        "description": "Consulting apprenticeship.",
+        "course_title": "DATA SCIENCE COMPUTING PROJECT",
+        "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs utilized include Linux, R, distributed computing, powerful editor(s), git/github, and other related tools. Work in the class will be done in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Statistics MS or Statistics VISP"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "STAT"
+            ]
+        },
+        "course_title": "APPLIED TIME SERIES ANALYSIS, FORECASTING AND CONTROL I",
+        "description": "Theory and application of discrete time series models illustrated with forecasting problems. Principles of iterative model building. Representation of dynamic relations by difference equations. Autoregressive integrated Moving Average models. Identification, fitting, diagnostic checking of models. Seasonal model application to forecasting in business, economics, ecology, and engineering used at each stage, which the student analyzes using computer programs which have been specially written and extensively tested.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -2653,89 +2027,23 @@
     },
     {
         "course_reference": {
-            "course_number": 620,
+            "course_number": 312,
             "subjects": [
-                "BMI",
                 "STAT"
             ]
         },
-        "course_title": "STATISTICS IN HUMAN GENETICS",
-        "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
+        "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS II",
+        "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
+                    "course_number": 311,
                     "subjects": [
                         "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "STAT\u00a0333,340, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 628,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DATA SCIENCE PRACTICUM",
-        "description": "Provides an understanding of and experience with turning statistics concepts into practice through data science practicums inspired by realistic projects. Combine theory and methods expertise with communications skills to translate from a vaguely stated project description and complex data set into a concisely summarized analysis, including both written and graphical interpretation that can be used by decision makers in an organization.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Statistics: Statistics and Data Science MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 405,
-            "subjects": [
-                "STAT"
-            ]
-        },
-        "course_title": "DATA SCIENCE COMPUTING PROJECT",
-        "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs used include Linux, R, distributed computing, text editor(s), git/github, and other related tools. Work in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 220,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 200,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0240or303) and (COMP\u00a0SCI\u00a0200,220,300, or placement intoCOMP\u00a0SCI\u00a0300), or graduate/professional standing"
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311,STAT/\u200bMATH\u00a0\u00a0431,MATH\u00a0531, or graduate/professional standing"
         }
     }
 ]

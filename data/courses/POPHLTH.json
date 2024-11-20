@@ -1,13 +1,13 @@
 [
     {
         "course_reference": {
-            "course_number": 794,
+            "course_number": 819,
             "subjects": [
                 "POPHLTH"
             ]
         },
-        "course_title": "BIOLOGICAL BASIS OF POPULATION HEALTH",
-        "description": "Covers the physiology, biology and biochemistry of selected disease processes deemed to be important in population health sciences by virtue of their clinical significance including incidence, mortality and morbidity.",
+        "course_title": "SOCIAL NETWORK ANALYSIS AND HEALTH",
+        "description": "Provides an overview and synthesis of research utilizing social network analysis in relation to health, drawing on studies by sociologists, economists, computer scientists, physicians and health services researchers. Enables students to understand how social network data are collected and processed; how to calculate appropriate network measures; how to apply statistical modeling of social network effects on health behavior. Surveys social network studies related to substance use, smoking, contraception, AIDS, obesity and many other health conditions. Also looks at the social networks of health organizations in relation to patient outcomes. Prior coursework in data analysis and statistical methods is recommended.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -15,92 +15,75 @@
     },
     {
         "course_reference": {
-            "course_number": 881,
+            "course_number": 705,
             "subjects": [
-                "AAE",
-                "PUBAFFR",
+                "MEDICINE",
+                "NURSING",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SEMINAR IN INTERDISCIPLINARY CLINICAL RESEARCH EVIDENCE",
+        "description": "Exploration of interdisciplinary clinical research questions including strategies for assessing the evidence and methodology for conducting various types of literature reviews. Emphasizes an interdisciplinary perspective.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andSTAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0542"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 502,
+            "subjects": [
                 "ENVIRST",
                 "POPHLTH"
             ]
         },
-        "course_title": "BENEFIT-COST ANALYSIS",
-        "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
+        "course_title": "AIR POLLUTION AND HUMAN HEALTH",
+        "description": "Toxicologic, controlled and epidemiologic studies on major air pollutants. Overview of study methods, lung physiology and pathology; air pollution sources, types, meteorology, sampling methods, controls and regulations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 847,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "CARDIOVASCULAR EPIDEMIOLOGY",
+        "description": "The main emphasis is the discussion of the population distribution, health impact, risk factors, treatment, and prevention of cardiovascular diseases.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 818,
+                    "course_number": 797,
                     "subjects": [
-                        "PUBAFFR"
-                    ]
-                },
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                },
-                {
-                    "course_number": 875,
-                    "subjects": [
-                        "ISYE",
+                        "SOC",
                         "POPHLTH"
                     ]
-                },
-                {
-                    "course_number": 635,
-                    "subjects": [
-                        "AAE"
-                    ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing and (PUB\u00a0AFFR\u00a0818and880), orPOP\u00a0HLTH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0875, orA\u00a0A\u00a0E\u00a0635"
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
         }
     },
     {
         "course_reference": {
-            "course_number": 548,
+            "course_number": 875,
             "subjects": [
-                "PUBAFFR",
-                "ECON",
-                "POPHLTH"
+                "POPHLTH",
+                "ISYE"
             ]
         },
-        "course_title": "THE ECONOMICS OF HEALTH CARE",
-        "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ECON\u00a0301,ECON\u00a0311, orPUB\u00a0AFFR\u00a0880"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "BMI",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "ADVANCED REGRESSION METHODS FOR POPULATION HEALTH",
-        "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
+        "course_title": "COST EFFECTIVENESS ANALYSIS IN HEALTH AND HEALTHCARE",
+        "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
         "prerequisites": {
             "course_references": [
                 {
@@ -111,124 +94,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 553,
-            "subjects": [
-                "POPHLTH",
-                "HISTSCI",
-                "MEDHIST"
-            ]
-        },
-        "course_title": "INTERNATIONAL HEALTH AND GLOBAL SOCIETY",
-        "description": "Major problems in international health from 1750 to the present. Focus on disease epidemiology and ecology; political economy of health; migration; quarantine; race, ethnicity, and health care; international health research; cross-cultural healing; mental and maternal health; growth of international health organizations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 955,
-            "subjects": [
-                "KINES",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "SEMINAR - PHYSICAL ACTIVITY EPIDEMIOLOGY",
-        "description": "Current research developments in physical activity epidemiology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 703,
-            "subjects": [
-                "ISYE",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "QUALITY OF HEALTH CARE: EVALUATION AND ASSURANCE",
-        "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 729,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PREPAREDNESS IN PUBLIC HEALTH",
-        "description": "Provides an overview of various types of public health emergencies and disasters including the organizations and disciplines that prepare and respond to natural and unnatural emergencies. Gain an understanding of how public health officials, public health practitioners, state and local health department staff, health care personnel and emergency responders plan for and respond to public health emergencies. The role of the physician will specifically be explored.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 739,
-            "subjects": [
-                "ENVIRST",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "CLIMATE CHANGE, HUMAN AND PLANETARY HEALTH",
-        "description": "Provide tools to identify and address real-world global environmental health issues, stemming from climate change, habitat destruction leading to disease spillover events, food insecurity, and urban design.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 806,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "ADVANCED EPIDEMIOLOGY: PRACTICE OF EPIDEMIOLOGY",
-        "description": "Apply and extend methodologic knowledge learned in prior courses in the Population Health Sciences epidemiology methods sequence to selected key activities of a practicing epidemiologic researcher, including: study implementation; scientific writing and presentation; manuscript and grant peer-reviewing; measurement validation, simulation studies and sensitivity analyses; and, commonly-used epidemiology field instruments and methods.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 798,
-                    "subjects": [
-                        "POPHLTH"
-                    ]
-                },
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH\u00a0798"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 904,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN EPIDEMIOLOGY",
-        "description": "In-depth focus on current areas of epidemiologic investigation. Each semester one or more modules (e.g., cardiovascular, cancer, infectious diseases, women's health, international, etc.) will be offered.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
         }
     },
     {
@@ -278,580 +144,6 @@
     },
     {
         "course_reference": {
-            "course_number": 848,
-            "subjects": [
-                "ECON",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "HEALTH ECONOMICS",
-        "description": "Health economics issues including demand, supply and pricing, market structure, medical malpractice, technological change, value of life, role of insurance, and other aspects of uncertainty.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 621,
-            "subjects": [
-                "NUTRSCI",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO NUTRITIONAL EPIDEMIOLOGY",
-        "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 807,
-            "subjects": [
-                "OBS&GYN",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "REPRODUCTIVE AND PERINATAL EPIDEMIOLOGY",
-        "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 650,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Variable content course.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 876,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "MEASURING HEALTH OUTCOMES",
-        "description": "Provides a comprehensive understanding of health outcome measures, including generic health status measures, disease-specific measures, and consumer reports of the quality of care.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "ONCOLOGY",
-                "POPHLTH",
-                "M&ENVTOX",
-                "PHMCOL-M",
-                "PHMSCI"
-            ]
-        },
-        "course_title": "TOXICOLOGY I",
-        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 845,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "SEMINAR IN HEALTH AND MENTAL HEALTH ECONOMICS",
-        "description": "Provides an overview of current topics in health and mental health economics. The main objectives of this seminar is to acquaint students with important current topics, literature, and scholarship in this field.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 915,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "INTERNATIONAL HEALTH SYSTEMS AND POLICY",
-        "description": "Designed as an independent study with four modules: International Health System Performance; Health Systems in the Context of Global Health Needs; Health Systems in High Income Countries; and the Politics of Health System Development and Reform.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 917,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "GENERAL PREVENTIVE MEDICINE AND PUBLIC HEALTH ELECTIVE",
-        "description": "Introduction to the role of physicians working in various fields of general preventive medicine and public health. Engage with preventive medicine faculty and residents to learn foundational knowledge and skills central to the discipline. Opportunity to select a health issue in Wisconsin and work on a short term project to describe, analyze or address the issue.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 810,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 813,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 811,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 502,
-            "subjects": [
-                "ENVIRST",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "AIR POLLUTION AND HUMAN HEALTH",
-        "description": "Toxicologic, controlled and epidemiologic studies on major air pollutants. Overview of study methods, lung physiology and pathology; air pollution sources, types, meteorology, sampling methods, controls and regulations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 551,
-            "subjects": [
-                "BMI",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO BIOSTATISTICS FOR POPULATION HEALTH",
-        "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 789,
-            "subjects": [
-                "M&ENVTOX",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PRINCIPLES OF ENVIRONMENTAL HEALTH: A SYSTEMS THINKING APPROACH",
-        "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 728,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "CLIMATE CHANGE MEDICINE",
-        "description": "Climate change threatens human health through multiple exposure pathways, from heatwaves, storms and air pollution episodes,to influences on infectious diseases, nutrition and mental health. Gain thorough and up to date review of these health links and learn present strategies for preparedness and prevention. Medical students will be introduced to a \"Health in all Policies\" approach that is essential to optimize the potential for medical interventions to address the health risks from climate change, as well as potential health benefits from mitigating the root causes of climate change.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 796,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO HEALTH SERVICES RESEARCH",
-        "description": "Introduces students to a variety of perspectives, substantive areas and methodological approaches to health services research that provide the foundation for understanding the structure, process and outcomes of the U.S. health care system.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "NURSING",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "NURSING LEADERSHIP FOR GLOBAL HEALTH",
-        "description": "Designed to prepare undergraduate and graduate nursing students for leadership in global health (GH) by examining their GH goals in a framework that integrates knowledge from nursing with contemporary GH knowledge. Directed toward improving health of the global population as a whole, the framework addresses health trends, practice frameworks, the ecological model, ethics, nursing leadership roles, concepts of partnership and evidence-based practice.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "CANCER EPIDEMIOLOGY",
-        "description": "Covers current knowledge on cancer occurrence and control in human populations. Design and analysis approaches appropriate for cancer epidemiology will also be discussed. Familiarity with basic biological and epidemiologic concepts is desirable.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 753,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PRINCIPLES OF POPULATION HEALTH: POPULATION HEALTH AND HEALTHCARE SYSTEMS",
-        "description": "Considers the roles of healthcare systems in improving population health, focusing on the importance of considering healthcare as one among multiple determinants of health.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 798,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "EPIDEMIOLOGIC METHODS",
-        "description": "The main emphasis is the design and interpretation of epidemiologic studies. Includes hands-on experience in the evaluation of epidemiologic evidence, the analysis of epidemiologic data, and the discussion of strategies aimed to improve study validity and efficiency.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 636,
-            "subjects": [
-                "GENETICS",
-                "POPHLTH",
-                "MDGENET"
-            ]
-        },
-        "course_title": "PUBLIC HEALTH GENOMICS",
-        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "EPIDEMIOLOGY OF INFECTIOUS DISEASES",
-        "description": "Introduces basic methods to studying the epidemiology of infectious diseases and reviews infectious diseases of major public health importance. Covers the basics of microbiology, immunology, and laboratory-based methods and the principles of disease surveillance, outbreak investigation, mathematical models of disease transmission, and prevention strategies. The etiology, epidemiology, prevention, and treatment of ancient, modern, and emerging infectious diseases will be examined.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "FOUNDATIONS IN GLOBAL HEALTH PRACTICE",
-        "description": "An interdisciplinary course designed to prepare students for specific global health field experiences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "POPHLTH",
-                "M&ENVTOX",
-                "PATH",
-                "PHMCOL-M",
-                "PHMSCI"
-            ]
-        },
-        "course_title": "TOXICOLOGY II",
-        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "ONCOLOGY",
-                        "POPHLTH",
-                        "M&ENVTOX",
-                        "PHMCOL-M",
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 713,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "EPIDEMIOLOGY OF HIV/AIDS",
-        "description": "Provides an overview of the AIDS pandemic in the United States and worldwide. Topics covered include a review of the epidemiology of AIDS, the natural history of HIV disease, strategies to prevent and treat HIV, and local and global health impact with a focus on historically significant milestones as well as promising current and future research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 705,
-            "subjects": [
-                "NURSING",
-                "POPHLTH",
-                "MEDICINE"
-            ]
-        },
-        "course_title": "SEMINAR IN INTERDISCIPLINARY CLINICAL RESEARCH EVIDENCE",
-        "description": "Exploration of interdisciplinary clinical research questions including strategies for assessing the evidence and methodology for conducting various types of literature reviews. Emphasizes an interdisciplinary perspective.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 542,
-                    "subjects": [
-                        "BMI",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andSTAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0542"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 644,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "INTERDISCIPLINARY PERSPECTIVES ON GLOBAL HEALTH AND DISEASE",
-        "description": "Addresses a variety of global health topics through study of a specific country. Consider health data, health systems, historical and cultural information, and concepts of cultural competence and cultural humility.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 752,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PRINCIPLES OF POPULATION HEALTH: DETERMINANTS OF HEALTH AND HEALTH DISPARITIES",
-        "description": "An introduction to the field of \"Population Health Science\" - the multidisciplinary study of why populations are healthy (or not) and how our limited resources can be allocated across the multiple determinants of health to improve population health.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 805,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "ADVANCED EPIDEMIOLOGY: CAUSAL INFERENCE IN EPIDEMIOLOGICAL STUDIES",
-        "description": "Focuses on the use of viewpoints and design/analytical tools to render possible the estimation of causal effects in epidemiologic studies. Students learn about the rationale and use of study designs/analytic tools that build upon but are substantially different from the most common approaches used in epidemiologic research (experimental studies, case-control studies, and cohort studies).",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 798,
-                    "subjects": [
-                        "POPHLTH"
-                    ]
-                },
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH\u00a0798"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 552,
-            "subjects": [
-                "BMI",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "REGRESSION METHODS FOR POPULATION HEALTH",
-        "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 541,
-                    "subjects": [
-                        "BMI",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 551,
-                    "subjects": [
-                        "BMI",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0541orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 721,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "CONSPIRACIES IN PUBLIC HEALTH",
-        "description": "Skepticism and conspiracism can be barriers to successful implementation of public health and medical interventions such as vaccination, fluoridation of water, and HIV treatment. Conversations between people with opposing viewpoints, whether face-to- face or via social media, often devolve to disparagement and dismissal. Awareness of or experience with such exchanges causes us to avoid tackling such \"hot button\" topics with friends, colleagues, and members of our communities. While it is all too easy to believe people who adopt conspiracy theories to be members of the fringe, research has shown that medical conspiracy theories are widely known, broadly endorsed, and highly predictive of many common health behaviors. Prepares health professionals to educate communities about important public health and medical interventions.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 712,
             "subjects": [
                 "POPHLTH"
@@ -859,6 +151,35 @@
         },
         "course_title": "INTEGRATING MEDICINE AND PUBLIC HEALTH",
         "description": "Provides an introduction to public health and opportunities to meet and discuss key concepts with an exciting variety of physician leaders who have integrated medicine public health in their careers.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 810,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "GLOBAL HEALTH EPIDEMIOLOGY",
+        "description": "Explores the relationship between globalization and health and provides an understanding of: (a) indicators and determinants of health and health disparities across populations, from less to more developed countries; (b) the application of epidemiology to evaluate population health, identify global public health priorities, monitor progress toward public health goals, and develop and evaluate interventions to improve global health and reduce health disparities; and (c) some practical and ethical considerations in global health research. Exposure to the \"One Health\" perspective and to research and clinical work of University of Wisconsin-Madison faculty members working in the field of global health epidemiology, and is designed to identify ways that epidemiology can contribute to improvements in global health.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 703,
+            "subjects": [
+                "POPHLTH",
+                "ISYE"
+            ]
+        },
+        "course_title": "QUALITY OF HEALTH CARE: EVALUATION AND ASSURANCE",
+        "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -880,57 +201,14 @@
     },
     {
         "course_reference": {
-            "course_number": 875,
+            "course_number": 703,
             "subjects": [
                 "ISYE",
                 "POPHLTH"
             ]
         },
-        "course_title": "COST EFFECTIVENESS ANALYSIS IN HEALTH AND HEALTHCARE",
-        "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 552,
-                    "subjects": [
-                        "BMI",
-                        "POPHLTH"
-                    ]
-                },
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 709,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "TRANSLATIONAL AND OUTCOMES RESEARCH IN HEALTH AND HEALTH CARE",
-        "description": "Seeks to review the conceptualization of translational and outcomes research in health and health care settings; to illustrate basic concepts and methods in research as applied to current issues in health and health care settings; and to understand the diverse perspectives that can be used to inform translational and outcomes research in different organizations, including those based within communities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 819,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "SOCIAL NETWORK ANALYSIS AND HEALTH",
-        "description": "Provides an overview and synthesis of research utilizing social network analysis in relation to health, drawing on studies by sociologists, economists, computer scientists, physicians and health services researchers. Enables students to understand how social network data are collected and processed; how to calculate appropriate network measures; how to apply statistical modeling of social network effects on health behavior. Surveys social network studies related to substance use, smoking, contraception, AIDS, obesity and many other health conditions. Also looks at the social networks of health organizations in relation to patient outcomes. Prior coursework in data analysis and statistical methods is recommended.",
+        "course_title": "QUALITY OF HEALTH CARE: EVALUATION AND ASSURANCE",
+        "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -938,13 +216,14 @@
     },
     {
         "course_reference": {
-            "course_number": 890,
+            "course_number": 797,
             "subjects": [
+                "SOC",
                 "POPHLTH"
             ]
         },
-        "course_title": "SUBSTANCE USE RESEARCH: PREVALENCE, POLICY, TREATMENT",
-        "description": "Provides an overview of substance use health services research topics, study designs, data sources, and sufficient knowledge of one substantive topic to support the development of a research proposal.",
+        "course_title": "INTRODUCTION TO EPIDEMIOLOGY",
+        "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -952,42 +231,13 @@
     },
     {
         "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "POPHLTH",
-                "M&ENVTOX",
-                "PHMCOL-M",
-                "PHMSCI",
-                "PATH"
-            ]
-        },
-        "course_title": "TOXICOLOGY II",
-        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "ONCOLOGY",
-                        "POPHLTH",
-                        "M&ENVTOX",
-                        "PHMCOL-M",
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 795,
+            "course_number": 801,
             "subjects": [
                 "POPHLTH"
             ]
         },
-        "course_title": "PRINCIPLES OF POPULATION HEALTH SCIENCES",
-        "description": "Introduction to multiple determinants of health including medical care, socioeconomic status, the physical environment and individual behavior, and their interactions. Also covered will be the definition and measurement of population health, economic concepts in population health, and ethical and managerial issues in population health improvement.",
+        "course_title": "EPIDEMIOLOGY OF INFECTIOUS DISEASES",
+        "description": "Introduces basic methods to studying the epidemiology of infectious diseases and reviews infectious diseases of major public health importance. Covers the basics of microbiology, immunology, and laboratory-based methods and the principles of disease surveillance, outbreak investigation, mathematical models of disease transmission, and prevention strategies. The etiology, epidemiology, prevention, and treatment of ancient, modern, and emerging infectious diseases will be examined.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -995,14 +245,13 @@
     },
     {
         "course_reference": {
-            "course_number": 694,
+            "course_number": 728,
             "subjects": [
-                "BMI",
                 "POPHLTH"
             ]
         },
-        "course_title": "APPLIED BIOMEDICAL INFORMATICS & REAL-WORLD DATA FOR PRECISION MEDICINE & POPULATION HEALTH",
-        "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
+        "course_title": "CLIMATE CHANGE MEDICINE",
+        "description": "Climate change threatens human health through multiple exposure pathways, from heatwaves, storms and air pollution episodes,to influences on infectious diseases, nutrition and mental health. Gain thorough and up to date review of these health links and learn present strategies for preparedness and prevention. Medical students will be introduced to a \"Health in all Policies\" approach that is essential to optimize the potential for medical interventions to address the health risks from climate change, as well as potential health benefits from mitigating the root causes of climate change.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1010,39 +259,16 @@
     },
     {
         "course_reference": {
-            "course_number": 791,
+            "course_number": 876,
             "subjects": [
-                "KINES",
                 "POPHLTH"
             ]
         },
-        "course_title": "PHYSICAL ACTIVITY EPIDEMIOLOGY",
-        "description": "Recommendations for and surveillance of physical activity in the U.S., and associations with health and disease at the population level. Emphasis on measurement techniques, study design and research considerations.",
+        "course_title": "MEASURING HEALTH OUTCOMES",
+        "description": "Provides a comprehensive understanding of health outcome measures, including generic health status measures, disease-specific measures, and consumer reports of the quality of care.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 847,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "CARDIOVASCULAR EPIDEMIOLOGY",
-        "description": "The main emphasis is the discussion of the population distribution, health impact, risk factors, treatment, and prevention of cardiovascular diseases.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "SOC",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
         }
     },
     {
@@ -1062,57 +288,45 @@
     },
     {
         "course_reference": {
-            "course_number": 553,
+            "course_number": 881,
             "subjects": [
-                "MEDHIST",
-                "HISTSCI",
-                "POPHLTH"
+                "ENVIRST",
+                "AAE",
+                "POPHLTH",
+                "PUBAFFR"
             ]
         },
-        "course_title": "INTERNATIONAL HEALTH AND GLOBAL SOCIETY",
-        "description": "Major problems in international health from 1750 to the present. Focus on disease epidemiology and ecology; political economy of health; migration; quarantine; race, ethnicity, and health care; international health research; cross-cultural healing; mental and maternal health; growth of international health organizations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 918,
-            "subjects": [
-                "POPHLTH"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL HEALTH AND ADVOCACY",
-        "description": "Unique opportunity to gain insight into the role of environmental toxins while honing skills to advocate for patients and vulnerable populations. Learn to take environmental histories and understand how environmental medicine is applied in the clinical setting and community. Use the socio-ecological model to frame advocacy. Gain practical experience through online didactic lectures, reading materials, class discussion, reflections and a class presentation",
+        "course_title": "BENEFIT-COST ANALYSIS",
+        "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 810,
+                    "course_number": 875,
                     "subjects": [
-                        "MEDSC-M"
+                        "ISYE",
+                        "POPHLTH"
                     ]
                 },
                 {
-                    "course_number": 812,
+                    "course_number": 818,
                     "subjects": [
-                        "MEDSC-M"
+                        "PUBAFFR"
                     ]
                 },
                 {
-                    "course_number": 813,
+                    "course_number": 880,
                     "subjects": [
-                        "MEDSC-M"
+                        "PUBAFFR"
                     ]
                 },
                 {
-                    "course_number": 811,
+                    "course_number": 635,
                     "subjects": [
-                        "MEDSC-M"
+                        "AAE"
                     ]
                 }
             ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+            "prerequisites_text": "Graduate/professional standing and (PUB\u00a0AFFR\u00a0818and880), orPOP\u00a0HLTH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0875, orA\u00a0A\u00a0E\u00a0635"
         }
     },
     {
@@ -1128,6 +342,73 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 552,
+            "subjects": [
+                "BMI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "REGRESSION METHODS FOR POPULATION HEALTH",
+        "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 551,
+                    "subjects": [
+                        "BMI",
+                        "POPHLTH"
+                    ]
+                },
+                {
+                    "course_number": 541,
+                    "subjects": [
+                        "STAT",
+                        "BMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0541orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 807,
+            "subjects": [
+                "POPHLTH",
+                "OBS&GYN"
+            ]
+        },
+        "course_title": "REPRODUCTIVE AND PERINATAL EPIDEMIOLOGY",
+        "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 718,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PRINCIPLES OF GLOBAL HEALTH CARE SYSTEMS",
+        "description": "Addresses and analyzes differences in health status and methods of organizing and providing health services in countries with varying levels of development and types of socio-political systems. Develops an understanding of the various avenues of international cooperation in health.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -1160,6 +441,737 @@
     },
     {
         "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "PHMSCI",
+                "M&ENVTOX",
+                "PATH",
+                "PHMCOL-M",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "TOXICOLOGY II",
+        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 625,
+                    "subjects": [
+                        "PHMSCI",
+                        "M&ENVTOX",
+                        "ONCOLOGY",
+                        "PHMCOL-M",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 721,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "CONSPIRACIES IN PUBLIC HEALTH",
+        "description": "Skepticism and conspiracism can be barriers to successful implementation of public health and medical interventions such as vaccination, fluoridation of water, and HIV treatment. Conversations between people with opposing viewpoints, whether face-to- face or via social media, often devolve to disparagement and dismissal. Awareness of or experience with such exchanges causes us to avoid tackling such \"hot button\" topics with friends, colleagues, and members of our communities. While it is all too easy to believe people who adopt conspiracy theories to be members of the fringe, research has shown that medical conspiracy theories are widely known, broadly endorsed, and highly predictive of many common health behaviors. Prepares health professionals to educate communities about important public health and medical interventions.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 650,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "Variable content course.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 798,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "EPIDEMIOLOGIC METHODS",
+        "description": "The main emphasis is the design and interpretation of epidemiologic studies. Includes hands-on experience in the evaluation of epidemiologic evidence, the analysis of epidemiologic data, and the discussion of strategies aimed to improve study validity and efficiency.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 709,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "TRANSLATIONAL AND OUTCOMES RESEARCH IN HEALTH AND HEALTH CARE",
+        "description": "Seeks to review the conceptualization of translational and outcomes research in health and health care settings; to illustrate basic concepts and methods in research as applied to current issues in health and health care settings; and to understand the diverse perspectives that can be used to inform translational and outcomes research in different organizations, including those based within communities.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 636,
+            "subjects": [
+                "GENETICS",
+                "POPHLTH",
+                "MDGENET"
+            ]
+        },
+        "course_title": "PUBLIC HEALTH GENOMICS",
+        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 955,
+            "subjects": [
+                "KINES",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SEMINAR - PHYSICAL ACTIVITY EPIDEMIOLOGY",
+        "description": "Current research developments in physical activity epidemiology.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 791,
+            "subjects": [
+                "KINES",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PHYSICAL ACTIVITY EPIDEMIOLOGY",
+        "description": "Recommendations for and surveillance of physical activity in the U.S., and associations with health and disease at the population level. Emphasis on measurement techniques, study design and research considerations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 849,
+            "subjects": [
+                "GENETICS",
+                "POPHLTH",
+                "ANSCI"
+            ]
+        },
+        "course_title": "GENETIC EPIDEMIOLOGY",
+        "description": "This course will provide an introduction to genetic epidemiology. Topics will include a general overview of genetics and Mendelian and complex inheritance, as well as various elements of study design, including participant ascertainment; phenotype definition; biologic sample selection; genotyping, sequencing, and quality control; measurement of covariates, and choice of analytic methods. We will briefly discuss some of the original study designs and then focus on current study designs for the remainder of the class. Additional emerging topics will be briefly touched upon. Students will complete short homework assignments to enforce concepts learned during lectures, discuss journal articles, and prepare a very short grant application for the mid-term project. In the final weeks of class, students will work together to analyze data from a real genetic study, prepare tables, interpret the findings, and present their project to their peers.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 713,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "EPIDEMIOLOGY OF HIV/AIDS",
+        "description": "Provides an overview of the AIDS pandemic in the United States and worldwide. Topics covered include a review of the epidemiology of AIDS, the natural history of HIV disease, strategies to prevent and treat HIV, and local and global health impact with a focus on historically significant milestones as well as promising current and future research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 729,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PREPAREDNESS IN PUBLIC HEALTH",
+        "description": "Provides an overview of various types of public health emergencies and disasters including the organizations and disciplines that prepare and respond to natural and unnatural emergencies. Gain an understanding of how public health officials, public health practitioners, state and local health department staff, health care personnel and emergency responders plan for and respond to public health emergencies. The role of the physician will specifically be explored.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "CANCER EPIDEMIOLOGY",
+        "description": "Covers current knowledge on cancer occurrence and control in human populations. Design and analysis approaches appropriate for cancer epidemiology will also be discussed. Familiarity with basic biological and epidemiologic concepts is desirable.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 796,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HEALTH SERVICES RESEARCH",
+        "description": "Introduces students to a variety of perspectives, substantive areas and methodological approaches to health services research that provide the foundation for understanding the structure, process and outcomes of the U.S. health care system.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 795,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PRINCIPLES OF POPULATION HEALTH SCIENCES",
+        "description": "Introduction to multiple determinants of health including medical care, socioeconomic status, the physical environment and individual behavior, and their interactions. Also covered will be the definition and measurement of population health, economic concepts in population health, and ethical and managerial issues in population health improvement.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 806,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "ADVANCED EPIDEMIOLOGY: PRACTICE OF EPIDEMIOLOGY",
+        "description": "Apply and extend methodologic knowledge learned in prior courses in the Population Health Sciences epidemiology methods sequence to selected key activities of a practicing epidemiologic researcher, including: study implementation; scientific writing and presentation; manuscript and grant peer-reviewing; measurement validation, simulation studies and sensitivity analyses; and, commonly-used epidemiology field instruments and methods.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 798,
+                    "subjects": [
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH\u00a0798"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 694,
+            "subjects": [
+                "BMI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "APPLIED BIOMEDICAL INFORMATICS & REAL-WORLD DATA FOR PRECISION MEDICINE & POPULATION HEALTH",
+        "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 705,
+            "subjects": [
+                "MEDICINE",
+                "POPHLTH",
+                "NURSING"
+            ]
+        },
+        "course_title": "SEMINAR IN INTERDISCIPLINARY CLINICAL RESEARCH EVIDENCE",
+        "description": "Exploration of interdisciplinary clinical research questions including strategies for assessing the evidence and methodology for conducting various types of literature reviews. Emphasizes an interdisciplinary perspective.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 542,
+                    "subjects": [
+                        "STAT",
+                        "BMI"
+                    ]
+                },
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andSTAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0542"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 752,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PRINCIPLES OF POPULATION HEALTH: DETERMINANTS OF HEALTH AND HEALTH DISPARITIES",
+        "description": "An introduction to the field of \"Population Health Science\" - the multidisciplinary study of why populations are healthy (or not) and how our limited resources can be allocated across the multiple determinants of health to improve population health.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 621,
+            "subjects": [
+                "NUTRSCI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTRODUCTION TO NUTRITIONAL EPIDEMIOLOGY",
+        "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 805,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "ADVANCED EPIDEMIOLOGY: CAUSAL INFERENCE IN EPIDEMIOLOGICAL STUDIES",
+        "description": "Focuses on the use of viewpoints and design/analytical tools to render possible the estimation of causal effects in epidemiologic studies. Students learn about the rationale and use of study designs/analytic tools that build upon but are substantially different from the most common approaches used in epidemiologic research (experimental studies, case-control studies, and cohort studies).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 798,
+                    "subjects": [
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH\u00a0798"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 625,
+            "subjects": [
+                "PHMSCI",
+                "M&ENVTOX",
+                "ONCOLOGY",
+                "PHMCOL-M",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "TOXICOLOGY I",
+        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 404,
+                    "subjects": [
+                        "PATH"
+                    ]
+                },
+                {
+                    "course_number": 486,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 789,
+            "subjects": [
+                "M&ENVTOX",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PRINCIPLES OF ENVIRONMENTAL HEALTH: A SYSTEMS THINKING APPROACH",
+        "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 644,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTERDISCIPLINARY PERSPECTIVES ON GLOBAL HEALTH AND DISEASE",
+        "description": "Addresses a variety of global health topics through study of a specific country. Consider health data, health systems, historical and cultural information, and concepts of cultural competence and cultural humility.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "ISYE",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "COST EFFECTIVENESS ANALYSIS IN HEALTH AND HEALTHCARE",
+        "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 753,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "PRINCIPLES OF POPULATION HEALTH: POPULATION HEALTH AND HEALTHCARE SYSTEMS",
+        "description": "Considers the roles of healthcare systems in improving population health, focusing on the importance of considering healthcare as one among multiple determinants of health.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 551,
+            "subjects": [
+                "BMI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTRODUCTION TO BIOSTATISTICS FOR POPULATION HEALTH",
+        "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 890,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SUBSTANCE USE RESEARCH: PREVALENCE, POLICY, TREATMENT",
+        "description": "Provides an overview of substance use health services research topics, study designs, data sources, and sufficient knowledge of one substantive topic to support the development of a research proposal.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 917,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "GENERAL PREVENTIVE MEDICINE AND PUBLIC HEALTH ELECTIVE",
+        "description": "Introduction to the role of physicians working in various fields of general preventive medicine and public health. Engage with preventive medicine faculty and residents to learn foundational knowledge and skills central to the discipline. Opportunity to select a health issue in Wisconsin and work on a short term project to describe, analyze or address the issue.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 811,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 789,
+            "subjects": [
+                "POPHLTH",
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "PRINCIPLES OF ENVIRONMENTAL HEALTH: A SYSTEMS THINKING APPROACH",
+        "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 548,
+            "subjects": [
+                "ECON",
+                "POPHLTH",
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "THE ECONOMICS OF HEALTH CARE",
+        "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 880,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ECON"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ECON\u00a0301,ECON\u00a0311, orPUB\u00a0AFFR\u00a0880"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 553,
+            "subjects": [
+                "HISTSCI",
+                "MEDHIST",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTERNATIONAL HEALTH AND GLOBAL SOCIETY",
+        "description": "Major problems in international health from 1750 to the present. Focus on disease epidemiology and ecology; political economy of health; migration; quarantine; race, ethnicity, and health care; international health research; cross-cultural healing; mental and maternal health; growth of international health organizations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 794,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "BIOLOGICAL BASIS OF POPULATION HEALTH",
+        "description": "Covers the physiology, biology and biochemistry of selected disease processes deemed to be important in population health sciences by virtue of their clinical significance including incidence, mortality and morbidity.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 845,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SEMINAR IN HEALTH AND MENTAL HEALTH ECONOMICS",
+        "description": "Provides an overview of current topics in health and mental health economics. The main objectives of this seminar is to acquaint students with important current topics, literature, and scholarship in this field.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 904,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN EPIDEMIOLOGY",
+        "description": "In-depth focus on current areas of epidemiologic investigation. Each semester one or more modules (e.g., cardiovascular, cancer, infectious diseases, women's health, international, etc.) will be offered.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 915,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "INTERNATIONAL HEALTH SYSTEMS AND POLICY",
+        "description": "Designed as an independent study with four modules: International Health System Performance; Health Systems in the Context of Global Health Needs; Health Systems in High Income Countries; and the Politics of Health System Development and Reform.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 848,
+            "subjects": [
+                "ECON",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "HEALTH ECONOMICS",
+        "description": "Health economics issues including demand, supply and pricing, market structure, medical malpractice, technological change, value of life, role of insurance, and other aspects of uncertainty.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 918,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL HEALTH AND ADVOCACY",
+        "description": "Unique opportunity to gain insight into the role of environmental toxins while honing skills to advocate for patients and vulnerable populations. Learn to take environmental histories and understand how environmental medicine is applied in the clinical setting and community. Use the socio-ecological model to frame advocacy. Gain practical experience through online didactic lectures, reading materials, class discussion, reflections and a class presentation",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 525,
+            "subjects": [
+                "POPHLTH",
+                "NURSING"
+            ]
+        },
+        "course_title": "NURSING LEADERSHIP FOR GLOBAL HEALTH",
+        "description": "Designed to prepare undergraduate and graduate nursing students for leadership in global health (GH) by examining their GH goals in a framework that integrates knowledge from nursing with contemporary GH knowledge. Directed toward improving health of the global population as a whole, the framework addresses health trends, practice frameworks, the ecological model, ethics, nursing leadership roles, concepts of partnership and evidence-based practice.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "POPHLTH"
+            ]
+        },
+        "course_title": "FOUNDATIONS IN GLOBAL HEALTH PRACTICE",
+        "description": "An interdisciplinary course designed to prepare students for specific global health field experiences.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 553,
+            "subjects": [
+                "MEDHIST",
+                "POPHLTH",
+                "HISTSCI"
+            ]
+        },
+        "course_title": "INTERNATIONAL HEALTH AND GLOBAL SOCIETY",
+        "description": "Major problems in international health from 1750 to the present. Focus on disease epidemiology and ecology; political economy of health; migration; quarantine; race, ethnicity, and health care; international health research; cross-cultural healing; mental and maternal health; growth of international health organizations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 652,
             "subjects": [
                 "BMI",
@@ -1183,14 +1195,14 @@
     },
     {
         "course_reference": {
-            "course_number": 797,
+            "course_number": 739,
             "subjects": [
-                "SOC",
+                "ENVIRST",
                 "POPHLTH"
             ]
         },
-        "course_title": "INTRODUCTION TO EPIDEMIOLOGY",
-        "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
+        "course_title": "CLIMATE CHANGE, HUMAN AND PLANETARY HEALTH",
+        "description": "Provide tools to identify and address real-world global environmental health issues, stemming from climate change, habitat destruction leading to disease spillover events, food insecurity, and urban design.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1198,30 +1210,40 @@
     },
     {
         "course_reference": {
-            "course_number": 718,
+            "course_number": 525,
             "subjects": [
+                "NURSING",
                 "POPHLTH"
             ]
         },
-        "course_title": "PRINCIPLES OF GLOBAL HEALTH CARE SYSTEMS",
-        "description": "Addresses and analyzes differences in health status and methods of organizing and providing health services in countries with varying levels of development and types of socio-political systems. Develops an understanding of the various avenues of international cooperation in health.",
+        "course_title": "NURSING LEADERSHIP FOR GLOBAL HEALTH",
+        "description": "Designed to prepare undergraduate and graduate nursing students for leadership in global health (GH) by examining their GH goals in a framework that integrates knowledge from nursing with contemporary GH knowledge. Directed toward improving health of the global population as a whole, the framework addresses health trends, practice frameworks, the ecological model, ethics, nursing leadership roles, concepts of partnership and evidence-based practice.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
-            "course_number": 810,
+            "course_number": 651,
             "subjects": [
+                "BMI",
                 "POPHLTH"
             ]
         },
-        "course_title": "GLOBAL HEALTH EPIDEMIOLOGY",
-        "description": "Explores the relationship between globalization and health and provides an understanding of: (a) indicators and determinants of health and health disparities across populations, from less to more developed countries; (b) the application of epidemiology to evaluate population health, identify global public health priorities, monitor progress toward public health goals, and develop and evaluate interventions to improve global health and reduce health disparities; and (c) some practical and ethical considerations in global health research. Exposure to the \"One Health\" perspective and to research and clinical work of University of Wisconsin-Madison faculty members working in the field of global health epidemiology, and is designed to identify ways that epidemiology can contribute to improvements in global health.",
+        "course_title": "ADVANCED REGRESSION METHODS FOR POPULATION HEALTH",
+        "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "course_references": [
+                {
+                    "course_number": 552,
+                    "subjects": [
+                        "BMI",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "POP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
         }
     }
 ]

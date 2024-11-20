@@ -1,8 +1,28 @@
 [
     {
         "data": {
-            "description": "Examines the influence of science in everyday life. Provides both academic context (research and theory) and a firsthand look at how science matters to people who are not themselves scientists.",
-            "id": "STS/CURRIC 733"
+            "id": "STS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Key themes, issues and scholarship in the interdisciplinary fields of science and technology studies. Explores how different disciplinary perspectives contribute to and influence the questions, methods and theoretical approaches within particular fields of science studies.",
+            "id": "STS 901",
+            "parent": "STS"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced directed study projects as arranged with a faculty member. Requires completion ofSTS\u00a0201.",
+            "id": "STS 699",
+            "parent": "STS"
         }
     },
     {
@@ -14,15 +34,8 @@
     },
     {
         "data": {
-            "description": "Examination of the key ideas from the field of science and technology studies (history, philosophy, sociology of science, etc.) and how they have been taken up in both the school science curriculum as well as the science education research community.",
-            "id": "STS/CURRIC 734"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced directed study projects as arranged with a faculty member. Requires completion ofSTS\u00a0201.",
-            "id": "STS 699",
-            "parent": "STS"
+            "description": "Examines the influence of science in everyday life. Provides both academic context (research and theory) and a firsthand look at how science matters to people who are not themselves scientists.",
+            "id": "STS/CURRIC 733"
         }
     },
     {
@@ -41,15 +54,14 @@
     },
     {
         "data": {
-            "description": "An overview of science and technology studies. Explores science and technology as central institutions in modern societies. Teaches approaches to analyzing social dimensions of recent advances in areas such as genetics, environment, Internet, surveillance, and nanotechnology..",
-            "id": "STS 201",
-            "parent": "STS"
+            "description": "Examination of the key ideas from the field of science and technology studies (history, philosophy, sociology of science, etc.) and how they have been taken up in both the school science curriculum as well as the science education research community.",
+            "id": "STS/CURRIC 734"
         }
     },
     {
         "data": {
-            "description": "Key themes, issues and scholarship in the interdisciplinary fields of science and technology studies. Explores how different disciplinary perspectives contribute to and influence the questions, methods and theoretical approaches within particular fields of science studies.",
-            "id": "STS 901",
+            "description": "An overview of science and technology studies. Explores science and technology as central institutions in modern societies. Teaches approaches to analyzing social dimensions of recent advances in areas such as genetics, environment, Internet, surveillance, and nanotechnology..",
+            "id": "STS 201",
             "parent": "STS"
         }
     }

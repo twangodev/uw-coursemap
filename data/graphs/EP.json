@@ -1,44 +1,14 @@
 [
     {
         "data": {
-            "source": "EP/EMA 547",
-            "target": "EP/EMA 548"
+            "source": "MATH 376",
+            "target": "EMA/EP 471"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "EMA 201"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
-            "id": "EP/EMA 476"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "ECE/PHYSICS 235"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 319",
-            "target": "MATH 320"
+            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+            "id": "EP/COMPSCI/ME/EMA/ECE 759"
         }
     },
     {
@@ -49,165 +19,70 @@
     },
     {
         "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
+            "id": "PHYSICS",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
-            "id": "ME/EP/EMA/COMPSCI/ECE 759"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 321",
-            "target": "EP/EMA 547"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 114",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 320",
+            "source": "PHYSICS 201",
             "target": "CBE 320"
         }
     },
     {
         "data": {
-            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
-            "id": "EP/EMA 471"
+            "id": "MATH",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Fundamental concepts of conduction, convection, radiation. Heat-exchanger principles.",
-            "id": "ME 364",
-            "parent": "ME"
+            "id": "COMPSCI",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MATH 213",
-            "target": "MATH 114"
+            "source": "MATH 222",
+            "target": "EP 272"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 208",
+            "id": "ME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "ME 361"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
+            "id": "MATH 321",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
             "target": "PHYSICS 249"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 220",
-            "target": "COMPSCI 220"
+            "id": "CBE",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns.",
-            "id": "ME 306",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
-            "id": "MATH 319",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 311",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics defining modern vacuum technology, including the kinetic theory of gases, conductance, pumping systems, pump technologies, pressure measurement, gas-surface interactions, sealing technologies, leak detection, and residual gas analysis will be addressed through a combination of lectures, laboratory activities, problem solving, and group discussions. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363or B M E 320] strongly encouraged.",
-            "id": "ME/EP 777"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 319",
-            "target": "MATH 319"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 321",
-            "target": "MATH 321"
+            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
+            "id": "COMPSCI 200",
+            "parent": "COMPSCI"
         }
     },
     {
@@ -218,14 +93,37 @@
     },
     {
         "data": {
-            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
-            "id": "MATH 114",
-            "parent": "MATH"
+            "source": "MATH 321",
+            "target": "EMA/EP 547"
         }
     },
     {
         "data": {
-            "source": "ME 364",
+            "source": "MATH 222",
+            "target": "MATH 319"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "ME 306"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "EMA/EP 547"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 271",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 320",
             "target": "ME 364"
         }
     },
@@ -238,447 +136,8 @@
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
-            "id": "EP/EMA 547"
-        }
-    },
-    {
-        "data": {
-            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
-            "id": "EMA 303",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE/PHYSICS 235",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the physical principles underlying solid-state electronic and photonic devices, including elements of quantum mechanics, crystal structure, semiconductor band theory, carrier statistics, and band diagrams. Offers examples of modern semiconductor structures. Prior experience with MATLAB [such asE\u00a0C\u00a0E\u00a0203] is strongly encouraged but not required.",
-            "id": "ECE/PHYSICS 235"
-        }
-    },
-    {
-        "data": {
-            "source": "EP 271",
-            "target": "MATH 319"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 375"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 306",
-            "target": "ME 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 113"
-        }
-    },
-    {
-        "data": {
-            "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
-            "id": "EP 418",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 310",
-            "target": "EP/EMA 476"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "EP 271",
-            "target": "EP 271"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Applications of cryogenics, material properties at low temperatures, refrigeration and liquefaction systems, measurement techniques, insulation, storage and transfer of cryogenics, safety and handling.",
-            "id": "ME/EP 566"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EP/EMA 615"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
-            "id": "ME 361",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 361",
-            "target": "CBE 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
-            "id": "MATH 113",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 415",
-            "target": "ME/EP 566"
-        }
-    },
-    {
-        "data": {
-            "description": "Subject matter, credits and prerequisites vary.",
-            "id": "EP 602",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "ECE/PHYSICS 235"
-        }
-    },
-    {
-        "data": {
-            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
-            "id": "EP/EMA 548"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "EP 272"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to atomic, solid state, and nuclear physics.",
-            "id": "PHYSICS 205",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
-            "id": "MATH 321",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to current research topics in engineering physics. Development of an undergraduate research proposal supervised by faculty members.",
-            "id": "EP 469",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the conduct of engineering research: the scientific method, ethics in research, documentation and treatment of research data, publication practices, and the structure of the broader research community are covered.",
-            "id": "EP 468",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 415"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 322"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to multi-step engineering problem solving using Maple (symbolic mathematics) software.",
-            "id": "EP 272",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
-            "id": "COMPSCI 300",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "PHYSICS 311"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "COMPSCI 220"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
-            "id": "MATH 322",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to thermodynamics and statistical mechanics from a physics perspective. Thermodynamics, phase equilibrium, kinetic theory of gases, classical and quantum statistical mechanics.",
-            "id": "PHYSICS 415",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 320",
-            "target": "PHYSICS 415"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
             "source": "COMPSCI 220",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
-            "id": "COMPSCI 310",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
-            "id": "EMA 201",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Origin and development of classical mechanics; mathematical techniques, especially vector analysis; conservation laws and their relation to symmetry principles; brief introduction to orbit theory and rigid-body dynamics; accelerated coordinate systems; introduction to the generalized-coordinate formalisms of Lagrange and Hamilton.",
-            "id": "PHYSICS 311",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
-            "id": "CBE 320",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "COMPSCI 300"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 113",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "EP 468",
-            "target": "EP 469"
+            "target": "MATH 319"
         }
     },
     {
@@ -690,14 +149,56 @@
     },
     {
         "data": {
-            "source": "PHYSICS 311",
-            "target": "PHYSICS 311"
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 320",
-            "target": "MATH 375"
+            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
+            "id": "PHYSICS 241",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to current research topics in engineering physics. Development of an undergraduate research proposal supervised by faculty members.",
+            "id": "EP 469",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
+            "id": "COMPSCI 310",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
+            "id": "MATH 319",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
         }
     },
     {
@@ -709,20 +210,28 @@
     },
     {
         "data": {
-            "source": "PHYSICS 205",
-            "target": "PHYSICS 202"
+            "source": "ME 361",
+            "target": "ME/EP 566"
         }
     },
     {
         "data": {
-            "source": "MATH 234",
-            "target": "MATH 376"
+            "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
+            "id": "EP 418",
+            "parent": "EP"
         }
     },
     {
         "data": {
-            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
-            "id": "EP/EMA 615"
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
+            "id": "MATH 322",
+            "parent": "MATH"
         }
     },
     {
@@ -733,21 +242,117 @@
     },
     {
         "data": {
-            "source": "MATH 321",
+            "source": "ME 306",
+            "target": "EMA/EP 615"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the conduct of engineering research: the scientific method, ethics in research, documentation and treatment of research data, publication practices, and the structure of the broader research community are covered.",
+            "id": "EP 468",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
+            "id": "EMA 303",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Applications of cryogenics, material properties at low temperatures, refrigeration and liquefaction systems, measurement techniques, insulation, storage and transfer of cryogenics, safety and handling.",
+            "id": "ME/EP 566"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
             "target": "MATH 376"
         }
     },
     {
         "data": {
-            "source": "ME 361",
-            "target": "ME 361"
+            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
+            "id": "COMPSCI 300",
+            "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "PHYSICS 241"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 364",
+            "target": "PHYSICS 415"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "ME 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "id": "EMA",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to thermodynamics and statistical mechanics from a physics perspective. Thermodynamics, phase equilibrium, kinetic theory of gases, classical and quantum statistical mechanics.",
+            "id": "PHYSICS 415",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "EMA 201"
         }
     },
     {
@@ -766,65 +371,34 @@
     },
     {
         "data": {
-            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
-            "id": "MATH 340",
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 376",
-            "target": "MATH 322"
+            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
+            "id": "EMA 201",
+            "parent": "EMA"
         }
     },
     {
         "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
-            "parent": "MATH"
+            "id": "EP",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MATH 114",
-            "target": "MATH 114"
+            "source": "MATH 375",
+            "target": "MATH 321"
         }
     },
     {
         "data": {
-            "source": "MATH 376",
-            "target": "EP/EMA 471"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "EMA 303"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 306",
-            "target": "EMA 303"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "EP/EMA 547"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 364",
-            "target": "ME 361"
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 415"
         }
     },
     {
@@ -836,8 +410,279 @@
     },
     {
         "data": {
+            "source": "MATH 320",
+            "target": "EMA/EP 476"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "EMA 303"
+        }
+    },
+    {
+        "data": {
+            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
+            "id": "ME 361",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 321",
+            "target": "MATH 322"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
+            "id": "EMA/EP 471"
+        }
+    },
+    {
+        "data": {
+            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns.",
+            "id": "ME 306",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics defining modern vacuum technology, including the kinetic theory of gases, conductance, pumping systems, pump technologies, pressure measurement, gas-surface interactions, sealing technologies, leak detection, and residual gas analysis will be addressed through a combination of lectures, laboratory activities, problem solving, and group discussions. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363or B M E 320] strongly encouraged.",
+            "id": "ME/EP 777"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "EMA/EP 548"
+        }
+    },
+    {
+        "data": {
             "source": "EP 469",
             "target": "EP 568"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 468",
+            "target": "EP 469"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "EP 271"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamental concepts of conduction, convection, radiation. Heat-exchanger principles.",
+            "id": "ME 364",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Subject matter, credits and prerequisites vary.",
+            "id": "EP 602",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
+            "id": "MATH 340",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
+            "id": "CBE 320",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to multi-step engineering problem solving using Maple (symbolic mathematics) software.",
+            "id": "EP 272",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
+            "id": "EMA/EP 548"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 271",
+            "target": "COMPSCI 310"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 415",
+            "target": "ME 361"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 361",
+            "target": "ME 364"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "EP 271"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
+            "id": "EMA/EP 547"
+        }
+    },
+    {
+        "data": {
+            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
+            "id": "EMA/EP 476"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 319",
+            "target": "EP 271"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA/EP 547",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 319",
+            "target": "MATH 322"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 319",
+            "target": "MATH 375"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
+            "id": "EMA/EP 615"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
         }
     }
 ]

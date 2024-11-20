@@ -1,33 +1,88 @@
 [
     {
         "data": {
-            "source": "AAE 636",
-            "target": "AAE 637"
-        }
-    },
-    {
-        "data": {
-            "description": "Applications of quantitative methods, including optimization and simulation, to the management of natural resources, especially forests.",
-            "id": "AAE/F&WECOL 652"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 772"
-        }
-    },
-    {
-        "data": {
-            "description": "Sustaining global health and well-being depends critically on interactions between human and natural systems at multiple spatial and temporal scales.  Economics provides a useful paradigm for understanding these interactions and the pathways through which individual and societal decisions made in the face of scarce resources, and threats to the natural environment, generate health and well-being outcomes.  Provides students with an opportunity to use basic economic and social science reasoning to describe global heath challenges; understand the causes and consequences of health discrepancies; evaluate health and environmental policies; and appreciate the interconnectedness of planetary health and economic outcomes.",
-            "id": "AAE 352",
+            "description": "Theory and empirical evidence on growth and development in low-income countries. Topics may include: measurement of poverty and inequality, risk and insurance, social networks, technology adoption, education, corruption, institutions, and behavioral economics.",
+            "id": "AAE 730",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
+            "source": "ECON 709",
+            "target": "AAE 737"
+        }
+    },
+    {
+        "data": {
+            "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
+            "id": "ECON/INTLBUS/AAE 462"
+        }
+    },
+    {
+        "data": {
+            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
+            "id": "STAT 301",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the field of American sociology, its subfields and specialized areas of research, theoretical traditions and research methods.",
+            "id": "SOC/C&ESOC 210"
+        }
+    },
+    {
+        "data": {
+            "description": "Use microeconomic theory to analyze energy markets. Discuss the economics of oil, gas, and electricity and learn about applications to contemporary issues and policy questions.",
+            "id": "ECON/AAE 371"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC 181",
+            "target": "SOC/C&ESOC 140"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 711",
+            "target": "AAE 762"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 711",
+            "target": "AAE 730"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH 210",
+            "target": "GENBUS 306"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/AAE/INTLBUS 462"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/ENVIRST/AAE 343"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
         }
     },
     {
@@ -39,315 +94,41 @@
     },
     {
         "data": {
-            "description": "Conceptual empirical analysis of economic behavior under risk and its implications for management and policy decisions. Emphasis on economic applications to the agricultural and food sector.",
-            "id": "AAE 706",
+            "description": "The first in a 2-course sequence that comprises the capstone course in Resource and Energy Demand Analysis, in which students synthesize their training in a simulated \"real world\" analysis. The course is designed to reflect the full range of professional responsibilities of a resource/energy demand analyst, from data retrieval/cleaning to analysis to reporting.",
+            "id": "AAE 774",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "PSYCH 202",
-            "target": "PSYCH 210"
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "ECON 301",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 635",
-            "target": "AAE 705"
+            "id": "AAE",
+            "type": "compound"
         }
     },
     {
         "data": {
             "source": "ECON 711",
-            "target": "AAE 762"
+            "target": "AAE 760"
         }
     },
     {
         "data": {
-            "description": "Overview of the economic performance of agriculture in feeding the growing world population. Examines contemporary economic issues in the food sector, along with research methods used in their analysis. Covers production analysis, risk and uncertainty, food demand, market structure, policy and welfare analysis.",
-            "id": "AAE 641",
+            "description": "Introduction to data analysis for social scientists using spreadsheets software - with specific applications to economics, business and finance - including data management and manipulation; formulas and calculations; data visualization and presentation using charts and graphics; statistical and visual analysis of economic indicators using tables, functions, graphs and descriptive statistics; and optimization of functions with economic and financial data.",
+            "id": "AAE 335",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "AAE 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the tools of game theoretic analysis, with reference to the use of game theory in political science. Intended for those desiring a basic familiarity with the theory, and  for those planning further work in formal modeling.",
-            "id": "AAE/POLISCI 835"
-        }
-    },
-    {
-        "data": {
-            "description": "Prepares students for their own empirical work by examining contemporary econometric techniques as they are used in development, environment and natural resources, and agricultural economics. Guides students through a selection of applied models using past and current research as examples. By hearing lectures and working through papers, problem sets, replication exercises, and/or research projects, students will develop a deeper understanding of the many facets of empirical research in economics.",
-            "id": "AAE 737",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Measures of central tendency, variability; probability, sampling distributions; hypothesis testing, confidence intervals; t-tests; Chi-square; regression and correlation (linear) and introduction to analysis of variance (1-way).",
-            "id": "PSYCH 210",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 635",
-            "target": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on developing a conceptual as well as empirical analysis of microeconomic behavior, including production and consumption analysis, technical change, and investment. Emphasizes empirical applications of microeconomics, with implications for efficiency and welfare analysis. Knowledge of statistics such asSTAT/\u200bMATH\u00a0\u00a0309is recommended.",
-            "id": "AAE 705",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic tools and principles pertaining to the optimal management of natural resources. Theoretical models characterize efficient resource use and predict management decisions under different institutional settings. Empirical applications relate to public and private management of forests, fish, wildlife, minerals, and energy resources. Examples highlight the importance of discount rates, property rights, and government policies.",
-            "id": "AAE 760",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentation of sociological data; descriptive statistics; probability theory and statistical inference; estimation and tests of hypotheses; regression and correlation and the analysis of contingency tables.",
-            "id": "C&ESOC/SOC 360"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 114",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics on contemporary issues relevant to agricultural and applied economics.",
-            "id": "AAE 375",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/INTLST 374"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 771",
-            "target": "AAE 721"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
-            "id": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Research work under direct guidance of an AAE faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
-            "id": "AAE 289",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON 474"
-        }
-    },
-    {
-        "data": {
-            "description": "Hunger and poverty in developing countries and the United States. Topics include: nutrition and health, population, food production and availability, and income distribution and employment.",
-            "id": "AAE/NUTRSCI/AGRONOMY 350"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE 422"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 114",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC/POPHLTH 797",
-            "target": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Analyzes aggregate growth, income distribution and poverty in lower income economies. Uses microeconomics of imperfect labor, capital and insurance markets to explore why some individuals advance economically as their economies grow and others fall behind. Considers implications of aggregate and micro analysis for national and international economic policy.",
-            "id": "AAE/ECON 474"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 335",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-            "id": "STAT 371",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability distributions, statistical inference; multiple linear regression; introduction to econometric methods. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
-            "id": "ECON 709",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Composition, organization, and techniques of agricultural production; economic change and development of agriculture, economic policies, special problems of developing African agriculture.",
-            "id": "AAE/ECON 477"
-        }
-    },
-    {
-        "data": {
-            "source": "PUBAFFR 880",
-            "target": "PUBAFFR 818"
-        }
-    },
-    {
-        "data": {
-            "source": "AGRONOMY 100",
-            "target": "AGRONOMY 100"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/PLPATH 123",
-            "target": "HORT 120"
-        }
-    },
-    {
-        "data": {
-            "description": "Microeconomic principles underlying the use of natural resources such as air, water, forests, fisheries, minerals and energy. These principles are applied in the examination of pollution control, preservation vs. development, deforestation, and other environmental issues.",
-            "id": "AAE/ENVIRST/ECON 343"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the process of globalization -- trade, international capital flows, labor migration and remittances, and aid -- from the perspective of developing economies and the development process.",
-            "id": "AAE/INTLST 373"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC 181",
-            "target": "AAE/SOC/C&ESOC 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 301",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 774"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 704",
-            "target": "ECON 704"
-        }
-    },
-    {
-        "data": {
-            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
-            "id": "MATH 114",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "AAE/REALEST/URBRPL/ECON 306"
-        }
-    },
-    {
-        "data": {
-            "description": "For AAE Ph.D. students to develop a dissertation proposal. Working in groups and with some additional feedback from individual advisors. Developing research questions, literature search, word models, math models, testable hypotheses, identification strategies. Working with data, using LATEX, giving presentations. Peer review of weekly assignments. Developing cohort for subsequent feedback through dissertation writing and job search.",
-            "id": "AAE 780",
+            "description": "One part of a series of courses to train students in the quantitative methods typically used by economic analysts in a professional setting. Provides students with the opportunity to synthesize the material they've learned in their coursework in a start-to-finish econometric analysis similar in scope and timeline to what they often would be expected to do in a professional setting. The final course product is a professional report. Students should think of this report as a professional analyst's Master's thesis - a demonstration of the student's training and capability for professional work, to be shared with prospective employers.",
+            "id": "AAE 724",
             "parent": "AAE"
         }
     },
@@ -360,87 +141,70 @@
     },
     {
         "data": {
-            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 311",
-            "parent": "ECON"
+            "source": "AGROECOL/ENVIRST/C&ESOC/ENTOM/AGRONOMY 103",
+            "target": "PLPATH/AAE/AGRONOMY/HORT 367"
         }
     },
     {
         "data": {
-            "source": "C&ESOC/SOC 210",
-            "target": "SOC 181"
+            "source": "AAE 101",
+            "target": "AAE 422"
         }
     },
     {
         "data": {
-            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
-            "id": "PSYCH 202",
-            "parent": "PSYCH"
+            "description": "Applications of quantitative methods, including optimization and simulation, to the management of natural resources, especially forests.",
+            "id": "F&WECOL/AAE 652"
         }
     },
     {
         "data": {
-            "source": "STAT 301",
-            "target": "STAT 301"
+            "source": "AAE 101",
+            "target": "ENVIRST/ECON/AAE 343"
         }
     },
     {
         "data": {
-            "description": "Energy resources are an essential element of the world's business, political, technical and environmental landscape. Analytic tools provided by the discipline of economics expands our understanding of this critical issue. Energy supply markets reviewed include both fossil fuels and renewable resources. Energy demand sectors include residential, commercial, industrial and transportation. Electricity represents an intermediate energy market. The interactions among these markets participants indicate how scarce resources are allocated among competing needs in the world economy.",
-            "id": "AAE/CIVENGR/URBRPL/ENVIRST 561"
+            "source": "SOC/C&ESOC 140",
+            "target": "SOC/C&ESOC 210"
         }
     },
     {
         "data": {
-            "description": "Introduction to data and data processing using both Python and R programming languages. Concepts covered include loading data, data acquisition, cleaning data, visualization/exploring data, and storing data.",
-            "id": "AAE 718",
+            "description": "Directed study projects for graduate students as arranged with a faculty member.",
+            "id": "AAE 999",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "description": "The role of markets and government in the allocation of environmental goods and services. Topics include public goods, externalities and market failure; policy instruments for dealing with environmental quality problems such as air pollution; and distributional impacts of environmental regulations.",
-            "id": "AAE 762",
+            "source": "AAE 635",
+            "target": "AAE 705"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC/C&ESOC 210",
+            "target": "SOC/C&ESOC/AAE 340"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the tools of game theoretic analysis, with reference to the use of game theory in political science. Intended for those desiring a basic familiarity with the theory, and  for those planning further work in formal modeling.",
+            "id": "POLISCI/AAE 835"
+        }
+    },
+    {
+        "data": {
+            "description": "Cooperatives, credit unions, and other alternative forms of enterprise are unique businesses in which users (rather than investors) are the owners. Topics will include why these models emerge, who they serve, how they differ from other forms of enterprise, and the ways in which they can be used to address social, economic, and environmental challenges.",
+            "id": "AAE 323",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "description": "An introduction to the statistical methods used in public policy. Covers the basics of probability, statistics, and quantitative methods in public policy analysis. Stresses interpretation and presentation of data as well as theory.",
-            "id": "PUBAFFR 818",
-            "parent": "PUBAFFR"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 210",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 636"
-        }
-    },
-    {
-        "data": {
-            "description": "Econometric methods, theory, and applications. Matrix algebra will be used. Topics include linear regression, least-squares estimation, inference, and hypothesis testing. Primarily for Master's level students. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
-            "id": "ECON 704",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
-            "id": "BOTANY/PLPATH 123"
+            "source": "AAE 635",
+            "target": "PUBAFFR 880"
         }
     },
     {
@@ -452,27 +216,102 @@
     },
     {
         "data": {
-            "description": "The fundamental mathematics and statistics necessary for the study of quantitative methods in resource and energy demand. Topics include the mathematics of optimization and its role in basic welfare theory and consumer demand; linear and matrix algebra and their application in both modeling consumer behavior and the statistical analysis of models; and the fundamentals of statistical analysis relevant to econometric analysis of resource and energy demand, including probability theory, sampling distributions, and statistical inference.",
-            "id": "AAE 770",
+            "description": "Economic tools and principles pertaining to the optimal management of natural resources. Theoretical models characterize efficient resource use and predict management decisions under different institutional settings. Empirical applications relate to public and private management of forests, fish, wildlife, minerals, and energy resources. Examples highlight the importance of discount rates, property rights, and government policies.",
+            "id": "AAE 760",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "MATH 217"
+            "source": "GENBUS 106",
+            "target": "GENBUS 306"
         }
     },
     {
         "data": {
-            "source": "STAT 301",
-            "target": "MATH 221"
+            "description": "This course explores the roles of markets, states, and civil institutions, using economic theory, computer simulations, and historical experience to better understand the forces that shape the wealth and well-being of nations and people around the world.",
+            "id": "AAE/INTLST 374"
         }
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 111"
+            "source": "SOC/C&ESOC 222",
+            "target": "PLPATH/BOTANY 123"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE 419"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC/POPHLTH 797",
+            "target": "ISYE/POPHLTH 875"
+        }
+    },
+    {
+        "data": {
+            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
+            "id": "AGROECOL/ENVIRST/C&ESOC/ENTOM/AGRONOMY 103"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 311",
+            "target": "AAE 635"
+        }
+    },
+    {
+        "data": {
+            "description": "Sustaining global health and well-being depends critically on interactions between human and natural systems at multiple spatial and temporal scales.  Economics provides a useful paradigm for understanding these interactions and the pathways through which individual and societal decisions made in the face of scarce resources, and threats to the natural environment, generate health and well-being outcomes.  Provides students with an opportunity to use basic economic and social science reasoning to describe global heath challenges; understand the causes and consequences of health discrepancies; evaluate health and environmental policies; and appreciate the interconnectedness of planetary health and economic outcomes.",
+            "id": "AAE 352",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "PUBAFFR 818",
+            "target": "ISYE/POPHLTH 875"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE 670"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/AAE 477"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 335",
+            "target": "AAE 625"
+        }
+    },
+    {
+        "data": {
+            "id": "HORT",
+            "type": "compound"
         }
     },
     {
@@ -484,53 +323,170 @@
     },
     {
         "data": {
-            "description": "The method, application, and limitations of traditional economic approaches to the study of energy problems. Topics include microeconomic foundations of energy demand and supply; optimal pricing and allocation of energy resources; energy market structure, conduct, and performance; macro linkages of energy and the economy; and the economics of regulatory and other public policy approaches to the social control of energy.",
-            "id": "AAE/URBRPL/ENVIRST/ECON 671"
+            "source": "AAE 101",
+            "target": "AAE/INTLST 374"
         }
     },
     {
         "data": {
-            "source": "GENBUS 106",
-            "target": "GENBUS 307"
+            "id": "STAT",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Current issues in resource and demand analysis, with presentations by academic researchers and industry professionals, to introduce students to current issues in resource and demand analysis, and to develop their critical thinking about addressing these issues.",
-            "id": "AAE 773",
+            "description": "The second in a 2-course sequence that comprises the capstone course in Resource and Energy Demand Analysis, in which students synthesize their training in a simulated \"real world\" analysis. The courses is designed to reflect the full range of professional responsibilities of a resource/energy demand analyst, from data retrieval/cleaning, to analysis, to reporting.",
+            "id": "AAE 776",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "C&ESOC/SOC 140",
-            "target": "SOC 181"
+            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
+            "id": "REALEST/ECON/URBRPL/AAE 306"
         }
     },
     {
         "data": {
-            "description": "Macroeconomic measurement and models of aggregate demand and supply; fiscal and monetary policy for unemployment, inflation, and growth.",
-            "id": "ECON 102",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "The first in a 2-course sequence that comprises the capstone course in Resource and Energy Demand Analysis, in which students synthesize their training in a simulated \"real world\" analysis. The course is designed to reflect the full range of professional responsibilities of a resource/energy demand analyst, from data retrieval/cleaning to analysis to reporting.",
-            "id": "AAE 774",
+            "description": "Principles and practices in marketing systems for U.S. agricultural commodities. Vertical organization; forward contracts, future markets, agricultural options and price formation. Alternate management at the farm, processor, wholesale and retail levels.",
+            "id": "AAE 322",
             "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 711",
+            "target": "AAE 746"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC/C&ESOC 360",
+            "target": "ECON/AAE 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
+            "id": "URBRPL/REALEST/AAE 520"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "F&WECOL/AAE 652"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses economic concepts to illustrate the nature of technological innovation, competition, and economic growth. Topics: economics of the intellectual property protection (IPP); market structure and innovation; interaction between public and private sectors; IPP and anticompetitive policies; globalization.",
+            "id": "MHR/AAE 540"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 709",
+            "target": "ECON 711"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "description": "Hunger and poverty in developing countries and the United States. Topics include: nutrition and health, population, food production and availability, and income distribution and employment.",
+            "id": "NUTRSCI/AAE/AGRONOMY 350"
+        }
+    },
+    {
+        "data": {
+            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
+            "id": "SOC/POPHLTH 797"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+            "id": "PLPATH/AAE/AGRONOMY/HORT 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Analyzes aggregate growth, income distribution and poverty in lower income economies. Uses microeconomics of imperfect labor, capital and insurance markets to explore why some individuals advance economically as their economies grow and others fall behind. Considers implications of aggregate and micro analysis for national and international economic policy.",
+            "id": "ECON/AAE 474"
         }
     },
     {
         "data": {
             "source": "AAE 101",
-            "target": "AAE/INTLBUS/ECON 462"
+            "target": "AAE/INTLST 373"
         }
     },
     {
         "data": {
-            "description": "Teaches generation and use of survey data. Topics include identification of target population, random, stratified,  cluster sampling, power analysis, survey collection  implementation, retrospective and prospective surveys of respondent choice, experimental choice in survey design, and econometric modeling of respondent choices.",
-            "id": "AAE 777",
+            "description": "The estimation of the economic models of resource and energy demand, including evaluation of energy and resource programs, estimating demand systems in the study of dynamic pricing models, estimating discrete choice models, forecasting resource and energy demand from econometric models, and topics in the application of big-data analytics in resource and energy demand analysis.",
+            "id": "AAE 772",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count towards credit inA\u00a0A\u00a0E\u00a0399. Students must have a declared major in Agricultural and Applied Economics or Agricultural Business Management and will require consent of the supervising instructor and academic advisor.",
+            "id": "AAE 1",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
+            "id": "ECON/URBRPL/REALEST/AAE 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Professional development for applied economists in sequential contexts. Examples include understanding and preparing for the professional economist job market; preparing and packaging job search materials; technical and non-technical interactions with potential employers and clients; understanding leadership styles and exploring leadership potential; examining professional ethics and norms; and gaining exposure to trends in professional development. Students will develop career skills by completing stand-alone activities, and by coordinating soft skill development tasks with exercises in simultaneously or previously offered theory and econometric classes.",
+            "id": "AAE 723",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "id": "PUBAFFR",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE 322"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on professional communication in a variety of contexts. Examples include but are not limited to: presenting results for technical and non-technical audiences, writing about research findings, synthesizing knowledge from multiple sources, and summarizing and critiquing different analysis strategies. Students will develop their writing and speaking skills by completing stand-alone tasks, and by coordinating communication tasks with exercises in simultaneously offered theory and econometric classes.",
+            "id": "AAE 721",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 111",
+            "target": "ECON 101"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of development economics, covering both basic theory and empirical applications. Topics include economic growth, trade, measurement of poverty and inequality, human capital, agricultural household models, technology adoption, migration, credit, savings, insurance, infrastructure, and the environment.",
+            "id": "AAE 642",
             "parent": "AAE"
         }
     },
@@ -543,173 +499,214 @@
     },
     {
         "data": {
-            "source": "AAE 101",
-            "target": "MATH 221"
+            "id": "SOC",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Social and cultural dimensions of food production and consumption. Uses historical and cross-cultural analytical frameworks. Treats a wide variety of topics including indigenous, racial, and ethnic foodways, industrialized food systems, sustainable agriculture, movements for food justice.",
-            "id": "C&ESOC/SOC 222"
+            "source": "SOC/C&ESOC 211",
+            "target": "SOC/C&ESOC 210"
         }
     },
     {
         "data": {
-            "source": "SOC/POPHLTH 797",
-            "target": "SOC/POPHLTH 797"
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
+            "parent": "ECON"
         }
     },
     {
         "data": {
-            "source": "HORT 120",
-            "target": "C&ESOC/SOC 222"
+            "description": "Economic concepts and tools relating to management and use of natural resources, including pricing principles, cost-benefit analysis, equity, externalities, economic rent, renewable and nonrenewable resources, and resource policy issues.",
+            "id": "F&WECOL/ECON/AAE 531"
         }
     },
     {
         "data": {
-            "description": "For the beginning student. Scientific basis for horticultural practices; scope of the field of horticulture; introduction to propagation, culture, management, improvement, storage, and marketing of flowers, fruits, ornamentals and vegetables.",
-            "id": "HORT 120",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count towards credit inA\u00a0A\u00a0E\u00a0399. Students must have a declared major in Agricultural and Applied Economics or Agricultural Business Management and will require consent of the supervising instructor and academic advisor.",
-            "id": "AAE 1",
+            "description": "Focuses on developing a conceptual as well as empirical analysis of microeconomic behavior, including production and consumption analysis, technical change, and investment. Emphasizes empirical applications of microeconomics, with implications for efficiency and welfare analysis. Knowledge of statistics such asSTAT/\u200bMATH\u00a0\u00a0309is recommended.",
+            "id": "AAE 705",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "MATH 112",
-            "target": "MATH 113"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 643"
+            "description": "First course in a two-semester sequence: theories of firms, consumers, and markets; or partial and general equilibria in market and centralized economies; topics in welfare economics. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
+            "id": "ECON 711",
+            "parent": "ECON"
         }
     },
     {
         "data": {
             "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
-            "id": "AAE/HORT/AGRONOMY/PLPATH 367"
+            "id": "AGRONOMY/PLPATH/AAE/HORT 367"
         }
     },
     {
         "data": {
-            "source": "ECON 311",
-            "target": "AAE 625"
+            "description": "Hunger and poverty in developing countries and the United States. Topics include: nutrition and health, population, food production and availability, and income distribution and employment.",
+            "id": "AGRONOMY/NUTRSCI/AAE 350"
         }
     },
     {
         "data": {
-            "description": "Development of professional and communication skills beyond standard technical training critical for career success. Foster interpersonal and professional career skills by engaging with academic practitioners and industry professionals. Topics include verbal and written communication, project management, leadership, networking, strategic decision-making, active listening, business intelligence, teamwork, and business culture.",
-            "id": "AAE 750",
+            "description": "Microeconomic principles underlying the use of natural resources such as air, water, forests, fisheries, minerals and energy. These principles are applied in the examination of pollution control, preservation vs. development, deforestation, and other environmental issues.",
+            "id": "ENVIRST/ECON/AAE 343"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "ECON/AAE 526"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of the economic performance of agriculture in feeding the growing world population. Examines contemporary economic issues in the food sector, along with research methods used in their analysis. Covers production analysis, risk and uncertainty, food demand, market structure, policy and welfare analysis.",
+            "id": "AAE 641",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "description": "Overview of fundamental topics related to macroeconomics, economic measurement and financial markets, with specific applications to agricultural business and policy. Concepts include fiscal and monetary policy, the money system, models of aggregate supply and demand, business cycles, financial instruments, productivity, measurements and indicators of employment and economic growth, financial institutions, forecasting, and international trade and finance.",
-            "id": "AAE 719",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on extending the standard regression model. Topics include nonlinear regression models, maximum likelihood estimation, panel data, simultaneous equations, linear and nonlinear systems, analysis of discrete choice, limited dependent variables, empirical economic applications and policy analysis.",
-            "id": "AAE 637",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Sociological examination of the linkages between the social and biophysical dimensions of the environment. Key topics include community organizing, local food systems, energy transitions, environmental justice, resource dependence, and sustainable development.",
-            "id": "C&ESOC/SOC 140"
+            "description": "The method, application, and limitations of traditional economic approaches to the study of energy problems. Topics include microeconomic foundations of energy demand and supply; optimal pricing and allocation of energy resources; energy market structure, conduct, and performance; macro linkages of energy and the economy; and the economics of regulatory and other public policy approaches to the social control of energy.",
+            "id": "ECON/ENVIRST/AAE/URBRPL 671"
         }
     },
     {
         "data": {
             "source": "AAE 101",
-            "target": "AAE 419"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
-            "id": "AAE/REALEST/URBRPL 520"
+            "target": "ECON/URBRPL/AAE/ENVIRST 671"
         }
     },
     {
         "data": {
             "source": "AAE 101",
-            "target": "AAE/ECON 473"
+            "target": "ENVIRST/ECON/URBRPL/AAE 671"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the statistical methods used in public policy. Covers the basics of probability, statistics, and quantitative methods in public policy analysis. Stresses interpretation and presentation of data as well as theory.",
+            "id": "PUBAFFR 818",
+            "parent": "PUBAFFR"
+        }
+    },
+    {
+        "data": {
+            "description": "Contemporary theory of consumption, production, pricing and resource allocation.",
+            "id": "ECON 301",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "With primary emphasis on the U.S., the course covers social, economic and biological dimensions of food systems. Using classroom and community experience, the course combines academic approaches with practitioner knowledge. A community project is required.",
+            "id": "C&ESOC/SOC/AAE 340"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "F&WECOL/ECON/AAE 531"
+        }
+    },
+    {
+        "data": {
+            "id": "PSYCH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Examination of the structure of supply chains for food and agriculture and key business decisions in the the broader context of food systems.",
+            "id": "AAE 422",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "For AAE Ph.D. students to develop a dissertation proposal. Working in groups and with some additional feedback from individual advisors. Developing research questions, literature search, word models, math models, testable hypotheses, identification strategies. Working with data, using LATEX, giving presentations. Peer review of weekly assignments. Developing cohort for subsequent feedback through dissertation writing and job search.",
+            "id": "AAE 780",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Microeconomic principles underlying the use of natural resources such as air, water, forests, fisheries, minerals and energy. These principles are applied in the examination of pollution control, preservation vs. development, deforestation, and other environmental issues.",
+            "id": "ECON/ENVIRST/AAE 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
+            "id": "ECON/REALEST/AAE/URBRPL 306"
+        }
+    },
+    {
+        "data": {
+            "description": "This is a 1 credit seminar that will be offered each spring. There will be different presenters each year.",
+            "id": "AAE 720",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on contemporary issues relevant to agricultural and applied economics.",
+            "id": "AAE 375",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to data and data processing using both Python and R programming languages. Concepts covered include loading data, data acquisition, cleaning data, visualization/exploring data, and storing data.",
+            "id": "AAE 718",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
+            "id": "PSYCH 202",
+            "parent": "PSYCH"
+        }
+    },
+    {
+        "data": {
+            "description": "Research work under direct guidance of an AAE faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
+            "id": "AAE 289",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC 181",
+            "target": "SOC/C&ESOC 211"
         }
     },
     {
         "data": {
             "source": "MATH 96",
-            "target": "MATH 96"
+            "target": "MATH 112"
         }
     },
     {
         "data": {
-            "source": "AAE 637",
-            "target": "AAE 724"
+            "source": "ECON 301",
+            "target": "URBRPL/REALEST/AAE 520"
         }
     },
     {
         "data": {
-            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
-            "id": "MATH 113",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 306",
-            "target": "C&ESOC/SOC 360"
-        }
-    },
-    {
-        "data": {
-            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
-            "id": "SOC/POPHLTH 797"
-        }
-    },
-    {
-        "data": {
-            "description": "The basic methods, implementation and applications of machine learning for understanding contemporary economic issues using large data sets. Building upon understanding of standard econometric models, the topics include data mining techniques; regression model selection and regularization; post selection inference and economic applications; tree-based methods; neural networks; random forests and casual inference; and unsupervised learning.",
-            "id": "AAE 722",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member in Agricultural and Applied Economics and internship site supervisor. Students are responsible for arranging the work and credits with the AAE faculty or instructional academic staff member and the internship site supervisor.",
-            "id": "AAE 399",
-            "parent": "AAE"
+            "source": "MATH 211",
+            "target": "STAT 301"
         }
     },
     {
@@ -722,667 +719,13 @@
     {
         "data": {
             "source": "PSYCH 202",
-            "target": "PSYCH 202"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "AAE 101"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/INTLST 373"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 709",
-            "target": "ECON 711"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 711",
-            "target": "AAE 731"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 222",
-            "target": "C&ESOC/ENVIRST/AGROECOL/AGRONOMY/ENTOM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 710",
-            "target": "AAE 737"
-        }
-    },
-    {
-        "data": {
-            "description": "This is a 1 credit seminar that will be offered each spring. There will be different presenters each year.",
-            "id": "AAE 720",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
-            "id": "AAE/REALEST/URBRPL/ECON 306"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/CIVENGR/URBRPL/ENVIRST 561"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "GENBUS 307"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research guided by an AAE faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "AAE 699",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic concepts and tools relating to management and use of natural resources, including pricing principles, cost-benefit analysis, equity, externalities, economic rent, renewable and nonrenewable resources, and resource policy issues.",
-            "id": "AAE/ECON/F&WECOL 531"
-        }
-    },
-    {
-        "data": {
-            "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
-            "id": "AAE/INTLBUS/ECON 462"
-        }
-    },
-    {
-        "data": {
-            "description": "The \"economic way of thinking\" about global and regional environmental issues. Topics include climate change, biodiversity preservation, ocean fisheries, environmental impacts of international trade, poverty and the environment, and sustainability.",
-            "id": "AAE/ENVIRST 244"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 310",
             "target": "PSYCH 210"
         }
     },
     {
         "data": {
-            "description": "Application of economics to managing agricultural production systems. Topics include optimizing agricultural production, farm financial analysis, tax management, business entities, federal commodity support programs, and the structure and challenges in the US agricultural sector.",
-            "id": "AAE 320",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Continuation of 681. Enrolled in CALS Honors Program.",
-            "id": "AAE 682",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 722"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Teaches students how to apply economic theory to economic problems, utilize quantitative techniques in economic analyses, and communicate findings and results of economic analyses.",
-            "id": "AAE 500",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Use microeconomic theory to analyze energy markets. Discuss the economics of oil, gas, and electricity and learn about applications to contemporary issues and policy questions.",
-            "id": "AAE/ECON 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
-            "id": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 211",
-            "target": "SOC 181"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Organization, design, and performance of food and agricultural markets. Industrial organization; firm boundaries, contracting, and collective action; spatial, temporal, and quality dimensions of market design.",
-            "id": "AAE/ECON 747"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-            "id": "BMI/POPHLTH 551"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to data analysis for social scientists using spreadsheets software - with specific applications to economics, business and finance - including data management and manipulation; formulas and calculations; data visualization and presentation using charts and graphics; statistical and visual analysis of economic indicators using tables, functions, graphs and descriptive statistics; and optimization of functions with economic and financial data.",
-            "id": "AAE 335",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "The tools and techniques used in the economic approach to policy analysis. Emphasis is on applying these methodological tools to evaluating existing public policies and policy alternatives, as well as providing a deeper understanding of how the economy operates.",
-            "id": "PUBAFFR 880",
-            "parent": "PUBAFFR"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Evaluates economic development strategies in Southeast Asia and their implications for growth, distribution and environment. Students learn trade and development theory as well as specific knowledge of Southeast Asian economic development.",
-            "id": "AAE/ECON 473"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/POPHLTH 551"
-        }
-    },
-    {
-        "data": {
-            "description": "With primary emphasis on the U.S., the course covers social, economic and biological dimensions of food systems. Using classroom and community experience, the course combines academic approaches with practitioner knowledge. A community project is required.",
-            "id": "C&ESOC/SOC/AAE 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Applying economic theory to the practice of resource and energy demand analysis. Topics include consumer demand theory and the proper modeling of demand systems, theoretical underpinnings of behavioral economics, welfare theory, cost benefit analysis and cost-effectiveness analysis, and technology adoption and diffusion.",
-            "id": "AAE 771",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for majors completing theses for AAE degrees as arranged with a faculty member. Requires consent of supervising instructor.",
-            "id": "AAE 691",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 211",
-            "target": "C&ESOC/SOC 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on professional communication in a variety of contexts. Examples include but are not limited to: presenting results for technical and non-technical audiences, writing about research findings, synthesizing knowledge from multiple sources, and summarizing and critiquing different analysis strategies. Students will develop their writing and speaking skills by completing stand-alone tasks, and by coordinating communication tasks with exercises in simultaneously offered theory and econometric classes.",
-            "id": "AAE 721",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 641"
-        }
-    },
-    {
-        "data": {
-            "description": "Emphasis on hands-on experience with many commonly used analytic methodologies using the modeling and optimization tools available on almost every professional desktop. The focus is predictive and prescriptive analytics. Predictive approaches use historical data to infer causal relationships and forecast future outcomes from a given action. Prescriptive methods take this a step further, helping managers formulate decision models that identify optimal actions given a set of circumstances.",
-            "id": "GENBUS 307",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 210",
-            "target": "C&ESOC/SOC 140"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 711",
-            "target": "AAE 746"
-        }
-    },
-    {
-        "data": {
-            "description": "Use of quantitative methods (mathematics, statistics, and optimization) to analyze problems faced by decision makers in natural resources and agriculture. Extensive homework requiring use of quantitative methods via spreadsheet tools to solve problems from an applied decision context.",
-            "id": "AAE/ECON 526"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-            "id": "AAE 400",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "AAE/F&WECOL 652"
-        }
-    },
-    {
-        "data": {
-            "description": "The estimation of the economic models of resource and energy demand, including evaluation of energy and resource programs, estimating demand systems in the study of dynamic pricing models, estimating discrete choice models, forecasting resource and energy demand from econometric models, and topics in the application of big-data analytics in resource and energy demand analysis.",
-            "id": "AAE 772",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for graduate students as arranged with a faculty member.",
-            "id": "AAE 999",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
-            "id": "AAE 101",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
-            "id": "AAE/PUBAFFR/ENVIRST/POPHLTH 881"
-        }
-    },
-    {
-        "data": {
-            "description": "First course in a two-semester sequence: theories of firms, consumers, and markets; or partial and general equilibria in market and centralized economies; topics in welfare economics. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
-            "id": "ECON 711",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 711",
-            "target": "AAE/ECON 747"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of data science methods to economic analyses. Integration of data acquisition, cleaning, analysis, and interpretation in managerial contexts. Emphasis on applications in the agri-food supply chain.",
-            "id": "AAE 701",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 635",
-            "target": "AAE 706"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of development economics, covering both basic theory and empirical applications. Topics include economic growth, trade, measurement of poverty and inequality, human capital, agricultural household models, technology adoption, migration, credit, savings, insurance, infrastructure, and the environment.",
-            "id": "AAE 642",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
             "source": "MATH 211",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "One part of a series of courses to train students in the quantitative methods typically used by economic analysts in a professional setting. Provides students with the opportunity to synthesize the material they've learned in their coursework in a start-to-finish econometric analysis similar in scope and timeline to what they often would be expected to do in a professional setting. The final course product is a professional report. Students should think of this report as a professional analyst's Master's thesis - a demonstration of the student's training and capability for professional work, to be shared with prospective employers.",
-            "id": "AAE 724",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses economic concepts to illustrate the nature of technological innovation, competition, and economic growth. Topics: economics of the intellectual property protection (IPP); market structure and innovation; interaction between public and private sectors; IPP and anticompetitive policies; globalization.",
-            "id": "AAE/MHR 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Economics of agricultural technology innovation and adoption, properties and measurement of production and productivity, and impact evaluation. Empirical methods, including surveys, experiments, randomized trials, and instrumental variable methods of testing applied microeconomic models.",
-            "id": "AAE 746",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 704",
-            "target": "AAE 636"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "AAE 335"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the paradigms, methods and substance of sociology.",
-            "id": "SOC 181",
-            "parent": "SOC"
-        }
-    },
-    {
-        "data": {
-            "source": "AGRONOMY 100",
-            "target": "BOTANY/PLPATH 123"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 635",
-            "target": "AAE 636"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 771"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 636",
-            "target": "AAE 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Interdisciplinary inquiry in Latin American society and culture.",
-            "id": "C&ESOC/AAE/SOC/HISTORY/ANTHRO/PORTUG/POLISCI/SPANISH/LACIS/GEOG 982"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 306",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Includes a sequential study of subject material in agribusiness management and managerial economics related to the management of agricultural businesses. Topics related to agribusiness management in the U.S., including organizational structure, marketing, strategy, financial statements, financing and production planning. Concepts from managerial economics as applied to the agribusiness firm, including production theory, cost analysis, pricing strategies, cost-benefit analysis, investment decisions and competition strategies.",
-            "id": "AAE 625",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles and definitions of sociology. Readings and discussion of the perspectives of sociology, the individual and society, groups and social process, stratification, organizations and power, demography, and social change.",
-            "id": "C&ESOC/SOC 211"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 709",
-            "target": "ECON 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of the structure of supply chains for food and agriculture and key business decisions in the the broader context of food systems.",
-            "id": "AAE 422",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
-            "id": "STAT 301",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 211",
-            "target": "C&ESOC/SOC 210"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 709",
-            "target": "ECON 709"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 772",
-            "target": "AAE 776"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 711",
-            "target": "AAE 760"
-        }
-    },
-    {
-        "data": {
-            "description": "With primary emphasis on the U.S., the course covers social, economic and biological dimensions of food systems. Using classroom and community experience, the course combines academic approaches with practitioner knowledge. A community project is required.",
-            "id": "AAE/SOC/C&ESOC 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and evidence on growth and development in emerging economies, with primary focus on globalization, trade, labor markets and human capital. We use open-economy general equilibrium models to examine welfare implications of global shocks and domestic economic policies.",
-            "id": "AAE 731",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE 319"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ENVIRST/ECON 343"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the field of American sociology, its subfields and specialized areas of research, theoretical traditions and research methods.",
-            "id": "C&ESOC/SOC 210"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "AAE/MHR 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
-            "id": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
-            "id": "C&ESOC/ENVIRST/AGROECOL/AGRONOMY/ENTOM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 113",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 711",
-            "target": "AAE 730"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "AAE/REALEST/URBRPL 520"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 360",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 306",
-            "target": "GENBUS 106"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC 181",
-            "target": "C&ESOC/SOC/AAE 340"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "AAE/URBRPL/ENVIRST/ECON 671"
+            "target": "MATH 221"
         }
     },
     {
@@ -1394,134 +737,64 @@
     },
     {
         "data": {
-            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
-            "id": "AAE 681",
+            "description": "Theory and evidence on growth and development in emerging economies, with primary focus on globalization, trade, labor markets and human capital. We use open-economy general equilibrium models to examine welfare implications of global shocks and domestic economic policies.",
+            "id": "AAE 731",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "GENBUS 307",
-            "target": "AAE/ECON 421"
+            "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
+            "id": "PLPATH/BOTANY 123"
         }
     },
     {
         "data": {
-            "source": "PUBAFFR 880",
-            "target": "PUBAFFR 880"
-        }
-    },
-    {
-        "data": {
-            "description": "Interdisciplinary inquiry in Latin American society and culture.",
-            "id": "AAE/C&ESOC/SOC/HISTORY/ANTHRO/PORTUG/POLISCI/SPANISH/LACIS/GEOG 982"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/ENVIRST/AGROECOL/AGRONOMY/ENTOM 103",
-            "target": "AAE/HORT/AGRONOMY/PLPATH 367"
-        }
-    },
-    {
-        "data": {
-            "description": "Professional development for applied economists in sequential contexts. Examples include understanding and preparing for the professional economist job market; preparing and packaging job search materials; technical and non-technical interactions with potential employers and clients; understanding leadership styles and exploring leadership potential; examining professional ethics and norms; and gaining exposure to trends in professional development. Students will develop career skills by completing stand-alone activities, and by coordinating soft skill development tasks with exercises in simultaneously or previously offered theory and econometric classes.",
-            "id": "AAE 723",
-            "parent": "AAE"
+            "id": "AGRONOMY",
+            "type": "compound"
         }
     },
     {
         "data": {
             "source": "AAE 101",
-            "target": "AAE 320"
+            "target": "ECON/ENVIRST/AAE/URBRPL 671"
         }
     },
     {
         "data": {
-            "description": "This course explores the roles of markets, states, and civil institutions, using economic theory, computer simulations, and historical experience to better understand the forces that shape the wealth and well-being of nations and people around the world.",
-            "id": "AAE/INTLST 374"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC 181",
-            "target": "C&ESOC/SOC 210"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the standard linear regression model with an emphasis on application issues. Includes statistical foundation, hypothesis testing, functional form, model selection and procedures for handling violations of model assumption.",
-            "id": "AAE 636",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "PUBAFFR 818",
-            "target": "AAE/PUBAFFR/ENVIRST/POPHLTH 881"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "AAE 670"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and practices in marketing systems for U.S. agricultural commodities. Vertical organization; forward contracts, future markets, agricultural options and price formation. Alternate management at the farm, processor, wholesale and retail levels.",
-            "id": "AAE 322",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Real-world, hands-on collaboration with industry partners to offer practical training projects or internships under the direction and oversight of an instructor in the Department of Agricultural and Applied Economics. The goal of both internships and practical training is to offer valuable opportunities to acquire practical, industry-related skills through hands-on learning.",
-            "id": "AAE 899",
-            "parent": "AAE"
+            "description": "Presentation of sociological data; descriptive statistics; probability theory and statistical inference; estimation and tests of hypotheses; regression and correlation and the analysis of contingency tables.",
+            "id": "SOC/C&ESOC 360"
         }
     },
     {
         "data": {
             "source": "ECON 102",
-            "target": "ECON 111"
+            "target": "ECON 310"
         }
     },
     {
         "data": {
-            "source": "STAT 371",
-            "target": "STAT 371"
+            "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
+            "id": "REALEST/AAE/URBRPL 520"
         }
     },
     {
         "data": {
-            "description": "Interdisciplinary inquiry in Latin American society and culture.",
-            "id": "AAE/C&ESOC/SOC/HISTORY/PORTUG/ANTHRO/POLISCI/SPANISH/LACIS/GEOG 982"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to basic finance concepts.  Topics include financial statements, ratio analysis and interpretation, investment analysis, capital budgeting, credit concepts, and capital markets.",
-            "id": "AAE 419",
+            "description": "Independent research and writing to complete dissertation requirement.",
+            "id": "AAE 990",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 118"
+            "source": "ECON 310",
+            "target": "GENBUS 307"
         }
     },
     {
         "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
             "parent": "MATH"
         }
     },
@@ -1534,21 +807,762 @@
     },
     {
         "data": {
-            "source": "AAE 635",
-            "target": "AAE 635"
+            "source": "AAE 636",
+            "target": "AAE 642"
         }
     },
     {
         "data": {
-            "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "AAE 299",
+            "source": "ECON 101",
+            "target": "ECON 111"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of economics to managing agricultural production systems. Topics include optimizing agricultural production, farm financial analysis, tax management, business entities, federal commodity support programs, and the structure and challenges in the US agricultural sector.",
+            "id": "AAE 320",
             "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
+            "id": "ECON/AAE/INTLBUS 462"
+        }
+    },
+    {
+        "data": {
+            "source": "ISYE/POPHLTH 875",
+            "target": "ENVIRST/AAE/POPHLTH/PUBAFFR 881"
+        }
+    },
+    {
+        "data": {
+            "description": "Composition, organization, and techniques of agricultural production; economic change and development of agriculture, economic policies, special problems of developing African agriculture.",
+            "id": "ECON/AAE 477"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 643"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/URBRPL/REALEST/AAE 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research guided by an AAE faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "AAE 699",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member in Agricultural and Applied Economics and internship site supervisor. Students are responsible for arranging the work and credits with the AAE faculty or instructional academic staff member and the internship site supervisor.",
+            "id": "AAE 399",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of professional and communication skills beyond standard technical training critical for career success. Foster interpersonal and professional career skills by engaging with academic practitioners and industry professionals. Topics include verbal and written communication, project management, leadership, networking, strategic decision-making, active listening, business intelligence, teamwork, and business culture.",
+            "id": "AAE 750",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "REALEST/AAE/URBRPL 520"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 311",
+            "target": "ECON 301"
+        }
+    },
+    {
+        "data": {
+            "description": "The fundamental mathematics and statistics necessary for the study of quantitative methods in resource and energy demand. Topics include the mathematics of optimization and its role in basic welfare theory and consumer demand; linear and matrix algebra and their application in both modeling consumer behavior and the statistical analysis of models; and the fundamentals of statistical analysis relevant to econometric analysis of resource and energy demand, including probability theory, sampling distributions, and statistical inference.",
+            "id": "AAE 770",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE 319"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/AAE 371"
+        }
+    },
+    {
+        "data": {
+            "source": "PLPATH/BOTANY 123",
+            "target": "HORT 120"
+        }
+    },
+    {
+        "data": {
+            "description": "For the beginning student. Scientific basis for horticultural practices; scope of the field of horticulture; introduction to propagation, culture, management, improvement, storage, and marketing of flowers, fruits, ornamentals and vegetables.",
+            "id": "HORT 120",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
+            "id": "AAE 101",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 306",
+            "target": "GENBUS 307"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/REALEST/AAE/URBRPL 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Current issues in resource and demand analysis, with presentations by academic researchers and industry professionals, to introduce students to current issues in resource and demand analysis, and to develop their critical thinking about addressing these issues.",
+            "id": "AAE 773",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "CIVENGR/ENVIRST/AAE/URBRPL 561"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
+            "id": "ISYE/POPHLTH 875"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 306",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Plant science applied to the growth, production, management, distribution and utilization of field crops.",
+            "id": "AGRONOMY 100",
+            "parent": "AGRONOMY"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 721",
+            "target": "AAE 723"
+        }
+    },
+    {
+        "data": {
+            "description": "With primary emphasis on the U.S., the course covers social, economic and biological dimensions of food systems. Using classroom and community experience, the course combines academic approaches with practitioner knowledge. A community project is required.",
+            "id": "SOC/C&ESOC/AAE 340"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 722"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches students how to apply economic theory to economic problems, utilize quantitative techniques in economic analyses, and communicate findings and results of economic analyses.",
+            "id": "AAE 500",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "ECON 311"
+        }
+    },
+    {
+        "data": {
+            "description": "The method, application, and limitations of traditional economic approaches to the study of energy problems. Topics include microeconomic foundations of energy demand and supply; optimal pricing and allocation of energy resources; energy market structure, conduct, and performance; macro linkages of energy and the economy; and the economics of regulatory and other public policy approaches to the social control of energy.",
+            "id": "ENVIRST/ECON/AAE/URBRPL 671"
+        }
+    },
+    {
+        "data": {
+            "description": "Measures of central tendency, variability; probability, sampling distributions; hypothesis testing, confidence intervals; t-tests; Chi-square; regression and correlation (linear) and introduction to analysis of variance (1-way).",
+            "id": "PSYCH 210",
+            "parent": "PSYCH"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles and definitions of sociology. Readings and discussion of the perspectives of sociology, the individual and society, groups and social process, stratification, organizations and power, demography, and social change.",
+            "id": "SOC/C&ESOC 211"
+        }
+    },
+    {
+        "data": {
+            "description": "The tools and techniques used in the economic approach to policy analysis. Emphasis is on applying these methodological tools to evaluating existing public policies and policy alternatives, as well as providing a deeper understanding of how the economy operates.",
+            "id": "PUBAFFR 880",
+            "parent": "PUBAFFR"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 641"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic finance concepts.  Topics include financial statements, ratio analysis and interpretation, investment analysis, capital budgeting, credit concepts, and capital markets.",
+            "id": "AAE 419",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for majors completing theses for AAE degrees as arranged with a faculty member. Requires consent of supervising instructor.",
+            "id": "AAE 691",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches generation and use of survey data. Topics include identification of target population, random, stratified,  cluster sampling, power analysis, survey collection  implementation, retrospective and prospective surveys of respondent choice, experimental choice in survey design, and econometric modeling of respondent choices.",
+            "id": "AAE 777",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Interdisciplinary inquiry in Latin American society and culture.",
+            "id": "AAE/HISTORY/C&ESOC/GEOG/POLISCI/SPANISH/LACIS/PORTUG/SOC/ANTHRO 982"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
+            "id": "AAE 681",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Organization, design, and performance of food and agricultural markets. Industrial organization; firm boundaries, contracting, and collective action; spatial, temporal, and quality dimensions of market design.",
+            "id": "ECON/AAE 747"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "description": "The method, application, and limitations of traditional economic approaches to the study of energy problems. Topics include microeconomic foundations of energy demand and supply; optimal pricing and allocation of energy resources; energy market structure, conduct, and performance; macro linkages of energy and the economy; and the economics of regulatory and other public policy approaches to the social control of energy.",
+            "id": "ECON/URBRPL/AAE/ENVIRST 671"
+        }
+    },
+    {
+        "data": {
+            "description": "Interdisciplinary inquiry in Latin American society and culture.",
+            "id": "HISTORY/AAE/C&ESOC/GEOG/POLISCI/LACIS/SPANISH/PORTUG/SOC/ANTHRO 982"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 711",
+            "target": "AAE 731"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 637",
+            "target": "AAE 724"
+        }
+    },
+    {
+        "data": {
+            "description": "Energy resources are an essential element of the world's business, political, technical and environmental landscape. Analytic tools provided by the discipline of economics expands our understanding of this critical issue. Energy supply markets reviewed include both fossil fuels and renewable resources. Energy demand sectors include residential, commercial, industrial and transportation. Electricity represents an intermediate energy market. The interactions among these markets participants indicate how scarce resources are allocated among competing needs in the world economy.",
+            "id": "CIVENGR/ENVIRST/AAE/URBRPL 561"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "id": "GENBUS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 301",
+            "target": "ECON 301"
+        }
+    },
+    {
+        "data": {
+            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
+            "id": "ECON 311",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/INTLBUS/AAE 462"
+        }
+    },
+    {
+        "data": {
+            "description": "The fundamental mathematics and statistics necessary for the study of quantitative methods in agricultural and applied economics (AAE). Topics include the mathematics of optimization and its role in basic welfare theory and consumer demand; linear and matrix algebra and their application in both modeling consumer behavior and the statistical analysis of models; and the fundamentals of statistical analysis relevant to econometric analysis, including probability theory, sampling distributions and statistical inference.",
+            "id": "AAE 670",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Conceptual empirical analysis of economic behavior under risk and its implications for management and policy decisions. Emphasis on economic applications to the agricultural and food sector.",
+            "id": "AAE 706",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "AAE 799",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "MHR/AAE 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Social and cultural dimensions of food production and consumption. Uses historical and cross-cultural analytical frameworks. Treats a wide variety of topics including indigenous, racial, and ethnic foodways, industrialized food systems, sustainable agriculture, movements for food justice.",
+            "id": "SOC/C&ESOC 222"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 721"
+        }
+    },
+    {
+        "data": {
+            "description": "The method, application, and limitations of traditional economic approaches to the study of energy problems. Topics include microeconomic foundations of energy demand and supply; optimal pricing and allocation of energy resources; energy market structure, conduct, and performance; macro linkages of energy and the economy; and the economics of regulatory and other public policy approaches to the social control of energy.",
+            "id": "ENVIRST/ECON/URBRPL/AAE 671"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC/C&ESOC 140",
+            "target": "C&ESOC/SOC/AAE 340"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "REALEST/ECON/URBRPL/AAE 306"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 774"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 102",
+            "target": "ECON 111"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of data science methods to economic analyses. Integration of data acquisition, cleaning, analysis, and interpretation in managerial contexts. Emphasis on applications in the agri-food supply chain.",
+            "id": "AAE 701",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on extending the standard regression model. Topics include nonlinear regression models, maximum likelihood estimation, panel data, simultaneous equations, linear and nonlinear systems, analysis of discrete choice, limited dependent variables, empirical economic applications and policy analysis.",
+            "id": "AAE 637",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Applying economic theory to the practice of resource and energy demand analysis. Topics include consumer demand theory and the proper modeling of demand systems, theoretical underpinnings of behavioral economics, welfare theory, cost benefit analysis and cost-effectiveness analysis, and technology adoption and diffusion.",
+            "id": "AAE 771",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses the process of globalization -- trade, international capital flows, labor migration and remittances, and aid -- from the perspective of developing economies and the development process.",
+            "id": "AAE/INTLST 373"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 301",
+            "target": "SOC/C&ESOC 360"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of quantitative methods (mathematics, statistics, and optimization) to analyze problems faced by decision makers in natural resources and agriculture. Extensive homework requiring use of quantitative methods via spreadsheet tools to solve problems from an applied decision context.",
+            "id": "ECON/AAE 526"
+        }
+    },
+    {
+        "data": {
+            "description": "The role of markets and government in the allocation of environmental goods and services. Topics include public goods, externalities and market failure; policy instruments for dealing with environmental quality problems such as air pollution; and distributional impacts of environmental regulations.",
+            "id": "AAE 762",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+            "id": "AAE 400",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 307",
+            "target": "PSYCH 210"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 772"
+        }
+    },
+    {
+        "data": {
+            "source": "PUBAFFR 880",
+            "target": "PUBAFFR 818"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ECON/AAE 473"
+        }
+    },
+    {
+        "data": {
+            "description": "Interdisciplinary inquiry in Latin American society and culture.",
+            "id": "AAE/HISTORY/C&ESOC/GEOG/POLISCI/LACIS/SPANISH/PORTUG/SOC/ANTHRO 982"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 102"
+        }
+    },
+    {
+        "data": {
+            "source": "AGRONOMY 100",
+            "target": "AGROECOL/ENVIRST/C&ESOC/ENTOM/AGRONOMY 103"
+        }
+    },
+    {
+        "data": {
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "source": "HORT 120",
+            "target": "AGRONOMY 100"
         }
     },
     {
         "data": {
             "description": "Survey of historical topics and contemporary research questions in environmental and resource economics. Focus areas include foundational models of human/environment interaction, definition and evaluation of the suite of environmental policy instruments, measuring environmental costs and benefits, and examining natural resource use.",
             "id": "AAE 643",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Real-world, hands-on collaboration with industry partners to offer practical training projects or internships under the direction and oversight of an instructor in the Department of Agricultural and Applied Economics. The goal of both internships and practical training is to offer valuable opportunities to acquire practical, industry-related skills through hands-on learning.",
+            "id": "AAE 899",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "AGROECOL/ENVIRST/C&ESOC/ENTOM/AGRONOMY 103",
+            "target": "AGRONOMY/PLPATH/AAE/HORT 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Macroeconomic measurement and models of aggregate demand and supply; fiscal and monetary policy for unemployment, inflation, and growth.",
+            "id": "ECON 102",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Career and professional development geared toward the field of agricultural and applied economics or agricultural business management. Topics include resumes, cover letters, interviewing skills, internship and job applications, writing, career exploration, and networking. Panelists include faculty, alumni, and employers.",
+            "id": "AAE 267",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Prepares students for their own empirical work by examining contemporary econometric techniques as they are used in development, environment and natural resources, and agricultural economics. Guides students through a selection of applied models using past and current research as examples. By hearing lectures and working through papers, problem sets, replication exercises, and/or research projects, students will develop a deeper understanding of the many facets of empirical research in economics.",
+            "id": "AAE 737",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Emphasis on hands-on experience with many commonly used analytic methodologies using the modeling and optimization tools available on almost every professional desktop. The focus is predictive and prescriptive analytics. Predictive approaches use historical data to infer causal relationships and forecast future outcomes from a given action. Prescriptive methods take this a step further, helping managers formulate decision models that identify optimal actions given a set of circumstances.",
+            "id": "GENBUS 307",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability distributions, statistical inference; multiple linear regression; introduction to econometric methods. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
+            "id": "ECON 709",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 636",
+            "target": "AAE 637"
+        }
+    },
+    {
+        "data": {
+            "description": "Energy resources are an essential element of the world's business, political, technical and environmental landscape. Analytic tools provided by the discipline of economics expands our understanding of this critical issue. Energy supply markets reviewed include both fossil fuels and renewable resources. Energy demand sectors include residential, commercial, industrial and transportation. Electricity represents an intermediate energy market. The interactions among these markets participants indicate how scarce resources are allocated among competing needs in the world economy.",
+            "id": "CIVENGR/ENVIRST/URBRPL/AAE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 635",
+            "target": "AAE 706"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 711",
+            "target": "ECON/AAE 747"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
+            "id": "ENVIRST/AAE/POPHLTH/PUBAFFR 881"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "CIVENGR/ENVIRST/URBRPL/AAE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 772",
+            "target": "AAE 776"
+        }
+    },
+    {
+        "data": {
+            "description": "Evaluates economic development strategies in Southeast Asia and their implications for growth, distribution and environment. Students learn trade and development theory as well as specific knowledge of Southeast Asian economic development.",
+            "id": "ECON/AAE 473"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the paradigms, methods and substance of sociology.",
+            "id": "SOC 181",
+            "parent": "SOC"
+        }
+    },
+    {
+        "data": {
+            "description": "The basic methods, implementation and applications of machine learning for understanding contemporary economic issues using large data sets. Building upon understanding of standard econometric models, the topics include data mining techniques; regression model selection and regularization; post selection inference and economic applications; tree-based methods; neural networks; random forests and casual inference; and unsupervised learning.",
+            "id": "AAE 722",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Managerial oriented, applied presentation of microeconomic theory. Quantitative emphasis with extensive homework use of spreadsheets and written executive summaries of applied economic analyses. Applications on natural resources and agricultural markets.",
+            "id": "ECON/AAE 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Sociological examination of the linkages between the social and biophysical dimensions of the environment. Key topics include community organizing, local food systems, energy transitions, environmental justice, resource dependence, and sustainable development.",
+            "id": "SOC/C&ESOC 140"
+        }
+    },
+    {
+        "data": {
+            "description": "The \"economic way of thinking\" about global and regional environmental issues. Topics include climate change, biodiversity preservation, ocean fisheries, environmental impacts of international trade, poverty and the environment, and sustainability.",
+            "id": "ENVIRST/AAE 244"
+        }
+    },
+    {
+        "data": {
+            "description": "Includes a sequential study of subject material in agribusiness management and managerial economics related to the management of agricultural businesses. Topics related to agribusiness management in the U.S., including organizational structure, marketing, strategy, financial statements, financing and production planning. Concepts from managerial economics as applied to the agribusiness firm, including production theory, cost analysis, pricing strategies, cost-benefit analysis, investment decisions and competition strategies.",
+            "id": "AAE 625",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of fundamental topics related to macroeconomics, economic measurement and financial markets, with specific applications to agricultural business and policy. Concepts include fiscal and monetary policy, the money system, models of aggregate supply and demand, business cycles, financial instruments, productivity, measurements and indicators of employment and economic growth, financial institutions, forecasting, and international trade and finance.",
+            "id": "AAE 719",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "ENVIRST/ECON/AAE/URBRPL 671"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the standard linear regression model with an emphasis on application issues. Includes statistical foundation, hypothesis testing, functional form, model selection and procedures for handling violations of model assumption.",
+            "id": "AAE 636",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "AAE 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Continuation of 681. Enrolled in CALS Honors Program.",
+            "id": "AAE 682",
             "parent": "AAE"
         }
     },
@@ -1561,126 +1575,35 @@
     },
     {
         "data": {
-            "description": "Cooperatives, credit unions, and other alternative forms of enterprise are unique businesses in which users (rather than investors) are the owners. Topics will include why these models emerge, who they serve, how they differ from other forms of enterprise, and the ways in which they can be used to address social, economic, and environmental challenges.",
-            "id": "AAE 323",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Managerial oriented, applied presentation of microeconomic theory. Quantitative emphasis with extensive homework use of spreadsheets and written executive summaries of applied economic analyses. Applications on natural resources and agricultural markets.",
-            "id": "AAE/ECON 421"
-        }
-    },
-    {
-        "data": {
-            "description": "The fundamental mathematics and statistics necessary for the study of quantitative methods in agricultural and applied economics (AAE). Topics include the mathematics of optimization and its role in basic welfare theory and consumer demand; linear and matrix algebra and their application in both modeling consumer behavior and the statistical analysis of models; and the fundamentals of statistical analysis relevant to econometric analysis, including probability theory, sampling distributions and statistical inference.",
-            "id": "AAE 670",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Extensions of the linear regression model; introduction to multiple equation models.",
-            "id": "ECON 710",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 114",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 721",
-            "target": "AAE 723"
-        }
-    },
-    {
-        "data": {
-            "description": "The second in a 2-course sequence that comprises the capstone course in Resource and Energy Demand Analysis, in which students synthesize their training in a simulated \"real world\" analysis. The courses is designed to reflect the full range of professional responsibilities of a resource/energy demand analyst, from data retrieval/cleaning, to analysis, to reporting.",
-            "id": "AAE 776",
-            "parent": "AAE"
+            "source": "SOC/C&ESOC 211",
+            "target": "SOC 181"
         }
     },
     {
         "data": {
             "source": "AAE 101",
-            "target": "AAE/ECON 477"
+            "target": "ECON/AAE 474"
         }
     },
     {
         "data": {
-            "source": "STAT 301",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Plant science applied to the growth, production, management, distribution and utilization of field crops.",
-            "id": "AGRONOMY 100",
-            "parent": "AGRONOMY"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research and writing to complete dissertation requirement.",
-            "id": "AAE 990",
+            "description": "Economics of agricultural technology innovation and adoption, properties and measurement of production and productivity, and impact evaluation. Empirical methods, including surveys, experiments, randomized trials, and instrumental variable methods of testing applied microeconomic models.",
+            "id": "AAE 746",
             "parent": "AAE"
         }
     },
     {
         "data": {
-            "source": "ISYE/POPHLTH 875",
-            "target": "PUBAFFR 880"
+            "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "AAE 299",
+            "parent": "AAE"
         }
     },
     {
         "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "AAE/ECON/F&WECOL 531"
-        }
-    },
-    {
-        "data": {
-            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "AAE 799",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and empirical evidence on growth and development in low-income countries. Topics may include: measurement of poverty and inequality, risk and insurance, social networks, technology adoption, education, corruption, institutions, and behavioral economics.",
-            "id": "AAE 730",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Career and professional development geared toward the field of agricultural and applied economics or agricultural business management. Topics include resumes, cover letters, interviewing skills, internship and job applications, writing, career exploration, and networking. Panelists include faculty, alumni, and employers.",
-            "id": "AAE 267",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "AAE/ECON 526"
         }
     }
 ]

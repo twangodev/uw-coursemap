@@ -1,31 +1,24 @@
 [
     {
         "course_reference": {
-            "course_number": 569,
+            "course_number": 418,
             "subjects": [
                 "EP"
             ]
         },
-        "course_title": "RESEARCH PRACTICUM IN ENGINEERING PHYSICS II",
-        "description": "Undergraduate research projects supervised by faculty members. Senior thesis.",
+        "course_title": "SUSTAINABLE ENERGY CHALLENGES AND SOLUTIONS",
+        "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 568,
-                    "subjects": [
-                        "EP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0P\u00a0568and declared in Engineering Physics"
+            "course_references": [],
+            "prerequisites_text": "Declared in the Certificate in Engineering for Energy Sustainability or Engineering: Sustainable Systems Engineering, MEng"
         }
     },
     {
         "course_reference": {
             "course_number": 615,
             "subjects": [
-                "EP",
-                "EMA"
+                "EMA",
+                "EP"
             ]
         },
         "course_title": "MICRO- AND NANOSCALE MECHANICS",
@@ -33,15 +26,15 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
                     "course_number": 306,
                     "subjects": [
                         "ME"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "EMA"
                     ]
                 }
             ],
@@ -50,30 +43,51 @@
     },
     {
         "course_reference": {
-            "course_number": 471,
+            "course_number": 920,
             "subjects": [
-                "EP",
-                "EMA"
+                "EP"
             ]
         },
-        "course_title": "INTERMEDIATE PROBLEM SOLVING FOR ENGINEERS",
-        "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
+        "course_title": "ENGINEERING PHYSICS GRADUATE SEMINAR",
+        "description": "Students will be able to enroll for credit more than once because the topics of the course will differ substantially from semester to semester. Our MS requirements permit up to 3 credits within the 30-credit minimum for the degree.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 548,
+            "subjects": [
+                "EMA",
+                "EP"
+            ]
+        },
+        "course_title": "ENGINEERING ANALYSIS II",
+        "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 376,
+                    "course_number": 320,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 220,
+                    "course_number": 547,
                     "subjects": [
-                        "COMPSCI"
+                        "EMA",
+                        "EP"
                     ]
                 },
                 {
-                    "course_number": 320,
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 322,
                     "subjects": [
                         "MATH"
                     ]
@@ -83,15 +97,110 @@
                     "subjects": [
                         "MATH"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0322and320), (MATH\u00a0322andE\u00a0P/\u200bE\u00a0M\u00a0A\u00a0\u00a0547), or (MATH\u00a0322,319, and340), or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 547,
+            "subjects": [
+                "EMA",
+                "EP"
+            ]
+        },
+        "course_title": "ENGINEERING ANALYSIS I",
+        "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 271,
+                    "course_number": 321,
                     "subjects": [
-                        "EP"
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "(E\u00a0P\u00a0271orCOMP\u00a0SCI\u00a0220) and (MATH\u00a0319,320,376or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "MATH\u00a0321, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 759,
+            "subjects": [
+                "EP",
+                "COMPSCI",
+                "ME",
+                "EMA",
+                "ECE"
+            ]
+        },
+        "course_title": "HIGH PERFORMANCE COMPUTING FOR APPLICATIONS IN ENGINEERING",
+        "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 566,
+            "subjects": [
+                "ME",
+                "EP"
+            ]
+        },
+        "course_title": "CRYOGENICS",
+        "description": "Applications of cryogenics, material properties at low temperatures, refrigeration and liquefaction systems, measurement techniques, insulation, storage and transfer of cryogenics, safety and handling.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 364,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(M\u00a0E\u00a0361orPHYSICS\u00a0415) and (CBE\u00a0320orM\u00a0E\u00a0364), or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 271,
+            "subjects": [
+                "EP"
+            ]
+        },
+        "course_title": "ENGINEERING PROBLEM SOLVING I",
+        "description": "Solution of engineering problems using commercially-available software tools (spreadsheets, symbolic manipulators, and equation solvers). The emphasis will be on nuclear engineering problems, including radioactive decay, nuclear cross sections, scattering, and criticality.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0222and (E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207,247, or concurrent enrollment) or member of Engineering Guest Students"
         }
     },
     {
@@ -117,59 +226,75 @@
     },
     {
         "course_reference": {
-            "course_number": 568,
+            "course_number": 569,
             "subjects": [
                 "EP"
             ]
         },
-        "course_title": "RESEARCH PRACTICUM IN ENGINEERING PHYSICS I",
-        "description": "Undergraduate research projects supervised by faculty members.",
+        "course_title": "RESEARCH PRACTICUM IN ENGINEERING PHYSICS II",
+        "description": "Undergraduate research projects supervised by faculty members. Senior thesis.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 469,
+                    "course_number": 568,
                     "subjects": [
                         "EP"
                     ]
                 }
             ],
-            "prerequisites_text": "E\u00a0P\u00a0469and declared in Engineering Physics"
+            "prerequisites_text": "E\u00a0P\u00a0568and declared in Engineering Physics"
         }
     },
     {
         "course_reference": {
-            "course_number": 547,
+            "course_number": 476,
             "subjects": [
-                "EP",
-                "EMA"
+                "EMA",
+                "EP"
             ]
         },
-        "course_title": "ENGINEERING ANALYSIS I",
-        "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
+        "course_title": "INTRODUCTION TO SCIENTIFIC COMPUTING FOR ENGINEERING PHYSICS",
+        "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 321,
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 271,
+                    "subjects": [
+                        "EP"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 319,
                     "subjects": [
                         "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0321, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 418,
-            "subjects": [
-                "EP"
-            ]
-        },
-        "course_title": "SUSTAINABLE ENERGY CHALLENGES AND SOLUTIONS",
-        "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Certificate in Engineering for Energy Sustainability or Engineering: Sustainable Systems Engineering, MEng"
+            "prerequisites_text": "(E\u00a0P\u00a0271,COMP\u00a0SCI\u00a0300, or310) and (MATH\u00a0319,320, or375), or graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -191,148 +316,6 @@
                 }
             ],
             "prerequisites_text": "MATH\u00a0222or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 271,
-            "subjects": [
-                "EP"
-            ]
-        },
-        "course_title": "ENGINEERING PROBLEM SOLVING I",
-        "description": "Solution of engineering problems using commercially-available software tools (spreadsheets, symbolic manipulators, and equation solvers). The emphasis will be on nuclear engineering problems, including radioactive decay, nuclear cross sections, scattering, and criticality.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 271,
-                    "subjects": [
-                        "EP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0222and (E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207,247, or concurrent enrollment) or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 920,
-            "subjects": [
-                "EP"
-            ]
-        },
-        "course_title": "ENGINEERING PHYSICS GRADUATE SEMINAR",
-        "description": "Students will be able to enroll for credit more than once because the topics of the course will differ substantially from semester to semester. Our MS requirements permit up to 3 credits within the 30-credit minimum for the degree.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 566,
-            "subjects": [
-                "ME",
-                "EP"
-            ]
-        },
-        "course_title": "CRYOGENICS",
-        "description": "Applications of cryogenics, material properties at low temperatures, refrigeration and liquefaction systems, measurement techniques, insulation, storage and transfer of cryogenics, safety and handling.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 364,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(M\u00a0E\u00a0361orPHYSICS\u00a0415) and (CBE\u00a0320orM\u00a0E\u00a0364), or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 476,
-            "subjects": [
-                "EP",
-                "EMA"
-            ]
-        },
-        "course_title": "INTRODUCTION TO SCIENTIFIC COMPUTING FOR ENGINEERING PHYSICS",
-        "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 271,
-                    "subjects": [
-                        "EP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(E\u00a0P\u00a0271,COMP\u00a0SCI\u00a0300, or310) and (MATH\u00a0319,320, or375), or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 777,
-            "subjects": [
-                "ME",
-                "EP"
-            ]
-        },
-        "course_title": "VACUUM TECHNOLOGY",
-        "description": "Topics defining modern vacuum technology, including the kinetic theory of gases, conductance, pumping systems, pump technologies, pressure measurement, gas-surface interactions, sealing technologies, leak detection, and residual gas analysis will be addressed through a combination of lectures, laboratory activities, problem solving, and group discussions. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363or B M E 320] strongly encouraged.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -365,31 +348,18 @@
     },
     {
         "course_reference": {
-            "course_number": 548,
+            "course_number": 471,
             "subjects": [
-                "EP",
-                "EMA"
+                "EMA",
+                "EP"
             ]
         },
-        "course_title": "ENGINEERING ANALYSIS II",
-        "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
+        "course_title": "INTERMEDIATE PROBLEM SOLVING FOR ENGINEERS",
+        "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 547,
-                    "subjects": [
-                        "EP",
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 322,
+                    "course_number": 376,
                     "subjects": [
                         "MATH"
                     ]
@@ -401,31 +371,61 @@
                     ]
                 },
                 {
+                    "course_number": 271,
+                    "subjects": [
+                        "EP"
+                    ]
+                },
+                {
                     "course_number": 319,
                     "subjects": [
                         "MATH"
                     ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
                 }
             ],
-            "prerequisites_text": "(MATH\u00a0322and320), (MATH\u00a0322andE\u00a0P/\u200bE\u00a0M\u00a0A\u00a0\u00a0547), or (MATH\u00a0322,319, and340), or graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(E\u00a0P\u00a0271orCOMP\u00a0SCI\u00a0220) and (MATH\u00a0319,320,376or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 759,
+            "course_number": 777,
             "subjects": [
                 "ME",
-                "EP",
-                "EMA",
-                "COMPSCI",
-                "ECE"
+                "EP"
             ]
         },
-        "course_title": "HIGH PERFORMANCE COMPUTING FOR APPLICATIONS IN ENGINEERING",
-        "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+        "course_title": "VACUUM TECHNOLOGY",
+        "description": "Topics defining modern vacuum technology, including the kinetic theory of gases, conductance, pumping systems, pump technologies, pressure measurement, gas-surface interactions, sealing technologies, leak detection, and residual gas analysis will be addressed through a combination of lectures, laboratory activities, problem solving, and group discussions. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363or B M E 320] strongly encouraged.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 568,
+            "subjects": [
+                "EP"
+            ]
+        },
+        "course_title": "RESEARCH PRACTICUM IN ENGINEERING PHYSICS I",
+        "description": "Undergraduate research projects supervised by faculty members.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 469,
+                    "subjects": [
+                        "EP"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0P\u00a0469and declared in Engineering Physics"
         }
     }
 ]
