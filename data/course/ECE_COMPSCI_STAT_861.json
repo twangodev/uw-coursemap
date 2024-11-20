@@ -1,0 +1,30 @@
+{
+    "course_reference": {
+        "course_number": 861,
+        "subjects": [
+            "ECE",
+            "COMPSCI",
+            "STAT"
+        ]
+    },
+    "course_title": "THEORETICAL FOUNDATIONS OF MACHINE LEARNING",
+    "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 830,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 761,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0761orE\u00a0C\u00a0E\u00a0830"
+    }
+}

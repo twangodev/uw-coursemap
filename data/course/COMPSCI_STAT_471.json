@@ -1,0 +1,35 @@
+{
+    "course_reference": {
+        "course_number": 471,
+        "subjects": [
+            "COMPSCI",
+            "STAT"
+        ]
+    },
+    "course_title": "INTRODUCTION TO COMPUTATIONAL STATISTICS",
+    "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310and (STAT\u00a0333or340), graduate/professional standing, or declared in Statistics VISP"
+    }
+}
