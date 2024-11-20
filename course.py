@@ -164,36 +164,8 @@ class Course(JsonSerializable):
             parent = next(iter(subjects))
         return parent
 
-    def create_node(self):
-        if self.determine_parent() != "CROSSLISTED":
-            return frozendict({
-                "data": frozendict({
-                    "id": self.get_identifier(),
-                    "parent": self.determine_parent(),
-                    "description": self.description,
-                }),
-            })
-        # Crosslisted courses are not children of a subject
-        return frozendict({
-            "data": frozendict({
-                "id": self.get_identifier(),
-                "description": self.description,
-            }),
-        })
-
-    def create_edge(self, reference):
-        return frozendict({
-            "data": frozendict({
-                "source": reference.get_identifier(),
-                "target": self.get_identifier(),
-            }),
-        })
-
-
     def get_identifier(self):
         return self.course_reference.get_identifier()
-
-
 
     def get_short_summary(self):
         return f"""Course Title: {self.course_reference.get_identifier()} - {self.course_title}
@@ -205,8 +177,6 @@ class Course(JsonSerializable):
         return f"""{self.get_short_summary()}
         Prerequisites: {req}
         """
-
-
 
     def __eq__(self, other):
         return self.get_identifier() == other.get_identifier() and self.course_title == other.course_title and self.description == other.description
