@@ -5,6 +5,8 @@
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/CtrlCmd.svelte";
 
+    export let wide = false;
+
     let open = false;
 
     onMount(() => {
@@ -25,7 +27,7 @@
 <Button
         variant="outline"
         class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12 md:w-40 lg:w-80"
+		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12 md:w-40", wide ? "lg:w-[45rem]" : "lg:w-80"
 	)}
         on:click={() => (open = true)}
         {...$$restProps}
