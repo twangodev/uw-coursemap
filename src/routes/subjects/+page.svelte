@@ -1,7 +1,7 @@
 <script lang="ts">
     import {onMount} from "svelte";
     import {PUBLIC_API_URL} from "$env/static/public";
-    import ContentWrapper from "$lib/components/ContentWrapper.svelte";
+    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
 
     let entries: [string, string][] = [];
 
