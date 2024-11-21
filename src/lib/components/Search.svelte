@@ -35,8 +35,7 @@
     <kbd
             class="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
     >
-        <CtrlCmd />
-        K
+        <CtrlCmd />K
     </kbd>
 </Button>
 <Command.Dialog bind:open>
