@@ -16,7 +16,7 @@
             <FooterLink href="https://github.com/twangodev/uw-coursemap">GitHub</FooterLink>.
         </p>
         <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-right">
-            &copy {new Date().getFullYear()} UW Course Map. All Rights Reserved.
+            &copy {new Date().getFullYear()} UW Course Map. Made with 🧀 in Madison.
         </p>
     </div>
 </footer>
