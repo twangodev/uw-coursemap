@@ -1,17 +1,18 @@
 <script lang="ts">
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
+    import {bannerContents} from "$lib/config/banner.ts";
 </script>
 
 <p
-        class="bg-orange-400 py-1.5 text-center text-sm font-medium text-black dark:bg-orange-700 dark:text-white"
+        class="bg-secondary text-secondary-foreground py-1.5 text-center text-sm font-medium"
 >
-    shadcn-svelte for Svelte 5 has been released! -
+    {bannerContents.announcement} -
     <a
-            href="https://next.shadcn-svelte.com"
+            href="{bannerContents.linkHref}"
             target="_blank"
             class="inline-flex items-center font-semibold underline-offset-2 hover:underline"
     >
-        Visit the preview docs
+        {bannerContents.linkText}
         <ArrowUpRight class="ml-0.5 h-3 w-3" />
     </a>
 </p>
