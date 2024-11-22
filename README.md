@@ -4,3 +4,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/twangodev/uw-coursemap)
 
 Explore course offerings at the University of Wisconsin-Madison in the form of an interactive directed acyclic graph (DAG).
+
+## Features
+
+- [x] Visualize course prerequisites and corequisites

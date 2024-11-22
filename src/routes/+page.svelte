@@ -1,12 +1,14 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header/index.js";
-    import {Button, buttonVariants} from "$lib/components/ui/button";
+    import {Button} from "$lib/components/ui/button";
+    import Announcement from "$lib/components/Announcement.svelte";
 
 </script>
 
 <ContentWrapper>
     <PageHeader>
+        <Announcement/>
         <PageHeaderHeading>Course exploration, made easy</PageHeaderHeading>
         <PageHeaderDescription class="text-muted-foreground">
             Explore the courses offered by the UW-Madison in a visual and interactive way.
