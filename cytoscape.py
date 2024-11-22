@@ -46,14 +46,12 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
     to_add.add(create_node(course))
     to_add.add(create_compound(course.determine_parent()))
 
-    for reference in course.prerequisites.course_references:
-        if reference not in course_ref_to_course:
-            print(f"Prerequisite not found in courses: {reference}")
-            continue
-        edge = create_edge(target=course.get_identifier(), source=reference.get_identifier())
+    if course.optimized and course.optimized in course_ref_to_course:
+        edge = create_edge(target=course.get_identifier(), source=course.optimized.get_identifier())
         to_add.add(edge)
-        course: Course = course_ref_to_course[reference]
-        to_add.add(get_subgraphs(course, course_ref_to_course, seen, graph_set_1, graph_set_2))
+
+        optimized = course_ref_to_course[course.optimized]
+        to_add.add(get_subgraphs(optimized, course_ref_to_course, seen, graph_set_1, graph_set_2))
 
     for graph_data in to_add:
         graph_set_1.add(graph_data)

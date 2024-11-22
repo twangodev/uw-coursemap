@@ -33,7 +33,7 @@ def cosine_similarity(vec_a, vec_b):
     """
     return np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b))
 
-def find_best_prerequisite(client, model, course, prerequisites, stats):
+def find_best_prerequisite(client, model, course, prerequisites, stats) -> Course:
     course_embedding = get_embedding(client, model, course.get_full_summary(), stats)
     prerequisite_embeddings = [
         (prereq, get_embedding(client, model, prereq.get_short_summary(), stats)) for prereq in prerequisites
@@ -71,7 +71,7 @@ def prune_prerequisites(client, model, course: Course, course_ref_to_course, sta
     )
     logger.debug(f"Selected {best.get_identifier()} as the best prerequisite for {course.get_identifier()} out of {len(prerequisites)} options")
     stats["removed_requisites"] += len(course.prerequisites.course_references) - 1
-    course.prerequisites.course_references = {best.course_reference}
+    course.set_optimized_prerequisite(best.course_reference)
 
 def optimize_prerequisite_thread(client, model, course, course_ref_to_course, max_runtime, max_retries, stats, logger):
     retries = 0
@@ -110,7 +110,7 @@ def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Refe
             course = future_to_course[future]
             completed_courses += 1
             remaining_courses = total_courses - completed_courses
-            suffix = f"for course {course.get_identifier()}. {remaining_courses} courses remaining. ({(completed_courses/total_courses):.2f}% complete)"
+            suffix = f"for course {course.get_identifier()}. {remaining_courses} courses remaining. ({(completed_courses * 100/total_courses):.2f}% complete)"
             try:
                 future.result()  # This will re-raise any exception from the thread
                 logger.info(f"Optimization completed {suffix}")

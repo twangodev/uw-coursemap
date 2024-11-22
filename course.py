@@ -96,11 +96,12 @@ class Course(JsonSerializable):
                 return False
             return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites):
+    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized: Reference = None):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
         self.prerequisites = prerequisites
+        self.optimized = optimized
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -109,6 +110,7 @@ class Course(JsonSerializable):
             course_title=json_data["course_title"],
             description=json_data["description"],
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
+            optimized=Course.Reference.from_json(json_data["optimized"]) if "optimized" in json_data else None,
         )
 
     def to_dict(self):
@@ -116,7 +118,8 @@ class Course(JsonSerializable):
             "course_reference": self.course_reference.to_dict(),
             "course_title": self.course_title,
             "description": self.description,
-            "prerequisites": self.prerequisites.to_dict()
+            "prerequisites": self.prerequisites.to_dict(),
+            "optimized": self.optimized.to_dict() if self.optimized else None,
         }
 
     @classmethod
@@ -177,6 +180,9 @@ class Course(JsonSerializable):
         return f"""{self.get_short_summary()}
         Prerequisites: {req}
         """
+
+    def set_optimized_prerequisite(self, optimized_prerequisite: Reference):
+        self.optimized = optimized_prerequisite
 
     def __eq__(self, other):
         return self.get_identifier() == other.get_identifier() and self.course_title == other.course_title and self.description == other.description
