@@ -1,133 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 375,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Specialized subject matter of current interest to undergraduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "STUDY ABROAD IN ENTOMOLOGY",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for undergraduate students completing a thesis in the area of Entomology, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ENTOM",
-                "M&ENVTOX",
-                "F&WECOL",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
-        "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 633,
-            "subjects": [
-                "ENTOM",
-                "M&ENVTOX",
-                "F&WECOL",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "ECOTOXICOLOGY: IMPACTS ON INDIVIDUALS",
-        "description": "Addresses absorption, biotransformation, elimination of toxins in a wide variety of taxa (plants, invertebrates, vertebrates).",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 632,
-                    "subjects": [
-                        "ENTOM",
-                        "F&WECOL",
-                        "M&ENVTOX",
-                        "AGRONOMY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0632"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 205,
             "subjects": [
                 "ENTOM",
@@ -143,13 +16,35 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 468,
             "subjects": [
                 "ENTOM"
             ]
         },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Individual advanced work in an area of Entomology under the direct guidance of a faculty member.",
+        "course_title": "STUDIES IN FIELD ENTOMOLOGY",
+        "description": "Concentration on structural, behavioral adaptations of insects to diverse habitats; dynamic relations between insects and plants, other animals and other insects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "ENTOM",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Research work for students under direct guidance of a faculty member in an area of Entomology.  Students are responsible for arranging the work and credits with the supervising instructor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -157,44 +52,70 @@
     },
     {
         "course_reference": {
-            "course_number": 201,
+            "course_number": 601,
             "subjects": [
-                "ENTOM",
-                "ENVIRST"
+                "ENTOM"
             ]
         },
-        "course_title": "INSECTS AND HUMAN CULTURE-A SURVEY COURSE IN ENTOMOLOGY",
-        "description": "Importance of insects in the environment, emphasizing beneficial insects, disease carriers, and agricultural pests that interfere with the food supply. Environmental problems due to insect control agents.",
+        "course_title": "SEMINAR IN METHODS OF SCIENTIFIC ORAL PRESENTATIONS",
+        "description": "Training for the presentation of short talks.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Senior standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 634,
+            "course_number": 399,
             "subjects": [
-                "ENTOM",
-                "F&WECOL",
-                "M&ENVTOX",
-                "AGRONOMY"
+                "ENTOM"
             ]
         },
-        "course_title": "ECOTOXICOLOGY: IMPACTS ON POPULATIONS, COMMUNITIES AND ECOSYSTEMS",
-        "description": "Focuses on the impact of toxicants on populations, communities, ecosystems, and includes risk evaluation. Includes lectures, current research presentations, and discussions.",
+        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
+        "description": "An internship under guidance of a faculty or instructional academic staff member in Entomology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 473,
+            "subjects": [
+                "ENTOM",
+                "BOTANY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "PLANT-INSECT INTERACTIONS",
+        "description": "Multiple ways in which arthropods exploit plants, plant traits that deter or augment insects, environmental mediation of these interactions, effects on population dynamics, community ecology and co-evolution, and implications to natural resource management, environmental quality, and sustainable development.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 633,
+                    "course_number": 505,
                     "subjects": [
                         "ENTOM",
+                        "BOTANY",
+                        "PLPATH"
+                    ]
+                },
+                {
+                    "course_number": 460,
+                    "subjects": [
+                        "BOTANY",
                         "F&WECOL",
-                        "M&ENVTOX",
-                        "AGRONOMY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "ENTOM",
+                        "F&WECOL"
                     ]
                 }
             ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
+            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
         }
     },
     {
@@ -213,96 +134,13 @@
     },
     {
         "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "BOTANY",
-                "ENTOM",
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
-        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
+            "course_number": 699,
             "subjects": [
                 "ENTOM"
             ]
         },
-        "course_title": "SEMINAR IN ORGANISMAL ENTOMOLOGY",
-        "description": "Presentations from the original literature on developments in natural products chemistry, biochemistry, physiology, developmental biology and/or ultrastructure of insects.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 331,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "TAXONOMY OF MATURE INSECTS",
-        "description": "Principles of taxonomy, identification and taxonomic morphology of adult insects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ENTOM",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Entomology, as arranged with a faculty member.",
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Individual advanced work in an area of Entomology under the direct guidance of a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -313,8 +151,8 @@
             "course_number": 624,
             "subjects": [
                 "ENTOM",
-                "GENETICS",
-                "ZOOLOGY"
+                "ZOOLOGY",
+                "GENETICS"
             ]
         },
         "course_title": "MOLECULAR ECOLOGY",
@@ -345,44 +183,78 @@
     },
     {
         "course_reference": {
-            "course_number": 633,
+            "course_number": 103,
             "subjects": [
+                "C&ESOC",
                 "ENTOM",
-                "F&WECOL",
-                "M&ENVTOX",
-                "AGRONOMY"
+                "AGRONOMY",
+                "AGROECOL",
+                "ENVIRST"
             ]
         },
-        "course_title": "ECOTOXICOLOGY: IMPACTS ON INDIVIDUALS",
-        "description": "Addresses absorption, biotransformation, elimination of toxins in a wide variety of taxa (plants, invertebrates, vertebrates).",
+        "course_title": "AGROECOLOGY: AN INTRODUCTION TO THE ECOLOGY OF FOOD AND AGRICULTURE",
+        "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 632,
-                    "subjects": [
-                        "ENTOM",
-                        "F&WECOL",
-                        "M&ENVTOX",
-                        "AGRONOMY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0632"
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
-            "course_number": 711,
+            "course_number": 632,
             "subjects": [
                 "ENTOM",
-                "F&WECOL"
+                "AGRONOMY",
+                "F&WECOL",
+                "M&ENVTOX"
             ]
         },
-        "course_title": "MULTIVARIATE ANALYSIS OF ECOLOGICAL AND COMMUNITY DATA",
-        "description": "Examines common methods of multivariate data analysis in ecology and environmental science. Covers methods for the analysis of complex, multidimensional datasets that are collected in the study of plant, invertebrate, fish, and bird communities. Addresses the concurrent analysis of the environmental factors that may drive community distributions. Provides the basis for predictive modeling of distributions across landscapes. General methods covered include ordination (PCA, DCA, NMDS, CCA), clustering (or classification), and other comparative analyses of data matrices (ANOSIM, Mantel tests).  Includes an applied, \"hands-on\" approach on how to use these tools, and the circumstances under which their uses are either appropriate or inappropriate.",
+        "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
+        "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 343,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
         }
     },
     {
@@ -401,12 +273,175 @@
     },
     {
         "course_reference": {
+            "course_number": 692,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for undergraduate students completing a thesis in the area of Entomology, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 634,
+            "subjects": [
+                "ENTOM",
+                "AGRONOMY",
+                "F&WECOL",
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "ECOTOXICOLOGY: IMPACTS ON POPULATIONS, COMMUNITIES AND ECOSYSTEMS",
+        "description": "Focuses on the impact of toxicants on populations, communities, ecosystems, and includes risk evaluation. Includes lectures, current research presentations, and discussions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 633,
+                    "subjects": [
+                        "ENTOM",
+                        "AGRONOMY",
+                        "F&WECOL",
+                        "M&ENVTOX"
+                    ]
+                }
+            ],
+            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 953,
+            "subjects": [
+                "GEOG",
+                "ENTOM",
+                "F&WECOL",
+                "ZOOLOGY",
+                "AGRONOMY",
+                "ATMOCN",
+                "BOTANY",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
+        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 351,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "PRINCIPLES OF ECONOMIC ENTOMOLOGY",
+        "description": "Major economic insects: identification, life histories, bionomics, distribution, control; procedures in fundamental and practical inquiry.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,ZOOLOGY\u00a0153, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "ENTOM",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "MEDICAL ENTOMOLOGY: BIOLOGY OF VECTOR AND VECTOR-BORNE DISEASES",
+        "description": "Explore the biological and molecular adaptations of parasitic arthropods that allow them to feed on vertebrate host and facilitate the transmission of vector-borne pathogens. Examines how anthropogenic activities, behaviors, and effects on climate affect the biology of vectors, the pathogens they transmit, and the emergence of vector-borne epidemics in the world. Emphasis on the molecular and physiological interaction between pathogens, their vector, and the vertebrate host and the fundamentals on how vectors and vector-borne pathogens cause disease in humans. Evaluate real control programs deployed globally for the control of vector-borne diseases.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383,ZOOLOGY\u00a0153, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 500,
+            "subjects": [
+                "ENTOM",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "INSECTS IN FOREST ECOSYSTEM FUNCTION AND MANAGEMENT",
+        "description": "Roles of insects in the functioning of healthy forest ecosystems, tactics for addressing challenges they pose to sustainable natural resource management, and emerging issues such as biological invasions, habitat alteration, and climate change that influence interactions among insects, their microbial associates, forests, and humans.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 820,
             "subjects": [
-                "BOTANY",
                 "ENTOM",
-                "GENETICS",
-                "ZOOLOGY"
+                "BOTANY",
+                "ZOOLOGY",
+                "GENETICS"
             ]
         },
         "course_title": "FOUNDATIONS OF EVOLUTION",
@@ -418,34 +453,135 @@
     },
     {
         "course_reference": {
-            "course_number": 450,
+            "course_number": 350,
             "subjects": [
-                "ENTOM"
+                "ZOOLOGY",
+                "ENTOM",
+                "MM&I",
+                "PATH-BIO"
             ]
         },
-        "course_title": "BASIC AND APPLIED INSECT ECOLOGY",
-        "description": "Covers population and community ecology, plant-insect interactions, insect biodiversity and biogeography, and applied ecology. Weaves basic ecological theory and principles with their application to entomological problems such as conservation, biological control, agriculture, and insect-vectored diseases of plants and humans. Uses current entomological and ecological scientific literature and draws on examples from a broad range of natural and managed ecosystems. Broadens from pairwise species interactions (e.g., a predator and its prey) to the entire community of organisms and their physical environment. Emphasizes the theoretical principles and historical background underlying the various topics with a link to potential applications in agriculture, conservation, pest management, and/or invasion biology.",
+        "course_title": "PARASITOLOGY",
+        "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
                 {
                     "course_number": 381,
                     "subjects": [
                         "BIOCORE"
                     ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY\u00a0153, orBIOCORE\u00a0381"
         }
     },
     {
         "course_reference": {
-            "course_number": 432,
+            "course_number": 682,
             "subjects": [
                 "ENTOM"
             ]
         },
-        "course_title": "TAXONOMY AND BIONOMICS OF IMMATURE INSECTS",
-        "description": "Covers anatomy/morphology, taxonomy, and bionomics of immature insects (ordinal and familial levels). Identification of insects (order and family) using taxonomic keys.",
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Entomology, as arranged with a faculty member.ENTOM\u00a0681",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "PRACTICUM IN ENTOMOLOGY TEACHING",
+        "description": "Instructional orientation to teaching at the higher education level in the agricultural life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 375,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "Specialized subject matter of current interest to undergraduate students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for undergraduate students completing a thesis in the area of Entomology, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Entomology, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 321,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "PHYSIOLOGY OF INSECTS",
+        "description": "Anatomy, histology and basic physiology of organ systems in insects.",
         "prerequisites": {
             "course_references": [
                 {
@@ -461,53 +597,82 @@
     },
     {
         "course_reference": {
-            "course_number": 302,
+            "course_number": 540,
             "subjects": [
                 "ENTOM",
                 "ZOOLOGY"
             ]
         },
-        "course_title": "INTRODUCTION TO ENTOMOLOGY",
-        "description": "Principles including morphology and classification.",
+        "course_title": "THEORETICAL ECOLOGY",
+        "description": "Introduction to theoretical ecology, including hands-on experience in computer modeling.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 381,
+                    "course_number": 571,
                     "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
+                        "F&WECOL",
+                        "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0381"
+            "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 633,
+            "subjects": [
+                "ENTOM",
+                "AGRONOMY",
+                "F&WECOL",
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "ECOTOXICOLOGY: IMPACTS ON INDIVIDUALS",
+        "description": "Addresses absorption, biotransformation, elimination of toxins in a wide variety of taxa (plants, invertebrates, vertebrates).",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 632,
+                    "subjects": [
+                        "ENTOM",
+                        "AGRONOMY",
+                        "F&WECOL",
+                        "M&ENVTOX"
+                    ]
+                }
+            ],
+            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0632"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 570,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "SYSTEMS THINKING IN GLOBAL HEALTH",
+        "description": "A systems approach to examination of the multiple determinants of health and well-being.  Case studies and group projects explore complex issues including, but not limited to, the root causes of infectious and noncommunicable disease, health inequities in the context of global change, and trade-offs in addressing global and planetary health problems, particularly where information is incomplete, projections about future states are uncertain, or social equity concerns must be taken into account as scientific knowledge is applied.  Group projects emphasize systems thinking to critically assess global issues. Teamwork and communication skills are required for case study analysis and project management.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 205,
+                    "subjects": [
+                        "ENTOM",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ENVIR\u00a0ST/\u200bENTOM\u00a0\u00a0205"
         }
     },
     {
         "course_reference": {
             "course_number": 203,
             "subjects": [
-                "NUTRSCI",
-                "ENTOM"
+                "ENTOM",
+                "NUTRSCI"
             ]
         },
         "course_title": "INTRODUCTION TO GLOBAL HEALTH",
@@ -540,109 +705,28 @@
     },
     {
         "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for undergraduate students completing a thesis in the area of Entomology, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 351,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "PRINCIPLES OF ECONOMIC ENTOMOLOGY",
-        "description": "Major economic insects: identification, life histories, bionomics, distribution, control; procedures in fundamental and practical inquiry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,ZOOLOGY\u00a0153, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 606,
+            "course_number": 711,
             "subjects": [
                 "ENTOM",
-                "SOILSCI",
-                "F&WECOL",
-                "PLPATH"
+                "F&WECOL"
             ]
         },
-        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
-        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+        "course_title": "MULTIVARIATE ANALYSIS OF ECOLOGICAL AND COMMUNITY DATA",
+        "description": "Examines common methods of multivariate data analysis in ecology and environmental science. Covers methods for the analysis of complex, multidimensional datasets that are collected in the study of plant, invertebrate, fish, and bird communities. Addresses the concurrent analysis of the environmental factors that may drive community distributions. Provides the basis for predictive modeling of distributions across landscapes. General methods covered include ordination (PCA, DCA, NMDS, CCA), clustering (or classification), and other comparative analyses of data matrices (ANOSIM, Mantel tests).  Includes an applied, \"hands-on\" approach on how to use these tools, and the circumstances under which their uses are either appropriate or inappropriate.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 682,
+            "course_number": 801,
             "subjects": [
                 "ENTOM"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Entomology, as arranged with a faculty member.ENTOM\u00a0681",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "BOTANY",
-                "F&WECOL",
-                "GEOG",
-                "ATMOCN",
-                "ENVIRST",
-                "ZOOLOGY",
-                "ENTOM",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
+        "course_title": "COLLOQUIUM",
+        "description": "Provides exposure to current research in Entomology. Weekly speakers represent diverse career backgrounds.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -652,176 +736,12 @@
         "course_reference": {
             "course_number": 821,
             "subjects": [
-                "ZOOLOGY",
+                "F&WECOL",
+                "ENTOM",
                 "BOTANY",
-                "ENTOM",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF ECOLOGY",
-        "description": "Foundational ideas in the field of ecology. Discussion topics trace the development of ecology as a discipline, and the roots of modern ecological thought, as well as the research approaches in ecology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 468,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "STUDIES IN FIELD ENTOMOLOGY",
-        "description": "Concentration on structural, behavioral adaptations of insects to diverse habitats; dynamic relations between insects and plants, other animals and other insects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ENTOM",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "BOTANY",
-                "F&WECOL",
-                "GEOG",
-                "ATMOCN",
-                "ZOOLOGY",
-                "ENVIRST",
-                "ENTOM",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ENTOM",
-                "F&WECOL",
-                "M&ENVTOX",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
-        "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 634,
-            "subjects": [
-                "ENTOM",
-                "M&ENVTOX",
-                "F&WECOL",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "ECOTOXICOLOGY: IMPACTS ON POPULATIONS, COMMUNITIES AND ECOSYSTEMS",
-        "description": "Focuses on the impact of toxicants on populations, communities, ecosystems, and includes risk evaluation. Includes lectures, current research presentations, and discussions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 633,
-                    "subjects": [
-                        "ENTOM",
-                        "F&WECOL",
-                        "M&ENVTOX",
-                        "AGRONOMY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Research work for students under direct guidance of a faculty member in an area of Entomology.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 540,
-            "subjects": [
-                "ENTOM",
                 "ZOOLOGY"
             ]
         },
-        "course_title": "THEORETICAL ECOLOGY",
-        "description": "Introduction to theoretical ecology, including hands-on experience in computer modeling.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 571,
-                    "subjects": [
-                        "STAT",
-                        "F&WECOL"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "PRACTICUM IN ENTOMOLOGY TEACHING",
-        "description": "Instructional orientation to teaching at the higher education level in the agricultural life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 821,
-            "subjects": [
-                "BOTANY",
-                "ENTOM",
-                "ZOOLOGY",
-                "F&WECOL"
-            ]
-        },
         "course_title": "FOUNDATIONS OF ECOLOGY",
         "description": "Foundational ideas in the field of ecology. Discussion topics trace the development of ecology as a discipline, and the roots of modern ecological thought, as well as the research approaches in ecology.",
         "prerequisites": {
@@ -831,52 +751,49 @@
     },
     {
         "course_reference": {
-            "course_number": 399,
+            "course_number": 505,
             "subjects": [
-                "ENTOM"
+                "ENTOM",
+                "BOTANY",
+                "PLPATH"
             ]
         },
-        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
-        "description": "An internship under guidance of a faculty or instructional academic staff member in Entomology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "GRADUATE RESEARCH AND THESIS",
-        "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 570,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "SYSTEMS THINKING IN GLOBAL HEALTH",
-        "description": "A systems approach to examination of the multiple determinants of health and well-being.  Case studies and group projects explore complex issues including, but not limited to, the root causes of infectious and noncommunicable disease, health inequities in the context of global change, and trade-offs in addressing global and planetary health problems, particularly where information is incomplete, projections about future states are uncertain, or social equity concerns must be taken into account as scientific knowledge is applied.  Group projects emphasize systems thinking to critically assess global issues. Teamwork and communication skills are required for case study analysis and project management.",
+        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
+        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 205,
+                    "course_number": 303,
                     "subjects": [
-                        "ENTOM",
-                        "ENVIRST"
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 468,
+                    "subjects": [
+                        "GENETICS"
                     ]
                 }
             ],
-            "prerequisites_text": "ENVIR\u00a0ST/\u200bENTOM\u00a0\u00a0205"
+            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
         }
     },
     {
@@ -903,239 +820,16 @@
     },
     {
         "course_reference": {
-            "course_number": 601,
+            "course_number": 901,
             "subjects": [
                 "ENTOM"
             ]
         },
-        "course_title": "SEMINAR IN METHODS OF SCIENTIFIC ORAL PRESENTATIONS",
-        "description": "Training for the presentation of short talks.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Senior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 350,
-            "subjects": [
-                "PATH-BIO",
-                "MM&I",
-                "ENTOM",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "PARASITOLOGY",
-        "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY\u00a0153, orBIOCORE\u00a0381"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 321,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "PHYSIOLOGY OF INSECTS",
-        "description": "Anatomy, histology and basic physiology of organ systems in insects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ENTOM",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "ENTOM"
-            ]
-        },
-        "course_title": "COLLOQUIUM",
-        "description": "Provides exposure to current research in Entomology. Weekly speakers represent diverse career backgrounds.",
+        "course_title": "SEMINAR IN ORGANISMAL ENTOMOLOGY",
+        "description": "Presentations from the original literature on developments in natural products chemistry, biochemistry, physiology, developmental biology and/or ultrastructure of insects.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
-            "subjects": [
-                "BOTANY",
-                "ENTOM",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "PLANT-INSECT INTERACTIONS",
-        "description": "Multiple ways in which arthropods exploit plants, plant traits that deter or augment insects, environmental mediation of these interactions, effects on population dynamics, community ecology and co-evolution, and implications to natural resource management, environmental quality, and sustainable development.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "BOTANY",
-                        "ZOOLOGY",
-                        "F&WECOL"
-                    ]
-                },
-                {
-                    "course_number": 505,
-                    "subjects": [
-                        "BOTANY",
-                        "ENTOM",
-                        "PLPATH"
-                    ]
-                },
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "ENTOM",
-                        "F&WECOL"
-                    ]
-                }
-            ],
-            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 500,
-            "subjects": [
-                "ENTOM",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "INSECTS IN FOREST ECOSYSTEM FUNCTION AND MANAGEMENT",
-        "description": "Roles of insects in the functioning of healthy forest ecosystems, tactics for addressing challenges they pose to sustainable natural resource management, and emerging issues such as biological invasions, habitat alteration, and climate change that influence interactions among insects, their microbial associates, forests, and humans.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 203,
-            "subjects": [
-                "ENTOM",
-                "NUTRSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO GLOBAL HEALTH",
-        "description": "Introduces students to global health concepts through multidisciplinary speakers dedicated to improving health through their unique training.  It targets students with an interest in public health and those who wish to learn how their field impacts their global issues.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "ENTOM",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "MEDICAL ENTOMOLOGY: BIOLOGY OF VECTOR AND VECTOR-BORNE DISEASES",
-        "description": "Explore the biological and molecular adaptations of parasitic arthropods that allow them to feed on vertebrate host and facilitate the transmission of vector-borne pathogens. Examines how anthropogenic activities, behaviors, and effects on climate affect the biology of vectors, the pathogens they transmit, and the emergence of vector-borne epidemics in the world. Emphasis on the molecular and physiological interaction between pathogens, their vector, and the vertebrate host and the fundamentals on how vectors and vector-borne pathogens cause disease in humans. Evaluate real control programs deployed globally for the control of vector-borne diseases.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383,ZOOLOGY\u00a0153, or graduate/professional standing"
         }
     },
     {
@@ -1154,20 +848,193 @@
     },
     {
         "course_reference": {
-            "course_number": 103,
+            "course_number": 432,
             "subjects": [
-                "AGROECOL",
-                "C&ESOC",
-                "ENVIRST",
-                "ENTOM",
-                "AGRONOMY"
+                "ENTOM"
             ]
         },
-        "course_title": "AGROECOLOGY: AN INTRODUCTION TO THE ECOLOGY OF FOOD AND AGRICULTURE",
-        "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
+        "course_title": "TAXONOMY AND BIONOMICS OF IMMATURE INSECTS",
+        "description": "Covers anatomy/morphology, taxonomy, and bionomics of immature insects (ordinal and familial levels). Identification of insects (order and family) using taxonomic keys.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "ENTOM",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 331,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "TAXONOMY OF MATURE INSECTS",
+        "description": "Principles of taxonomy, identification and taxonomic morphology of adult insects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "ENTOM",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bENTOM\u00a0\u00a0302or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "ENTOM",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENTOMOLOGY",
+        "description": "Principles including morphology and classification.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0381"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "ENTOM",
+                "SOILSCI",
+                "F&WECOL",
+                "PLPATH"
+            ]
+        },
+        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
+        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "GRADUATE RESEARCH AND THESIS",
+        "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN ENTOMOLOGY",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 201,
+            "subjects": [
+                "ENTOM",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INSECTS AND HUMAN CULTURE-A SURVEY COURSE IN ENTOMOLOGY",
+        "description": "Importance of insects in the environment, emphasizing beneficial insects, disease carriers, and agricultural pests that interfere with the food supply. Environmental problems due to insect control agents.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "ENTOM"
+            ]
+        },
+        "course_title": "BASIC AND APPLIED INSECT ECOLOGY",
+        "description": "Covers population and community ecology, plant-insect interactions, insect biodiversity and biogeography, and applied ecology. Weaves basic ecological theory and principles with their application to entomological problems such as conservation, biological control, agriculture, and insect-vectored diseases of plants and humans. Uses current entomological and ecological scientific literature and draws on examples from a broad range of natural and managed ecosystems. Broadens from pairwise species interactions (e.g., a predator and its prey) to the entire community of organisms and their physical environment. Emphasizes the theoretical principles and historical background underlying the various topics with a link to potential applications in agriculture, conservation, pest management, and/or invasion biology.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
         }
     }
 ]

@@ -1,240 +1,26 @@
 [
     {
         "data": {
-            "source": "ECE 203",
-            "target": "ECE 330"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BME/CRB 670"
         }
     },
     {
         "data": {
-            "source": "ECE 330",
-            "target": "BME/ECE 463"
+            "source": "MATH 222",
+            "target": "EMA 201"
         }
     },
     {
         "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
+            "source": "CHEM 343",
+            "target": "CHEM 341"
         }
     },
     {
         "data": {
-            "source": "CBE 320",
-            "target": "ME 363"
-        }
-    },
-    {
-        "data": {
-            "description": "Time-domain response and convolution; frequency-domain response using Fourier series, Fourier transform, Laplace transform; discrete Fourier series and transform; sampling; z-transform; relationships between time and frequency descriptions of discrete and continuous signals and systems.",
-            "id": "ECE 330",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the mechanical behavior of biological tissues and systems. Specific topics include: structure and function of biological tissues, mechanical properties of biological tissues, and analysis of specific tissues (i.e. bone, muscle, and soft connective tissues).",
-            "id": "BME 315",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "id": "CBE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
-            "id": "BME/MEDPHYS 568"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "BME/MEDPHYS 535"
-        }
-    },
-    {
-        "data": {
-            "description": "Central topics in solid mechanics applied to soft tissues, including analysis of strain in the setting of large deformations, computation of stress in multiple experimental loading configurations, constitutive modeling of biomaterials using hyperelastic strain-energy functions, modeling tissue growth and remodeling, and the main theories for soft tissue failure will be covered. Application of finite elasticity theory in practical laboratory situations, and key papers and concepts in soft tissue mechanics.",
-            "id": "BME/ME 715"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 578"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
-            "id": "BME/CHEM/MEDPHYS 750"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics in biomedical engineering for graduate students or both graduate and undergraduate students together.",
-            "id": "BME 602",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the fundamental principles of kinetics and transport that are relevant for the analysis of biological systems. Topics covered include concepts of reaction rate, stoichiometry, equilibrium, momentum/mass transport, and the interaction between transport and kinetics in biological systems.",
-            "id": "BME 330",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Ohm's law, Kirchhoff's laws, resistive circuits, nodal and mesh analysis, superposition, equivalent circuits using Thevenin-Norton theories, op amps and op amp circuits, first-order circuits, second-order circuits, sinusoidal steady state, phasors, RMS value, complex power, power factor, mutual inductance, linear and ideal transformers, ideal filters and transfer functions.",
-            "id": "ECE 230",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS/MEDPHYS 265"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
-            "id": "EMA 201",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 220"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
-            "id": "PHMSCI/BME 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
-            "id": "BME/MEDPHYS 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns.",
-            "id": "ME 306",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE 210",
-            "target": "ISYE/PSYCH 349"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
-            "id": "BME/CRB 670"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
-            "id": "BME/MEDPHYS 580"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "ME 240"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of experimental and modeling techniques used to study human movement. Specific topics will include locomotion, motion capture systems, force plates, muscle mechanics, musculoskeletal modeling, three dimensional kinematics, inverse dynamics, forward dynamic simulation and imaging based biomechanics. Homework and laboratory activities emphasize applications of movement biomechanics in orthopedics and rehabilitation.",
-            "id": "BME/ME 415"
-        }
-    },
-    {
-        "data": {
-            "id": "ISYE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
-            "id": "ISYE/PSYCH 349"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
+            "source": "BME/MEDPHYS 573",
+            "target": "BME/MEDPHYS 574"
         }
     },
     {
@@ -246,64 +32,54 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
         }
     },
     {
         "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
+            "description": "Work experience which combines classroom theory with practical knowledge of operations providing a background upon which to base a professional career in industry.",
+            "id": "BME 1",
+            "parent": "BME"
         }
     },
     {
         "data": {
-            "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
-            "id": "CBE/BME 782"
+            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
+            "id": "EMA 303",
+            "parent": "EMA"
         }
     },
     {
         "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
+            "source": "ISYE 210",
+            "target": "ISYE/PSYCH 349"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BOTANY/ZOOLOGY/BIOLOGY 151"
+            "description": "Various special topics in bioinstrumentation and medical devices.",
+            "id": "BME 603",
+            "parent": "BME"
         }
     },
     {
         "data": {
-            "source": "BME 300",
-            "target": "BME 400"
+            "source": "PHYSICS 202",
+            "target": "MATH 319"
         }
     },
     {
         "data": {
-            "source": "ME 363",
-            "target": "BME/ME 505"
+            "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
+            "id": "BME/PHMSCI 430"
         }
     },
     {
         "data": {
-            "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
-            "id": "BME/MEDPHYS 535"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/ZOOLOGY/BIOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on solid mechanics of prominent musculoskeletal and cardiovascular tissues. Their normal and pathological behaviors (stiffness, strength, relaxation, creep, adaptive remodeling, etc.) in response to physiologic loading will be examined and quantified.",
-            "id": "BME/ME 615"
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
         }
     },
     {
@@ -315,94 +91,8 @@
     },
     {
         "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
-            "id": "BME 702",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 573",
-            "target": "BME/HONCOL/PHYSICS/MEDPHYS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Finite element modeling of soft materials, with an emphasis on biological tissues.  Basics of the finite element method, verification and validation methods, and selection of constitutive models.  Emphasis on finite element modeling for materials that are generally nonlinear, and that generally undergo large deformation.",
-            "id": "BME/ME 516"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
-            "id": "CBE/BME 560"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 449",
-            "target": "BME/HONCOL/PHYSICS/MEDPHYS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "CBE/BME 560"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Design and application of electrodes, biopotential amplifiers, biosensors, therapeutic devices. Medical imaging. Electrical safety. Measurement of ventilation, blood pressure and flow.",
-            "id": "BME/ECE 462"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH/ZOOLOGY 523",
-            "target": "BME 556"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
-            "id": "BME/MEDPHYS 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn and apply the fundamentals of optical imaging, microscopy and instrumentation via practical hands-on training with a specific emphasis on the life-sciences applications. Topics include constructing imaging systems using fundamental optical tools and instruments, illumination and aberrations, microscopy techniques, resolution and contrast measurement, optical spectroscopy, nanophotonics, bioimaging and biosensing.",
-            "id": "BME 651",
+            "description": "Bioinstrumentation covering clinical and research measurements. Laboratory experiments complement the lectures.",
+            "id": "BME 310",
             "parent": "BME"
         }
     },
@@ -414,65 +104,20 @@
     },
     {
         "data": {
-            "source": "PHYSICS 249",
-            "target": "MATH 222"
+            "source": "ME 363",
+            "target": "CBE 320"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "PHYSICS 202"
         }
     },
     {
         "data": {
             "source": "PHYSICS 208",
             "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/ME 615",
-            "target": "BME/ME 715"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
-            "id": "COMPSCI 200",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "BME/MEDPHYS 573"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentation of advancements in biomedical engineering research by leaders in the field, accompanied by critical analysis of related literature.",
-            "id": "BME 701",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS/ECE 235"
         }
     },
     {
@@ -484,26 +129,59 @@
     },
     {
         "data": {
-            "source": "MATH 320",
-            "target": "PHYSICS 248"
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "BME/MEDPHYS 573"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 202",
-            "target": "BME/MEDPHYS 575"
+            "description": "Ohm's law, Kirchhoff's laws, resistive circuits, nodal and mesh analysis, superposition, equivalent circuits using Thevenin-Norton theories, op amps and op amp circuits, first-order circuits, second-order circuits, sinusoidal steady state, phasors, RMS value, complex power, power factor, mutual inductance, linear and ideal transformers, ideal filters and transfer functions.",
+            "id": "ECE 230",
+            "parent": "ECE"
         }
     },
     {
         "data": {
-            "source": "BME/HONCOL/PHYSICS/MEDPHYS 501",
-            "target": "BME/MEDPHYS 574"
+            "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
+            "id": "BME/ECE/MEDPHYS 778"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "BME 325"
+            "source": "BME 300",
+            "target": "BME 400"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 361",
+            "target": "ME 363"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
+            "id": "COMPSCI 200",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -514,70 +192,75 @@
     },
     {
         "data": {
-            "id": "BIOCORE",
-            "type": "compound"
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
         }
     },
     {
         "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
+            "source": "PHYSICS 448",
+            "target": "PHYSICS 449"
         }
     },
     {
         "data": {
-            "source": "ME 306",
-            "target": "BME/ME 516"
+            "source": "BME/MEDPHYS 573",
+            "target": "BME/MEDPHYS 580"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BOTANY/ZOOLOGY/BIOLOGY 151"
+            "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
+            "id": "BME/MEDPHYS 566"
         }
     },
     {
         "data": {
-            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-            "id": "PHYSICS/MEDPHYS 265"
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 241",
-            "target": "BME/MEDPHYS 578"
+            "source": "MATH 222",
+            "target": "BME 325"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Technical communication for biomedical engineering practice applied to real-world, client-based projects including research methods, documentation, preparing and critiquing reports, ethical problem solving, diversity and inclusion, presenting, and professional development.",
-            "id": "BME 301",
+            "description": "Fundamentals of biomedical engineering and principles of design including the design process, standards, documentation, inclusion in design and research methods. Hands-on skills including electronics, programming, computer-aided design, machining, safety training, microscopy, cell and tissue engineering principles and fabrication of physical prototypes.",
+            "id": "BME 201",
             "parent": "BME"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 202",
-            "target": "ECE 230"
+            "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+            "id": "BME/MEDPHYS 580"
         }
     },
     {
         "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
         }
     },
     {
         "data": {
-            "description": "Collaborate with students inB\u00a0M\u00a0E\u00a0300on a client-centered biomedical engineering design project to learn concept generation, product analysis, specifications, evaluation, regulation, and ethics.",
-            "id": "BME 200",
+            "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
+            "id": "BME/MEDPHYS 535"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Under faculty supervision.",
+            "id": "BME 890",
             "parent": "BME"
         }
     },
@@ -589,78 +272,51 @@
     },
     {
         "data": {
-            "description": "Covers engineering approaches that are used to understand and manipulate stem cells. Concepts covered include: introduction to stem cell biology, quantitative modeling of stem cell signaling, methods to engineer the stem cell microenvironment, and the role of stem cells in tissue development and regeneration.",
-            "id": "BME 520",
-            "parent": "BME"
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "MATH 319"
+            "source": "CHEM 104",
+            "target": "BME 330"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
+            "source": "CHEM 103",
+            "target": "ME 361"
         }
     },
     {
         "data": {
-            "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
-            "id": "ISYE 210",
-            "parent": "ISYE"
+            "source": "CHEM 104",
+            "target": "CHEM 109"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 323",
-            "target": "BME/HONCOL/PHYSICS/MEDPHYS 501"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "BME 315",
-            "target": "ME 340"
+            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+            "id": "BIOCHEM/BME/BMI/CBE/COMPSCI/GENETICS 915"
         }
     },
     {
         "data": {
-            "id": "CHEM",
-            "type": "compound"
+            "source": "BME 510",
+            "target": "BME 511"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 573"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "ECE 203"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on understanding the key methods and principles of quantitative biology through a close reading of the primary literature. Topics covered will include deterministic and stochastic methods for modeling cellular systems, techniques in systems and synthetic biology, image processing tools and image analysis for biology, data-driven network models, genomic approaches, single-molecule approaches, and key computational biology tools. This course is intended for graduate students from a variety of backgrounds who are interested in pursuing quantitative biology during their graduate studies.",
-            "id": "BME 780",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Various special topics in biomaterials, cellular and tissue engineering.",
-            "id": "BME 606",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "MATH 234"
+            "description": "Time-domain response and convolution; frequency-domain response using Fourier series, Fourier transform, Laplace transform; discrete Fourier series and transform; sampling; z-transform; relationships between time and frequency descriptions of discrete and continuous signals and systems.",
+            "id": "ECE 330",
+            "parent": "ECE"
         }
     },
     {
@@ -671,117 +327,39 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 448",
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 201",
-            "target": "CBE 320"
+            "source": "ECE 330",
+            "target": "COMPSCI 220"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 383",
-            "target": "PHMSCI/BME 430"
+            "source": "MATH 234",
+            "target": "PHYSICS 249"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0448. Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 449",
-            "parent": "PHYSICS"
+            "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
+            "id": "BME/MEDPHYS 573"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
-            "id": "PHYSICS 104",
-            "parent": "PHYSICS"
+            "source": "PHYSICS 202",
+            "target": "BME/MEDPHYS 535"
         }
     },
     {
         "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "PHMSCI/BME 430"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "id": "EMA",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Various special topics in biomechanics.",
-            "id": "BME/ME 605"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
-            "id": "ME 361",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn and apply the fundamentals of descriptive and inferential statistics to analyze data and present the results in appropriate graphical formats. Emphasis will be on applications commonly encountered in biomedical engineering including t-tests, linear regression, analysis of variance, diagnostic tests, ROC curves, and methods for graphing and presenting data. Examples and practice problems will be drawn from biomedical research. Learn how to analyze data and interpret statistical analysis presented in research papers, and will get practical hands-on experience implementing these tools during class in a computer lab setting.",
-            "id": "BME 325",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "PHYSICS 208"
+            "source": "MATH 320",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
         }
     },
     {
@@ -793,45 +371,21 @@
     },
     {
         "data": {
-            "source": "CHEM 341",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "description": "An overview of experimental and modeling techniques used to study human movement. Specific topics will include locomotion, motion capture systems, force plates, muscle mechanics, musculoskeletal modeling, three dimensional kinematics, inverse dynamics, forward dynamic simulation and imaging based biomechanics. Homework and laboratory activities emphasize applications of movement biomechanics in orthopedics and rehabilitation.",
+            "id": "BME/ME 415"
         }
     },
     {
         "data": {
-            "source": "MATH 234",
-            "target": "MATH 319"
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "BME 601",
+            "parent": "BME"
         }
     },
     {
         "data": {
             "source": "PHYSICS 208",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "BME 402",
-            "target": "BME 640"
-        }
-    },
-    {
-        "data": {
-            "source": "PHMSCI/BME 430",
-            "target": "BME 510"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 241"
+            "target": "BME/MEDPHYS 568"
         }
     },
     {
@@ -842,128 +396,27 @@
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
+            "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+            "id": "BME/MEDPHYS 578"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOCHEM 501"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ZOOLOGY 153"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "description": "Rectilinear and curvilinear motion of a particle; force, mass, acceleration; work, potential, and kinetic energy; impulse and momentum; kinematics of rigid bodies; moving coordinate systems with relative motion; general planar rigid body kinematics and kinetics. Applications to linkages, cams and geared systems.",
-            "id": "ME 240",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 340",
-            "target": "BME/ECE 462"
-        }
-    },
-    {
-        "data": {
-            "description": "Industry-relevant concepts of biotechnology innovation and translation, directly connecting lessons and classwork to real-world experience and career opportunities and promoting meaningful and sustained engagement between students and industry representatives.  Diverse range of translational biotechnology principles, such as product development in biotechnology, regulating biotechnology products, and quality and compliance in biomanufactured products.",
-            "id": "BME 740",
+            "description": "Develop an understanding of the elements involved in being a responsible member of the Biomedical Engineering research community. Topics include mentor/mentee relationships, identifying research problems, research integrity, ethics, regulations, and improving the scientific climate.",
+            "id": "BME 703",
             "parent": "BME"
         }
     },
     {
         "data": {
-            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
-            "id": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
-            "id": "BME/MEDPHYS 567"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS/ECE 235",
-            "target": "ECE 434"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the signals, information, and computational techniques in electrical engineering.",
-            "id": "ECE 203",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "ME 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Bioinstrumentation covering clinical and research measurements. Laboratory experiments complement the lectures.",
-            "id": "BME 310",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
-            "id": "CBE 320",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Tissue engineering refers to the generation of biological substitutes to restore, maintain, or improve tissue function. Laboratory techniques are multi-disciplinary, from basic biological sciences, engineering, and biotechnology. Engineering approaches and analysis will be applied to these techniques.",
-            "id": "BME 511",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "PHMSCI/BME 430",
-            "target": "BME 545"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "MATH 319"
-        }
-    },
-    {
-        "data": {
-            "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
-            "id": "ISYE/BME 662"
+            "source": "PHYSICS 249",
+            "target": "MATH 222"
         }
     },
     {
@@ -976,91 +429,283 @@
     {
         "data": {
             "source": "PHYSICS 208",
-            "target": "BME 310"
+            "target": "PHYSICS 104"
         }
     },
     {
         "data": {
-            "source": "BME 510",
-            "target": "BME 511"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "BME/MEDPHYS 567"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BME 520"
-        }
-    },
-    {
-        "data": {
-            "id": "BME",
+            "id": "MATH",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Overview of tissue engineering, including discussion of cell sources, cell-material interactions, tailoring biomaterials, methods of culture and characterization of engineering tissues, ethical issues, concluding with case studies of specific types of tissue engineering. Optional laboratory exercises offered throughout semester.",
-            "id": "BME 510",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
-            "id": "MATH 319",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "ME 361"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of medical devices for therapeutic or diagnostic purposes. Gap analysis, market analysis, reimbursement/distribution, regulatory approval, and manufacturing/supply chain development. Refinement and presentation of design ideas and corporate strategy within a team setting. Case studies of device design/manufacture including supply chain, intellectual property, pre-clinical testing, U.S. and European regulatory pathways and clinical trial design.",
-            "id": "BME 640",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
+            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
+            "id": "PHYSICS 208",
             "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "BME/ME 615"
+        }
+    },
+    {
+        "data": {
+            "source": "ZOOLOGY 153",
+            "target": "BME 517"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 323",
+            "target": "PHYSICS 449"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Technical communication for biomedical engineering practice applied to real-world, client-based projects including research methods, documentation, preparing and critiquing reports, ethical problem solving, diversity and inclusion, presenting, and professional development.",
+            "id": "BME 301",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 448"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
+            "id": "PSYCH/ZOOLOGY 523"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "ECE 230"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE/PHYSICS 235",
+            "target": "ECE 434"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "PHYSICS 249"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 104",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
+            "id": "BME/CBE 783"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0448. Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
+            "id": "PHYSICS 449",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
+            "id": "PHYSICS 241",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "PSYCH/ZOOLOGY 523"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the physics of biological fluid flow with an emphasis on the cardiovascular system including blood rheology, pulsatile flow, wave travel, and topics relevant to blood flow measurement and biomedical device design.",
+            "id": "BME/ME 505"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses the theory and applications of magnetic resonance (MR) in medicine, by providing the necessary theoretical background to understand advanced MR techniques including magnetic resonance imaging (MRI).",
+            "id": "BME/MEDPHYS 710"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "CBE 320"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Industry-relevant concepts of biotechnology innovation and translation, directly connecting lessons and classwork to real-world experience and career opportunities and promoting meaningful and sustained engagement between students and industry representatives.  Diverse range of translational biotechnology principles, such as product development in biotechnology, regulating biotechnology products, and quality and compliance in biomanufactured products.",
+            "id": "BME 740",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn and apply the fundamentals of optical imaging, microscopy and instrumentation via practical hands-on training with a specific emphasis on the life-sciences applications. Topics include constructing imaging systems using fundamental optical tools and instruments, illumination and aberrations, microscopy techniques, resolution and contrast measurement, optical spectroscopy, nanophotonics, bioimaging and biosensing.",
+            "id": "BME 651",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the experimental and mathematical modeling techniques used in systems biology through lectures and critical analyses of relevant publications with a primary focus on gene/protein networks and mammalian systems.",
+            "id": "BME 556",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Finite element modeling of soft materials, with an emphasis on biological tissues.  Basics of the finite element method, verification and validation methods, and selection of constitutive models.  Emphasis on finite element modeling for materials that are generally nonlinear, and that generally undergo large deformation.",
+            "id": "BME/ME 516"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers engineering approaches that are used to understand and manipulate stem cells. Concepts covered include: introduction to stem cell biology, quantitative modeling of stem cell signaling, methods to engineer the stem cell microenvironment, and the role of stem cells in tissue development and regeneration.",
+            "id": "BME 520",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "BME 402",
+            "target": "BME 640"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 710",
+            "target": "BME/ME 615"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
+            "id": "PHYSICS 322",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 306",
+            "target": "BME 315"
+        }
+    },
+    {
+        "data": {
+            "description": "Tissue engineering refers to the generation of biological substitutes to restore, maintain, or improve tissue function. Laboratory techniques are multi-disciplinary, from basic biological sciences, engineering, and biotechnology. Engineering approaches and analysis will be applied to these techniques.",
+            "id": "BME 511",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "BME 315",
+            "target": "BME/ISYE 564"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
+            "id": "BME/CRB 670"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 320"
         }
     },
     {
@@ -1072,56 +717,156 @@
     },
     {
         "data": {
-            "source": "BME 201",
-            "target": "BME 300"
+            "description": "Tensor analysis; analysis of stress, strain and rate of strain; application of Newtonian mechanics to deformable media; mechanical constitutive equations; field equations of fluid mechanics and elasticity. Knowledge of linear algebra [such asMATH\u00a0340] required.",
+            "id": "EMA 710",
+            "parent": "EMA"
         }
     },
     {
         "data": {
-            "source": "BME/HONCOL/PHYSICS/MEDPHYS 501",
-            "target": "BME/MEDPHYS 580"
+            "description": "Collaborate with students inB\u00a0M\u00a0E\u00a0300on a client-centered biomedical engineering design project to learn concept generation, product analysis, specifications, evaluation, regulation, and ethics.",
+            "id": "BME 200",
+            "parent": "BME"
         }
     },
     {
         "data": {
-            "source": "BME 315",
-            "target": "ISYE/PSYCH 349"
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 249"
         }
     },
     {
         "data": {
-            "source": "MATH 319",
-            "target": "MATH 320"
+            "source": "ME 306",
+            "target": "BME/ME 615"
+        }
+    },
+    {
+        "data": {
+            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
+            "id": "CHEM 341",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Applies classroom study and prior design course experiences for senior teams to solve a directed client-based biomedical engineering design project.",
+            "id": "BME 400",
+            "parent": "BME"
         }
     },
     {
         "data": {
             "source": "MATH 222",
-            "target": "EMA 201"
+            "target": "BME/MEDPHYS 568"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "BME/MEDPHYS 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Apply the design process for orthopaedic implants (total joint replacements). Topics include: library skills; joint anatomy; tissue properties; surgical approach; joint loading; implants materials; preclinical testing and analysis.",
+            "id": "BME/ME 414"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of medical devices for therapeutic or diagnostic purposes. Gap analysis, market analysis, reimbursement/distribution, regulatory approval, and manufacturing/supply chain development. Refinement and presentation of design ideas and corporate strategy within a team setting. Case studies of device design/manufacture including supply chain, intellectual property, pre-clinical testing, U.S. and European regulatory pathways and clinical trial design.",
+            "id": "BME 640",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
+            "id": "BME/ISYE 662"
+        }
+    },
+    {
+        "data": {
+            "description": "Work on a client-centered biomedical engineering design project to learn leadership styles, concept generation, product analysis, specifications, evaluation, regulation, and ethics. Provide leadership and mentorship to students inB\u00a0M\u00a0E\u00a0200.",
+            "id": "BME 300",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Design and application of electrodes, biopotential amplifiers, biosensors, therapeutic devices. Medical imaging. Electrical safety. Measurement of ventilation, blood pressure and flow.",
+            "id": "BME/ECE 462"
         }
     },
     {
         "data": {
             "source": "MATH 211",
-            "target": "MATH 221"
+            "target": "ECE 203"
         }
     },
     {
         "data": {
-            "description": "Introduction to the physics of biological fluid flow with an emphasis on the cardiovascular system including blood rheology, pulsatile flow, wave travel, and topics relevant to blood flow measurement and biomedical device design.",
-            "id": "BME/ME 505"
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/PHYSICS 265"
         }
     },
     {
         "data": {
             "source": "PHYSICS 241",
-            "target": "PHYSICS 448"
+            "target": "MATH 234"
         }
     },
     {
         "data": {
-            "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
-            "id": "BME/ECE/MEDPHYS 778"
+            "id": "ME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
+            "id": "MATH 319",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
         }
     },
     {
@@ -1133,45 +878,216 @@
     },
     {
         "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "ECE 330"
-        }
-    },
-    {
-        "data": {
-            "description": "Undergraduate honors research projects supervised by faculty members.",
-            "id": "BME 389",
-            "parent": "BME"
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 300"
         }
     },
     {
         "data": {
             "source": "ZOOLOGY 153",
+            "target": "BME/CBE 560"
+        }
+    },
+    {
+        "data": {
+            "description": "Various special topics in biomechanics.",
+            "id": "BME/ME 605"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "BME/MEDPHYS 573"
+        }
+    },
+    {
+        "data": {
+            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns.",
+            "id": "ME 306",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "BME 556"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical modeling and analysis of dynamic systems with mechanical, thermal, and fluid elements. Topics: time domain solutions, analog computer simulation, linearization techniques, block diagram representation, numerical methods and frequency domain solutions. Students are assumed to have basic competence in particle and planar rigid body dynamics, matrix and vector algebra, and linear differential equations.",
+            "id": "ME 340",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the field of MEMS (Micro-Electro-Mechanical-Systems), as it applies to biology and medicine. Topics will cover methodology of traditional MEMS devices, how they can be incorporated with biological systems, and methods for micro-structuring biological materials.",
+            "id": "BME 550",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/PHMSCI 430",
+            "target": "BME 545"
+        }
+    },
+    {
+        "data": {
+            "description": "Various special topics in biomaterials, cellular and tissue engineering.",
+            "id": "BME 606",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "EMA 303"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
+            "id": "ISYE 210",
+            "parent": "ISYE"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 568",
+            "target": "BME/MEDPHYS 710"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/ME 615",
+            "target": "BME/ME 715"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
+            "id": "PHYSICS 249",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 578",
+            "target": "BME/MEDPHYS 568"
+        }
+    },
+    {
+        "data": {
+            "description": "Laws of mechanics and thermodynamics applied to fluids at rest and in motion; potential flow; dimensional analysis; viscous flow; pipe flow; boundary-layer theory; compressible flow.",
+            "id": "ME 363",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "id": "BME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "ZOOLOGY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on solid mechanics of prominent musculoskeletal and cardiovascular tissues. Their normal and pathological behaviors (stiffness, strength, relaxation, creep, adaptive remodeling, etc.) in response to physiologic loading will be examined and quantified.",
+            "id": "BME/ME 615"
+        }
+    },
+    {
+        "data": {
+            "description": "Under faculty supervision.",
+            "id": "BME 790",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+            "id": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "id": "CBE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
             "target": "BIOCORE 383"
         }
     },
     {
         "data": {
-            "description": "Work experience which combines classroom theory with practical knowledge of operations providing a background upon which to base a professional career in industry.",
-            "id": "BME 1",
+            "source": "ME 340",
+            "target": "BME 315"
+        }
+    },
+    {
+        "data": {
+            "description": "Under faculty supervision.",
+            "id": "BME 799",
             "parent": "BME"
         }
     },
@@ -1184,14 +1100,8 @@
     },
     {
         "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 306",
-            "target": "BME 315"
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
         }
     },
     {
@@ -1202,45 +1112,33 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/ZOOLOGY 102"
+            "source": "BIOCORE 383",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "ECE 230",
-            "target": "ECE 340"
+            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
+            "id": "CBE 320",
+            "parent": "CBE"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 202",
-            "target": "BME/MEDPHYS 573"
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "MATH/STAT 309"
         }
     },
     {
         "data": {
-            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-            "id": "CBE/BMI/GENETICS/COMPSCI/BIOCHEM/BME 915"
+            "source": "MATH 375",
+            "target": "MATH 376"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Under faculty supervision.",
-            "id": "BME 890",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 578",
-            "target": "BME/MEDPHYS 710"
+            "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
+            "id": "BME/CBE 782"
         }
     },
     {
@@ -1252,205 +1150,64 @@
     },
     {
         "data": {
-            "source": "PHYSICS 448",
-            "target": "PHYSICS 449"
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
         }
     },
     {
         "data": {
-            "description": "Develop an understanding of the elements involved in being a responsible member of the Biomedical Engineering research community. Topics include mentor/mentee relationships, identifying research problems, research integrity, ethics, regulations, and improving the scientific climate.",
-            "id": "BME 703",
-            "parent": "BME"
+            "source": "MATH 222",
+            "target": "MATH 319"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 104",
-            "target": "PHMCOL-M/MEDPHYS/RADIOL/BME/PHYSICS 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of the structure, function and biophysical properties of extracellular matrix (ECM) proteins, followed by discussion of how control or manipulation of ECM protein expression and distribution impacts on cell and tissue function, concluding with impacts of engineering ECM for regenerative medicine.",
-            "id": "BME 545",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "id": "ECE",
+            "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
-            "id": "COMPSCI 300",
-            "parent": "COMPSCI"
+            "source": "ECE 434",
+            "target": "BME 651"
         }
     },
     {
         "data": {
-            "source": "PHYSICS/MEDPHYS 265",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
-            "id": "BME/MEDPHYS 566"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "EMA 303"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
-            "id": "BME/MEDPHYS 578"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the physical principles underlying solid-state electronic and photonic devices, including elements of quantum mechanics, crystal structure, semiconductor band theory, carrier statistics, and band diagrams. Offers examples of modern semiconductor structures. Prior experience with MATLAB [such asE\u00a0C\u00a0E\u00a0203] is strongly encouraged but not required.",
-            "id": "PHYSICS/ECE 235"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
+            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 104",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
+            "source": "BIOCORE 383",
+            "target": "BME 520"
         }
     },
     {
         "data": {
-            "source": "BME 201",
-            "target": "BME 301"
+            "source": "BME 330",
+            "target": "ME 363"
         }
     },
     {
         "data": {
-            "description": "Laws of mechanics and thermodynamics applied to fluids at rest and in motion; potential flow; dimensional analysis; viscous flow; pipe flow; boundary-layer theory; compressible flow.",
-            "id": "ME 363",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to ray optics, physical optics and interference, applications of Fourier optics, absorption, dispersion, and polarization of light. Light sources, including lasers (gas, solid state, and semiconductor), modulation and detection of light.",
-            "id": "ECE 434",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 323",
-            "target": "PHYSICS 449"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
-            "id": "ISYE/BME 564"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 710",
-            "target": "BME/ME 615"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "ME 306"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/HONCOL/PHYSICS/MEDPHYS 501",
-            "target": "BME/MEDPHYS 566"
-        }
-    },
-    {
-        "data": {
-            "description": "Under faculty supervision.",
-            "id": "BME 799",
+            "description": "Learn and apply the fundamentals of descriptive and inferential statistics to analyze data and present the results in appropriate graphical formats. Emphasis will be on applications commonly encountered in biomedical engineering including t-tests, linear regression, analysis of variance, diagnostic tests, ROC curves, and methods for graphing and presenting data. Examples and practice problems will be drawn from biomedical research. Learn how to analyze data and interpret statistical analysis presented in research papers, and will get practical hands-on experience implementing these tools during class in a computer lab setting.",
+            "id": "BME 325",
             "parent": "BME"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
+            "source": "BME 315",
+            "target": "BME/ME 415"
         }
     },
     {
         "data": {
-            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
-            "id": "EMA 303",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "BME 601",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Various special topics in bioinstrumentation and medical devices.",
-            "id": "BME 603",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 319",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "CHEM 343"
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 241"
         }
     },
     {
@@ -1462,216 +1219,89 @@
     },
     {
         "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
         }
     },
     {
         "data": {
-            "description": "Fundamentals of biomedical engineering and principles of design including the design process, standards, documentation, inclusion in design and research methods. Hands-on skills including electronics, programming, computer-aided design, machining, safety training, microscopy, cell and tissue engineering principles and fabrication of physical prototypes.",
-            "id": "BME 201",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 434",
-            "target": "BME 651"
-        }
-    },
-    {
-        "data": {
-            "id": "ME",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "COMPSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Apply the design process for orthopaedic implants (total joint replacements). Topics include: library skills; joint anatomy; tissue properties; surgical approach; joint loading; implants materials; preclinical testing and analysis.",
-            "id": "BME/ME 414"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
+            "description": "Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
+            "id": "PHYSICS 448",
             "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Work on a client-centered biomedical engineering design project to learn leadership styles, concept generation, product analysis, specifications, evaluation, regulation, and ethics. Provide leadership and mentorship to students inB\u00a0M\u00a0E\u00a0200.",
-            "id": "BME 300",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 340",
-            "target": "BME/ME 415"
-        }
-    },
-    {
-        "data": {
-            "description": "Applies classroom study and prior design course experiences for senior teams to solve a directed client-based biomedical engineering design project.",
-            "id": "BME 400",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "BME/CRB 670"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "BME 330"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
-            "id": "CBE/BME 783"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 306",
-            "target": "BME/ME 414"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 240",
-            "target": "ME 340"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 361",
-            "target": "ME 363"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "PHMCOL-M/MEDPHYS/RADIOL/BME/PHYSICS 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the field of MEMS (Micro-Electro-Mechanical-Systems), as it applies to biology and medicine. Topics will cover methodology of traditional MEMS devices, how they can be incorporated with biological systems, and methods for micro-structuring biological materials.",
-            "id": "BME 550",
-            "parent": "BME"
         }
     },
     {
         "data": {
             "source": "ZOOLOGY 153",
-            "target": "BME 517"
+            "target": "BME/PHMSCI 430"
         }
     },
     {
         "data": {
-            "source": "BME/MEDPHYS 568",
-            "target": "BME/MEDPHYS 578"
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Various special topics in biomedical imaging and optics.",
-            "id": "BME 604",
+            "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+            "id": "BME/MEDPHYS 568"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 319",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
+            "id": "BME/CHEM/MEDPHYS 750"
+        }
+    },
+    {
+        "data": {
+            "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
+            "id": "ISYE/PSYCH 349"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "BME/MEDPHYS 573"
+        }
+    },
+    {
+        "data": {
+            "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+            "id": "BME/MEDPHYS 575"
+        }
+    },
+    {
+        "data": {
+            "source": "BME 201",
+            "target": "BME 301"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "BME/MEDPHYS 575"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of the structure, function and biophysical properties of extracellular matrix (ECM) proteins, followed by discussion of how control or manipulation of ECM protein expression and distribution impacts on cell and tissue function, concluding with impacts of engineering ECM for regenerative medicine.",
+            "id": "BME 545",
             "parent": "BME"
         }
     },
     {
         "data": {
-            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
-            "id": "PHYSICS 322",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "The study and use of light in the life sciences. Interactions of light with cells and tissue can be used for imaging, measurement, diagnosis, and therapy. Applications include optical imaging, endoscopy, microscopy, resolution enhancement, adaptive optics, Optical Coherence Tomography (OCT), quantitative phase microscopy, spectroscopy (fluorescence, elastic scattering), diffuse optical tomography, and computational modeling of light transport in tissue. Fundamental skills, concepts, and theory used for these applications include geometric optics, lens design, Fourier transforms, polarization, interference, coherence, and scattering theory. Particular emphasis will be placed on current literature and cutting edge instruments and methods.",
-            "id": "BME 751",
+            "description": "An introduction to the mechanical behavior of biological tissues and systems. Specific topics include: structure and function of biological tissues, mechanical properties of biological tissues, and analysis of specific tissues (i.e. bone, muscle, and soft connective tissues).",
+            "id": "BME 315",
             "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
-            "id": "BME/MEDPHYS 573"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "PSYCH/ZOOLOGY 523"
         }
     },
     {
@@ -1683,92 +1313,67 @@
     },
     {
         "data": {
-            "description": "Tensor analysis; analysis of stress, strain and rate of strain; application of Newtonian mechanics to deformable media; mechanical constitutive equations; field equations of fluid mechanics and elasticity. Knowledge of linear algebra [such asMATH\u00a0340] required.",
-            "id": "EMA 710",
-            "parent": "EMA"
+            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
+            "id": "COMPSCI 300",
+            "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Mathematical modeling and analysis of dynamic systems with mechanical, thermal, and fluid elements. Topics: time domain solutions, analog computer simulation, linearization techniques, block diagram representation, numerical methods and frequency domain solutions. Students are assumed to have basic competence in particle and planar rigid body dynamics, matrix and vector algebra, and linear differential equations.",
-            "id": "ME 340",
-            "parent": "ME"
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
         }
     },
     {
         "data": {
-            "description": "Introduction to the experimental and mathematical modeling techniques used in systems biology through lectures and critical analyses of relevant publications with a primary focus on gene/protein networks and mammalian systems.",
-            "id": "BME 556",
+            "description": "The study and use of light in the life sciences. Interactions of light with cells and tissue can be used for imaging, measurement, diagnosis, and therapy. Applications include optical imaging, endoscopy, microscopy, resolution enhancement, adaptive optics, Optical Coherence Tomography (OCT), quantitative phase microscopy, spectroscopy (fluorescence, elastic scattering), diffuse optical tomography, and computational modeling of light transport in tissue. Fundamental skills, concepts, and theory used for these applications include geometric optics, lens design, Fourier transforms, polarization, interference, coherence, and scattering theory. Particular emphasis will be placed on current literature and cutting edge instruments and methods.",
+            "id": "BME 751",
             "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
-            "target": "COMPSCI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 568"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "A first course in modeling, characterization, and application of semiconductor devices and integrated circuits. Development of appropriate models for circuit-level behavior of diodes, bi-polar and field effect transistors, and non-ideal op-amps. Application in analysis and design of linear amplifiers. Frequency domain characterization of transistor circuits.",
-            "id": "ECE 340",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "source": "BOTANY/ZOOLOGY/BIOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
             "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-            "id": "BME/HONCOL/PHYSICS/MEDPHYS 501"
+            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+            "id": "BME/MEDPHYS 567"
+        }
+    },
+    {
+        "data": {
+            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
+            "id": "ME 361",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+            "id": "PHYSICS 202",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "CHEM 343"
         }
     },
     {
         "data": {
             "source": "ISYE/PSYCH 349",
-            "target": "ISYE/BME 564"
-        }
-    },
-    {
-        "data": {
-            "description": "Under faculty supervision.",
-            "id": "BME 790",
-            "parent": "BME"
-        }
-    },
-    {
-        "data": {
-            "source": "BME 330",
-            "target": "CBE 320"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 306",
-            "target": "BME/ME 615"
+            "target": "BME 315"
         }
     },
     {
@@ -1780,33 +1385,404 @@
     },
     {
         "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
+            "description": "Various special topics in biomedical imaging and optics.",
+            "id": "BME 604",
+            "parent": "BME"
         }
     },
     {
         "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
+            "source": "PHYSICS 449",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/PHMSCI 430",
+            "target": "BME 510"
+        }
+    },
+    {
+        "data": {
+            "id": "ISYE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 200"
+        }
+    },
+    {
+        "data": {
+            "description": "A first course in modeling, characterization, and application of semiconductor devices and integrated circuits. Development of appropriate models for circuit-level behavior of diodes, bi-polar and field effect transistors, and non-ideal op-amps. Application in analysis and design of linear amplifiers. Frequency domain characterization of transistor circuits.",
+            "id": "ECE 340",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS 578"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "BME/ECE 463"
+        }
+    },
+    {
+        "data": {
+            "source": "BME 201",
+            "target": "BME 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "id": "ECE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 306",
+            "target": "EMA 303"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 320",
+            "target": "BME/ME 505"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
+            "id": "ZOOLOGY 153",
+            "parent": "ZOOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "ME 240"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of tissue engineering, including discussion of cell sources, cell-material interactions, tailoring biomaterials, methods of culture and characterization of engineering tissues, ethical issues, concluding with case studies of specific types of tissue engineering. Optional laboratory exercises offered throughout semester.",
+            "id": "BME 510",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in biomedical engineering for graduate students or both graduate and undergraduate students together.",
+            "id": "BME 602",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 241",
-            "target": "BME/MEDPHYS 568"
+            "source": "BIOCHEM 501",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 249"
+            "source": "EMA 201",
+            "target": "ME 306"
         }
     },
     {
         "data": {
             "source": "MATH 320",
+            "target": "BME/MEDPHYS 578"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
+            "id": "BME/ISYE 564"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "BME/ME 516"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "PHYSICS 241"
+        }
+    },
+    {
+        "data": {
+            "id": "EMA",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS 573"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to ray optics, physical optics and interference, applications of Fourier optics, absorption, dispersion, and polarization of light. Light sources, including lasers (gas, solid state, and semiconductor), modulation and detection of light.",
+            "id": "ECE 434",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 322",
             "target": "PHYSICS 323"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
+            "id": "BME 702",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "BME/ME 414"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 322"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the signals, information, and computational techniques in electrical engineering.",
+            "id": "ECE 203",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on understanding the key methods and principles of quantitative biology through a close reading of the primary literature. Topics covered will include deterministic and stochastic methods for modeling cellular systems, techniques in systems and synthetic biology, image processing tools and image analysis for biology, data-driven network models, genomic approaches, single-molecule approaches, and key computational biology tools. This course is intended for graduate students from a variety of backgrounds who are interested in pursuing quantitative biology during their graduate studies.",
+            "id": "BME 780",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the fundamental principles of kinetics and transport that are relevant for the analysis of biological systems. Topics covered include concepts of reaction rate, stoichiometry, equilibrium, momentum/mass transport, and the interaction between transport and kinetics in biological systems.",
+            "id": "BME 330",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Central topics in solid mechanics applied to soft tissues, including analysis of strain in the setting of large deformations, computation of stress in multiple experimental loading configurations, constitutive modeling of biomaterials using hyperelastic strain-energy functions, modeling tissue growth and remodeling, and the main theories for soft tissue failure will be covered. Application of finite elasticity theory in practical laboratory situations, and key papers and concepts in soft tissue mechanics.",
+            "id": "BME/ME 715"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the physical principles underlying solid-state electronic and photonic devices, including elements of quantum mechanics, crystal structure, semiconductor band theory, carrier statistics, and band diagrams. Offers examples of modern semiconductor structures. Prior experience with MATLAB [such asE\u00a0C\u00a0E\u00a0203] is strongly encouraged but not required.",
+            "id": "ECE/PHYSICS 235"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
+            "id": "EMA 201",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "ECE/PHYSICS 235"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 240",
+            "target": "ME 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 203",
+            "target": "ECE 330"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "BME/MEDPHYS 566"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
+            "id": "BME/CBE 560"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 230",
+            "target": "ECE 340"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 340",
+            "target": "BME/ECE 462"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ZOOLOGY 153"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 323",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Rectilinear and curvilinear motion of a particle; force, mass, acceleration; work, potential, and kinetic energy; impulse and momentum; kinematics of rigid bodies; moving coordinate systems with relative motion; general planar rigid body kinematics and kinetics. Applications to linkages, cams and geared systems.",
+            "id": "ME 240",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "description": "Undergraduate honors research projects supervised by faculty members.",
+            "id": "BME 389",
+            "parent": "BME"
+        }
+    },
+    {
+        "data": {
+            "description": "Presentation of advancements in biomedical engineering research by leaders in the field, accompanied by critical analysis of related literature.",
+            "id": "BME 701",
+            "parent": "BME"
         }
     }
 ]

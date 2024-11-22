@@ -1,16 +1,134 @@
 [
     {
         "course_reference": {
-            "course_number": 400,
+            "course_number": 140,
             "subjects": [
                 "ANSCI"
             ]
         },
-        "course_title": "STUDY ABROAD IN ANIMAL SCIENCES",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses.",
+        "course_title": "INTRODUCTION TO POULTRY: FROM BACKYARD CHICKENS TO COMMERCIAL PRODUCTION",
+        "description": "Overview of poultry science and production.  Topics include anatomy and physiology, nutrition, health, reproduction, genetics, egg and meat quality, and management.  Includes information on poultry flocks of various sizes and purposes, from hobby flocks to commercial production.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "Specialized subject matter of current interest to graduate students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 414,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "RUMINANT NUTRITION & METABOLISM",
+        "description": "Integrates nutritional and biochemical concepts to understand digestive and metabolic processes in dairy and beef cattle, which are then quantitatively represented to predict and manipulate production and health outcomes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "NUTRSCI",
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bNUTR\u00a0SCI\u00a0\u00a0311, (BIOCHEM\u00a0301or501) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 520,
+            "subjects": [
+                "ANSCI",
+                "F&WECOL",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "ORNITHOLOGY",
+        "description": "Introduction to bird biology, ecology, and behavior. Topics include the evolutionary origin of birds and flight, anatomy and physiology, functional morphology, migration, communication, reproductive strategies, ecological adaptations and roles, and biogeographical patterns.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (BIOCORE\u00a0381and382), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 615,
+            "subjects": [
+                "AGRONOMY",
+                "ANSCI",
+                "HORT",
+                "GENETICS"
+            ]
+        },
+        "course_title": "GENETIC MAPPING",
+        "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -29,103 +147,10 @@
     },
     {
         "course_reference": {
-            "course_number": 362,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "VETERINARY GENETICS",
-        "description": "The genetic basis for predisposition to disease or resistance to disease in livestock and companion animal species. Genetic defects, their discovery, diagnosis and treatment.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO MEAT SCIENCE AND TECHNOLOGY",
-        "description": "Application of biological, technological, and economical principles to muscle and related tissue utilized for food.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 115,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) and (CHEM\u00a0103,109, or115) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research in preparation of a graduate thesis under supervision of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 311,
             "subjects": [
-                "ANSCI",
                 "NUTRSCI",
+                "ANSCI",
                 "DYSCI"
             ]
         },
@@ -140,6 +165,12 @@
                     ]
                 },
                 {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
                     "course_number": 301,
                     "subjects": [
                         "BIOCHEM"
@@ -150,473 +181,9 @@
                     "subjects": [
                         "CHEM"
                     ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
                 }
             ],
             "prerequisites_text": "CHEM\u00a0341,343, (BIOCHEM\u00a0301or concurrent enrollment), or (BIOCHEM\u00a0501or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
-            "subjects": [
-                "ANSCI",
-                "DYSCI",
-                "FOODSCI",
-                "SOILSCI"
-            ]
-        },
-        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 472,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI",
-                        "FOODSCI",
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 320,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "ANIMAL HEALTH AND DISEASE",
-        "description": "Provides an introduction to and exploration of the interconnectivity between factors that affect health and disease and the central role of the immune system using infectious disease in animals as a key focus. Explores principal causes and identification of animal diseases, common diseases of farm animals, zoonoses and public health, disease prevention and management including biosecurity measures and host immune responses. Fosters appreciation for the translatability and universality of knowledge between human and animal health and disease.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0383, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 135,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "GRAND CHALLENGES AND CAREER OPPORTUNITIES IN ANIMAL AND DAIRY SCIENCES",
-        "description": "Covers the current key challenges and opportunities in the broad fields of animal agriculture, animal biology, animal health, and veterinary medicine, as well as internship and career opportunities and professional development activities that will maximize the value of an undergraduate career at UW-Madison and provide preparation for post-graduation endeavors.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "ANSCI",
-                "BOTANY",
-                "MICROBIO"
-            ]
-        },
-        "course_title": "THE MICROBIOME OF PLANTS, ANIMALS, AND HUMANS",
-        "description": "Examination of the structure and function of microbial communities that live inside and on host organisms (plants, animals, and humans). Introduction to general concepts of the microbiome and microbiota, and their relationship to host nutrition, health, and disease.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 370,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "LIVESTOCK PRODUCTION AND HEALTH IN AGRICULTURAL DEVELOPMENT",
-        "description": "Physical, biological and social nature of animal agriculture systems and their improvement in developing countries; analysis of the state of livestock research and development in the developing countries and the world role of U.S. animal agriculture.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, or (BIOCORE\u00a0381and382), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "THESIS",
-        "description": "Individual study for majors completing theses as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 434,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "REPRODUCTIVE PHYSIOLOGY",
-        "description": "Principles of reproductive physiology, improvement of fertility, and artificial insemination.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 384,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) or (BIOCORE\u00a0382,383, and384) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 363,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF ANIMAL BREEDING",
-        "description": "Application of the principles of quantitative genetics to the improvement of livestock and poultry; breeding value estimation and selection techniques; effects of inbreeding and hybrid vigor; crossbreeding systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 366,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "CONCEPTS IN GENOMICS",
-        "description": "Genomics has revolutionized many fields of science, including animal breeding, plant breeding, physiology, microbiology, and human medicine. A basic overview of the latest concepts in genomics, including 3D genome organization, the importance of genome annotation, the use of genomic testing in plant and animal breeding, the potential of genomic prediction on human medicine, and the latest advances in omics integration.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior Standing andBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0152, (BIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102, andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 373,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "ANIMAL PHYSIOLOGY",
-        "description": "Covers physiological processes that regulate the body and the anatomy and function of different physiological systems. Includes interactions between organ systems, analysis of a single organ system from the molecular to the organismal, and comparisons and contrasts of organ systems among different domestic animal species.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102), orBIOCORE\u00a0383"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 245,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "ANIMAL WELFARE",
-        "description": "Explores animal welfare topics from the animal's perspective. Analyzes contemporary welfare issues and policies based on our scientific understanding of the experiences of animals. Emphasizes farmed animals, but also draws on examples from zoo, lab, and companion animals.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 512,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "MANAGEMENT FOR AVIAN HEALTH",
-        "description": "The occurrence, etiology, clinical signs, control and prevention of infectious and noninfectious diseases commonly affecting domestically reared poultry. Instruction in avian necropsy, zoonosis, sanitation and regulation.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 508,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "POULTRY PRODUCTS TECHNOLOGY",
-        "description": "Procurement, processing and distribution of poultry meat, eggs and derived products; factors affecting quality, including methods of determining quality.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0103,109, or115"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "PRACTICUM IN ANIMAL SCIENCES TEACHING",
-        "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "SENIOR HONOR THESIS",
-        "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 240,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "ANCIENT ANIMALS AND PEOPLES",
-        "description": "Provides an introduction to human and animal relationships from prehistory to the present. Examines how animals have influenced social and economic structures of past societies, with a focus on the advent of domestication. Explores the cultural and economic changes that domestication has had on human societies, as well as the behavioral, genetic, and morphological changes that this process had on once wild animals. Emphasizes the methods used to retrace human-animal interactions, drawing on cross-cultural examples from anthropology, ethnozoology, archaeology, history, and genetics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 511,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "BREEDER FLOCK AND HATCHERY MANAGEMENT",
-        "description": "History of artificial incubation relevant to the U.S. hatching industry. Practices involved in successful incubation of hatching eggs. Embryonic development in birds. Management factors involved in breeder hen production and operating a hatchery.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 931,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "SEMINAR IN ANIMAL NUTRITION",
-        "description": "Discussion of literature that has a bearing on animal nutrition. Students are to survey the literature and present a seminar.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -643,99 +210,17 @@
     },
     {
         "course_reference": {
-            "course_number": 432,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "SWINE PRODUCTION",
-        "description": "Application of research findings in breeding, feeding, management and marketing to modernize production. Lab may include farm visits, practical exercises in testing changes, and \"tools\" used by producers.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "NUTR\u00a0SCI/\u200bAN\u00a0SCI/\u200bDY\u00a0SCI\u00a0\u00a0311,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0434, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 825,
+            "course_number": 824,
             "subjects": [
                 "ANSCI",
                 "DYSCI"
             ]
         },
-        "course_title": "RUMINANT NUTRITIONAL PHYSIOLOGY II",
-        "description": "Focuses on calf and heifer nutrition, regulation of dry matter intake, plant and forage chemistry, vitamins, lipids, and starch.",
+        "course_title": "RUMINANT NUTRITIONAL PHYSIOLOGY I",
+        "description": "Focuses on rumen microbiology, metabolite modeling, as well as protein and VFA nutrition and metabolism.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 849,
-            "subjects": [
-                "ANSCI",
-                "POPHLTH",
-                "GENETICS"
-            ]
-        },
-        "course_title": "GENETIC EPIDEMIOLOGY",
-        "description": "This course will provide an introduction to genetic epidemiology. Topics will include a general overview of genetics and Mendelian and complex inheritance, as well as various elements of study design, including participant ascertainment; phenotype definition; biologic sample selection; genotyping, sequencing, and quality control; measurement of covariates, and choice of analytic methods. We will briefly discuss some of the original study designs and then focus on current study designs for the remainder of the class. Additional emerging topics will be briefly touched upon. Students will complete short homework assignments to enforce concepts learned during lectures, discuss journal articles, and prepare a very short grant application for the mid-term project. In the final weeks of class, students will work together to analyze data from a real genetic study, prepare tables, interpret the findings, and present their project to their peers.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 321,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "FOOD LAWS AND REGULATIONS",
-        "description": "Food laws and regulations, regulatory and commerical grading standards used in the food industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 515,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "COMMERCIAL MEAT PROCESSING",
-        "description": "Principles and procedures in the commercial manufacture of processed meat products; sausage manufacturing, curing, smoking, freezing and packaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                },
-                {
-                    "course_number": 305,
-                    "subjects": [
-                        "ANSCI",
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "AN\u00a0SCI/\u200bFOOD\u00a0SCI\u00a0\u00a0305,FOOD\u00a0SCI\u00a0410, or graduate/professional standing"
         }
     },
     {
@@ -755,114 +240,37 @@
     },
     {
         "course_reference": {
-            "course_number": 414,
+            "course_number": 370,
             "subjects": [
                 "ANSCI",
                 "DYSCI"
             ]
         },
-        "course_title": "RUMINANT NUTRITION & METABOLISM",
-        "description": "Integrates nutritional and biochemical concepts to understand digestive and metabolic processes in dairy and beef cattle, which are then quantitatively represented to predict and manipulate production and health outcomes.",
+        "course_title": "LIVESTOCK PRODUCTION AND HEALTH IN AGRICULTURAL DEVELOPMENT",
+        "description": "Physical, biological and social nature of animal agriculture systems and their improvement in developing countries; analysis of the state of livestock research and development in the developing countries and the world role of U.S. animal agriculture.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 501,
+                    "course_number": 382,
                     "subjects": [
-                        "BIOCHEM"
+                        "BIOCORE"
                     ]
                 },
                 {
-                    "course_number": 311,
+                    "course_number": 101,
                     "subjects": [
                         "ANSCI",
-                        "DYSCI",
-                        "NUTRSCI"
+                        "DYSCI"
                     ]
                 },
                 {
-                    "course_number": 301,
+                    "course_number": 151,
                     "subjects": [
-                        "BIOCHEM"
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bNUTR\u00a0SCI\u00a0\u00a0311, (BIOCHEM\u00a0301or501) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 954,
-            "subjects": [
-                "ANSCI",
-                "OBS&GYN",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "SEMINAR IN ENDOCRINOLOGY-REPRODUCTIVE PHYSIOLOGY",
-        "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "THESIS",
-        "description": "Second semester of individual study for majors completing theses as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 951,
-            "subjects": [
-                "ANSCI",
-                "DYSCI",
-                "GENETICS"
-            ]
-        },
-        "course_title": "SEMINAR IN ANIMAL BREEDING",
-        "description": "",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "ANSCI",
-                "NUTRSCI"
-            ]
-        },
-        "course_title": "EXPERIMENTAL DIET DESIGN",
-        "description": "Discuss nutrient requirements, composition of ingredients used to meet requirements and the mathematical steps involved in diet formulation with emphasis on research animals and human subjects.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 521,
-            "subjects": [
-                "ANSCI",
-                "ZOOLOGY",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "BIRDS OF SOUTHERN WISCONSIN",
-        "description": "Outdoor and indoor labs/lectures emphasizing identification of southern Wisconsin birds by sight and vocalization. Two required Saturday field trips in Southern Wisconsin.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
                     "course_number": 381,
                     "subjects": [
@@ -870,10 +278,52 @@
                     ]
                 },
                 {
-                    "course_number": 152,
+                    "course_number": 101,
                     "subjects": [
                         "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, or (BIOCORE\u00a0381and382), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO MEAT SCIENCE AND TECHNOLOGY",
+        "description": "Application of biological, technological, and economical principles to muscle and related tissue utilized for food.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
                         "BOTANY",
+                        "BIOLOGY",
                         "ZOOLOGY"
                     ]
                 },
@@ -885,13 +335,93 @@
                     ]
                 },
                 {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) and (CHEM\u00a0103,109, or115) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "QUANTITATIVE GENETICS",
+        "description": "An advanced approach with emphasis on statistical foundations. Classical theory with extensions to maternal and paternal effects. Selection theory is considered in depth.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 511,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "BREEDER FLOCK AND HATCHERY MANAGEMENT",
+        "description": "History of artificial incubation relevant to the U.S. hatching industry. Practices involved in successful incubation of hatching eggs. Embryonic development in birds. Management factors involved in breeder hen production and operating a hatchery.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 521,
+            "subjects": [
+                "ANSCI",
+                "F&WECOL",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "BIRDS OF SOUTHERN WISCONSIN",
+        "description": "Outdoor and indoor labs/lectures emphasizing identification of southern Wisconsin birds by sight and vocalization. Two required Saturday field trips in Southern Wisconsin.",
+        "prerequisites": {
+            "course_references": [
+                {
                     "course_number": 382,
                     "subjects": [
                         "BIOCORE"
                     ]
                 },
                 {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
                     "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
                     "subjects": [
                         "BIOLOGY",
                         "ZOOLOGY"
@@ -903,14 +433,27 @@
     },
     {
         "course_reference": {
-            "course_number": 102,
+            "course_number": 699,
             "subjects": [
-                "ANSCI",
-                "DYSCI"
+                "ANSCI"
             ]
         },
-        "course_title": "INTRODUCTION TO ANIMAL SCIENCES LABORATORY",
-        "description": "Hands-on experience and demonstrations to develop practical skills with animals and to better understand the application of science to food production animals. It covers anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals.",
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Individual advanced work in an area of Animal Sciences under the direct guidance of a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 315,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "POULTRY ENTERPRISE MANAGEMENT",
+        "description": "Fundamental business and economic principles and practices for successful poultry production with emphasis on problem solving in flock management.",
         "prerequisites": {
             "course_references": [
                 {
@@ -921,24 +464,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "ANSCI",
-                "HORT",
-                "GENETICS",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "GENETIC MAPPING",
-        "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
         }
     },
     {
@@ -965,108 +491,12 @@
     },
     {
         "course_reference": {
-            "course_number": 420,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "MICROBIOMES OF ANIMAL SYSTEMS",
-        "description": "Provides a knowledgebase in both theoretical and applied scientific approaches associated with microbiome sciences in animal production systems. Covers the basic principles of microbiology through applied practical approaches in using cross-species comparisons in companion and agricultural species from classical microbiological techniques to novel next-generation sequence-based approaches.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOLOGY/\u200bZOOLOGY\u00a0\u00a0101and102,BOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0383) and (CHEM\u00a0341,343, orBIOCHEM\u00a0301), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 344,
-            "subjects": [
-                "ANSCI",
-                "BSE"
-            ]
-        },
-        "course_title": "DIGITAL TECHNOLOGIES FOR ANIMAL MONITORING",
-        "description": "Introduces key concepts of sensor technology used for livestock and companion animal monitoring and veterinary medicine. Describes applications of Artificial Intelligence (AI) systems for livestock animals and veterinary medicine, including animal monitoring, computer-aided diagnosis, and optimized farm management decisions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 114,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 171,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 112,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0112,114,171, or placement intoMATH\u00a0221) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "ANSCI",
-                "AGRONOMY",
-                "GENETICS",
-                "HORT"
-            ]
-        },
-        "course_title": "GENETIC MAPPING",
-        "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 472,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI",
-                "SOILSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 472,
             "subjects": [
                 "ANSCI",
                 "DYSCI",
-                "FOODSCI",
-                "SOILSCI"
+                "SOILSCI",
+                "FOODSCI"
             ]
         },
         "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
@@ -1078,270 +508,15 @@
     },
     {
         "course_reference": {
-            "course_number": 361,
+            "course_number": 954,
             "subjects": [
+                "OBS&GYN",
                 "ANSCI",
-                "DYSCI"
+                "ZOOLOGY"
             ]
         },
-        "course_title": "INTRODUCTION TO ANIMAL AND VETERINARY GENETICS",
-        "description": "The molecular basis for inheritance of monogenic and polygenic traits related to animal disease and production. An introduction to the principles of improving animal health and performance by selection and mating systems in companion animals, horses, livestock, and poultry.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 384,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102), or (BIOCORE\u00a0382,383, and384) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 1,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "COOPERATIVE EDUCATION/CO-OP IN ANIMAL SCIENCES",
-        "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count toward credit in another course.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 415,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "APPLICATION OF MONOGASTRIC NUTRITION PRINCIPLES",
-        "description": "Nutrient requirements for growth and production of monogastric animals. Discuss concepts of establishing nutrient requirements and feeding strategies. Laboratory exercises are designed to develop problem solving skills required for the assessment of nutritional adequacy and economical soundness of feeding programs.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI",
-                        "NUTRSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bNUTR\u00a0SCI\u00a0\u00a0311, (BIOCHEM\u00a0301or501) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "QUANTITATIVE GENETICS",
-        "description": "An advanced approach with emphasis on statistical foundations. Classical theory with extensions to maternal and paternal effects. Selection theory is considered in depth.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 865,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "DESIGN AND ANALYSIS OF BIOLOGICAL STUDIES",
-        "description": "Experimental design and proper data analysis are critical processes for scientific research. Planning and performing research studies have statistical implications that influence how results are interpreted. Learn the fundamentals of generalized linear models, experimental design, and data analysis using common examples from biological studies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI",
-                "SOILSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 472,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI",
-                        "FOODSCI",
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 140,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO POULTRY: FROM BACKYARD CHICKENS TO COMMERCIAL PRODUCTION",
-        "description": "Overview of poultry science and production.  Topics include anatomy and physiology, nutrition, health, reproduction, genetics, egg and meat quality, and management.  Includes information on poultry flocks of various sizes and purposes, from hobby flocks to commercial production.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 289,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "HONORS INDEPENDENT STUDY",
-        "description": "Honors research work under direct guidance of a faculty member in an area of Animal Sciences.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 101,
-            "subjects": [
-                "ANSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ANIMAL SCIENCES",
-        "description": "An overview of animal sciences covering anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals. Food animals are emphasized to discuss their contributions to humans.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 431,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "BEEF CATTLE PRODUCTION",
-        "description": "Application of genetics, systems of mating, physiology, nutrition and economics to the production of beef.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "NUTR\u00a0SCI/\u200bAN\u00a0SCI/\u200bDY\u00a0SCI\u00a0\u00a0311,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361, and (DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0434or concurrent registration) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 200,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "THE BIOLOGY AND APPRECIATION OF COMPANION ANIMALS",
-        "description": "A systematic coverage of many of the animals (including birds) that humans keep as their social companions. The classification, nutritional requirements, environmental considerations, reproductive habits, health, legal aspects and economics of companion animals and their supportive organizations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Second semester of individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Individual advanced work in an area of Animal Sciences under the direct guidance of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 951,
-            "subjects": [
-                "ANSCI",
-                "GENETICS",
-                "DYSCI"
-            ]
-        },
-        "course_title": "SEMINAR IN ANIMAL BREEDING",
-        "description": "",
+        "course_title": "SEMINAR IN ENDOCRINOLOGY-REPRODUCTIVE PHYSIOLOGY",
+        "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1371,66 +546,13 @@
     },
     {
         "course_reference": {
-            "course_number": 399,
+            "course_number": 366,
             "subjects": [
                 "ANSCI"
             ]
         },
-        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
-        "description": "An internship under guidance of a faculty or instructional academic staff member in Animal and Dairy Sciences and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 435,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "ANIMAL SCIENCES PROSEMINAR",
-        "description": "Methods of assessing information quality are studied. Each student develops an analytical and critical seminar on a topic of personal interest in the animal sciences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "ANSCI",
-                "DYSCI",
-                "NUTRSCI"
-            ]
-        },
-        "course_title": "COMPARATIVE ANIMAL NUTRITION",
-        "description": "Nutrients and their assimilation, function, and interactions that affect metabolism in mammals.  Differences among species will be used to emphasize unique digestive and physiological functions and how these differences affect metabolism of nutrients. Humans will be used in some comparisons. Follows physiological progression of nutrients, starting with an overview of the digestive tract followed by water and builds on specific roles of nutrients and substrates needed to provide basic processes required for maintenance, tissue accretion, and homeostatic regulation of nutrients.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0341,343, (BIOCHEM\u00a0301or concurrent enrollment), or (BIOCHEM\u00a0501or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
-            "subjects": [
-                "ANSCI",
-                "ZOOLOGY",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "ORNITHOLOGY",
-        "description": "Introduction to bird biology, ecology, and behavior. Topics include the evolutionary origin of birds and flight, anatomy and physiology, functional morphology, migration, communication, reproductive strategies, ecological adaptations and roles, and biogeographical patterns.",
+        "course_title": "CONCEPTS IN GENOMICS",
+        "description": "Genomics has revolutionized many fields of science, including animal breeding, plant breeding, physiology, microbiology, and human medicine. A basic overview of the latest concepts in genomics, including 3D genome organization, the importance of genome annotation, the use of genomic testing in plant and animal breeding, the potential of genomic prediction on human medicine, and the latest advances in omics integration.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1438,12 +560,173 @@
                     "subjects": [
                         "BIOCORE"
                     ]
+                }
+            ],
+            "prerequisites_text": "Junior Standing andBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0152, (BIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102, andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 849,
+            "subjects": [
+                "ANSCI",
+                "POPHLTH",
+                "GENETICS"
+            ]
+        },
+        "course_title": "GENETIC EPIDEMIOLOGY",
+        "description": "This course will provide an introduction to genetic epidemiology. Topics will include a general overview of genetics and Mendelian and complex inheritance, as well as various elements of study design, including participant ascertainment; phenotype definition; biologic sample selection; genotyping, sequencing, and quality control; measurement of covariates, and choice of analytic methods. We will briefly discuss some of the original study designs and then focus on current study designs for the remainder of the class. Additional emerging topics will be briefly touched upon. Students will complete short homework assignments to enforce concepts learned during lectures, discuss journal articles, and prepare a very short grant application for the mid-term project. In the final weeks of class, students will work together to analyze data from a real genetic study, prepare tables, interpret the findings, and present their project to their peers.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 245,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "ANIMAL WELFARE",
+        "description": "Explores animal welfare topics from the animal's perspective. Analyzes contemporary welfare issues and policies based on our scientific understanding of the experiences of animals. Emphasizes farmed animals, but also draws on examples from zoo, lab, and companion animals.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "CHEMISTRY OF THE FOOD LIPIDS",
+        "description": "Chemical constitution, structures, reactions, stereochemistry of fats, phospholipids, related compounds; methods of isolation, characterization; synthesis; relation of structure to physical properties.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN ANIMAL SCIENCES",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 473,
+            "subjects": [
+                "ANSCI",
+                "DYSCI",
+                "SOILSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
+        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 472,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI",
+                        "SOILSCI",
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Second semester of individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 335,
+            "subjects": [
+                "ANSCI",
+                "BOTANY",
+                "MICROBIO"
+            ]
+        },
+        "course_title": "THE MICROBIOME OF PLANTS, ANIMALS, AND HUMANS",
+        "description": "Examination of the structure and function of microbial communities that live inside and on host organisms (plants, animals, and humans). Introduction to general concepts of the microbiome and microbiota, and their relationship to host nutrition, health, and disease.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
                 },
                 {
-                    "course_number": 152,
+                    "course_number": 101,
                     "subjects": [
-                        "BIOLOGY",
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 951,
+            "subjects": [
+                "ANSCI",
+                "DYSCI",
+                "GENETICS"
+            ]
+        },
+        "course_title": "SEMINAR IN ANIMAL BREEDING",
+        "description": "",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 320,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "ANIMAL HEALTH AND DISEASE",
+        "description": "Provides an introduction to and exploration of the interconnectivity between factors that affect health and disease and the central role of the immune system using infectious disease in animals as a key focus. Explores principal causes and identification of animal diseases, common diseases of farm animals, zoonoses and public health, disease prevention and management including biosecurity measures and host immune responses. Fosters appreciation for the translatability and universality of knowledge between human and animal health and disease.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
                         "BOTANY",
+                        "BIOLOGY",
                         "ZOOLOGY"
                     ]
                 },
@@ -1455,7 +738,7 @@
                     ]
                 },
                 {
-                    "course_number": 382,
+                    "course_number": 383,
                     "subjects": [
                         "BIOCORE"
                     ]
@@ -1468,18 +751,77 @@
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (BIOCORE\u00a0381and382), or graduate/professional standing"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0383, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 503,
+            "course_number": 515,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "COMMERCIAL MEAT PROCESSING",
+        "description": "Principles and procedures in the commercial manufacture of processed meat products; sausage manufacturing, curing, smoking, freezing and packaging.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 305,
+                    "subjects": [
+                        "ANSCI",
+                        "FOODSCI"
+                    ]
+                },
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AN\u00a0SCI/\u200bFOOD\u00a0SCI\u00a0\u00a0305,FOOD\u00a0SCI\u00a0410, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
             "subjects": [
                 "ANSCI"
             ]
         },
-        "course_title": "AVIAN PHYSIOLOGY",
-        "description": "Principles of organ and system function with emphasis on male and female reproduction, embryonic development and factors affecting hatchability.",
+        "course_title": "PRACTICUM IN ANIMAL SCIENCES TEACHING",
+        "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ANIMAL SCIENCES",
+        "description": "An overview of animal sciences covering anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals. Food animals are emphasized to discuss their contributions to humans.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 102,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ANIMAL SCIENCES LABORATORY",
+        "description": "Hands-on experience and demonstrations to develop practical skills with animals and to better understand the application of science to food production animals. It covers anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1490,50 +832,63 @@
                     ]
                 }
             ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101or concurrent enrollment"
         }
     },
     {
         "course_reference": {
-            "course_number": 824,
+            "course_number": 361,
             "subjects": [
                 "ANSCI",
                 "DYSCI"
             ]
         },
-        "course_title": "RUMINANT NUTRITIONAL PHYSIOLOGY I",
-        "description": "Focuses on rumen microbiology, metabolite modeling, as well as protein and VFA nutrition and metabolism.",
+        "course_title": "INTRODUCTION TO ANIMAL AND VETERINARY GENETICS",
+        "description": "The molecular basis for inheritance of monogenic and polygenic traits related to animal disease and production. An introduction to the principles of improving animal health and performance by selection and mating systems in companion animals, horses, livestock, and poultry.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 875,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Specialized subject matter of current interest to graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "ANSCI"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Individual introductory to intermediate work under direct guidance of a faculty member in an area of Animal Sciences.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 384,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102), or (BIOCORE\u00a0382,383, and384) or graduate/professional standing"
         }
     },
     {
@@ -1560,13 +915,232 @@
     },
     {
         "course_reference": {
-            "course_number": 315,
+            "course_number": 240,
             "subjects": [
                 "ANSCI"
             ]
         },
-        "course_title": "POULTRY ENTERPRISE MANAGEMENT",
-        "description": "Fundamental business and economic principles and practices for successful poultry production with emphasis on problem solving in flock management.",
+        "course_title": "ANCIENT ANIMALS AND PEOPLES",
+        "description": "Provides an introduction to human and animal relationships from prehistory to the present. Examines how animals have influenced social and economic structures of past societies, with a focus on the advent of domestication. Explores the cultural and economic changes that domestication has had on human societies, as well as the behavioral, genetic, and morphological changes that this process had on once wild animals. Emphasizes the methods used to retrace human-animal interactions, drawing on cross-cultural examples from anthropology, ethnozoology, archaeology, history, and genetics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 415,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "APPLICATION OF MONOGASTRIC NUTRITION PRINCIPLES",
+        "description": "Nutrient requirements for growth and production of monogastric animals. Discuss concepts of establishing nutrient requirements and feeding strategies. Laboratory exercises are designed to develop problem solving skills required for the assessment of nutritional adequacy and economical soundness of feeding programs.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "NUTRSCI",
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bNUTR\u00a0SCI\u00a0\u00a0311, (BIOCHEM\u00a0301or501) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 431,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "BEEF CATTLE PRODUCTION",
+        "description": "Application of genetics, systems of mating, physiology, nutrition and economics to the production of beef.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "NUTR\u00a0SCI/\u200bAN\u00a0SCI/\u200bDY\u00a0SCI\u00a0\u00a0311,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361, and (DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0434or concurrent registration) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 435,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "ANIMAL SCIENCES PROSEMINAR",
+        "description": "Methods of assessing information quality are studied. Each student develops an analytical and critical seminar on a topic of personal interest in the animal sciences.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 1,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "COOPERATIVE EDUCATION/CO-OP IN ANIMAL SCIENCES",
+        "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count toward credit in another course.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 344,
+            "subjects": [
+                "BSE",
+                "ANSCI"
+            ]
+        },
+        "course_title": "DIGITAL TECHNOLOGIES FOR ANIMAL MONITORING",
+        "description": "Introduces key concepts of sensor technology used for livestock and companion animal monitoring and veterinary medicine. Describes applications of Artificial Intelligence (AI) systems for livestock animals and veterinary medicine, including animal monitoring, computer-aided diagnosis, and optimized farm management decisions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 112,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 171,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 114,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0112,114,171, or placement intoMATH\u00a0221) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Individual introductory to intermediate work under direct guidance of a faculty member in an area of Animal Sciences.  Students are responsible for arranging the work and credits with the supervising instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 931,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "SEMINAR IN ANIMAL NUTRITION",
+        "description": "Discussion of literature that has a bearing on animal nutrition. Students are to survey the literature and present a seminar.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 692,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "THESIS",
+        "description": "Second semester of individual study for majors completing theses as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 865,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "DESIGN AND ANALYSIS OF BIOLOGICAL STUDIES",
+        "description": "Experimental design and proper data analysis are critical processes for scientific research. Planning and performing research studies have statistical implications that influence how results are interpreted. Learn the fundamentals of generalized linear models, experimental design, and data analysis using common examples from biological studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 289,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "HONORS INDEPENDENT STUDY",
+        "description": "Honors research work under direct guidance of a faculty member in an area of Animal Sciences.  Students are responsible for arranging the work and credits with the supervising instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 508,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "POULTRY PRODUCTS TECHNOLOGY",
+        "description": "Procurement, processing and distribution of poultry meat, eggs and derived products; factors affecting quality, including methods of determining quality.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0103,109, or115"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 503,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "AVIAN PHYSIOLOGY",
+        "description": "Principles of organ and system function with emphasis on male and female reproduction, embryonic development and factors affecting hatchability.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1582,17 +1156,176 @@
     },
     {
         "course_reference": {
-            "course_number": 710,
+            "course_number": 825,
             "subjects": [
                 "ANSCI",
-                "FOODSCI"
+                "DYSCI"
             ]
         },
-        "course_title": "CHEMISTRY OF THE FOOD LIPIDS",
-        "description": "Chemical constitution, structures, reactions, stereochemistry of fats, phospholipids, related compounds; methods of isolation, characterization; synthesis; relation of structure to physical properties.",
+        "course_title": "RUMINANT NUTRITIONAL PHYSIOLOGY II",
+        "description": "Focuses on calf and heifer nutrition, regulation of dry matter intake, plant and forage chemistry, vitamins, lipids, and starch.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "NUTRSCI",
+                "ANSCI"
+            ]
+        },
+        "course_title": "EXPERIMENTAL DIET DESIGN",
+        "description": "Discuss nutrient requirements, composition of ingredients used to meet requirements and the mathematical steps involved in diet formulation with emphasis on research animals and human subjects.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 200,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "THE BIOLOGY AND APPRECIATION OF COMPANION ANIMALS",
+        "description": "A systematic coverage of many of the animals (including birds) that humans keep as their social companions. The classification, nutritional requirements, environmental considerations, reproductive habits, health, legal aspects and economics of companion animals and their supportive organizations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
+        "description": "An internship under guidance of a faculty or instructional academic staff member in Animal and Dairy Sciences and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 512,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "MANAGEMENT FOR AVIAN HEALTH",
+        "description": "The occurrence, etiology, clinical signs, control and prevention of infectious and noninfectious diseases commonly affecting domestically reared poultry. Instruction in avian necropsy, zoonosis, sanitation and regulation.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0101"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "SENIOR HONOR THESIS",
+        "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 420,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "MICROBIOMES OF ANIMAL SYSTEMS",
+        "description": "Provides a knowledgebase in both theoretical and applied scientific approaches associated with microbiome sciences in animal production systems. Covers the basic principles of microbiology through applied practical approaches in using cross-species comparisons in companion and agricultural species from classical microbiological techniques to novel next-generation sequence-based approaches.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOLOGY/\u200bZOOLOGY\u00a0\u00a0101and102,BOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0383) and (CHEM\u00a0341,343, orBIOCHEM\u00a0301), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 373,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "ANIMAL PHYSIOLOGY",
+        "description": "Covers physiological processes that regulate the body and the anatomy and function of different physiological systems. Includes interactions between organ systems, analysis of a single organ system from the molecular to the organismal, and comparisons and contrasts of organ systems among different domestic animal species.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102), orBIOCORE\u00a0383"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 135,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "GRAND CHALLENGES AND CAREER OPPORTUNITIES IN ANIMAL AND DAIRY SCIENCES",
+        "description": "Covers the current key challenges and opportunities in the broad fields of animal agriculture, animal biology, animal health, and veterinary medicine, as well as internship and career opportunities and professional development activities that will maximize the value of an undergraduate career at UW-Madison and provide preparation for post-graduation endeavors.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -1607,6 +1340,173 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 363,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "PRINCIPLES OF ANIMAL BREEDING",
+        "description": "Application of the principles of quantitative genetics to the improvement of livestock and poultry; breeding value estimation and selection techniques; effects of inbreeding and hybrid vigor; crossbreeding systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361or concurrent enrollment"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "THESIS",
+        "description": "Individual study for majors completing theses as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 434,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "REPRODUCTIVE PHYSIOLOGY",
+        "description": "Principles of reproductive physiology, improvement of fertility, and artificial insemination.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 384,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) or (BIOCORE\u00a0382,383, and384) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 321,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FOOD LAWS AND REGULATIONS",
+        "description": "Food laws and regulations, regulatory and commerical grading standards used in the food industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 362,
+            "subjects": [
+                "ANSCI",
+                "DYSCI"
+            ]
+        },
+        "course_title": "VETERINARY GENETICS",
+        "description": "The genetic basis for predisposition to disease or resistance to disease in livestock and companion animal species. Genetic defects, their discovery, diagnosis and treatment.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361or concurrent enrollment"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent research in preparation of a graduate thesis under supervision of a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 432,
+            "subjects": [
+                "ANSCI"
+            ]
+        },
+        "course_title": "SWINE PRODUCTION",
+        "description": "Application of research findings in breeding, feeding, management and marketing to modernize production. Lab may include farm visits, practical exercises in testing changes, and \"tools\" used by producers.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "NUTR\u00a0SCI/\u200bAN\u00a0SCI/\u200bDY\u00a0SCI\u00a0\u00a0311,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0361,DY\u00a0SCI/\u200bAN\u00a0SCI\u00a0\u00a0434, or graduate/professional standing"
         }
     }
 ]

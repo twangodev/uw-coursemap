@@ -1,256 +1,6 @@
 [
     {
         "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 830",
-            "target": "ECE/COMPSCI 761"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
-            "id": "BMI/STAT 828"
-        }
-    },
-    {
-        "data": {
-            "description": "Distribution free statistical procedures or methods valid under nonrestrictive assumptions: basic tools; counting methods; order statistics, ranks, empirical distribution functions; distribution free tests and associated interval and point estimators; sign test; signed rank tests; rank tests; Mann Whitney Wilcoxon procedures; Kolmogorov Smirnov tests; permutation methods; kernel density estimation; kernel and spline regression estimation; computer techniques and programs; discussion and comparison with parametric methods.",
-            "id": "STAT 351",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Credit is awarded for students having completed an advanced statistics course in a study abroad program for which there is no direct equivalence to the statistics department course offerings. The study abroad course must be pre-approved by the statistics department. Enrollment in a UW-Madison resident study abroad program.",
-            "id": "STAT 360",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs used include Linux, R, distributed computing, text editor(s), git/github, and other related tools. Work in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
-            "id": "STAT 405",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 304",
-            "target": "STAT 305"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory statistics course for Ph.D. students.  Emphasis on probability theory, inference, and the foundations of multivariate least squares and maximum likelihood.",
-            "id": "POLISCI 812",
-            "parent": "POLISCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 760"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to algorithms and applications of classification and regression trees. Recursive partitioning, pruning, and cross-validation estimation of prediction error. Class priors and misclassification costs. Univariate and linear splits. Linear and kernel discriminant analysis and nearest-neighbor classification. Unbiased variable selection and importance scoring of variables. Least-squares, quantile, Poisson, logistic, and proportional hazards regression tree models. Tree ensembles. Subgroup identification of differential treatment effects. Multiple and longitudinal response variables. Missing values and multiple missing value codes.  Comparisons with neural networks, support vector machines, and other methods. Bootstrap calibration and post-selection inference. Applications to business, social science, engineering, biology, medicine, and other fields.",
-            "id": "STAT 443",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
-            "id": "MATH 443",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability distributions, statistical inference; multiple linear regression; introduction to econometric methods. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
-            "id": "ECON 709",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 456"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 610",
-            "target": "ECE/COMPSCI 761"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 610",
-            "target": "STAT 860"
-        }
-    },
-    {
-        "data": {
-            "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
-            "id": "STAT 312",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 609",
-            "target": "STAT 611"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "description": "Estimation and decision theory applied to random processes and signals in noise: Bayesian, maximum likelihood, and least squares estimation; the Kalman filter; maximum likelihood and maximum aposteriori detection; adaptive receivers for channels with unknown parameters or dispersive, fading characteristics; the RAKE receiver; detection systems with learning features.",
-            "id": "ECE 830",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "BMI/STAT 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques for visualization within data science workflows. Topics include data preparation; exploratory data analysis; spatial, tabular, and graph structured data; dimensionality reduction; model visualization and interpretability; interactive queries and navigation.",
-            "id": "STAT 436",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Multivariate normal distribution, estimation of mean and covariance matrix; Wishart distribution; distribution of partial and multiple correlation coefficients; Hotelling's T-squared, principal components.",
-            "id": "STAT 760",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 641",
-            "target": "BMI/STAT 643"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 311",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
-            "id": "BMI/STAT 641"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Deep learning is a field that specializes in discovering and extracting intricate structures in large, unstructured datasets for parameterizing artificial neural networks with many layers. Since deep learning has pushed the state-of-the-art in many research and application areas, it's become indispensable for modern technology. Focuses on a understanding deep, artificial neural networks by connecting it to related concepts in statistics. Beyond covering deep learning models for predictive modeling, focus on deep generative models. Besides explanations on a mathematical and conceptual level, emphasize the practical aspects of deep learning. Open-source computing provides hands-on experience for implementing deep neural nets, working on supervised learning tasks, and applying generative models for dataset synthesis.",
-            "id": "STAT 453",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Empirical process methods in statistics; semiparametric models; stochastic convergence in metric spaces; Glivenko-Cantelli and Donsker theorems; entropy calculations; bootstrapped empirical processes; functional delta method; Z-estimators; M-estimators; rates of convergence; semiparametric efficiency; semiparametric estimating equations; nonparametric maximum likelihood.",
-            "id": "STAT 834",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
             "source": "STAT 240",
             "target": "STAT 340"
         }
@@ -264,6 +14,55 @@
     },
     {
         "data": {
+            "source": "MATH 375",
+            "target": "MATH 340"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 761",
+            "target": "ECE 830"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 849",
+            "target": "STAT 850"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
+            "id": "STAT 602",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
+            "id": "BMI/STAT 541"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 436"
+        }
+    },
+    {
+        "data": {
             "description": "Provides an understanding of and experience with turning statistics concepts into practice through data science practicums inspired by realistic projects. Combine theory and methods expertise with communications skills to translate from a vaguely stated project description and complex data set into a concisely summarized analysis, including both written and graphical interpretation that can be used by decision makers in an organization.",
             "id": "STAT 628",
             "parent": "STAT"
@@ -271,57 +70,124 @@
     },
     {
         "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
+            "description": "Theory of reproducing kernel Hilbert spaces in statistical model building; bounded linear functionals and representer theory; smoothing splines; ANOVA spines; degees of freedom for signal and the bias-variance tradeoff; Bayesian confidence intervals; model selection.",
+            "id": "STAT 840",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
-            "id": "MATH 340",
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 340",
-            "target": "MATH 320"
+            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
+            "id": "STAT 240",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
-            "id": "MATH/STAT 733"
+            "source": "STAT 340",
+            "target": "STAT 333"
         }
     },
     {
         "data": {
-            "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
-            "id": "STAT/F&WECOL 572"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "STAT 461"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
+            "source": "MATH 341",
             "target": "MATH 443"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 456"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to algorithms and applications of classification and regression trees. Recursive partitioning, pruning, and cross-validation estimation of prediction error. Class priors and misclassification costs. Univariate and linear splits. Linear and kernel discriminant analysis and nearest-neighbor classification. Unbiased variable selection and importance scoring of variables. Least-squares, quantile, Poisson, logistic, and proportional hazards regression tree models. Tree ensembles. Subgroup identification of differential treatment effects. Multiple and longitudinal response variables. Missing values and multiple missing value codes.  Comparisons with neural networks, support vector machines, and other methods. Bootstrap calibration and post-selection inference. Applications to business, social science, engineering, biology, medicine, and other fields.",
+            "id": "STAT 443",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
+            "id": "MATH/STAT 803"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "STAT 433"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
+            "id": "BMI/STAT 768"
+        }
+    },
+    {
+        "data": {
+            "description": "Estimation and decision theory applied to random processes and signals in noise: Bayesian, maximum likelihood, and least squares estimation; the Kalman filter; maximum likelihood and maximum aposteriori detection; adaptive receivers for channels with unknown parameters or dispersive, fading characteristics; the RAKE receiver; detection systems with learning features.",
+            "id": "ECE 830",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
+            "id": "BMI/STAT 727"
+        }
+    },
+    {
+        "data": {
+            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
+            "id": "MATH 341",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "STAT 698",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "BMI/STAT 620"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "ECON 310"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 531"
         }
     },
     {
@@ -333,39 +199,222 @@
     },
     {
         "data": {
-            "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
-            "id": "MATH/ISYE/STAT/COMPSCI 726"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 421"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 421",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 609",
-            "target": "BMI/STAT 641"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
-            "id": "STAT 849",
+            "description": "Pattern classification, regression analysis, clustering, and dimensionality reduction. For each category, covers fundamental algorithms and selections of contemporary, current state-of-the-art algorithms. Focus on evaluation of machine learning models using statistical methods. Statistical pattern classification approaches, including maximum likelihood estimation and Bayesian decision theory, algorithmic and nonparametric approaches. Practical use of machine learning algorithms using open source libraries from the Python programming ecosystem.",
+            "id": "STAT 451",
             "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 830",
+            "target": "COMPSCI/ECE/STAT 861"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
+            "id": "MATH 443",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 312",
+            "target": "STAT 301"
         }
     },
     {
         "data": {
             "description": "Introduction to statistical design and analysis of experiments. Topics include: principles of randomization, blocking and replication, randomized blocking designs, Latin square designs, full factorial and fractional factorial designs and response surface methodology. Substantial focus will be devoted to engineering applications.",
             "id": "ME/STAT 424"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
+            "id": "BMI/STAT 620"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical foundations of machine learning theory and algorithms. Probabilistic, algebraic, and geometric models and representations of data, mathematical analysis of state-of-the-art learning algorithms and optimization methods, and applications of machine learning. Knowledge of probability [such asMATH/\u200bSTAT\u00a0\u00a0431orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0561] and linear algebra [such asMATH\u00a0341orM\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532] is required.",
+            "id": "COMPSCI/ECE 761"
+        }
+    },
+    {
+        "data": {
+            "description": "The real numbers, elements of set theory, metric spaces and basic topology, sequences and series, limits, continuity, differentiation, integration, sequences and series of functions, uniform convergence.",
+            "id": "MATH 521",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory statistics course for Ph.D. students.  Emphasis on probability theory, inference, and the foundations of multivariate least squares and maximum likelihood.",
+            "id": "POLISCI 812",
+            "parent": "POLISCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Conditioning, distribution theory, approximation to distributions, modes of convergence, limit theorems, statistical models, parameter estimation, comparision of estimators, confidence sets, theory of hypothesis tests, introduction to Bayesian inference and nonparametric estimation.",
+            "id": "STAT 610",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
+            "id": "STAT 311",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 443",
+            "target": "MATH 375"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Develops the theory of maximum likelihood estimation and applies it to models for discrete and limited dependent variables common to political and social science data.",
+            "id": "POLISCI 818",
+            "parent": "POLISCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
+            "id": "BMI/STAT 877"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 301",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/STAT 541"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop statistical consulting skills to be able to communicate design and analysis to non-technical research collaborators. Provides a supportive environment to experiment with statistical consulting in practice, which will sometimes be uncomfortable and strange. Consulting problems typically do not have a \"right\" answer, and mistakes are encouraged. Take risks in sharing developing ideas in class. Connections with external organizations, such as the private sector and government agencies, will be made through possible internship experiences.",
+            "id": "STAT 678",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
+            "id": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "ME/STAT 424"
+        }
+    },
+    {
+        "data": {
+            "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
+            "id": "BMI/STAT 542"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 709",
+            "target": "STAT 609"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 610",
+            "target": "STAT 860"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "STAT 461"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 841"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
         }
     },
     {
@@ -377,27 +426,221 @@
     },
     {
         "data": {
-            "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
-            "id": "BMI/STAT 620"
+            "description": "Introduce new algorithms that leverage randomization to address the scale, speed, and sensitivity needs of modern data science. Develop the mathematical foundations of such randomized algorithms. Criticize these algorithms through the lens of computational resource utilization. Implement these algorithms to address linear problems in data science.",
+            "id": "STAT 772",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
+            "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
+            "id": "BMI/STAT 741"
+        }
+    },
+    {
+        "data": {
+            "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs used include Linux, R, distributed computing, text editor(s), git/github, and other related tools. Work in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
+            "id": "STAT 405",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 531",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 609",
+            "target": "STAT 610"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques for visualization within data science workflows. Topics include data preparation; exploratory data analysis; spatial, tabular, and graph structured data; dimensionality reduction; model visualization and interpretability; interactive queries and navigation.",
+            "id": "STAT 436",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
         }
     },
     {
         "data": {
             "source": "STAT 610",
-            "target": "STAT 609"
+            "target": "COMPSCI/ECE 761"
         }
     },
     {
         "data": {
-            "description": "The design of statistical software including special techniques for probability distributions, methods of simulation of random processes, numerical methods for linear models and multivariate analysis, and methods for nonlinear models.",
-            "id": "STAT 771",
+            "description": "Credit is awarded for students having completed an advanced statistics course in a study abroad program for which there is no direct equivalence to the statistics department course offerings. The study abroad course must be pre-approved by the statistics department. Enrollment in a UW-Madison resident study abroad program.",
+            "id": "STAT 360",
             "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "BMI/STAT 642"
+        }
+    },
+    {
+        "data": {
+            "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
+            "id": "COMPSCI/STAT 403"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 834"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the methods used to design sample surveys and analyze the results. Topics covered include: basic tools, simple random sampling, ratio and regression estimation, stratification, systematic sampling, cluster (area) sampling, two-stage sampling, unequal probability sampling, non-sampling errors, and missing data. For illustration and clarification, examples are drawn from diverse areas of application.",
+            "id": "STAT 411",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 375"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Deep learning is a field that specializes in discovering and extracting intricate structures in large, unstructured datasets for parameterizing artificial neural networks with many layers. Since deep learning has pushed the state-of-the-art in many research and application areas, it's become indispensable for modern technology. Focuses on a understanding deep, artificial neural networks by connecting it to related concepts in statistics. Beyond covering deep learning models for predictive modeling, focus on deep generative models. Besides explanations on a mathematical and conceptual level, emphasize the practical aspects of deep learning. Open-source computing provides hands-on experience for implementing deep neural nets, working on supervised learning tasks, and applying generative models for dataset synthesis.",
+            "id": "STAT 453",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 405"
+        }
+    },
+    {
+        "data": {
+            "source": "POLISCI 818",
+            "target": "STAT 611"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
+            "id": "MATH/STAT 733"
+        }
+    },
+    {
+        "data": {
+            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+            "id": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 761",
+            "target": "MATH/STAT 709"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 609",
+            "target": "ECON/GENBUS/STAT 775"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of basic probability. Advanced probability concepts. Random vectors; linear filtering of random processes; stationarity; power spectral densities; estimation; convergence; Markov chains; Poisson process; Wiener process. Knowledge of basic probability analysis [such asE\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0431, orSTAT\u00a0311] strongly encouraged.",
+            "id": "ECE 730",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 303",
+            "target": "STAT 304"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in statistics at the master's level. Subject matter varies.",
+            "id": "STAT 679",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+            "id": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
+            "id": "MATH/STAT 710"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 611",
+            "target": "STAT 612"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+            "id": "STAT 340",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "F&WECOL/STAT 571",
+            "target": "F&WECOL/STAT 572"
         }
     },
     {
@@ -409,14 +652,83 @@
     },
     {
         "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
+            "source": "MATH 221",
+            "target": "MATH 211"
         }
     },
     {
         "data": {
-            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-            "id": "STAT 990",
+            "description": "Statistical theory and methodology for modern financial data. Topics include financial stochastic models based on time series and stochastic calculus, modern statistical inference, and statistical learning for financial data as well as their applications to financial problems.",
+            "id": "STAT 801",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
+            "id": "STAT 681",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 709",
+            "target": "STAT 610"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 310",
+            "target": "STAT 240"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability distributions, statistical inference; multiple linear regression; introduction to econometric methods. It is expected that students will have completed three semesters calculus (such asMATH\u00a0234) and linear algebra (such asMATH\u00a0340).",
+            "id": "ECON 709",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "MATH 341"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "ISYE/MATH/OTM/STAT 632"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
+            "id": "BMI/STAT 828"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
+            "id": "BMI/STAT 641"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
+            "id": "COMPSCI/ECE/STAT 861"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical procedures valid under unrestrictive assumptions; sign test; confidence intervals; efficiency comparisons; signed rank procedures; Walsh sums; point estimators; two sample rank tests; zeros, ties, and other problems of discrete data; order statistics; Winsorized and truncated point estimators and connection with gross error models; permutation procedures; combinatorial problems, and computer applications.",
+            "id": "STAT 809",
             "parent": "STAT"
         }
     },
@@ -429,20 +741,478 @@
     },
     {
         "data": {
+            "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs utilized include Linux, R, distributed computing, powerful editor(s), git/github, and other related tools. Work in the class will be done in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
+            "id": "STAT 605",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "STAT 699",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an understanding of the commonly used statistical language R. Learn to combine R with high performance computing tools to do scientific computing.",
+            "id": "STAT 305",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 341"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Tree construction, including finding splits, tree-pruning and error estimation. Categorical predictor variables, missing or censored data, prior class-probabilities, and unequal misclassification costs. Selection bias. Comparison with other statistics and machine-learning methods. Extensions to piecewise linear and non-least squares regression models.",
+            "id": "STAT 761",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 541",
+            "target": "BMI/STAT 542"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 610",
+            "target": "BMI/STAT 727"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
+            "id": "MATH 421",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 411"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 349"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+            "id": "BMI/POPHLTH 551"
+        }
+    },
+    {
+        "data": {
             "source": "STAT 333",
             "target": "STAT 443"
         }
     },
     {
         "data": {
-            "source": "ECON 709",
-            "target": "MATH/STAT 709"
+            "source": "STAT 311",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an understanding of the commonly used statistical language R. Topics will include writing conditional expressions, loops, and functions; manipulating data matrices and arrays; extracting data from text; and making high level visualizations of data.",
+            "id": "STAT 304",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 312"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
+            "id": "MATH 320",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Perform Data Science as an iterative (back and forth) process of four different types of activities (data collection, data wrangling, data analysis, communication). Traverse through the five requisite stances (scientist, coder, mathematician, methodologist, skeptic). Develop and hone a broad set of computational tools in R (but not the broadest) and a broad set of statistical/machine learning tools (but not the broadest). Focus on doing these with agility to make the coding \"transparent\" and serve the large goals of the project.",
+            "id": "STAT 433",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical function estimation and classification; reproducing kernel machines, support vector machines; high dimensional model selection and estimation; Bayesian, empirical Bayesian interpretation of nonparametric learning methods; log density ANOVA and graphical models; tree ensemble methods including bagging, boosting, and random forest.",
+            "id": "STAT 841",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 611",
+            "target": "ECON 709"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
+            "id": "MATH 234",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "STAT 453"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
+            "id": "STAT 601",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in the mathematical foundations of data science",
+            "id": "ECE/MATH/STAT 888"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
+            "id": "STAT 682",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
+            "id": "MATH/STAT 709"
+        }
+    },
+    {
+        "data": {
+            "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
+            "id": "MATH/STAT 734"
+        }
+    },
+    {
+        "data": {
+            "description": "Detecting, quantifying, and modeling spatial patterns and structure in data. Variograms and covariance functions, linear predictions with uncertainty qualification, and conditional simulations. Spectral domain models and spectral densities. Spatial point processes. Contemporary applications and Gaussian process model fitting at scale.",
+            "id": "STAT 575",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
+            "id": "STAT 849",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
+            "id": "BMI/STAT 643"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "STAT 575"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 709",
+            "target": "STAT 732"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
+            "id": "ISYE/MATH/OTM/STAT 632"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 301",
+            "target": "STAT 240"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+            "id": "STAT 990",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 303"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 421"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 811"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "MATH 341"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
+            "id": "F&WECOL/STAT 571"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics of interest in undergraduate students.",
+            "id": "STAT 479",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Stochastic models and statistical methodologies are widely employed in modern finance. The models and their inferences are very important for academic research and financial practices. Financial stochastic models and their statistical inferences with applications to volatility analysis and risk management, introduction to discrete models such as binomial trees and GARCH and stochastic volatility models as well as simple continuous models like the Black-Scholes model. The focus will be on statistical inference, data analysis and risk management regarding these models.",
+            "id": "STAT 461",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 760"
+        }
+    },
+    {
+        "data": {
+            "description": "A survey of some of the tools and frameworks that are currently popular among data scientists and statisticians working in both academia and industry. Begins with an accelerated introduction to the Python programming language and brief introductions to object-oriented and functional programming. Covers some of the scientific computing platforms available in Python, including tools for numerical and scientific computing; training basic machine learning models; and data visualization. Discusses collecting data from the web both by scraping and using APIs. Concludes with a brief survey of distributed computing platforms, focusing on the MapReduce framework.",
+            "id": "STAT 606",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
+            "id": "COMPSCI/ISYE/MATH/STAT 726"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+            "id": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 610",
+            "target": "BMI/STAT 643"
+        }
+    },
+    {
+        "data": {
+            "description": "Multivariate normal distribution, estimation of mean and covariance matrix; Wishart distribution; distribution of partial and multiple correlation coefficients; Hotelling's T-squared, principal components.",
+            "id": "STAT 760",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+            "id": "STAT 333",
+            "parent": "STAT"
         }
     },
     {
         "data": {
             "source": "MATH 320",
             "target": "STAT 451"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and applications of multivariate statistical methods. Basic concepts and statistical reasoning which underlie the techniques of multivariate analysis. Ideas rather than derivations stressed although basic models discussed to give the student some feeling for their adequacy in particular situations. Acquaintance with and use of existing computer programs in the multivariate analysis area.",
+            "id": "STAT 456",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Quantum computation issues, including probability, statistics, sensing, information, machine learning, and applying data science to quantum information science.",
+            "id": "STAT 780",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 111"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 443"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 531",
+            "target": "MATH 375"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
+            "id": "BMI/STAT 642"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 421",
+            "target": "MATH 521"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 111",
+            "target": "ECON 101"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 102",
+            "target": "ECON 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in statistics at the graduate level. Subject matter varies.",
+            "id": "STAT 992",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "The design of statistical software including special techniques for probability distributions, methods of simulation of random processes, numerical methods for linear models and multivariate analysis, and methods for nonlinear models.",
+            "id": "STAT 771",
+            "parent": "STAT"
         }
     },
     {
@@ -454,14 +1224,54 @@
     },
     {
         "data": {
-            "source": "STAT 240",
-            "target": "ECON 310"
+            "source": "MATH 221",
+            "target": "MATH 222"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
+            "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
+            "id": "STAT 312",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
+            "id": "F&WECOL/STAT 572"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
+            "id": "ECON 310",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
             "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Distribution free statistical procedures or methods valid under nonrestrictive assumptions: basic tools; counting methods; order statistics, ranks, empirical distribution functions; distribution free tests and associated interval and point estimators; sign test; signed rank tests; rank tests; Mann Whitney Wilcoxon procedures; Kolmogorov Smirnov tests; permutation methods; kernel density estimation; kernel and spline regression estimation; computer techniques and programs; discussion and comparison with parametric methods.",
+            "id": "STAT 351",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "id": "ECE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
+            "id": "STAT 850",
+            "parent": "STAT"
         }
     },
     {
@@ -473,32 +1283,87 @@
     },
     {
         "data": {
-            "id": "ECON",
-            "type": "compound"
+            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
+            "id": "STAT 301",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "source": "MATH 443",
-            "target": "MATH/ISYE/STAT/COMPSCI 525"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH 421"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "STAT 333"
+            "source": "BMI/STAT 641",
+            "target": "STAT 609"
         }
     },
     {
         "data": {
             "source": "MATH 234",
-            "target": "STAT 311"
+            "target": "MATH 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in probability and stochastic processes.",
+            "id": "MATH/STAT 833"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 421",
+            "target": "MATH 341"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "A rigorous introduction to probability theory at an advanced undergraduate level. Only a minimal amount of measure theory is used, in particular, the theory of Lebesgue integrals is not needed. It is aimed at math majors and Master's degree students, or students in other fields who will need probability in their future careers. Gives an introduction to the basics (Kolmogorov axioms, conditional probability and independence, random variables, expectation) and discusses some classical results with proofs (DeMoivre-Laplace limit theorems, the study of simple random walk on the one dimensional lattice, applications of generating functions).",
+            "id": "MATH 531",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of probability, random variables and vectors and their distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts for sequences of random variables, laws of large numbers, central limit and other limit theorems.",
+            "id": "STAT 609",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Consulting apprenticeship.",
+            "id": "STAT 998",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Empirical process methods in statistics; semiparametric models; stochastic convergence in metric spaces; Glivenko-Cantelli and Donsker theorems; entropy calculations; bootstrapped empirical processes; functional delta method; Z-estimators; M-estimators; rates of convergence; semiparametric efficiency; semiparametric estimating equations; nonparametric maximum likelihood.",
+            "id": "STAT 834",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 304",
+            "target": "STAT 305"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of multidimensional contingency tables, Poisson regression, and logistic regression, with emphasis on practical applications. Use of computer programs for such analyses. Model selection, testing goodness of fit, estimation of parameters, measures of association and methods for detecting sources of significance.",
+            "id": "STAT 421",
+            "parent": "STAT"
         }
     },
     {
@@ -509,20 +1374,93 @@
     },
     {
         "data": {
-            "id": "MATH",
-            "type": "compound"
+            "description": "An understanding of the commonly used statistical language R. Topics will include using R to manipulate data and perform exploratory data analysis.",
+            "id": "STAT 303",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
+            "description": "The development of a variety of mathematical theories and statistical concepts (1) to understand the properties of those models and methods used for the purpose of prediction from data or decision making from data, and (2) to criticize such models, methods and their consequences. Specifically, the theories and tools that will be developed will include complexity theory, Hilbert spaces, Gaussian processes, Variational Analysis, and concentration inequalities.",
+            "id": "STAT 615",
+            "parent": "STAT"
         }
     },
     {
         "data": {
-            "source": "STAT 311",
-            "target": "MATH 376"
+            "source": "MATH/STAT 431",
+            "target": "MATH 531"
+        }
+    },
+    {
+        "data": {
+            "description": "Stochastic modes of convergence. Asymptotic theory of normed sums of random variables with applications to asymptotic normality of estimators. Methods for deriving limit distributions of nonlinear statistics. Asymptotic relative efficiencies. Asymptotic confidence regions and tests of hypotheses. Models of non-identically distributed or dependent random variables.",
+            "id": "STAT 732",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Simple random sampling; systematic sampling; probability sampling; stratified sampling; subsampling with units of equal and unequal size; double sampling; multi-stage and multi-phase sampling; ratio and regression estimates; model-based and model-assisted approaches; variance estimation; non-response.",
+            "id": "STAT 811",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "STAT 351"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 809"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 709",
+            "target": "MATH/STAT 710"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability, random variables and their distributions, joint and conditional distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts and limit theorems for sequences of random variables.",
+            "id": "STAT 611",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 710",
+            "target": "STAT 840"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "BMI/STAT 641"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
+            "id": "MATH 340",
+            "parent": "MATH"
         }
     },
     {
@@ -539,707 +1477,14 @@
     },
     {
         "data": {
-            "source": "STAT 611",
-            "target": "ECON 709"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "MATH 443"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
-            "id": "STAT 333",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Consulting apprenticeship.",
-            "id": "STAT 998",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Tree construction, including finding splits, tree-pruning and error estimation. Categorical predictor variables, missing or censored data, prior class-probabilities, and unequal misclassification costs. Selection bias. Comparison with other statistics and machine-learning methods. Extensions to piecewise linear and non-least squares regression models.",
-            "id": "STAT 761",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "An understanding of the commonly used statistical language R. Topics will include using R to manipulate data and perform exploratory data analysis.",
-            "id": "STAT 303",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an understanding of the commonly used statistical language R. Topics will include writing conditional expressions, loops, and functions; manipulating data matrices and arrays; extracting data from text; and making high level visualizations of data.",
-            "id": "STAT 304",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
-            "id": "STAT 324",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in probability and stochastic processes.",
-            "id": "MATH/STAT 833"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics in statistics at the graduate level. Subject matter varies.",
-            "id": "STAT 992",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Stochastic modes of convergence. Asymptotic theory of normed sums of random variables with applications to asymptotic normality of estimators. Methods for deriving limit distributions of nonlinear statistics. Asymptotic relative efficiencies. Asymptotic confidence regions and tests of hypotheses. Models of non-identically distributed or dependent random variables.",
-            "id": "STAT 732",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
-            "id": "BMI/STAT 768"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 611",
-            "target": "STAT 612"
-        }
-    },
-    {
-        "data": {
-            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
-            "id": "MATH/STAT/COMPSCI 475"
-        }
-    },
-    {
-        "data": {
-            "id": "STAT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 811"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE/COMPSCI 761",
-            "target": "STAT 609"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 840"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 311",
-            "target": "MATH/ISYE/OTM/STAT 632"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 849",
-            "target": "STAT 850"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
-            "id": "BMI/STAT 877"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 411"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the methods used to design sample surveys and analyze the results. Topics covered include: basic tools, simple random sampling, ratio and regression estimation, stratification, systematic sampling, cluster (area) sampling, two-stage sampling, unequal probability sampling, non-sampling errors, and missing data. For illustration and clarification, examples are drawn from diverse areas of application.",
-            "id": "STAT 411",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
-            "id": "ECON 310",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
-            "id": "STAT 601",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
-            "id": "STAT 240",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 405"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of basic probability. Advanced probability concepts. Random vectors; linear filtering of random processes; stationarity; power spectral densities; estimation; convergence; Markov chains; Poisson process; Wiener process. Knowledge of basic probability analysis [such asE\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0431, orSTAT\u00a0311] strongly encouraged.",
-            "id": "ECE 730",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of a variety of mathematical theories and statistical concepts (1) to understand the properties of those models and methods used for the purpose of prediction from data or decision making from data, and (2) to criticize such models, methods and their consequences. Specifically, the theories and tools that will be developed will include complexity theory, Hilbert spaces, Gaussian processes, Variational Analysis, and concentration inequalities.",
-            "id": "STAT 615",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-            "id": "MATH/ISYE/STAT/COMPSCI 525"
-        }
-    },
-    {
-        "data": {
-            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
-            "id": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 709",
-            "target": "POLISCI 818"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop statistical consulting skills to be able to communicate design and analysis to non-technical research collaborators. Provides a supportive environment to experiment with statistical consulting in practice, which will sometimes be uncomfortable and strange. Consulting problems typically do not have a \"right\" answer, and mistakes are encouraged. Take risks in sharing developing ideas in class. Connections with external organizations, such as the private sector and government agencies, will be made through possible internship experiences.",
-            "id": "STAT 678",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical function estimation and classification; reproducing kernel machines, support vector machines; high dimensional model selection and estimation; Bayesian, empirical Bayesian interpretation of nonparametric learning methods; log density ANOVA and graphical models; tree ensemble methods including bagging, boosting, and random forest.",
-            "id": "STAT 841",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "STAT/COMPSCI 471"
-        }
-    },
-    {
-        "data": {
-            "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
-            "id": "STAT/F&WECOL 571"
-        }
-    },
-    {
-        "data": {
-            "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
-            "id": "STAT/COMPSCI 471"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical procedures valid under unrestrictive assumptions; sign test; confidence intervals; efficiency comparisons; signed rank procedures; Walsh sums; point estimators; two sample rank tests; zeros, ties, and other problems of discrete data; order statistics; Winsorized and truncated point estimators and connection with gross error models; permutation procedures; combinatorial problems, and computer applications.",
-            "id": "STAT 809",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
-            "id": "MATH/STAT 803"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 312"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 601",
-            "target": "STAT 780"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT/F&WECOL 571",
-            "target": "STAT/F&WECOL 572"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 841"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "BMI/STAT 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a thorough grounding in modern statistical methods. The specific learning outcomes for the course are to understand data collection in context (how/why data were collected, key questions under study); explore data by effective graphical and numerical summaries; understand probability concepts and models as tools for studying random phenomena and for statistical inference; analyze data using appropriate, modern statistical models, methods, and software; understand the statistical concepts underlying methods; develop the ability to interpret results and critically evaluate the methods used; communicate data analysis and key findings in context.",
-            "id": "STAT 602",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/BMI 551",
-            "target": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 421",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 240"
-        }
-    },
-    {
-        "data": {
-            "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
-            "id": "BMI/STAT 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
-            "id": "BMI/STAT 727"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "STAT 433"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability, random variables and their distributions, joint and conditional distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts and limit theorems for sequences of random variables.",
-            "id": "STAT 611",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
-            "id": "STAT 681",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
-            "id": "MATH/STAT 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an understanding of the commonly used statistical language R. Learn to combine R with high performance computing tools to do scientific computing.",
-            "id": "STAT 305",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
-            "id": "MATH 421",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
             "source": "STAT 311",
             "target": "STAT 312"
         }
     },
     {
         "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE/COMPSCI 761",
-            "target": "ECE/STAT/COMPSCI 861"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "MATH 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical theory and methodology for modern financial data. Topics include financial stochastic models based on time series and stochastic calculus, modern statistical inference, and statistical learning for financial data as well as their applications to financial problems.",
-            "id": "STAT 801",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "id": "ECE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 341"
-        }
-    },
-    {
-        "data": {
-            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
-            "id": "MATH 341",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of multidimensional contingency tables, Poisson regression, and logistic regression, with emphasis on practical applications. Use of computer programs for such analyses. Model selection, testing goodness of fit, estimation of parameters, measures of association and methods for detecting sources of significance.",
-            "id": "STAT 421",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory of reproducing kernel Hilbert spaces in statistical model building; bounded linear functionals and representer theory; smoothing splines; ANOVA spines; degees of freedom for signal and the bias-variance tradeoff; Bayesian confidence intervals; model selection.",
-            "id": "STAT 840",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and applications of multivariate statistical methods. Basic concepts and statistical reasoning which underlie the techniques of multivariate analysis. Ideas rather than derivations stressed although basic models discussed to give the student some feeling for their adequacy in particular situations. Acquaintance with and use of existing computer programs in the multivariate analysis area.",
-            "id": "STAT 456",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 531",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-            "id": "STAT 371",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Perform Data Science as an iterative (back and forth) process of four different types of activities (data collection, data wrangling, data analysis, communication). Traverse through the five requisite stances (scientist, coder, mathematician, methodologist, skeptic). Develop and hone a broad set of computational tools in R (but not the broadest) and a broad set of statistical/machine learning tools (but not the broadest). Focus on doing these with agility to make the coding \"transparent\" and serve the large goals of the project.",
-            "id": "STAT 433",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Simple random sampling; systematic sampling; probability sampling; stratified sampling; subsampling with units of equal and unequal size; double sampling; multi-stage and multi-phase sampling; ratio and regression estimates; model-based and model-assisted approaches; variance estimation; non-response.",
-            "id": "STAT 811",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Detecting, quantifying, and modeling spatial patterns and structure in data. Variograms and covariance functions, linear predictions with uncertainty qualification, and conditional simulations. Spectral domain models and spectral densities. Spatial point processes. Contemporary applications and Gaussian process model fitting at scale.",
-            "id": "STAT 575",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 349"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "POLISCI 818",
-            "target": "ECON/GENBUS/STAT 775"
-        }
-    },
-    {
-        "data": {
             "source": "STAT 601",
-            "target": "STAT 801"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 421"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of some of the tools and frameworks that are currently popular among data scientists and statisticians working in both academia and industry. Begins with an accelerated introduction to the Python programming language and brief introductions to object-oriented and functional programming. Covers some of the scientific computing platforms available in Python, including tools for numerical and scientific computing; training basic machine learning models; and data visualization. Discusses collecting data from the web both by scraping and using APIs. Concludes with a brief survey of distributed computing platforms, focusing on the MapReduce framework.",
-            "id": "STAT 606",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "STAT 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics of interest in undergraduate students.",
-            "id": "STAT 479",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
-            "id": "STAT/COMPSCI 403"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual study for students writing honors thesis, as arranged with a faculty member.",
-            "id": "STAT 682",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-            "id": "POPHLTH/BMI 551"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 610",
-            "target": "BMI/STAT 727"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 303"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 834"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH/STAT/COMPSCI 475"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "STAT 351"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "STAT 453"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 310",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
-            "id": "MATH/STAT 734"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
-            "id": "BMI/STAT 643"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 303",
-            "target": "STAT 304"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of probability, random variables and vectors and their distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts for sequences of random variables, laws of large numbers, central limit and other limit theorems.",
-            "id": "STAT 609",
-            "parent": "STAT"
+            "target": "STAT 602"
         }
     },
     {
@@ -1251,122 +1496,14 @@
     },
     {
         "data": {
-            "source": "STAT 324",
-            "target": "STAT 301"
+            "source": "STAT 601",
+            "target": "STAT 801"
         }
     },
     {
         "data": {
-            "description": "Stochastic models and statistical methodologies are widely employed in modern finance. The models and their inferences are very important for academic research and financial practices. Financial stochastic models and their statistical inferences with applications to volatility analysis and risk management, introduction to discrete models such as binomial trees and GARCH and stochastic volatility models as well as simple continuous models like the Black-Scholes model. The focus will be on statistical inference, data analysis and risk management regarding these models.",
-            "id": "STAT 461",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
-            "id": "MATH/STAT 709"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
-            "id": "ECE/STAT/COMPSCI 861"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in the mathematical foundations of data science",
-            "id": "MATH/ECE/STAT 888"
-        }
-    },
-    {
-        "data": {
-            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
-            "id": "STAT 340",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 709",
-            "target": "STAT 732"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 709",
-            "target": "MATH/STAT 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Quantum computation issues, including probability, statistics, sensing, information, machine learning, and applying data science to quantum information science.",
-            "id": "STAT 780",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
-            "id": "STAT 311",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "BMI/STAT 641"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
-            "id": "BMI/STAT 741"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 436"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "MATH 375"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of tools necessary for collecting, managing, and analyzing large data sets. Examples of techniques and programs utilized include Linux, R, distributed computing, powerful editor(s), git/github, and other related tools. Work in the class will be done in teams to research, develop, write, and make presentations related to a variety of data analysis projects.",
-            "id": "STAT 605",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "A rigorous introduction to probability theory at an advanced undergraduate level. Only a minimal amount of measure theory is used, in particular, the theory of Lebesgue integrals is not needed. It is aimed at math majors and Master's degree students, or students in other fields who will need probability in their future careers. Gives an introduction to the basics (Kolmogorov axioms, conditional probability and independence, random variables, expectation) and discusses some classical results with proofs (DeMoivre-Laplace limit theorems, the study of simple random walk on the one dimensional lattice, applications of generating functions).",
-            "id": "MATH 531",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-            "id": "MATH/STAT 310"
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
         }
     },
     {
@@ -1377,139 +1514,8 @@
     },
     {
         "data": {
-            "description": "Conditioning, distribution theory, approximation to distributions, modes of convergence, limit theorems, statistical models, parameter estimation, comparision of estimators, confidence sets, theory of hypothesis tests, introduction to Bayesian inference and nonparametric estimation.",
-            "id": "STAT 610",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics in statistics at the master's level. Subject matter varies.",
-            "id": "STAT 679",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "STAT 698",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "The real numbers, elements of set theory, metric spaces and basic topology, sequences and series, limits, continuity, differentiation, integration, sequences and series of functions, uniform convergence.",
-            "id": "MATH 521",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "STAT 699",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Develops the theory of maximum likelihood estimation and applies it to models for discrete and limited dependent variables common to political and social science data.",
-            "id": "POLISCI 818",
-            "parent": "POLISCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
-            "id": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 301",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
-            "id": "MATH/ISYE/OTM/STAT 632"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduce new algorithms that leverage randomization to address the scale, speed, and sensitivity needs of modern data science. Develop the mathematical foundations of such randomized algorithms. Criticize these algorithms through the lens of computational resource utilization. Implement these algorithms to address linear problems in data science.",
-            "id": "STAT 772",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 710",
-            "target": "STAT 809"
-        }
-    },
-    {
-        "data": {
             "source": "STAT 601",
-            "target": "STAT 602"
-        }
-    },
-    {
-        "data": {
-            "description": "Pattern classification, regression analysis, clustering, and dimensionality reduction. For each category, covers fundamental algorithms and selections of contemporary, current state-of-the-art algorithms. Focus on evaluation of machine learning models using statistical methods. Statistical pattern classification approaches, including maximum likelihood estimation and Bayesian decision theory, algorithmic and nonparametric approaches. Practical use of machine learning algorithms using open source libraries from the Python programming ecosystem.",
-            "id": "STAT 451",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
-            "id": "STAT 301",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and applications of the general linear model; graphical methods; simultaneous inference; regression diagnostics; analysis of variance of fixed, random and mixed effects models; ANCOVA: violations of assumptions.",
-            "id": "STAT 850",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical foundations of machine learning theory and algorithms. Probabilistic, algebraic, and geometric models and representations of data, mathematical analysis of state-of-the-art learning algorithms and optimization methods, and applications of machine learning. Knowledge of probability [such asMATH/\u200bSTAT\u00a0\u00a0431orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0561] and linear algebra [such asMATH\u00a0341orM\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532] is required.",
-            "id": "ECE/COMPSCI 761"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 301",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 312",
-            "target": "ME/STAT 424"
+            "target": "STAT 780"
         }
     }
 ]

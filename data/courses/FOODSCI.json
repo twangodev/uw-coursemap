@@ -1,16 +1,216 @@
 [
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 875,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Individual advanced work in an area of Food Science under the direct guidance of a faculty member.",
+        "course_title": "SPECIAL TOPICS",
+        "description": "New graduate and courses of current interest.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 440,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "PRINCIPLES OF FOOD ENGINEERING",
+        "description": "Application of engineering principles in the analysis of food process operations: properties of gases and vapors, psychrometrics, material and energy balances, fluid flow, heat transfer, microwave heating, mass transfer, packaging film permeability, dehydration.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0301, (MATH\u00a0217or221), and (PHYSICS\u00a0201or207)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Research work for students under direct guidance of a faculty member in an area encompassing Food Science.  Students are responsible for arranging the work and credits with the supervising instructor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 711,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FOOD BIOCHEMISTRY",
+        "description": "Explores methods for interrogating structure-function relationships, molecular profiles, and microstructure of foods. Provides hands-on experience using computational approaches to model protein-small molecule interactions, analysis of small molecules using high-resolution MS, and protein composition and morphology with fluorescence spectroscopy and microscopy. Knowledge of food chemistry or organic chemistry (such asFOOD\u00a0SCI\u00a0410,CHEM\u00a0341,343, or345) required.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO MEAT SCIENCE AND TECHNOLOGY",
+        "description": "Application of biological, technological, and economical principles to muscle and related tissue utilized for food.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) and (CHEM\u00a0103,109, or115) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO THE SCIENCE AND TECHNOLOGY OF FOOD",
+        "description": "Introduction to the science and the technology of food manufacture. Covers the basic chemical, physical and microbiological properties of food and manipulation of these properties in the manufacture of food products.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0112,114or217) and (CHEM\u00a0103,109or115) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or (BSE\u00a0349or concurrent enrollment)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "ADVANCED FOOD MICROBIOLOGY",
+        "description": "Principles and problems covering fundamental concepts in Food Microbiology; application of concepts in fermentation, pathogenesis, and gut health; development and control of a sustainable and safe food and fiber system.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 511,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "CHEMISTRY AND TECHNOLOGY OF DAIRY PRODUCTS",
+        "description": "Chemistry of milk components (i.e. protein, lipids, carbohydrate, salts, enzymes) with an emphasis on chemical and physical changes that occur during the manufacture of a range of milk products (i.e. ice cream, butter, cheese). Dairy technology and microbiological quality.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0410"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 432,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "PRINCIPLES OF FOOD PRESERVATION",
+        "description": "Fundamentals of food preservation methods: post-harvest, thermal processing, refrigeration and freezing, control of water activity, chemical preservation, nonthermal methods and control of food packaging.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 325,
+                    "subjects": [
+                        "MICROBIO",
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO/\u200bFOOD\u00a0SCI\u00a0\u00a0325,FOOD\u00a0SCI\u00a0410, and440"
         }
     },
     {
@@ -50,238 +250,16 @@
     },
     {
         "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO MEAT SCIENCE AND TECHNOLOGY",
-        "description": "Application of biological, technological, and economical principles to muscle and related tissue utilized for food.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 115,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) and (CHEM\u00a0103,109, or115) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 412,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "FOOD ANALYSIS",
-        "description": "Application of quantitative techniques to the determination of composition and quality of food products.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0301or371) andFOOD\u00a0SCI\u00a0410"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 875,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "New graduate and courses of current interest.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
+            "course_number": 472,
             "subjects": [
                 "ANSCI",
                 "DYSCI",
-                "FOODSCI",
-                "SOILSCI"
-            ]
-        },
-        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 472,
-                    "subjects": [
-                        "ANSCI",
-                        "DYSCI",
-                        "FOODSCI",
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
+                "SOILSCI",
                 "FOODSCI"
             ]
         },
-        "course_title": "INTEGRATED FOOD MANUFACTURING",
-        "description": "Procedures used to process and preserve foods on a commercial basis, with emphasis on concentration, dehydration and fractionation process, plant sanitation/GMP, statistical process control, and environmental impacts..",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 432,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0432or (BSE\u00a0461or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
-        "description": "An internship under guidance of a faculty or instructional academic staff member in the Food Science department and a internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Second semester of individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 535,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "CONFECTIONERY SCIENCE AND TECHNOLOGY",
-        "description": "Through a combination of on-line lectures, classroom activities, evaluation of commercial samples and discovery-based labs, the science and technology of confections from hard candy to chocolate will be covered.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0410andFOOD\u00a0SCI\u00a0432"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 301,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THE SCIENCE AND TECHNOLOGY OF FOOD",
-        "description": "Introduction to the science and the technology of food manufacture. Covers the basic chemical, physical and microbiological properties of food and manipulation of these properties in the manufacture of food products.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0112,114or217) and (CHEM\u00a0103,109or115) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or (BSE\u00a0349or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 378,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "PRECISION FERMENTATION FOR SUSTAINABLE FOODS AND PRODUCTS",
-        "description": "Introduction to principles of precision fermentation, genetic tools used to manipulate the organisms involved in precision fermentation, food and non-food applications of precision fermentation. Topics such as: sustainable manufacturing of alternative proteins, food colorants, artificial sweeteners, amino acids, vitamins, flavoring and blending agents in alternative protein formulations, fatty acids, non-food chemicals of industrial importance, and sustainable feedstocks. Comparison of precision fermentation to traditional fermentations including whiskey, rum and bourbon.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "STUDY ABROAD IN FOOD SCIENCE",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses.",
+        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
+        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -310,13 +288,188 @@
     },
     {
         "course_reference": {
-            "course_number": 375,
+            "course_number": 900,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Subjects of current interest to undergraduates.",
+        "course_title": "SEMINAR ADVANCED",
+        "description": "Research literature and current departmental research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 410,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FOOD CHEMISTRY",
+        "description": "Nature and chemical behavior of food constituents including proteins, lipids, carbohydrates, water, and enzymes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0301,CHEM\u00a0343, and (BIOCHEM\u00a0501or concurrent enrollment)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Full lab and literature review of a problem in food science. Leads to preparation of thesis and publication.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 201,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "DISCOVERING FOOD SCIENCE",
+        "description": "Provides a brief introduction to the different areas of study and career opportunities within the food industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "ANSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "CHEMISTRY OF THE FOOD LIPIDS",
+        "description": "Chemical constitution, structures, reactions, stereochemistry of fats, phospholipids, related compounds; methods of isolation, characterization; synthesis; relation of structure to physical properties.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 140,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "THE CHOCOLATE EXPERIENCE: SCIENCE, SOCIETY, AND SUSTAINABILITY",
+        "description": "Learn about the history of cocoa and chocolate production, the cultivation of cocoa and processing of cocoa beans to the production of chocolate from cocoa beans. Other topics covered include nutrition and health aspects of cocoa and chocolate consumption and socioeconomic and sustainability issues in cocoa production.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 473,
+            "subjects": [
+                "ANSCI",
+                "DYSCI",
+                "SOILSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
+        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 472,
+                    "subjects": [
+                        "ANSCI",
+                        "DYSCI",
+                        "SOILSCI",
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Second semester of individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTEGRATED FOOD MANUFACTURING",
+        "description": "Procedures used to process and preserve foods on a commercial basis, with emphasis on concentration, dehydration and fractionation process, plant sanitation/GMP, statistical process control, and environmental impacts..",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 432,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0432or (BSE\u00a0461or concurrent enrollment)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 611,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "CHEMISTRY AND TECHNOLOGY OF DAIRY PRODUCTS",
+        "description": "Chemistry of milk components (i.e. protein, lipids, carbohydrate, salts, enzymes) with an emhasis on chemical and physical changes that occur during the manufacture of a range of milk products (i.e. ice cream, butter, cheese). Dairy technology and microbiological quality.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0410or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 150,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FERMENTED FOOD AND BEVERAGES: SCIENCE, ART AND HEALTH",
+        "description": "Explores the science behind fermented food and beverages, popularized by brewing, winemaking and breadmaking at home and in retail. Introduces the scientific principles that underlie food and beverage processing through fermentation. Covers how basic sciences such as chemistry, biochemistry and microbiology influence the process and desired outcomes when fermenting vegetables, milk, fruit, and grains.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -349,15 +502,15 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 410,
+                    "course_number": 305,
                     "subjects": [
+                        "ANSCI",
                         "FOODSCI"
                     ]
                 },
                 {
-                    "course_number": 305,
+                    "course_number": 410,
                     "subjects": [
-                        "ANSCI",
                         "FOODSCI"
                     ]
                 }
@@ -367,88 +520,51 @@
     },
     {
         "course_reference": {
-            "course_number": 321,
+            "course_number": 324,
             "subjects": [
-                "ANSCI",
+                "MICROBIO",
                 "FOODSCI"
             ]
         },
-        "course_title": "FOOD LAWS AND REGULATIONS",
-        "description": "Food laws and regulations, regulatory and commerical grading standards used in the food industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 140,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "THE CHOCOLATE EXPERIENCE: SCIENCE, SOCIETY, AND SUSTAINABILITY",
-        "description": "Learn about the history of cocoa and chocolate production, the cultivation of cocoa and processing of cocoa beans to the production of chocolate from cocoa beans. Other topics covered include nutrition and health aspects of cocoa and chocolate consumption and socioeconomic and sustainability issues in cocoa production.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 711,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "FOOD BIOCHEMISTRY",
-        "description": "Explores methods for interrogating structure-function relationships, molecular profiles, and microstructure of foods. Provides hands-on experience using computational approaches to model protein-small molecule interactions, analysis of small molecules using high-resolution MS, and protein composition and morphology with fluorescence spectroscopy and microscopy. Knowledge of food chemistry or organic chemistry (such asFOOD\u00a0SCI\u00a0410,CHEM\u00a0341,343, or345) required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 602,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "SENIOR PROJECT",
-        "description": "Part one of senior capstone requirement. Working as teams, students conduct research around a problem pertinent to the food industry. Weekly discussions plus laboratory. Data collection and analysis and report writing are critical components of this course.",
+        "course_title": "FOOD MICROBIOLOGY LABORATORY",
+        "description": "Lab exercises dealing with food preservation, spoilage, and food poisoning. Isolation, identification and quantification of specific microbes occurring in foods, and food fermentations by bacteria and yeast.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 412,
+                    "course_number": 102,
                     "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 325,
+                    "subjects": [
+                        "MICROBIO",
                         "FOODSCI"
+                    ]
+                },
+                {
+                    "course_number": 304,
+                    "subjects": [
+                        "MICROBIO"
                     ]
                 }
             ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0412and432"
+            "prerequisites_text": "(MICROBIO\u00a0102orMICROBIO\u00a0304) andFOOD\u00a0SCI/\u200bMICROBIO\u00a0\u00a0325or concurrent enrollment"
         }
     },
     {
         "course_reference": {
-            "course_number": 603,
+            "course_number": 699,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "SENIOR SEMINAR",
-        "description": "Part two of senior capstone requirement. Students will present data gathered and analyzed as part of the senior project.",
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Individual advanced work in an area of Food Science under the direct guidance of a faculty member.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 602,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0602"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -463,237 +579,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "ADVANCED FOOD MICROBIOLOGY",
-        "description": "Principles and problems covering fundamental concepts in Food Microbiology; application of concepts in fermentation, pathogenesis, and gut health; development and control of a sustainable and safe food and fiber system.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "PRACTICUM IN FOOD SCIENCE TEACHING",
-        "description": "Teaching experience for PhD candidates.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 432,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF FOOD PRESERVATION",
-        "description": "Fundamentals of food preservation methods: post-harvest, thermal processing, refrigeration and freezing, control of water activity, chemical preservation, nonthermal methods and control of food packaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 325,
-                    "subjects": [
-                        "FOODSCI",
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO/\u200bFOOD\u00a0SCI\u00a0\u00a0325,FOOD\u00a0SCI\u00a0410, and440"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Research work for students under direct guidance of a faculty member in an area encompassing Food Science.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 201,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "DISCOVERING FOOD SCIENCE",
-        "description": "Provides a brief introduction to the different areas of study and career opportunities within the food industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 324,
-            "subjects": [
-                "FOODSCI",
-                "MICROBIO"
-            ]
-        },
-        "course_title": "FOOD MICROBIOLOGY LABORATORY",
-        "description": "Lab exercises dealing with food preservation, spoilage, and food poisoning. Isolation, identification and quantification of specific microbes occurring in foods, and food fermentations by bacteria and yeast.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 304,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 325,
-                    "subjects": [
-                        "FOODSCI",
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MICROBIO\u00a0102orMICROBIO\u00a0304) andFOOD\u00a0SCI/\u200bMICROBIO\u00a0\u00a0325or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 440,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF FOOD ENGINEERING",
-        "description": "Application of engineering principles in the analysis of food process operations: properties of gases and vapors, psychrometrics, material and energy balances, fluid flow, heat transfer, microwave heating, mass transfer, packaging film permeability, dehydration.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0301, (MATH\u00a0217or221), and (PHYSICS\u00a0201or207)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 410,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "FOOD CHEMISTRY",
-        "description": "Nature and chemical behavior of food constituents including proteins, lipids, carbohydrates, water, and enzymes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0301,CHEM\u00a0343, and (BIOCHEM\u00a0501or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 514,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "INTEGRATED FOOD FUNCTIONALITY",
-        "description": "Molecular basis of food functional properties; impact of ingredients and processing on functional properties (texture, flavor, nutrition and structure); design of new or reformulating foods to meet specific quality expectations.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 602,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0602"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 472,
-            "subjects": [
-                "ANSCI",
-                "DYSCI",
-                "FOODSCI",
-                "SOILSCI"
-            ]
-        },
-        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 472,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI",
-                "SOILSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 611,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "CHEMISTRY AND TECHNOLOGY OF DAIRY PRODUCTS",
-        "description": "Chemistry of milk components (i.e. protein, lipids, carbohydrate, salts, enzymes) with an emhasis on chemical and physical changes that occur during the manufacture of a range of milk products (i.e. ice cream, butter, cheese). Dairy technology and microbiological quality.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "FOODSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0410or graduate/professional standing"
         }
     },
     {
@@ -719,47 +604,13 @@
     },
     {
         "course_reference": {
-            "course_number": 325,
-            "subjects": [
-                "FOODSCI",
-                "MICROBIO"
-            ]
-        },
-        "course_title": "FOOD MICROBIOLOGY",
-        "description": "Principles of food preservation, epidemiology of foodborne illness, agents of foodborne illness, food fermentations and biotechnology.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "MM&I"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0101,303, orM\u00a0M\u00a0&\u00a0I\u00a0301or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 511,
+            "course_number": 535,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "CHEMISTRY AND TECHNOLOGY OF DAIRY PRODUCTS",
-        "description": "Chemistry of milk components (i.e. protein, lipids, carbohydrate, salts, enzymes) with an emphasis on chemical and physical changes that occur during the manufacture of a range of milk products (i.e. ice cream, butter, cheese). Dairy technology and microbiological quality.",
+        "course_title": "CONFECTIONERY SCIENCE AND TECHNOLOGY",
+        "description": "Through a combination of on-line lectures, classroom activities, evaluation of commercial samples and discovery-based labs, the science and technology of confections from hard candy to chocolate will be covered.",
         "prerequisites": {
             "course_references": [
                 {
@@ -769,87 +620,73 @@
                     ]
                 }
             ],
-            "prerequisites_text": "FOOD\u00a0SCI\u00a0410"
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0410andFOOD\u00a0SCI\u00a0432"
         }
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 603,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "RESEARCH",
-        "description": "Full lab and literature review of a problem in food science. Leads to preparation of thesis and publication.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 900,
-            "subjects": [
-                "FOODSCI"
-            ]
-        },
-        "course_title": "SEMINAR ADVANCED",
-        "description": "Research literature and current departmental research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
-            "subjects": [
-                "ANSCI",
-                "FOODSCI",
-                "SOILSCI",
-                "DYSCI"
-            ]
-        },
-        "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+        "course_title": "SENIOR SEMINAR",
+        "description": "Part two of senior capstone requirement. Students will present data gathered and analyzed as part of the senior project.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 472,
+                    "course_number": 602,
                     "subjects": [
-                        "ANSCI",
-                        "DYSCI",
-                        "FOODSCI",
-                        "SOILSCI"
+                        "FOODSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0602"
         }
     },
     {
         "course_reference": {
-            "course_number": 150,
+            "course_number": 325,
+            "subjects": [
+                "MICROBIO",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FOOD MICROBIOLOGY",
+        "description": "Principles of food preservation, epidemiology of foodborne illness, agents of foodborne illness, food fermentations and biotechnology.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "MM&I"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0101,303, orM\u00a0M\u00a0&\u00a0I\u00a0301or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 375,
             "subjects": [
                 "FOODSCI"
             ]
         },
-        "course_title": "FERMENTED FOOD AND BEVERAGES: SCIENCE, ART AND HEALTH",
-        "description": "Explores the science behind fermented food and beverages, popularized by brewing, winemaking and breadmaking at home and in retail. Introduces the scientific principles that underlie food and beverage processing through fermentation. Covers how basic sciences such as chemistry, biochemistry and microbiology influence the process and desired outcomes when fermenting vegetables, milk, fruit, and grains.",
+        "course_title": "SPECIAL TOPICS",
+        "description": "Subjects of current interest to undergraduates.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -857,17 +694,136 @@
     },
     {
         "course_reference": {
-            "course_number": 710,
+            "course_number": 602,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "SENIOR PROJECT",
+        "description": "Part one of senior capstone requirement. Working as teams, students conduct research around a problem pertinent to the food industry. Weekly discussions plus laboratory. Data collection and analysis and report writing are critical components of this course.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 412,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0412and432"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN FOOD SCIENCE",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 514,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "INTEGRATED FOOD FUNCTIONALITY",
+        "description": "Molecular basis of food functional properties; impact of ingredients and processing on functional properties (texture, flavor, nutrition and structure); design of new or reformulating foods to meet specific quality expectations.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 602,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FOOD\u00a0SCI\u00a0602"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 378,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "PRECISION FERMENTATION FOR SUSTAINABLE FOODS AND PRODUCTS",
+        "description": "Introduction to principles of precision fermentation, genetic tools used to manipulate the organisms involved in precision fermentation, food and non-food applications of precision fermentation. Topics such as: sustainable manufacturing of alternative proteins, food colorants, artificial sweeteners, amino acids, vitamins, flavoring and blending agents in alternative protein formulations, fatty acids, non-food chemicals of industrial importance, and sustainable feedstocks. Comparison of precision fermentation to traditional fermentations including whiskey, rum and bourbon.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
+        "description": "An internship under guidance of a faculty or instructional academic staff member in the Food Science department and a internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "PRACTICUM IN FOOD SCIENCE TEACHING",
+        "description": "Teaching experience for PhD candidates.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 321,
             "subjects": [
                 "ANSCI",
                 "FOODSCI"
             ]
         },
-        "course_title": "CHEMISTRY OF THE FOOD LIPIDS",
-        "description": "Chemical constitution, structures, reactions, stereochemistry of fats, phospholipids, related compounds; methods of isolation, characterization; synthesis; relation of structure to physical properties.",
+        "course_title": "FOOD LAWS AND REGULATIONS",
+        "description": "Food laws and regulations, regulatory and commerical grading standards used in the food industry.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 412,
+            "subjects": [
+                "FOODSCI"
+            ]
+        },
+        "course_title": "FOOD ANALYSIS",
+        "description": "Application of quantitative techniques to the determination of composition and quality of food products.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0301or371) andFOOD\u00a0SCI\u00a0410"
         }
     }
 ]

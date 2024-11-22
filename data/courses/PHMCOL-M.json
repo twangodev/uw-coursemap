@@ -1,6 +1,20 @@
 [
     {
         "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "SEMINAR AND JOURNAL CLUB",
+        "description": "Students and staff present research reports of current interest.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 522,
             "subjects": [
                 "PHMSCI",
@@ -23,13 +37,27 @@
     },
     {
         "course_reference": {
+            "course_number": 739,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "RIGOR, REPRODUCIBILITY AND BECOMING AN EFFECTIVE RESEARCHER",
+        "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 626,
             "subjects": [
-                "POPHLTH",
-                "PHMCOL-M",
-                "PHMSCI",
                 "PATH",
-                "M&ENVTOX"
+                "PHMSCI",
+                "M&ENVTOX",
+                "POPHLTH",
+                "PHMCOL-M"
             ]
         },
         "course_title": "TOXICOLOGY II",
@@ -39,11 +67,11 @@
                 {
                     "course_number": 625,
                     "subjects": [
-                        "POPHLTH",
-                        "PHMCOL-M",
                         "ONCOLOGY",
                         "PHMSCI",
-                        "M&ENVTOX"
+                        "M&ENVTOX",
+                        "POPHLTH",
+                        "PHMCOL-M"
                     ]
                 }
             ],
@@ -52,13 +80,27 @@
     },
     {
         "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN PHARMACOLOGY",
+        "description": "Special topics in pharmacology. Topics may vary.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 619,
             "subjects": [
-                "PHMCOL-M",
                 "MEDPHYS",
-                "RADIOL",
                 "BME",
-                "PHYSICS"
+                "PHYSICS",
+                "RADIOL",
+                "PHMCOL-M"
             ]
         },
         "course_title": "MICROSCOPY OF LIFE",
@@ -66,7 +108,7 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 104,
+                    "course_number": 208,
                     "subjects": [
                         "PHYSICS"
                     ]
@@ -78,22 +120,22 @@
                     ]
                 },
                 {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                },
+                {
                     "course_number": 248,
                     "subjects": [
                         "PHYSICS"
                     ]
                 },
                 {
-                    "course_number": 208,
+                    "course_number": 104,
                     "subjects": [
                         "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "PHYSICS",
-                        "MEDPHYS"
                     ]
                 }
             ],
@@ -116,16 +158,77 @@
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 781,
             "subjects": [
                 "PHMCOL-M"
             ]
         },
-        "course_title": "RESEARCH",
-        "description": "Research facilities of the department available to qualified students.",
+        "course_title": "MOLECULAR AND CELLULAR PRINCIPLES IN PHARMACOLOGY",
+        "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 625,
+            "subjects": [
+                "ONCOLOGY",
+                "PHMSCI",
+                "M&ENVTOX",
+                "POPHLTH",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "TOXICOLOGY I",
+        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 404,
+                    "subjects": [
+                        "PATH"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 486,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
         }
     },
     {
@@ -144,119 +247,16 @@
     },
     {
         "course_reference": {
-            "course_number": 901,
+            "course_number": 990,
             "subjects": [
                 "PHMCOL-M"
             ]
         },
-        "course_title": "SEMINAR AND JOURNAL CLUB",
-        "description": "Students and staff present research reports of current interest.",
+        "course_title": "RESEARCH",
+        "description": "Research facilities of the department available to qualified students.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 875,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN PHARMACOLOGY",
-        "description": "Special topics in pharmacology. Topics may vary.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 781,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "MOLECULAR AND CELLULAR PRINCIPLES IN PHARMACOLOGY",
-        "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 739,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "RIGOR, REPRODUCIBILITY AND BECOMING AN EFFECTIVE RESEARCHER",
-        "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "POPHLTH",
-                "PHMCOL-M",
-                "ONCOLOGY",
-                "PHMSCI",
-                "M&ENVTOX"
-            ]
-        },
-        "course_title": "TOXICOLOGY I",
-        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
         }
     }
 ]

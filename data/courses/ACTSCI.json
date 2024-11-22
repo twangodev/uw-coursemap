@@ -22,48 +22,6 @@
     },
     {
         "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "ADVANCED LONG-TERM ACTUARIAL MODELING",
-        "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 650,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "HEALTH ANALYTICS",
-        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 300,
             "subjects": [
                 "ACTSCI"
@@ -100,6 +58,27 @@
     },
     {
         "course_reference": {
+            "course_number": 651,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ADVANCED LONG-TERM ACTUARIAL MODELING",
+        "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 650,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 301,
             "subjects": [
                 "ACTSCI"
@@ -121,23 +100,23 @@
     },
     {
         "course_reference": {
-            "course_number": 653,
+            "course_number": 655,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
-        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+        "course_title": "HEALTH ANALYTICS",
+        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 652,
+                    "course_number": 640,
                     "subjects": [
                         "ACTSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -163,16 +142,37 @@
     },
     {
         "course_reference": {
-            "course_number": 399,
+            "course_number": 303,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
-        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
+        "course_title": "THEORY OF INTEREST",
+        "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 213,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
@@ -198,6 +198,27 @@
     },
     {
         "course_reference": {
+            "course_number": 653,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
+        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 652,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 650,
             "subjects": [
                 "ACTSCI"
@@ -219,23 +240,16 @@
     },
     {
         "course_reference": {
-            "course_number": 303,
+            "course_number": 399,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "THEORY OF INTEREST",
-        "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
+        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
+        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 213,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -258,20 +272,6 @@
                 }
             ],
             "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     }
 ]

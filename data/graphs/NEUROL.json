@@ -1,9 +1,35 @@
 [
     {
         "data": {
+            "description": "Independent research under the direct supervision of Neurology faculty. Each project is individualized to meet the research goals of the student within the context of the faculty's research.",
+            "id": "NEUROL 910",
+            "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
+            "id": "NEUROL",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
+            "id": "MEDSC-M 812",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
             "description": "Offers the undergraduate student majoring in the life sciences (including biology, chemistry psychology, or related fields) and with interest in preparing for advanced coursework in graduate or medical school, an opportunity to participate in basic and translation research in neuroscience and neurological disorders.",
             "id": "NEUROL 699",
             "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
         }
     },
     {
@@ -15,9 +41,9 @@
     },
     {
         "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
+            "description": "Individually scheduled clinical elective, directly supervised by Neurology senior residents and attending physicians. Regularly scheduled supervisor-student meetings, which involve some or all of the following: rounding on service patients, observing procedures in the unit or clinic, examination of patients in an ambulatory setting, presenting cases and teaching topics, and discussing patient cases. Independent activities, including reading about patient conditions and preparing for direct patient care, as needed. Other patient care related learning activities as assigned by instructors: these are dependent on the individual student and the patients under the student's care.",
+            "id": "NEUROL 919",
+            "parent": "NEUROL"
         }
     },
     {
@@ -35,12 +61,6 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "NEUROL 913"
-        }
-    },
-    {
-        "data": {
             "description": "Basic science concepts will be integrated to examine the relationship between neuroanatomy and cognition (e.g., learning and memory, executive function, visual perceptual abilities, etc.). Utilize stroke, epilepsy, dementia and other neurodegenerative disorders from clinical practice to demonstrate the connection between brain structure and cognitive function. Hands on experience in neuropsychological test administration and interpretation will be integrated into learning. Brain imaging correlates for clinical cases will be presented by a clinical neurologist.",
             "id": "NEUROL 913",
             "parent": "NEUROL"
@@ -48,28 +68,8 @@
     },
     {
         "data": {
-            "description": "Individually scheduled clinical elective, directly supervised by Neurology senior residents and attending physicians. Regularly scheduled supervisor-student meetings, which involve some or all of the following: rounding on service patients, observing procedures in the unit or clinic, examination of patients in an ambulatory setting, presenting cases and teaching topics, and discussing patient cases. Independent activities, including reading about patient conditions and preparing for direct patient care, as needed. Other patient care related learning activities as assigned by instructors: these are dependent on the individual student and the patients under the student's care.",
-            "id": "NEUROL 919",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "id": "NEUROL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Neurology faculty. Each project is individualized to meet the research goals of the student within the context of the faculty's research.",
-            "id": "NEUROL 910",
-            "parent": "NEUROL"
+            "source": "MEDSC-M 812",
+            "target": "NEUROL 913"
         }
     }
 ]

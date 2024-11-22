@@ -1,84 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 711,
-            "subjects": [
-                "RADIOL"
-            ]
-        },
-        "course_title": "JOURNAL CLUB",
-        "description": "Student Seminar and Journal club for second year students in the Medical Scientist Training Program.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "PHMCOL-M",
-                "MEDPHYS",
-                "RADIOL",
-                "BME",
-                "PHYSICS"
-            ]
-        },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "PHYSICS",
-                        "MEDPHYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 813,
-            "subjects": [
-                "RADIOL"
-            ]
-        },
-        "course_title": "RADIOLOGY CLERKSHIP",
-        "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 912,
             "subjects": [
                 "RADIOL"
@@ -100,37 +22,16 @@
     },
     {
         "course_reference": {
-            "course_number": 923,
+            "course_number": 924,
             "subjects": [
                 "RADIOL"
             ]
         },
-        "course_title": "CLINICAL NUCLEAR MEDICINE ELECTIVE",
-        "description": "Work directly with faculty in the Nuclear Medicine section of the Department of Radiology. Broad-based experience in a variety of procedures routinely performed by the nuclear medicine service, including nuclear cardiology. Practice in building and presenting a case report.",
+        "course_title": "GENERAL RADIOLOGY ELECTIVE",
+        "description": "Elective opportunity to study basic radiological studies and modalities. Gain proficiency in identifying normal structures and can't miss diagnoses on a chest radiograph and abdominal films as well as determining indications for advanced studies (computed tomography CT, magnetic resonance imaging MRI, ultrasound US, angiograms). Practice in building and presenting a case report.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 928,
-            "subjects": [
-                "RADIOL"
-            ]
-        },
-        "course_title": "SCREENING IN RADIOLOGY",
-        "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,812,813, and911"
         }
     },
     {
@@ -152,6 +53,91 @@
                 }
             ],
             "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "MEDPHYS",
+                "BME",
+                "PHYSICS",
+                "RADIOL",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "MICROSCOPY OF LIFE",
+        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 914,
+            "subjects": [
+                "RADIOL"
+            ]
+        },
+        "course_title": "PHYSICIAN FINANCIAL WELLNESS",
+        "description": "Graduating medical students are faced with a wide array of financial planning and wellness challenges. The median medical student debt has continued to increase, and there is a corresponding proliferation of federal repayment and forgiveness options. Other financial planning needs, such as budgeting and insurance, also arise during this time of transition. A unique opportunity to learn key concepts around budgeting, investing, insurance, and negotiation through independent and group learning experiences. This format allows for better analysis on financial decisions and to understand the impact of these decisions on both current and future financial health and wellness.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 813,
+            "subjects": [
+                "RADIOL"
+            ]
+        },
+        "course_title": "RADIOLOGY CLERKSHIP",
+        "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -184,6 +170,34 @@
     },
     {
         "course_reference": {
+            "course_number": 923,
+            "subjects": [
+                "RADIOL"
+            ]
+        },
+        "course_title": "CLINICAL NUCLEAR MEDICINE ELECTIVE",
+        "description": "Work directly with faculty in the Nuclear Medicine section of the Department of Radiology. Broad-based experience in a variety of procedures routinely performed by the nuclear medicine service, including nuclear cardiology. Practice in building and presenting a case report.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 711,
+            "subjects": [
+                "RADIOL"
+            ]
+        },
+        "course_title": "JOURNAL CLUB",
+        "description": "Student Seminar and Journal club for second year students in the Medical Scientist Training Program.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 920,
             "subjects": [
                 "RADIOL"
@@ -205,13 +219,13 @@
     },
     {
         "course_reference": {
-            "course_number": 914,
+            "course_number": 928,
             "subjects": [
                 "RADIOL"
             ]
         },
-        "course_title": "PHYSICIAN FINANCIAL WELLNESS",
-        "description": "Graduating medical students are faced with a wide array of financial planning and wellness challenges. The median medical student debt has continued to increase, and there is a corresponding proliferation of federal repayment and forgiveness options. Other financial planning needs, such as budgeting and insurance, also arise during this time of transition. A unique opportunity to learn key concepts around budgeting, investing, insurance, and negotiation through independent and group learning experiences. This format allows for better analysis on financial decisions and to understand the impact of these decisions on both current and future financial health and wellness.",
+        "course_title": "SCREENING IN RADIOLOGY",
+        "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
         "prerequisites": {
             "course_references": [
                 {
@@ -221,21 +235,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 924,
-            "subjects": [
-                "RADIOL"
-            ]
-        },
-        "course_title": "GENERAL RADIOLOGY ELECTIVE",
-        "description": "Elective opportunity to study basic radiological studies and modalities. Gain proficiency in identifying normal structures and can't miss diagnoses on a chest radiograph and abdominal films as well as determining indications for advanced studies (computed tomography CT, magnetic resonance imaging MRI, ultrasound US, angiograms). Practice in building and presenting a case report.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,812,813, and911"
         }
     }
 ]

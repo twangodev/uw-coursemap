@@ -1,23 +1,674 @@
 [
     {
         "course_reference": {
-            "course_number": 450,
+            "course_number": 516,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "INDUSTRIAL ENGINEERING DESIGN II",
-        "description": "Team-based project experience to address a real-world design challenge posed by an external organization. Collaboration with the project client to design a new system or process, or redesign an existing one, by integrating and applying appropriate Industrial and Systems Engineering knowledge, methodologies and tools for problem definition and analysis; idea generation; solution development, evaluation and justification; and implementation planning and impact assessment.",
+        "course_title": "INTRODUCTION TO DECISION ANALYSIS",
+        "description": "Overview of modeling techniques and methods used in decision analysis, including multiattribute utility models, decision trees, and Bayesian models. Psychological components of decision making are discussed. Elicitation techniques for model building are emphasized. Practical applications through real world model building are described and conducted.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 350,
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 649,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INTERACTIVE DATA ANALYTICS",
+        "description": "A cognitive engineering approach to human-computer interaction and data visualization in particular. Includes a four-part description of effective visualization: design intent, data and application domain, representation and interface features, and human limits and capabilities. The philosophical perspective, scientific basis, and practical tools for effective data visualization and visual analytics. Data processing and how to create static graphs as well as web-based interactive visualizations using the statistical language R.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 210,
                     "subjects": [
                         "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "Senior standing only,I\u00a0SY\u00a0E\u00a0313,320,323,350, andPSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349"
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0310,STAT\u00a0312,324, or340), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 476,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INDUSTRIAL ENGINEERING PROJECTS",
+        "description": "Complete design of an industrial engineering system in a real world setting, e.g., manufacturing, hospital, communications, food processing, distribution, transportation, etc.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0320,349, andINTEREGR\u00a0397(formerly E P D 397)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 348,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HUMAN FACTORS ENGINEERING LABORATORY",
+        "description": "Hands on experience applying concepts discussed inI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349. Complete a small three-part design project. Learn how to measure light, sound, anthropometric, and psychophysiological data, and then apply these measurements to product and workplace design challenges.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Declared in Industrial Engineering and concurrent enrollment inI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 313,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "ENGINEERING ECONOMIC ANALYSIS",
+        "description": "Financial accounting principles and cost systems, interpretation and use of accounting reports and supplemental information for engineering economic analyses, consideration of cost-volume-profit analyses, use of discounted cash flow techniques, flexible budgeting, transfer pricing, and capital budgeting.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0217,221, or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 558,
+            "subjects": [
+                "ME",
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COMPUTATIONAL GEOMETRY",
+        "description": "Introduction to fundamental geometric computations and algorithms, and their use for solving engineering and scientific problems. Computer representations of simple geometric objects and paradigms for algorithm design. Applications from areas of engineering analysis, design and manufacturing, biology, statistics, and other sciences.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 400,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 234,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(COMP SCI 367 or400) andMATH\u00a0234or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SIMULATION MODELING AND ANALYSIS",
+        "description": "Introduction to simulation modeling and analysis techniques with application to production, logistics, service, and other systems. Emphasis on model building, application of basic statistical data analysis, and the use of simulation for design, evaluation, and improvement of such systems. Introduction to available software. Case studies.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(COMP\u00a0SCI\u00a0200,220,300, 301, 302, or placement intoCOMP\u00a0SCI\u00a0300) and (STAT 224,312,324, orSTAT/\u200bMATH\u00a0\u00a0310), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 625,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "LOGISTICS SYSTEMS DESIGN",
+        "description": "Practical methods for the planning, design and evaluation of complex logistics and distribution systems. Modeling techniques and solution approaches that reduce cumbersome details of logistics systems into models with a manageable number of parameters and decision variables. It shows how the solutions to these models are interpreted into optimal rules that guide the operation, design or planning process. Practical methods for the planning, design and evaluation of complex logistics and distribution systems. Modeling techniques and solution approaches that reduce cumbersome details of logistics systems into models with a manageable number of parameters and decision variables. It shows how the solutions to these models are interpreted into optimal rules that guide the operation, design or planning process. Builds on knowledge of introductory programming such as Python, Matlab, or R.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524) and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0310,STAT\u00a0312,324, or340), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 603,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN ENGINEERING ANALYTICS AND OPERATIONS RESEARCH",
+        "description": "Various special topics in engineering analytics and operations research, such as machine learning, data management and analysis, optimization, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 425,
+            "subjects": [
+                "COMPSCI",
+                "MATH",
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COMBINATORIAL OPTIMIZATION",
+        "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 727,
+            "subjects": [
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "CONVEX ANALYSIS",
+        "description": "Convex sets in finite-dimensional spaces: relative interiors, separation, set operations. Convex functions: conjugacy, subdifferentials and directional derivations, functional operations, Fenchel-Rockafellar duality. Applications to operations research and related areas.  Students taking this course are strongly encouraged to have had a course in basic analysis (e.g.MATH\u00a0521) and a course in linear algebra (e.g.,MATH\u00a0340).",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 552,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HUMAN FACTORS ENGINEERING DESIGN AND EVALUATION",
+        "description": "Evaluation, analysis, and design recommendations for improving human performance and productivity in applied settings. Collection of instrument-based and user survey data. Emphasis on ergonomics, human factors and sociotechnical systems engineering approaches and problems. Design project required.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349andINTEREGR\u00a0397(formerly E P D 397) or concurrent enrollment or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 489,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HONORS IN RESEARCH",
+        "description": "Undergraduate honors research projects supervised by faculty members.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Industrial Engineering Honors in Research"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 389,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HONORS IN RESEARCH",
+        "description": "Undergraduate honors research projects supervised by faculty members.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Industrial Engineering Honors in Research"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 349,
+            "subjects": [
+                "PSYCH",
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HUMAN FACTORS",
+        "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "ECE"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 531,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 360,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,431,STAT\u00a0311,324,371,MATH\u00a0531,PSYCH\u00a0210, orC&E\u00a0SOC/\u200bSOC\u00a0\u00a0360, or concurrent registration), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 854,
+            "subjects": [
+                "PSYCH",
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN ORGANIZATION DESIGN",
+        "description": "",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 890,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "PRE-DISSERTATOR'S RESEARCH",
+        "description": "Directed PhD-level research projects as arranged with faculty advisor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 570,
+            "subjects": [
+                "ECE",
+                "ISYE"
+            ]
+        },
+        "course_title": "ETHICS OF DATA FOR ENGINEERS",
+        "description": "Introduction to ethical issues in data engineering and principled solutions. Algorithmic fairness (individual fairness, group fairness, counterfactual fairness), differential privacy and its applications, and robustness.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 521,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "ECE"
+                    ]
+                },
+                {
+                    "course_number": 539,
+                    "subjects": [
+                        "ME",
+                        "COMPSCI",
+                        "ECE"
+                    ]
+                },
+                {
+                    "course_number": 562,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 532,
+                    "subjects": [
+                        "ME",
+                        "COMPSCI",
+                        "ECE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0521,562,M\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532, or539) and (E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH\u00a0331, orSTAT/\u200bMATH\u00a0\u00a0431), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 601,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN INDUSTRIAL ENGINEERING",
+        "description": "In various areas. Sample topics: \"Simulation\" and \"Systems Design\".",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 350,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INDUSTRIAL ENGINEERING DESIGN I",
+        "description": "Introduction to the tools needed for advanced design courses through experiential learning and hands-on opportunities to conduct experiments, take relevant measurements, analyze real-world data, design systems, and to make and test prototypes of designs.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Declared in Industrial Engineering, (COMP\u00a0SCI\u00a0200,220,300, 301, 302, or placement intoCOMP\u00a0SCI\u00a0300), (I\u00a0SY\u00a0E\u00a0210,MATH/\u200bSTAT\u00a0\u00a0309,431,MATH\u00a0531,STAT\u00a0311or324) andI\u00a0SY\u00a0E\u00a0315"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 643,
+            "subjects": [
+                "ME",
+                "ISYE"
+            ]
+        },
+        "course_title": "PERFORMANCE ANALYSIS OF MANUFACTURING SYSTEMS",
+        "description": "Examines the state of the art in the use of stochastic network theory to develop performance models of modern manufacturing systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 400,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 200,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 624,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 632,
+                    "subjects": [
+                        "OTM",
+                        "MATH",
+                        "ISYE",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0624orSTAT/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bOTM\u00a0\u00a0632) and (COMP\u00a0SCI\u00a0200,220,300, 301, 302,400, or placement intoCOMP\u00a0SCI\u00a0300), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 726,
+            "subjects": [
+                "COMPSCI",
+                "MATH",
+                "ISYE",
+                "STAT"
+            ]
+        },
+        "course_title": "NONLINEAR OPTIMIZATION I",
+        "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 708,
+            "subjects": [
+                "SOC",
+                "NE",
+                "ISYE",
+                "C&ESOC"
+            ]
+        },
+        "course_title": "SOCIETAL RISK MANAGEMENT OF TECHNOLOGICAL HAZARDS",
+        "description": "Issues involved in decision-making regarding technological risks and risk management in areas such as nuclear power, hazardous waste disposal, and pollution control. Risk perception and cognitive biases; risk analysis and decision analysis; political issues in risk management; regulatory mechanisms; and risk communication. Selected case studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 859,
+            "subjects": [
+                "PSYCH",
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN HUMAN FACTORS ENGINEERING",
+        "description": "",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 557,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HUMAN FACTORS ENGINEERING FOR HEALTHCARE SYSTEMS",
+        "description": "Introduction to the application of Human Factors Engineering theory and methods to the analysis and improvement of healthcare delivery systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 703,
+            "subjects": [
+                "ISYE",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "QUALITY OF HEALTH CARE: EVALUATION AND ASSURANCE",
+        "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 723,
+            "subjects": [
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "DYNAMIC PROGRAMMING AND ASSOCIATED TOPICS",
+        "description": "General and special techniques of dynamic programming developed by means of examples. Shortest-path algorithms. Deterministic equipment replacement models. Resource allocation problem. Traveling-salesman problem. Knapsack problem. Analysis of inventory systems. General stochastic formulations. Markovian decision processes.  Students are strongly encouraged to have knowledge of mathematical optimization (e.g.,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0525, I SY E 623,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0726), knowledge of analysis (e.g.,MATH/\u200bSTAT\u00a0\u00a0431or521) and programming ability (e.g.,COMP\u00a0SCI\u00a0200or 301)",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -43,95 +694,6 @@
     },
     {
         "course_reference": {
-            "course_number": 608,
-            "subjects": [
-                "PHARMACY",
-                "ISYE"
-            ]
-        },
-        "course_title": "SAFETY AND QUALITY IN THE MEDICATION USE SYSTEM",
-        "description": "Addresses the problems of medication errors and quality in health care, problem resolutions, methods of assessment, and intervention implementation and quality management.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Doctor of Pharmacy program with third year standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "MATH",
-                "ISYE",
-                "OTM",
-                "STAT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STOCHASTIC PROCESSES",
-        "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 421,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0431,309,STAT\u00a0311orMATH\u00a0531) and (MATH\u00a0320,340,341,375,421or531) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 315,
             "subjects": [
                 "ISYE"
@@ -153,205 +715,6 @@
     },
     {
         "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 526,
-            "subjects": [
-                "ISYE",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "ADVANCED LINEAR PROGRAMMING",
-        "description": "Review of linear programming. Polynomial time methods for linear programming. Quadratic programs and linear complementarity problems and related solution techniques. Solution sets and their continuity properties. Error bounds for linear inequalities and programs. Parallel algorithms for linear and quadratic programs.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 200,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 220,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 525,
-                    "subjects": [
-                        "MATH",
-                        "ISYE",
-                        "STAT",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH\u00a0\u00a0525and (COMP\u00a0SCI\u00a0200,220,300, 301, 302,310, or placement intoCOMP\u00a0SCI\u00a0300) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 349,
-            "subjects": [
-                "ISYE",
-                "PSYCH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO HUMAN FACTORS",
-        "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 531,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 360,
-                    "subjects": [
-                        "C&ESOC",
-                        "SOC"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,431,STAT\u00a0311,324,371,MATH\u00a0531,PSYCH\u00a0210, orC&E\u00a0SOC/\u200bSOC\u00a0\u00a0360, or concurrent registration), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 515,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "ENGINEERING MANAGEMENT OF CONTINUOUS PROCESS IMPROVEMENT",
-        "description": "Addresses the role of the industrial engineer as a \"manager\" of continuous improvement in design and production processes. Provides modern tools and techniques for planning and managing team projects, integrating the concepts of total quality, data based decision making, and resource management.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 397,
-                    "subjects": [
-                        "INTEREGR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing andINTEREGR\u00a0397(formerly E P D 397) or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 606,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN HEALTHCARE SYSTEMS ENGINEERING",
-        "description": "Various special topics in healthcare systems engineering, such as human factors in healthcare settings, operations research applied to healthcare, etc.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 617,
-            "subjects": [
-                "ISYE",
-                "BMI"
-            ]
-        },
-        "course_title": "HEALTH INFORMATION SYSTEMS",
-        "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 417,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0417, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 990,
             "subjects": [
                 "ISYE"
@@ -366,14 +729,13 @@
     },
     {
         "course_reference": {
-            "course_number": 703,
+            "course_number": 790,
             "subjects": [
-                "POPHLTH",
                 "ISYE"
             ]
         },
-        "course_title": "QUALITY OF HEALTH CARE: EVALUATION AND ASSURANCE",
-        "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
+        "course_title": "MASTER'S RESEARCH AND THESIS",
+        "description": "Directed Master's-level research projects as arranged with instructor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -381,108 +743,87 @@
     },
     {
         "course_reference": {
-            "course_number": 719,
+            "course_number": 478,
             "subjects": [
-                "ISYE",
-                "COMPSCI"
+                "ISYE"
             ]
         },
-        "course_title": "STOCHASTIC PROGRAMMING",
-        "description": "Stochastic programming is concerned with decision making in the presence of uncertainty, where the eventual outcome depends on a future random event. Topics include modeling uncertainty in optimization problems, risk measures, stochastic programming algorithms, approximation and sampling methods, and applications.  Students are strongly encouraged to have knowledge of linear programming (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525) and probability and statistics (e.g.,MATH/\u200bSTAT\u00a0\u00a0431). Knowledge of integer optimization (MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0728) is helpful, but not required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 524,
-            "subjects": [
-                "ISYE",
-                "ECE",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO OPTIMIZATION",
-        "description": "Introduction to mathematical optimization from a modeling and solution perspective. Formulation of applications as discrete and continuous optimization problems and equilibrium models. Survey and appropriate usage of basic algorithms, data and software tools, including modeling languages and subroutine libraries.",
+        "course_title": "RESEARCH AND BEYOND IN INDUSTRIAL ENGINEERING",
+        "description": "An introduction of skills required for successful research in graduate school. Preparing for graduate thesis writing, applying for graduate school, presenting research in a variety of ways. How to foster mental health and work-life balance.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 200,
+                    "course_number": 468,
                     "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 220,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
+                        "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "(COMP\u00a0SCI\u00a0200,220,300, 301, 302,310, or placement intoCOMP\u00a0SCI\u00a0300) and (MATH\u00a0320,340,341, or375) or graduate/professional standing"
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0468"
         }
     },
     {
         "course_reference": {
-            "course_number": 608,
-            "subjects": [
-                "ISYE",
-                "PHARMACY"
-            ]
-        },
-        "course_title": "SAFETY AND QUALITY IN THE MEDICATION USE SYSTEM",
-        "description": "Addresses the problems of medication errors and quality in health care, problem resolutions, methods of assessment, and intervention implementation and quality management.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Doctor of Pharmacy program with third year standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
+            "course_number": 604,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "QUALITY ASSURANCE SYSTEMS",
-        "description": "Introduces engineers to applications of total quality concepts and tools to develop, implement, and maintain an effective quality assurance system in a manufacturing or service organization. Emphasis is on documentation development, team-based improvement strategies, and international quality standards.",
+        "course_title": "SPECIAL TOPICS IN MANUFACTURING AND SUPPLY CHAIN MANAGEMENT",
+        "description": "Various special topics in manufacturing systems and supply chain management, such as digital manufacturing technologies, Internet of Things (IoT), supply chain, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 549,
+            "subjects": [
+                "PSYCH",
+                "ISYE"
+            ]
+        },
+        "course_title": "HUMAN FACTORS ENGINEERING",
+        "description": "Analysis and design of man-machine systems using human performance models and data. Emphasis on systems involving communication and control. Projects using digital and analog computer simulation techniques for system design.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 518,
+            "subjects": [
+                "COMPSCI",
+                "DS",
+                "ISYE"
+            ]
+        },
+        "course_title": "WEARABLE TECHNOLOGY",
+        "description": "Gives students hands-on experience in building wearable computing platforms. Designed for students who have a background in textiles and apparel design, computer science, engineering or media arts. By the completion of the course students will have fundamental knowledge of electronic circuitry, programming, and \"maker skills\".",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 605,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "COMPUTER INTEGRATED MANUFACTURING",
+        "description": "An introduction to computer-integrated design and manufacturing with a focus on manufacturing process planning. Emphasis on concurrent engineering principles, manufacturing process engineering, computer-aided process planning, NC programming, and CAM integration. Course provides experience with CAM software and NC machines.",
         "prerequisites": {
             "course_references": [
                 {
@@ -492,117 +833,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Junior standing andI\u00a0SY\u00a0E\u00a0315, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 417,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "HEALTH SYSTEMS ENGINEERING",
-        "description": "Introduction to the application of industrial engineering methods to the analysis and improvement of health care delivery. Exploration of common problems of decision making and control in health care. Examination of social, regulatory and economic factors unique to health care.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0320and349, graduate/professional standing, or member of Engineering Guest Students, or declared in Clinical and Community Outcomes Capstone Certificate"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 859,
-            "subjects": [
-                "ISYE",
-                "PSYCH"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN HUMAN FACTORS ENGINEERING",
-        "description": "",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 558,
-            "subjects": [
-                "ISYE",
-                "ME",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO COMPUTATIONAL GEOMETRY",
-        "description": "Introduction to fundamental geometric computations and algorithms, and their use for solving engineering and scientific problems. Computer representations of simple geometric objects and paradigms for algorithm design. Applications from areas of engineering analysis, design and manufacturing, biology, statistics, and other sciences.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 400,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(COMP SCI 367 or400) andMATH\u00a0234or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 517,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "DECISION MAKING IN HEALTH CARE",
-        "description": "Introduction to the use of decision sciences in health-care. Conceptual understanding of medical decision making and its tools including decision trees, sensitivity analysis, Markow (decision) processes, and Monte Carlo simulations with examples from the current medical literature.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 524,
-                    "subjects": [
-                        "ISYE",
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, orSTAT/\u200bMATH\u00a0\u00a0431) and (I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524), or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 476,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INDUSTRIAL ENGINEERING PROJECTS",
-        "description": "Complete design of an industrial engineering system in a real world setting, e.g., manufacturing, hospital, communications, food processing, distribution, transportation, etc.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0320,349, andINTEREGR\u00a0397(formerly E P D 397)"
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -629,73 +860,420 @@
     },
     {
         "course_reference": {
-            "course_number": 620,
+            "course_number": 526,
+            "subjects": [
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "ADVANCED LINEAR PROGRAMMING",
+        "description": "Review of linear programming. Polynomial time methods for linear programming. Quadratic programs and linear complementarity problems and related solution techniques. Solution sets and their continuity properties. Error bounds for linear inequalities and programs. Parallel algorithms for linear and quadratic programs.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 200,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 525,
+                    "subjects": [
+                        "COMPSCI",
+                        "MATH",
+                        "ISYE",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH\u00a0\u00a0525and (COMP\u00a0SCI\u00a0200,220,300, 301, 302,310, or placement intoCOMP\u00a0SCI\u00a0300) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 702,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "SIMULATION MODELING AND ANALYSIS",
-        "description": "Introduction to simulation modeling and analysis techniques with application to production, logistics, service, and other systems. Emphasis on model building, application of basic statistical data analysis, and the use of simulation for design, evaluation, and improvement of such systems. Introduction to available software. Case studies.",
+        "course_title": "GRADUATE COOPERATIVE EDUCATION PROGRAM",
+        "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 612,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INFORMATION SENSING AND ANALYSIS FOR MANUFACTURING PROCESSES",
+        "description": "Focuses on the sensing and multivariate data modeling and analysis techniques for monitoring, diagnosis, and quality improvement of manufacturing processes. The techniques introduced can find wide applications in health care, financial engineering, service industry applications, human factors, etc.",
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 512,
+                    "subjects": [
+                        "ME",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bM\u00a0E\u00a0\u00a0512, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 468,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO INDUSTRIAL ENGINEERING RESEARCH",
+        "description": "An introduction to the practice of conducting research in industrial engineering, literature reviews, identifying gaps in existing work, writing a research proposal.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 1,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "COOPERATIVE EDUCATION PROGRAM",
+        "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 555,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HUMAN PERFORMANCE AND ACCIDENT CAUSATION",
+        "description": "A systems view of accident causation, with emphasis on the human performance limitations important in industrial and other accidents. Models of causation, data collection systems, economic evaluation, and safety programs. Small group projects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 729,
+            "subjects": [
+                "MHR",
+                "ISYE"
+            ]
+        },
+        "course_title": "BEHAVIORAL ANALYSIS OF MANAGEMENT DECISION MAKING",
+        "description": "Examination of behavioral science literature dealing with the processes by which individuals, small groups and organizations make decisions. Understanding decision-making behavior in order to improve managerial performance; modeling decision-making processes for systems design and theory building purposes. Knowledge of statistics strongly encouraged such asSTAT\u00a0301.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 574,
+            "subjects": [
+                "NE",
+                "ISYE"
+            ]
+        },
+        "course_title": "METHODS FOR PROBABILISTIC RISK ANALYSIS OF NUCLEAR POWER PLANTS",
+        "description": "Methods for risk and reliability analysis of engineered systems, particularly as applied in the nuclear power industry. Fault trees and event trees, Bayesian data analysis, probabilistic risk management. Some familiarity with nuclear plant safety systems is helpful, but not required.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
                 {
                     "course_number": 324,
                     "subjects": [
                         "STAT"
                     ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
                 }
             ],
-            "prerequisites_text": "(COMP\u00a0SCI\u00a0200,220,300, 301, 302, or placement intoCOMP\u00a0SCI\u00a0300) and (STAT 224,312,324, orSTAT/\u200bMATH\u00a0\u00a0310), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, 224,324, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 723,
+            "course_number": 524,
             "subjects": [
-                "ISYE",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "DYNAMIC PROGRAMMING AND ASSOCIATED TOPICS",
-        "description": "General and special techniques of dynamic programming developed by means of examples. Shortest-path algorithms. Deterministic equipment replacement models. Resource allocation problem. Traveling-salesman problem. Knapsack problem. Analysis of inventory systems. General stochastic formulations. Markovian decision processes.  Students are strongly encouraged to have knowledge of mathematical optimization (e.g.,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0525, I SY E 623,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0726), knowledge of analysis (e.g.,MATH/\u200bSTAT\u00a0\u00a0431or521) and programming ability (e.g.,COMP\u00a0SCI\u00a0200or 301)",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 323,
-            "subjects": [
+                "COMPSCI",
+                "ECE",
                 "ISYE"
             ]
         },
-        "course_title": "OPERATIONS RESEARCH-DETERMINISTIC MODELING",
-        "description": "Basic techniques for modeling and optimizing deterministic systems with emphasis on linear programming. Computer solution of optimization problems. Applications to production, logistics, and service systems.",
+        "course_title": "INTRODUCTION TO OPTIMIZATION",
+        "description": "Introduction to mathematical optimization from a modeling and solution perspective. Formulation of applications as discrete and continuous optimization problems and equilibrium models. Survey and appropriate usage of basic algorithms, data and software tools, including modeling languages and subroutine libraries.",
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 200,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
                 {
                     "course_number": 341,
                     "subjects": [
                         "MATH"
                     ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0222and (MATH\u00a0340,341or375), or member of Engineering Guest Students"
+            "prerequisites_text": "(COMP\u00a0SCI\u00a0200,220,300, 301, 302,310, or placement intoCOMP\u00a0SCI\u00a0300) and (MATH\u00a0320,340,341, or375) or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 726,
+            "course_number": 510,
             "subjects": [
-                "MATH",
-                "ISYE",
-                "STAT",
-                "COMPSCI"
+                "ME",
+                "ISYE"
             ]
         },
-        "course_title": "NONLINEAR OPTIMIZATION I",
-        "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
+        "course_title": "FACILITIES PLANNING",
+        "description": "Introduction to plant location theory and analysis of models of plant location; models for determining plant size and time phasing; line balancing models; techniques for investigating conveyor and other material handling problems; and models of plant layout.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 323,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 524,
+                    "subjects": [
+                        "COMPSCI",
+                        "ECE",
+                        "ISYE"
+                    ]
+                },
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, (I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524) andI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 635,
+            "subjects": [
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "TOOLS AND ENVIRONMENTS FOR OPTIMIZATION",
+        "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 200,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "LIS",
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0320,340,341, or375) and (COMP\u00a0SCI\u00a0200,300, 301, 302, placement intoCOMP\u00a0SCI\u00a0300, orL\u00a0I\u00a0S/\u200bCOMP\u00a0SCI\u00a0\u00a0102(COMP SCI 202 prior to Fall 2023)); grad/professional standing; declared in the Capstone Certificate in Computer Sciences for Professionals"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 525,
+            "subjects": [
+                "COMPSCI",
+                "MATH",
+                "ISYE",
+                "STAT"
+            ]
+        },
+        "course_title": "LINEAR OPTIMIZATION",
+        "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 443,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0320,340,341,375, or443or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 823,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN OPERATIONS RESEARCH",
+        "description": "Subjects vary.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -703,27 +1281,13 @@
     },
     {
         "course_reference": {
-            "course_number": 601,
+            "course_number": 312,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN INDUSTRIAL ENGINEERING",
-        "description": "In various areas. Sample topics: \"Simulation\" and \"Systems Design\".",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 649,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INTERACTIVE DATA ANALYTICS",
-        "description": "A cognitive engineering approach to human-computer interaction and data visualization in particular. Includes a four-part description of effective visualization: design intent, data and application domain, representation and interface features, and human limits and capabilities. The philosophical perspective, scientific basis, and practical tools for effective data visualization and visual analytics. Data processing and how to create static graphs as well as web-based interactive visualizations using the statistical language R.",
+        "course_title": "DATA MANAGEMENT AND ANALYSIS FOR INDUSTRIAL ENGINEERS",
+        "description": "Fundamentals of data management and analysis. Formulating and solving real industrial engineering problems with appropriate data managing and modeling strategies. Fundamental industrial database management strategies, data preprocessing, visualization and modeling techniques; industrial database management and analysis techniques using leading programming software (MySQL and R).",
         "prerequisites": {
             "course_references": [
                 {
@@ -733,7 +1297,58 @@
                     ]
                 }
             ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0310,STAT\u00a0312,324, or340), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311, or324) or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 618,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "QUALITY ENGINEERING AND QUALITY MANAGEMENT",
+        "description": "Strategic quality planning, change management, problem identification and solving, process improvement, and performance evaluation. Business and decision-making skills related to quality systems and process improvement.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 517,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "DECISION MAKING IN HEALTH CARE",
+        "description": "Introduction to the use of decision sciences in health-care. Conceptual understanding of medical decision making and its tools including decision trees, sensitivity analysis, Markow (decision) processes, and Monte Carlo simulations with examples from the current medical literature.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 524,
+                    "subjects": [
+                        "COMPSCI",
+                        "ECE",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, orSTAT/\u200bMATH\u00a0\u00a0431) and (I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524), or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN HEALTHCARE SYSTEMS ENGINEERING",
+        "description": "Various special topics in healthcare systems engineering, such as human factors in healthcare settings, operations research applied to healthcare, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -759,386 +1374,131 @@
     },
     {
         "course_reference": {
-            "course_number": 320,
+            "course_number": 564,
             "subjects": [
+                "BME",
                 "ISYE"
             ]
         },
-        "course_title": "SIMULATION AND PROBABILISTIC MODELING",
-        "description": "Analysis of stochastic systems using both analytic methods and computer simulation. Empirical and theoretical models of arrival and service processes. State spaces and state transition probabilities. Simulation of queuing and manufacturing systems. Continuous time Markov analysis of manufacturing systems. Simulation project management, testing and emerging trends.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH/\u200bSTAT\u00a0\u00a0431,531or concurrent enrollment) and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,324,371, or concurrent enrollment) and (MATH\u00a0320,340, or concurrent enrollment), or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 890,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "PRE-DISSERTATOR'S RESEARCH",
-        "description": "Directed PhD-level research projects as arranged with faculty advisor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 641,
-            "subjects": [
-                "ISYE",
-                "ME"
-            ]
-        },
-        "course_title": "DESIGN AND ANALYSIS OF MANUFACTURING SYSTEMS",
-        "description": "Covers a broad range of techniques and tools relevant to the design, analysis, development, implementation, operation and control of modern manufacturing systems. Case studies assignments using industry data will be used to elaborate the practical applications of the theoretical concepts.",
+        "course_title": "OCCUPATIONAL ERGONOMICS AND BIOMECHANICS",
+        "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 315,
                     "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 612,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INFORMATION SENSING AND ANALYSIS FOR MANUFACTURING PROCESSES",
-        "description": "Focuses on the sensing and multivariate data modeling and analysis techniques for monitoring, diagnosis, and quality improvement of manufacturing processes. The techniques introduced can find wide applications in health care, financial engineering, service industry applications, human factors, etc.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 512,
-                    "subjects": [
-                        "ISYE",
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bM\u00a0E\u00a0\u00a0512, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 645,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "ENGINEERING MODELS FOR SUPPLY CHAINS",
-        "description": "Provides an overview of engineering fundamentals behind supply chains. Topics covered will include modeling and design of multi-stage production distribution systems, multi-echelon inventory models, theory of supply chain contracts, value of flexibility and information sharing in supply chains.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0323andI\u00a0SY\u00a0E\u00a0415, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 389,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "HONORS IN RESEARCH",
-        "description": "Undergraduate honors research projects supervised by faculty members.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Industrial Engineering Honors in Research"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 510,
-            "subjects": [
-                "ISYE",
-                "ME"
-            ]
-        },
-        "course_title": "FACILITIES PLANNING",
-        "description": "Introduction to plant location theory and analysis of models of plant location; models for determining plant size and time phasing; line balancing models; techniques for investigating conveyor and other material handling problems; and models of plant layout.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
+                        "BME"
                     ]
                 },
                 {
-                    "course_number": 524,
+                    "course_number": 349,
                     "subjects": [
-                        "ISYE",
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
+                        "PSYCH",
                         "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, (I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524) andI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, or graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349orB\u00a0M\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 348,
+            "course_number": 632,
             "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO HUMAN FACTORS ENGINEERING LABORATORY",
-        "description": "Hands on experience applying concepts discussed inI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349. Complete a small three-part design project. Learn how to measure light, sound, anthropometric, and psychophysiological data, and then apply these measurements to product and workplace design challenges.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Declared in Industrial Engineering and concurrent enrollment inI\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 555,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "HUMAN PERFORMANCE AND ACCIDENT CAUSATION",
-        "description": "A systems view of accident causation, with emphasis on the human performance limitations important in industrial and other accidents. Models of causation, data collection systems, economic evaluation, and safety programs. Small group projects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 730,
-            "subjects": [
+                "STAT",
                 "MATH",
                 "ISYE",
-                "COMPSCI"
+                "OTM"
             ]
         },
-        "course_title": "NONLINEAR OPTIMIZATION II",
-        "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
+        "course_title": "INTRODUCTION TO STOCHASTIC PROCESSES",
+        "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 726,
+                    "course_number": 311,
                     "subjects": [
-                        "MATH",
-                        "ISYE",
-                        "STAT",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH\u00a0\u00a0726"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "LOGISTICS SYSTEMS DESIGN",
-        "description": "Practical methods for the planning, design and evaluation of complex logistics and distribution systems. Modeling techniques and solution approaches that reduce cumbersome details of logistics systems into models with a manageable number of parameters and decision variables. It shows how the solutions to these models are interpreted into optimal rules that guide the operation, design or planning process. Practical methods for the planning, design and evaluation of complex logistics and distribution systems. Modeling techniques and solution approaches that reduce cumbersome details of logistics systems into models with a manageable number of parameters and decision variables. It shows how the solutions to these models are interpreted into optimal rules that guide the operation, design or planning process. Builds on knowledge of introductory programming such as Python, Matlab, or R.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 524,
-                    "subjects": [
-                        "ISYE",
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524) and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0310,STAT\u00a0312,324, or340), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 643,
-            "subjects": [
-                "ISYE",
-                "ME"
-            ]
-        },
-        "course_title": "PERFORMANCE ANALYSIS OF MANUFACTURING SYSTEMS",
-        "description": "Examines the state of the art in the use of stochastic network theory to develop performance models of modern manufacturing systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 400,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 200,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 632,
-                    "subjects": [
-                        "MATH",
-                        "ISYE",
-                        "OTM",
                         "STAT"
                     ]
                 },
                 {
-                    "course_number": 220,
+                    "course_number": 320,
                     "subjects": [
-                        "COMPSCI"
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 300,
+                    "course_number": 309,
                     "subjects": [
-                        "COMPSCI"
+                        "MATH",
+                        "STAT"
                     ]
                 },
                 {
-                    "course_number": 624,
+                    "course_number": 375,
                     "subjects": [
-                        "ISYE"
+                        "MATH"
                     ]
-                }
-            ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0624orSTAT/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bOTM\u00a0\u00a0632) and (COMP\u00a0SCI\u00a0200,220,300, 301, 302,400, or placement intoCOMP\u00a0SCI\u00a0300), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 557,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "HUMAN FACTORS ENGINEERING FOR HEALTHCARE SYSTEMS",
-        "description": "Introduction to the application of Human Factors Engineering theory and methods to the analysis and improvement of healthcare delivery systems.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
-                    "course_number": 349,
+                    "course_number": 531,
                     "subjects": [
-                        "ISYE",
-                        "PSYCH"
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 421,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349, or graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0431,309,STAT\u00a0311orMATH\u00a0531) and (MATH\u00a0320,340,341,375,421or531) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
         }
     },
     {
         "course_reference": {
-            "course_number": 708,
+            "course_number": 662,
             "subjects": [
-                "NE",
-                "ISYE",
-                "C&ESOC",
-                "SOC"
+                "BME",
+                "ISYE"
             ]
         },
-        "course_title": "SOCIETAL RISK MANAGEMENT OF TECHNOLOGICAL HAZARDS",
-        "description": "Issues involved in decision-making regarding technological risks and risk management in areas such as nuclear power, hazardous waste disposal, and pollution control. Risk perception and cognitive biases; risk analysis and decision analysis; political issues in risk management; regulatory mechanisms; and risk communication. Selected case studies.",
+        "course_title": "DESIGN AND HUMAN DISABILITY AND AGING",
+        "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 854,
-            "subjects": [
-                "ISYE",
-                "PSYCH"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN ORGANIZATION DESIGN",
-        "description": "",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 1,
+            "course_number": 191,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "COOPERATIVE EDUCATION PROGRAM",
-        "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 604,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN MANUFACTURING AND SUPPLY CHAIN MANAGEMENT",
-        "description": "Various special topics in manufacturing systems and supply chain management, such as digital manufacturing technologies, Internet of Things (IoT), supply chain, etc.",
+        "course_title": "THE PRACTICE OF INDUSTRIAL ENGINEERING",
+        "description": "An introduction to industrial engineering subject matter areas, problem types, and design/analysis approaches, techniques, and methodologies. Special emphasis on formulation and design alternatives for problem solving.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1146,55 +1506,23 @@
     },
     {
         "course_reference": {
-            "course_number": 728,
-            "subjects": [
-                "MATH",
-                "ISYE",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "INTEGER OPTIMIZATION",
-        "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 468,
+            "course_number": 615,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "INTRODUCTION TO INDUSTRIAL ENGINEERING RESEARCH",
-        "description": "An introduction to the practice of conducting research in industrial engineering, literature reviews, identifying gaps in existing work, writing a research proposal.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 549,
-            "subjects": [
-                "ISYE",
-                "PSYCH"
-            ]
-        },
-        "course_title": "HUMAN FACTORS ENGINEERING",
-        "description": "Analysis and design of man-machine systems using human performance models and data. Emphasis on systems involving communication and control. Projects using digital and analog computer simulation techniques for system design.",
+        "course_title": "PRODUCTION SYSTEMS CONTROL",
+        "description": "An intermediate to advanced course stressing the application of recent operations research techniques to production planning, scheduling and inventory control.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 349,
+                    "course_number": 315,
                     "subjects": [
-                        "ISYE",
-                        "PSYCH"
+                        "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315,320, and323and (STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -1220,80 +1548,16 @@
     },
     {
         "course_reference": {
-            "course_number": 727,
+            "course_number": 999,
             "subjects": [
-                "ISYE",
-                "COMPSCI"
+                "ISYE"
             ]
         },
-        "course_title": "CONVEX ANALYSIS",
-        "description": "Convex sets in finite-dimensional spaces: relative interiors, separation, set operations. Convex functions: conjugacy, subdifferentials and directional derivations, functional operations, Fenchel-Rockafellar duality. Applications to operations research and related areas.  Students taking this course are strongly encouraged to have had a course in basic analysis (e.g.MATH\u00a0521) and a course in linear algebra (e.g.,MATH\u00a0340).",
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Under faculty supervision.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 412,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF INDUSTRIAL DATA ANALYTICS",
-        "description": "Provides an understanding of the fundamentals of using data analytics to make data-driven decisions. Emphasizes applying techniques to industrial engineering problems. Focuses on formulating and solving real industrial problems with the appropriate modeling strategies and analytics principles for better decision making.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 210,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,STAT\u00a0311,324,MATH/\u200bSTAT\u00a0\u00a0309,431, orMATH\u00a0531), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 574,
-            "subjects": [
-                "NE",
-                "ISYE"
-            ]
-        },
-        "course_title": "METHODS FOR PROBABILISTIC RISK ANALYSIS OF NUCLEAR POWER PLANTS",
-        "description": "Methods for risk and reliability analysis of engineered systems, particularly as applied in the nuclear power industry. Fault trees and event trees, Bayesian data analysis, probabilistic risk management. Some familiarity with nuclear plant safety systems is helpful, but not required.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, 224,324, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -1320,261 +1584,37 @@
     },
     {
         "course_reference": {
-            "course_number": 425,
+            "course_number": 617,
             "subjects": [
-                "MATH",
                 "ISYE",
-                "COMPSCI"
+                "BMI"
             ]
         },
-        "course_title": "INTRODUCTION TO COMBINATORIAL OPTIMIZATION",
-        "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
+        "course_title": "HEALTH INFORMATION SYSTEMS",
+        "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 415,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO MANUFACTURING SYSTEMS, DESIGN AND ANALYSIS",
-        "description": "Introduction to the technologies, processes and systems of modern discrete part manufacturing. Emphasis on development of an understanding of the behavior of integrated systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 315,
+                    "course_number": 417,
                     "subjects": [
                         "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315or member of Engineering Guest Students"
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0417, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 570,
-            "subjects": [
-                "ISYE",
-                "ECE"
-            ]
-        },
-        "course_title": "ETHICS OF DATA FOR ENGINEERS",
-        "description": "Introduction to ethical issues in data engineering and principled solutions. Algorithmic fairness (individual fairness, group fairness, counterfactual fairness), differential privacy and its applications, and robustness.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 562,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 539,
-                    "subjects": [
-                        "ME",
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 532,
-                    "subjects": [
-                        "ME",
-                        "ECE",
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "ECE"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 521,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0521,562,M\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532, or539) and (E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH\u00a0331, orSTAT/\u200bMATH\u00a0\u00a0431), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 478,
+            "course_number": 323,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "RESEARCH AND BEYOND IN INDUSTRIAL ENGINEERING",
-        "description": "An introduction of skills required for successful research in graduate school. Preparing for graduate thesis writing, applying for graduate school, presenting research in a variety of ways. How to foster mental health and work-life balance.",
+        "course_title": "OPERATIONS RESEARCH-DETERMINISTIC MODELING",
+        "description": "Basic techniques for modeling and optimizing deterministic systems with emphasis on linear programming. Computer solution of optimization problems. Applications to production, logistics, and service systems.",
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0468"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 790,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "MASTER'S RESEARCH AND THESIS",
-        "description": "Directed Master's-level research projects as arranged with instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 618,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "QUALITY ENGINEERING AND QUALITY MANAGEMENT",
-        "description": "Strategic quality planning, change management, problem identification and solving, process improvement, and performance evaluation. Business and decision-making skills related to quality systems and process improvement.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 729,
-            "subjects": [
-                "ISYE",
-                "MHR"
-            ]
-        },
-        "course_title": "BEHAVIORAL ANALYSIS OF MANAGEMENT DECISION MAKING",
-        "description": "Examination of behavioral science literature dealing with the processes by which individuals, small groups and organizations make decisions. Understanding decision-making behavior in order to improve managerial performance; modeling decision-making processes for systems design and theory building purposes. Knowledge of statistics strongly encouraged such asSTAT\u00a0301.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 708,
-            "subjects": [
-                "NE",
-                "ISYE",
-                "SOC",
-                "C&ESOC"
-            ]
-        },
-        "course_title": "SOCIETAL RISK MANAGEMENT OF TECHNOLOGICAL HAZARDS",
-        "description": "Issues involved in decision-making regarding technological risks and risk management in areas such as nuclear power, hazardous waste disposal, and pollution control. Risk perception and cognitive biases; risk analysis and decision analysis; political issues in risk management; regulatory mechanisms; and risk communication. Selected case studies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "MATH",
-                "ISYE",
-                "STAT",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "LINEAR OPTIMIZATION",
-        "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 443,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
                 {
                     "course_number": 341,
                     "subjects": [
@@ -1582,199 +1622,18 @@
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0320,340,341,375, or443or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+            "prerequisites_text": "MATH\u00a0222and (MATH\u00a0340,341or375), or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 489,
+            "course_number": 412,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "HONORS IN RESEARCH",
-        "description": "Undergraduate honors research projects supervised by faculty members.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Industrial Engineering Honors in Research"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 518,
-            "subjects": [
-                "ISYE",
-                "DS",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "WEARABLE TECHNOLOGY",
-        "description": "Gives students hands-on experience in building wearable computing platforms. Designed for students who have a background in textiles and apparel design, computer science, engineering or media arts. By the completion of the course students will have fundamental knowledge of electronic circuitry, programming, and \"maker skills\".",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 702,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "GRADUATE COOPERATIVE EDUCATION PROGRAM",
-        "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 875,
-            "subjects": [
-                "POPHLTH",
-                "ISYE"
-            ]
-        },
-        "course_title": "COST EFFECTIVENESS ANALYSIS IN HEALTH AND HEALTHCARE",
-        "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 797,
-                    "subjects": [
-                        "POPHLTH",
-                        "SOC"
-                    ]
-                },
-                {
-                    "course_number": 552,
-                    "subjects": [
-                        "POPHLTH",
-                        "BMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "PRODUCTION SYSTEMS CONTROL",
-        "description": "An intermediate to advanced course stressing the application of recent operations research techniques to production planning, scheduling and inventory control.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315,320, and323and (STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 313,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "ENGINEERING ECONOMIC ANALYSIS",
-        "description": "Financial accounting principles and cost systems, interpretation and use of accounting reports and supplemental information for engineering economic analyses, consideration of cost-volume-profit analyses, use of discounted cash flow techniques, flexible budgeting, transfer pricing, and capital budgeting.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0217,221, or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 603,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN ENGINEERING ANALYTICS AND OPERATIONS RESEARCH",
-        "description": "Various special topics in engineering analytics and operations research, such as machine learning, data management and analysis, optimization, etc.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Under faculty supervision.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 961,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "GRADUATE SEMINAR IN INDUSTRIAL ENGINEERING",
-        "description": "Topics vary.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 653,
-            "subjects": [
-                "ISYE",
-                "PSYCH"
-            ]
-        },
-        "course_title": "ORGANIZATION AND JOB DESIGN",
-        "description": "Design of productive organizations and people's roles within them. Issues including boundary location, organizational decision levels, autonomous work groups, implementation and diffusion. Roles of the union. Case studies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 312,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "DATA MANAGEMENT AND ANALYSIS FOR INDUSTRIAL ENGINEERS",
-        "description": "Fundamentals of data management and analysis. Formulating and solving real industrial engineering problems with appropriate data managing and modeling strategies. Fundamental industrial database management strategies, data preprocessing, visualization and modeling techniques; industrial database management and analysis techniques using leading programming software (MySQL and R).",
+        "course_title": "FUNDAMENTALS OF INDUSTRIAL DATA ANALYTICS",
+        "description": "Provides an understanding of the fundamentals of using data analytics to make data-driven decisions. Emphasizes applying techniques to industrial engineering problems. Focuses on formulating and solving real industrial problems with the appropriate modeling strategies and analytics principles for better decision making.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1784,76 +1643,20 @@
                     ]
                 }
             ],
-            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311, or324) or member of Engineering Guest Students"
+            "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,STAT\u00a0311,324,MATH/\u200bSTAT\u00a0\u00a0309,431, orMATH\u00a0531), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 662,
+            "course_number": 728,
             "subjects": [
-                "ISYE",
-                "BME"
-            ]
-        },
-        "course_title": "DESIGN AND HUMAN DISABILITY AND AGING",
-        "description": "Design of products for persons with physical, sensory or cognitive impairments is covered as well as the design of standard mass market products. Interdisciplinary teams explore specific disabilities, then design a standard mass market product in competition with each other.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 210,
-            "subjects": [
+                "COMPSCI",
+                "MATH",
                 "ISYE"
             ]
         },
-        "course_title": "INTRODUCTION TO INDUSTRIAL STATISTICS",
-        "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0211,217, or221) or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 552,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "HUMAN FACTORS ENGINEERING DESIGN AND EVALUATION",
-        "description": "Evaluation, analysis, and design recommendations for improving human performance and productivity in applied settings. Collection of instrument-based and user survey data. Emphasis on ergonomics, human factors and sociotechnical systems engineering approaches and problems. Design project required.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349andINTEREGR\u00a0397(formerly E P D 397) or concurrent enrollment or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 823,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN OPERATIONS RESEARCH",
-        "description": "Subjects vary.",
+        "course_title": "INTEGER OPTIMIZATION",
+        "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1861,55 +1664,13 @@
     },
     {
         "course_reference": {
-            "course_number": 512,
-            "subjects": [
-                "ISYE",
-                "ME"
-            ]
-        },
-        "course_title": "INSPECTION, QUALITY CONTROL AND RELIABILITY",
-        "description": "Inspection data for quality control; sampling plans for acceptance inspection; charts for process control. Introduction to reliability models and acceptance testing.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, 224,324, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 350,
+            "course_number": 320,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "INDUSTRIAL ENGINEERING DESIGN I",
-        "description": "Introduction to the tools needed for advanced design courses through experiential learning and hands-on opportunities to conduct experiments, take relevant measurements, analyze real-world data, design systems, and to make and test prototypes of designs.",
+        "course_title": "SIMULATION AND PROBABILISTIC MODELING",
+        "description": "Analysis of stochastic systems using both analytic methods and computer simulation. Empirical and theoretical models of arrival and service processes. State spaces and state transition probabilities. Simulation of queuing and manufacturing systems. Continuous time Markov analysis of manufacturing systems. Simulation project management, testing and emerging trends.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1919,130 +1680,28 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Declared in Industrial Engineering, (COMP\u00a0SCI\u00a0200,220,300, 301, 302, or placement intoCOMP\u00a0SCI\u00a0300), (I\u00a0SY\u00a0E\u00a0210,MATH/\u200bSTAT\u00a0\u00a0309,431,MATH\u00a0531,STAT\u00a0311or324) andI\u00a0SY\u00a0E\u00a0315"
+            "prerequisites_text": "(MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH/\u200bSTAT\u00a0\u00a0431,531or concurrent enrollment) and (I\u00a0SY\u00a0E\u00a0210,E\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,324,371, or concurrent enrollment) and (MATH\u00a0320,340, or concurrent enrollment), or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 635,
-            "subjects": [
-                "ISYE",
-                "COMPSCI"
-            ]
-        },
-        "course_title": "TOOLS AND ENVIRONMENTS FOR OPTIMIZATION",
-        "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 200,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "LIS",
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0320,340,341, or375) and (COMP\u00a0SCI\u00a0200,300, 301, 302, placement intoCOMP\u00a0SCI\u00a0300, orL\u00a0I\u00a0S/\u200bCOMP\u00a0SCI\u00a0\u00a0102(COMP SCI 202 prior to Fall 2023)); grad/professional standing; declared in the Capstone Certificate in Computer Sciences for Professionals"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 605,
+            "course_number": 515,
             "subjects": [
                 "ISYE"
             ]
         },
-        "course_title": "COMPUTER INTEGRATED MANUFACTURING",
-        "description": "An introduction to computer-integrated design and manufacturing with a focus on manufacturing process planning. Emphasis on concurrent engineering principles, manufacturing process engineering, computer-aided process planning, NC programming, and CAM integration. Course provides experience with CAM software and NC machines.",
+        "course_title": "ENGINEERING MANAGEMENT OF CONTINUOUS PROCESS IMPROVEMENT",
+        "description": "Addresses the role of the industrial engineer as a \"manager\" of continuous improvement in design and production processes. Provides modern tools and techniques for planning and managing team projects, integrating the concepts of total quality, data based decision making, and resource management.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 315,
+                    "course_number": 397,
                     "subjects": [
-                        "ISYE"
+                        "INTEREGR"
                     ]
                 }
             ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 564,
-            "subjects": [
-                "ISYE",
-                "BME"
-            ]
-        },
-        "course_title": "OCCUPATIONAL ERGONOMICS AND BIOMECHANICS",
-        "description": "Introduces engineers how to design manufacturing and industrial operations in which people play a significant role, so that human capabilities are maximized, physical stress is minimized, and workload is optimized. Examples and topics emphasize industrial applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 349,
-                    "subjects": [
-                        "ISYE",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 315,
-                    "subjects": [
-                        "BME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349orB\u00a0M\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 602,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN HUMAN FACTORS",
-        "description": "Various special topics in human factors engineering. Course topic may vary from semester to semester. Different versions of this course may be offered in same semester.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Senior standing andINTEREGR\u00a0397(formerly E P D 397) or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -2068,27 +1727,14 @@
     },
     {
         "course_reference": {
-            "course_number": 191,
+            "course_number": 512,
             "subjects": [
+                "ME",
                 "ISYE"
             ]
         },
-        "course_title": "THE PRACTICE OF INDUSTRIAL ENGINEERING",
-        "description": "An introduction to industrial engineering subject matter areas, problem types, and design/analysis approaches, techniques, and methodologies. Special emphasis on formulation and design alternatives for problem solving.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 516,
-            "subjects": [
-                "ISYE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO DECISION ANALYSIS",
-        "description": "Overview of modeling techniques and methods used in decision analysis, including multiattribute utility models, decision trees, and Bayesian models. Psychological components of decision making are discussed. Elicitation techniques for model building are emphasized. Practical applications through real world model building are described and conducted.",
+        "course_title": "INSPECTION, QUALITY CONTROL AND RELIABILITY",
+        "description": "Inspection data for quality control; sampling plans for acceptance inspection; charts for process control. Introduction to reliability models and acceptance testing.",
         "prerequisites": {
             "course_references": [
                 {
@@ -2096,9 +1742,329 @@
                     "subjects": [
                         "STAT"
                     ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
                 }
             ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, 224,324, orSTAT/\u200bMATH\u00a0\u00a0431), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 641,
+            "subjects": [
+                "ME",
+                "ISYE"
+            ]
+        },
+        "course_title": "DESIGN AND ANALYSIS OF MANUFACTURING SYSTEMS",
+        "description": "Covers a broad range of techniques and tools relevant to the design, analysis, development, implementation, operation and control of modern manufacturing systems. Case studies assignments using industry data will be used to elaborate the practical applications of the theoretical concepts.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 602,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN HUMAN FACTORS",
+        "description": "Various special topics in human factors engineering. Course topic may vary from semester to semester. Different versions of this course may be offered in same semester.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 415,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO MANUFACTURING SYSTEMS, DESIGN AND ANALYSIS",
+        "description": "Introduction to the technologies, processes and systems of modern discrete part manufacturing. Emphasis on development of an understanding of the behavior of integrated systems.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0315or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 608,
+            "subjects": [
+                "PHARMACY",
+                "ISYE"
+            ]
+        },
+        "course_title": "SAFETY AND QUALITY IN THE MEDICATION USE SYSTEM",
+        "description": "Addresses the problems of medication errors and quality in health care, problem resolutions, methods of assessment, and intervention implementation and quality management.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Doctor of Pharmacy program with third year standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 730,
+            "subjects": [
+                "COMPSCI",
+                "MATH",
+                "ISYE"
+            ]
+        },
+        "course_title": "NONLINEAR OPTIMIZATION II",
+        "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 726,
+                    "subjects": [
+                        "COMPSCI",
+                        "MATH",
+                        "ISYE",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH\u00a0\u00a0726"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 210,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO INDUSTRIAL STATISTICS",
+        "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0211,217, or221) or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 520,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "QUALITY ASSURANCE SYSTEMS",
+        "description": "Introduces engineers to applications of total quality concepts and tools to develop, implement, and maintain an effective quality assurance system in a manufacturing or service organization. Emphasis is on documentation development, team-based improvement strategies, and international quality standards.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 315,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing andI\u00a0SY\u00a0E\u00a0315, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 645,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "ENGINEERING MODELS FOR SUPPLY CHAINS",
+        "description": "Provides an overview of engineering fundamentals behind supply chains. Topics covered will include modeling and design of multi-stage production distribution systems, multi-echelon inventory models, theory of supply chain contracts, value of flexibility and information sharing in supply chains.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0323andI\u00a0SY\u00a0E\u00a0415, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 653,
+            "subjects": [
+                "PSYCH",
+                "ISYE"
+            ]
+        },
+        "course_title": "ORGANIZATION AND JOB DESIGN",
+        "description": "Design of productive organizations and people's roles within them. Issues including boundary location, organizational decision levels, autonomous work groups, implementation and diffusion. Roles of the union. Case studies.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E/\u200bPSYCH\u00a0\u00a0349, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 719,
+            "subjects": [
+                "COMPSCI",
+                "ISYE"
+            ]
+        },
+        "course_title": "STOCHASTIC PROGRAMMING",
+        "description": "Stochastic programming is concerned with decision making in the presence of uncertainty, where the eventual outcome depends on a future random event. Topics include modeling uncertainty in optimization problems, risk measures, stochastic programming algorithms, approximation and sampling methods, and applications.  Students are strongly encouraged to have knowledge of linear programming (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525) and probability and statistics (e.g.,MATH/\u200bSTAT\u00a0\u00a0431). Knowledge of integer optimization (MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0728) is helpful, but not required.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "ISYE",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "COST EFFECTIVENESS ANALYSIS IN HEALTH AND HEALTHCARE",
+        "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 797,
+                    "subjects": [
+                        "SOC",
+                        "POPHLTH"
+                    ]
+                },
+                {
+                    "course_number": 552,
+                    "subjects": [
+                        "POPHLTH",
+                        "BMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bPOP\u00a0HLTH\u00a0\u00a0797andPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0552"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 961,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "GRADUATE SEMINAR IN INDUSTRIAL ENGINEERING",
+        "description": "Topics vary.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "INDUSTRIAL ENGINEERING DESIGN II",
+        "description": "Team-based project experience to address a real-world design challenge posed by an external organization. Collaboration with the project client to design a new system or process, or redesign an existing one, by integrating and applying appropriate Industrial and Systems Engineering knowledge, methodologies and tools for problem definition and analysis; idea generation; solution development, evaluation and justification; and implementation planning and impact assessment.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 350,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing only,I\u00a0SY\u00a0E\u00a0313,320,323,350, andPSYCH/\u200bI\u00a0SY\u00a0E\u00a0\u00a0349"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Under faculty supervision.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 417,
+            "subjects": [
+                "ISYE"
+            ]
+        },
+        "course_title": "HEALTH SYSTEMS ENGINEERING",
+        "description": "Introduction to the application of industrial engineering methods to the analysis and improvement of health care delivery. Exploration of common problems of decision making and control in health care. Examination of social, regulatory and economic factors unique to health care.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 349,
+                    "subjects": [
+                        "PSYCH",
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0320and349, graduate/professional standing, or member of Engineering Guest Students, or declared in Clinical and Community Outcomes Capstone Certificate"
         }
     }
 ]

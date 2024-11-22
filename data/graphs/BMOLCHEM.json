@@ -1,20 +1,193 @@
 [
     {
         "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "source": "MICROBIO 303",
+            "target": "MICROBIO 470"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
+            "id": "MICROBIO 303",
+            "parent": "MICROBIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MICROBIO 470",
+            "target": "BIOCHEM/GENETICS/MICROBIO 612"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 507",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM/GENETICS/MICROBIO 612",
+            "target": "MICROBIO 470"
+        }
+    },
+    {
+        "data": {
+            "description": "Molecular basis of bacterial physiology and genetics with emphasis on molecular mechanisms; topics include nucleic acid-protein interactions, transcription, translation, replication, recombination, regulation of gene expression.",
+            "id": "BIOCHEM/GENETICS/MICROBIO 612"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 415"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
+            "id": "BMOLCHEM 699",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 415"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
+            "id": "BMOLCHEM/MICROBIO 668"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
+            "id": "MATH 415",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
+            "id": "BMOLCHEM 675",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
+            "id": "MATH 341",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BOTANY/ZOOLOGY/BIOLOGY 151"
+            "target": "MICROBIO 303"
         }
     },
     {
         "data": {
-            "source": "GENETICS/BIOCHEM/MICROBIO 612",
-            "target": "BIOCHEM 507"
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Student-led discussions of RNA-related problems.",
-            "id": "BMOLCHEM/BIOCHEM 913"
+            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
+            "id": "BMOLCHEM 720",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
+            "id": "MATH 320",
+            "parent": "MATH"
         }
     },
     {
@@ -26,33 +199,14 @@
     },
     {
         "data": {
-            "source": "MATH 376",
-            "target": "MATH 415"
+            "source": "MATH 415",
+            "target": "MATH 341"
         }
     },
     {
         "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Research supervised by individual faculty members.",
-            "id": "BMOLCHEM 990",
+            "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
+            "id": "BMOLCHEM 700",
             "parent": "BMOLCHEM"
         }
     },
@@ -70,49 +224,6 @@
     },
     {
         "data": {
-            "source": "MICROBIO 470",
-            "target": "GENETICS/BIOCHEM/MICROBIO 612"
-        }
-    },
-    {
-        "data": {
-            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
-            "id": "BMOLCHEM 699",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO 303",
-            "target": "MICROBIO 470"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
             "description": "Examines modern microbial genetics and molecular processes. Emphasis on the use of eubacterial and eukaryotic microbes to elucidate cellular function. Discussion of experimental approaches to study microbes and their use in biotechnology, bioremediation, and medicine.",
             "id": "MICROBIO 470",
             "parent": "MICROBIO"
@@ -120,61 +231,21 @@
     },
     {
         "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "BMOLCHEM/MICROBIO 668"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
-            "parent": "MATH"
+            "source": "MATH 375",
+            "target": "MATH 376"
         }
     },
     {
         "data": {
-            "id": "MATH",
+            "id": "MICROBIO",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical review of selected topics in biomolecular chemistry.",
-            "id": "BMOLCHEM 901",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
-            "id": "MATH 415",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
         }
     },
     {
@@ -186,33 +257,63 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
+            "id": "CHEM 341",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
+        }
+    },
+    {
+        "data": {
+            "source": "MICROBIO 470",
+            "target": "BMOLCHEM/MICROBIO 668"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 375"
         }
     },
     {
         "data": {
             "source": "MATH 222",
-            "target": "MATH 234"
+            "target": "MATH 340"
         }
     },
     {
         "data": {
-            "source": "MATH 415",
-            "target": "MATH 320"
+            "id": "CHEM",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
+            "id": "BIOCHEM",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
             "parent": "CHEM"
         }
     },
@@ -225,21 +326,8 @@
     },
     {
         "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BOTANY/ZOOLOGY/BIOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MICROBIO 303"
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM/GENETICS/MICROBIO 612"
         }
     },
     {
@@ -250,72 +338,46 @@
     },
     {
         "data": {
-            "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
-            "id": "BMOLCHEM/BIOCHEM 701"
+            "description": "Student-led discussions of RNA-related problems.",
+            "id": "BIOCHEM/BMOLCHEM 913"
         }
     },
     {
         "data": {
-            "source": "MATH 234",
-            "target": "MATH 341"
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "BOTANY/ZOOLOGY/BIOLOGY 151",
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
-            "id": "MICROBIO 303",
-            "parent": "MICROBIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
-            "id": "MATH 341",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "MATH 375"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
-            "id": "BMOLCHEM 700",
-            "parent": "BMOLCHEM"
+            "id": "BMOLCHEM",
+            "type": "compound"
         }
     },
     {
         "data": {
             "source": "CHEM 343",
             "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
+            "id": "BIOCHEM/BMOLCHEM 701"
+        }
+    },
+    {
+        "data": {
+            "description": "Research supervised by individual faculty members.",
+            "id": "BMOLCHEM 990",
+            "parent": "BMOLCHEM"
         }
     },
     {
@@ -327,65 +389,8 @@
     },
     {
         "data": {
-            "source": "MATH 320",
-            "target": "MATH/BMOLCHEM/BMI/BIOCHEM 609"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
-            "id": "BMOLCHEM/MICROBIO 668"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
-            "id": "BMOLCHEM 720",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "BMOLCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "MATH 415"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
-            "id": "BMOLCHEM 675",
-            "parent": "BMOLCHEM"
+            "source": "MATH 234",
+            "target": "MATH 341"
         }
     },
     {
@@ -397,33 +402,34 @@
     },
     {
         "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
+            "description": "Critical review of selected topics in biomolecular chemistry.",
+            "id": "BMOLCHEM 901",
+            "parent": "BMOLCHEM"
         }
     },
     {
         "data": {
-            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-            "id": "MATH/BMOLCHEM/BMI/BIOCHEM 609"
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
+            "source": "MATH 221",
+            "target": "MATH 211"
         }
     },
     {
         "data": {
-            "description": "Molecular basis of bacterial physiology and genetics with emphasis on molecular mechanisms; topics include nucleic acid-protein interactions, transcription, translation, replication, recombination, regulation of gene expression.",
-            "id": "GENETICS/BIOCHEM/MICROBIO 612"
+            "source": "MATH 375",
+            "target": "MATH 320"
         }
     },
     {
         "data": {
-            "id": "MICROBIO",
-            "type": "compound"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     }
 ]

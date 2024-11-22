@@ -1,6 +1,35 @@
 [
     {
         "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "MDGENET"
+            ]
+        },
+        "course_title": "INDEPENDENT WORK",
+        "description": "Directed study projects as arranged with instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 707,
+            "subjects": [
+                "MDGENET",
+                "GENETICS"
+            ]
+        },
+        "course_title": "GENETICS OF DEVELOPMENT",
+        "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Genetics graduate program"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 565,
             "subjects": [
                 "MDGENET",
@@ -37,8 +66,8 @@
         "course_reference": {
             "course_number": 636,
             "subjects": [
-                "POPHLTH",
                 "MDGENET",
+                "POPHLTH",
                 "GENETICS"
             ]
         },
@@ -49,8 +78,8 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "BIOLOGY",
                         "BOTANY",
+                        "BIOLOGY",
                         "ZOOLOGY"
                     ]
                 }
@@ -60,36 +89,31 @@
     },
     {
         "course_reference": {
-            "course_number": 662,
+            "course_number": 620,
             "subjects": [
                 "MDGENET",
+                "BIOCHEM",
                 "GENETICS"
             ]
         },
-        "course_title": "CANCER GENETICS",
-        "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
+        "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
+        "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 383,
+                    "course_number": 508,
                     "subjects": [
-                        "BIOCORE"
+                        "BIOCHEM"
                     ]
                 },
                 {
-                    "course_number": 467,
+                    "course_number": 501,
                     "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
+                        "BIOCHEM"
                     ]
                 }
             ],
-            "prerequisites_text": "GENETICS\u00a0466,467orBIOCORE\u00a0383"
+            "prerequisites_text": "BIOCHEM\u00a0501,508or graduate/professional standing"
         }
     },
     {
@@ -128,112 +152,36 @@
     },
     {
         "course_reference": {
-            "course_number": 620,
+            "course_number": 662,
             "subjects": [
                 "MDGENET",
-                "GENETICS",
-                "BIOCHEM"
+                "GENETICS"
             ]
         },
-        "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
-        "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
+        "course_title": "CANCER GENETICS",
+        "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 501,
+                    "course_number": 383,
                     "subjects": [
-                        "BIOCHEM"
+                        "BIOCORE"
                     ]
                 },
                 {
-                    "course_number": 508,
+                    "course_number": 467,
                     "subjects": [
-                        "BIOCHEM"
+                        "GENETICS"
                     ]
-                }
-            ],
-            "prerequisites_text": "BIOCHEM\u00a0501,508or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 708,
-            "subjects": [
-                "MDGENET",
-                "GENETICS"
-            ]
-        },
-        "course_title": "METHODS AND LOGIC IN GENETIC ANALYSIS",
-        "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Genetics graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 707,
-            "subjects": [
-                "MDGENET",
-                "GENETICS"
-            ]
-        },
-        "course_title": "GENETICS OF DEVELOPMENT",
-        "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Genetics graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "MDGENET"
-            ]
-        },
-        "course_title": "INDEPENDENT READING",
-        "description": "Directed study projects as arranged with instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "MDGENET"
-            ]
-        },
-        "course_title": "INDEPENDENT WORK",
-        "description": "Directed study projects as arranged with instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "MDGENET",
-                "BIOCHEM",
-                "GENETICS"
-            ]
-        },
-        "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
-        "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
-                    "course_number": 508,
+                    "course_number": 466,
                     "subjects": [
-                        "BIOCHEM"
+                        "GENETICS"
                     ]
                 }
             ],
-            "prerequisites_text": "BIOCHEM\u00a0501,508or graduate/professional standing"
+            "prerequisites_text": "GENETICS\u00a0466,467orBIOCORE\u00a0383"
         }
     },
     {
@@ -259,27 +207,31 @@
     },
     {
         "course_reference": {
-            "course_number": 636,
+            "course_number": 699,
+            "subjects": [
+                "MDGENET"
+            ]
+        },
+        "course_title": "INDEPENDENT READING",
+        "description": "Directed study projects as arranged with instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 708,
             "subjects": [
                 "MDGENET",
-                "POPHLTH",
                 "GENETICS"
             ]
         },
-        "course_title": "PUBLIC HEALTH GENOMICS",
-        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+        "course_title": "METHODS AND LOGIC IN GENETIC ANALYSIS",
+        "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Declared in Genetics graduate program"
         }
     }
 ]

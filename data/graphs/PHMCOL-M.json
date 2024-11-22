@@ -1,20 +1,168 @@
 [
     {
         "data": {
-            "id": "CROSSLISTED",
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 486",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "description": "Research facilities of the department available to qualified students.",
+            "id": "PHMCOL-M 990",
+            "parent": "PHMCOL-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
+            "id": "PHMCOL-M 739",
+            "parent": "PHMCOL-M"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
+            "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
+            "id": "PHMCOL-M 781",
+            "parent": "PHMCOL-M"
         }
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "source": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625",
+            "target": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
+            "id": "BIOCHEM 507",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 507",
+            "target": "BIOCHEM 508"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+            "id": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
         }
     },
     {
@@ -33,51 +181,89 @@
     },
     {
         "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS/MEDPHYS 265"
+            "id": "BIOCORE",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "PHMSCI 521",
-            "target": "PHMSCI/PHMCOL-M 522"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
+            "source": "PHYSICS 104",
             "target": "PHYSICS 248"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "source": "CHEM 104",
+            "target": "CHEM 343"
         }
     },
     {
         "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BOTANY/ZOOLOGY/BIOLOGY 151"
+            "description": "Experience the process of science by collaborating on  independent experiments to investigate your questions about animal and plant physiology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
+            "id": "BIOCORE 486",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Pharmacological actions of important drugs, including hematopoietic, thrombolytic, antihyperlipidemic, immunopharmacologic, anticancer, anti-inflammatory, diuretic, antihypertensive, antianginal, and anti-arrhythmic agents, and agents used to treat congestive heart failure.",
+            "id": "PHMCOL-M/PHMSCI 522"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
         }
     },
     {
@@ -89,32 +275,58 @@
     },
     {
         "data": {
-            "source": "BOTANY/ZOOLOGY/BIOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
         }
     },
     {
         "data": {
-            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-            "id": "POPHLTH/PHMCOL-M/PHMSCI/PATH/M&ENVTOX 626"
+            "id": "BIOCHEM",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
+            "description": "Special topics in pharmacology. Topics may vary.",
+            "id": "PHMCOL-M 875",
+            "parent": "PHMCOL-M"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 486",
-            "target": "BIOCHEM 508"
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/PHYSICS 265"
         }
     },
     {
         "data": {
-            "id": "PATH",
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
+            "id": "ANAT&PHY 335",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "id": "PHMSCI",
             "type": "compound"
         }
     },
@@ -127,27 +339,108 @@
     },
     {
         "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
+            "id": "PHMCOL-M",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 335",
+            "target": "PATH 404"
+        }
+    },
+    {
+        "data": {
+            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+            "id": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "source": "PATH 404",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM 508"
+        }
+    },
+    {
+        "data": {
+            "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
+            "id": "PHMSCI 521",
+            "parent": "PHMSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
+            "id": "BIOCHEM 508",
             "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/PHMCOL-M/ONCOLOGY/PHMSCI/M&ENVTOX 625",
-            "target": "POPHLTH/PHMCOL-M/PHMSCI/PATH/M&ENVTOX 626"
         }
     },
     {
         "data": {
             "source": "BIOCORE 383",
             "target": "BIOCORE 485"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 104",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "BIOCORE 486"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 435",
+            "target": "ANAT&PHY 335"
         }
     },
     {
@@ -159,27 +452,35 @@
     },
     {
         "data": {
-            "id": "BIOCORE",
-            "type": "compound"
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
         }
     },
     {
         "data": {
-            "description": "Research facilities of the department available to qualified students.",
-            "id": "PHMCOL-M 990",
+            "description": "Develop a predoctoral fellowship application based on the student's proposed thesis project. Receive input on ideas and writing, both from the instructor and peers.",
+            "id": "PHMCOL-M 715",
             "parent": "PHMCOL-M"
         }
     },
     {
         "data": {
-            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-            "id": "PHYSICS/MEDPHYS 265"
+            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+            "id": "PHYSICS 202",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BOTANY/ZOOLOGY/BIOLOGY 151"
+            "id": "PATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
         }
     },
     {
@@ -197,194 +498,14 @@
     },
     {
         "data": {
-            "description": "Experience the process of science by collaborating on  independent experiments to investigate your questions about animal and plant physiology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
-            "id": "BIOCORE 486",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for juniors and seniors.",
-            "id": "PHMCOL-M 699",
-            "parent": "PHMCOL-M"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "PATH 404"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Pharmacological actions of important drugs, including hematopoietic, thrombolytic, antihyperlipidemic, immunopharmacologic, anticancer, anti-inflammatory, diuretic, antihypertensive, antianginal, and anti-arrhythmic agents, and agents used to treat congestive heart failure.",
-            "id": "PHMSCI/PHMCOL-M 522"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
-            "id": "PHYSICS 104",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-            "id": "POPHLTH/PHMCOL-M/ONCOLOGY/PHMSCI/M&ENVTOX 625"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "BIOCORE 485"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
-            "id": "PHMSCI 521",
-            "parent": "PHMSCI"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "ANAT&PHY 435"
         }
     },
     {
         "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 104",
-            "target": "PHMCOL-M/MEDPHYS/RADIOL/BME/PHYSICS 619"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+            "id": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
         }
     },
     {
@@ -396,45 +517,8 @@
     },
     {
         "data": {
-            "source": "PHYSICS/MEDPHYS 265",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 485",
-            "target": "BIOCORE 486"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "PHMCOL-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 202"
         }
     },
     {
@@ -446,123 +530,15 @@
     },
     {
         "data": {
-            "description": "Special topics in pharmacology. Topics may vary.",
-            "id": "PHMCOL-M 875",
-            "parent": "PHMCOL-M"
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 485",
-            "target": "POPHLTH/PHMCOL-M/ONCOLOGY/PHMSCI/M&ENVTOX 625"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
-            "id": "ANAT&PHY 335",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
-            "id": "PHMCOL-M 739",
-            "parent": "PHMCOL-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 335",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "id": "PHMSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PATH 404",
-            "target": "POPHLTH/PHMCOL-M/ONCOLOGY/PHMSCI/M&ENVTOX 625"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "PHMSCI 521"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "PHMCOL-M/MEDPHYS/RADIOL/BME/PHYSICS 619"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
-            "id": "PHMCOL-M 781",
-            "parent": "PHMCOL-M"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "PATH 404"
         }
     },
     {
@@ -573,27 +549,33 @@
     },
     {
         "data": {
-            "source": "BIOCHEM 501",
-            "target": "PATH 404"
+            "source": "BIOCHEM 508",
+            "target": "PHMSCI 521"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 508",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
         }
     },
     {
         "data": {
             "source": "PHYSICS 248",
-            "target": "PHYSICS 202"
+            "target": "PHYSICS 208"
         }
     },
     {
         "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop a predoctoral fellowship application based on the student's proposed thesis project. Receive input on ideas and writing, both from the instructor and peers.",
-            "id": "PHMCOL-M 715",
+            "description": "Directed study projects for juniors and seniors.",
+            "id": "PHMCOL-M 699",
             "parent": "PHMCOL-M"
+        }
+    },
+    {
+        "data": {
+            "source": "PHMSCI 521",
+            "target": "PHMCOL-M/PHMSCI 522"
         }
     }
 ]
