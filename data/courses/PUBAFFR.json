@@ -1,99 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 200,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "CONTEMPORARY PUBLIC POLICY ISSUES",
-        "description": "Offers a general primer on large-scale policies directed by US federal and state governments, with specific examples in pressing policy areas. Takes existing policies and the policy process as a given, explains them in detail, and puts a policy focus on very specific contemporary questions of concern to policymakers. Gain a broad overall knowledge of how the majority of state and federal funding is spent and the policy outcomes associated with that spending.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 880,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "MICROECONOMIC POLICY ANALYSIS",
-        "description": "The tools and techniques used in the economic approach to policy analysis. Emphasis is on applying these methodological tools to evaluating existing public policies and policy alternatives, as well as providing a deeper understanding of how the economy operates.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 270,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "THE PRIVATE AND PUBLIC SECTORS IN POLICYMAKING",
-        "description": "In domestic and international policymaking, stark differences between the private sector (the market) and the public sector (the state) are dissolving. The private sector is being pushed to help achieve public policy goals, while the public sector is being pushed to be customer-oriented. Overall focus on the interplay of the public and private sectors in policymaking. Develops an analytic framework and historical context for understanding how the roles and interactions of states and markets have fluctuated across time. Examines how the policymaking \"division of labor\" between states and markets has differed across countries. Examines energy, health, telecommunications, finance, transportation, or other policy areas in which governments are wary about letting markets function without state intervention. Apply concepts from political science, economics, public administration, business, sociology, and other fields in order to understand actual policy choices for various policy issues.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 819,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ADVANCED STATISTICAL METHODS FOR PUBLIC POLICY ANALYSIS",
-        "description": "A review of intermediate statistics, and an introduction to analytical, quantitative and computer techniques applicable to the analysis of public policy.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 818,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0818"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 810,
-            "subjects": [
-                "ENVIRST",
-                "URBRPL",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ENERGY ANALYSIS AND POLICY CAPSTONE",
-        "description": "Interdisciplinary application of energy knowledge to an analysis project for a real-world client. Integrate and apply technical, economic, political, and social factors in energy decision-making.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Energy Analysis and Policy Graduate/Professional Certificate or Doctoral Minor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 242,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF DATA ANALYSIS FOR HEALTH POLICY",
-        "description": "We have entered a new era of \"big data.\" It is now possible to collect and analyze genetic information, digital health records, and many other types of data quickly, cheaply, and non-invasively from large numbers of people. This new wealth of information creates exciting opportunities for more targeted, individualized approaches to health care and better management of public health risks such as age-related diseases or pandemics. However, it also creates policy challenges such as privacy, discrimination, equality, and fairness. Covers what types of health-relevant data exist, how such data is typically analyzed and used, and discuss what types of applications this enables, what type of policy challenges this brings about, and which options policy makers have to deal with these challenges. Analytic methods will include regression, principal component and cluster analysis, statistical approaches for prediction, how to interpret the results of such analyses and their limitations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 520,
             "subjects": [
                 "PUBAFFR"
@@ -101,6 +8,7 @@
         },
         "course_title": "INEQUALITY, RACE AND PUBLIC POLICY",
         "description": "Explore the impact of public policies and programs on the distribution of income, wealth and opportunity in the United States. Examines inequalities across various social dimensions with a focus on disparities across racial and ethnic groups. Begin with an introduction to key concepts in the measurement of inequality and poverty and an overview of recent trends. Systematically examine how public policy shapes inequality across a range of topical areas including labor markets, education, taxation, health, housing and criminal justice.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -108,13 +16,38 @@
     },
     {
         "course_reference": {
-            "course_number": 888,
+            "course_number": 854,
             "subjects": [
                 "PUBAFFR"
             ]
         },
-        "course_title": "COMPARATIVE AND NATIONAL SOCIAL POLICY",
-        "description": "An overview of the American system of public policy toward human resources, with an emphasis on how the American system compares with other nations' approaches to social welfare policy.  Other nations include OECD nations as well as emerging middle income countries in Asia and Latin America.  Social welfare policy is analyzed as three major branches: health, education and welfare.",
+        "course_title": "MACROECONOMIC POLICY AND INTERNATIONAL FINANCIAL REGULATION",
+        "description": "An introduction to international macroeconomic and financial policies with an emphasis on the interaction between domestic policies, and international financial markets, regulations and institutions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 880,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0880and declared in International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 874,
+            "subjects": [
+                "PUBAFFR",
+                "URBRPL",
+                "POLISCI"
+            ]
+        },
+        "course_title": "POLICY-MAKING PROCESS",
+        "description": "Examines the political, social, and economic contexts that shape and are shaped by policy making processes. Though the focus is on the US, international comparisons will be made, and students are encouraged to think about the American context through comparative and international perspectives. Familiarizes students with dominant theories and models of policymaking process and policy change, starting with the model of the policy cycle. Focuses in on key topics and issues in policy making, specifically, agenda setting, implementation, and the relationships between policymaking and democracy. Reflects on contemporary and emerging issues and dilemmas of the politics of policy making.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -122,15 +55,61 @@
     },
     {
         "course_reference": {
-            "course_number": 724,
+            "course_number": 827,
             "subjects": [
-                "POLISCI",
-                "HISTORY",
                 "PUBAFFR"
             ]
         },
-        "course_title": "THE POLITICS OF PERSUASION: SOFT POWER IN EUROPE AND THE U.S.",
-        "description": "How powerful is non-military power? What are its vectors and its limits? International relations theorists have defined soft power as \"the ability to get what you want through attraction rather than coercion.\" This graduate seminar will put this notion to the test. We will investigate how elites, interest groups, religious bodies, and nation-states seek to exercise hegemony in the international order through non-violent means. How was \"soft power\" implemented on the ground in the 20th century- and how did its use transform international relations? To probe these questions, we will focus on a series of case studies in European and U.S. international history. Topics covered include the expansion of capitalism and consumer culture; the globalization of international legal instruments and human rights claims; and de-secularization, religious radicalism, and counter-insurgency. In the process of analyzing our case studies, we will refine our analytical vocabulary. Drawing on recent work in international relations, political theory, and international history, we will probe the meaning and utility of concepts like normative power, hegemony, cultural capital, and public diplomacy.",
+        "course_title": "ADMINISTRATIVE INTERNSHIP",
+        "description": "Provides opportunities for learning and working in organizations that integrate knowledge and theory learned in the classroom with practical application and skills development in a professional setting.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 523,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "POLICY, PRIVACY, AND PERSONAL IDENTITY IN THE POSTGENOMICS ERA",
+        "description": "Social genomics integrates theories and methods in the genomic, social, and population health sciences to answer questions relevant to public health and social well-being. Research topics in social genomics and their implications for social and public policy are covered in this course. Key concepts in human genetics, population genetics, and statistical genetics are introduced, as well as historical and contemporary policy debates surrounding scientific advances in genomics. Fundamental questions include social repercussions of genomics research, the rationale for government intervention, and how to approach policy analysis in an era where the genomic revolution is changing how we think about privacy and personal identity.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 863,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "HEALTH SYSTEMS AND POLICY",
+        "description": "Explore factors that influence health outcomes in the United States. Review policies that affect the organization and financing of health care and public health systems. Apply systems approaches to evaluate health policy and health outcomes in the United States. Apply practical strategies to understand and communicate about health challenges and policy approaches to improve population health within complex, dynamic systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "PUBAFFR",
+                "EDPOL",
+                "ELPA"
+            ]
+        },
+        "course_title": "ISSUES IN EDUCATIONAL POLICY ANALYSIS",
+        "description": "Theory, research, and practical experience in educational policy analysis, including the social construction of policy problems in education; the design, implementation, and evaluation of policy responses; and the practical and ethical dilemmas of the policy analyst.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -145,6 +124,7 @@
         },
         "course_title": "WORKSHOP IN PUBLIC POLICY",
         "description": "Provides opportunities to engage in research on public policy issues and possible solutions.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -159,13 +139,194 @@
     },
     {
         "course_reference": {
-            "course_number": 274,
+            "course_number": 820,
             "subjects": [
                 "PUBAFFR"
             ]
         },
-        "course_title": "TOPICS IN PUBLIC POLICY",
-        "description": "Intensive study of selected topics in public policy.",
+        "course_title": "COMMUNITY ECONOMIC ANALYSIS",
+        "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 278,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "PUBLIC LEADERSHIP",
+        "description": "Aims to demystify the role of leadership in a public setting. Draw on research from public management, psychology and organization studies to help students learn how leadership manifests itself in the public sector. This means understanding how to set goals, the motivation of those around you, how to engage and negotiate with stakeholders, managing change, making decisions, and exhibiting ethical behavior. Mix research with practical examples. Starts with the assumption that while there are some general traits relevant across public, private and non-profit sectors, the nature of these sectors is different, and this affects how these traits function in practice.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 890,
+            "subjects": [
+                "PUBAFFR",
+                "URBRPL",
+                "POLISCI"
+            ]
+        },
+        "course_title": "FEDERAL BUDGET AND TAX POLICY AND ADMINISTRATION",
+        "description": "Focuses on national budget and tax policy and administration, and the parallel processes at the state and local levels. Included are discussions of: decision-making theories; budget and tax policy; and analysis of normative and empirical criteria and analytical techniques for assessing alternative policy proposals.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Program of study devised by a student in collaboration with an instructor.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 734,
+            "subjects": [
+                "PUBAFFR",
+                "URBRPL",
+                "ECON"
+            ]
+        },
+        "course_title": "REGIONAL ECONOMIC PROBLEM ANALYSIS",
+        "description": "Examination of major theories of regional economic development, with special emphasis upon the evolution and amelioration of regional economic problems. Selected techniques of regional analysis, including economic base multipliers, input/output models, and shift-share analysis are used in the context of setting regional development goals.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 878,
+            "subjects": [
+                "PUBAFFR",
+                "URBRPL",
+                "POLISCI"
+            ]
+        },
+        "course_title": "PUBLIC MANAGEMENT",
+        "description": "Role of administration in American government; problems of organization, bureaucracy and control; public policy as the output of the administrative process.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 800,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "PUBLIC AFFAIRS PROFESSIONAL DEVELOPMENT WORKSHOP",
+        "description": "Includes sessions on professional writing, presentations, and job search skills training related to policy internships and jobs. Includes presentations from practitioners from the public, private, and non-profit sectors.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 830,
+            "subjects": [
+                "PUBAFFR",
+                "EDPOL",
+                "ELPA"
+            ]
+        },
+        "course_title": "SCHOOL FINANCE AND RESOURCE ALLOCATION",
+        "description": "Contemporary bases for collecting and distributing local, state, and federal funds for elementary and secondary education; problems and issues in financial support of education; current, alternative and more effective uses of educational resources.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 860,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "WORKSHOP IN INTERNATIONAL PUBLIC AFFAIRS",
+        "description": "Workshop in program evaluation and policy analysis taught through student teams working on real-world international issues for agencies in the public, private, and non-profit sectors. Teaches analytical skills, report preparation and writing, and presentation of results.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 873,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0873and declared in International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 327,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "ADMINISTRATIVE INTERNSHIP",
+        "description": "Provides opportunities for learning and working in organizations that integrate knowledge and theory learned in the classroom with practical application and skills development in a professional setting. Gain valuable applied experience and make professional connections in the field of public policy, apply concepts and practice problem solving-skills learned during the Certificate in Public Policy experience, build a network of contacts, and explore possible career choices. Engage with a wide range of people about their jobs, views, backgrounds, and experiences. Encourages active reflection on this experience and self-assessment through written assignments, reflections, and readings to help students make the most of their internships.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "INDEPENDENT READING",
+        "description": "Program of study devised by a student in collaboration with an instructor.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 285,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "STRATEGIC PUBLIC MANAGEMENT",
+        "description": "Designed to teach the role that strategy plays in maximizing the effectiveness and efficiency of a public organization. Work in a collaborative environment to learn how to design and implement strategic management plans with a specific focus on measurable goal setting through analytics, how to identify and mitigate organizational risks, motivate employees to execute strategy, and finally how to mobilize adequate financial resources through dynamic budgeting to ultimately achieve success. Learn about careers in the public sector and understand how strategic management will enhance individual performance and that of the public organization.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -173,16 +334,70 @@
     },
     {
         "course_reference": {
-            "course_number": 827,
+            "course_number": 857,
             "subjects": [
                 "PUBAFFR"
             ]
         },
-        "course_title": "ADMINISTRATIVE INTERNSHIP",
-        "description": "Provides opportunities for learning and working in organizations that integrate knowledge and theory learned in the classroom with practical application and skills development in a professional setting.",
+        "course_title": "POLITICAL ECONOMY OF CORRUPTION AND GOOD GOVERNANCE",
+        "description": "Surveys wide range of multidisciplinary research on causes and consequences of widespread corruption and experiences of anticorruption reform strategies, with focus on developing countries. Considers role of international organizations, multinational companies, and regional agreements in building good governance globally.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 869,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "WORKSHOP IN PUBLIC AFFAIRS",
+        "description": "Workshop in program and policy analysis taught through student teams working on real problems for public agencies and organizations; teaches analytical skills, report preparation and writing; and presentations of results.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 873,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0873and declared in Public Affairs MPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 888,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "COMPARATIVE AND NATIONAL SOCIAL POLICY",
+        "description": "An overview of the American system of public policy toward human resources, with an emphasis on how the American system compares with other nations' approaches to social welfare policy.  Other nations include OECD nations as well as emerging middle income countries in Asia and Latin America.  Social welfare policy is analyzed as three major branches: health, education and welfare.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "PUBAFFR",
+                "POLISCI"
+            ]
+        },
+        "course_title": "PUBLIC PERSONNEL ADMINISTRATION",
+        "description": "Analysis of personnel policies and practices in the public sector and examination of patterns of interaction between political executives, personnel professionals, public employees, and interest groups in the development of personnel policies. Compares problems and approaches of different countries as well as those of the various levels of government in the United States.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -194,8 +409,20 @@
         },
         "course_title": "TRADE, COMPETITION, AND GOVERNANCE IN A GLOBAL ECONOMY",
         "description": "Policy oriented course in international micro-economics and trade theory; including economic and institutional analysis of U.S. trade policy and the world trading system; issues covered include regional trading average; labor standards, income distribution and the environment.",
+        "optimized": {
+            "course_number": 880,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 818,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                },
                 {
                     "course_number": 880,
                     "subjects": [
@@ -208,6 +435,80 @@
     },
     {
         "course_reference": {
+            "course_number": 871,
+            "subjects": [
+                "PUBAFFR",
+                "POLISCI"
+            ]
+        },
+        "course_title": "PUBLIC PROGRAM EVALUATION",
+        "description": "Compares the conceptual, statistical, and ethical issues of experimental, quasi-experimental and non-experimental designs for program evaluation. Definitions of outcomes, sample size issues, statistical biases in measuring causal effects of programs, and the reliability of findings will be emphasized using case studies selected from current public programs.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 818,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0818"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 419,
+            "subjects": [
+                "PUBAFFR",
+                "POLISCI"
+            ]
+        },
+        "course_title": "ADMINISTRATIVE LAW",
+        "description": "Delegation of powers, elements of fair administrative procedure, judicial control over administrative determination. Not open to students with credit for POLI SCI 420 prior to fall 2017",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "POLISCI"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                },
+                {
+                    "course_number": 184,
+                    "subjects": [
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (POLI\u00a0SCI\u00a0104,184, orLEGAL\u00a0ST/\u200bPOLI\u00a0SCI\u00a0\u00a0217)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 274,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "TOPICS IN PUBLIC POLICY",
+        "description": "Intensive study of selected topics in public policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 974,
             "subjects": [
                 "PUBAFFR"
@@ -215,6 +516,517 @@
         },
         "course_title": "TOPICS IN PUBLIC AFFAIRS",
         "description": "Current issues in the formulation, implementation, and analysis of public policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 891,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "STATE AND LOCAL GOVERNMENT FINANCE",
+        "description": "Explores the spending and tax policies of state and local governments. Focus on factors influencing the mix and level of public spending and the choice of revenue sources. Issues to be studied include the fiscal relations between governments and property tax.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 880,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0880"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 240,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "EVIDENCE-BASED POLICY MAKING",
+        "description": "Facilitates skill-building to answer questions such as how policymakers use research and evidence in their jobs, how researchers can make their work useful to policymakers, and how legislative support staff and other stakeholders use research and evidence to shape policy. Explore the definition of \"evidence-based\", learn about different kinds of evidence and how it is used, and learn strategies for judging the rigor of research evidence. Also explore the difference between an education-based approach to working with policymakers versus an advocacy-based approach, learn strategies for communicating research to policy makers (including written and oral presentations and data visualizations), research examples of successful evidence-based policymaking efforts, and understand the limits of using research in policymaking.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 895,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "PERFORMANCE MANAGEMENT",
+        "description": "Introduction to the concept of performance management. Explores different tools that aim to raise performance. Examines recent reforms at the federal, state, and local level and alternative theories of performance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 878,
+                    "subjects": [
+                        "PUBAFFR",
+                        "URBRPL",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bPOLI\u00a0SCI/\u200bPUB\u00a0AFFR\u00a0\u00a0878"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 352,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "WOMEN, GENDER, AND PUBLIC POLICY",
+        "description": "Examine women, gender, and sex and their interactions with public policy. Learn about equality, liberty, feminism, and intersectionality, whether these concepts should be incorporated into policymaking, and if so, how that can be accomplished through gender mainstreaming and gender policy analysis. Examine specific policy areas focused on women's social, economic, and political citizenship to understand the causes and consequences of gender discrimination. These specific policy areas include poverty, women's labor market participation, immigration, reproductive rights, sexuality, gender-based violence, climate change, transportation, and peace and security. Understand how gender is embedded in the politics of policymaking, and what strategies have been successful in achieving more gender-equitable policies across the globe.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 366,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "U.S. ENVIRONMENTAL POLITICS AND PUBLIC POLICY",
+        "description": "Public policies to protect natural resources and the environment are among the most important and controversial issues in local, state, and national government. Social science theories and methods help explain why and how American governments regulate the environment.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 805,
+            "subjects": [
+                "PUBAFFR",
+                "GEN&WS",
+                "EDPOL"
+            ]
+        },
+        "course_title": "GENDER ISSUES IN INTERNATIONAL EDUCATIONAL POLICY",
+        "description": "Exploration and analysis of recent debates related to gender issues in international educational policy, including the intersection of education and demographic processes, the play of history and culture, and the social construction of gender.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 548,
+            "subjects": [
+                "PUBAFFR",
+                "POPHLTH",
+                "ECON"
+            ]
+        },
+        "course_title": "THE ECONOMICS OF HEALTH CARE",
+        "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 880,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ECON"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ECON\u00a0301,ECON\u00a0311, orPUB\u00a0AFFR\u00a0880"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 724,
+            "subjects": [
+                "PUBAFFR",
+                "POLISCI",
+                "HISTORY"
+            ]
+        },
+        "course_title": "THE POLITICS OF PERSUASION: SOFT POWER IN EUROPE AND THE U.S.",
+        "description": "How powerful is non-military power? What are its vectors and its limits? International relations theorists have defined soft power as \"the ability to get what you want through attraction rather than coercion.\" This graduate seminar will put this notion to the test. We will investigate how elites, interest groups, religious bodies, and nation-states seek to exercise hegemony in the international order through non-violent means. How was \"soft power\" implemented on the ground in the 20th century- and how did its use transform international relations? To probe these questions, we will focus on a series of case studies in European and U.S. international history. Topics covered include the expansion of capitalism and consumer culture; the globalization of international legal instruments and human rights claims; and de-secularization, religious radicalism, and counter-insurgency. In the process of analyzing our case studies, we will refine our analytical vocabulary. Drawing on recent work in international relations, political theory, and international history, we will probe the meaning and utility of concepts like normative power, hegemony, cultural capital, and public diplomacy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 880,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "MICROECONOMIC POLICY ANALYSIS",
+        "description": "The tools and techniques used in the economic approach to policy analysis. Emphasis is on applying these methodological tools to evaluating existing public policies and policy alternatives, as well as providing a deeper understanding of how the economy operates.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 885,
+            "subjects": [
+                "PUBAFFR",
+                "POLISCI"
+            ]
+        },
+        "course_title": "ADVANCED PUBLIC MANAGEMENT: CRAFT, CONSTRAINTS AND ACCOUNTABILITY",
+        "description": "Examines how managers in public and not-for-profit agencies can secure and utilize legal authority, human resources, and funds to accomplish organizational goals. Includes strategies for establishing and maintaining effective external relations and for working through other organizations to accomplish objectives.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 878,
+                    "subjects": [
+                        "PUBAFFR",
+                        "URBRPL",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bPOLI\u00a0SCI/\u200bPUB\u00a0AFFR\u00a0\u00a0878"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 887,
+            "subjects": [
+                "PUBAFFR",
+                "SOCWORK"
+            ]
+        },
+        "course_title": "NONPROFIT LEADERSHIP",
+        "description": "Nonprofit leadership focuses on developing management skills for the nonprofit area through readings, case materials and structured activities. Students examine the context, issues and skills associated with leadership and management in nonprofit organizations and apply them to challenges and opportunities that confront administration of nonprofits.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Social Work MSW, or Public Affairs MPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 230,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "ADVANCING PUBLIC POLICY IN A DIVIDED AMERICA",
+        "description": "America is divided: at home, at work, and even in the media. This is true politically, as well. Given this, public policy conflict is all around us. Seek to understand and contextualize the partisan conflict present in modern American politics and policymaking today and explore individual-level tactics that public policy leaders, practitioners, and advocates may use that acknowledge conflict and attempt to move public policymaking forward. Explore ways in which policy conflict can be understood, managed, and channeled for the betterment of public policy decision-making in a divided America.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 864,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "HEALTH POLICY AND POLICY DESIGN",
+        "description": "Survey health care policy in the United States, including examination of the design of health policy and the politics of health care reform.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 873,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "INTRODUCTION TO POLICY ANALYSIS",
+        "description": "Develops skills in policy analysis in two ways. First, sets out the conceptual foundations for understanding the role of policy analysis in democratic politics. Second, provides training and experience in policy analysis craft.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 880,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0880and declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 380,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "ANALYTIC TOOLS FOR PUBLIC POLICY",
+        "description": "Provides training in the analytical skills and tools needed to comprehend, assess, and address complex public policy decisions. Overview of the theory and application of quantitative and qualitative analysis methods relevant to public policy decision-making and policy analysis.",
+        "optimized": {
+            "course_number": 101,
+            "subjects": [
+                "AAE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "AAE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ECON"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ECON\u00a0101orA\u00a0A\u00a0E\u00a0101(215 prior to Fall 2024)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 892,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "PUBLIC BUDGETING",
+        "description": "Provides an understanding of budget preparation, adoption and execution; proposed reforms of the budget process; and competing theories of the politics of budgeting. Focuses on the expenditure aspect of budgeting.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 809,
+            "subjects": [
+                "PUBAFFR",
+                "ENVIRST",
+                "URBRPL"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENERGY ANALYSIS AND POLICY",
+        "description": "Strategy and policy problems in energy policy, both national and international.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 810,
+            "subjects": [
+                "PUBAFFR",
+                "ENVIRST",
+                "URBRPL"
+            ]
+        },
+        "course_title": "ENERGY ANALYSIS AND POLICY CAPSTONE",
+        "description": "Interdisciplinary application of energy knowledge to an analysis project for a real-world client. Integrate and apply technical, economic, political, and social factors in energy decision-making.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Energy Analysis and Policy Graduate/Professional Certificate or Doctoral Minor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 818,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "INTRODUCTION TO STATISTICAL METHODS FOR PUBLIC POLICY ANALYSIS",
+        "description": "An introduction to the statistical methods used in public policy. Covers the basics of probability, statistics, and quantitative methods in public policy analysis. Stresses interpretation and presentation of data as well as theory.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 819,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "ADVANCED STATISTICAL METHODS FOR PUBLIC POLICY ANALYSIS",
+        "description": "A review of intermediate statistics, and an introduction to analytical, quantitative and computer techniques applicable to the analysis of public policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 818,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0818"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 850,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "INTERNATIONAL GOVERNANCE",
+        "description": "Examines influences arising from international environment on policy makers and those seeking to influence policymaking. Considers role of global economic forces, international and regional organizations, international civil society reflected in non-governmental organizations, and flow of policies across borders.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 694,
+            "subjects": [
+                "PUBAFFR",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "MANAGEMENT OF CIVIL INFRASTRUCTURE SYSTEMS",
+        "description": "Comprehensive systems approach to civil infrastructure and asset management with emphasis on transportation facilities. Social, political, economic factors that influence transportation planning, design, construction, maintenance and operation. Needs assessment, information management, performance measurement, life cycle cost and benefits analysis, prioritization and optimization, budgeting and finance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 494,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR\u00a0494, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 200,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "CONTEMPORARY PUBLIC POLICY ISSUES",
+        "description": "Offers a general primer on large-scale policies directed by US federal and state governments, with specific examples in pressing policy areas. Takes existing policies and the policy process as a given, explains them in detail, and puts a policy focus on very specific contemporary questions of concern to policymakers. Gain a broad overall knowledge of how the majority of state and federal funding is spent and the policy outcomes associated with that spending.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 360,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "WORKSHOP IN HEALTH POLICY",
+        "description": "Provides opportunities to engage in research on health policy issues and possible solutions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PUBAFFR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PUB\u00a0AFFR\u00a0201and sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 242,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "FOUNDATIONS OF DATA ANALYSIS FOR HEALTH POLICY",
+        "description": "We have entered a new era of \"big data.\" It is now possible to collect and analyze genetic information, digital health records, and many other types of data quickly, cheaply, and non-invasively from large numbers of people. This new wealth of information creates exciting opportunities for more targeted, individualized approaches to health care and better management of public health risks such as age-related diseases or pandemics. However, it also creates policy challenges such as privacy, discrimination, equality, and fairness. Covers what types of health-relevant data exist, how such data is typically analyzed and used, and discuss what types of applications this enables, what type of policy challenges this brings about, and which options policy makers have to deal with these challenges. Analytic methods will include regression, principal component and cluster analysis, statistical approaches for prediction, how to interpret the results of such analyses and their limitations.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 201,
+            "subjects": [
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HEALTH POLICY IN THE UNITED STATES",
+        "description": "Offers an introduction to health policy in the United States. Examines the ways in which government plays a role in the provision and regulation of health care. Explores key aspects of health policy including the economics of health care (e.g., paying for and access to health care; the health care workforce; the role of markets and consequences of market/government failures, public policy that supports or promotes health; health care outcomes, quality, and disparities; and tools for evaluation) and special topics of interest such as policy addressing risky health behaviors, aging, mental health, and the Affordable Care Act. Think critically about public and private health issues using the policy analysis process, including policy interventions and their justifications, and gain skills in articulating and communicating policy positions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 805,
+            "subjects": [
+                "GEN&WS",
+                "EDPOL",
+                "PUBAFFR"
+            ]
+        },
+        "course_title": "GENDER ISSUES IN INTERNATIONAL EDUCATIONAL POLICY",
+        "description": "Exploration and analysis of recent debates related to gender issues in international educational policy, including the intersection of education and demographic processes, the play of history and culture, and the social construction of gender.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -229,48 +1041,7 @@
         },
         "course_title": "POLITICS OF POVERTY, INEQUALITY, AND SOCIAL POLICY",
         "description": "Surveys the political forces that shape poverty, inequality, and related public policies in the United States. Builds on foundational knowledge of the policy-making process to provide skills to understand and negotiate social politics in the United States.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 366,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "U.S. ENVIRONMENTAL POLITICS AND PUBLIC POLICY",
-        "description": "Public policies to protect natural resources and the environment are among the most important and controversial issues in local, state, and national government. Social science theories and methods help explain why and how American governments regulate the environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 523,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "POLICY, PRIVACY, AND PERSONAL IDENTITY IN THE POSTGENOMICS ERA",
-        "description": "Social genomics integrates theories and methods in the genomic, social, and population health sciences to answer questions relevant to public health and social well-being. Research topics in social genomics and their implications for social and public policy are covered in this course. Key concepts in human genetics, population genetics, and statistical genetics are introduced, as well as historical and contemporary policy debates surrounding scientific advances in genomics. Fundamental questions include social repercussions of genomics research, the rationale for government intervention, and how to approach policy analysis in an era where the genomic revolution is changing how we think about privacy and personal identity.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 802,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC AFFAIRS SEMINAR SERIES",
-        "description": "Provides an opportunity to cross disciplinary boundaries to review and discuss the latest research by top public management, policy, and poverty scholars from on and off campus. The seminar series provides new and unpublished research on these issues as well as practitioner insight.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -280,14 +1051,15 @@
         "course_reference": {
             "course_number": 881,
             "subjects": [
+                "PUBAFFR",
                 "ENVIRST",
                 "AAE",
-                "POPHLTH",
-                "PUBAFFR"
+                "POPHLTH"
             ]
         },
         "course_title": "BENEFIT-COST ANALYSIS",
         "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -321,467 +1093,14 @@
     },
     {
         "course_reference": {
-            "course_number": 805,
-            "subjects": [
-                "EDPOL",
-                "GEN&WS",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "GENDER ISSUES IN INTERNATIONAL EDUCATIONAL POLICY",
-        "description": "Exploration and analysis of recent debates related to gender issues in international educational policy, including the intersection of education and demographic processes, the play of history and culture, and the social construction of gender.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 327,
+            "course_number": 802,
             "subjects": [
                 "PUBAFFR"
             ]
         },
-        "course_title": "ADMINISTRATIVE INTERNSHIP",
-        "description": "Provides opportunities for learning and working in organizations that integrate knowledge and theory learned in the classroom with practical application and skills development in a professional setting. Gain valuable applied experience and make professional connections in the field of public policy, apply concepts and practice problem solving-skills learned during the Certificate in Public Policy experience, build a network of contacts, and explore possible career choices. Engage with a wide range of people about their jobs, views, backgrounds, and experiences. Encourages active reflection on this experience and self-assessment through written assignments, reflections, and readings to help students make the most of their internships.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 887,
-            "subjects": [
-                "SOCWORK",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "NONPROFIT LEADERSHIP",
-        "description": "Nonprofit leadership focuses on developing management skills for the nonprofit area through readings, case materials and structured activities. Students examine the context, issues and skills associated with leadership and management in nonprofit organizations and apply them to challenges and opportunities that confront administration of nonprofits.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Social Work MSW, or Public Affairs MPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 891,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "STATE AND LOCAL GOVERNMENT FINANCE",
-        "description": "Explores the spending and tax policies of state and local governments. Focus on factors influencing the mix and level of public spending and the choice of revenue sources. Issues to be studied include the fiscal relations between governments and property tax.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0880"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 850,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "INTERNATIONAL GOVERNANCE",
-        "description": "Examines influences arising from international environment on policy makers and those seeking to influence policymaking. Considers role of global economic forces, international and regional organizations, international civil society reflected in non-governmental organizations, and flow of policies across borders.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 694,
-            "subjects": [
-                "CIVENGR",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "MANAGEMENT OF CIVIL INFRASTRUCTURE SYSTEMS",
-        "description": "Comprehensive systems approach to civil infrastructure and asset management with emphasis on transportation facilities. Social, political, economic factors that influence transportation planning, design, construction, maintenance and operation. Needs assessment, information management, performance measurement, life cycle cost and benefits analysis, prioritization and optimization, budgeting and finance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 494,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR\u00a0494, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 820,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "COMMUNITY ECONOMIC ANALYSIS",
-        "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 875,
-            "subjects": [
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC PERSONNEL ADMINISTRATION",
-        "description": "Analysis of personnel policies and practices in the public sector and examination of patterns of interaction between political executives, personnel professionals, public employees, and interest groups in the development of personnel policies. Compares problems and approaches of different countries as well as those of the various levels of government in the United States.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 864,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "HEALTH POLICY AND POLICY DESIGN",
-        "description": "Survey health care policy in the United States, including examination of the design of health policy and the politics of health care reform.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 818,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "INTRODUCTION TO STATISTICAL METHODS FOR PUBLIC POLICY ANALYSIS",
-        "description": "An introduction to the statistical methods used in public policy. Covers the basics of probability, statistics, and quantitative methods in public policy analysis. Stresses interpretation and presentation of data as well as theory.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 860,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "WORKSHOP IN INTERNATIONAL PUBLIC AFFAIRS",
-        "description": "Workshop in program evaluation and policy analysis taught through student teams working on real-world international issues for agencies in the public, private, and non-profit sectors. Teaches analytical skills, report preparation and writing, and presentation of results.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 873,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0873and declared in International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 830,
-            "subjects": [
-                "ELPA",
-                "EDPOL",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "SCHOOL FINANCE AND RESOURCE ALLOCATION",
-        "description": "Contemporary bases for collecting and distributing local, state, and federal funds for elementary and secondary education; problems and issues in financial support of education; current, alternative and more effective uses of educational resources.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 285,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "STRATEGIC PUBLIC MANAGEMENT",
-        "description": "Designed to teach the role that strategy plays in maximizing the effectiveness and efficiency of a public organization. Work in a collaborative environment to learn how to design and implement strategic management plans with a specific focus on measurable goal setting through analytics, how to identify and mitigate organizational risks, motivate employees to execute strategy, and finally how to mobilize adequate financial resources through dynamic budgeting to ultimately achieve success. Learn about careers in the public sector and understand how strategic management will enhance individual performance and that of the public organization.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 895,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PERFORMANCE MANAGEMENT",
-        "description": "Introduction to the concept of performance management. Explores different tools that aim to raise performance. Examines recent reforms at the federal, state, and local level and alternative theories of performance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 878,
-                    "subjects": [
-                        "URBRPL",
-                        "POLISCI",
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bPOLI\u00a0SCI/\u200bPUB\u00a0AFFR\u00a0\u00a0878"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 352,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "WOMEN, GENDER, AND PUBLIC POLICY",
-        "description": "Examine women, gender, and sex and their interactions with public policy. Learn about equality, liberty, feminism, and intersectionality, whether these concepts should be incorporated into policymaking, and if so, how that can be accomplished through gender mainstreaming and gender policy analysis. Examine specific policy areas focused on women's social, economic, and political citizenship to understand the causes and consequences of gender discrimination. These specific policy areas include poverty, women's labor market participation, immigration, reproductive rights, sexuality, gender-based violence, climate change, transportation, and peace and security. Understand how gender is embedded in the politics of policymaking, and what strategies have been successful in achieving more gender-equitable policies across the globe.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 873,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "INTRODUCTION TO POLICY ANALYSIS",
-        "description": "Develops skills in policy analysis in two ways. First, sets out the conceptual foundations for understanding the role of policy analysis in democratic politics. Second, provides training and experience in policy analysis craft.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0880and declared in Public Affairs MPA or International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 419,
-            "subjects": [
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ADMINISTRATIVE LAW",
-        "description": "Delegation of powers, elements of fair administrative procedure, judicial control over administrative determination. Not open to students with credit for POLI SCI 420 prior to fall 2017",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "LEGALST",
-                        "POLISCI"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "POLISCI"
-                    ]
-                },
-                {
-                    "course_number": 184,
-                    "subjects": [
-                        "POLISCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (POLI\u00a0SCI\u00a0104,184, orLEGAL\u00a0ST/\u200bPOLI\u00a0SCI\u00a0\u00a0217)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "WORKSHOP IN HEALTH POLICY",
-        "description": "Provides opportunities to engage in research on health policy issues and possible solutions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0201and sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 863,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "HEALTH SYSTEMS AND POLICY",
-        "description": "Explore factors that influence health outcomes in the United States. Review policies that affect the organization and financing of health care and public health systems. Apply systems approaches to evaluate health policy and health outcomes in the United States. Apply practical strategies to understand and communicate about health challenges and policy approaches to improve population health within complex, dynamic systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 201,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "INTRODUCTION TO HEALTH POLICY IN THE UNITED STATES",
-        "description": "Offers an introduction to health policy in the United States. Examines the ways in which government plays a role in the provision and regulation of health care. Explores key aspects of health policy including the economics of health care (e.g., paying for and access to health care; the health care workforce; the role of markets and consequences of market/government failures, public policy that supports or promotes health; health care outcomes, quality, and disparities; and tools for evaluation) and special topics of interest such as policy addressing risky health behaviors, aging, mental health, and the Affordable Care Act. Think critically about public and private health issues using the policy analysis process, including policy interventions and their justifications, and gain skills in articulating and communicating policy positions.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 871,
-            "subjects": [
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC PROGRAM EVALUATION",
-        "description": "Compares the conceptual, statistical, and ethical issues of experimental, quasi-experimental and non-experimental designs for program evaluation. Definitions of outcomes, sample size issues, statistical biases in measuring causal effects of programs, and the reliability of findings will be emphasized using case studies selected from current public programs.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 818,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0818"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 866,
-            "subjects": [
-                "ENVIRST",
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "GLOBAL ENVIRONMENTAL GOVERNANCE",
-        "description": "In-depth examination of the political and policy challenges posed by global environmental degradation. Analysis of international institutions for managing the global environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ELPA",
-                "EDPOL",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ISSUES IN EDUCATIONAL POLICY ANALYSIS",
-        "description": "Theory, research, and practical experience in educational policy analysis, including the social construction of policy problems in education; the design, implementation, and evaluation of policy responses; and the practical and ethical dilemmas of the policy analyst.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 734,
-            "subjects": [
-                "URBRPL",
-                "ECON",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "REGIONAL ECONOMIC PROBLEM ANALYSIS",
-        "description": "Examination of major theories of regional economic development, with special emphasis upon the evolution and amelioration of regional economic problems. Selected techniques of regional analysis, including economic base multipliers, input/output models, and shift-share analysis are used in the context of setting regional development goals.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 230,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ADVANCING PUBLIC POLICY IN A DIVIDED AMERICA",
-        "description": "America is divided: at home, at work, and even in the media. This is true politically, as well. Given this, public policy conflict is all around us. Seek to understand and contextualize the partisan conflict present in modern American politics and policymaking today and explore individual-level tactics that public policy leaders, practitioners, and advocates may use that acknowledge conflict and attempt to move public policymaking forward. Explore ways in which policy conflict can be understood, managed, and channeled for the betterment of public policy decision-making in a divided America.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 830,
-            "subjects": [
-                "ELPA",
-                "PUBAFFR",
-                "EDPOL"
-            ]
-        },
-        "course_title": "SCHOOL FINANCE AND RESOURCE ALLOCATION",
-        "description": "Contemporary bases for collecting and distributing local, state, and federal funds for elementary and secondary education; problems and issues in financial support of education; current, alternative and more effective uses of educational resources.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ELPA",
-                "PUBAFFR",
-                "EDPOL"
-            ]
-        },
-        "course_title": "ISSUES IN EDUCATIONAL POLICY ANALYSIS",
-        "description": "Theory, research, and practical experience in educational policy analysis, including the social construction of policy problems in education; the design, implementation, and evaluation of policy responses; and the practical and ethical dilemmas of the policy analyst.",
+        "course_title": "PUBLIC AFFAIRS SEMINAR SERIES",
+        "description": "Provides an opportunity to cross disciplinary boundaries to review and discuss the latest research by top public management, policy, and poverty scholars from on and off campus. The seminar series provides new and unpublished research on these issues as well as practitioner insight.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -796,6 +1115,7 @@
         },
         "course_title": "DISCOVERING WHAT WORKS IN HEALTH POLICY",
         "description": "Introduces the key conceptual and methodological tools used in public program evaluation, with an emphasis on understanding the forces that shape health and disease as well as various policy solutions. Introduces the Potential Outcomes Framework, also known as the Rubin Causal Model. Establishes the distinction between causation from correlation using counterfactual thinking. Explores a wide variety of experimental and quasi-experimental research methods used to estimate causal effects, including randomized experiments, regression, matching, instrumental variables, fixed effects, regression discontinuity, difference-in-differences, and synthetic control. Many of the causal inference methods that we discuss require statistical and computational training in order to implement. Focuses on the nontechnical conceptual, theoretical, and intuitive underpinnings of these methods that are most salient to policymakers.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -803,283 +1123,31 @@
     },
     {
         "course_reference": {
-            "course_number": 548,
-            "subjects": [
-                "ECON",
-                "POPHLTH",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "THE ECONOMICS OF HEALTH CARE",
-        "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ECON\u00a0301,ECON\u00a0311, orPUB\u00a0AFFR\u00a0880"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
+            "course_number": 270,
             "subjects": [
                 "PUBAFFR"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Program of study devised by a student in collaboration with an instructor.",
+        "course_title": "THE PRIVATE AND PUBLIC SECTORS IN POLICYMAKING",
+        "description": "In domestic and international policymaking, stark differences between the private sector (the market) and the public sector (the state) are dissolving. The private sector is being pushed to help achieve public policy goals, while the public sector is being pushed to be customer-oriented. Overall focus on the interplay of the public and private sectors in policymaking. Develops an analytic framework and historical context for understanding how the roles and interactions of states and markets have fluctuated across time. Examines how the policymaking \"division of labor\" between states and markets has differed across countries. Examines energy, health, telecommunications, finance, transportation, or other policy areas in which governments are wary about letting markets function without state intervention. Apply concepts from political science, economics, public administration, business, sociology, and other fields in order to understand actual policy choices for various policy issues.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 892,
+            "course_number": 866,
             "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC BUDGETING",
-        "description": "Provides an understanding of budget preparation, adoption and execution; proposed reforms of the budget process; and competing theories of the politics of budgeting. Focuses on the expenditure aspect of budgeting.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 278,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC LEADERSHIP",
-        "description": "Aims to demystify the role of leadership in a public setting. Draw on research from public management, psychology and organization studies to help students learn how leadership manifests itself in the public sector. This means understanding how to set goals, the motivation of those around you, how to engage and negotiate with stakeholders, managing change, making decisions, and exhibiting ethical behavior. Mix research with practical examples. Starts with the assumption that while there are some general traits relevant across public, private and non-profit sectors, the nature of these sectors is different, and this affects how these traits function in practice.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 240,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "EVIDENCE-BASED POLICY MAKING",
-        "description": "Facilitates skill-building to answer questions such as how policymakers use research and evidence in their jobs, how researchers can make their work useful to policymakers, and how legislative support staff and other stakeholders use research and evidence to shape policy. Explore the definition of \"evidence-based\", learn about different kinds of evidence and how it is used, and learn strategies for judging the rigor of research evidence. Also explore the difference between an education-based approach to working with policymakers versus an advocacy-based approach, learn strategies for communicating research to policy makers (including written and oral presentations and data visualizations), research examples of successful evidence-based policymaking efforts, and understand the limits of using research in policymaking.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 890,
-            "subjects": [
-                "URBRPL",
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "FEDERAL BUDGET AND TAX POLICY AND ADMINISTRATION",
-        "description": "Focuses on national budget and tax policy and administration, and the parallel processes at the state and local levels. Included are discussions of: decision-making theories; budget and tax policy; and analysis of normative and empirical criteria and analytical techniques for assessing alternative policy proposals.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 800,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC AFFAIRS PROFESSIONAL DEVELOPMENT WORKSHOP",
-        "description": "Includes sessions on professional writing, presentations, and job search skills training related to policy internships and jobs. Includes presentations from practitioners from the public, private, and non-profit sectors.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Public Affairs MPA or International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 854,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "MACROECONOMIC POLICY AND INTERNATIONAL FINANCIAL REGULATION",
-        "description": "An introduction to international macroeconomic and financial policies with an emphasis on the interaction between domestic policies, and international financial markets, regulations and institutions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 880,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0880and declared in International Public Affairs MIPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 380,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ANALYTIC TOOLS FOR PUBLIC POLICY",
-        "description": "Provides training in the analytical skills and tools needed to comprehend, assess, and address complex public policy decisions. Overview of the theory and application of quantitative and qualitative analysis methods relevant to public policy decision-making and policy analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "AAE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ECON\u00a0101orA\u00a0A\u00a0E\u00a0101(215 prior to Fall 2024)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 869,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "WORKSHOP IN PUBLIC AFFAIRS",
-        "description": "Workshop in program and policy analysis taught through student teams working on real problems for public agencies and organizations; teaches analytical skills, report preparation and writing; and presentations of results.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 873,
-                    "subjects": [
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PUB\u00a0AFFR\u00a0873and declared in Public Affairs MPA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 874,
-            "subjects": [
-                "URBRPL",
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "POLICY-MAKING PROCESS",
-        "description": "Examines the political, social, and economic contexts that shape and are shaped by policy making processes. Though the focus is on the US, international comparisons will be made, and students are encouraged to think about the American context through comparative and international perspectives. Familiarizes students with dominant theories and models of policymaking process and policy change, starting with the model of the policy cycle. Focuses in on key topics and issues in policy making, specifically, agenda setting, implementation, and the relationships between policymaking and democracy. Reflects on contemporary and emerging issues and dilemmas of the politics of policy making.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 885,
-            "subjects": [
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "ADVANCED PUBLIC MANAGEMENT: CRAFT, CONSTRAINTS AND ACCOUNTABILITY",
-        "description": "Examines how managers in public and not-for-profit agencies can secure and utilize legal authority, human resources, and funds to accomplish organizational goals. Includes strategies for establishing and maintaining effective external relations and for working through other organizations to accomplish objectives.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 878,
-                    "subjects": [
-                        "URBRPL",
-                        "POLISCI",
-                        "PUBAFFR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bPOLI\u00a0SCI/\u200bPUB\u00a0AFFR\u00a0\u00a0878"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "INDEPENDENT READING",
-        "description": "Program of study devised by a student in collaboration with an instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 809,
-            "subjects": [
+                "PUBAFFR",
                 "ENVIRST",
-                "URBRPL",
-                "PUBAFFR"
+                "POLISCI"
             ]
         },
-        "course_title": "INTRODUCTION TO ENERGY ANALYSIS AND POLICY",
-        "description": "Strategy and policy problems in energy policy, both national and international.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 878,
-            "subjects": [
-                "URBRPL",
-                "POLISCI",
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "PUBLIC MANAGEMENT",
-        "description": "Role of administration in American government; problems of organization, bureaucracy and control; public policy as the output of the administrative process.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 857,
-            "subjects": [
-                "PUBAFFR"
-            ]
-        },
-        "course_title": "POLITICAL ECONOMY OF CORRUPTION AND GOOD GOVERNANCE",
-        "description": "Surveys wide range of multidisciplinary research on causes and consequences of widespread corruption and experiences of anticorruption reform strategies, with focus on developing countries. Considers role of international organizations, multinational companies, and regional agreements in building good governance globally.",
+        "course_title": "GLOBAL ENVIRONMENTAL GOVERNANCE",
+        "description": "In-depth examination of the political and policy challenges posed by global environmental degradation. Analysis of international institutions for managing the global environment.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"

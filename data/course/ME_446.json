@@ -7,8 +7,32 @@
     },
     "course_title": "INTRODUCTION TO FEEDBACK CONTROL",
     "description": "Overview of linear feedback control analysis and design techniques for mechanical systems. Modeling of linear dynamic mechanical systems (review), derivation of their defining differential equations, and analysis of their response using both transient and frequency response techniques; Analysis and design of feedback control of mechanical systems using classical control transform techniques such as root locus and frequency response; Analysis of system robustness through evaluation of phase and gain margins and the Nyquist stability criterion. Design of feedback controllers for mechanical systems using frequency domain loop-shaping methods. Design domains, including mechanical, thermal, and fluid feedback control systems. Effects of non-ideal system characteristics commonly encountered in mechanical systems, such as compliance, delay, and actuator and sensor saturation. Builds on knowledge of high-level computational programming language such as Matlab or Simulink.",
+    "optimized": {
+        "course_number": 340,
+        "subjects": [
+            "ME"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 319,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 545,
+                "subjects": [
+                    "EMA"
+                ]
+            },
             {
                 "course_number": 340,
                 "subjects": [

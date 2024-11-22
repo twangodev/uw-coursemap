@@ -7,8 +7,21 @@
     },
     "course_title": "INTRODUCTION TO OPERATING SYSTEMS",
     "description": "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation.",
+    "optimized": {
+        "course_number": 354,
+        "subjects": [
+            "COMPSCI",
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
             {
                 "course_number": 354,
                 "subjects": [

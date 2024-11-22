@@ -7,12 +7,42 @@
     },
     "course_title": "NUCLEAR REACTOR THEORY",
     "description": "The neutronics behavior of fission reactors, primarily from a theoretical, one-speed perspective. Criticality, fission product poisoning, reactivity control, reactor stability and introductory concepts in fuel management, followed by slowing down and one-speed diffusion theory.",
+    "optimized": {
+        "course_number": 305,
+        "subjects": [
+            "NE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 319,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 305,
                 "subjects": [
                     "NE"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 321,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

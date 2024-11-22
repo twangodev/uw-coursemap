@@ -1,17 +1,56 @@
 [
     {
         "course_reference": {
-            "course_number": 917,
+            "course_number": 921,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "RACE IN AMERICAN OBSTETRICS & GYNECOLOGY",
-        "description": "Survey the history of race in American obstetrics and gynecology. Gain understanding of how race and theories of racial difference informed the development of the field and justified the treatment of Black, indigenous and immigrant patients. Understand the vital contributions of Black enslaved women, other women of color, and Irish immigrants to obstetrics and gynecology. Make connections between racialized historical practices and contemporary norms in reproductive healthcare.",
+        "course_title": "GYNECOLOGIC ONCOLOGY",
+        "description": "In-depth exposure to outpatient care of the patient with gynecologic cancer. Occasional opportunities to provide inpatient care to patients students have examined or consulted with in clinic. Work under the direct supervision of the gynecologic oncology faculty, fellows, residents, and APPs. Function at the intern level and play an active role in the care of gynecologic oncology patients.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 938,
+            "subjects": [
+                "OBS&GYN"
+            ]
+        },
+        "course_title": "OBSTETRICS & GYNECOLOGY INPATIENT ACTING INTERNSHIP",
+        "description": "Provides an in-depth exposure to inpatient and operative management of complicated obstetric and gynecologic patients. Work under the direct supervision of a senior resident, fellows and the obstetrician-gynecology faculty. Provides an opportunity to function at the intern level and play an active role in inpatient management of obstetric and gynecologic patients.",
+        "optimized": {
+            "course_number": 810,
+            "subjects": [
+                "MEDSC-M"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 811,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
                     "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
                     "subjects": [
                         "MEDSC-M"
                     ]
@@ -22,23 +61,47 @@
     },
     {
         "course_reference": {
-            "course_number": 956,
+            "course_number": 909,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "ADVANCED RESPONSIBLE CONDUCT OF RESEARCH FOR BIOMEDICAL STUDENTS",
-        "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research. Provides advanced consideration of these topics and illustrates how to implement these responsible conduct and ethical considerations into actual grant- and career-related documents.",
+        "course_title": "OBSTETRICS & GYNECOLOGY INTERNSHIP PREP COURSE",
+        "description": "Designed to highlight, review, and allow practice of key concepts in Obstetrics  Gynecology. Practice with case simulation, case discussion, didactics, panel discussions, and procedural skills to prepare for success in the first few weeks of an Ob/Gyn residency. Participate in simulations and explore critical interplay between medical care and communication. Discuss common challenges encountered early in residency and throughout an Obstetrics  Gynecology career. Taught by a team of faculty, inter-professional staff, residents, fellows, and course directors.",
+        "optimized": {
+            "course_number": 810,
+            "subjects": [
+                "MEDSC-M"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 955,
+                    "course_number": 811,
                     "subjects": [
-                        "OBS&GYN"
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
                     ]
                 }
             ],
-            "prerequisites_text": "OBS&GYN\u00a0955,PHARMACY\u00a0800,NURSING\u00a0802,MICROBIO\u00a0901, orCOMP\u00a0BIO/\u200bPATH-BIO\u00a0\u00a0812(or SURG SCI 812 prior to Spring 2025)"
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
         }
     },
     {
@@ -50,22 +113,7 @@
         },
         "course_title": "INDEPENDENT READING AND RESEARCH IN OB/GYN",
         "description": "Independent research under the direct supervision of Obstetric/Gynecology faculty. Each student's research project is individualized to meet student research goals within context of faculty research needs.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 954,
-            "subjects": [
-                "ZOOLOGY",
-                "ANSCI",
-                "OBS&GYN"
-            ]
-        },
-        "course_title": "SEMINAR IN ENDOCRINOLOGY-REPRODUCTIVE PHYSIOLOGY",
-        "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -80,6 +128,7 @@
         },
         "course_title": "CRITICAL THINKING IN REPRODUCTIVE ENDOCRINE PHYSIOLOGY",
         "description": "Provides advanced learning opportunities in Endocrinology and Reproductive Physiology areas, particularly reproduction, emphasizing human health whenever possible. Explores scientific questions core to the ERP graduate training program and teaches how to communicate research findings as presentations. Skills developed include information discovery; organization of papers and identification of argument(s); and creation of documents/reports. Students are the driving force behind achievement of the learning objectives by undertaking learning activities, actively engaging in their peers' activities, and providing constructive feedback to their peers. Prior completion ofOBS&GYN\u00a0710recommended but not required.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -87,14 +136,45 @@
     },
     {
         "course_reference": {
+            "course_number": 711,
+            "subjects": [
+                "OBS&GYN"
+            ]
+        },
+        "course_title": "ADVANCED REPRODUCTIVE ENDOCRINE PHYSIOLOGY",
+        "description": "Advanced learning opportunities in Endocrinology and Reproductive Physiology (ERP) areas, particularly reproduction, with an emphasis on human health whenever possible. Explore scientific questions core to the ERP graduate training program at research level with further in-depth instruction and a focus on cutting-edge knowledge and developments. Topics include pregnancy (ovulation through parturition); embryonic growth and development; lactation biology; and neuroendocrinology. Continuation ofOBS&GYN\u00a0710. Intended for second- or third-year graduate students.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "OBS&GYN"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 807,
             "subjects": [
-                "POPHLTH",
-                "OBS&GYN"
+                "OBS&GYN",
+                "POPHLTH"
             ]
         },
         "course_title": "REPRODUCTIVE AND PERINATAL EPIDEMIOLOGY",
         "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -110,13 +190,14 @@
     },
     {
         "course_reference": {
-            "course_number": 711,
+            "course_number": 919,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "ADVANCED REPRODUCTIVE ENDOCRINE PHYSIOLOGY",
-        "description": "Advanced learning opportunities in Endocrinology and Reproductive Physiology (ERP) areas, particularly reproduction, with an emphasis on human health whenever possible. Explore scientific questions core to the ERP graduate training program at research level with further in-depth instruction and a focus on cutting-edge knowledge and developments. Topics include pregnancy (ovulation through parturition); embryonic growth and development; lactation biology; and neuroendocrinology. Continuation ofOBS&GYN\u00a0710. Intended for second- or third-year graduate students.",
+        "course_title": "INDIVIDUALIZED OBSTETRICS & GYNECOLOGY ELECTIVE",
+        "description": "In-depth exposure to ambulatory gynecology, operative gynecology, normal and high-risk obstetrics and subspecialty clinics, working under the direct supervision of Obstetric/Gynecology faculty, residents, fellows, certified midwives, and advanced practice practitioneers. Individualized to meet each location's capacity and student preference.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -124,30 +205,47 @@
     },
     {
         "course_reference": {
-            "course_number": 921,
+            "course_number": 917,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "GYNECOLOGIC ONCOLOGY",
-        "description": "In-depth exposure to outpatient care of the patient with gynecologic cancer. Occasional opportunities to provide inpatient care to patients students have examined or consulted with in clinic. Work under the direct supervision of the gynecologic oncology faculty, fellows, residents, and APPs. Function at the intern level and play an active role in the care of gynecologic oncology patients.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
+        "course_title": "RACE IN AMERICAN OBSTETRICS & GYNECOLOGY",
+        "description": "Survey the history of race in American obstetrics and gynecology. Gain understanding of how race and theories of racial difference informed the development of the field and justified the treatment of Black, indigenous and immigrant patients. Understand the vital contributions of Black enslaved women, other women of color, and Irish immigrants to obstetrics and gynecology. Make connections between racialized historical practices and contemporary norms in reproductive healthcare.",
+        "optimized": {
+            "course_number": 810,
             "subjects": [
-                "OBS&GYN"
+                "MEDSC-M"
             ]
         },
-        "course_title": "RESEARCH",
-        "description": "Research supervised by individual faculty members.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 811,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
         }
     },
     {
@@ -159,6 +257,7 @@
         },
         "course_title": "OBSTETRIC HOSPITALIST",
         "description": "In-depth exposure to inpatient care of patients on Labor and Delivery. Work under the direct supervision of the Obstetrics Hospitalist whose primary role is the general medical care of hospitalized patients. Help manage laboring patients, see patients in labor and delivery, triage, and assist with cesarean sections. Round on all patients for whom you are involved in care once patients are post-partum. Function as the residents do at night and assist with cross coverage of inpatient gynecology patients as well as see patients who arrive in the emergency department with obstetric or gynecologic concerns. You may assist in the operating room if the patients who present to the emergency room require immediate surgery.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -166,45 +265,41 @@
     },
     {
         "course_reference": {
-            "course_number": 710,
+            "course_number": 935,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "REPRODUCTIVE ENDOCRINE PHYSIOLOGY",
-        "description": "A broad grounding in reproductive endocrine physiology at the graduate level, with an emphasis on human and human reproductive health wherever possible. Encompasses an overview of fundamental concepts in endocrinology, the hypothalamic-pituitary axis, steroidogenesis, early embryonic development, pregnancy and maternal-fetal adaptations, and pathologies associated with endocrine disruption and dysregulation. Provides more focus on pathologic pregnancies because such pregnancies lead to a higher risk of adult onset diseases including hypertension, obesity, and metabolic syndrome. Covers pregnancy and pathologic pregnancy in detail.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 919,
+        "course_title": "TEACHING IN THE CLINICAL SETTING",
+        "description": "As Phase 3 students, apply teaching theories to the pursuit of improving the clinical learning environment for Phase 2 students. Unique opportunity for Phase 3 medical students to gain experience with clinical teaching in a capacity similar to how they will function as an intern without the demands and responsibilities of residency, with a focus on establishing good teaching practices. Spend time in the clinical setting advising and mentoring Phase 2 students. No direct participation in patient care. Prepare and deliver short teaching sessions for Phase 2 students from a standard curriculum of learning topics to help Phase 2 students achieve success on Labor  Delivery. Develop innovative ways to guide Phase 2 students to effectively utilize clinical resources, navigate the basics of patient assessment, and engage with the patient care team.",
+        "optimized": {
+            "course_number": 810,
             "subjects": [
-                "OBS&GYN"
+                "MEDSC-M"
             ]
         },
-        "course_title": "INDIVIDUALIZED OBSTETRICS & GYNECOLOGY ELECTIVE",
-        "description": "In-depth exposure to ambulatory gynecology, operative gynecology, normal and high-risk obstetrics and subspecialty clinics, working under the direct supervision of Obstetric/Gynecology faculty, residents, fellows, certified midwives, and advanced practice practitioneers. Individualized to meet each location's capacity and student preference.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 909,
-            "subjects": [
-                "OBS&GYN"
-            ]
-        },
-        "course_title": "OBSTETRICS & GYNECOLOGY INTERNSHIP PREP COURSE",
-        "description": "Designed to highlight, review, and allow practice of key concepts in Obstetrics  Gynecology. Practice with case simulation, case discussion, didactics, panel discussions, and procedural skills to prepare for success in the first few weeks of an Ob/Gyn residency. Participate in simulations and explore critical interplay between medical care and communication. Discuss common challenges encountered early in residency and throughout an Obstetrics  Gynecology career. Taught by a team of faculty, inter-professional staff, residents, fellows, and course directors.",
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 811,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
                     "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
                     "subjects": [
                         "MEDSC-M"
                     ]
@@ -222,6 +317,7 @@
         },
         "course_title": "RESPONSIBLE CONDUCT OF RESEARCH FOR BIOMEDICAL GRADUATE STUDENTS",
         "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -229,58 +325,118 @@
     },
     {
         "course_reference": {
-            "course_number": 938,
+            "course_number": 956,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "OBSTETRICS & GYNECOLOGY INPATIENT ACTING INTERNSHIP",
-        "description": "Provides an in-depth exposure to inpatient and operative management of complicated obstetric and gynecologic patients. Work under the direct supervision of a senior resident, fellows and the obstetrician-gynecology faculty. Provides an opportunity to function at the intern level and play an active role in inpatient management of obstetric and gynecologic patients.",
+        "course_title": "ADVANCED RESPONSIBLE CONDUCT OF RESEARCH FOR BIOMEDICAL STUDENTS",
+        "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research. Provides advanced consideration of these topics and illustrates how to implement these responsible conduct and ethical considerations into actual grant- and career-related documents.",
+        "optimized": {
+            "course_number": 955,
+            "subjects": [
+                "OBS&GYN"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 810,
+                    "course_number": 800,
                     "subjects": [
-                        "MEDSC-M"
+                        "PHARMACY"
+                    ]
+                },
+                {
+                    "course_number": 955,
+                    "subjects": [
+                        "OBS&GYN"
+                    ]
+                },
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "COMPBIO",
+                        "PATH-BIO"
+                    ]
+                },
+                {
+                    "course_number": 901,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 802,
+                    "subjects": [
+                        "NURSING"
                     ]
                 }
             ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+            "prerequisites_text": "OBS&GYN\u00a0955,PHARMACY\u00a0800,NURSING\u00a0802,MICROBIO\u00a0901, orCOMP\u00a0BIO/\u200bPATH-BIO\u00a0\u00a0812(or SURG SCI 812 prior to Spring 2025)"
         }
     },
     {
         "course_reference": {
-            "course_number": 935,
+            "course_number": 990,
             "subjects": [
                 "OBS&GYN"
             ]
         },
-        "course_title": "TEACHING IN THE CLINICAL SETTING",
-        "description": "As Phase 3 students, apply teaching theories to the pursuit of improving the clinical learning environment for Phase 2 students. Unique opportunity for Phase 3 medical students to gain experience with clinical teaching in a capacity similar to how they will function as an intern without the demands and responsibilities of residency, with a focus on establishing good teaching practices. Spend time in the clinical setting advising and mentoring Phase 2 students. No direct participation in patient care. Prepare and deliver short teaching sessions for Phase 2 students from a standard curriculum of learning topics to help Phase 2 students achieve success on Labor  Delivery. Develop innovative ways to guide Phase 2 students to effectively utilize clinical resources, navigate the basics of patient assessment, and engage with the patient care team.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 810,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "OBS&GYN"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with faculty member.",
+        "course_title": "RESEARCH",
+        "description": "Research supervised by individual faculty members.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 954,
+            "subjects": [
+                "OBS&GYN",
+                "ZOOLOGY",
+                "ANSCI"
+            ]
+        },
+        "course_title": "SEMINAR IN ENDOCRINOLOGY-REPRODUCTIVE PHYSIOLOGY",
+        "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 954,
+            "subjects": [
+                "ZOOLOGY",
+                "OBS&GYN",
+                "ANSCI"
+            ]
+        },
+        "course_title": "SEMINAR IN ENDOCRINOLOGY-REPRODUCTIVE PHYSIOLOGY",
+        "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "OBS&GYN"
+            ]
+        },
+        "course_title": "REPRODUCTIVE ENDOCRINE PHYSIOLOGY",
+        "description": "A broad grounding in reproductive endocrine physiology at the graduate level, with an emphasis on human and human reproductive health wherever possible. Encompasses an overview of fundamental concepts in endocrinology, the hypothalamic-pituitary axis, steroidogenesis, early embryonic development, pregnancy and maternal-fetal adaptations, and pathologies associated with endocrine disruption and dysregulation. Provides more focus on pathologic pregnancies because such pregnancies lead to a higher risk of adult onset diseases including hypertension, obesity, and metabolic syndrome. Covers pregnancy and pathologic pregnancy in detail.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

@@ -7,6 +7,13 @@
     },
     "course_title": "INTRODUCTION TO MICROPROCESSOR SYSTEMS",
     "description": "Introduction to architecture, operation, and application of microprocessors; microprocessor programming; address decoding; system timing; parallel, serial, and analog I/O; interrupts and direct memory access; interfacing to static and dynamic RAM; microcontrollers.",
+    "optimized": {
+        "course_number": 252,
+        "subjects": [
+            "COMPSCI",
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
@@ -14,6 +21,12 @@
                 "subjects": [
                     "COMPSCI",
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
                 ]
             }
         ],

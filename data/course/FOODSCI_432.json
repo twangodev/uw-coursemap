@@ -7,13 +7,32 @@
     },
     "course_title": "PRINCIPLES OF FOOD PRESERVATION",
     "description": "Fundamentals of food preservation methods: post-harvest, thermal processing, refrigeration and freezing, control of water activity, chemical preservation, nonthermal methods and control of food packaging.",
+    "optimized": {
+        "course_number": 325,
+        "subjects": [
+            "FOODSCI",
+            "MICROBIO"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 440,
+                "subjects": [
+                    "FOODSCI"
+                ]
+            },
             {
                 "course_number": 325,
                 "subjects": [
                     "FOODSCI",
                     "MICROBIO"
+                ]
+            },
+            {
+                "course_number": 410,
+                "subjects": [
+                    "FOODSCI"
                 ]
             }
         ],

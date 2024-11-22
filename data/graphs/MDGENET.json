@@ -1,78 +1,8 @@
 [
     {
         "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "id": "MDGENET",
+            "id": "MEDSC-M",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
-            "target": "GENETICS/POPHLTH/MDGENET 636"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS/MDGENET 662"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 485",
-            "target": "BIOCORE 587"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
-            "id": "GENETICS/MDGENET 708"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 587",
-            "target": "GENETICS 468"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
         }
     },
     {
@@ -84,21 +14,14 @@
     },
     {
         "data": {
-            "id": "GENETICS",
+            "source": "MEDSC-M 810",
+            "target": "MDGENET 911"
+        }
+    },
+    {
+        "data": {
+            "id": "MDGENET",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
         }
     },
     {
@@ -110,135 +33,20 @@
     },
     {
         "data": {
-            "description": "Genetics and genomics are rapidly evolving fields. In modern clinical care settings, clinicians will be exposed to genetic and genomic data, including that brought by patients, and knowing how to read genetic and genomic data is increasingly necessary in clinical practice. Genetics and genomics in a clinical setting spans a wide range of topics including diagnosis and treatment of genetic diseases. Familiarity with clinical genetic analysis, and the genetic approaches used in basic science, helps medical students better understand genetic disease background. Learn how to bridge basic concepts of human genetics and clinical genetics (actual diseases). Emphases will include research into human genetic diseases, including designing genetic testing, using model organisms and/or cell culture systems, and the development of genetic testing technologies.",
-            "id": "MDGENET 911",
-            "parent": "MDGENET"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
-            "id": "GENETICS/POPHLTH/MDGENET 636"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
-            "id": "GENETICS 468",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/ZOOLOGY/BOTANY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
+            "id": "MDGENET/GENETICS 707"
         }
     },
     {
         "data": {
             "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
-            "id": "GENETICS/MDGENET 662"
+            "id": "MDGENET/GENETICS 662"
         }
     },
     {
         "data": {
-            "id": "CHEM",
+            "id": "CROSSLISTED",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "GENETICS/BIOCHEM/MDGENET 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
-            "id": "GENETICS/MDGENET 565"
         }
     },
     {
@@ -250,8 +58,27 @@
     },
     {
         "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+            "id": "MDGENET/GENETICS/POPHLTH 636"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics and genomics are rapidly evolving fields. In modern clinical care settings, clinicians will be exposed to genetic and genomic data, including that brought by patients, and knowing how to read genetic and genomic data is increasingly necessary in clinical practice. Genetics and genomics in a clinical setting spans a wide range of topics including diagnosis and treatment of genetic diseases. Familiarity with clinical genetic analysis, and the genetic approaches used in basic science, helps medical students better understand genetic disease background. Learn how to bridge basic concepts of human genetics and clinical genetics (actual diseases). Emphases will include research into human genetic diseases, including designing genetic testing, using model organisms and/or cell culture systems, and the development of genetic testing technologies.",
+            "id": "MDGENET 911",
+            "parent": "MDGENET"
+        }
+    },
+    {
+        "data": {
+            "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
+            "id": "MDGENET/GENETICS 708"
         }
     },
     {
@@ -263,144 +90,20 @@
     },
     {
         "data": {
-            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
-            "id": "GENETICS 467",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
-            "id": "GENETICS/MDGENET 707"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS/MDGENET 565"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 468",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "description": "A capstone course to build on and integrate the knowledge and skills gained in previous Biocore coursework through readings and analysis of primary scientific literature. Work in small groups to analyze current and emerging topics through the lens of scientific research. Topics include signaling pathways, systems biology, genetic disease, and cancer.",
-            "id": "BIOCORE 587",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 468"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "MDGENET 911"
-        }
-    },
-    {
-        "data": {
-            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
-            "id": "BIOCORE 485",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS/MDGENET 677"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
             "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
-            "id": "GENETICS/BIOCHEM/MDGENET 620"
+            "id": "MDGENET/GENETICS/BIOCHEM 620"
         }
     },
     {
         "data": {
-            "source": "GENETICS 468",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
+            "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
+            "id": "MDGENET/GENETICS 565"
         }
     },
     {
         "data": {
             "description": "Contents vary; consideration of subjects not included in the curriculum.",
-            "id": "GENETICS/MDGENET 677"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 485"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
+            "id": "MDGENET/GENETICS 677"
         }
     }
 ]

@@ -1,6 +1,21 @@
 [
     {
         "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "PHYSIOL"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 699,
             "subjects": [
                 "PHYSIOL"
@@ -8,6 +23,7 @@
         },
         "course_title": "INDEPENDENT WORK",
         "description": "Directed study projects for juniors and seniors.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -22,23 +38,10 @@
         },
         "course_title": "SEMINAR",
         "description": "Students, faculty, and staff present research reports of current interest.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "PHYSIOL"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

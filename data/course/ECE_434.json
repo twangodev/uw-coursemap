@@ -7,13 +7,32 @@
     },
     "course_title": "PHOTONICS",
     "description": "Introduction to ray optics, physical optics and interference, applications of Fourier optics, absorption, dispersion, and polarization of light. Light sources, including lasers (gas, solid state, and semiconductor), modulation and detection of light.",
+    "optimized": {
+        "course_number": 235,
+        "subjects": [
+            "PHYSICS",
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 320,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 322,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 235,
                 "subjects": [
-                    "ECE",
-                    "PHYSICS"
+                    "PHYSICS",
+                    "ECE"
                 ]
             }
         ],

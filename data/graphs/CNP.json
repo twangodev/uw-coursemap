@@ -15,22 +15,8 @@
     },
     {
         "data": {
-            "description": "Philosophical perspectives, theories, and standards are applied to the practice of professional nursing. Factors influencing nursing/healthcare delivery are analyzed. Professional communication and critical thinking skills are enhanced.",
-            "id": "CNP 407",
-            "parent": "CNP"
-        }
-    },
-    {
-        "data": {
             "description": "Designed to advance knowledge of nursing as it is embedded in clinical practice, address current and emerging health care trends, and examine healthcare workforce data and health care policy as it impacts opportunities for and impediments to nursing practice.",
             "id": "CNP 306",
-            "parent": "CNP"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces the concept of evidence-based practice, the importance of evidence to improve clinical practice, strategies to evaluate the quality of evidence, and how to design an evidence-based project.",
-            "id": "CNP 446",
             "parent": "CNP"
         }
     },
@@ -43,8 +29,16 @@
     },
     {
         "data": {
-            "id": "CNP",
-            "type": "compound"
+            "description": "Introduces the concept of evidence-based practice, the importance of evidence to improve clinical practice, strategies to evaluate the quality of evidence, and how to design an evidence-based project.",
+            "id": "CNP 446",
+            "parent": "CNP"
+        }
+    },
+    {
+        "data": {
+            "description": "The special topics course is designed to provide a planned, systematic analysis of topics, issues and problems in the area of nursing.",
+            "id": "CNP 490",
+            "parent": "CNP"
         }
     },
     {
@@ -56,8 +50,9 @@
     },
     {
         "data": {
-            "source": "CNP 306",
-            "target": "CNP 519"
+            "description": "Philosophical perspectives, theories, and standards are applied to the practice of professional nursing. Factors influencing nursing/healthcare delivery are analyzed. Professional communication and critical thinking skills are enhanced.",
+            "id": "CNP 407",
+            "parent": "CNP"
         }
     },
     {
@@ -69,9 +64,14 @@
     },
     {
         "data": {
-            "description": "The special topics course is designed to provide a planned, systematic analysis of topics, issues and problems in the area of nursing.",
-            "id": "CNP 490",
-            "parent": "CNP"
+            "source": "CNP 306",
+            "target": "CNP 519"
+        }
+    },
+    {
+        "data": {
+            "id": "CNP",
+            "type": "compound"
         }
     },
     {

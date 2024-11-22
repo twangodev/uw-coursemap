@@ -7,13 +7,34 @@
     },
     "course_title": "CELL BIOLOGY",
     "description": "Comprehensive course on modern aspects of cell biology.",
+    "optimized": {
+        "course_number": 101,
+        "subjects": [
+            "ZOOLOGY",
+            "BIOLOGY"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
                     "BIOLOGY",
-                    "ZOOLOGY"
+                    "BOTANY"
                 ]
             }
         ],

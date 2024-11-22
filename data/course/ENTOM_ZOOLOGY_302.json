@@ -8,13 +8,40 @@
     },
     "course_title": "INTRODUCTION TO ENTOMOLOGY",
     "description": "Principles including morphology and classification.",
+    "optimized": {
+        "course_number": 151,
+        "subjects": [
+            "ZOOLOGY",
+            "BIOLOGY",
+            "BOTANY"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY"
                 ]
             }

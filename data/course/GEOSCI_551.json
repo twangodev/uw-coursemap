@@ -7,13 +7,39 @@
     },
     "course_title": "PALEOCEANOGRAPHY",
     "description": "Investigates the history of the Earth's oceans, focusing on the last 65 million years, with discussion of the chemical and physical methods through which oceans are studied and the role of oceans in the climate system.",
+    "optimized": {
+        "course_number": 105,
+        "subjects": [
+            "GEOSCI",
+            "ATMOCN"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 110,
+                "subjects": [
+                    "GEOSCI"
+                ]
+            },
             {
                 "course_number": 105,
                 "subjects": [
                     "GEOSCI",
                     "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 106,
+                "subjects": [
+                    "ENVIRST",
+                    "GEOSCI"
                 ]
             }
         ],

@@ -8,13 +8,27 @@
     },
     "course_title": "MUSIC LEARNING AND TEACHING 2",
     "description": "The learning and teaching of music at the high school level.",
+    "optimized": {
+        "course_number": 301,
+        "subjects": [
+            "MUSIC",
+            "CURRIC"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 337,
+                "subjects": [
+                    "MUSIC",
+                    "CURRIC"
+                ]
+            },
+            {
                 "course_number": 301,
                 "subjects": [
-                    "CURRIC",
-                    "MUSIC"
+                    "MUSIC",
+                    "CURRIC"
                 ]
             }
         ],

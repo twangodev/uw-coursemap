@@ -1,16 +1,49 @@
 [
     {
         "course_reference": {
-            "course_number": 254,
+            "course_number": 460,
             "subjects": [
-                "GEOG",
-                "POLISCI",
+                "ENVIRST",
                 "HISTORY",
-                "SLAVIC"
+                "GEOG"
             ]
         },
-        "course_title": "EASTERN EUROPE: AN INTERDISCIPLINARY SURVEY",
-        "description": "Comprehensive interdisciplinary survey of East European culture, society, politics, and literature from its beginnings to the present day.",
+        "course_title": "AMERICAN ENVIRONMENTAL HISTORY",
+        "description": "Survey of interactions among people and natural environments from before European colonization to present. Equal attention to problems of ecological change, human ideas, and uses of nature and history of conservation and environmental public policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing or 3 credits in HISTORY, GEOG or ENVIR ST"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "ECONOMIC GEOGRAPHY: LOCATIONAL BEHAVIOR",
+        "description": "Classic location theory with modern extensions. Examination of theoretical statements and selected empirical examples. Principles of economic regionalization and network analysis with emphasis on spatial implications of the economic development process.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 253,
+            "subjects": [
+                "HISTORY",
+                "SLAVIC",
+                "POLISCI",
+                "GEOG"
+            ]
+        },
+        "course_title": "RUSSIA: AN INTERDISCIPLINARY SURVEY",
+        "description": "Comprehensive interdisciplinary survey of Russian civilization from its beginnings through the present day.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -18,27 +51,14 @@
     },
     {
         "course_reference": {
-            "course_number": 682,
+            "course_number": 565,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 365,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GEOGRAPHICAL TRADITIONS AND PRACTICES",
-        "description": "An introduction to the breadth and practice of Geography. Introduces geographic perspectives, theories, themes, and research design. Covers the history of the discipline, applied quantitative and qualitative methodologies used in geographic research, and a selection of subfields within the discipline.",
+        "course_title": "COLLOQUIUM FOR UNDERGRADUATE MAJORS",
+        "description": "Orientation to geography as a scholarly discipline; its development, objectives, essential concepts, methods of investigation, institutions, opportunities, problems, and trends.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Geography or Cartography and Geographic Information Systems undergraduate programs"
@@ -46,13 +66,171 @@
     },
     {
         "course_reference": {
-            "course_number": 578,
+            "course_number": 372,
+            "subjects": [
+                "GLE",
+                "GEOSCI",
+                "ENVIRST",
+                "F&WECOL",
+                "LANDARC",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTERMEDIATE ENVIRONMENTAL REMOTE SENSING",
+        "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI",
+                        "ENVIRST",
+                        "F&WECOL",
+                        "LANDARC",
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 918,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "GIS APPLICATIONS",
-        "description": "Application and use of GIS techniques in physical and human geography. Includes an introduction to a generic framework of GIS applications, case studies, and student projects. Cases range from urban and regional geography, to marketing geography, and to physical and environmental geography.",
+        "course_title": "SEMINAR IN POLITICAL GEOGRAPHY",
+        "description": "Surveys recent and classic works in political geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 676,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN GEOGRAPHY",
+        "description": "Explores emerging topics in physical geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 538,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "THE HUMID TROPICS: ECOLOGY, SUBSISTENCE, AND DEVELOPMENT",
+        "description": "Description and analysis of humid-tropical ecosystems, with emphasis on the relationships, production potential, and human modification of biotic resources.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "PRACTICUM IN GIS DEVELOPMENT",
+        "description": "Develop the ability to conceive and manage a real-world GIS development project, and to design a plan for solving the project.",
+        "optimized": {
+            "course_number": 574,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 579,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 576,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 572,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 575,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 378,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 574,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG\u00a0378,572,574,575,576,579and graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 337,
+            "subjects": [
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "NATURE, POWER AND SOCIETY",
+        "description": "Explores the links between nature, power and society in today's world. Considers the complex relationships between humans and the earth's resources, including food, energy, physical materials, water, biota, and landscapes. Examines issues linked to population and scarcity, resource tenure, green consumerism, political economy, environmental ethics, risks and hazards, political ecology, and environmental justice.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 112,
+                    "subjects": [
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing. Not open to students with credit forENVIR\u00a0ST\u00a0112"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 579,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "GIS AND SPATIAL ANALYSIS",
+        "description": "Principles and algorithms for spatial analysis in geographic imformation systems. A theoretical and practical examination of analytical methods used in GIS, including point, line and polygon processing, interpolation, smoothing, spatial overlay and query, network analysis, terrain analysis, and classification.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -69,73 +247,14 @@
     },
     {
         "course_reference": {
-            "course_number": 778,
+            "course_number": 355,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "PRACTICUM IN GIS DEVELOPMENT",
-        "description": "Develop the ability to conceive and manage a real-world GIS development project, and to design a plan for solving the project.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 574,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG\u00a0378,572,574,575,576,579and graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 504,
-            "subjects": [
-                "GEOG",
-                "GEN&WS"
-            ]
-        },
-        "course_title": "FEMINIST GEOGRAPHY: THEORETICAL APPROACHES",
-        "description": "Provides an opening to some of the key debates and practices in feminist (political) geography. Feminist geography focuses on questions of power, difference, embodiment, and social change. How are feminist geographies in conversation with or part of other fields of inquiry, such as critical ethnic studies and Indigenous studies, which also focus on questions of difference, epistemologies of knowledge, and social transformation and/or decolonization? That is, what are the relationships of feminist geographic inquiry to liberatory projects of ending racism, capitalism, settler colonialism, and heteropatriarchy. Explore how feminist theories and approaches in geography transformed prevailing political geographic questions and concerns, such as power, politics, territory, boundaries, sovereignty, and violence. What do feminist principles and debates over feminist politics and methods bring to (political) geography?",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 982,
-            "subjects": [
-                "HISTORY",
-                "AAE",
-                "C&ESOC",
-                "GEOG",
-                "POLISCI",
-                "LACIS",
-                "SPANISH",
-                "PORTUG",
-                "SOC",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "INTERDEPARTMENTAL SEMINAR IN THE LATIN-AMERICAN AREA",
-        "description": "Interdisciplinary inquiry in Latin American society and culture.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 339,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL CONSERVATION",
-        "description": "Examines major environmental conservation approaches in the U.S. and developing countries and how they are influenced by sociopolitical factors, cultural values and scientific understandings of nature. Historical and contemporary cases are explored with emphasis on biodiversity and climate change issues.",
+        "course_title": "AFRICA, SOUTH OF THE SAHARA",
+        "description": "Physical and human distributions and interrelationships, with emphasis on the spatial processes and patterns of modernization.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -143,14 +262,333 @@
     },
     {
         "course_reference": {
-            "course_number": 309,
+            "course_number": 307,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "INTERNATIONAL MIGRATION, HEALTH, AND HUMAN RIGHTS",
+        "description": "Provides an introduction to health and human mobility in a global context. Mobility is part of the human condition and international law enshrines freedom of movement, yet nation-states reserve the right to exclude. Examines the development of laws and institutions governing people on the move; how these solidify or reshape existing global, racial-ethnic, class, and gender hierarchies; and how they contribute to individual and population-level health.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 420,
+            "subjects": [
+                "GEOSCI",
+                "GEOG"
+            ]
+        },
+        "course_title": "GLACIAL AND PLEISTOCENE GEOLOGY",
+        "description": "Principles, characteristics and work of glaciers; events of the Pleistocene. Field trip.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 127,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 106,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 199,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 340,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "WORLD REGIONS IN GLOBAL CONTEXT",
+        "description": "Survey of development and change within each of the world's regions (e.g., Africa, Southeast Asia). Attention devoted to environment and society; history, economy, and demographic change; culture and politics; future challenges; key actors.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 560,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "ADVANCED QUANTITATIVE METHODS",
+        "description": "Selected topics in the analysis of spatial distributions with emphasis on multivariate techniques.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 360,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing orGEOG\u00a0360"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 333,
             "subjects": [
                 "ENVIRST",
                 "GEOG"
             ]
         },
-        "course_title": "PEOPLE, LAND AND FOOD: COMPARATIVE STUDY OF AGRICULTURE SYSTEMS",
-        "description": "Introduction to how and why humans have transformed natural landscapes around the world, including tropical deforestation. Exploration of different agricultural systems, and topics such as food security, land scarcity, bioenergy and the impacts of food production on the environment.",
+        "course_title": "GREEN URBANISM",
+        "description": "Over half of the world's population now lives in urban areas, with an expected increase of 2.5 billion people in the next 30 years. As urbanization (broadly defined as the conversion of previously undeveloped lands into urbanized uses) continues and intensifies, we are faced with a number of environmental issues, for instance, fragmentation and destruction of habitats, and decreased air and water quality.  Explore how urbanization impacts ecological processes and resulting environmental outcomes, strategies for \"designing with nature,\" and behavioral, planning, and policy responses to urban environmental problems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 920,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SEMINAR IN PHYSICAL GEOGRAPHY",
+        "description": "Surveys recent and classic works in physical geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 345,
+            "subjects": [
+                "ENVIRST",
+                "AMERIND",
+                "GEOG"
+            ]
+        },
+        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
+        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 335,
+            "subjects": [
+                "ENVIRST",
+                "GEOSCI",
+                "ATMOCN",
+                "GEOG"
+            ]
+        },
+        "course_title": "CLIMATIC ENVIRONMENTS OF THE PAST",
+        "description": "Climate change at timescales from the last several million years to the last 100 years, with emphasis on more recent timescales. Examines how climate variability arises from interplay between external forcings, feedbacks within the earth system, and (more recently) human activity.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 500,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "QUALITATIVE STRATEGIES IN GEOGRAPHY",
+        "description": "Surveys qualitative research and methods in geography, including the human subjects review process, research ethics, preparing for fieldwork, participant observation, interviewing, focus groups, filmic experiences, archival research, participatory action research, analyzing field materials and writing styles in qualitative research.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SEMINAR IN CULTURAL GEOGRAPHY",
+        "description": "Surveys recent and classic works in cultural and human geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 198,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 345,
+            "subjects": [
+                "AMERIND",
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
+        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 127,
+            "subjects": [
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "PHYSICAL SYSTEMS OF THE ENVIRONMENT",
+        "description": "An introduction to natural environmental systems, emphasizing the interconnections between the systems of the solid earth (minerals, rocks, soils), the hydrosphere (water in all its forms), the biosphere, and the atmosphere. Emphasizes connections between basic concepts and specific environmental issues through hands-on case studies, lab projects, and field trips to collect samples and observations for lab projects.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 344,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "CHANGING LANDSCAPES OF THE AMERICAN WEST",
+        "description": "Environmental change in the landscapes of the American West, in the recent past, present, and future, from the physical science background to human-environment interactions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 315,
+            "subjects": [
+                "INTLST",
+                "GEOG"
+            ]
+        },
+        "course_title": "UNIVERSAL BASIC INCOME: THE POLITICS BEHIND A GLOBAL MOVEMENT",
+        "description": "Should all individuals in society receive a regular transfer of cash from the state without any strings attached? If that question had been posed fifteen years ago, it would likely have been dismissed as unrealistic, undesirable, or just plain crazy. In recent years, however, the idea of introducing a universal basic income [UBI] has gained a lot of traction around the world. Growing inequalities, financial crises, fears about jobs being automated, and the COVID-19 pandemic have all helped to put UBI on the political map. But where did the idea come from? How is it traveling to different parts of the world? And on what grounds do different advocates justify their claims? Address these questions and more by exploring the history, philosophy, and political economy of UBI from a range of perspectives. Ongoing UBI experiments from different parts of the world will also be examined.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 253,
+            "subjects": [
+                "SLAVIC",
+                "POLISCI",
+                "HISTORY",
+                "GEOG"
+            ]
+        },
+        "course_title": "RUSSIA: AN INTERDISCIPLINARY SURVEY",
+        "description": "Comprehensive interdisciplinary survey of Russian civilization from its beginnings through the present day.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 439,
+            "subjects": [
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "US ENVIRONMENTAL POLICY AND REGULATION",
+        "description": "Covers a broad cross-section of American environmental policy by focusing on specific statutes and policy arenas. Surveys the basic elements of American environmental policy and regulation with a particular focus on the specific people, sites and scales at which environmental decision-making happens through primary-source case material. Maintains a dual focus on (a) the legal and regulatory aspects of environmental regulation and (b) the specific geographic and social features of actual cases in which regulations and policy are used. Understanding environmental outcomes in a complex society depends on observing both the structure of regulations and the geographic and social context in which such regulations emerge.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -166,6 +604,7 @@
         },
         "course_title": "URBAN SPATIAL PATTERNS AND THEORIES",
         "description": "Various urban empirical regularities and theories which explain them.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -173,46 +612,14 @@
     },
     {
         "course_reference": {
-            "course_number": 439,
+            "course_number": 578,
             "subjects": [
-                "ENVIRST",
                 "GEOG"
             ]
         },
-        "course_title": "US ENVIRONMENTAL POLICY AND REGULATION",
-        "description": "Covers a broad cross-section of American environmental policy by focusing on specific statutes and policy arenas. Surveys the basic elements of American environmental policy and regulation with a particular focus on the specific people, sites and scales at which environmental decision-making happens through primary-source case material. Maintains a dual focus on (a) the legal and regulatory aspects of environmental regulation and (b) the specific geographic and social features of actual cases in which regulations and policy are used. Understanding environmental outcomes in a complex society depends on observing both the structure of regulations and the geographic and social context in which such regulations emerge.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 506,
-            "subjects": [
-                "URBRPL",
-                "GEOG"
-            ]
-        },
-        "course_title": "HISTORICAL GEOGRAPHY OF EUROPEAN URBANIZATION",
-        "description": "Historical geography of urban development in Europe from classical times to the post-Word War II era, with emphasis on changes in built environment, public space and infrastructure, land use, and urban systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "ENVIRST",
-                "URBRPL",
-                "GEOG",
-                "LANDARC"
-            ]
-        },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
-        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
+        "course_title": "GIS APPLICATIONS",
+        "description": "Application and use of GIS techniques in physical and human geography. Includes an introduction to a generic framework of GIS applications, case studies, and student projects. Cases range from urban and regional geography, to marketing geography, and to physical and environmental geography.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -229,74 +636,32 @@
     },
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 930,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "INTRODUCTION TO HUMAN GEOGRAPHY",
-        "description": "Human geographers explore socio-spacial relations, processes and representations of the world in which we live. Engages economic, political, urban, socio-cultural and environmental geographic perspectives to investigate patterns and processes that have come to be associated with 'globalization'.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forGEOG\u00a0104"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 120,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THE EARTH SYSTEM",
-        "description": "Introduction to how the Earth system works and what makes Earth livable. Gain appreciation for how the atmosphere, oceans, life, and earth's surface interact to shape our local, regional and global landscapes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 127,
-                    "subjects": [
-                        "ENVIRST",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0127"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "WEIRD GEOGRAPHIES",
-        "description": "An opportunity to re-imagine human geography. The history of geography is particularly violent and exclusive. It is well known that systems of colonialist exploitation, theft, kidnapping, and murder were facilitated in part by the work of modern cartographers and \"explorers.\" The discipline that we have today is a product of these earlier colonial epistemologies and ideologies. The science that emerged from these fields - geography - institutionalizes and reproduces many the ideas and viewpoints of their modern practitioners. Creates a space to re-imagine and re-invent what the field of human geography might be. Interrogates the colonial history of geography as a social science and practice. Explores several ways of thinking about space and social life that might not fit cleanly into the discipline at large.",
+        "course_title": "SEMINAR IN PEOPLE-ENVIRONMENT GEOGRAPHY",
+        "description": "Surveys recent and classic works in people-environment geography.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 523,
+            "course_number": 682,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "ADVANCED PALEOECOLOGY: SPECIES RESPONSES TO PAST ENVIRONMENTAL CHANGE",
-        "description": "Geographic and temporal responses of plant species and terrestrial ecosystems to the major environmental changes of the last 1,000,000 to 1,000 years, particularly glacial-interglacial changes in climate, carbon dioxide, and the end-Pleistocene extinctions of large animals. Key concepts include novel and no-analog ecosystems, abrupt climate and ecological change, and megaherbivore-vegetation interactions. This time period is of direct interest to global change ecologists and biogeographers studying species responses to 21st-century climate change. Hands-on practice emphasizes multivariate data analysis and quantitative paleoecological inference.",
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -304,13 +669,14 @@
             "course_number": 253,
             "subjects": [
                 "GEOG",
+                "SLAVIC",
                 "POLISCI",
-                "HISTORY",
-                "SLAVIC"
+                "HISTORY"
             ]
         },
         "course_title": "RUSSIA: AN INTERDISCIPLINARY SURVEY",
         "description": "Comprehensive interdisciplinary survey of Russian civilization from its beginnings through the present day.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -318,27 +684,117 @@
     },
     {
         "course_reference": {
-            "course_number": 320,
+            "course_number": 799,
             "subjects": [
-                "GEOG",
-                "GEOSCI"
+                "GEOG"
             ]
         },
-        "course_title": "GEOMORPHOLOGY",
-        "description": "Principles and analysis of geomorphic processes and resulting land forms.",
+        "course_title": "INDEPENDENT READING",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 511,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "CRITICAL SOCIAL THEORY",
+        "description": "An introduction to many key movements and thinkers within Critical Social Theory. Explores the changing histories and presents of the field through a range of primary works from philosophy, critical theory, and geography - paying particular attention to the points where social theory intersects with problems of space and place. Covers classic problems in social theory ranging from theories of the political-economic constitution of the social (Marxism) and its extensions into the culture (the Frankfurt School) to a range of mid- to late-twentieth-century epistemological interventions framed around questions of difference and identity. Recent contestations and reformulations that have surfaced across ontological, decolonial, non-human, algorithmic, and other reimaginings and extensions of the social are examined.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 104,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HUMAN GEOGRAPHY",
+        "description": "Human geographers explore socio-spacial relations, processes and representations of the world in which we live. Engages economic, political, urban, socio-cultural and environmental geographic perspectives to investigate patterns and processes that have come to be associated with 'globalization'.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 106,
+                    "course_number": 101,
                     "subjects": [
-                        "ENVIRST",
-                        "GEOSCI"
+                        "GEOG"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forGEOG\u00a0101"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 277,
+            "subjects": [
+                "AFRICAN",
+                "SOC",
+                "POLISCI",
+                "AFROAMER",
+                "ANTHRO",
+                "HISTORY",
+                "GEOG"
+            ]
+        },
+        "course_title": "AFRICA: AN INTRODUCTORY SURVEY",
+        "description": "African society and culture, polity and economy in multidisciplinary perspectives from prehistory and ancient kingdoms through the colonial period to contemporary developments, including modern nationalism, economic development and changing social structure.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 322,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN",
+                "GEOG"
+            ]
+        },
+        "course_title": "POLAR REGIONS AND THEIR IMPORTANCE IN THE GLOBAL ENVIRONMENT",
+        "description": "Reviews the past, present, and future of the Arctic and Antarctic regions. Covers the history, geography, atmospheric and ocean circulations, permafrost, ice sheets, glaciers, and future state of the Arctic and Antarctica as projected by earth system models. Also explores the role of the polar regions in the earth's system and associated global climatic feedbacks.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 329,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "LANDFORMS AND LANDSCAPES OF NORTH AMERICA",
+        "description": "Regional variation of landforms and physical landscapes in North America; processes and forms that give character to physiographic regions.",
+        "optimized": {
+            "course_number": 320,
+            "subjects": [
+                "GEOSCI",
+                "GEOG"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
                 {
-                    "course_number": 204,
+                    "course_number": 320,
                     "subjects": [
-                        "GEOSCI"
+                        "GEOSCI",
+                        "GEOG"
                     ]
                 },
                 {
@@ -366,141 +822,22 @@
                     "subjects": [
                         "GEOSCI"
                     ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "ATMOCN",
-                "ENVIRST",
-                "GEOG",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "CLIMATIC ENVIRONMENTS OF THE PAST",
-        "description": "Climate change at timescales from the last several million years to the last 100 years, with emphasis on more recent timescales. Examines how climate variability arises from interplay between external forcings, feedbacks within the earth system, and (more recently) human activity.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 170,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "OUR DIGITAL GLOBE: AN OVERVIEW OF GISCIENCE AND ITS TECHNOLOGY",
-        "description": "Introduction to the collection, representation and use of geospatial data.  Introduction to geospatial technologies like GPS, Google Earth, satellite imagery, and GIS, and provides a critical understanding of the strengths and limitations of spatial representations (e.g., maps, images).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 359,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "AUSTRALIA: ENVIRONMENT AND SOCIETY",
-        "description": "An introduction to the human and environmental geography of Australia, including Australian geology, ecology, society, and culture. Topics include analysis of  current events in Australia and current resource management problems using Google Earth and other tools. Australia is a settler country, the scene of indigenous genocide, a former English colony, a mythical unknown, a biophysical puzzle, home to a startling diversity of life, a cradle of modern democracy, and a powerful industrial economy with a rich resource base. It thus serves in many ways as a mirror for the US - even matching the US roughly in size, if not in population. The two countries share many elements of a common history and biogeography and yet the human and environmental geographies of the two countries have traced very different paths into the modern world.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SEMINAR IN CULTURAL GEOGRAPHY",
-        "description": "Surveys recent and classic works in cultural and human geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 372,
-            "subjects": [
-                "F&WECOL",
-                "ENVIRST",
-                "GEOG",
-                "GEOSCI",
-                "LANDARC",
-                "GLE"
-            ]
-        },
-        "course_title": "INTERMEDIATE ENVIRONMENTAL REMOTE SENSING",
-        "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
-                    "course_number": 371,
+                    "course_number": 106,
                     "subjects": [
-                        "F&WECOL",
                         "ENVIRST",
-                        "GEOG",
-                        "GEOSCI",
-                        "LANDARC",
-                        "GLE"
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 204,
+                    "subjects": [
+                        "GEOSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 510,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "ECONOMIC GEOGRAPHY",
-        "description": "Theoretical aspects of spatial economic distributions and locational analysis.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 342,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GEOGRAPHY OF WISCONSIN",
-        "description": "Overview of the physical and human geography of Wisconsin, with an emphasis on the physical, historical, and cultural processes that shaped the Badger State.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 515,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "TRANS AUTOTHEORIES",
-        "description": "Offers an in-depth examination of trans lives, selves, and ways of knowing. Focuses on the trans \"I\" as it appears in autobiography, memoir, theory, performance, visual arts, music, spacing, place making, zines, and vlogs. These works ask how styles of self-making (\"auto\") might lead to new and changing conceptions of trans lives, worlds, and social formations (\"theory\"). The trans artists and writers explored fashion selves into prisms to fracture, negotiate, meditate upon, think, and re/present the encounters, becomings, transitions, and enframings that constitute trans existence. This \"auto-theoretical\" strategy reimagines genre, style, space, and media to create launching points for new trans aesthetics, theories, joys, and struggles. The polyphonic voices of these trans selves, taken together, bring a trans \"we\" into view, creating a discursive trans space made material.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
         }
     },
     {
@@ -513,17 +850,18 @@
         },
         "course_title": "CULTURE AND ENVIRONMENT",
         "description": "Geographic approaches to culture-nature relationships, including human perception of, use of, and adaptation to the physical environment, with emphasis on traditional subsistence systems; selected topics from contemporary and historical sources.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 439,
+                    "course_number": 337,
                     "subjects": [
                         "ENVIRST",
                         "GEOG"
                     ]
                 },
                 {
-                    "course_number": 337,
+                    "course_number": 439,
                     "subjects": [
                         "ENVIRST",
                         "GEOG"
@@ -545,8 +883,8 @@
                 {
                     "course_number": 345,
                     "subjects": [
-                        "ENVIRST",
                         "AMERIND",
+                        "ENVIRST",
                         "GEOG"
                     ]
                 }
@@ -556,413 +894,59 @@
     },
     {
         "course_reference": {
-            "course_number": 104,
+            "course_number": 574,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "INTRODUCTION TO HUMAN GEOGRAPHY",
-        "description": "Human geographers explore socio-spacial relations, processes and representations of the world in which we live. Engages economic, political, urban, socio-cultural and environmental geographic perspectives to investigate patterns and processes that have come to be associated with 'globalization'.",
+        "course_title": "GEOSPATIAL DATABASE DESIGN AND DEVELOPMENT",
+        "description": "Introduces the basic concepts, techniques and methodologies for designing and implementing a spatial database to prepare for professional work as a GIS designer, analyst, specialist or researcher. Design conceptual spatial database models and  implement them within specific spatial data management systems (DBMS). Covers basic SQL database language and the latest developments in database systems (e.g. NoSQL database) for managing and mining spatial big data such as social media datasets and GPS trajectories.",
+        "optimized": {
+            "course_number": 377,
+            "subjects": [
+                "ENVIRST",
+                "CIVENGR",
+                "GEOG"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 101,
+                    "course_number": 370,
                     "subjects": [
                         "GEOG"
                     ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forGEOG\u00a0101"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 507,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "WASTE GEOGRAPHIES: POLITICS, PEOPLE, AND INFRASTRUCTURES",
-        "description": "Explores waste as discarded material, a polluting and threatening substance that must be managed, and as a political object. Waste's distribution across space and among groups of people, as well as the reasons for the effects of that distribution, will be examined using geographic perspectives. Who has the ability to avoid or remove themselves from waste? Who must live and work with it? The concept of infrastructure as a set of material things (roads, trucks, boats); laws and regulations; labor relations; and economies of disposal and consumption determining waste flows unites disparate topics and case studies across the semester. Concepts of and social movements for environmental justice are recurring themes.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 983,
-            "subjects": [
-                "HISTORY",
-                "GEOG",
-                "POLISCI",
-                "AFRICAN",
-                "ECON",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "INTERDEPARTMENTAL SEMINAR IN AFRICAN STUDIES TOPICS",
-        "description": "Interdisciplinary inquiry in African societies and cultures.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 332,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "GLOBAL WARMING: SCIENCE AND IMPACTS",
-        "description": "Offers a fundamental understanding of how and why global warming is happening and what to expect in the future. Investigate and discuss the evidence for change, the science that explains these observations, predicted impacts on humans and ecosystems, and the societal debate over  proposed solutions.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 322,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "POLAR REGIONS AND THEIR IMPORTANCE IN THE GLOBAL ENVIRONMENT",
-        "description": "Reviews the past, present, and future of the Arctic and Antarctic regions. Covers the history, geography, atmospheric and ocean circulations, permafrost, ice sheets, glaciers, and future state of the Arctic and Antarctica as projected by earth system models. Also explores the role of the polar regions in the earth's system and associated global climatic feedbacks.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 500,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "QUALITATIVE STRATEGIES IN GEOGRAPHY",
-        "description": "Surveys qualitative research and methods in geography, including the human subjects review process, research ethics, preparing for fieldwork, participant observation, interviewing, focus groups, filmic experiences, archival research, participatory action research, analyzing field materials and writing styles in qualitative research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 538,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "THE HUMID TROPICS: ECOLOGY, SUBSISTENCE, AND DEVELOPMENT",
-        "description": "Description and analysis of humid-tropical ecosystems, with emphasis on the relationships, production potential, and human modification of biotic resources.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 475,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "TOPICS IN GEOGRAPHY",
-        "description": "Explores emerging topics in Geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 277,
-            "subjects": [
-                "AFROAMER",
-                "HISTORY",
-                "GEOG",
-                "POLISCI",
-                "AFRICAN",
-                "SOC",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "AFRICA: AN INTRODUCTORY SURVEY",
-        "description": "African society and culture, polity and economy in multidisciplinary perspectives from prehistory and ancient kingdoms through the colonial period to contemporary developments, including modern nationalism, economic development and changing social structure.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 501,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SPACE AND PLACE: A GEOGRAPHY OF EXPERIENCE",
-        "description": "Explore the concepts of space and place from the perspective of learning and everyday experience. Examines how space and place emerge out of fundamental human needs, experiences, and ways of thinking.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 323,
-            "subjects": [
-                "GEOG",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SCIENCE OF CLIMATE CHANGE",
-        "description": "Calculus-based treatment of climate system physics and the mechanisms of modern-day anthropogenic climate change. Covers how solar radiation and rotating fluid dynamics determine the basic climate state; mechanisms of natural variability and change in climate; why anthropogenic climate change is occurring; and which scientific uncertainties are most important to estimates of 21st century change.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
                 },
                 {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 425,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0103,201,207, or247) and (MATH\u00a0217or221). Not open to students with credit forATM\u00a0OCN\u00a0425."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 244,
-            "subjects": [
-                "HISTORY",
-                "GEOG",
-                "POLISCI",
-                "ASIAN",
-                "SOC"
-            ]
-        },
-        "course_title": "INTRODUCTION TO SOUTHEAST ASIA:  VIETNAM TO THE PHILIPPINES",
-        "description": "As an introduction to Southeast Asia, covers the ethnic, cultural, religious, and political histories of the region from the classical states period to the present, with an emphasis on colonialism, nationalism, decolonization, and the emergence of modern political and social systems into the 21st century, including an exposure to region's contemporary literature. Not open to students who completed LCA 244 prior to Fall 2019.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 340,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "WORLD REGIONS IN GLOBAL CONTEXT",
-        "description": "Survey of development and change within each of the world's regions (e.g., Africa, Southeast Asia). Attention devoted to environment and society; history, economy, and demographic change; culture and politics; future challenges; key actors.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 982,
-            "subjects": [
-                "AAE",
-                "HISTORY",
-                "C&ESOC",
-                "GEOG",
-                "POLISCI",
-                "SPANISH",
-                "LACIS",
-                "PORTUG",
-                "SOC",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "INTERDEPARTMENTAL SEMINAR IN THE LATIN-AMERICAN AREA",
-        "description": "Interdisciplinary inquiry in Latin American society and culture.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 777,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "CAPSTONE IN GIS DEVELOPMENT",
-        "description": "Covers practical and challenging cases in GIS which require programming and other GIS development skills (such as geospatial algorithm development and implementation). Cases cover the wide spectrum of GIS development projects in the GIS professions ranging from GIS data management, advanced spatial analysis, spatial database development and web/mobile programming, to cartography/geovisualization. Focuses on integration of skills from other courses into a GIS development project.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 576,
+                    "course_number": 170,
                     "subjects": [
                         "GEOG"
                     ]
-                }
-            ],
-            "prerequisites_text": "GEOG\u00a0378,572,574,575,576,579and graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 337,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "NATURE, POWER AND SOCIETY",
-        "description": "Explores the links between nature, power and society in today's world. Considers the complex relationships between humans and the earth's resources, including food, energy, physical materials, water, biota, and landscapes. Examines issues linked to population and scarcity, resource tenure, green consumerism, political economy, environmental ethics, risks and hazards, political ecology, and environmental justice.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
-                    "course_number": 112,
-                    "subjects": [
-                        "ENVIRST"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing. Not open to students with credit forENVIR\u00a0ST\u00a0112"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 315,
-            "subjects": [
-                "GEOG",
-                "INTLST"
-            ]
-        },
-        "course_title": "UNIVERSAL BASIC INCOME: THE POLITICS BEHIND A GLOBAL MOVEMENT",
-        "description": "Should all individuals in society receive a regular transfer of cash from the state without any strings attached? If that question had been posed fifteen years ago, it would likely have been dismissed as unrealistic, undesirable, or just plain crazy. In recent years, however, the idea of introducing a universal basic income [UBI] has gained a lot of traction around the world. Growing inequalities, financial crises, fears about jobs being automated, and the COVID-19 pandemic have all helped to put UBI on the political map. But where did the idea come from? How is it traveling to different parts of the world? And on what grounds do different advocates justify their claims? Address these questions and more by exploring the history, philosophy, and political economy of UBI from a range of perspectives. Ongoing UBI experiments from different parts of the world will also be examined.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Study under direct guidance of a faculty member. Appropriate for initial exploration of an area of scholarship in Geography through laboratory, field, or literary study.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 127,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "PHYSICAL SYSTEMS OF THE ENVIRONMENT",
-        "description": "An introduction to natural environmental systems, emphasizing the interconnections between the systems of the solid earth (minerals, rocks, soils), the hydrosphere (water in all its forms), the biosphere, and the atmosphere. Emphasizes connections between basic concepts and specific environmental issues through hands-on case studies, lab projects, and field trips to collect samples and observations for lab projects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 120,
+                    "course_number": 377,
                     "subjects": [
                         "ENVIRST",
+                        "CIVENGR",
                         "GEOG"
                     ]
                 }
             ],
-            "prerequisites_text": "Not open to students with credit forENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 920,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SEMINAR IN PHYSICAL GEOGRAPHY",
-        "description": "Surveys recent and classic works in physical geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "GEOG\u00a0170,GEOG\u00a0370,ENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 308,
             "subjects": [
+                "GEN&WS",
                 "CHICLA",
-                "GEOG",
-                "GEN&WS"
+                "GEOG"
             ]
         },
         "course_title": "LATINX FEMINISMS: WOMEN'S LIVES, WORK, AND ACTIVISM",
         "description": "An examination of Latinx women's lives, experiences, and activism through the lens of testimonio, life histories, and feminist writings rooted in social justice movements and critical pedagogies.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -970,29 +954,17 @@
     },
     {
         "course_reference": {
-            "course_number": 326,
+            "course_number": 320,
             "subjects": [
-                "GEOG",
-                "GEOSCI"
+                "GEOSCI",
+                "GEOG"
             ]
         },
-        "course_title": "LANDFORMS-TOPICS AND REGIONS",
-        "description": "Emphasis on natural and human processes that control the morphology of the land and its waterways.",
+        "course_title": "GEOMORPHOLOGY",
+        "description": "Principles and analysis of geomorphic processes and resulting land forms.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 106,
-                    "subjects": [
-                        "ENVIRST",
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 204,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
                 {
                     "course_number": 120,
                     "subjects": [
@@ -1003,13 +975,6 @@
                 {
                     "course_number": 109,
                     "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "GEOG",
                         "GEOSCI"
                     ]
                 },
@@ -1025,63 +990,41 @@
                     "subjects": [
                         "GEOSCI"
                     ]
+                },
+                {
+                    "course_number": 106,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 204,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
                 }
             ],
-            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
+            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 311,
+            "course_number": 953,
             "subjects": [
-                "GEOG",
-                "INTLST"
-            ]
-        },
-        "course_title": "THE GLOBAL GAME: SOCCER, POLITICS, AND IDENTITY",
-        "description": "Soccer (or football) is played in almost every part of the world. Soccer will be used as a lens through which to think critically about a range of issues within our own societies and around the world. This includes examining the relationship between European imperialism and the globalization of soccer in the early 20th century; thinking about who gets to play (and who gets paid) across different contexts; and analyzing how soccer is both globally networked and intensely local in its passions and rivalries. Draws from a range of perspectives on soccer, from those who consider it to be an opium for the masses to those who see it as a vehicle for positive social change, in order to illuminate some of the big questions facing the world today.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 692,
-            "subjects": [
+                "ENTOM",
+                "AGRONOMY",
+                "BOTANY",
+                "ZOOLOGY",
+                "ENVIRST",
+                "ATMOCN",
+                "F&WECOL",
                 "GEOG"
             ]
         },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual mentored study for seniors completing theses as arranged with a faculty member",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 930,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SEMINAR IN PEOPLE-ENVIRONMENT GEOGRAPHY",
-        "description": "Surveys recent and classic works in people-environment geography.",
+        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
+        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1089,46 +1032,81 @@
     },
     {
         "course_reference": {
-            "course_number": 511,
+            "course_number": 980,
+            "subjects": [
+                "GEOSCI",
+                "BOTANY",
+                "ZOOLOGY",
+                "ENVIRST",
+                "F&WECOL",
+                "ATMOCN",
+                "GEOG"
+            ]
+        },
+        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
+        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 980,
+            "subjects": [
+                "GEOSCI",
+                "BOTANY",
+                "ENVIRST",
+                "ZOOLOGY",
+                "ATMOCN",
+                "F&WECOL",
+                "GEOG"
+            ]
+        },
+        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
+        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 572,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "CRITICAL SOCIAL THEORY",
-        "description": "An introduction to many key movements and thinkers within Critical Social Theory. Explores the changing histories and presents of the field through a range of primary works from philosophy, critical theory, and geography - paying particular attention to the points where social theory intersects with problems of space and place. Covers classic problems in social theory ranging from theories of the political-economic constitution of the social (Marxism) and its extensions into the culture (the Frankfurt School) to a range of mid- to late-twentieth-century epistemological interventions framed around questions of difference and identity. Recent contestations and reformulations that have surfaced across ontological, decolonial, non-human, algorithmic, and other reimaginings and extensions of the social are examined.",
+        "course_title": "GRAPHIC DESIGN IN CARTOGRAPHY",
+        "description": "Study of the map as a graphic communication, the technical and perceptual aspects of its organization, symbolic coding, color and lettering.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 370,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG\u00a0370or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 515,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "TRANS AUTOTHEORIES",
+        "description": "Offers an in-depth examination of trans lives, selves, and ways of knowing. Focuses on the trans \"I\" as it appears in autobiography, memoir, theory, performance, visual arts, music, spacing, place making, zines, and vlogs. These works ask how styles of self-making (\"auto\") might lead to new and changing conceptions of trans lives, worlds, and social formations (\"theory\"). The trans artists and writers explored fashion selves into prisms to fracture, negotiate, meditate upon, think, and re/present the encounters, becomings, transitions, and enframings that constitute trans existence. This \"auto-theoretical\" strategy reimagines genre, style, space, and media to create launching points for new trans aesthetics, theories, joys, and struggles. The polyphonic voices of these trans selves, taken together, bring a trans \"we\" into view, creating a discursive trans space made material.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 199,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 460,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "HISTORY"
-            ]
-        },
-        "course_title": "AMERICAN ENVIRONMENTAL HISTORY",
-        "description": "Survey of interactions among people and natural environments from before European colonization to present. Equal attention to problems of ecological change, human ideas, and uses of nature and history of conservation and environmental public policy.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing or 3 credits in HISTORY, GEOG or ENVIR ST"
         }
     },
     {
@@ -1140,6 +1118,7 @@
         },
         "course_title": "INTRODUCTION TO GEOCOMPUTING",
         "description": "Introduction to scripting for Geographic Information Science. Geoprocessing with open-source GIS utilities. Python scripting with ArcGIS and open-source libraries.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -1156,35 +1135,147 @@
     },
     {
         "course_reference": {
-            "course_number": 329,
+            "course_number": 525,
             "subjects": [
+                "SOILSCI",
                 "GEOG"
             ]
         },
-        "course_title": "LANDFORMS AND LANDSCAPES OF NORTH AMERICA",
-        "description": "Regional variation of landforms and physical landscapes in North America; processes and forms that give character to physiographic regions.",
+        "course_title": "SOIL GEOMORPHOLOGY",
+        "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
+        "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "GEOG",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "SOIL SCI 325 or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 566,
+            "course_number": 332,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN",
+                "GEOG"
+            ]
+        },
+        "course_title": "GLOBAL WARMING: SCIENCE AND IMPACTS",
+        "description": "Offers a fundamental understanding of how and why global warming is happening and what to expect in the future. Investigate and discuss the evidence for change, the science that explains these observations, predicted impacts on humans and ecosystems, and the societal debate over  proposed solutions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 377,
+            "subjects": [
+                "ENVIRST",
+                "CIVENGR",
+                "GEOG"
+            ]
+        },
+        "course_title": "AN INTRODUCTION TO GEOGRAPHIC INFORMATION SYSTEMS",
+        "description": "Design, implementation and use of automated procedures for storage, analysis and display of spatial information. Covers data bases, information manipulation and display techniques, software systems and management issues. Case studies.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing, member of Engineering Guest Students, or declared in Capstone Certificate in GIS Fundamentals"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 348,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "HISTORY OF GEOGRAPHIC THOUGHT",
-        "description": "An analysis of the development and significance of basic geographic concepts and theories. Major emphasis on concepts of place, spatial relations, landscape, and human-environment relations.",
+        "course_title": "LATIN AMERICA",
+        "description": "A topical and historical survey of the cultural ecology and human geography of Middle America and South America.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 932,
+            "subjects": [
+                "GEOG",
+                "HISTORY"
+            ]
+        },
+        "course_title": "SEMINAR IN AMERICAN ENVIRONMENTAL HISTORY",
+        "description": "Surveys recent and classic works on American environmental history to introduce students to the methods and historiography of the field.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 953,
+            "subjects": [
+                "ENTOM",
+                "AGRONOMY",
+                "BOTANY",
+                "ENVIRST",
+                "ZOOLOGY",
+                "ATMOCN",
+                "F&WECOL",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
+        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 370,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO CARTOGRAPHY",
+        "description": "A broad introduction to cartography emphasizing the theory and practice of map-making. Topics include the basics in mapping (e.g., scale, spatial reference systems, projections), data acquisition, key techniques for thematic mapping, and principles of cartographic abstraction and design.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 523,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "ADVANCED PALEOECOLOGY: SPECIES RESPONSES TO PAST ENVIRONMENTAL CHANGE",
+        "description": "Geographic and temporal responses of plant species and terrestrial ecosystems to the major environmental changes of the last 1,000,000 to 1,000 years, particularly glacial-interglacial changes in climate, carbon dioxide, and the end-Pleistocene extinctions of large animals. Key concepts include novel and no-analog ecosystems, abrupt climate and ecological change, and megaherbivore-vegetation interactions. This time period is of direct interest to global change ecologists and biogeographers studying species responses to 21st-century climate change. Hands-on practice emphasizes multivariate data analysis and quantitative paleoecological inference.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -1199,418 +1290,7 @@
         },
         "course_title": "GEOSPATIAL TECHNOLOGIES: DRONES, SENSORS, AND APPLICATIONS",
         "description": "Introduction to state-of-the-art technologies that capture properties of the landscape, which is critical to better characterize and understand environmental properties and change. Develop skills in geospatial systems applicable to a variety of research and industry fields. Includes an overview of unmanned aerial systems (drones), light detection and ranging (LiDAR), high-grade Differential GPS (DGPS), Global Navigation Satellite Systems (GNSS), virtual reality, optical sensors, geocaching, and geotagging.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "URBRPL",
-                "LANDARC"
-            ]
-        },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
-        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 377,
-                    "subjects": [
-                        "CIVENGR",
-                        "ENVIRST",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "INDEPENDENT WORK",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 576,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GEOSPATIAL WEB AND MOBILE PROGRAMMING",
-        "description": "Covers the programming concepts and skills for understanding construction and implementation of high quality spatial web portal and mobile Apps to support geospatial data access, analysis, sharing, and synthesis over the internet. Builds on basic programming experience.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 170,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEOG\u00a0170,GEOG\u00a0370, orCIV\u00a0ENGR/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0377) and (GEOG\u00a0378,COMP\u00a0SCI\u00a0300, COMP SCI 369, orCOMP\u00a0SCI\u00a0400), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 139,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "GLOBAL ENVIRONMENTAL ISSUES",
-        "description": "Explores the global and local nature of environmental problems, including issues of climate change, food, energy, globalization, deforestation, biodiversity loss, resource access, environmental justice, and population. Considers how we should analyze and act on environmental problems as we confront the apparently daunting scale of such issues. What appear to be single global environmental issues are actually composed of many smaller, context-specific, and place-dependent problems or conflicts. Through an interdisciplinary and geographic perspective, these issues can be understood and addressed at the scale of our lived lives.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 230,
-            "subjects": [
-                "SOILSCI",
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "SOIL: ECOSYSTEM AND RESOURCE",
-        "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forSOIL\u00a0SCI\u00a0301"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 345,
-            "subjects": [
-                "ENVIRST",
-                "AMERIND",
-                "GEOG"
-            ]
-        },
-        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
-        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 573,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "ADVANCED GEOCOMPUTING AND GEOSPATIAL BIG DATA ANALYTICS",
-        "description": "Geospatial big data is an extension of big data with an emphasis on the geospatial component. It is used to describe large volumes of georeferenced data about various aspects of the environment and society captured by millions of environmental and human sensors. An introduction to the theory, techniques, and analytical methods for geospatial big data. Methods for storing, processing, analyzing, and visualizing various types of geospatial big data using advanced Python programming will be introduced. Designed for students who have programming experience and want to reinforce their programming skills and learn AI and machine learning methods for solving geospatial big data problems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 378,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG\u00a0378,COMP\u00a0SCI\u00a0220, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 260,
-            "subjects": [
-                "AFROAMER",
-                "HISTORY",
-                "C&ESOC",
-                "GEOG",
-                "POLISCI",
-                "LACIS",
-                "SPANISH",
-                "SOC",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "LATIN AMERICA: AN INTRODUCTION",
-        "description": "Latin American culture and society from an interdisciplinary perspective; historical developments from pre-Columbian times to the present; political movements; economic problems; social change; ecology in tropical Latin America; legal systems; literature and the arts; cultural contrasts involving the US and Latin America; land reform; labor movements; capitalism, socialism, imperialism; mass media.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 355,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "AFRICA, SOUTH OF THE SAHARA",
-        "description": "Physical and human distributions and interrelationships, with emphasis on the spatial processes and patterns of modernization.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 534,
-            "subjects": [
-                "ENVIRST",
-                "GEOG"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL GOVERNANCE: MARKETS, STATES AND NATURE",
-        "description": "Covers real-world questions of how the environment is managed and governed through state policy, economics, and social institutions. Includes strategies within and outside of the formal institutions of government, and extends the discussion to the commodification of nature and the use of science to understand and govern the environment. Also includes case studies of environmental governance in water, carbon, species, and urban sustainability.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "INDEPENDENT READING",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 980,
-            "subjects": [
-                "F&WECOL",
-                "ENVIRST",
-                "ATMOCN",
-                "GEOG",
-                "GEOSCI",
-                "BOTANY",
-                "ZOOLOGY"
-            ]
-        },
-        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
-        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "QUANTITATIVE METHODS IN GEOGRAPHICAL ANALYSIS",
-        "description": "Application of descriptive and inferential statistics to geographical problems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 676,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN GEOGRAPHY",
-        "description": "Explores emerging topics in physical geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "F&WECOL",
-                "ENVIRST",
-                "ATMOCN",
-                "GEOG",
-                "ENTOM",
-                "BOTANY",
-                "ZOOLOGY",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "SOILSCI",
-                "GEOG"
-            ]
-        },
-        "course_title": "SOIL GEOMORPHOLOGY",
-        "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "SOIL SCI 325 or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 358,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "HUMAN GEOGRAPHY OF SOUTHEAST ASIA",
-        "description": "Introduction to the human geography and history of Southeast Asia, including important political and theoretical issues and policies and positionings of relevance for understanding the spatiality of the region, including the ways that ethnicity and indigeneity are playing out in Southeast Asia and among Southeast Asians in the United States.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 410,
-            "subjects": [
-                "AMERIND",
-                "GEOG"
-            ]
-        },
-        "course_title": "CRITICAL INDIGENOUS ECOLOGICAL KNOWLEDGES",
-        "description": "Critical Indigenous Ecological Knowledges are a set of diverse understandings, responsibilities, and laws held by distinct groups of Indigenous peoples that are enacted in multiple ways across socio-political and geographical contexts. These knowledges intersect with Indigenous political sovereignties and longstanding, complex, and nuanced relationships to the more-than-human world. Learn multiple entry points to exploring and examining these knowledge sets in the context of what's for now called the U.S. and Canada to think critically about the politics of Nature, environmentalism, race, indigeneity, and colonialism both historically and in the contemporary moment. Reflect upon how critical Indigenous knowledges about ecology, environment, and government have been erased, co-opted, criminalized, and also continually practiced, reimagined, and revitalized in multiple spheres through a range of interdisciplinary, critical, and cutting-edge Native scholarships and writings.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 514,
-            "subjects": [
-                "GEOG",
-                "GEN&WS"
-            ]
-        },
-        "course_title": "FEMINIST GEOGRAPHY: METHODOLOGICAL APPROACHES",
-        "description": "An introduction to foundational approaches to feminist qualitative research in human geography. Research is not separate from a social world that historically has been and continues to be shaped by (settler) colonial, racialized, gendered, sexualized, and class-inflected relations of power (among others). Research practices and \"findings\" have been and continue to be used to inform and rationalize relations of oppression, exploitation, and violence. For feminist researchers, then, questions of power, difference, and social change are central to how we design and conduct research. Engages in political-ethical discussions about the positionality and responsibilities of ourselves as researchers, and how our knowledge production can reproduce and challenge prevailing relations of power.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 572,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GRAPHIC DESIGN IN CARTOGRAPHY",
-        "description": "Study of the map as a graphic communication, the technical and perceptual aspects of its organization, symbolic coding, color and lettering.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 370,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG\u00a0370or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 434,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "C&ESOC"
-            ]
-        },
-        "course_title": "PEOPLE, WILDLIFE AND LANDSCAPES",
-        "description": "Explores the relationship between humans and wildlife amid diverse landscapes, both historic and contemporary, tropical and temperate. Investigates how humans shape wild animal populations by modifying physical environments, and by hunting, domesticating and introducing species.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "GEOSCI",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "CLIMATIC ENVIRONMENTS OF THE PAST",
-        "description": "Climate change at timescales from the last several million years to the last 100 years, with emphasis on more recent timescales. Examines how climate variability arises from interplay between external forcings, feedbacks within the earth system, and (more recently) human activity.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 675,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN GEOGRAPHY",
-        "description": "Explores emerging topics in human and people-environment geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "URBRPL",
-                "GEOG"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THE CITY",
-        "description": "Investigates urbanization as a general process, as well as the resulting contemporary physical, social, cultural and political- economic forms of cities. Emphasis will be placed on the history and current forms of spatial and social segregation of cities by race, class, ethnicity, and gender. The myriad ways that cities have addressed the tensions emerging from this history of spatial and social segregation will be highlighted. Further, emphasis will be placed on understanding the experiences of those most-affected by historical and continuing segregation.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1625,6 +1305,7 @@
         },
         "course_title": "INTERNSHIP",
         "description": "Individual course of study for those completing an internship.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -1632,171 +1313,36 @@
     },
     {
         "course_reference": {
-            "course_number": 982,
+            "course_number": 534,
             "subjects": [
-                "AAE",
-                "HISTORY",
-                "C&ESOC",
-                "GEOG",
-                "POLISCI",
-                "LACIS",
-                "SPANISH",
-                "PORTUG",
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL GOVERNANCE: MARKETS, STATES AND NATURE",
+        "description": "Covers real-world questions of how the environment is managed and governed through state policy, economics, and social institutions. Includes strategies within and outside of the formal institutions of government, and extends the discussion to the commodification of nature and the use of science to understand and govern the environment. Also includes case studies of environmental governance in water, carbon, species, and urban sustainability.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 277,
+            "subjects": [
                 "SOC",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "INTERDEPARTMENTAL SEMINAR IN THE LATIN-AMERICAN AREA",
-        "description": "Interdisciplinary inquiry in Latin American society and culture.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 198,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 579,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GIS AND SPATIAL ANALYSIS",
-        "description": "Principles and algorithms for spatial analysis in geographic imformation systems. A theoretical and practical examination of analytical methods used in GIS, including point, line and polygon processing, interpolation, smoothing, spatial overlay and query, network analysis, terrain analysis, and classification.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 377,
-                    "subjects": [
-                        "CIVENGR",
-                        "ENVIRST",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 348,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "LATIN AMERICA",
-        "description": "A topical and historical survey of the cultural ecology and human geography of Middle America and South America.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 918,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "SEMINAR IN POLITICAL GEOGRAPHY",
-        "description": "Surveys recent and classic works in political geography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 345,
-            "subjects": [
-                "ENVIRST",
-                "GEOG",
-                "AMERIND"
-            ]
-        },
-        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
-        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 503,
-            "subjects": [
-                "URBRPL",
-                "GEOG"
-            ]
-        },
-        "course_title": "RESEARCHING THE CITY: QUALITATIVE STRATEGIES",
-        "description": "Explores, and applies, qualitative methods in the field of urban geography. An introduction to debates around the analysis and interpretation of qualitative data is provided, grounded in concrete urban research. Participation in a three-day field course is required.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 575,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "INTERACTIVE CARTOGRAPHY & GEOVISUALIZATION",
-        "description": "Examines emerging topics related to the design of user interfaces for manipulating maps, focusing on new cartographic challenges in Interactive Cartography, Geographic Visualization, and Geovisual Analytics and drawing upon relevant insight in Human-Computer Interaction, Information Visualization, and Usability Engineering.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 370,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG\u00a0370,378, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 349,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "EUROPE",
-        "description": "A topical overview of people-environment interaction, migration, culture, urbanization, political organization and integration.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 239,
-            "subjects": [
-                "ENVIRST",
-                "ARTHIST",
+                "AFRICAN",
+                "POLISCI",
+                "AFROAMER",
+                "ANTHRO",
                 "HISTORY",
-                "GEOG",
-                "LANDARC"
+                "GEOG"
             ]
         },
-        "course_title": "MAKING THE AMERICAN LANDSCAPE",
-        "description": "Traces the history and evolution of the American cultural landscape from precolonial times to present. Explores how class, ethnic, and racial inequality have shaped the appearance of the American landscape over time, and how that landscape in turn has affected relationships between people and groups through the present day. Examines extraordinary things (civic structures (like our State Capitol), National Parks, War Memorials) and more ordinary kinds of places (mining towns, cotton plantations, sites of recreation and leisure, and suburban tract housing) to stimulate critical thinking about how these places have served people and groups unequally and disproportionately over time and across space. Considers complex meanings of American spaces and places to different people and groups, stimulating empathy and encouraging participation in a multicultural society.",
+        "course_title": "AFRICA: AN INTRODUCTORY SURVEY",
+        "description": "African society and culture, polity and economy in multidisciplinary perspectives from prehistory and ancient kingdoms through the colonial period to contemporary developments, including modern nationalism, economic development and changing social structure.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1804,42 +1350,15 @@
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 309,
             "subjects": [
+                "ENVIRST",
                 "GEOG"
             ]
         },
-        "course_title": "RESEARCH AND THESIS",
-        "description": "Individual mentored study for completing theses, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 766,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GEOGRAPHICAL INQUIRY AND ANALYSIS: TECHNIQUES",
-        "description": "Engaging in geographic research: analysis of successful proposals and published papers and books; different approaches to geographic research; writing of proposals for students' own research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 338,
-            "subjects": [
-                "GEOG",
-                "BOTANY"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL BIOGEOGRAPHY",
-        "description": "Explores how physical and biological factors affect the distribution of terrestrial biomes, ecosystem types, and biodiversity, as well as the role of disturbance and recent human activities on differences in past and modern day species distributions.",
+        "course_title": "PEOPLE, LAND AND FOOD: COMPARATIVE STUDY OF AGRICULTURE SYSTEMS",
+        "description": "Introduction to how and why humans have transformed natural landscapes around the world, including tropical deforestation. Exploration of different agricultural systems, and topics such as food security, land scarcity, bioenergy and the impacts of food production on the environment.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1847,55 +1366,15 @@
     },
     {
         "course_reference": {
-            "course_number": 560,
+            "course_number": 557,
             "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "ADVANCED QUANTITATIVE METHODS",
-        "description": "Selected topics in the analysis of spatial distributions with emphasis on multivariate techniques.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 360,
-                    "subjects": [
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing orGEOG\u00a0360"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "F&WECOL",
                 "ENVIRST",
-                "ATMOCN",
-                "GEOG",
-                "ENTOM",
-                "ZOOLOGY",
-                "BOTANY",
-                "AGRONOMY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 518,
-            "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "POWER, PLACE, IDENTITY",
-        "description": "Advanced political geography course that explores reconceptualizations of power, place, and identity, as well as the interactive forces at work that continually reshape place-making and the inter-related processes of identification and differentiation.",
+        "course_title": "DEVELOPMENT AND ENVIRONMENT IN SOUTHEAST ASIA",
+        "description": "Examines the political, socio-cultural, economic and ecological aspects of contemporary development and human-environment relations in mainland Southeast Asia, applying a critical and theoretically informed perspective, and focusing largely on rural issues.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -1905,12 +1384,13 @@
         "course_reference": {
             "course_number": 932,
             "subjects": [
-                "GEOG",
-                "HISTORY"
+                "HISTORY",
+                "GEOG"
             ]
         },
         "course_title": "SEMINAR IN AMERICAN ENVIRONMENTAL HISTORY",
         "description": "Surveys recent and classic works on American environmental history to introduce students to the methods and historiography of the field.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1918,108 +1398,104 @@
     },
     {
         "course_reference": {
-            "course_number": 532,
+            "course_number": 675,
             "subjects": [
-                "ENVIRST",
-                "LANDARC",
-                "GEOG",
-                "URBRPL"
+                "GEOG"
             ]
         },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
-        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
+        "course_title": "SPECIAL TOPICS IN GEOGRAPHY",
+        "description": "Explores emerging topics in human and people-environment geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 777,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "CAPSTONE IN GIS DEVELOPMENT",
+        "description": "Covers practical and challenging cases in GIS which require programming and other GIS development skills (such as geospatial algorithm development and implementation). Cases cover the wide spectrum of GIS development projects in the GIS professions ranging from GIS data management, advanced spatial analysis, spatial database development and web/mobile programming, to cartography/geovisualization. Focuses on integration of skills from other courses into a GIS development project.",
+        "optimized": {
+            "course_number": 576,
+            "subjects": [
+                "GEOG"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 377,
+                    "course_number": 579,
                     "subjects": [
-                        "CIVENGR",
-                        "ENVIRST",
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 576,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 572,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 575,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 378,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 574,
+                    "subjects": [
                         "GEOG"
                     ]
                 }
             ],
-            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
+            "prerequisites_text": "GEOG\u00a0378,572,574,575,576,579and graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "F&WECOL",
-                "ENVIRST",
-                "GEOG",
-                "GEOSCI",
-                "LANDARC",
-                "GLE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
-        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 171,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 114,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 113,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 175,
+            "course_number": 365,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "TOPICS IN GEOGRAPHY",
-        "description": "Explores emerging topics in human geography (e.g., economic geography, urban geography, political geography) and people-environment geography (e.g., political ecology, environmental history).",
+        "course_title": "GEOGRAPHICAL TRADITIONS AND PRACTICES",
+        "description": "An introduction to the breadth and practice of Geography. Introduces geographic perspectives, theories, themes, and research design. Covers the history of the discipline, applied quantitative and qualitative methodologies used in geographic research, and a selection of subfields within the discipline.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Declared in Geography or Cartography and Geographic Information Systems undergraduate programs"
         }
     },
     {
         "course_reference": {
-            "course_number": 900,
+            "course_number": 399,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "SEMINAR IN GEOGRAPHY",
-        "description": "Surveys recent and classic works in geography.",
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Study under direct guidance of a faculty member. Appropriate for initial exploration of an area of scholarship in Geography through laboratory, field, or literary study.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 302,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "ECONOMIC GEOGRAPHY: LOCATIONAL BEHAVIOR",
-        "description": "Classic location theory with modern extensions. Examination of theoretical statements and selected empirical examples. Principles of economic regionalization and network analysis with emphasis on spatial implications of the economic development process.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -2032,6 +1508,7 @@
         },
         "course_title": "HUMAN TRANSFORMATIONS OF EARTH SURFACE PROCESSES",
         "description": "Takes an earth systems approach to explore the role of human societies in shaping earth surface processes from local to global scales. We address how alterations to our landscapes and waterways affect biological, physical and chemical interactions among our biosphere, geosphere, hydrosphere and atmosphere. We discuss methods used to distinguish the \"human impact\" from background variability.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -2047,52 +1524,71 @@
     },
     {
         "course_reference": {
-            "course_number": 434,
+            "course_number": 254,
             "subjects": [
-                "ENVIRST",
-                "C&ESOC",
+                "HISTORY",
+                "SLAVIC",
+                "POLISCI",
                 "GEOG"
             ]
         },
-        "course_title": "PEOPLE, WILDLIFE AND LANDSCAPES",
-        "description": "Explores the relationship between humans and wildlife amid diverse landscapes, both historic and contemporary, tropical and temperate. Investigates how humans shape wild animal populations by modifying physical environments, and by hunting, domesticating and introducing species.",
+        "course_title": "EASTERN EUROPE: AN INTERDISCIPLINARY SURVEY",
+        "description": "Comprehensive interdisciplinary survey of East European culture, society, politics, and literature from its beginnings to the present day.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
-            "course_number": 557,
+            "course_number": 311,
             "subjects": [
-                "ENVIRST",
+                "INTLST",
                 "GEOG"
             ]
         },
-        "course_title": "DEVELOPMENT AND ENVIRONMENT IN SOUTHEAST ASIA",
-        "description": "Examines the political, socio-cultural, economic and ecological aspects of contemporary development and human-environment relations in mainland Southeast Asia, applying a critical and theoretically informed perspective, and focusing largely on rural issues.",
+        "course_title": "THE GLOBAL GAME: SOCCER, POLITICS, AND IDENTITY",
+        "description": "Soccer (or football) is played in almost every part of the world. Soccer will be used as a lens through which to think critically about a range of issues within our own societies and around the world. This includes examining the relationship between European imperialism and the globalization of soccer in the early 20th century; thinking about who gets to play (and who gets paid) across different contexts; and analyzing how soccer is both globally networked and intensely local in its passions and rivalries. Draws from a range of perspectives on soccer, from those who consider it to be an opium for the masses to those who see it as a vehicle for positive social change, in order to illuminate some of the big questions facing the world today.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 420,
+            "course_number": 990,
             "subjects": [
-                "GEOG",
-                "GEOSCI"
+                "GEOG"
             ]
         },
-        "course_title": "GLACIAL AND PLEISTOCENE GEOLOGY",
-        "description": "Principles, characteristics and work of glaciers; events of the Pleistocene. Field trip.",
+        "course_title": "RESEARCH AND THESIS",
+        "description": "Individual mentored study for completing theses, as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 326,
+            "subjects": [
+                "GEOSCI",
+                "GEOG"
+            ]
+        },
+        "course_title": "LANDFORMS-TOPICS AND REGIONS",
+        "description": "Emphasis on natural and human processes that control the morphology of the land and its waterways.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 106,
+                    "course_number": 320,
                     "subjects": [
-                        "ENVIRST",
-                        "GEOSCI"
+                        "GEOSCI",
+                        "GEOG"
                     ]
                 },
                 {
@@ -2100,12 +1596,6 @@
                     "subjects": [
                         "ENVIRST",
                         "GEOG"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "GEOSCI"
                     ]
                 },
                 {
@@ -2120,77 +1610,215 @@
                         "ENVIRST",
                         "GEOG"
                     ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 698,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 574,
-            "subjects": [
-                "GEOG"
-            ]
-        },
-        "course_title": "GEOSPATIAL DATABASE DESIGN AND DEVELOPMENT",
-        "description": "Introduces the basic concepts, techniques and methodologies for designing and implementing a spatial database to prepare for professional work as a GIS designer, analyst, specialist or researcher. Design conceptual spatial database models and  implement them within specific spatial data management systems (DBMS). Covers basic SQL database language and the latest developments in database systems (e.g. NoSQL database) for managing and mining spatial big data such as social media datasets and GPS trajectories.",
-        "prerequisites": {
-            "course_references": [
+                },
                 {
-                    "course_number": 377,
+                    "course_number": 100,
                     "subjects": [
-                        "CIVENGR",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 106,
+                    "subjects": [
                         "ENVIRST",
-                        "GEOG"
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 204,
+                    "subjects": [
+                        "GEOSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "GEOG\u00a0170,GEOG\u00a0370,ENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
+            "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "GEOGRAPHICAL INQUIRY AND ANALYSIS: AN INTRODUCTION",
+        "description": "Geographic perspectives and analyses: history of the discipline, issues and research frontiers, interests and perspectives of Madison faculty, structure of graduate study in the department, research facilities and opportunities.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 970,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SEMINAR IN GEOGRAPHIC INFORMATION SCIENCE",
+        "description": "Surveys recent and classic works in cartography and geographic information science.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "INTERACTIVE CARTOGRAPHY & GEOVISUALIZATION",
+        "description": "Examines emerging topics related to the design of user interfaces for manipulating maps, focusing on new cartographic challenges in Interactive Cartography, Geographic Visualization, and Geovisual Analytics and drawing upon relevant insight in Human-Computer Interaction, Information Visualization, and Usability Engineering.",
+        "optimized": {
             "course_number": 370,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "INTRODUCTION TO CARTOGRAPHY",
-        "description": "A broad introduction to cartography emphasizing the theory and practice of map-making. Topics include the basics in mapping (e.g., scale, spatial reference systems, projections), data acquisition, key techniques for thematic mapping, and principles of cartographic abstraction and design.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "course_references": [
+                {
+                    "course_number": 370,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 378,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG\u00a0370,378, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 980,
+            "course_number": 323,
             "subjects": [
-                "F&WECOL",
-                "ENVIRST",
                 "ATMOCN",
-                "GEOG",
-                "GEOSCI",
-                "ZOOLOGY",
-                "BOTANY"
+                "GEOG"
             ]
         },
-        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
-        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "course_title": "SCIENCE OF CLIMATE CHANGE",
+        "description": "Calculus-based treatment of climate system physics and the mechanisms of modern-day anthropogenic climate change. Covers how solar radiation and rotating fluid dynamics determine the basic climate state; mechanisms of natural variability and change in climate; why anthropogenic climate change is occurring; and which scientific uncertainties are most important to estimates of 21st century change.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 425,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0103,201,207, or247) and (MATH\u00a0217or221). Not open to students with credit forATM\u00a0OCN\u00a0425."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 506,
+            "subjects": [
+                "URBRPL",
+                "GEOG"
+            ]
+        },
+        "course_title": "HISTORICAL GEOGRAPHY OF EUROPEAN URBANIZATION",
+        "description": "Historical geography of urban development in Europe from classical times to the post-Word War II era, with emphasis on changes in built environment, public space and infrastructure, land use, and urban systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 410,
+            "subjects": [
+                "AMERIND",
+                "GEOG"
+            ]
+        },
+        "course_title": "CRITICAL INDIGENOUS ECOLOGICAL KNOWLEDGES",
+        "description": "Critical Indigenous Ecological Knowledges are a set of diverse understandings, responsibilities, and laws held by distinct groups of Indigenous peoples that are enacted in multiple ways across socio-political and geographical contexts. These knowledges intersect with Indigenous political sovereignties and longstanding, complex, and nuanced relationships to the more-than-human world. Learn multiple entry points to exploring and examining these knowledge sets in the context of what's for now called the U.S. and Canada to think critically about the politics of Nature, environmentalism, race, indigeneity, and colonialism both historically and in the contemporary moment. Reflect upon how critical Indigenous knowledges about ecology, environment, and government have been erased, co-opted, criminalized, and also continually practiced, reimagined, and revitalized in multiple spheres through a range of interdisciplinary, critical, and cutting-edge Native scholarships and writings.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 504,
+            "subjects": [
+                "GEN&WS",
+                "GEOG"
+            ]
+        },
+        "course_title": "FEMINIST GEOGRAPHY: THEORETICAL APPROACHES",
+        "description": "Provides an opening to some of the key debates and practices in feminist (political) geography. Feminist geography focuses on questions of power, difference, embodiment, and social change. How are feminist geographies in conversation with or part of other fields of inquiry, such as critical ethnic studies and Indigenous studies, which also focus on questions of difference, epistemologies of knowledge, and social transformation and/or decolonization? That is, what are the relationships of feminist geographic inquiry to liberatory projects of ending racism, capitalism, settler colonialism, and heteropatriarchy. Explore how feminist theories and approaches in geography transformed prevailing political geographic questions and concerns, such as power, politics, territory, boundaries, sovereignty, and violence. What do feminist principles and debates over feminist politics and methods bring to (political) geography?",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 983,
+            "subjects": [
+                "AFRICAN",
+                "POLISCI",
+                "ANTHRO",
+                "HISTORY",
+                "ECON",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTERDEPARTMENTAL SEMINAR IN AFRICAN STUDIES TOPICS",
+        "description": "Interdisciplinary inquiry in African societies and cultures.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -2205,6 +1833,7 @@
         },
         "course_title": "INTRODUCTION TO GEOPOLITICS",
         "description": "Introduction to the contemporary study of geopolitics, featuring the main concepts and research themes encountered in this field.  Examine the formation of geopolitical images of the world, where these images come from, and how they have shaped our thinking and politics over time.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -2212,13 +1841,68 @@
     },
     {
         "course_reference": {
-            "course_number": 513,
+            "course_number": 371,
+            "subjects": [
+                "GLE",
+                "GEOSCI",
+                "ENVIRST",
+                "F&WECOL",
+                "LANDARC",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
+        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 113,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 114,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 171,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 900,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "QUEER GEOGRAPHIES",
-        "description": "Explores several key events, sites, thinkers, and texts that contribute to the social, personal, and intellectual landscapes of Queer Geographies. An invitation to survey and reflect on queer critical strategies that sample, record, and remix constellations of relationships between theory, space, sexuality, gender, and identity. It foregrounds modes of queer spacing and placemaking in academic and popular works devoted to queer lives, studies, sexualities, narratives, publics and privates, joys and griefs, art, theory, and beyond. Offers a range of strategies for reading, interpreting, and developing nuanced scholarly interventions and theories. Question and reimagine normative notions of the personal, the social, and the socio-spatial.",
+        "course_title": "SEMINAR IN GEOGRAPHY",
+        "description": "Surveys recent and classic works in geography.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 510,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "ECONOMIC GEOGRAPHY",
+        "description": "Theoretical aspects of spatial economic distributions and locational analysis.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -2226,28 +1910,151 @@
     },
     {
         "course_reference": {
-            "course_number": 307,
+            "course_number": 999,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "INTERNATIONAL MIGRATION, HEALTH, AND HUMAN RIGHTS",
-        "description": "Provides an introduction to health and human mobility in a global context. Mobility is part of the human condition and international law enshrines freedom of movement, yet nation-states reserve the right to exclude. Examines the development of laws and institutions governing people on the move; how these solidify or reshape existing global, racial-ethnic, class, and gender hierarchies; and how they contribute to individual and population-level health.",
+        "course_title": "INDEPENDENT WORK",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 333,
+            "course_number": 120,
             "subjects": [
                 "ENVIRST",
                 "GEOG"
             ]
         },
-        "course_title": "GREEN URBANISM",
-        "description": "Over half of the world's population now lives in urban areas, with an expected increase of 2.5 billion people in the next 30 years. As urbanization (broadly defined as the conversion of previously undeveloped lands into urbanized uses) continues and intensifies, we are faced with a number of environmental issues, for instance, fragmentation and destruction of habitats, and decreased air and water quality.  Explore how urbanization impacts ecological processes and resulting environmental outcomes, strategies for \"designing with nature,\" and behavioral, planning, and policy responses to urban environmental problems.",
+        "course_title": "INTRODUCTION TO THE EARTH SYSTEM",
+        "description": "Introduction to how the Earth system works and what makes Earth livable. Gain appreciation for how the atmosphere, oceans, life, and earth's surface interact to shape our local, regional and global landscapes.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 127,
+                    "subjects": [
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0127"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 244,
+            "subjects": [
+                "SOC",
+                "POLISCI",
+                "HISTORY",
+                "ASIAN",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO SOUTHEAST ASIA:  VIETNAM TO THE PHILIPPINES",
+        "description": "As an introduction to Southeast Asia, covers the ethnic, cultural, religious, and political histories of the region from the classical states period to the present, with an emphasis on colonialism, nationalism, decolonization, and the emergence of modern political and social systems into the 21st century, including an exposure to region's contemporary literature. Not open to students who completed LCA 244 prior to Fall 2019.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 518,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "POWER, PLACE, IDENTITY",
+        "description": "Advanced political geography course that explores reconceptualizations of power, place, and identity, as well as the interactive forces at work that continually reshape place-making and the inter-related processes of identification and differentiation.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 460,
+            "subjects": [
+                "GEOG",
+                "ENVIRST",
+                "HISTORY"
+            ]
+        },
+        "course_title": "AMERICAN ENVIRONMENTAL HISTORY",
+        "description": "Survey of interactions among people and natural environments from before European colonization to present. Equal attention to problems of ecological change, human ideas, and uses of nature and history of conservation and environmental public policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing or 3 credits in HISTORY, GEOG or ENVIR ST"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 175,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "TOPICS IN GEOGRAPHY",
+        "description": "Explores emerging topics in human geography (e.g., economic geography, urban geography, political geography) and people-environment geography (e.g., political ecology, environmental history).",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 434,
+            "subjects": [
+                "ENVIRST",
+                "C&ESOC",
+                "GEOG"
+            ]
+        },
+        "course_title": "PEOPLE, WILDLIFE AND LANDSCAPES",
+        "description": "Explores the relationship between humans and wildlife amid diverse landscapes, both historic and contemporary, tropical and temperate. Investigates how humans shape wild animal populations by modifying physical environments, and by hunting, domesticating and introducing species.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 475,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "TOPICS IN GEOGRAPHY",
+        "description": "Explores emerging topics in Geography.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -2255,24 +2062,108 @@
     },
     {
         "course_reference": {
-            "course_number": 260,
+            "course_number": 170,
             "subjects": [
-                "AFROAMER",
-                "HISTORY",
-                "C&ESOC",
-                "GEOG",
-                "POLISCI",
-                "SPANISH",
-                "LACIS",
-                "SOC",
-                "ANTHRO"
+                "GEOG"
             ]
         },
-        "course_title": "LATIN AMERICA: AN INTRODUCTION",
-        "description": "Latin American culture and society from an interdisciplinary perspective; historical developments from pre-Columbian times to the present; political movements; economic problems; social change; ecology in tropical Latin America; legal systems; literature and the arts; cultural contrasts involving the US and Latin America; land reform; labor movements; capitalism, socialism, imperialism; mass media.",
+        "course_title": "OUR DIGITAL GLOBE: AN OVERVIEW OF GISCIENCE AND ITS TECHNOLOGY",
+        "description": "Introduction to the collection, representation and use of geospatial data.  Introduction to geospatial technologies like GPS, Google Earth, satellite imagery, and GIS, and provides a critical understanding of the strengths and limitations of spatial representations (e.g., maps, images).",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 576,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "GEOSPATIAL WEB AND MOBILE PROGRAMMING",
+        "description": "Covers the programming concepts and skills for understanding construction and implementation of high quality spatial web portal and mobile Apps to support geospatial data access, analysis, sharing, and synthesis over the internet. Builds on basic programming experience.",
+        "optimized": {
+            "course_number": 170,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 400,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 170,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 370,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 378,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEOG\u00a0170,GEOG\u00a0370, orCIV\u00a0ENGR/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0377) and (GEOG\u00a0378,COMP\u00a0SCI\u00a0300, COMP SCI 369, orCOMP\u00a0SCI\u00a0400), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 339,
+            "subjects": [
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL CONSERVATION",
+        "description": "Examines major environmental conservation approaches in the U.S. and developing countries and how they are influenced by sociopolitical factors, cultural values and scientific understandings of nature. Historical and contemporary cases are explored with emphasis on biodiversity and climate change issues.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 338,
+            "subjects": [
+                "BOTANY",
+                "GEOG"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL BIOGEOGRAPHY",
+        "description": "Explores how physical and biological factors affect the distribution of terrestrial biomes, ecosystem types, and biodiversity, as well as the role of disturbance and recent human activities on differences in past and modern day species distributions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -2286,9 +2177,309 @@
         },
         "course_title": "AN INTRODUCTION TO GEOGRAPHIC INFORMATION SYSTEMS",
         "description": "Design, implementation and use of automated procedures for storage, analysis and display of spatial information. Covers data bases, information manipulation and display techniques, software systems and management issues. Case studies.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing, member of Engineering Guest Students, or declared in Capstone Certificate in GIS Fundamentals"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 692,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual mentored study for seniors completing theses as arranged with a faculty member",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 766,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "GEOGRAPHICAL INQUIRY AND ANALYSIS: TECHNIQUES",
+        "description": "Engaging in geographic research: analysis of successful proposals and published papers and books; different approaches to geographic research; writing of proposals for students' own research.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 982,
+            "subjects": [
+                "SOC",
+                "PORTUG",
+                "POLISCI",
+                "ANTHRO",
+                "HISTORY",
+                "C&ESOC",
+                "SPANISH",
+                "AAE",
+                "LACIS",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTERDEPARTMENTAL SEMINAR IN THE LATIN-AMERICAN AREA",
+        "description": "Interdisciplinary inquiry in Latin American society and culture.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 230,
+            "subjects": [
+                "ENVIRST",
+                "SOILSCI",
+                "GEOG"
+            ]
+        },
+        "course_title": "SOIL: ECOSYSTEM AND RESOURCE",
+        "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forSOIL\u00a0SCI\u00a0301"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 358,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "HUMAN GEOGRAPHY OF SOUTHEAST ASIA",
+        "description": "Introduction to the human geography and history of Southeast Asia, including important political and theoretical issues and policies and positionings of relevance for understanding the spatiality of the region, including the ways that ethnicity and indigeneity are playing out in Southeast Asia and among Southeast Asians in the United States.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 501,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "SPACE AND PLACE: A GEOGRAPHY OF EXPERIENCE",
+        "description": "Explore the concepts of space and place from the perspective of learning and everyday experience. Examines how space and place emerge out of fundamental human needs, experiences, and ways of thinking.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 239,
+            "subjects": [
+                "HISTORY",
+                "ENVIRST",
+                "ARTHIST",
+                "LANDARC",
+                "GEOG"
+            ]
+        },
+        "course_title": "MAKING THE AMERICAN LANDSCAPE",
+        "description": "Traces the history and evolution of the American cultural landscape from precolonial times to present. Explores how class, ethnic, and racial inequality have shaped the appearance of the American landscape over time, and how that landscape in turn has affected relationships between people and groups through the present day. Examines extraordinary things (civic structures (like our State Capitol), National Parks, War Memorials) and more ordinary kinds of places (mining towns, cotton plantations, sites of recreation and leisure, and suburban tract housing) to stimulate critical thinking about how these places have served people and groups unequally and disproportionately over time and across space. Considers complex meanings of American spaces and places to different people and groups, stimulating empathy and encouraging participation in a multicultural society.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 698,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 573,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "ADVANCED GEOCOMPUTING AND GEOSPATIAL BIG DATA ANALYTICS",
+        "description": "Geospatial big data is an extension of big data with an emphasis on the geospatial component. It is used to describe large volumes of georeferenced data about various aspects of the environment and society captured by millions of environmental and human sensors. An introduction to the theory, techniques, and analytical methods for geospatial big data. Methods for storing, processing, analyzing, and visualizing various types of geospatial big data using advanced Python programming will be introduced. Designed for students who have programming experience and want to reinforce their programming skills and learn AI and machine learning methods for solving geospatial big data problems.",
+        "optimized": {
+            "course_number": 378,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 378,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG\u00a0378,COMP\u00a0SCI\u00a0220, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 260,
+            "subjects": [
+                "SOC",
+                "POLISCI",
+                "AFROAMER",
+                "ANTHRO",
+                "HISTORY",
+                "C&ESOC",
+                "SPANISH",
+                "LACIS",
+                "GEOG"
+            ]
+        },
+        "course_title": "LATIN AMERICA: AN INTRODUCTION",
+        "description": "Latin American culture and society from an interdisciplinary perspective; historical developments from pre-Columbian times to the present; political movements; economic problems; social change; ecology in tropical Latin America; legal systems; literature and the arts; cultural contrasts involving the US and Latin America; land reform; labor movements; capitalism, socialism, imperialism; mass media.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 513,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "QUEER GEOGRAPHIES",
+        "description": "Explores several key events, sites, thinkers, and texts that contribute to the social, personal, and intellectual landscapes of Queer Geographies. An invitation to survey and reflect on queer critical strategies that sample, record, and remix constellations of relationships between theory, space, sexuality, gender, and identity. It foregrounds modes of queer spacing and placemaking in academic and popular works devoted to queer lives, studies, sexualities, narratives, publics and privates, joys and griefs, art, theory, and beyond. Offers a range of strategies for reading, interpreting, and developing nuanced scholarly interventions and theories. Question and reimagine normative notions of the personal, the social, and the socio-spatial.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO HUMAN GEOGRAPHY",
+        "description": "Human geographers explore socio-spacial relations, processes and representations of the world in which we live. Engages economic, political, urban, socio-cultural and environmental geographic perspectives to investigate patterns and processes that have come to be associated with 'globalization'.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forGEOG\u00a0104"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 139,
+            "subjects": [
+                "ENVIRST",
+                "GEOG"
+            ]
+        },
+        "course_title": "GLOBAL ENVIRONMENTAL ISSUES",
+        "description": "Explores the global and local nature of environmental problems, including issues of climate change, food, energy, globalization, deforestation, biodiversity loss, resource access, environmental justice, and population. Considers how we should analyze and act on environmental problems as we confront the apparently daunting scale of such issues. What appear to be single global environmental issues are actually composed of many smaller, context-specific, and place-dependent problems or conflicts. Through an interdisciplinary and geographic perspective, these issues can be understood and addressed at the scale of our lived lives.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 980,
+            "subjects": [
+                "GEOSCI",
+                "BOTANY",
+                "ENVIRST",
+                "ZOOLOGY",
+                "F&WECOL",
+                "ATMOCN",
+                "GEOG"
+            ]
+        },
+        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
+        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "ENVIRST",
+                "LANDARC",
+                "URBRPL",
+                "GEOG"
+            ]
+        },
+        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
+        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "ENVIRST",
+                        "GEOG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
         }
     },
     {
@@ -2300,6 +2491,7 @@
         },
         "course_title": "REVOLUTIONS AND SOCIAL CHANGE",
         "description": "An introduction to the spatial dimensions of social movements, social struggles, and radical social change. Provides a range of critical and theoretical perspectives for reading and interpreting space as a tool of social transformation. Explores a variety of historical examples from the nineteenth century to the present.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -2307,16 +2499,32 @@
     },
     {
         "course_reference": {
-            "course_number": 970,
+            "course_number": 507,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "SEMINAR IN GEOGRAPHIC INFORMATION SCIENCE",
-        "description": "Surveys recent and classic works in cartography and geographic information science.",
+        "course_title": "WASTE GEOGRAPHIES: POLITICS, PEOPLE, AND INFRASTRUCTURES",
+        "description": "Explores waste as discarded material, a polluting and threatening substance that must be managed, and as a political object. Waste's distribution across space and among groups of people, as well as the reasons for the effects of that distribution, will be examined using geographic perspectives. Who has the ability to avoid or remove themselves from waste? Who must live and work with it? The concept of infrastructure as a set of material things (roads, trucks, boats); laws and regulations; labor relations; and economies of disposal and consumption determining waste flows unites disparate topics and case studies across the semester. Concepts of and social movements for environmental justice are recurring themes.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 360,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "QUANTITATIVE METHODS IN GEOGRAPHICAL ANALYSIS",
+        "description": "Application of descriptive and inferential statistics to geographical problems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement"
         }
     },
     {
@@ -2328,6 +2536,7 @@
         },
         "course_title": "SENIOR THESIS",
         "description": "Individual mentored study for seniors completing theses as arranged with a faculty member",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -2335,13 +2544,14 @@
     },
     {
         "course_reference": {
-            "course_number": 344,
+            "course_number": 342,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "CHANGING LANDSCAPES OF THE AMERICAN WEST",
-        "description": "Environmental change in the landscapes of the American West, in the recent past, present, and future, from the physical science background to human-environment interactions.",
+        "course_title": "GEOGRAPHY OF WISCONSIN",
+        "description": "Overview of the physical and human geography of Wisconsin, with an emphasis on the physical, historical, and cultural processes that shaped the Badger State.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -2349,30 +2559,146 @@
     },
     {
         "course_reference": {
-            "course_number": 565,
+            "course_number": 503,
             "subjects": [
+                "URBRPL",
                 "GEOG"
             ]
         },
-        "course_title": "COLLOQUIUM FOR UNDERGRADUATE MAJORS",
-        "description": "Orientation to geography as a scholarly discipline; its development, objectives, essential concepts, methods of investigation, institutions, opportunities, problems, and trends.",
+        "course_title": "RESEARCHING THE CITY: QUALITATIVE STRATEGIES",
+        "description": "Explores, and applies, qualitative methods in the field of urban geography. An introduction to debates around the analysis and interpretation of qualitative data is provided, grounded in concrete urban research. Participation in a three-day field course is required.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in Geography or Cartography and Geographic Information Systems undergraduate programs"
+            "prerequisites_text": "Junior standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 359,
             "subjects": [
                 "GEOG"
             ]
         },
-        "course_title": "GEOGRAPHICAL INQUIRY AND ANALYSIS: AN INTRODUCTION",
-        "description": "Geographic perspectives and analyses: history of the discipline, issues and research frontiers, interests and perspectives of Madison faculty, structure of graduate study in the department, research facilities and opportunities.",
+        "course_title": "AUSTRALIA: ENVIRONMENT AND SOCIETY",
+        "description": "An introduction to the human and environmental geography of Australia, including Australian geology, ecology, society, and culture. Topics include analysis of  current events in Australia and current resource management problems using Google Earth and other tools. Australia is a settler country, the scene of indigenous genocide, a former English colony, a mythical unknown, a biophysical puzzle, home to a startling diversity of life, a cradle of modern democracy, and a powerful industrial economy with a rich resource base. It thus serves in many ways as a mirror for the US - even matching the US roughly in size, if not in population. The two countries share many elements of a common history and biogeography and yet the human and environmental geographies of the two countries have traced very different paths into the modern world.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 349,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "EUROPE",
+        "description": "A topical overview of people-environment interaction, migration, culture, urbanization, political organization and integration.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 254,
+            "subjects": [
+                "GEOG",
+                "SLAVIC",
+                "POLISCI",
+                "HISTORY"
+            ]
+        },
+        "course_title": "EASTERN EUROPE: AN INTERDISCIPLINARY SURVEY",
+        "description": "Comprehensive interdisciplinary survey of East European culture, society, politics, and literature from its beginnings to the present day.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "URBRPL",
+                "GEOG"
+            ]
+        },
+        "course_title": "INTRODUCTION TO THE CITY",
+        "description": "Investigates urbanization as a general process, as well as the resulting contemporary physical, social, cultural and political- economic forms of cities. Emphasis will be placed on the history and current forms of spatial and social segregation of cities by race, class, ethnicity, and gender. The myriad ways that cities have addressed the tensions emerging from this history of spatial and social segregation will be highlighted. Further, emphasis will be placed on understanding the experiences of those most-affected by historical and continuing segregation.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 514,
+            "subjects": [
+                "GEN&WS",
+                "GEOG"
+            ]
+        },
+        "course_title": "FEMINIST GEOGRAPHY: METHODOLOGICAL APPROACHES",
+        "description": "An introduction to foundational approaches to feminist qualitative research in human geography. Research is not separate from a social world that historically has been and continues to be shaped by (settler) colonial, racialized, gendered, sexualized, and class-inflected relations of power (among others). Research practices and \"findings\" have been and continue to be used to inform and rationalize relations of oppression, exploitation, and violence. For feminist researchers, then, questions of power, difference, and social change are central to how we design and conduct research. Engages in political-ethical discussions about the positionality and responsibilities of ourselves as researchers, and how our knowledge production can reproduce and challenge prevailing relations of power.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 300,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "WEIRD GEOGRAPHIES",
+        "description": "An opportunity to re-imagine human geography. The history of geography is particularly violent and exclusive. It is well known that systems of colonialist exploitation, theft, kidnapping, and murder were facilitated in part by the work of modern cartographers and \"explorers.\" The discipline that we have today is a product of these earlier colonial epistemologies and ideologies. The science that emerged from these fields - geography - institutionalizes and reproduces many the ideas and viewpoints of their modern practitioners. Creates a space to re-imagine and re-invent what the field of human geography might be. Interrogates the colonial history of geography as a social science and practice. Explores several ways of thinking about space and social life that might not fit cleanly into the discipline at large.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 566,
+            "subjects": [
+                "GEOG"
+            ]
+        },
+        "course_title": "HISTORY OF GEOGRAPHIC THOUGHT",
+        "description": "An analysis of the development and significance of basic geographic concepts and theories. Major emphasis on concepts of place, spatial relations, landscape, and human-environment relations.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 254,
+            "subjects": [
+                "SLAVIC",
+                "POLISCI",
+                "HISTORY",
+                "GEOG"
+            ]
+        },
+        "course_title": "EASTERN EUROPE: AN INTERDISCIPLINARY SURVEY",
+        "description": "Comprehensive interdisciplinary survey of East European culture, society, politics, and literature from its beginnings to the present day.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     }
 ]

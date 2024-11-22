@@ -7,12 +7,25 @@
     },
     "course_title": "DATABASE MANAGEMENT SYSTEMS: DESIGN AND IMPLEMENTATION",
     "description": "What a database management system is; different data models currently used to structure the logical view of the database: relational, hierarchical, and network. Hands-on experience with relational and network-based database systems. Implementation techniques for database systems. File organization, query processing, concurrency control, rollback and recovery, integrity and consistency, and view implementation.",
+    "optimized": {
+        "course_number": 400,
+        "subjects": [
+            "COMPSCI"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 400,
                 "subjects": [
                     "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 354,
+                "subjects": [
+                    "COMPSCI",
+                    "ECE"
                 ]
             }
         ],

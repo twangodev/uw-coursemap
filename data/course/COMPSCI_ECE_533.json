@@ -8,12 +8,30 @@
     },
     "course_title": "IMAGE PROCESSING",
     "description": "Mathematical representation of continuous and digital images; models of image degradation; picture enhancement, restoration, segmentation, and coding; pattern recognition, tomography.",
+    "optimized": {
+        "course_number": 330,
+        "subjects": [
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 330,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

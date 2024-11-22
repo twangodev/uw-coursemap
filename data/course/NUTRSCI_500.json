@@ -7,13 +7,26 @@
     },
     "course_title": "UNDERGRADUATE CAPSTONE SEMINAR LABORATORY",
     "description": "Current topics in Nutritional Sciences and undergraduate research presentations.",
+    "optimized": {
+        "course_number": 510,
+        "subjects": [
+            "BIOCHEM",
+            "NUTRSCI"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 431,
+                "subjects": [
+                    "NUTRSCI"
+                ]
+            },
+            {
                 "course_number": 510,
                 "subjects": [
-                    "NUTRSCI",
-                    "BIOCHEM"
+                    "BIOCHEM",
+                    "NUTRSCI"
                 ]
             }
         ],

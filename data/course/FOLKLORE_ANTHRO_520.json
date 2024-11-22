@@ -8,13 +8,32 @@
     },
     "course_title": "ETHNIC REPRESENTATIONS IN WISCONSIN",
     "description": "Representation and self-representation of ethnic cultures in Wisconsin. For example: museums, mass media, ethnic theater.",
+    "optimized": {
+        "course_number": 200,
+        "subjects": [
+            "GNS",
+            "FOLKLORE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 300,
+                "subjects": [
+                    "ANTHRO"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "FOLKLORE"
+                ]
+            },
+            {
                 "course_number": 200,
                 "subjects": [
-                    "FOLKLORE",
-                    "GNS"
+                    "GNS",
+                    "FOLKLORE"
                 ]
             }
         ],

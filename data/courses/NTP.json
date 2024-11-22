@@ -1,118 +1,51 @@
 [
     {
         "course_reference": {
-            "course_number": 619,
+            "course_number": 620,
             "subjects": [
-                "PSYCH",
                 "ZOOLOGY",
-                "NTP",
-                "ANTHRO"
+                "NTP"
             ]
         },
-        "course_title": "BIOLOGY OF MIND",
-        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "course_title": "NEUROETHOLOGY SEMINAR",
+        "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
+        "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 735,
+            "course_number": 611,
             "subjects": [
-                "NTP"
+                "NTP",
+                "NEURODPT",
+                "PSYCH"
             ]
         },
-        "course_title": "NEUROBIOLOGY OF DISEASE",
-        "description": "Seminar course relating major categories of human neurological and opthalmological disease to fundamental topics in neurobiology.",
+        "course_title": "SYSTEMS NEUROSCIENCE",
+        "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 610,
                     "subjects": [
-                        "NEURODPT",
-                        "NTP"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing andNTP/\u200bNEURODPT\u00a0\u00a0610"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 900,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "NEUROSCIENCE SEMINAR: CURRENT TOPICS IN NEUROBIOLOGY",
-        "description": "Critical review of selected topics in neurobiology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Neuroscience graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "PROFESSIONAL DEVELOPMENT FOR BIOMEDICAL GRADUATE STUDENTS",
-        "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "RESEARCH AND THESIS",
-        "description": "",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 629,
-            "subjects": [
-                "NEURODPT",
-                "NTP"
-            ]
-        },
-        "course_title": "MOLECULAR AND CELLULAR MECHANISMS OF MEMORY",
-        "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "PSYCH",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
+            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
         }
     },
     {
@@ -124,8 +57,21 @@
         },
         "course_title": "NEUROSCIENCE OF CONSCIOUSNESS AND ITS DISORDERS",
         "description": "Outlines contemporary strategies to study consciousness and current knowledge of the neural correlates of consciousness and their alterations during sleep, parasomnia, anesthesia, coma, stroke, seizures, meditative and psychedelic states. Reviews recent work studying the neural correlates of conscious contents and their interactions with cognitive processes. Outlines contemporary theories of consciousness, illustrate how they can be empirically tested, and discuss their implications for the presence vs. absence of consciousness in artificial intelligent systems.",
+        "optimized": {
+            "course_number": 454,
+            "subjects": [
+                "PSYCH"
+            ]
+        },
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
                 {
                     "course_number": 454,
                     "subjects": [
@@ -138,20 +84,205 @@
     },
     {
         "course_reference": {
+            "course_number": 675,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "RESEARCH AND THESIS",
+        "description": "",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "NTP",
+                "PSYCH",
+                "ZOOLOGY",
+                "ANTHRO"
+            ]
+        },
+        "course_title": "BIOLOGY OF MIND",
+        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "NTP",
+                "NEURODPT",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
+        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "EXPERIMENTAL DESIGN AND STATISTICAL METHODOLOGY",
+        "description": "Application of the scientific method and experimental design, with a focus on experimental neuroscience. Topics include best practices that underlie robust and unbiased experimental approaches, methods, analyses, data interpretation and transparent reporting of results.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 677,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "BASIC SLEEP MECHANISMS AND SLEEP DISORDERS: FROM NEUROBIOLOGY TO SLEEP MEDICINE",
+        "description": "Sleep occupies a third of our life, is found in all animal species carefully studied so far, and loss of sleep has both acute and long- term negative consequences on the brain and the body. Still, why we sleep remains unclear, and hypotheses on the role of sleep for synaptic homeostasis, learning and memory are being tested. Focuses on the neurobiology of sleep, with detailed review of the brain structures involved in controlling wake and sleep, as well as the circadian and homeostatic regulation of sleep. Other topics include changes in sleep need with age, animal models to study sleep, sleep disorders, and genetics of sleep.",
+        "optimized": {
+            "course_number": 523,
+            "subjects": [
+                "ZOOLOGY",
+                "PSYCH"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 454,
+                    "subjects": [
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "ZOOLOGY",
+                "NTP",
+                "ANTHRO",
+                "PSYCH"
+            ]
+        },
+        "course_title": "BIOLOGY OF MIND",
+        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ZOOLOGY",
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
+        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 900,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "NEUROSCIENCE SEMINAR: CURRENT TOPICS IN NEUROBIOLOGY",
+        "description": "Critical review of selected topics in neurobiology.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Neuroscience graduate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "NTP",
+                "ANTHRO",
+                "ZOOLOGY",
+                "PSYCH"
+            ]
+        },
+        "course_title": "BIOLOGY OF MIND",
+        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 610,
             "subjects": [
-                "NEURODPT",
-                "NTP"
+                "NTP",
+                "NEURODPT"
             ]
         },
         "course_title": "CELLULAR AND MOLECULAR NEUROSCIENCE",
         "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 202,
+                    "course_number": 523,
                     "subjects": [
-                        "PHYSICS"
+                        "ZOOLOGY",
+                        "PSYCH"
                     ]
                 },
                 {
@@ -161,10 +292,9 @@
                     ]
                 },
                 {
-                    "course_number": 523,
+                    "course_number": 202,
                     "subjects": [
-                        "PSYCH",
-                        "ZOOLOGY"
+                        "PHYSICS"
                     ]
                 },
                 {
@@ -179,61 +309,39 @@
     },
     {
         "course_reference": {
-            "course_number": 619,
+            "course_number": 620,
             "subjects": [
-                "ZOOLOGY",
-                "PSYCH",
                 "NTP",
-                "ANTHRO"
+                "ZOOLOGY"
             ]
         },
-        "course_title": "BIOLOGY OF MIND",
-        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "course_title": "NEUROETHOLOGY SEMINAR",
+        "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
+        "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "NEURODPT",
-                "ZOOLOGY",
-                "NTP"
-            ]
-        },
-        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
-        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 675,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523or graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 640,
             "subjects": [
-                "NEURODPT",
-                "NTP"
+                "NTP",
+                "NEURODPT"
             ]
         },
         "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
         "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -250,22 +358,23 @@
                     ]
                 },
                 {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
                     "course_number": 248,
                     "subjects": [
                         "PHYSICS"
                     ]
                 },
                 {
-                    "course_number": 202,
+                    "course_number": 611,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
+                        "NTP",
                         "NEURODPT",
-                        "NTP"
+                        "PSYCH"
                     ]
                 },
                 {
@@ -275,23 +384,22 @@
                     ]
                 },
                 {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
                     "course_number": 208,
                     "subjects": [
                         "PHYSICS"
                     ]
                 },
                 {
-                    "course_number": 104,
+                    "course_number": 610,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "PSYCH",
-                        "NTP"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
@@ -300,50 +408,21 @@
     },
     {
         "course_reference": {
-            "course_number": 677,
+            "course_number": 660,
             "subjects": [
                 "NTP"
             ]
         },
-        "course_title": "BASIC SLEEP MECHANISMS AND SLEEP DISORDERS: FROM NEUROBIOLOGY TO SLEEP MEDICINE",
-        "description": "Sleep occupies a third of our life, is found in all animal species carefully studied so far, and loss of sleep has both acute and long- term negative consequences on the brain and the body. Still, why we sleep remains unclear, and hypotheses on the role of sleep for synaptic homeostasis, learning and memory are being tested. Focuses on the neurobiology of sleep, with detailed review of the brain structures involved in controlling wake and sleep, as well as the circadian and homeostatic regulation of sleep. Other topics include changes in sleep need with age, animal models to study sleep, sleep disorders, and genetics of sleep.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "PSYCH",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
+        "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
+        "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
+        "optimized": {
+            "course_number": 611,
             "subjects": [
-                "NTP"
+                "NTP",
+                "NEURODPT",
+                "PSYCH"
             ]
         },
-        "course_title": "EXPERIMENTAL DESIGN AND STATISTICAL METHODOLOGY",
-        "description": "Application of the scientific method and experimental design, with a focus on experimental neuroscience. Topics include best practices that underlie robust and unbiased experimental approaches, methods, analyses, data interpretation and transparent reporting of results.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "ZOOLOGY",
-                "NTP"
-            ]
-        },
-        "course_title": "NEUROETHOLOGY SEMINAR",
-        "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
         "prerequisites": {
             "course_references": [
                 {
@@ -352,21 +431,36 @@
                         "ZOOLOGY",
                         "PSYCH"
                     ]
+                },
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "NTP",
+                        "NEURODPT",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
                 }
             ],
-            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523or graduate/professional standing"
+            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
         }
     },
     {
         "course_reference": {
             "course_number": 651,
             "subjects": [
-                "MEDPHYS",
-                "NTP"
+                "NTP",
+                "MEDPHYS"
             ]
         },
         "course_title": "METHODS FOR NEUROIMAGING RESEARCH",
         "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -393,49 +487,76 @@
     },
     {
         "course_reference": {
-            "course_number": 660,
+            "course_number": 735,
             "subjects": [
                 "NTP"
             ]
         },
-        "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
-        "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "PSYCH",
-                        "NTP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 611,
-            "subjects": [
-                "NEURODPT",
-                "PSYCH",
-                "NTP"
-            ]
-        },
-        "course_title": "SYSTEMS NEUROSCIENCE",
-        "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
+        "course_title": "NEUROBIOLOGY OF DISEASE",
+        "description": "Seminar course relating major categories of human neurological and opthalmological disease to fundamental topics in neurobiology.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 610,
                     "subjects": [
-                        "NEURODPT",
-                        "NTP"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
-            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
+            "prerequisites_text": "Graduate/professional standing andNTP/\u200bNEURODPT\u00a0\u00a0610"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 629,
+            "subjects": [
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "MOLECULAR AND CELLULAR MECHANISMS OF MEMORY",
+        "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 700,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "PROFESSIONAL DEVELOPMENT FOR BIOMEDICAL GRADUATE STUDENTS",
+        "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

@@ -8,13 +8,43 @@
     },
     "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
     "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+    "optimized": {
+        "course_number": 573,
+        "subjects": [
+            "MEDPHYS",
+            "BME"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 573,
                 "subjects": [
-                    "BME",
-                    "MEDPHYS"
+                    "MEDPHYS",
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "MEDPHYS",
+                    "PHYSICS",
+                    "HONCOL",
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
                 ]
             }
         ],

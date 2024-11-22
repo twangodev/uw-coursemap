@@ -8,6 +8,13 @@
     },
     "course_title": "MACHINE ORGANIZATION AND PROGRAMMING",
     "description": "An introduction to fundamental structures of computer systems and the C programming language with a focus on the low-level interrelationships and impacts on performance. Topics include the virtual address space and virtual memory, the heap and dynamic memory management, the memory hierarchy and caching, assembly language and the stack, communication and interrupts/signals, compiling and assemblers/linkers.",
+    "optimized": {
+        "course_number": 252,
+        "subjects": [
+            "COMPSCI",
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
@@ -15,6 +22,12 @@
                 "subjects": [
                     "COMPSCI",
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
                 ]
             }
         ],

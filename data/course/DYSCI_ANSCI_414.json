@@ -8,14 +8,34 @@
     },
     "course_title": "RUMINANT NUTRITION & METABOLISM",
     "description": "Integrates nutritional and biochemical concepts to understand digestive and metabolic processes in dairy and beef cattle, which are then quantitatively represented to predict and manipulate production and health outcomes.",
+    "optimized": {
+        "course_number": 311,
+        "subjects": [
+            "DYSCI",
+            "NUTRSCI",
+            "ANSCI"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 301,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
                 "course_number": 311,
                 "subjects": [
-                    "ANSCI",
+                    "DYSCI",
                     "NUTRSCI",
-                    "DYSCI"
+                    "ANSCI"
                 ]
             }
         ],

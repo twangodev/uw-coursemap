@@ -7,13 +7,38 @@
     },
     "course_title": "MICROELECTRONIC DEVICES",
     "description": "Characteristics of semiconductors; study of physical mechanisms and circuit modeling of solid state electronic and photonic devices; principles of microelectronic processing and examples of integrated circuits.",
+    "optimized": {
+        "course_number": 235,
+        "subjects": [
+            "PHYSICS",
+            "ECE"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 220,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 230,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 222,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
                 "course_number": 235,
                 "subjects": [
-                    "ECE",
-                    "PHYSICS"
+                    "PHYSICS",
+                    "ECE"
                 ]
             }
         ],
