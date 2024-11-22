@@ -1,21 +1,33 @@
 [
     {
         "data": {
-            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
-            "id": "INFOSYS 724",
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
+            "id": "INFOSYS 352",
             "parent": "INFOSYS"
         }
     },
     {
         "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS 424"
+            "source": "COMPSCI 220",
+            "target": "INFOSYS 371"
         }
     },
     {
         "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 765",
+            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
+            "id": "INFOSYS 724",
             "parent": "INFOSYS"
         }
     },
@@ -27,9 +39,8 @@
     },
     {
         "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
+            "source": "ISYE/INFOSYS 722",
+            "target": "INFOSYS 724"
         }
     },
     {
@@ -48,15 +59,15 @@
     },
     {
         "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 365",
-            "parent": "INFOSYS"
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-            "id": "INFOSYS 352",
+            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
+            "id": "INFOSYS 424",
             "parent": "INFOSYS"
         }
     },
@@ -69,39 +80,28 @@
     },
     {
         "data": {
-            "source": "ISYE/INFOSYS 722",
-            "target": "INFOSYS 724"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
-            "target": "INFOSYS 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
-            "id": "INFOSYS 424",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
             "id": "INFOSYS",
             "type": "compound"
         }
     },
     {
         "data": {
-            "id": "COMPSCI",
-            "type": "compound"
+            "source": "INFOSYS 371",
+            "target": "ISYE/INFOSYS 722"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 765",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 365",
+            "parent": "INFOSYS"
         }
     },
     {
@@ -114,7 +114,7 @@
     {
         "data": {
             "source": "INFOSYS 371",
-            "target": "ISYE/INFOSYS 722"
+            "target": "INFOSYS 424"
         }
     }
 ]

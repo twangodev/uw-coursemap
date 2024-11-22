@@ -1,14 +1,53 @@
 [
     {
         "data": {
-            "id": "ECON",
+            "description": "Experience the current financial services market from the perspective of real families. Design, develop and evaluate innovative solutions to improve service or address unmet needs.",
+            "id": "CNSRSCI 255",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "CNSRSCI 575"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 768",
+            "target": "CNSRSCI 778"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Provides tools for planning and analyzing retail financial performance. Includes elements of retail financial statements, pricing, purchasing terms and conditions, merchandise planning, inventory control, and economic factors that impact retail businesses.",
-            "id": "CNSRSCI 564",
+            "source": "CNSRSCI 111",
+            "target": "CNSRSCI 390"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis from a financial planner's perspective of the process of planning the accumulation, conservation, and distribution of an estate, in the manner that most effectively and efficiently accomplishes an individual's personal tax and non-tax objectives.",
+            "id": "CNSRSCI 635",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundational knowledge of the retail industry including the retail process, the evolution of the industry, key drivers and trends to provide a framework and set of concepts that will support the remainder of the core retail courses.",
+            "id": "CNSRSCI 257",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of the consumer's market, consumer's behavior, and government policies affecting the consumer in the American economy.",
+            "id": "CNSRSCI 477",
             "parent": "CNSRSCI"
         }
     },
@@ -22,59 +61,32 @@
     {
         "data": {
             "source": "ECON 101",
-            "target": "CNSRSCI 475"
+            "target": "ECON 111"
         }
     },
     {
         "data": {
-            "description": "For the majority of Americans, money and family life is intertwined. Learn about the basics of relationship formation and dissolution, gender and family dynamics and the psychology of money with the goal of encouraging financial equality among members of families of all types.",
-            "id": "CNSRSCI 273",
-            "parent": "CNSRSCI"
+            "source": "ECON 101",
+            "target": "CNSRSCI 477"
         }
     },
     {
         "data": {
-            "description": "Develops professional skills. Provides opportunities for presenting research and respectfully critiquing the work of others.",
-            "id": "CNSRSCI 920",
-            "parent": "CNSRSCI"
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
+            "parent": "ECON"
         }
     },
     {
         "data": {
-            "source": "CNSRSCI 657",
-            "target": "CNSRSCI 561"
+            "source": "CNSRSCI 257",
+            "target": "CNSRSCI 564"
         }
     },
     {
         "data": {
-            "source": "CNSRSCI 275",
-            "target": "CNSRSCI 675"
-        }
-    },
-    {
-        "data": {
-            "description": "A supervised internship providing hands-on training in a professional experience in retailing related fields.",
-            "id": "CNSRSCI 603",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Systems approach to family financial management, stressing development of interpersonal techniques by professionals who will assist individuals and families to become responsible financial managers.",
-            "id": "CNSRSCI 675",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 111",
-            "target": "CNSRSCI 390"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to empirical consumer science research methods, with an emphasis on application. Covers different types of data structures commonly encountered, statistical properties of data, bivariate and multivariate linear regression models.",
-            "id": "CNSRSCI 768",
+            "description": "Provides detailed examination of careers in the retailing industry. High level industry experts from leading companies in the retailing industry participate as guest speakers and panel members.",
+            "id": "CNSRSCI 250",
             "parent": "CNSRSCI"
         }
     },
@@ -87,144 +99,35 @@
     },
     {
         "data": {
-            "source": "CNSRSCI 257",
-            "target": "CNSRSCI 564"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 657",
-            "target": "CNSRSCI 555"
-        }
-    },
-    {
-        "data": {
-            "description": "As the saying goes, money can't buy happiness -- but in modern America, we certainly try. This course will provide an overview of the study of happiness and well-being, examine how consumers engage in consumption in pursuit of happiness, as well as explore the emergence of the experience economy, and the intersection of money and well-being. Students will read academic and popular pieces on positive psychology, prosocial spending and explore the psychology of persuasion in the promises associated with this industry. In addition to integrating visual media, students will have the opportunity to experience first-hand whether the advice works in their own lives.",
-            "id": "CNSRSCI/RELIGST 173"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 275",
-            "target": "CNSRSCI 635"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied personal finance in college and after graduation. Financial values and behaviors, debt and credit, housing, transportation, retirement planning, investing, spending and saving plans.",
-            "id": "CNSRSCI 111",
+            "description": "Explores the interrelationships of health, health insurance, the health care system, and financial well-being. Provides an in-depth understanding of how the financing and delivery of health care affects consumer financial health, as well as consumer financial health as a central determinant of individual health.",
+            "id": "CNSRSCI 820",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "description": "Introduction to research at the intersection of family and poverty studies. Learn how family behaviors vary by socioeconomic status; how romantic relationships, childbearing, and childrearing may be implicated in poverty; what the consequences of poverty are for family functioning and children; and about the role of policy in influencing families and poverty.",
-            "id": "CNSRSCI/HDFS 465"
+            "source": "ECON 111",
+            "target": "ECON 101"
         }
     },
     {
         "data": {
-            "description": "Individual study as arranged with a faculty member.",
-            "id": "CNSRSCI 690",
+            "description": "Specialized subject matter of current interest.",
+            "id": "CNSRSCI 501",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "description": "Developing store image through visual merchandising, advertising, sales, and other promotional activities.",
-            "id": "CNSRSCI 560",
+            "description": "Specialized subject matter of current interest.",
+            "id": "CNSRSCI 901",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "source": "CNSRSCI 257",
-            "target": "CNSRSCI 560"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "id": "CNSRSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of advanced analytical techniques to examine household financial risk. Implications for financial planning of changes in family structure and earnings. Private and social insurance that guard against economic consequences of death, disability, ill health, retirement, marital dissolution. Use of financial planning software.",
-            "id": "CNSRSCI 665",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn how to assess and prevent household financial problems and improve financial security. Based on the context of vulnerable households, financial services and public policy,  focus on skills related to managing cash flow, credit and debt, saving for emergencies and long-term goals.",
-            "id": "CNSRSCI 340",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentation of sociological data; descriptive statistics; probability theory and statistical inference; estimation and tests of hypotheses; regression and correlation and the analysis of contingency tables.",
-            "id": "C&ESOC/SOC 360"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 257",
-            "target": "CNSRSCI 562"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides basic training in quantitative data analysis, with an emphasis on descriptive and inferential statistics with consumer research applications.",
-            "id": "CNSRSCI 201",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 275",
-            "target": "CNSRSCI 665"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides broad knowledge of major quantitative measures of consumer well-being. Investigates construction of and literature on well-being measures across various domains.",
-            "id": "CNSRSCI 851",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of consumer patterns of spending and saving from a lifecycle perspective. Introduces consumption theory and economic, social and psychological factors affecting consumption patterns.",
-            "id": "CNSRSCI 527",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundational knowledge of the retail industry including the retail process, the evolution of the industry, key drivers and trends to provide a framework and set of concepts that will support the remainder of the core retail courses.",
-            "id": "CNSRSCI 257",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of the family as a unique economic unit in the changing American economy.",
-            "id": "CNSRSCI 475",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploring applications of consumer behavior and insights in developing strategies for consumer engagement.",
-            "id": "CNSRSCI 561",
+            "description": "Provides detailed examination of careers in the financial services industry. High level industry experts from leading companies in the financial services industry participate as guest speakers and panel members.",
+            "id": "CNSRSCI 251",
             "parent": "CNSRSCI"
         }
     },
@@ -237,9 +140,269 @@
     },
     {
         "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploring applications of consumer behavior and insights in developing strategies for consumer engagement.",
+            "id": "CNSRSCI 561",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Examine student learning and development to become effective peer educators in the Badger$ense Financial Life Skills program. Learn about common financial issues college students face. Develop knowledge and skills related to interpersonal and group communication, the impact of leadership, group learning and how to create a positive financial learning experience.",
+            "id": "CNSRSCI 390",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provide a broad-based knowledge of the consumer behavior literature. Develop skills to be an active researcher in fields that require an understanding of consumer research.",
+            "id": "CNSRSCI 888",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Develops professional skills. Provides opportunities for presenting research and respectfully critiquing the work of others.",
+            "id": "CNSRSCI 920",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 275",
+            "target": "CNSRSCI 627"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 257",
+            "target": "CNSRSCI 560"
+        }
+    },
+    {
+        "data": {
+            "description": "For the majority of Americans, money and family life is intertwined. Learn about the basics of relationship formation and dissolution, gender and family dynamics and the psychology of money with the goal of encouraging financial equality among members of families of all types.",
+            "id": "CNSRSCI 273",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Leverage data analysis to drive consumer business decisions via the telling of a compelling, evidence-based story. Structured to 1) provide you with a core process by which data analysis can produce effective business actions, 2) build your analytical abilities to execute the process and 3) establish a method by which analytical results can be transformed into effective stories. The process and methods studied will have application across a broad range of careers.",
+            "id": "CNSRSCI 301",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 275",
+            "target": "CNSRSCI 675"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study in honors as arranged with a faculty member.",
+            "id": "CNSRSCI 680",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of objectives of public policies specifically concerned with the economic welfare of families as expressed or proposed in federal and state legislation; appraisal of their economic and social consequences; and analysis of the issue.",
+            "id": "CNSRSCI 575",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "id": "CNSRSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Developing store image through visual merchandising, advertising, sales, and other promotional activities.",
+            "id": "CNSRSCI 560",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 275",
+            "target": "CNSRSCI 665"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to empirical consumer science research methods, with an emphasis on application. Covers different types of data structures commonly encountered, statistical properties of data, bivariate and multivariate linear regression models.",
+            "id": "CNSRSCI 768",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 201",
+            "target": "CNSRSCI 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study as arranged with a faculty member.",
+            "id": "CNSRSCI 690",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of advanced analytical techniques to examine household financial risk. Implications for financial planning of changes in family structure and earnings. Private and social insurance that guard against economic consequences of death, disability, ill health, retirement, marital dissolution. Use of financial planning software.",
+            "id": "CNSRSCI 665",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Leveraging a combination of design thinking and strategic planning, students will design a clear plan of action with compelling evidence for expected outcomes, implement the proposed plan with contingencies for the inevitable challenges and adjustments, and evaluate impact relative to goals with objective recommendations for future action.",
+            "id": "CNSRSCI 555",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of major theories in household finance, financial literacy, financial capability. Evaluates programs and strategies designed to improve consumer well-being by changing household financial behaviors, building household financial assets, and regulation of consumer financial markets.",
+            "id": "CNSRSCI 775",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 275",
+            "target": "CNSRSCI 635"
+        }
+    },
+    {
+        "data": {
+            "source": "CNSRSCI 257",
+            "target": "CNSRSCI 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "CNSRSCI 699",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to research at the intersection of family and poverty studies. Learn how family behaviors vary by socioeconomic status; how romantic relationships, childbearing, and childrearing may be implicated in poverty; what the consequences of poverty are for family functioning and children; and about the role of policy in influencing families and poverty.",
+            "id": "HDFS/CNSRSCI 465"
+        }
+    },
+    {
+        "data": {
+            "description": "A supervised internship providing hands-on training in a professional experience in retailing related fields.",
+            "id": "CNSRSCI 603",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "CNSRSCI 475"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of the family as a unique economic unit in the changing American economy.",
+            "id": "CNSRSCI 475",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides tools for planning and analyzing retail financial performance. Includes elements of retail financial statements, pricing, purchasing terms and conditions, merchandise planning, inventory control, and economic factors that impact retail businesses.",
+            "id": "CNSRSCI 564",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Merchandise product development planning through market trend analysis, assortment planning  sourcing production.",
+            "id": "CNSRSCI 567",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "CNSRSCI 999",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides broad knowledge of major quantitative measures of consumer well-being. Investigates construction of and literature on well-being measures across various domains.",
+            "id": "CNSRSCI 851",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
             "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to consumer finance covering techniques of personal sector cash flow, asset and liability management, life cycle financial planning, investment management, tax planning, retirement, and estate planning. Analysis and evaluation related to personal financial planning.",
+            "id": "CNSRSCI 275",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Studies the intersection of behavioral economics and public policy. Explores the effect of deviations from rational economic behavior on consumer well-being. Analyzes the impact of policy design on consumer well-being across a variety of policy domains.",
+            "id": "CNSRSCI 852",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Applied personal finance in college and after graduation. Financial values and behaviors, debt and credit, housing, transportation, retirement planning, investing, spending and saving plans.",
+            "id": "CNSRSCI 111",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "C&ESOC/SOC 360",
+            "target": "CNSRSCI 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of consumer policies enacted and proposed at federal, state, and municipal levels; application of economic analysis to consumer laws, public policies and regulations; study of the process of creating and enforcing legislation and impacts on consumers' well-being.",
+            "id": "CNSRSCI 579",
+            "parent": "CNSRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "As the saying goes, money can't buy happiness -- but in modern America, we certainly try. This course will provide an overview of the study of happiness and well-being, examine how consumers engage in consumption in pursuit of happiness, as well as explore the emergence of the experience economy, and the intersection of money and well-being. Students will read academic and popular pieces on positive psychology, prosocial spending and explore the psychology of persuasion in the promises associated with this industry. In addition to integrating visual media, students will have the opportunity to experience first-hand whether the advice works in their own lives.",
+            "id": "RELIGST/CNSRSCI 173"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research and writing under the supervision of a faculty member.",
+            "id": "CNSRSCI 990",
+            "parent": "CNSRSCI"
         }
     },
     {
@@ -258,28 +421,14 @@
     },
     {
         "data": {
-            "description": "Individual study in honors as arranged with a faculty member.",
-            "id": "CNSRSCI 680",
-            "parent": "CNSRSCI"
+            "description": "Presentation of sociological data; descriptive statistics; probability theory and statistical inference; estimation and tests of hypotheses; regression and correlation and the analysis of contingency tables.",
+            "id": "C&ESOC/SOC 360"
         }
     },
     {
         "data": {
-            "source": "CNSRSCI 768",
-            "target": "CNSRSCI 778"
-        }
-    },
-    {
-        "data": {
-            "description": "Provide a broad-based knowledge of the consumer behavior literature. Develop skills to be an active researcher in fields that require an understanding of consumer research.",
-            "id": "CNSRSCI 888",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "CNSRSCI 699",
+            "description": "Analysis of consumer patterns of spending and saving from a lifecycle perspective. Introduces consumption theory and economic, social and psychological factors affecting consumption patterns.",
+            "id": "CNSRSCI 527",
             "parent": "CNSRSCI"
         }
     },
@@ -292,49 +441,8 @@
     },
     {
         "data": {
-            "description": "Analysis of objectives of public policies specifically concerned with the economic welfare of families as expressed or proposed in federal and state legislation; appraisal of their economic and social consequences; and analysis of the issue.",
-            "id": "CNSRSCI 575",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Leverage data analysis to drive consumer business decisions via the telling of a compelling, evidence-based story. Structured to 1) provide you with a core process by which data analysis can produce effective business actions, 2) build your analytical abilities to execute the process and 3) establish a method by which analytical results can be transformed into effective stories. The process and methods studied will have application across a broad range of careers.",
-            "id": "CNSRSCI 301",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of the consumer's market, consumer's behavior, and government policies affecting the consumer in the American economy.",
-            "id": "CNSRSCI 477",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 275",
-            "target": "CNSRSCI 627"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research and writing under the supervision of a faculty member.",
-            "id": "CNSRSCI 990",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Specialized subject matter of current interest.",
-            "id": "CNSRSCI 901",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the interrelationships of health, health insurance, the health care system, and financial well-being. Provides an in-depth understanding of how the financing and delivery of health care affects consumer financial health, as well as consumer financial health as a central determinant of individual health.",
-            "id": "CNSRSCI 820",
+            "description": "Provides basic training in quantitative data analysis, with an emphasis on descriptive and inferential statistics with consumer research applications.",
+            "id": "CNSRSCI 201",
             "parent": "CNSRSCI"
         }
     },
@@ -347,69 +455,48 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides detailed examination of careers in the financial services industry. High level industry experts from leading companies in the financial services industry participate as guest speakers and panel members.",
-            "id": "CNSRSCI 251",
+            "description": "Research on the application of modern econometric techniques commonly used in empirical consumer research with an emphasis on causal inference.",
+            "id": "CNSRSCI 778",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "CNSRSCI 999",
+            "description": "Analyses from social and psychological perspectives. Motivation, perception, learning and attitude formation. Effects of social class, family structure, cultural backgrounds and reference groups.",
+            "id": "CNSRSCI 657",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "source": "CNSRSCI 201",
-            "target": "CNSRSCI 301"
+            "source": "CNSRSCI 257",
+            "target": "CNSRSCI 562"
         }
     },
     {
         "data": {
-            "description": "Specialized subject matter of current interest.",
-            "id": "CNSRSCI 501",
+            "description": "Learn how to assess and prevent household financial problems and improve financial security. Based on the context of vulnerable households, financial services and public policy,  focus on skills related to managing cash flow, credit and debt, saving for emergencies and long-term goals.",
+            "id": "CNSRSCI 340",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "description": "Introduction to consumer finance covering techniques of personal sector cash flow, asset and liability management, life cycle financial planning, investment management, tax planning, retirement, and estate planning. Analysis and evaluation related to personal financial planning.",
-            "id": "CNSRSCI 275",
+            "description": "Examines how local communities inform family economic well-being. Explores the intersection of people and organizations using quantitative and qualitative techniques.",
+            "id": "CNSRSCI 830",
             "parent": "CNSRSCI"
         }
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "CNSRSCI 477"
+            "source": "CNSRSCI 657",
+            "target": "CNSRSCI 561"
         }
     },
     {
         "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis from a financial planner's perspective of the process of planning the accumulation, conservation, and distribution of an estate, in the manner that most effectively and efficiently accomplishes an individual's personal tax and non-tax objectives.",
-            "id": "CNSRSCI 635",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Examine student learning and development to become effective peer educators in the Badger$ense Financial Life Skills program. Learn about common financial issues college students face. Develop knowledge and skills related to interpersonal and group communication, the impact of leadership, group learning and how to create a positive financial learning experience.",
-            "id": "CNSRSCI 390",
-            "parent": "CNSRSCI"
+            "source": "CNSRSCI 657",
+            "target": "CNSRSCI 555"
         }
     },
     {
@@ -428,96 +515,9 @@
     },
     {
         "data": {
-            "description": "Analysis of consumer policies enacted and proposed at federal, state, and municipal levels; application of economic analysis to consumer laws, public policies and regulations; study of the process of creating and enforcing legislation and impacts on consumers' well-being.",
-            "id": "CNSRSCI 579",
+            "description": "Systems approach to family financial management, stressing development of interpersonal techniques by professionals who will assist individuals and families to become responsible financial managers.",
+            "id": "CNSRSCI 675",
             "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Analyses from social and psychological perspectives. Motivation, perception, learning and attitude formation. Effects of social class, family structure, cultural backgrounds and reference groups.",
-            "id": "CNSRSCI 657",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Research on the application of modern econometric techniques commonly used in empirical consumer research with an emphasis on causal inference.",
-            "id": "CNSRSCI 778",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Experience the current financial services market from the perspective of real families. Design, develop and evaluate innovative solutions to improve service or address unmet needs.",
-            "id": "CNSRSCI 255",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Merchandise product development planning through market trend analysis, assortment planning  sourcing production.",
-            "id": "CNSRSCI 567",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "CNSRSCI 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Studies the intersection of behavioral economics and public policy. Explores the effect of deviations from rational economic behavior on consumer well-being. Analyzes the impact of policy design on consumer well-being across a variety of policy domains.",
-            "id": "CNSRSCI 852",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CNSRSCI 257",
-            "target": "CNSRSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of major theories in household finance, financial literacy, financial capability. Evaluates programs and strategies designed to improve consumer well-being by changing household financial behaviors, building household financial assets, and regulation of consumer financial markets.",
-            "id": "CNSRSCI 775",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides detailed examination of careers in the retailing industry. High level industry experts from leading companies in the retailing industry participate as guest speakers and panel members.",
-            "id": "CNSRSCI 250",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines how local communities inform family economic well-being. Explores the intersection of people and organizations using quantitative and qualitative techniques.",
-            "id": "CNSRSCI 830",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Leveraging a combination of design thinking and strategic planning, students will design a clear plan of action with compelling evidence for expected outcomes, implement the proposed plan with contingencies for the inevitable challenges and adjustments, and evaluate impact relative to goals with objective recommendations for future action.",
-            "id": "CNSRSCI 555",
-            "parent": "CNSRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 360",
-            "target": "CNSRSCI 201"
         }
     }
 ]

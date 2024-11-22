@@ -1,21 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "BMOLCHEM"
-            ]
-        },
-        "course_title": "BIOMOLECULAR CHEMISTRY SEMINAR",
-        "description": "Critical review of selected topics in biomolecular chemistry.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 913,
             "subjects": [
                 "BMOLCHEM",
@@ -24,7 +9,6 @@
         },
         "course_title": "SEMINAR-RIBOGROUP (ADVANCED)",
         "description": "Student-led discussions of RNA-related problems.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -32,17 +16,64 @@
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 675,
             "subjects": [
                 "BMOLCHEM"
             ]
         },
-        "course_title": "ADVANCED BIOMOLECULAR CHEMISTRY AND RESEARCH",
-        "description": "Research supervised by individual faculty members.",
-        "optimized": null,
+        "course_title": "ADVANCED OR SPECIAL TOPICS IN BIOMOLECULAR CHEMISTRY",
+        "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 609,
+            "subjects": [
+                "MATH",
+                "BMOLCHEM",
+                "BMI",
+                "BIOCHEM"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
+        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
         }
     },
     {
@@ -54,22 +85,6 @@
         },
         "course_title": "PRACTICAL BIOPHYSICS",
         "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 720,
-            "subjects": [
-                "BMOLCHEM"
-            ]
-        },
-        "course_title": "EXPERIMENTAL DESIGN AND PARADIGMS IN CELLULAR BIOCHEMISTRY AND MOLECULAR BIOLOGY",
-        "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -85,7 +100,6 @@
         },
         "course_title": "MICROBIOLOGY AT ATOMIC RESOLUTION",
         "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -104,8 +118,8 @@
                     "course_number": 612,
                     "subjects": [
                         "GENETICS",
-                        "MICROBIO",
-                        "BIOCHEM"
+                        "BIOCHEM",
+                        "MICROBIO"
                     ]
                 },
                 {
@@ -120,17 +134,16 @@
     },
     {
         "course_reference": {
-            "course_number": 675,
+            "course_number": 699,
             "subjects": [
                 "BMOLCHEM"
             ]
         },
-        "course_title": "ADVANCED OR SPECIAL TOPICS IN BIOMOLECULAR CHEMISTRY",
-        "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
-        "optimized": null,
+        "course_title": "SPECIAL RESEARCH PROBLEMS",
+        "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -143,7 +156,6 @@
         },
         "course_title": "RESPONSIBLE CONDUCT IN BIOSCIENCE RESEARCH",
         "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -151,120 +163,44 @@
     },
     {
         "course_reference": {
-            "course_number": 609,
-            "subjects": [
-                "BMOLCHEM",
-                "BMI",
-                "MATH",
-                "BIOCHEM"
-            ]
-        },
-        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
-        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
+            "course_number": 720,
             "subjects": [
                 "BMOLCHEM"
             ]
         },
-        "course_title": "SPECIAL RESEARCH PROBLEMS",
-        "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
-        "optimized": null,
+        "course_title": "EXPERIMENTAL DESIGN AND PARADIGMS IN CELLULAR BIOCHEMISTRY AND MOLECULAR BIOLOGY",
+        "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 609,
+            "course_number": 901,
             "subjects": [
-                "BMI",
-                "BIOCHEM",
-                "MATH",
                 "BMOLCHEM"
             ]
         },
-        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
-        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-        "optimized": {
-            "course_number": 415,
+        "course_title": "BIOMOLECULAR CHEMISTRY SEMINAR",
+        "description": "Critical review of selected topics in biomolecular chemistry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
             "subjects": [
-                "MATH"
+                "BMOLCHEM"
             ]
         },
+        "course_title": "ADVANCED BIOMOLECULAR CHEMISTRY AND RESEARCH",
+        "description": "Research supervised by individual faculty members.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

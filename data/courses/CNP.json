@@ -1,14 +1,13 @@
 [
     {
         "course_reference": {
-            "course_number": 454,
+            "course_number": 306,
             "subjects": [
                 "CNP"
             ]
         },
-        "course_title": "COMMUNITY HEALTH NURSING",
-        "description": "Nursing care of populations and communities to facilitate optimal health outcomes.",
-        "optimized": null,
+        "course_title": "TRANSITIONS: PRACTICE, PROFESSIONAL AND PERSONAL",
+        "description": "Designed to advance knowledge of nursing as it is embedded in clinical practice, address current and emerging health care trends, and examine healthcare workforce data and health care policy as it impacts opportunities for and impediments to nursing practice.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
@@ -23,7 +22,6 @@
         },
         "course_title": "NURSING RESEARCH AND EVIDENCE-BASED PRACTICE",
         "description": "Introduces the concept of evidence-based practice, the importance of evidence to improve clinical practice, strategies to evaluate the quality of evidence, and how to design an evidence-based project.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
@@ -31,29 +29,13 @@
     },
     {
         "course_reference": {
-            "course_number": 407,
+            "course_number": 454,
             "subjects": [
                 "CNP"
             ]
         },
-        "course_title": "FOUNDATIONS OF PROFESSIONAL NURSING PRACTICE",
-        "description": "Philosophical perspectives, theories, and standards are applied to the practice of professional nursing. Factors influencing nursing/healthcare delivery are analyzed. Professional communication and critical thinking skills are enhanced.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 453,
-            "subjects": [
-                "CNP"
-            ]
-        },
-        "course_title": "INFORMATION MANAGEMENT AND HEALTHCARE TECHNOLOGY",
-        "description": "Utilize computer and information/decision science to support quality and safety in health care. Explore informatics issues and examine nursing's role in healthcare technology. Opportunities to use and master various healthcare technologies and healthcare data will be given.",
-        "optimized": null,
+        "course_title": "COMMUNITY HEALTH NURSING",
+        "description": "Nursing care of populations and communities to facilitate optimal health outcomes.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
@@ -68,7 +50,69 @@
         },
         "course_title": "CHRONIC CARE MANAGEMENT",
         "description": "Exploration of interaction of biological, psychological, social, and environmental factors important to understanding management of chronic conditions at the individual, family, community, and societal levels.",
-        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 453,
+            "subjects": [
+                "CNP"
+            ]
+        },
+        "course_title": "INFORMATION MANAGEMENT AND HEALTHCARE TECHNOLOGY",
+        "description": "Utilize computer and information/decision science to support quality and safety in health care. Explore informatics issues and examine nursing's role in healthcare technology. Opportunities to use and master various healthcare technologies and healthcare data will be given.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 317,
+            "subjects": [
+                "CNP"
+            ]
+        },
+        "course_title": "HEALTH ASSESSMENT",
+        "description": "Techniques of health history and physical examination to ascertain normal from variations of normal health conditions, in addition cultural and developmental variations are considered.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Nursing (Accelerated or Traditional program) BSN"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 519,
+            "subjects": [
+                "CNP"
+            ]
+        },
+        "course_title": "CAPSTONE PRACTICUM FOR REGISTERED NURSES",
+        "description": "Synthesizes professional nursing knowledge in a variety of practice settings. Practicum sites may include hospitals, clinics, long-term care (LTC), and community-based settings, or practicums in policy or health care systems. Expand skills sets by exposure to best practices in a clinical setting of choice. The practicum enriches the integration of knowledge from current and past academic and clinical learning experiences.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "CNP"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CNP\u00a0306,407,441,446,447,453, and454or concurrent enrollment"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 407,
+            "subjects": [
+                "CNP"
+            ]
+        },
+        "course_title": "FOUNDATIONS OF PROFESSIONAL NURSING PRACTICE",
+        "description": "Philosophical perspectives, theories, and standards are applied to the practice of professional nursing. Factors influencing nursing/healthcare delivery are analyzed. Professional communication and critical thinking skills are enhanced.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
@@ -83,7 +127,6 @@
         },
         "course_title": "LEADERSHIP AND MANAGEMENT",
         "description": "Examines nursing leadership and management using relevant theories and concepts. Analyze decision-making in relation to communication, delegation, supervision and group process.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
@@ -98,100 +141,6 @@
         },
         "course_title": "SPECIAL TOPICS IN NURSING",
         "description": "The special topics course is designed to provide a planned, systematic analysis of topics, issues and problems in the area of nursing.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 519,
-            "subjects": [
-                "CNP"
-            ]
-        },
-        "course_title": "CAPSTONE PRACTICUM FOR REGISTERED NURSES",
-        "description": "Synthesizes professional nursing knowledge in a variety of practice settings. Practicum sites may include hospitals, clinics, long-term care (LTC), and community-based settings, or practicums in policy or health care systems. Expand skills sets by exposure to best practices in a clinical setting of choice. The practicum enriches the integration of knowledge from current and past academic and clinical learning experiences.",
-        "optimized": {
-            "course_number": 306,
-            "subjects": [
-                "CNP"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 446,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 407,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 453,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 441,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 447,
-                    "subjects": [
-                        "CNP"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "CNP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CNP\u00a0306,407,441,446,447,453, and454or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 317,
-            "subjects": [
-                "CNP"
-            ]
-        },
-        "course_title": "HEALTH ASSESSMENT",
-        "description": "Techniques of health history and physical examination to ascertain normal from variations of normal health conditions, in addition cultural and developmental variations are considered.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Nursing (Accelerated or Traditional program) BSN"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 306,
-            "subjects": [
-                "CNP"
-            ]
-        },
-        "course_title": "TRANSITIONS: PRACTICE, PROFESSIONAL AND PERSONAL",
-        "description": "Designed to advance knowledge of nursing as it is embedded in clinical practice, address current and emerging health care trends, and examine healthcare workforce data and health care policy as it impacts opportunities for and impediments to nursing practice.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Nursing (Collaborative Program) BSN"

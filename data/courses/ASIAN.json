@@ -1,15 +1,87 @@
 [
     {
         "course_reference": {
-            "course_number": 337,
+            "course_number": 761,
             "subjects": [
-                "HISTORY",
                 "ASIAN"
             ]
         },
-        "course_title": "SOCIAL AND INTELLECTUAL HISTORY OF CHINA, 589 AD-1919",
-        "description": "The culture of the literati in the T'ang; major trends of Neo-Confucianism during the Sung and Ming; the Confucian response to the West in the nineteenth century; the emergence of the modern Chinese intelligentsia and iconoclasm in the early May Fourth period.",
-        "optimized": null,
+        "course_title": "STUDIES IN CHINESE HISTORICAL TEXTS",
+        "description": "Selected readings from various histories prior to the twentieth century.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 120,
+            "subjects": [
+                "EDPSYCH",
+                "ASIAN",
+                "PSYCH",
+                "COUNPSY"
+            ]
+        },
+        "course_title": "THE ART AND SCIENCE OF HUMAN FLOURISHING",
+        "description": "Explore perspectives related to human flourishing from the sciences and humanities; investigate themes such as transformation, resilience, compassion, diversity, gratitude, community; expand self-awareness, enhanced social connectivity, and ability to change; formulate a sense of what it means to lead a flourishing life that sustains meaningful and fulfilling engagement with studies, relationships, community, and career.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 358,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "LANGUAGE IN JAPANESE SOCIETY",
+        "description": "Enhances knowledge of and sensitivity towards social factors that influence how Japanese language is used in different contexts. Topics include language standardization and policies, dialects, gender differences, multilingualism, translation, and impact of technology on language. In addition to discussing books and articles on these subject matters, engage in the collaborative analysis of actual examples of Japanese language use taken from everyday interactions, interviews, traditional and social media discourse, popular culture, and public signage, among others. Through this process, evaluate critically taken-for-granted beliefs and assumptions about the Japanese language and its users; examine how particular beliefs and assumptions have been established, maintained, and challenged; and make informed choices in adopting different styles of language and in positioning themselves in a Japanese speech community. Not open to students with credit for E ASIAN 358 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0104or356(E ASIAN 104 or 320 prior to Summer 2019) or placement intoASIALANG\u00a0203"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 435,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TEACHING OF JAPANESE",
+        "description": "Methods of language teaching in general and Japanese language teaching in particular; with emphasis on special problems in teaching Japanese in the US context.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0204(or E ASIAN 204 prior to Summer 2019), placement intoASIALANG\u00a0303, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 350,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO TAOISM",
+        "description": "A study of the writings attributed to Lao-tzu and Chuang-tzu and their concepts, and the history and various aspects of religious Taoism. Consideration is given to Taoist influences on literature. Undergraduate majors register for 4 cr; non- majors and graduate majors register for 3 cr",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -17,17 +89,45 @@
     },
     {
         "course_reference": {
-            "course_number": 799,
+            "course_number": 700,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "READING FOR RESEARCH",
-        "description": "Under the guidance of their advisors and other committee members, students compile reading lists for their defined preliminary exam fields and read essential sources and scholarship from those lists. They will demonstrate their critical reading of this material in meetings with the advisor or other committee members.",
-        "optimized": null,
+        "course_title": "TEACHING ASIAN LANGUAGES",
+        "description": "Theoretical background and recent trends in foreign language teaching. Teaching of the four skills (speaking, listening, reading and writing) and culture, developing curricula and lesson plans, and assessment to help you develop a repertoire of teaching techniques and strategies.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 763,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "STUDIES IN JAPANESE LITERATURE",
+        "description": "One of the general fields such as theater, fiction, etc., studied intensively.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 650,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "PROSEMINAR IN BUDDHIST THOUGHT",
+        "description": "Advanced topics in theories focused on the mechanisms of contemplative practices such as mindfulness, focused attention and compassion practices, with special emphasis on the interaction of traditional theories from contemplative traditions such as Buddhism and more recent theoretical accounts in psychology and cognitive science.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
         }
     },
     {
@@ -39,12 +139,6 @@
         },
         "course_title": "STUDIES IN CHINESE FICTION",
         "description": "Intensive study of selected short story and novel texts from the xiaoshuo tradition. In addition to the primary texts, traditional and modern audience reception, criticism, and adaptations will be discussed.Readings will be conducted in the original Chinese, supplemented by English translations when available. The course can be repeated if the topic differs.",
-        "optimized": {
-            "course_number": 311,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
         "prerequisites": {
             "course_references": [
                 {
@@ -59,15 +153,202 @@
     },
     {
         "course_reference": {
-            "course_number": 444,
+            "course_number": 460,
             "subjects": [
                 "RELIGST",
                 "ASIAN"
             ]
         },
-        "course_title": "INTRODUCTION TO SUFISM (ISLAMIC MYSTICISM)",
-        "description": "The rise and development of mysticism in Islam; basic Sufi doctrines, values and practices; life and works of important speculative and popular Sufi saints; Sufi brotherhoods in the Middle East, South Asia and North Africa. Not open to students with credit for LCA 444 prior to Fall 2019.",
-        "optimized": null,
+        "course_title": "THE HISTORY OF YOGA",
+        "description": "Explores the history of Yoga techniques from the ancient to the modern period. Not open to students with credit for RELIG ST 623 prior to Spring 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 857,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "SEMINAR-HISTORY OF INDIA (SOUTH ASIA)",
+        "description": "Emphasis upon handling of research problems. Focus upon methods, resources, intellectual approaches, and changing interpretations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 100,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "GATEWAY TO ASIA: SPECIAL TOPICS",
+        "description": "Offers a comparative and interdisciplinary introduction to multiple cultures of Asia. Possible topics include but are not limited to: travelogues; the languages of Asia; food cultures of Asia.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 378,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "ANIME",
+        "description": "Surveys anime (Japanese animation) from 1930s shorts through contemporary feature-length, experimental, and televised serial-form productions. Draws on critical writings on postmodernism, digital cinema, and visual culture. Some Japanese language ability is required. Not open to students with credit for E ASIAN 378 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 203,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0104(or E ASIAN 104 prior to Fall 2019) or placement intoASIALANG\u00a0203"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 430,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "INDIAN TRADITIONS IN THE MODERN AGE",
+        "description": "Explores how ancient Indian traditions have been reframed for the modern age. Topics include the Ramayama in popular media, negotiations over sacred spaces, and popular Tantra. We will also examine recent controversies, such as the one surrounding the ancient Jain practice of fasting until death (sallekhana) in the modern age.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 246,
+            "subjects": [
+                "ASIANAM",
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "SOUTHEAST ASIAN REFUGEES OF THE \"COLD\" WAR",
+        "description": "In-depth study of the peoples, conflicts, and wars in Cambodia, Laos, and Vietnam, with emphasis on the Cold War era (1945-1990) and on the resulting migration and resettlement of over one million Hmong, Khmer, Lao, and Vietnamese in the United States. Not open to students with credit for LCA 246 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 403,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SOUTHEAST ASIAN LITERATURE",
+        "description": "An introduction to the societies, politics and cultures of Southeast Asia through modern literature. Fiction, testimony, poetry and ephemeral materials will be read alongside literary analysis to understand the roles of writing and art in social and political transformation. Topics will include revolution and uprising; violence and war; environment, migration and displacement; gender and sexuality; censorship and what cannot be written; and cities, the countryside and the spaces between them. Not open to students with credit for LCA 403 prior to Fall 2018",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 354,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "EARLY MODERN JAPANESE LITERATURE",
+        "description": "An extensive overview of the literature during Japan's early modern or Edo period (1600-1868). The main goal of the course is to introduce one of the world's great cultures through its literature during a period that many people consider to be the culmination of a millennium of cultural development prior to Japan's forced opening to the West in the second half of the nineteenth century. To this end we will read snippets from vastly popular works in the major genres of comic books, novellas, essays, poetry, kabuki and puppet plays and so on, concentrating on the eighteenth and nineteenth centuries. Some key questions in this course include: What is early modernity? What is literature? What is Japanese about these materials? Not open to students with credit for E ASIAN 354 prior to Fall 2019",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "E ASIAN 104"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 376,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "MANGA",
+        "description": "Surveys the manga (Japanese comicbook) from its precursors in premodern woodblock-printed booklets to its contemporary manifestations in subgenres like shonen, gekiga, mecha, and shojo. Draws upon critical writings on visual culture, literature, and visual-verbal narrative. Not open to students with credit for E ASIAN 376 prior to Fall 2019",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 203,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0104(or E ASIAN 104 prior to Summer 2019) or placement intoASIALANG\u00a0203"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 951,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SEMINAR IN CHINESE LITERATURE",
+        "description": "Rotating subjects in the study of Chinese Literature.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 306,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "HINDUISM",
+        "description": "A historical survey of Hindu scriptures, rituals, philosophies, and ethics from the ancient to the contemporary world. Concepts such as karma, yoga, and reincarnation will be put in the broader contexts of Hindu theism, worship, and law. Not open to students who completed RELIG ST 355 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 335,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "THE KOREAS: KOREAN WAR TO THE 21ST CENTURY",
+        "description": "A historical examination of the Korean War and the politics and society of North Korea and South Korea.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 432,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO CHINESE LINGUISTICS",
+        "description": "Provides an introductory overview of the Chinese language from a contemporary perspective. Covers various topics including phonetics, phonology, dialects, morphology, syntax, orthography, semantics, and pragmatics. Not open to students with credit for E ASIAN 432 prior to Fall 2019.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -83,1146 +364,6 @@
         },
         "course_title": "INDIAN WRITERS ABROAD: LITERATURE, DIASPORA AND GLOBALIZATION",
         "description": "Study of literature, drama, and film produced by authors of South Asian origin in Europe, North America, and the Caribbean. Course considers theories of diaspora, changing patterns of subcontinental migration, and relation of diasporic forms to the cultures of origin and adoption. Not open to students with credit for LCA 478 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "PROSEMINAR IN CHINESE LITERATURE",
-        "description": "Acquaints entering graduate students with the history of the study of Chinese literature in the West, with the basic reference tools and methodologies, and with the various critical approaches to Chinese literature. BA in Chinese or equiv",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN ASIAN LITERATURE",
-        "description": "Literary or cultural study of a particular theme, work, period, or genre in regions across Asia. Translations serve as the principal texts.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 246,
-            "subjects": [
-                "HISTORY",
-                "ASIANAM",
-                "ASIAN"
-            ]
-        },
-        "course_title": "SOUTHEAST ASIAN REFUGEES OF THE \"COLD\" WAR",
-        "description": "In-depth study of the peoples, conflicts, and wars in Cambodia, Laos, and Vietnam, with emphasis on the Cold War era (1945-1990) and on the resulting migration and resettlement of over one million Hmong, Khmer, Lao, and Vietnamese in the United States. Not open to students with credit for LCA 246 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Students engage in an independent research under the guidance of a faculty advisor. Students must be enrolled in Honors in the Major or Honors in the Liberal Arts.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 833,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN EAST ASIAN VISUAL CULTURES",
-        "description": "Topics in the study of the visual cultures of East Asia from antiquity to the present. Focuses on illustrative texts and genres, major historiographic, theoretical, and methodological issues, and the technologies of vision and visuality in China, Japan, and Korea.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "The senior thesis involves research conducted in collaboration with a faculty member (non-honors student).",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 600,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "CAPSTONE SEMINAR IN ASIAN HUMANITIES",
-        "description": "An examination of methodological and theoretical issues in Asian humanities, with emphasis on literary, religious, and cultural studies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 307,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "A SURVEY OF TIBETAN BUDDHISM",
-        "description": "By studying the distinctively Tibetan forms of Buddhism, we also examine more general issues, such as the relationship between theory and practice, ancient meditation and mind training, the politics of \"world making\", and the connection between identity and experience. Not open to students with credit for LCA 421 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 630,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "PROSEMINAR: STUDIES IN CULTURES OF ASIA",
-        "description": "Advanced topics in Asian studies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects for undergraduate students as arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 206,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "THE QUR'AN: RELIGIOUS SCRIPTURE & LITERATURE",
-        "description": "An introduction to the Qur'an, the sacred scripture of the Islamic religious tradition, focused on Muslim approaches to reading the text, its themes and history, and its use as a source of law, theology, aesthetics, politics, and practices of piety.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 353,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "LOVERS, WARRIORS AND MONKS: SURVEY OF JAPANESE LITERATURE",
-        "description": "Historical introduction to the important literary works of Japan, generally about courtly romance, idealized warriors, and the Buddhist search for enlightenment. This course will cover the classical period, from the eighth through the mid-nineteenth century; most material comes from the particularly wonderful tenth through sixteenth centuries. Not open to students with credit for E ASIAN 353 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 263,
-            "subjects": [
-                "LITTRANS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 356,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 263,
-                    "subjects": [
-                        "LITTRANS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0104or356(or E ASIAN 104 or 312 prior to Fall 2019) or placement intoASIALANG\u00a0203. Not open to students with credit forLITTRANS\u00a0263"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TEACHING ASIAN LANGUAGES",
-        "description": "Theoretical background and recent trends in foreign language teaching. Teaching of the four skills (speaking, listening, reading and writing) and culture, developing curricula and lesson plans, and assessment to help you develop a repertoire of teaching techniques and strategies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 712,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TEACHING OF CHINESE",
-        "description": "Methods of teaching Chinese as a second language including comparative study of Chinese and English structure, introduction to teaching techniques. Not open to students with credit for E ASIAN 622 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 370,
-            "subjects": [
-                "RELIGST",
-                "AFRICAN",
-                "ASIAN"
-            ]
-        },
-        "course_title": "ISLAM: RELIGION AND CULTURE",
-        "description": "The emergence and development of Islam; schism; theology; asceticism; speculative and popular mysticism; literatures in diverse Islamic languages. Not open to students with credit for LCA 370 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 621,
-            "subjects": [
-                "ARTHIST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "MAPPING, MAKING, AND REPRESENTING COLONIAL SPACES",
-        "description": "Spatial lagacy of colonialism; explores important ways in which the population, landscape, architecture, and urban environment of colonies were mapped, made, and represented, particularly in the 19th and 20th centuries; theoretical and empirical analyses from diverse disciplines and spatial terrain. Not open to students with credit for LCA 621 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Senior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 341,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "HISTORY OF MODERN CHINA, 1800-1949",
-        "description": "The disintegration of traditional Chinese society under the impact of Western imperialism, the rise of modern Chinese nationalism, and the emergence of modern revolutionary movements and ideologies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 268,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TIBETAN CULTURES AND TRADITIONS",
-        "description": "Introduction to a wide variety of ancient Tibetan cultural beliefs, practices and motifs that are practiced to this day. Examines topics such as: gender roles and stereotypes in Tibetan society; folk beliefs and practices; astrology, divination, dream interpretation and related issues; art, music and theater; traditional Tibetan medicine and healing practices; and finally, the varied and extensive religious traditions of Tibet in their cultural manifestations. Examines central themes and inquires into the ways it contributes to-or contests-a cultural universe that has direct impact on Tibetan lives.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN CHINESE LITERATURE",
-        "description": "Literary or cultural study of a particular theme, work, period, or genre in Chinese literature. Possible topics include: Confucian Analects, The Dream of the Red Chamber, Journey to the West, or Traditional Chinese Drama. Translations serve as the principal texts, but students of Chinese are required to do some reading in the original.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 698,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study offers the student an opportunity to work with a faculty member on an individual study program.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 104,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY: JAPAN",
-        "description": "Survey of major cultural, social, political and economic developments in Japanese history from ancient to recent times.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "ETHNOGRAPHY IN ASIA",
-        "description": "From Greek ethnos, \"folk\" + grapho, \"to write,\" doing ethnography involves writing about people, societies, and cultures. It is a qualitative, rather than a quantitative, type of research. One does ethnography, and thus it's a process.  But an ethnography is also a product: the outcome of the ethnographic process is an ethnography. In-depth studies and discussions of classic and contemporary ethnographies in multiple Asian contexts that focus on themes like religion, health, economics, and sexuality in writing, photography, and film at once illustrate various methods involved in doing ethnography and illuminate why scholars have for decades studied and represented Asia through ethnography. The methods of ethnography are never divorced from the motivations of the scholars, and thus it is crucial to probe critically and collectively what ethnography is (theory), how it is done (practice), and why is it worth doing generally and in Asian contexts in particular.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Senior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 763,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "STUDIES IN JAPANESE LITERATURE",
-        "description": "One of the general fields such as theater, fiction, etc., studied intensively.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 267,
-            "subjects": [
-                "HISTORY",
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "ASIAN RELIGIONS IN GLOBAL PERSPECTIVE",
-        "description": "Comparative and thematic introduction to diverse Asian religious traditions, ideas and communities, and their relevance to human societies of the past and present. Not open to students with credit for E ASIAN 267 prior to Fall 2019",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 466,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "BUDDHIST THOUGHT",
-        "description": "Survey of the fundamental trends in Buddhist thought through the works of major philosophers. Themes include the concept of \"selflessness\" and concomitant theories of essencelessness, perception, language and rationality. Not open to students with credit for E ASIAN or LCA 466 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 373,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN JAPANESE: STUDY ABROAD",
-        "description": "A course carried with a UW-Madison study abroad program which has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 363,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "CHINA AND WORLD WAR II IN ASIA",
-        "description": "This course is intended to help students understand World War II from the perspective of Asia. The focus is not only on the American and Japanese roles in the war but also on lesser, often overlooked participants such as China, Korea, and Southeast Asia. The course will focus not only on the diplomatic, political, and military situation of wartime Asia, but also on perceptions and experiences of the war from those most heavily affected by it: those experiencing it on the ground. Understanding this war is critical for helping us understand contemporary Asia. The foundations of the Cold War and the post-Cold War world that we live in today were forged on battlefields in mainland China, Burma, small islands in the Pacific, and in the skies over the archipelago of Japan. In order to provide the background and understand the legacies, this course covers an extended time frame, beginning in the 19th century with the arrival of the West in Asia and continues into the 1950s.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 374,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "KOREAN CINEMA",
-        "description": "Survey of Korean cinema from the Golden Age classics of the 1950s and 1960s to new blockbuster hits and art-house films throughout the contemporary period; investigate not only the major genres of Korean cinema, but also the increased recognition throughout the world of such renowned Korean auteurs as Park Chan-wook and Bong Joon-ho; discusses the issues of colonialism, national division, civil war, military dictatorships, the democratic movement, and globalization.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Satisfied Communications A requirement"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 361,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "LOVE AND POLITICS: THE TALE OF GENJI",
-        "description": "Explores the themes, structure, and reception history of Japan's The Tale of Genji (ca. 1008). Not open to students with credit for E ASIAN 361 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 255,
-            "subjects": [
-                "HISTORY",
-                "ASIAN",
-                "POLISCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EAST ASIAN CIVILIZATIONS",
-        "description": "Multidisciplinary and historical perspectives on the East Asian civilizations of China, Japan, Korea, Tibet and Mongolia from prehistory to the present, including developments in philosophy, economy, governance, social structure, kinship, geography, etc.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 277,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "KENDO: INTEGRATION OF MARTIAL ARTS AND LIBERAL ARTS",
-        "description": "Kendo practice (martial art) supplemented by lecture describing its historical roots and philosophical background. Not open to students with credit for E ASIAN 277 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 873,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SEMINAR IN LANGUAGES AND LITERATURES OF ASIA",
-        "description": "Explore topics in comparative, connected, and/or trans-Asian literatures and languages. Important thinkers and movements in Asian history will be examined and discussed. Through close readings and discussion, presentations, and writing probe vital theories, methodologies, and critical themes in Asian Studies research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 355,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "MODERN JAPANESE LITERATURE",
-        "description": "Covers Japanese literature from the late nineteenth through the present century. Not open to students with credit for E ASIAN 354 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 203,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 356,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0104or356(E ASIAN 104 or 320 prior to Summer 2019) or placement intoASIALANG\u00a0203"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 100,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "GATEWAY TO ASIA: SPECIAL TOPICS",
-        "description": "Offers a comparative and interdisciplinary introduction to multiple cultures of Asia. Possible topics include but are not limited to: travelogues; the languages of Asia; food cultures of Asia.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 103,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY: CHINA",
-        "description": "Survey of major developments in Chinese history from 1500 B.C. to the founding of the Communist state in 1949. Emphasis on patterns and themes; equal time devoted to the classical and traditional period and the modern era.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 433,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN EAST ASIAN VISUAL CULTURES",
-        "description": "Topics in the study of the visual cultures of East Asia from antiquity to the present. Focuses on illustrative texts and genres, major historiographic, theoretical, and methodological issues, and the technologies of vision and visuality in China, Japan, and Korea.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 633,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "CHINESE APPLIED LINGUISTICS",
-        "description": "Subfields of applied linguistics in Chinese such as sociolinguistics, pragmatics, corpus linguistics, language pedagogy, second language acquisition, etc.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 378,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "ANIME",
-        "description": "Surveys anime (Japanese animation) from 1930s shorts through contemporary feature-length, experimental, and televised serial-form productions. Draws on critical writings on postmodernism, digital cinema, and visual culture. Some Japanese language ability is required. Not open to students with credit for E ASIAN 378 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 203,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0104(or E ASIAN 104 prior to Fall 2019) or placement intoASIALANG\u00a0203"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 650,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "PROSEMINAR IN BUDDHIST THOUGHT",
-        "description": "Advanced topics in theories focused on the mechanisms of contemplative practices such as mindfulness, focused attention and compassion practices, with special emphasis on the interaction of traditional theories from contemplative traditions such as Buddhism and more recent theoretical accounts in psychology and cognitive science.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 120,
-            "subjects": [
-                "PSYCH",
-                "ASIAN",
-                "COUNPSY",
-                "EDPSYCH"
-            ]
-        },
-        "course_title": "THE ART AND SCIENCE OF HUMAN FLOURISHING",
-        "description": "Explore perspectives related to human flourishing from the sciences and humanities; investigate themes such as transformation, resilience, compassion, diversity, gratitude, community; expand self-awareness, enhanced social connectivity, and ability to change; formulate a sense of what it means to lead a flourishing life that sustains meaningful and fulfilling engagement with studies, relationships, community, and career.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 350,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO TAOISM",
-        "description": "A study of the writings attributed to Lao-tzu and Chuang-tzu and their concepts, and the history and various aspects of religious Taoism. Consideration is given to Taoist influences on literature. Undergraduate majors register for 4 cr; non- majors and graduate majors register for 3 cr",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 203,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "LOST IN TRANSLATION: WESTERN EXPERIENCE IN ASIA",
-        "description": "An examination of travel narratives, both fiction and non-fiction in print and in film, and the experiences of Western travelers in Asia, with the goal of developing one's own travel writing. Ideal for students with an interest in Asia, have travelled to Asia, or are interested in travelling to Asia.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "THESIS RESEARCH",
-        "description": "Research in connection with the doctoral thesis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 254,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "KOREAN POPULAR CULTURE",
-        "description": "Critically engages with Korean popular culture in order to explore how an arena often dismissed as \"mere entertainment\" can act as an indicator of cultural values and a producer of cultural meaning. Treats works of popular culture as important economic, political, and social texts and asks us to reflect on how the production and consumption of popular culture shapes, and is shaped by, our lived experiences. Explores what popular culture says about society and, conversely, what society says about popular culture.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 372,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN CHINESE: STUDY ABROAD",
-        "description": "A course carried with a UW-Madison study abroad program which has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 456,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "PEARL HARBOR & HIROSHIMA: JAPAN, THE US & THE CRISIS IN ASIA",
-        "description": "Events leading to the Pearl Harbor attack, the conduct of World War II in the Pacific, the nature of the wartime Japanese state and effects of the war on Japanese society, the dropping of the atomic bombs, and Japan's decision to surrender. The war as an epoch in Japanese history.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "MODERN INDIAN LITERATURES",
-        "description": "Introduction to advanced study of modern literatures of India in translation from several languages. Emphasizes literary and critical analysis of short story, novel, poetry, and drama; historical and cultural contexts of literature; and relations and dynamics of multiple literary cultures. Not open to students with credit for LCA 311 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 641,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "HISTORY OF CHINESE LITERATURE I",
-        "description": "Covers the history of Chinese literature from the Zhou through the end of the Yuan, focusing primarily on poetic and prose genres. Primary source readings will be in Chinese, with additional critical assessment of published translations; secondary source readings in both Chinese and English.",
-        "optimized": {
-            "course_number": 301,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0301, placement intoASIALANG\u00a0302, or graduate/professional standing. Not open to students with credit for E ASIAN 651 prior to Fall 2019."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 367,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "HAIKU",
-        "description": "Introduction to the haiku, one of the world's great verseforms, in its original Japanese context. Debunks the notion of the haiku as a traditional form of Zen Japanese micropoetry, instead arguing that it was an \"invented tradition,\" a late nineteenth-century Japanese response to modernization and westernization. Not open to students with credit for E ASIAN 367 prior to Fall 2018",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "The senior thesis involves research conducted in collaboration with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 432,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO CHINESE LINGUISTICS",
-        "description": "Provides an introductory overview of the Chinese language from a contemporary perspective. Covers various topics including phonetics, phonology, dialects, morphology, syntax, orthography, semantics, and pragmatics. Not open to students with credit for E ASIAN 432 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 857,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "SEMINAR-HISTORY OF INDIA (SOUTH ASIA)",
-        "description": "Emphasis upon handling of research problems. Focus upon methods, resources, intellectual approaches, and changing interpretations.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 354,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "EARLY MODERN JAPANESE LITERATURE",
-        "description": "An extensive overview of the literature during Japan's early modern or Edo period (1600-1868). The main goal of the course is to introduce one of the world's great cultures through its literature during a period that many people consider to be the culmination of a millennium of cultural development prior to Japan's forced opening to the West in the second half of the nineteenth century. To this end we will read snippets from vastly popular works in the major genres of comic books, novellas, essays, poetry, kabuki and puppet plays and so on, concentrating on the eighteenth and nineteenth centuries. Some key questions in this course include: What is early modernity? What is literature? What is Japanese about these materials? Not open to students with credit for E ASIAN 354 prior to Fall 2019",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "E ASIAN 104"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 310,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO COMICS AND GRAPHIC NOVELS: THEORY, HISTORY, METHOD",
-        "description": "Explores the theory and history of comics, graphic novels, and other media with a comics-like quality from around the world. Our goal is to develop a deeper understanding of comics as a major mode of human communication.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 563,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "READINGS IN MODERN JAPANESE LITERATURE",
-        "description": "Extensive readings in modern Japanese literature and discussion of literary content.",
-        "optimized": {
-            "course_number": 304,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 304,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0303(or E ASIAN 303 prior to Fall 2019) or placement intoASIALANG\u00a0304"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 108,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY - KOREA",
-        "description": "Survey of major cultural, social, political, and intellectual developments in Korea from the 10th century to the 21st century.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 533,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "READINGS IN EARLY MODERN JAPANESE LITERATURE",
-        "description": "Provides an extensive overview of the literature during Japan's early modern or Edo period (1600-1868). The main goal of the course is to introduce students to the literature of this period through readings in the original early modern Japanese language.",
-        "optimized": {
-            "course_number": 313,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 313,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG 404 and313or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 352,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SURVEY OF MODERN CHINESE LITERATURE",
-        "description": "A critical introduction to Chinese-language prose fiction and poetry from the late 19th century through today.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 357,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "JAPANESE GHOST STORIES",
-        "description": "Surveys Japanese ghost stories in translation from a range of eras and media, including theater and film. Considers historical origins and reception, with particular emphasis on storytelling and adaptation across formats.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 642,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "HISTORY OF CHINESE LITERATURE II",
-        "description": "Covers the history of Chinese-language literature from the late imperial period though today. The primary focus will be on prose fiction, with additional coverage of the development of major forms such as spoken drama, free-verse poetry, and modern criticism. In exploring these genres and forms, special attention given to issues of language, representation, and politics. The majority of readings will be in Chinese.",
-        "optimized": {
-            "course_number": 302,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0301or placement intoASIALANG\u00a0302"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 236,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "ASIA ENCHANTED: GHOSTS, GODS, AND MONSTERS",
-        "description": "Explores how different cultures in Asia conceive of and relate to the monstrous, ghostly, and divine, both in the past and in the contemporary world. These themes are approached from a range of different disciplinary perspectives, including religious studies, literature, anthropology, and history.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 951,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SEMINAR IN CHINESE LITERATURE",
-        "description": "Rotating subjects in the study of Chinese Literature.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 375,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SURVEY OF CHINESE FILM",
-        "description": "A historical narrative of Chinese-language film from the turn of the century to contemporary China, Taiwan, and Hong Kong. All films include English subtitles. No knowledge of Chinese language is required. Not open to students with credit for E ASIAN 520 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "INDEPENDENT RESEARCH",
-        "description": "Independent research for graduate students.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 458,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "HISTORY OF SOUTHEAST ASIA SINCE 1800",
-        "description": "Effects of the modern Western revolution on the established societies of Southeast Asia through colonial rule and economic and cultural change. Not open to students with credit for LCA 458 prior to Fall 2018.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -1238,7 +379,6 @@
         },
         "course_title": "VISUAL CULTURES OF INDIA",
         "description": "Concentrates on image complexes (art, photography, and cinema) and visual environments (architecture, urban planning, and public rituals) of India; examination of visual culture through thematic issues such as, sexuality, patronage, cultural encounter, transculturation, ways of viewing, modernism, and nationalism. Not open to students with credit for LCA 428 prior to Fall 2019.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1246,113 +386,126 @@
     },
     {
         "course_reference": {
-            "course_number": 435,
+            "course_number": 371,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "TEACHING OF JAPANESE",
-        "description": "Methods of language teaching in general and Japanese language teaching in particular; with emphasis on special problems in teaching Japanese in the US context.",
-        "optimized": {
-            "course_number": 303,
+        "course_title": "TOPICS IN CHINESE LITERATURE",
+        "description": "Literary or cultural study of a particular theme, work, period, or genre in Chinese literature. Possible topics include: Confucian Analects, The Dream of the Red Chamber, Journey to the West, or Traditional Chinese Drama. Translations serve as the principal texts, but students of Chinese are required to do some reading in the original.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 355,
             "subjects": [
-                "ASIALANG"
+                "ASIAN"
             ]
         },
+        "course_title": "MODERN JAPANESE LITERATURE",
+        "description": "Covers Japanese literature from the late nineteenth through the present century. Not open to students with credit for E ASIAN 354 prior to Fall 2019.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 204,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 303,
+                    "course_number": 203,
                     "subjects": [
                         "ASIALANG"
                     ]
                 }
             ],
-            "prerequisites_text": "ASIALANG\u00a0204(or E ASIAN 204 prior to Summer 2019), placement intoASIALANG\u00a0303, or graduate/professional standing"
+            "prerequisites_text": "ASIALANG\u00a0104or356(E ASIAN 104 or 320 prior to Summer 2019) or placement intoASIALANG\u00a0203"
         }
     },
     {
         "course_reference": {
-            "course_number": 568,
+            "course_number": 815,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "STUDY ABROAD IN RELIGIONS AND PHILOSOPHIES",
-        "description": "Study of religions and philosophies offered by a UW-approved study-abroad program outside the United States.",
-        "optimized": null,
+        "course_title": "SEMINAR: INTERDISCIPLINARY APPROACHES TO ASIA",
+        "description": "An overview of current research being done on Asia in a variety of different disciplines.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 267,
+            "course_number": 433,
             "subjects": [
-                "RELIGST",
-                "HISTORY",
                 "ASIAN"
             ]
         },
-        "course_title": "ASIAN RELIGIONS IN GLOBAL PERSPECTIVE",
-        "description": "Comparative and thematic introduction to diverse Asian religious traditions, ideas and communities, and their relevance to human societies of the past and present. Not open to students with credit for E ASIAN 267 prior to Fall 2019",
-        "optimized": null,
+        "course_title": "TOPICS IN EAST ASIAN VISUAL CULTURES",
+        "description": "Topics in the study of the visual cultures of East Asia from antiquity to the present. Focuses on illustrative texts and genres, major historiographic, theoretical, and methodological issues, and the technologies of vision and visuality in China, Japan, and Korea.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 573,
+            "course_number": 375,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "READINGS IN CLASSICAL JAPANESE LITERATURE",
-        "description": "Extensive readings in early Modern or Classical Japanese literature, and discussion of visual-verbal content. Students may repeat this course if the topic is different.",
-        "optimized": {
-            "course_number": 304,
+        "course_title": "SURVEY OF CHINESE FILM",
+        "description": "A historical narrative of Chinese-language film from the turn of the century to contemporary China, Taiwan, and Hong Kong. All films include English subtitles. No knowledge of Chinese language is required. Not open to students with credit for E ASIAN 520 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 571,
             "subjects": [
-                "ASIALANG"
+                "ASIAN"
             ]
         },
+        "course_title": "READINGS IN CLASSICAL CHINESE LITERATURE",
+        "description": "Extensive readings in classical Chinese literature, including poetry and prose. Students may repeat this course if the topic is different.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 304,
+                    "course_number": 312,
                     "subjects": [
                         "ASIALANG"
                     ]
                 }
             ],
-            "prerequisites_text": "ASIALANG\u00a0303(or E ASIAN 303 prior to Fall 2019) or placement intoASIALANG\u00a0304"
+            "prerequisites_text": "ASIALANG\u00a0312or316(or E ASIAN 322 or 342 prior to Fall 2019)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "THESIS RESEARCH",
+        "description": "Research in connection with the doctoral thesis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 212,
             "subjects": [
-                "ASIAN",
-                "LITTRANS"
+                "LITTRANS",
+                "ASIAN"
             ]
         },
         "course_title": "CLASSICAL SOUTH ASIAN LITERATURES",
         "description": "Surveys the classical literatures of South Asia, from ancient origins to adaptations in the modern world. Includes poetry, prose, and drama translated into English from Persian, Prakrit, Sanskrit, Tamil, Telugu, Hindi/Urdu, and other languages. Examines the relationship between literature in theory, in practice, and politics.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1360,14 +513,59 @@
     },
     {
         "course_reference": {
-            "course_number": 403,
+            "course_number": 277,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "SOUTHEAST ASIAN LITERATURE",
-        "description": "An introduction to the societies, politics and cultures of Southeast Asia through modern literature. Fiction, testimony, poetry and ephemeral materials will be read alongside literary analysis to understand the roles of writing and art in social and political transformation. Topics will include revolution and uprising; violence and war; environment, migration and displacement; gender and sexuality; censorship and what cannot be written; and cities, the countryside and the spaces between them. Not open to students with credit for LCA 403 prior to Fall 2018",
-        "optimized": null,
+        "course_title": "KENDO: INTEGRATION OF MARTIAL ARTS AND LIBERAL ARTS",
+        "description": "Kendo practice (martial art) supplemented by lecture describing its historical roots and philosophical background. Not open to students with credit for E ASIAN 277 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 103,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY: CHINA",
+        "description": "Survey of major developments in Chinese history from 1500 B.C. to the founding of the Communist state in 1949. Emphasis on patterns and themes; equal time devoted to the classical and traditional period and the modern era.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 120,
+            "subjects": [
+                "ASIAN",
+                "EDPSYCH",
+                "PSYCH",
+                "COUNPSY"
+            ]
+        },
+        "course_title": "THE ART AND SCIENCE OF HUMAN FLOURISHING",
+        "description": "Explore perspectives related to human flourishing from the sciences and humanities; investigate themes such as transformation, resilience, compassion, diversity, gratitude, community; expand self-awareness, enhanced social connectivity, and ability to change; formulate a sense of what it means to lead a flourishing life that sustains meaningful and fulfilling engagement with studies, relationships, community, and career.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 367,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "HAIKU",
+        "description": "Introduction to the haiku, one of the world's great verseforms, in its original Japanese context. Debunks the notion of the haiku as a traditional form of Zen Japanese micropoetry, instead arguing that it was an \"invented tradition,\" a late nineteenth-century Japanese response to modernization and westernization. Not open to students with credit for E ASIAN 367 prior to Fall 2018",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1384,7 +582,6 @@
         },
         "course_title": "ISLAM: RELIGION AND CULTURE",
         "description": "The emergence and development of Islam; schism; theology; asceticism; speculative and popular mysticism; literatures in diverse Islamic languages. Not open to students with credit for LCA 370 prior to Fall 2019.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1392,65 +589,14 @@
     },
     {
         "course_reference": {
-            "course_number": 253,
+            "course_number": 337,
             "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "JAPANESE POPULAR CULTURE",
-        "description": "An introduction to the culture, life-styles and thought of the Japanese people, with frequent reference to their history, literature and art. Not open to students with credit for E ASIAN 253 prior to Fall 2018",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 319,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "THE VIETNAM WARS",
-        "description": "Explores the prolonged cycle of wars in Vietnam and its neighbors, 1940 to date, with due regard for both local and U.S. perspectives.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 120,
-            "subjects": [
-                "PSYCH",
-                "COUNPSY",
                 "ASIAN",
-                "EDPSYCH"
+                "HISTORY"
             ]
         },
-        "course_title": "THE ART AND SCIENCE OF HUMAN FLOURISHING",
-        "description": "Explore perspectives related to human flourishing from the sciences and humanities; investigate themes such as transformation, resilience, compassion, diversity, gratitude, community; expand self-awareness, enhanced social connectivity, and ability to change; formulate a sense of what it means to lead a flourishing life that sustains meaningful and fulfilling engagement with studies, relationships, community, and career.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 308,
-            "subjects": [
-                "RELIGST",
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO BUDDHISM",
-        "description": "The basic thought, practices and history of Buddhism, including selflessness and relativity, practices of meditation, merit- making and compassion from both local and translocal perspectives. Includes a discussion of Buddhism as a contemporary, North American religion. Not open to students with credit for E ASIAN or LCA 308 prior to Fall 2019.",
-        "optimized": null,
+        "course_title": "SOCIAL AND INTELLECTUAL HISTORY OF CHINA, 589 AD-1919",
+        "description": "The culture of the literati in the T'ang; major trends of Neo-Confucianism during the Sung and Ming; the Confucian response to the West in the nineteenth century; the emergence of the modern Chinese intelligentsia and iconoclasm in the early May Fourth period.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1458,63 +604,38 @@
     },
     {
         "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "THE PERFECTIBLE BODY IN RELIGIONS, MEDICINES, AND POLITICS",
-        "description": "Looking at the cultural institutions of politics, medicine, and religion in multiple cultures and historical times, students will explore ideas about what constitutes a perfect body, how and why different parts of the body are privileged over others, and how and why the notion of bodily perfectibility differs for men and women, children and adults, and humans and gods. Readings encourage such questions as: Is the perfect body attainable and, if so, how? And, who benefits from bodily perfection (or the rhetoric of the bodily perfection)? We will ask these questions with comparative intent: we want both to learn about cultures other than our own and, in the process of understanding the other, we will ask how this new knowledge might empower us to be more observant and critical of the role(s) and treatment of the body in our own society historically and today.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 376,
+            "course_number": 741,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "MANGA",
-        "description": "Surveys the manga (Japanese comicbook) from its precursors in premodern woodblock-printed booklets to its contemporary manifestations in subgenres like shonen, gekiga, mecha, and shojo. Draws upon critical writings on visual culture, literature, and visual-verbal narrative. Not open to students with credit for E ASIAN 376 prior to Fall 2019",
-        "optimized": {
-            "course_number": 203,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
+        "course_title": "STUDIES IN CHINESE SYNTAX AND MORPHOLOGY",
+        "description": "Syntax and morphology of a selected corpus of Chinese texts.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 104,
+                    "course_number": 432,
                     "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ASIALANG"
+                        "ASIAN"
                     ]
                 }
             ],
-            "prerequisites_text": "ASIALANG\u00a0104(or E ASIAN 104 prior to Summer 2019) or placement intoASIALANG\u00a0203"
+            "prerequisites_text": "ASIAN\u00a0432(E ASIAN 432 prior to Fall 2019)"
         }
     },
     {
         "course_reference": {
-            "course_number": 252,
+            "course_number": 244,
             "subjects": [
-                "ASIAN"
+                "SOC",
+                "HISTORY",
+                "GEOG",
+                "ASIAN",
+                "POLISCI"
             ]
         },
-        "course_title": "CONTEMPORARY INDIAN SOCIETY",
-        "description": "An interdisciplinary exploration of contemporary Indian society, politics, and culture. Consider the diverse, complex, and often contradictory fabric of modern India through the lens of several conceptual themes which consider emergent discourses and dynamics of change as the joint product of India's classical heritage and its transformation into a post-colonial nation-state since 1947. Explores tensions and continuities between the pre-modern and modern.",
-        "optimized": null,
+        "course_title": "INTRODUCTION TO SOUTHEAST ASIA:  VIETNAM TO THE PHILIPPINES",
+        "description": "As an introduction to Southeast Asia, covers the ethnic, cultural, religious, and political histories of the region from the classical states period to the present, with an emphasis on colonialism, nationalism, decolonization, and the emergence of modern political and social systems into the 21st century, including an exposure to region's contemporary literature. Not open to students who completed LCA 244 prior to Fall 2019.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1522,15 +643,14 @@
     },
     {
         "course_reference": {
-            "course_number": 342,
+            "course_number": 363,
             "subjects": [
-                "HISTORY",
-                "ASIAN"
+                "ASIAN",
+                "HISTORY"
             ]
         },
-        "course_title": "HISTORY OF THE PEOPLES REPUBLIC OF CHINA, 1949 TO THE PRESENT",
-        "description": "The social, economic and political transformation of China under Communism; the role of ideology in contemporary Chinese historical development; the nature of that historical development in the comparative perspective of other post-revolutionary histories.",
-        "optimized": null,
+        "course_title": "CHINA AND WORLD WAR II IN ASIA",
+        "description": "This course is intended to help students understand World War II from the perspective of Asia. The focus is not only on the American and Japanese roles in the war but also on lesser, often overlooked participants such as China, Korea, and Southeast Asia. The course will focus not only on the diplomatic, political, and military situation of wartime Asia, but also on perceptions and experiences of the war from those most heavily affected by it: those experiencing it on the ground. Understanding this war is critical for helping us understand contemporary Asia. The foundations of the Cold War and the post-Cold War world that we live in today were forged on battlefields in mainland China, Burma, small islands in the Pacific, and in the skies over the archipelago of Japan. In order to provide the background and understand the legacies, this course covers an extended time frame, beginning in the 19th century with the arrival of the West in Asia and continues into the 1950s.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1545,28 +665,10 @@
         },
         "course_title": "INTRODUCTION TO JAPANESE LINGUISTICS",
         "description": "Phonology, morphology and syntax of the modern standard colloquial Japanese, including historical and dialectal aspects. Not open to students with credit for E ASIAN 434 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 104,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 356,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
                     "course_number": 104,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
                     "subjects": [
                         "ASIALANG"
                     ]
@@ -1577,219 +679,15 @@
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 255,
             "subjects": [
-                "ASIAN"
+                "ASIAN",
+                "POLISCI",
+                "HISTORY"
             ]
         },
-        "course_title": "SOCIAL STUDIES TOPICS IN EAST ASIAN STUDIES",
-        "description": "Interdisciplinary approaches to specific social sciences topics in Asian studies. Topics may include comparative analysis of a theme across the countries in Asia or focus on a theme within a single country.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 308,
-            "subjects": [
-                "HISTORY",
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO BUDDHISM",
-        "description": "The basic thought, practices and history of Buddhism, including selflessness and relativity, practices of meditation, merit- making and compassion from both local and translocal perspectives. Includes a discussion of Buddhism as a contemporary, North American religion. Not open to students with credit for E ASIAN or LCA 308 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "INDIAN TRADITIONS IN THE MODERN AGE",
-        "description": "Explores how ancient Indian traditions have been reframed for the modern age. Topics include the Ramayama in popular media, negotiations over sacred spaces, and popular Tantra. We will also examine recent controversies, such as the one surrounding the ancient Jain practice of fasting until death (sallekhana) in the modern age.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 379,
-            "subjects": [
-                "ARTHIST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "CITIES OF ASIA",
-        "description": "Historical overview of the built environment of cities of Asia from antiquity to the present; architectural and urban legacy in its social and historical context; exploration of common themes that thread through the diverse geographical regions and cultures of Asia. Not open to students with credit for LCA 379 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 932,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SEMINAR IN CHINESE LINGUISTICS",
-        "description": "Rotating subjects in the study of Chinese Linguistics.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 351,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SURVEY OF CLASSICAL CHINESE LITERATURE",
-        "description": "A critical introduction to the literature of China from early texts through the late imperial period. Works include poetry, prose, fiction and drama. Not open to students who completed E ASIAN 351 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 102,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0102(or E ASIAN 102 prior to Fall 2019), placement intoASIALANG\u00a0201, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "TOPICS IN ASIAN STUDIES",
-        "description": "Selected topics in the study of Asian Languages and Cultures.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 274,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "RELIGION IN SOUTH ASIA",
-        "description": "Introductory survey of Hinduism, Buddhism, Islam, Sikhism, etc., and an examination of the cultural, historical, ritual, and philosophical foundations of South Asian religion. Not open to students with credit for LCA 274 prior to Fall 2019.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 761,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "STUDIES IN CHINESE HISTORICAL TEXTS",
-        "description": "Selected readings from various histories prior to the twentieth century.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 815,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "SEMINAR: INTERDISCIPLINARY APPROACHES TO ASIA",
-        "description": "An overview of current research being done on Asia in a variety of different disciplines.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "THE KOREAS: KOREAN WAR TO THE 21ST CENTURY",
-        "description": "A historical examination of the Korean War and the politics and society of North Korea and South Korea.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
-        "course_title": "STUDIES IN CHINESE LINGUISTICS",
-        "description": "Development and exchange of scholarly information on specific topics in the field of linguistics. It rotates between various topics about the Chinese language from contemporary perspectives. It may focus on phonetics, phonology, morphology, syntax, semantics, pragmatics, sociolinguistics, applied linguistics, second language acquisition, or discourse analysis. The mastery of the knowledge learned in this course is essential for further study in Chinese linguistics.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 218,
-            "subjects": [
-                "RELIGST",
-                "ASIAN"
-            ]
-        },
-        "course_title": "HEALTH AND HEALING IN SOUTH ASIA",
-        "description": "Study primary and secondary sources to explore how South Asian societies have understood the ideas of health and well-being throughout history. We will consider a number of cases that illustrate uniquely South Asian conceptions of illness and physical dysfunction and the ways in which people in South Asia have attempted (and continue to attempt today) to heal bodies. Students will learn about the traditional healing systems of South Asia, including Ayurveda, Siddha, and Unani, the basic components of each systems' ideas about disease pathology and treatment that have been used for centuries to heal illness, maintain good health, and, in some instances, aspire to a state of super-health that transcends the limitations of bodily existence altogether.",
-        "optimized": null,
+        "course_title": "INTRODUCTION TO EAST ASIAN CIVILIZATIONS",
+        "description": "Multidisciplinary and historical perspectives on the East Asian civilizations of China, Japan, Korea, Tibet and Mongolia from prehistory to the present, including developments in philosophy, economy, governance, social structure, kinship, geography, etc.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1805,7 +703,6 @@
         },
         "course_title": "MEDITATION IN INDIAN BUDDHISM AND HINDUISM",
         "description": "Examines contemplative practices in the two major Indian religions, Buddhism and Hinduism. Covers practices described in ancient texts but also provides an overview of selected modern practices.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing (not open to students with credit for LCA 624 prior to Fall 2019)"
@@ -1813,66 +710,99 @@
     },
     {
         "course_reference": {
-            "course_number": 571,
+            "course_number": 873,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "READINGS IN CLASSICAL CHINESE LITERATURE",
-        "description": "Extensive readings in classical Chinese literature, including poetry and prose. Students may repeat this course if the topic is different.",
-        "optimized": {
-            "course_number": 312,
+        "course_title": "SEMINAR IN LANGUAGES AND LITERATURES OF ASIA",
+        "description": "Explore topics in comparative, connected, and/or trans-Asian literatures and languages. Important thinkers and movements in Asian history will be examined and discussed. Through close readings and discussion, presentations, and writing probe vital theories, methodologies, and critical themes in Asian Studies research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 642,
             "subjects": [
-                "ASIALANG"
+                "ASIAN"
             ]
         },
+        "course_title": "HISTORY OF CHINESE LITERATURE II",
+        "description": "Covers the history of Chinese-language literature from the late imperial period though today. The primary focus will be on prose fiction, with additional coverage of the development of major forms such as spoken drama, free-verse poetry, and modern criticism. In exploring these genres and forms, special attention given to issues of language, representation, and politics. The majority of readings will be in Chinese.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 312,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 316,
+                    "course_number": 302,
                     "subjects": [
                         "ASIALANG"
                     ]
                 }
             ],
-            "prerequisites_text": "ASIALANG\u00a0312or316(or E ASIAN 322 or 342 prior to Fall 2019)"
+            "prerequisites_text": "ASIALANG\u00a0301or placement intoASIALANG\u00a0302"
         }
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 405,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "GODS AND GODDESSES OF SOUTH ASIA",
+        "description": "Introduces some of the most important deities of South Asia through visual representation, mythical narratives and rituals of worship. Topics include the development of iconographic forms and concepts, masculine and feminine aspects of the divine, the belief in human embodiments of divinities, the phenomenon of possession, modes of domestic and public worship and the symbolism of the temple structure.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 374,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Offers the student an opportunity to work with a faculty member on an individual study program. Students must have junior or senior standing.",
-        "optimized": null,
+        "course_title": "KOREAN CINEMA",
+        "description": "Survey of Korean cinema from the Golden Age classics of the 1950s and 1960s to new blockbuster hits and art-house films throughout the contemporary period; investigate not only the major genres of Korean cinema, but also the increased recognition throughout the world of such renowned Korean auteurs as Park Chan-wook and Bong Joon-ho; discusses the issues of colonialism, national division, civil war, military dictatorships, the democratic movement, and globalization.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Satisfied Communications A requirement"
         }
     },
     {
         "course_reference": {
-            "course_number": 244,
+            "course_number": 573,
             "subjects": [
-                "ASIAN",
-                "GEOG",
-                "HISTORY",
-                "POLISCI",
-                "SOC"
+                "ASIAN"
             ]
         },
-        "course_title": "INTRODUCTION TO SOUTHEAST ASIA:  VIETNAM TO THE PHILIPPINES",
-        "description": "As an introduction to Southeast Asia, covers the ethnic, cultural, religious, and political histories of the region from the classical states period to the present, with an emphasis on colonialism, nationalism, decolonization, and the emergence of modern political and social systems into the 21st century, including an exposure to region's contemporary literature. Not open to students who completed LCA 244 prior to Fall 2019.",
-        "optimized": null,
+        "course_title": "READINGS IN CLASSICAL JAPANESE LITERATURE",
+        "description": "Extensive readings in early Modern or Classical Japanese literature, and discussion of visual-verbal content. Students may repeat this course if the topic is different.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 304,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0303(or E ASIAN 303 prior to Fall 2019) or placement intoASIALANG\u00a0304"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 274,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "RELIGION IN SOUTH ASIA",
+        "description": "Introductory survey of Hinduism, Buddhism, Islam, Sikhism, etc., and an examination of the cultural, historical, ritual, and philosophical foundations of South Asian religion. Not open to students with credit for LCA 274 prior to Fall 2019.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1880,42 +810,509 @@
     },
     {
         "course_reference": {
-            "course_number": 741,
+            "course_number": 352,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "STUDIES IN CHINESE SYNTAX AND MORPHOLOGY",
-        "description": "Syntax and morphology of a selected corpus of Chinese texts.",
-        "optimized": {
-            "course_number": 432,
-            "subjects": [
-                "ASIAN"
-            ]
-        },
+        "course_title": "SURVEY OF MODERN CHINESE LITERATURE",
+        "description": "A critical introduction to Chinese-language prose fiction and poetry from the late 19th century through today.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 432,
-                    "subjects": [
-                        "ASIAN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIAN\u00a0432(E ASIAN 432 prior to Fall 2019)"
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 443,
+            "course_number": 301,
             "subjects": [
-                "COMARTS",
                 "ASIAN"
             ]
         },
-        "course_title": "INDIAN CINEMA IN THE U.S. AND BEYOND",
-        "description": "India is home to one of the largest film industries in the world, Bollywood. Beyond Bollywood, India has a thriving film culture that caters to its many regional languages. Explore India's diverse, yet interconnected film and media cultures as well as the global resonances of Indian- and South-Asian-inflected media elsewhere. Examine questions of diasporic identity through media produced by the South Asian American community. Consider questions of genre, style and auteurship, ethnicity, decolonization, gender non-conformity, caste, settler colonialism, censorship and linguistic nationalism that shape cinematic discourses in the country and its intersection with South Asian diaspora in the United States.",
-        "optimized": null,
+        "course_title": "SOCIAL STUDIES TOPICS IN EAST ASIAN STUDIES",
+        "description": "Interdisciplinary approaches to specific social sciences topics in Asian studies. Topics may include comparative analysis of a theme across the countries in Asia or focus on a theme within a single country.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects for undergraduate students as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 563,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "READINGS IN MODERN JAPANESE LITERATURE",
+        "description": "Extensive readings in modern Japanese literature and discussion of literary content.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 304,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0303(or E ASIAN 303 prior to Fall 2019) or placement intoASIALANG\u00a0304"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 466,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "BUDDHIST THOUGHT",
+        "description": "Survey of the fundamental trends in Buddhist thought through the works of major philosophers. Themes include the concept of \"selflessness\" and concomitant theories of essencelessness, perception, language and rationality. Not open to students with credit for E ASIAN or LCA 466 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 255,
+            "subjects": [
+                "POLISCI",
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EAST ASIAN CIVILIZATIONS",
+        "description": "Multidisciplinary and historical perspectives on the East Asian civilizations of China, Japan, Korea, Tibet and Mongolia from prehistory to the present, including developments in philosophy, economy, governance, social structure, kinship, geography, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 267,
+            "subjects": [
+                "RELIGST",
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "ASIAN RELIGIONS IN GLOBAL PERSPECTIVE",
+        "description": "Comparative and thematic introduction to diverse Asian religious traditions, ideas and communities, and their relevance to human societies of the past and present. Not open to students with credit for E ASIAN 267 prior to Fall 2019",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 533,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "READINGS IN EARLY MODERN JAPANESE LITERATURE",
+        "description": "Provides an extensive overview of the literature during Japan's early modern or Edo period (1600-1868). The main goal of the course is to introduce students to the literature of this period through readings in the original early modern Japanese language.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 313,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG 404 and313or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 308,
+            "subjects": [
+                "RELIGST",
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO BUDDHISM",
+        "description": "The basic thought, practices and history of Buddhism, including selflessness and relativity, practices of meditation, merit- making and compassion from both local and translocal perspectives. Includes a discussion of Buddhism as a contemporary, North American religion. Not open to students with credit for E ASIAN or LCA 308 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 252,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "CONTEMPORARY INDIAN SOCIETY",
+        "description": "An interdisciplinary exploration of contemporary Indian society, politics, and culture. Consider the diverse, complex, and often contradictory fabric of modern India through the lens of several conceptual themes which consider emergent discourses and dynamics of change as the joint product of India's classical heritage and its transformation into a post-colonial nation-state since 1947. Explores tensions and continuities between the pre-modern and modern.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 775,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "JAPANESE APPLIED LINGUISTICS",
+        "description": "One of the general fields such as discourse analysis, sociolinguistics, pragmatics, language pedagogy, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 444,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO SUFISM (ISLAMIC MYSTICISM)",
+        "description": "The rise and development of mysticism in Islam; basic Sufi doctrines, values and practices; life and works of important speculative and popular Sufi saints; Sufi brotherhoods in the Middle East, South Asia and North Africa. Not open to students with credit for LCA 444 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 253,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "JAPANESE POPULAR CULTURE",
+        "description": "An introduction to the culture, life-styles and thought of the Japanese people, with frequent reference to their history, literature and art. Not open to students with credit for E ASIAN 253 prior to Fall 2018",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "The senior thesis involves research conducted in collaboration with a faculty member (non-honors student).",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 568,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN RELIGIONS AND PHILOSOPHIES",
+        "description": "Study of religions and philosophies offered by a UW-approved study-abroad program outside the United States.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 932,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SEMINAR IN CHINESE LINGUISTICS",
+        "description": "Rotating subjects in the study of Chinese Linguistics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 833,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TOPICS IN EAST ASIAN VISUAL CULTURES",
+        "description": "Topics in the study of the visual cultures of East Asia from antiquity to the present. Focuses on illustrative texts and genres, major historiographic, theoretical, and methodological issues, and the technologies of vision and visuality in China, Japan, and Korea.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 244,
+            "subjects": [
+                "SOC",
+                "HISTORY",
+                "GEOG",
+                "POLISCI",
+                "ASIAN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO SOUTHEAST ASIA:  VIETNAM TO THE PHILIPPINES",
+        "description": "As an introduction to Southeast Asia, covers the ethnic, cultural, religious, and political histories of the region from the classical states period to the present, with an emphasis on colonialism, nationalism, decolonization, and the emergence of modern political and social systems into the 21st century, including an exposure to region's contemporary literature. Not open to students who completed LCA 244 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 307,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "A SURVEY OF TIBETAN BUDDHISM",
+        "description": "By studying the distinctively Tibetan forms of Buddhism, we also examine more general issues, such as the relationship between theory and practice, ancient meditation and mind training, the politics of \"world making\", and the connection between identity and experience. Not open to students with credit for LCA 421 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 311,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "MODERN INDIAN LITERATURES",
+        "description": "Introduction to advanced study of modern literatures of India in translation from several languages. Emphasizes literary and critical analysis of short story, novel, poetry, and drama; historical and cultural contexts of literature; and relations and dynamics of multiple literary cultures. Not open to students with credit for LCA 311 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 342,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "HISTORY OF THE PEOPLES REPUBLIC OF CHINA, 1949 TO THE PRESENT",
+        "description": "The social, economic and political transformation of China under Communism; the role of ideology in contemporary Chinese historical development; the nature of that historical development in the comparative perspective of other post-revolutionary histories.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 108,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY - KOREA",
+        "description": "Survey of major cultural, social, political, and intellectual developments in Korea from the 10th century to the 21st century.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 379,
+            "subjects": [
+                "ARTHIST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "CITIES OF ASIA",
+        "description": "Historical overview of the built environment of cities of Asia from antiquity to the present; architectural and urban legacy in its social and historical context; exploration of common themes that thread through the diverse geographical regions and cultures of Asia. Not open to students with credit for LCA 379 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 341,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "HISTORY OF MODERN CHINA, 1800-1949",
+        "description": "The disintegration of traditional Chinese society under the impact of Western imperialism, the rise of modern Chinese nationalism, and the emergence of modern revolutionary movements and ideologies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 458,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "HISTORY OF SOUTHEAST ASIA SINCE 1800",
+        "description": "Effects of the modern Western revolution on the established societies of Southeast Asia through colonial rule and economic and cultural change. Not open to students with credit for LCA 458 prior to Fall 2018.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 621,
+            "subjects": [
+                "ARTHIST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "MAPPING, MAKING, AND REPRESENTING COLONIAL SPACES",
+        "description": "Spatial lagacy of colonialism; explores important ways in which the population, landscape, architecture, and urban environment of colonies were mapped, made, and represented, particularly in the 19th and 20th centuries; theoretical and empirical analyses from diverse disciplines and spatial terrain. Not open to students with credit for LCA 621 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 203,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "LOST IN TRANSLATION: WESTERN EXPERIENCE IN ASIA",
+        "description": "An examination of travel narratives, both fiction and non-fiction in print and in film, and the experiences of Western travelers in Asia, with the goal of developing one's own travel writing. Ideal for students with an interest in Asia, have travelled to Asia, or are interested in travelling to Asia.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 655,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "ETHNOGRAPHY IN ASIA",
+        "description": "From Greek ethnos, \"folk\" + grapho, \"to write,\" doing ethnography involves writing about people, societies, and cultures. It is a qualitative, rather than a quantitative, type of research. One does ethnography, and thus it's a process.  But an ethnography is also a product: the outcome of the ethnographic process is an ethnography. In-depth studies and discussions of classic and contemporary ethnographies in multiple Asian contexts that focus on themes like religion, health, economics, and sexuality in writing, photography, and film at once illustrate various methods involved in doing ethnography and illuminate why scholars have for decades studied and represented Asia through ethnography. The methods of ethnography are never divorced from the motivations of the scholars, and thus it is crucial to probe critically and collectively what ethnography is (theory), how it is done (practice), and why is it worth doing generally and in Asian contexts in particular.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 254,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "KOREAN POPULAR CULTURE",
+        "description": "Critically engages with Korean popular culture in order to explore how an arena often dismissed as \"mere entertainment\" can act as an indicator of cultural values and a producer of cultural meaning. Treats works of popular culture as important economic, political, and social texts and asks us to reflect on how the production and consumption of popular culture shapes, and is shaped by, our lived experiences. Explores what popular culture says about society and, conversely, what society says about popular culture.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 372,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TOPICS IN CHINESE: STUDY ABROAD",
+        "description": "A course carried with a UW-Madison study abroad program which has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 361,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "LOVE AND POLITICS: THE TALE OF GENJI",
+        "description": "Explores the themes, structure, and reception history of Japan's The Tale of Genji (ca. 1008). Not open to students with credit for E ASIAN 361 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 236,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "ASIA ENCHANTED: GHOSTS, GODS, AND MONSTERS",
+        "description": "Explores how different cultures in Asia conceive of and relate to the monstrous, ghostly, and divine, both in the past and in the contemporary world. These themes are approached from a range of different disciplinary perspectives, including religious studies, literature, anthropology, and history.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 633,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "CHINESE APPLIED LINGUISTICS",
+        "description": "Subfields of applied linguistics in Chinese such as sociolinguistics, pragmatics, corpus linguistics, language pedagogy, second language acquisition, etc.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 360,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TOPICS IN ASIAN LITERATURE",
+        "description": "Literary or cultural study of a particular theme, work, period, or genre in regions across Asia. Translations serve as the principal texts.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1930,10 +1327,173 @@
         },
         "course_title": "STUDIES IN CHINESE PHILOSOPHICAL TEXTS",
         "description": "Intensive study of such topics as Confucius' Analects, the Zhuangzi, or other significant texts.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 692,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "The senior thesis involves research conducted in collaboration with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 698,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study offers the student an opportunity to work with a faculty member on an individual study program.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 443,
+            "subjects": [
+                "COMARTS",
+                "ASIAN"
+            ]
+        },
+        "course_title": "INDIAN CINEMA IN THE U.S. AND BEYOND",
+        "description": "India is home to one of the largest film industries in the world, Bollywood. Beyond Bollywood, India has a thriving film culture that caters to its many regional languages. Explore India's diverse, yet interconnected film and media cultures as well as the global resonances of Indian- and South-Asian-inflected media elsewhere. Examine questions of diasporic identity through media produced by the South Asian American community. Consider questions of genre, style and auteurship, ethnicity, decolonization, gender non-conformity, caste, settler colonialism, censorship and linguistic nationalism that shape cinematic discourses in the country and its intersection with South Asian diaspora in the United States.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COMICS AND GRAPHIC NOVELS: THEORY, HISTORY, METHOD",
+        "description": "Explores the theory and history of comics, graphic novels, and other media with a comics-like quality from around the world. Our goal is to develop a deeper understanding of comics as a major mode of human communication.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Students engage in an independent research under the guidance of a faculty advisor. Students must be enrolled in Honors in the Major or Honors in the Liberal Arts.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 357,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "JAPANESE GHOST STORIES",
+        "description": "Surveys Japanese ghost stories in translation from a range of eras and media, including theater and film. Considers historical origins and reception, with particular emphasis on storytelling and adaptation across formats.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 319,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "THE VIETNAM WARS",
+        "description": "Explores the prolonged cycle of wars in Vietnam and its neighbors, 1940 to date, with due regard for both local and U.S. perspectives.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 104,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EAST ASIAN HISTORY: JAPAN",
+        "description": "Survey of major cultural, social, political and economic developments in Japanese history from ancient to recent times.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Offers the student an opportunity to work with a faculty member on an individual study program. Students must have junior or senior standing.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 712,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TEACHING OF CHINESE",
+        "description": "Methods of teaching Chinese as a second language including comparative study of Chinese and English structure, introduction to teaching techniques. Not open to students with credit for E ASIAN 622 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 641,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "HISTORY OF CHINESE LITERATURE I",
+        "description": "Covers the history of Chinese literature from the Zhou through the end of the Yuan, focusing primarily on poetic and prose genres. Primary source readings will be in Chinese, with additional critical assessment of published translations; secondary source readings in both Chinese and English.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0301, placement intoASIALANG\u00a0302, or graduate/professional standing. Not open to students with credit for E ASIAN 651 prior to Fall 2019."
         }
     },
     {
@@ -1945,7 +1505,6 @@
         },
         "course_title": "SENIOR HONORS THESIS",
         "description": "Second semester is devoted to writing the thesis paper under the guidance of a faculty advisor. Students must be enrolled in Honors in the Major or Honors in the Liberal Arts.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -1953,15 +1512,28 @@
     },
     {
         "course_reference": {
-            "course_number": 460,
+            "course_number": 600,
             "subjects": [
-                "RELIGST",
                 "ASIAN"
             ]
         },
-        "course_title": "THE HISTORY OF YOGA",
-        "description": "Explores the history of Yoga techniques from the ancient to the modern period. Not open to students with credit for RELIG ST 623 prior to Spring 2019.",
-        "optimized": null,
+        "course_title": "CAPSTONE SEMINAR IN ASIAN HUMANITIES",
+        "description": "An examination of methodological and theoretical issues in Asian humanities, with emphasis on literary, religious, and cultural studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 456,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "PEARL HARBOR & HIROSHIMA: JAPAN, THE US & THE CRISIS IN ASIA",
+        "description": "Events leading to the Pearl Harbor attack, the conduct of World War II in the Pacific, the nature of the wartime Japanese state and effects of the war on Japanese society, the dropping of the atomic bombs, and Japan's decision to surrender. The war as an epoch in Japanese history.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -1969,34 +1541,17 @@
     },
     {
         "course_reference": {
-            "course_number": 306,
+            "course_number": 218,
             "subjects": [
                 "RELIGST",
                 "ASIAN"
             ]
         },
-        "course_title": "HINDUISM",
-        "description": "A historical survey of Hindu scriptures, rituals, philosophies, and ethics from the ancient to the contemporary world. Concepts such as karma, yoga, and reincarnation will be put in the broader contexts of Hindu theism, worship, and law. Not open to students who completed RELIG ST 355 prior to Fall 2019.",
-        "optimized": null,
+        "course_title": "HEALTH AND HEALING IN SOUTH ASIA",
+        "description": "Study primary and secondary sources to explore how South Asian societies have understood the ideas of health and well-being throughout history. We will consider a number of cases that illustrate uniquely South Asian conceptions of illness and physical dysfunction and the ways in which people in South Asia have attempted (and continue to attempt today) to heal bodies. Students will learn about the traditional healing systems of South Asia, including Ayurveda, Siddha, and Unani, the basic components of each systems' ideas about disease pathology and treatment that have been used for centuries to heal illness, maintain good health, and, in some instances, aspire to a state of super-health that transcends the limitations of bodily existence altogether.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 454,
-            "subjects": [
-                "HISTORY",
-                "ASIAN"
-            ]
-        },
-        "course_title": "SAMURAI: HISTORY AND IMAGE",
-        "description": "Japanese warriors, their ideals, and their images from the tenth century to the present.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "prerequisites_text": "None"
         }
     },
     {
@@ -2008,28 +1563,10 @@
         },
         "course_title": "HISTORY OF THE CHINESE LANGUAGE",
         "description": "Introduction to Chinese historical linguistics, including the sound systems of the Shih-ching, T'ang poems, and Yuan songs, and their historical relations to the sounds of modern Mandarin, and syntactic interaction between classical and vernacular Chinese. Not open to students with credit for E ASIAN 631 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 102,
-            "subjects": [
-                "ASIALANG"
-            ]
-        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 356,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
                     "course_number": 102,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 201,
                     "subjects": [
                         "ASIALANG"
                     ]
@@ -2040,14 +1577,127 @@
     },
     {
         "course_reference": {
-            "course_number": 775,
+            "course_number": 353,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "JAPANESE APPLIED LINGUISTICS",
-        "description": "One of the general fields such as discourse analysis, sociolinguistics, pragmatics, language pedagogy, etc.",
-        "optimized": null,
+        "course_title": "LOVERS, WARRIORS AND MONKS: SURVEY OF JAPANESE LITERATURE",
+        "description": "Historical introduction to the important literary works of Japan, generally about courtly romance, idealized warriors, and the Buddhist search for enlightenment. This course will cover the classical period, from the eighth through the mid-nineteenth century; most material comes from the particularly wonderful tenth through sixteenth centuries. Not open to students with credit for E ASIAN 353 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 263,
+                    "subjects": [
+                        "LITTRANS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0104or356(or E ASIAN 104 or 312 prior to Fall 2019) or placement intoASIALANG\u00a0203. Not open to students with credit forLITTRANS\u00a0263"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 630,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "PROSEMINAR: STUDIES IN CULTURES OF ASIA",
+        "description": "Advanced topics in Asian studies.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 351,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "SURVEY OF CLASSICAL CHINESE LITERATURE",
+        "description": "A critical introduction to the literature of China from early texts through the late imperial period. Works include poetry, prose, fiction and drama. Not open to students who completed E ASIAN 351 prior to Fall 2019.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "ASIALANG"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ASIALANG\u00a0102(or E ASIAN 102 prior to Fall 2019), placement intoASIALANG\u00a0201, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 505,
+            "subjects": [
+                "RELIGST",
+                "ASIAN"
+            ]
+        },
+        "course_title": "THE PERFECTIBLE BODY IN RELIGIONS, MEDICINES, AND POLITICS",
+        "description": "Looking at the cultural institutions of politics, medicine, and religion in multiple cultures and historical times, students will explore ideas about what constitutes a perfect body, how and why different parts of the body are privileged over others, and how and why the notion of bodily perfectibility differs for men and women, children and adults, and humans and gods. Readings encourage such questions as: Is the perfect body attainable and, if so, how? And, who benefits from bodily perfection (or the rhetoric of the bodily perfection)? We will ask these questions with comparative intent: we want both to learn about cultures other than our own and, in the process of understanding the other, we will ask how this new knowledge might empower us to be more observant and critical of the role(s) and treatment of the body in our own society historically and today.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 373,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TOPICS IN JAPANESE: STUDY ABROAD",
+        "description": "A course carried with a UW-Madison study abroad program which has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 454,
+            "subjects": [
+                "ASIAN",
+                "HISTORY"
+            ]
+        },
+        "course_title": "SAMURAI: HISTORY AND IMAGE",
+        "description": "Japanese warriors, their ideals, and their images from the tenth century to the present.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 268,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TIBETAN CULTURES AND TRADITIONS",
+        "description": "Introduction to a wide variety of ancient Tibetan cultural beliefs, practices and motifs that are practiced to this day. Examines topics such as: gender roles and stereotypes in Tibetan society; folk beliefs and practices; astrology, divination, dream interpretation and related issues; art, music and theater; traditional Tibetan medicine and healing practices; and finally, the varied and extensive religious traditions of Tibet in their cultural manifestations. Examines central themes and inquires into the ways it contributes to-or contests-a cultural universe that has direct impact on Tibetan lives.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 701,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "PROSEMINAR IN CHINESE LITERATURE",
+        "description": "Acquaints entering graduate students with the history of the study of Chinese literature in the West, with the basic reference tools and methodologies, and with the various critical approaches to Chinese literature. BA in Chinese or equiv",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -2055,31 +1705,29 @@
     },
     {
         "course_reference": {
-            "course_number": 405,
+            "course_number": 206,
             "subjects": [
                 "RELIGST",
                 "ASIAN"
             ]
         },
-        "course_title": "GODS AND GODDESSES OF SOUTH ASIA",
-        "description": "Introduces some of the most important deities of South Asia through visual representation, mythical narratives and rituals of worship. Topics include the development of iconographic forms and concepts, masculine and feminine aspects of the divine, the belief in human embodiments of divinities, the phenomenon of possession, modes of domestic and public worship and the symbolism of the temple structure.",
-        "optimized": null,
+        "course_title": "THE QUR'AN: RELIGIOUS SCRIPTURE & LITERATURE",
+        "description": "An introduction to the Qur'an, the sacred scripture of the Islamic religious tradition, focused on Muslim approaches to reading the text, its themes and history, and its use as a source of law, theology, aesthetics, politics, and practices of piety.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
             "course_number": 463,
             "subjects": [
-                "HISTORY",
-                "ASIAN"
+                "ASIAN",
+                "HISTORY"
             ]
         },
         "course_title": "TOPICS IN SOUTH ASIAN HISTORY",
         "description": "Topics vary related to the History of South Asia, Eurasia, and the Indian Ocean.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -2087,41 +1735,58 @@
     },
     {
         "course_reference": {
-            "course_number": 358,
+            "course_number": 632,
             "subjects": [
                 "ASIAN"
             ]
         },
-        "course_title": "LANGUAGE IN JAPANESE SOCIETY",
-        "description": "Enhances knowledge of and sensitivity towards social factors that influence how Japanese language is used in different contexts. Topics include language standardization and policies, dialects, gender differences, multilingualism, translation, and impact of technology on language. In addition to discussing books and articles on these subject matters, engage in the collaborative analysis of actual examples of Japanese language use taken from everyday interactions, interviews, traditional and social media discourse, popular culture, and public signage, among others. Through this process, evaluate critically taken-for-granted beliefs and assumptions about the Japanese language and its users; examine how particular beliefs and assumptions have been established, maintained, and challenged; and make informed choices in adopting different styles of language and in positioning themselves in a Japanese speech community. Not open to students with credit for E ASIAN 358 prior to Fall 2019.",
-        "optimized": {
-            "course_number": 104,
+        "course_title": "STUDIES IN CHINESE LINGUISTICS",
+        "description": "Development and exchange of scholarly information on specific topics in the field of linguistics. It rotates between various topics about the Chinese language from contemporary perspectives. It may focus on phonetics, phonology, morphology, syntax, semantics, pragmatics, sociolinguistics, applied linguistics, second language acquisition, or discourse analysis. The mastery of the knowledge learned in this course is essential for further study in Chinese linguistics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
             "subjects": [
-                "ASIALANG"
+                "ASIAN"
             ]
         },
+        "course_title": "INDEPENDENT RESEARCH",
+        "description": "Independent research for graduate students.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 356,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ASIALANG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ASIALANG\u00a0104or356(E ASIAN 104 or 320 prior to Summer 2019) or placement intoASIALANG\u00a0203"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "READING FOR RESEARCH",
+        "description": "Under the guidance of their advisors and other committee members, students compile reading lists for their defined preliminary exam fields and read essential sources and scholarship from those lists. They will demonstrate their critical reading of this material in meetings with the advisor or other committee members.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 300,
+            "subjects": [
+                "ASIAN"
+            ]
+        },
+        "course_title": "TOPICS IN ASIAN STUDIES",
+        "description": "Selected topics in the study of Asian Languages and Cultures.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
         }
     }
 ]

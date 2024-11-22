@@ -1,21 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 423,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "DIGITAL PLATFORM ANALYTICS",
-        "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 352,
             "subjects": [
                 "INFOSYS"
@@ -23,96 +8,9 @@
         },
         "course_title": "DIGITAL STRATEGY",
         "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 424,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "SYSTEMS ANALYSIS AND DESIGN",
-        "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
-        "optimized": {
-            "course_number": 371,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "INFOSYS"
-                    ]
-                },
-                {
-                    "course_number": 322,
-                    "subjects": [
-                        "INFOSYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "INFO\u00a0SYS\u00a0322(422 prior to Fall 2023) andINFO\u00a0SYS\u00a0371"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 365,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 722,
-            "subjects": [
-                "ISYE",
-                "INFOSYS"
-            ]
-        },
-        "course_title": "COMPUTER-BASED DATA MANAGEMENT",
-        "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "INFOSYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing andINFO\u00a0SYS\u00a0371"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 723,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "TEXT ANALYTICS AND BUSINESS APPLICATION",
-        "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
@@ -124,12 +22,6 @@
         },
         "course_title": "TECHNOLOGY OF COMPUTER-BASED BUSINESS SYSTEMS",
         "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
-        "optimized": {
-            "course_number": 220,
-            "subjects": [
-                "COMPSCI"
-            ]
-        },
         "prerequisites": {
             "course_references": [
                 {
@@ -144,6 +36,97 @@
     },
     {
         "course_reference": {
+            "course_number": 322,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "INTRODUCTION TO DATABASES",
+        "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 424,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "SYSTEMS ANALYSIS AND DESIGN",
+        "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "INFOSYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "INFO\u00a0SYS\u00a0322(422 prior to Fall 2023) andINFO\u00a0SYS\u00a0371"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 423,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "DIGITAL PLATFORM ANALYTICS",
+        "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 365,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 723,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "TEXT ANALYTICS AND BUSINESS APPLICATION",
+        "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 724,
             "subjects": [
                 "INFOSYS"
@@ -151,13 +134,6 @@
         },
         "course_title": "ANALYSIS AND DESIGN OF COMPUTER-BASED SYSTEMS",
         "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
-        "optimized": {
-            "course_number": 722,
-            "subjects": [
-                "ISYE",
-                "INFOSYS"
-            ]
-        },
         "prerequisites": {
             "course_references": [
                 {
@@ -173,32 +149,24 @@
     },
     {
         "course_reference": {
-            "course_number": 322,
+            "course_number": 722,
             "subjects": [
+                "ISYE",
                 "INFOSYS"
             ]
         },
-        "course_title": "INTRODUCTION TO DATABASES",
-        "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
-        "optimized": null,
+        "course_title": "COMPUTER-BASED DATA MANAGEMENT",
+        "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "INFOSYS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing andINFO\u00a0SYS\u00a0371"
         }
     }
 ]

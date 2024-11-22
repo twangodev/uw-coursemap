@@ -1,28 +1,15 @@
 [
     {
         "data": {
-            "description": "Directed study through College of Engineering Supplementary Instruction program. Group discussion and problem-solving coaching to enhance understanding of physics and its applications to engineering.",
-            "id": "INTEREGR 150",
-            "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
             "id": "INTEREGR",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Explore chosen opportunity area through prototyping, user testing, and iteration. Creation of final, high resolution design, with communication and launch plan for startup, product or service. Practice behaviors of design thinking - ethics, critique, and storytelling.",
-            "id": "INTEREGR 941",
+            "description": "Interdisciplinary topics of special interest to undergrad and grad students in engineering.",
+            "id": "INTEREGR 601",
             "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
-            "source": "INTER-HE 940",
-            "target": "INTEREGR 941"
         }
     },
     {
@@ -34,8 +21,8 @@
     },
     {
         "data": {
-            "description": "Provides a comparative examination and analysis of global trends and regional variations for engineering concepts, standards and practices. Using organizational case studies, the course will describe and analyze multi-national engineering operations and summarize best practices and caveats.",
-            "id": "INTEREGR 413",
+            "description": "Explore chosen opportunity area through prototyping, user testing, and iteration. Creation of final, high resolution design, with communication and launch plan for startup, product or service. Practice behaviors of design thinking - ethics, critique, and storytelling.",
+            "id": "INTEREGR 941",
             "parent": "INTEREGR"
         }
     },
@@ -48,36 +35,8 @@
     },
     {
         "data": {
-            "description": "Learn and practice evidence-based strategies for success as an engineering student. Topics include study skills, time management, career exploration, academic writing, academic reading comprehension, motivation and self-directed learning.",
-            "id": "INTEREGR 140",
-            "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
-            "description": "This course provides the incoming freshman with an overview of engineering based on a \"hands-on\" experience with a client-centered engineering design project, which includes: 1) a team-based design project, 2) a survey of engineering disciplines, and 3) an introduction to computer tools and lab techniques.",
-            "id": "INTEREGR 160",
-            "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
-            "description": "Communication for engineering, science, and technology; theory and practice in planning, preparing, and critiquing reports, proposals, and workplace correspondence; persuasive argumentation, ethical decision-making strategies, multidisciplinary communication skills, research strategies, collaborative work; oral presentations.",
-            "id": "INTEREGR 397",
-            "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to mechanics and applications in engineering, including introduction to free body diagrams, spatial awareness, and how to use vectors in engineering applications.",
-            "id": "INTEREGR 130",
-            "parent": "INTEREGR"
-        }
-    },
-    {
-        "data": {
-            "description": "Interdisciplinary topics of special interest to undergrad and grad students in engineering.",
-            "id": "INTEREGR 601",
+            "description": "Provides a comparative examination and analysis of global trends and regional variations for engineering concepts, standards and practices. Using organizational case studies, the course will describe and analyze multi-national engineering operations and summarize best practices and caveats.",
+            "id": "INTEREGR 413",
             "parent": "INTEREGR"
         }
     },
@@ -90,8 +49,8 @@
     },
     {
         "data": {
-            "description": "Introduction to basic leadership theories and perspectives; application of said theories to real-life experiences (both engineering and otherwise) through reflections, course discussion, readings, and experiential education in their local communities. Social Change Model of Leadership Development and Servant Leadership theory, viewed through an Applied Critical Leadership Theory lens.",
-            "id": "INTEREGR 303",
+            "description": "Directed study through College of Engineering Supplementary Instruction program. Group discussion and problem-solving coaching to enhance understanding of physics and its applications to engineering.",
+            "id": "INTEREGR 150",
             "parent": "INTEREGR"
         }
     },
@@ -99,6 +58,13 @@
         "data": {
             "description": "Introduction to the engineering design process and profession through applied problem-solving. Emphasis on the engineering design process in industry, teamwork and communication skills; the engineer's responsibilities to customers and society; and the role of engineers in improving the human condition.",
             "id": "INTEREGR 111",
+            "parent": "INTEREGR"
+        }
+    },
+    {
+        "data": {
+            "description": "This course provides the incoming freshman with an overview of engineering based on a \"hands-on\" experience with a client-centered engineering design project, which includes: 1) a team-based design project, 2) a survey of engineering disciplines, and 3) an introduction to computer tools and lab techniques.",
+            "id": "INTEREGR 160",
             "parent": "INTEREGR"
         }
     },
@@ -120,6 +86,40 @@
         "data": {
             "id": "INTER-HE",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "INTER-HE 940",
+            "target": "INTEREGR 941"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic leadership theories and perspectives; application of said theories to real-life experiences (both engineering and otherwise) through reflections, course discussion, readings, and experiential education in their local communities. Social Change Model of Leadership Development and Servant Leadership theory, viewed through an Applied Critical Leadership Theory lens.",
+            "id": "INTEREGR 303",
+            "parent": "INTEREGR"
+        }
+    },
+    {
+        "data": {
+            "description": "Communication for engineering, science, and technology; theory and practice in planning, preparing, and critiquing reports, proposals, and workplace correspondence; persuasive argumentation, ethical decision-making strategies, multidisciplinary communication skills, research strategies, collaborative work; oral presentations.",
+            "id": "INTEREGR 397",
+            "parent": "INTEREGR"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn and practice evidence-based strategies for success as an engineering student. Topics include study skills, time management, career exploration, academic writing, academic reading comprehension, motivation and self-directed learning.",
+            "id": "INTEREGR 140",
+            "parent": "INTEREGR"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to mechanics and applications in engineering, including introduction to free body diagrams, spatial awareness, and how to use vectors in engineering applications.",
+            "id": "INTEREGR 130",
+            "parent": "INTEREGR"
         }
     }
 ]
