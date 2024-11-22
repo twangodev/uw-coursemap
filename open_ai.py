@@ -1,5 +1,4 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from functools import cache
 from logging import Logger
 
 import numpy as np
@@ -51,16 +50,20 @@ def find_best_prerequisite(client, model, course, prerequisites, stats) -> Cours
     return best_prerequisite[0]
 
 def prune_prerequisites(client, model, course: Course, course_ref_to_course, stats, logger: Logger):
-    if len(course.prerequisites.course_references) <= 1:
-        return
 
-    prerequisites = set()
+    prerequisites: set[Course] = set()
     for reference in course.prerequisites.course_references:
         if reference not in course_ref_to_course:
             logger.error(f"Prerequisite not found in courses: {reference}")
             continue
         c = course_ref_to_course[reference]
         prerequisites.add(c)
+
+    if len(prerequisites) == 1:
+        course.set_optimized_prerequisite(next(iter(prerequisites)).course_reference)
+
+    if len(prerequisites) <= 1:
+        return
 
     best = find_best_prerequisite(
         client=client,
@@ -70,7 +73,7 @@ def prune_prerequisites(client, model, course: Course, course_ref_to_course, sta
         stats=stats
     )
     logger.debug(f"Selected {best.get_identifier()} as the best prerequisite for {course.get_identifier()} out of {len(prerequisites)} options")
-    stats["removed_requisites"] += len(course.prerequisites.course_references) - 1
+    stats["removed_requisites"] += len(prerequisites) - 1
     course.set_optimized_prerequisite(best.course_reference)
 
 def optimize_prerequisite_thread(client, model, course, course_ref_to_course, max_runtime, max_retries, stats, logger):

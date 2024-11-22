@@ -4,7 +4,7 @@
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header";
     import {Button} from "$lib/components/ui/button";
     import Search from "$lib/components/Search.svelte";
-    
+
 </script>
 
 <ContentWrapper>
@@ -18,6 +18,7 @@
         </p>
         <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
             <Search wide={true}/>
+            <Button variant="outline">Graph All</Button>
         </div>
     </PageHeader>
 </ContentWrapper>
