@@ -1,46 +1,17 @@
 [
     {
         "course_reference": {
-            "course_number": 401,
+            "course_number": 501,
             "subjects": [
                 "AFAERO"
             ]
         },
-        "course_title": "NATIONAL SECURITY AFFAIRS",
-        "description": "Provides a fundamental understanding of National Security Strategy and the organization of the Department of Defense. Introduces strategic-level thinking by exploring the various domains in which the Air Force operates. Discuss joint operations and the integration of air, space, land and sea forces. Demonstrate intermediate to advanced verbal and written communication skills.",
+        "course_title": "LEADERSHIP LABORATORY I",
+        "description": "Apply officer education training and serve as an orientation to Air Force procedures, leadership roles, and other topics dealing with the professional development of future Air Force Officers.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 302,
-                    "subjects": [
-                        "AFAERO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0302"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 301,
-            "subjects": [
-                "AFAERO"
-            ]
-        },
-        "course_title": "LEADING PEOPLE AND EFFECTIVE COMMUNICATION I",
-        "description": "Provides a fundamental understanding of leadership. Learn about the leadership process with its complex interaction among leaders, followers and circumstances. Focus on developing intermediate to advanced verbal and written communication skills. Cadets apply knowledge in leadership laboratories and other cadet wing activities.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "AFAERO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0202"
+            "course_references": [],
+            "prerequisites_text": "Member of Air Force Reserve Officer Training Corps (AFROTC)"
         }
     },
     {
@@ -60,43 +31,6 @@
     },
     {
         "course_reference": {
-            "course_number": 101,
-            "subjects": [
-                "AFAERO"
-            ]
-        },
-        "course_title": "HERITAGE AND VALUES I",
-        "description": "An introduction to the Air Force (AF), potential careers, and role of the United States Air Force today. Examine general aspects of the Department of the Air Force, AF Leadership, AF benefits, and opportunities for AF officers. Provides the foundation for becoming an Airman by outlining our heritage and values, as well as a historical perspective such as lessons on war and US military, AF operations, principles of war, and airpower. Gain a knowledge-level understanding for the employment of air and space power, from an institutional, doctrinal, and historical perspective.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 302,
-            "subjects": [
-                "AFAERO"
-            ]
-        },
-        "course_title": "LEADING PEOPLE AND EFFECTIVE COMMUNICATION II",
-        "description": "Continuation ofA\u00a0F\u00a0AERO\u00a0301. Provides a fundamental understanding of leadership. Learn about the leadership process with its complex interaction among leaders, followers and circumstances. Focus on developing intermediate to advanced verbal and written communication skills. Cadets apply knowledge in leadership laboratories and other cadet wing activities. Demonstrate intermediate to advanced verbal and written communication skills.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "AFAERO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0301"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 201,
             "subjects": [
                 "AFAERO"
@@ -112,24 +46,86 @@
     },
     {
         "course_reference": {
-            "course_number": 402,
+            "course_number": 301,
             "subjects": [
                 "AFAERO"
             ]
         },
-        "course_title": "LEADERSHIP RESPONSIBILITIES & COMMISSIONING PREPARATION",
-        "description": "Prepares cadets for life as Second Lieutenants. Covers various human resources topics to prepare each future officer for mid- to upper-level management positions, including evaluation systems, supervision and counseling, and annual training requirements. Become familiar with a myriad of officer responsibilities that they will incur upon joining the Active Duty community. Demonstrate intermediate to advanced verbal and written communication skills.",
-        "optimized": null,
+        "course_title": "LEADING PEOPLE AND EFFECTIVE COMMUNICATION I",
+        "description": "Provides a fundamental understanding of leadership. Learn about the leadership process with its complex interaction among leaders, followers and circumstances. Focus on developing intermediate to advanced verbal and written communication skills. Cadets apply knowledge in leadership laboratories and other cadet wing activities.",
+        "optimized": {
+            "course_number": 202,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 401,
+                    "course_number": 202,
                     "subjects": [
                         "AFAERO"
                     ]
                 }
             ],
-            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0401"
+            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0202"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
+        "course_title": "NATIONAL SECURITY AFFAIRS",
+        "description": "Provides a fundamental understanding of National Security Strategy and the organization of the Department of Defense. Introduces strategic-level thinking by exploring the various domains in which the Air Force operates. Discuss joint operations and the integration of air, space, land and sea forces. Demonstrate intermediate to advanced verbal and written communication skills.",
+        "optimized": {
+            "course_number": 302,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "AFAERO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0302"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 502,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
+        "course_title": "LEADERSHIP LABORATORY II",
+        "description": "Apply leadership training and orient to Air Force procedures, leadership roles, and other topics dealing with the professional development of future Second Lieutenants.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Member of Air Force Reserve Officer Training Corps (AFROTC)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
+        "course_title": "HERITAGE AND VALUES I",
+        "description": "An introduction to the Air Force (AF), potential careers, and role of the United States Air Force today. Examine general aspects of the Department of the Air Force, AF Leadership, AF benefits, and opportunities for AF officers. Provides the foundation for becoming an Airman by outlining our heritage and values, as well as a historical perspective such as lessons on war and US military, AF operations, principles of war, and airpower. Gain a knowledge-level understanding for the employment of air and space power, from an institutional, doctrinal, and historical perspective.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -149,32 +145,56 @@
     },
     {
         "course_reference": {
-            "course_number": 501,
+            "course_number": 402,
             "subjects": [
                 "AFAERO"
             ]
         },
-        "course_title": "LEADERSHIP LABORATORY I",
-        "description": "Apply officer education training and serve as an orientation to Air Force procedures, leadership roles, and other topics dealing with the professional development of future Air Force Officers.",
-        "optimized": null,
+        "course_title": "LEADERSHIP RESPONSIBILITIES & COMMISSIONING PREPARATION",
+        "description": "Prepares cadets for life as Second Lieutenants. Covers various human resources topics to prepare each future officer for mid- to upper-level management positions, including evaluation systems, supervision and counseling, and annual training requirements. Become familiar with a myriad of officer responsibilities that they will incur upon joining the Active Duty community. Demonstrate intermediate to advanced verbal and written communication skills.",
+        "optimized": {
+            "course_number": 401,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Member of Air Force Reserve Officer Training Corps (AFROTC)"
+            "course_references": [
+                {
+                    "course_number": 401,
+                    "subjects": [
+                        "AFAERO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0401"
         }
     },
     {
         "course_reference": {
-            "course_number": 502,
+            "course_number": 302,
             "subjects": [
                 "AFAERO"
             ]
         },
-        "course_title": "LEADERSHIP LABORATORY II",
-        "description": "Apply leadership training and orient to Air Force procedures, leadership roles, and other topics dealing with the professional development of future Second Lieutenants.",
-        "optimized": null,
+        "course_title": "LEADING PEOPLE AND EFFECTIVE COMMUNICATION II",
+        "description": "Continuation ofA\u00a0F\u00a0AERO\u00a0301. Provides a fundamental understanding of leadership. Learn about the leadership process with its complex interaction among leaders, followers and circumstances. Focus on developing intermediate to advanced verbal and written communication skills. Cadets apply knowledge in leadership laboratories and other cadet wing activities. Demonstrate intermediate to advanced verbal and written communication skills.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "AFAERO"
+            ]
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Member of Air Force Reserve Officer Training Corps (AFROTC)"
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "AFAERO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "A\u00a0F\u00a0AERO\u00a0301"
         }
     }
 ]

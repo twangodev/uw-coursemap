@@ -1,147 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "PATH",
-                "PHMSCI",
-                "PHMCOL-M",
-                "M&ENVTOX",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "TOXICOLOGY II",
-        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "PHMSCI",
-                        "ONCOLOGY",
-                        "PHMCOL-M",
-                        "M&ENVTOX",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Research facilities of the department available to qualified students.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 715,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "GRANT WRITING",
-        "description": "Develop a predoctoral fellowship application based on the student's proposed thesis project. Receive input on ideas and writing, both from the instructor and peers.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 739,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "RIGOR, REPRODUCIBILITY AND BECOMING AN EFFECTIVE RESEARCHER",
-        "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "SEMINAR AND JOURNAL CLUB",
-        "description": "Students and staff present research reports of current interest.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "RADIOL",
-                "BME",
-                "PHMCOL-M",
-                "MEDPHYS",
-                "PHYSICS"
-            ]
-        },
-        "course_title": "MICROSCOPY OF LIFE",
-        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 265,
-                    "subjects": [
-                        "PHYSICS",
-                        "MEDPHYS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 699,
             "subjects": [
                 "PHMCOL-M"
@@ -172,28 +31,13 @@
     },
     {
         "course_reference": {
-            "course_number": 781,
-            "subjects": [
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "MOLECULAR AND CELLULAR PRINCIPLES IN PHARMACOLOGY",
-        "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 625,
             "subjects": [
                 "PHMSCI",
                 "ONCOLOGY",
-                "PHMCOL-M",
+                "POPHLTH",
                 "M&ENVTOX",
-                "POPHLTH"
+                "PHMCOL-M"
             ]
         },
         "course_title": "TOXICOLOGY I",
@@ -201,24 +45,6 @@
         "optimized": null,
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
                 {
                     "course_number": 501,
                     "subjects": [
@@ -232,13 +58,31 @@
                     ]
                 },
                 {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
                     "course_number": 508,
                     "subjects": [
                         "BIOCHEM"
                     ]
                 },
                 {
-                    "course_number": 485,
+                    "course_number": 486,
                     "subjects": [
                         "BIOCORE"
                     ]
@@ -249,10 +93,25 @@
     },
     {
         "course_reference": {
+            "course_number": 739,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "RIGOR, REPRODUCIBILITY AND BECOMING AN EFFECTIVE RESEARCHER",
+        "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 522,
             "subjects": [
-                "PHMCOL-M",
-                "PHMSCI"
+                "PHMSCI",
+                "PHMCOL-M"
             ]
         },
         "course_title": "PHARMACOLOGY II",
@@ -268,6 +127,147 @@
                 }
             ],
             "prerequisites_text": "PHM\u00a0SCI\u00a0521"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 715,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "GRANT WRITING",
+        "description": "Develop a predoctoral fellowship application based on the student's proposed thesis project. Receive input on ideas and writing, both from the instructor and peers.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "SEMINAR AND JOURNAL CLUB",
+        "description": "Students and staff present research reports of current interest.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "PHMSCI",
+                "POPHLTH",
+                "PATH",
+                "M&ENVTOX",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "TOXICOLOGY II",
+        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 625,
+                    "subjects": [
+                        "PHMSCI",
+                        "ONCOLOGY",
+                        "POPHLTH",
+                        "M&ENVTOX",
+                        "PHMCOL-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 781,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "MOLECULAR AND CELLULAR PRINCIPLES IN PHARMACOLOGY",
+        "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Research facilities of the department available to qualified students.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 619,
+            "subjects": [
+                "RADIOL",
+                "BME",
+                "PHYSICS",
+                "MEDPHYS",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "MICROSCOPY OF LIFE",
+        "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 265,
+                    "subjects": [
+                        "MEDPHYS",
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHYSICS\u00a0104,202,208, or248orPHYSICS/\u200bMED\u00a0PHYS\u00a0\u00a0265"
         }
     }
 ]

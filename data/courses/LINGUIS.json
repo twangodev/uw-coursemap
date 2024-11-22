@@ -1,18 +1,34 @@
 [
     {
         "course_reference": {
-            "course_number": 330,
+            "course_number": 430,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
+        "course_title": "LANGUAGE AND CULTURE",
+        "description": "The relationship of language as a communication system to the culture transmitted by it. Principle problems in the interrelations of language and nonlinguistic human behavior.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 373,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "SYNTAX",
-        "description": "Grammatical theory; types of elements and processes usable in syntactic description of various sorts.",
+        "course_title": "TOPICS IN LINGUISTICS",
+        "description": "Study of a particular topic in linguistics.",
         "optimized": {
             "course_number": 301,
             "subjects": [
-                "LINGUIS",
-                "ANTHRO"
+                "ANTHRO",
+                "LINGUIS"
             ]
         },
         "prerequisites": {
@@ -20,8 +36,8 @@
                 {
                     "course_number": 301,
                     "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
+                        "ANTHRO",
+                        "LINGUIS"
                     ]
                 },
                 {
@@ -36,162 +52,13 @@
     },
     {
         "course_reference": {
-            "course_number": 375,
+            "course_number": 481,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "SIGN LANGUAGE LINGUISTICS",
-        "description": "Introduction and overview of the linguistics of sign languages, signing communities, and perceptions of deaf people and sign languages. Topics include: the grammar of sign languages, their use in signing communities, patterns in the transmission and acquisition of sign languages, and the emergence of new sign languages.",
-        "optimized": {
-            "course_number": 301,
-            "subjects": [
-                "LINGUIS",
-                "ANTHRO"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0101orANTHRO/\u200bLINGUIS\u00a0\u00a0301"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 351,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "AMERICAN SIGN LANGUAGE 1",
-        "description": "An introduction to elementary skills in production and comprehension of American Sign Language (ASL), with a communicative focus. Basics of ASL vocabulary, structure, and grammar, and the North American manual alphabet. Develop basic conversational abilities, culturally appropriate behaviors, and learn about the culture and history of Deaf communities.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 303,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "HISTORICAL LINGUISTICS",
-        "description": "Understanding language change; relation of variation and change to formal properties of human language; consideration of linguistic typology, basic concepts and methods of diachronic analysis. Topics include: language classification and reconstruction; language and social identity, geography, and power; language contact; registers; writing systems.",
-        "optimized": {
-            "course_number": 301,
-            "subjects": [
-                "LINGUIS",
-                "ANTHRO"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 429,
-                    "subjects": [
-                        "FRENCH",
-                        "PORTUG",
-                        "ITALIAN",
-                        "SPANISH"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
-                    ]
-                },
-                {
-                    "course_number": 631,
-                    "subjects": [
-                        "ASIAN"
-                    ]
-                },
-                {
-                    "course_number": 417,
-                    "subjects": [
-                        "ENGL"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                },
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "SCANDST"
-                    ]
-                },
-                {
-                    "course_number": 650,
-                    "subjects": [
-                        "GERMAN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(LINGUIS\u00a0101or301),ENGL\u00a0417,ASIAN\u00a0631,GERMAN\u00a0650,PORTUG/\u200bFRENCH/\u200bITALIAN/\u200bSPANISH\u00a0\u00a0429, orSCAND\u00a0ST\u00a0415"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 213,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "TOPICS IN SOCIOLINGUISTICS",
-        "description": "Introduction to sociolinguistics through study of a particular topic. Focuses on how language is shaped by social factors such as gender, ethnicity, education, social status, and geographic location.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "LINGUIS",
-                "AMERIND"
-            ]
-        },
-        "course_title": "SURVEY OF NORTH AMERICAN INDIAN LANGUAGES",
-        "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "HONORS SEMINAR-SENIOR THESIS",
-        "description": "Mentored individual research and study for students completing a thesis in an Honors program.",
+        "course_title": "JUNIOR HONORS TUTORIAL",
+        "description": "Mentored individual research for those pursuing Honors in the Major.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -200,183 +67,67 @@
     },
     {
         "course_reference": {
-            "course_number": 211,
-            "subjects": [
-                "INTLST",
-                "FOLKLORE",
-                "LINGUIS",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "GLOBAL LANGUAGE ISSUES",
-        "description": "Focuses on language and its culture, example topics include: extinction and revival, language and nationhood, how widely and deeply languages differ, language and worldview, writing systems and literacy, language discrimination and inequality.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 977,
+            "course_number": 610,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "SEMINAR",
-        "description": "Critical examination of selected issues in linguistics.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 427,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "FIELD METHODS II",
-        "description": "Collection and analysis of morphological, syntactic, and semantic data from a particular language, using one or more speakers as consultants.",
+        "course_title": "TOPICS IN PHONOLOGICAL THEORY",
+        "description": "In-depth examination of a single phonological theory or a single area of recent phonological research.",
         "optimized": {
-            "course_number": 322,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                },
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                },
-                {
-                    "course_number": 322,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0310and (LINGUIS\u00a0322or330)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 352,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "AMERICAN SIGN LANGUAGE 2",
-        "description": "Develop comprehension and production abilities in American Sign Language (ASL). Recognition and demonstration of more sophisticated grammatical features of ASL, focusing on increasing fluency and accuracy. Develop cultural awareness of the Deaf communities of the world.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 351,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0351"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "LINGUIS",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "LANGUAGE AND CULTURE",
-        "description": "The relationship of language as a communication system to the culture transmitted by it. Principle problems in the interrelations of language and nonlinguistic human behavior.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 510,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "PHONOLOGICAL THEORIES",
-        "description": "Theories of phonology, and advanced phonological description.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 310,
+                    "course_number": 510,
                     "subjects": [
                         "LINGUIS"
                     ]
                 }
             ],
-            "prerequisites_text": "LINGUIS\u00a0310"
+            "prerequisites_text": "LINGUIS\u00a0510or declared in Linguistics MA or PHD"
         }
     },
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 530,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "HUMAN LANGUAGE",
-        "description": "Elementary theory and practical work in phonetics, phonology, morphology, and syntax, with attention to formal grammar.",
-        "optimized": null,
+        "course_title": "SYNTACTIC THEORIES",
+        "description": "Theories of syntax, and syntactic description. The relation of syntax to semantics, and other aspects of linguistic theory.",
+        "optimized": {
+            "course_number": 330,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 301,
+                    "course_number": 330,
                     "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
+                        "LINGUIS"
                     ]
                 }
             ],
-            "prerequisites_text": "Not open to students with credit forLINGUIS/\u200bANTHRO\u00a0\u00a0301."
+            "prerequisites_text": "LINGUIS\u00a0330"
         }
     },
     {
         "course_reference": {
-            "course_number": 999,
+            "course_number": 482,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "INDEPENDENT READING",
-        "description": "Mentored reading and research for students with dissertator status.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with a faculty member.",
+        "course_title": "JUNIOR HONORS TUTORIAL",
+        "description": "Mentored individual research for those pursuing Honors in the Major.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -418,17 +169,29 @@
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 375,
             "subjects": [
-                "LINGUIS",
-                "ANTHRO"
+                "LINGUIS"
             ]
         },
-        "course_title": "INTRODUCTION TO LINGUISTICS: DESCRIPTIVE AND THEORETICAL",
-        "description": "Elementary theory and practical work in phonetics, phonology, morphology, and syntax, with attention to formal grammar.",
-        "optimized": null,
+        "course_title": "SIGN LANGUAGE LINGUISTICS",
+        "description": "Introduction and overview of the linguistics of sign languages, signing communities, and perceptions of deaf people and sign languages. Topics include: the grammar of sign languages, their use in signing communities, patterns in the transmission and acquisition of sign languages, and the emergence of new sign languages.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                },
                 {
                     "course_number": 101,
                     "subjects": [
@@ -436,44 +199,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing. Not open to students with credit forLINGUIS\u00a0101."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 522,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "ADVANCED MORPHOLOGY",
-        "description": "Advanced morphological theory.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 322,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0322"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 482,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "JUNIOR HONORS TUTORIAL",
-        "description": "Mentored individual research for those pursuing Honors in the Major.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "LINGUIS\u00a0101orANTHRO/\u200bLINGUIS\u00a0\u00a0301"
         }
     },
     {
@@ -493,29 +219,7 @@
     },
     {
         "course_reference": {
-            "course_number": 426,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "FIELD METHODS I",
-        "description": "Collection and analysis of phonetic, phonological, and morphological data from a particular language, using one or more speakers as consultants.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0310"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
+            "course_number": 682,
             "subjects": [
                 "LINGUIS"
             ]
@@ -526,21 +230,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 800,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "RESEARCH METHODS AND MATERIALS",
-        "description": "Professionalization activities for linguists, including writing and publishing, submitting abstracts to conferences, and creating CVs.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -563,8 +252,8 @@
                 {
                     "course_number": 301,
                     "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
+                        "ANTHRO",
+                        "LINGUIS"
                     ]
                 },
                 {
@@ -579,33 +268,44 @@
     },
     {
         "course_reference": {
-            "course_number": 481,
+            "course_number": 522,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "JUNIOR HONORS TUTORIAL",
-        "description": "Mentored individual research for those pursuing Honors in the Major.",
-        "optimized": null,
+        "course_title": "ADVANCED MORPHOLOGY",
+        "description": "Advanced morphological theory.",
+        "optimized": {
+            "course_number": 322,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 322,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0322"
         }
     },
     {
         "course_reference": {
-            "course_number": 309,
+            "course_number": 310,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "GRAMMATICAL VARIABILITY OF LANGUAGE",
-        "description": "Introduction to theories of variation among world languages, focusing on syntactic phenomena.",
+        "course_title": "PHONOLOGY",
+        "description": "Analysis and formal statement of phonological systems; problems and methods of phonological theory.",
         "optimized": {
-            "course_number": 301,
+            "course_number": 101,
             "subjects": [
-                "LINGUIS",
-                "ANTHRO"
+                "LINGUIS"
             ]
         },
         "prerequisites": {
@@ -613,8 +313,8 @@
                 {
                     "course_number": 301,
                     "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
+                        "ANTHRO",
+                        "LINGUIS"
                     ]
                 },
                 {
@@ -625,6 +325,90 @@
                 }
             ],
             "prerequisites_text": "LINGUIS\u00a0101or301"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 213,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "TOPICS IN SOCIOLINGUISTICS",
+        "description": "Introduction to sociolinguistics through study of a particular topic. Focuses on how language is shaped by social factors such as gender, ethnicity, education, social status, and geographic location.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 322,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "MORPHOLOGY",
+        "description": "Morphological characteristics of the world's languages. Introduction to theoretical approaches to morphology. Interaction between morphology and syntax; morphology and phonology.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0101or301"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 211,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS",
+                "INTLST",
+                "FOLKLORE"
+            ]
+        },
+        "course_title": "GLOBAL LANGUAGE ISSUES",
+        "description": "Focuses on language and its culture, example topics include: extinction and revival, language and nationhood, how widely and deeply languages differ, language and worldview, writing systems and literacy, language discrimination and inequality.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "LINGUIS",
+                "AMERIND"
+            ]
+        },
+        "course_title": "SURVEY OF NORTH AMERICAN INDIAN LANGUAGES",
+        "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -636,7 +420,12 @@
         },
         "course_title": "SEMANTICS",
         "description": "Meaning in natural languages, relationship between syntax and semantics, compositional semantics.",
-        "optimized": null,
+        "optimized": {
+            "course_number": 330,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -651,24 +440,104 @@
     },
     {
         "course_reference": {
-            "course_number": 530,
+            "course_number": 681,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "SYNTACTIC THEORIES",
-        "description": "Theories of syntax, and syntactic description. The relation of syntax to semantics, and other aspects of linguistic theory.",
+        "course_title": "HONORS SEMINAR-SENIOR THESIS",
+        "description": "Mentored individual research and study for students completing a thesis in an Honors program.",
         "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "INDEPENDENT READING",
+        "description": "Advanced directed study projects as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 510,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "PHONOLOGICAL THEORIES",
+        "description": "Theories of phonology, and advanced phonological description.",
+        "optimized": {
+            "course_number": 310,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 330,
+                    "course_number": 310,
                     "subjects": [
                         "LINGUIS"
                     ]
                 }
             ],
-            "prerequisites_text": "LINGUIS\u00a0330"
+            "prerequisites_text": "LINGUIS\u00a0310"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 583,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "SENIOR HONORS TUTORIAL",
+        "description": "Mentored individual research for those pursuing Honors in the Major.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 977,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Critical examination of selected issues in linguistics.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -712,31 +581,243 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 101,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "INDEPENDENT READING",
-        "description": "Advanced directed study projects as arranged with a faculty member.",
-        "optimized": null,
+        "course_title": "HUMAN LANGUAGE",
+        "description": "Elementary theory and practical work in phonetics, phonology, morphology, and syntax, with attention to formal grammar.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forLINGUIS/\u200bANTHRO\u00a0\u00a0301."
         }
     },
     {
         "course_reference": {
-            "course_number": 211,
+            "course_number": 309,
             "subjects": [
-                "LINGUIS",
-                "FOLKLORE",
-                "ANTHRO",
-                "INTLST"
+                "LINGUIS"
             ]
         },
-        "course_title": "GLOBAL LANGUAGE ISSUES",
-        "description": "Focuses on language and its culture, example topics include: extinction and revival, language and nationhood, how widely and deeply languages differ, language and worldview, writing systems and literacy, language discrimination and inequality.",
+        "course_title": "GRAMMATICAL VARIABILITY OF LANGUAGE",
+        "description": "Introduction to theories of variation among world languages, focusing on syntactic phenomena.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0101or301"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
+        "course_title": "INTRODUCTION TO LINGUISTICS: DESCRIPTIVE AND THEORETICAL",
+        "description": "Elementary theory and practical work in phonetics, phonology, morphology, and syntax, with attention to formal grammar.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing. Not open to students with credit forLINGUIS\u00a0101."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 352,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "AMERICAN SIGN LANGUAGE 2",
+        "description": "Develop comprehension and production abilities in American Sign Language (ASL). Recognition and demonstration of more sophisticated grammatical features of ASL, focusing on increasing fluency and accuracy. Develop cultural awareness of the Deaf communities of the world.",
+        "optimized": {
+            "course_number": 351,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 351,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0351"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 800,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "RESEARCH METHODS AND MATERIALS",
+        "description": "Professionalization activities for linguists, including writing and publishing, submitting abstracts to conferences, and creating CVs.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 426,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "FIELD METHODS I",
+        "description": "Collection and analysis of phonetic, phonological, and morphological data from a particular language, using one or more speakers as consultants.",
+        "optimized": {
+            "course_number": 310,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0310"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 427,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "FIELD METHODS II",
+        "description": "Collection and analysis of morphological, syntactic, and semantic data from a particular language, using one or more speakers as consultants.",
+        "optimized": {
+            "course_number": 322,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 322,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0310and (LINGUIS\u00a0322or330)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "SYNTAX",
+        "description": "Grammatical theory; types of elements and processes usable in syntactic description of various sorts.",
+        "optimized": {
+            "course_number": 301,
+            "subjects": [
+                "ANTHRO",
+                "LINGUIS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "LINGUIS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LINGUIS\u00a0101or301"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 351,
+            "subjects": [
+                "LINGUIS"
+            ]
+        },
+        "course_title": "AMERICAN SIGN LANGUAGE 1",
+        "description": "An introduction to elementary skills in production and comprehension of American Sign Language (ASL), with a communicative focus. Basics of ASL vocabulary, structure, and grammar, and the North American manual alphabet. Develop basic conversational abilities, culturally appropriate behaviors, and learn about the culture and history of Deaf communities.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -745,83 +826,60 @@
     },
     {
         "course_reference": {
-            "course_number": 310,
+            "course_number": 303,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "PHONOLOGY",
-        "description": "Analysis and formal statement of phonological systems; problems and methods of phonological theory.",
-        "optimized": {
-            "course_number": 101,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0101or301"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "TOPICS IN PHONOLOGICAL THEORY",
-        "description": "In-depth examination of a single phonological theory or a single area of recent phonological research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 510,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0510or declared in Linguistics MA or PHD"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 373,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "TOPICS IN LINGUISTICS",
-        "description": "Study of a particular topic in linguistics.",
+        "course_title": "HISTORICAL LINGUISTICS",
+        "description": "Understanding language change; relation of variation and change to formal properties of human language; consideration of linguistic typology, basic concepts and methods of diachronic analysis. Topics include: language classification and reconstruction; language and social identity, geography, and power; language contact; registers; writing systems.",
         "optimized": {
             "course_number": 301,
             "subjects": [
-                "LINGUIS",
-                "ANTHRO"
+                "ANTHRO",
+                "LINGUIS"
             ]
         },
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 631,
+                    "subjects": [
+                        "ASIAN"
+                    ]
+                },
+                {
+                    "course_number": 417,
+                    "subjects": [
+                        "ENGL"
+                    ]
+                },
+                {
                     "course_number": 301,
                     "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
+                        "ANTHRO",
+                        "LINGUIS"
+                    ]
+                },
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "SCANDST"
+                    ]
+                },
+                {
+                    "course_number": 429,
+                    "subjects": [
+                        "SPANISH",
+                        "FRENCH",
+                        "PORTUG",
+                        "ITALIAN"
+                    ]
+                },
+                {
+                    "course_number": 650,
+                    "subjects": [
+                        "GERMAN"
                     ]
                 },
                 {
@@ -831,7 +889,7 @@
                     ]
                 }
             ],
-            "prerequisites_text": "LINGUIS\u00a0101or301"
+            "prerequisites_text": "(LINGUIS\u00a0101or301),ENGL\u00a0417,ASIAN\u00a0631,GERMAN\u00a0650,PORTUG/\u200bFRENCH/\u200bITALIAN/\u200bSPANISH\u00a0\u00a0429, orSCAND\u00a0ST\u00a0415"
         }
     },
     {
@@ -851,48 +909,13 @@
     },
     {
         "course_reference": {
-            "course_number": 322,
+            "course_number": 999,
             "subjects": [
                 "LINGUIS"
             ]
         },
-        "course_title": "MORPHOLOGY",
-        "description": "Morphological characteristics of the world's languages. Introduction to theoretical approaches to morphology. Interaction between morphology and syntax; morphology and phonology.",
-        "optimized": {
-            "course_number": 301,
-            "subjects": [
-                "LINGUIS",
-                "ANTHRO"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "LINGUIS",
-                        "ANTHRO"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "LINGUIS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LINGUIS\u00a0101or301"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 583,
-            "subjects": [
-                "LINGUIS"
-            ]
-        },
-        "course_title": "SENIOR HONORS TUTORIAL",
-        "description": "Mentored individual research for those pursuing Honors in the Major.",
+        "course_title": "INDEPENDENT READING",
+        "description": "Mentored reading and research for students with dissertator status.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],

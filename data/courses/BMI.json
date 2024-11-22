@@ -1,123 +1,14 @@
 [
     {
         "course_reference": {
-            "course_number": 567,
+            "course_number": 551,
             "subjects": [
-                "COMPSCI",
-                "BMI"
+                "BMI",
+                "POPHLTH"
             ]
         },
-        "course_title": "MEDICAL IMAGE ANALYSIS",
-        "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 541,
-                    "subjects": [
-                        "STAT",
-                        "BMI"
-                    ]
-                },
-                {
-                    "course_number": 551,
-                    "subjects": [
-                        "POPHLTH",
-                        "BMI"
-                    ]
-                },
-                {
-                    "course_number": 571,
-                    "subjects": [
-                        "STAT",
-                        "F&WECOL"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0320or340) and (STAT 511,541,POP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551,STAT\u00a0324,371, orSTAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 544,
-            "subjects": [
-                "BMI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO CLINICAL AND HEALTHCARE RESEARCH II",
-        "description": "Practical training and skills required in clinical and healthcare research; design, implementation, and conduct of clinical trials and health services research studies; protocol and informed consent development using protocol templates; regulatory requirements; human subjects research protections considerations; data and safety monitoring plans; data collection strategies and data management; strategies to recruit/retain diverse and equitable study participants; research study agreements; budget development and justification; federal, institutional, and sponsor-defined requirements; establishment of research infrastructures for participant safety and study success; preparation of investigator-INDs/IDEs; and investigator responsibilities.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 542,
-                    "subjects": [
-                        "STAT",
-                        "BMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0542"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 642,
-            "subjects": [
-                "STAT",
-                "BMI"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR EPIDEMIOLOGY",
-        "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 768,
-            "subjects": [
-                "STAT",
-                "BMI"
-            ]
-        },
-        "course_title": "STATISTICAL METHODS FOR MEDICAL IMAGE ANALYSIS",
-        "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
+        "course_title": "INTRODUCTION TO BIOSTATISTICS FOR POPULATION HEALTH",
+        "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -126,146 +17,22 @@
     },
     {
         "course_reference": {
-            "course_number": 643,
+            "course_number": 652,
             "subjects": [
-                "STAT",
-                "BMI"
+                "BMI",
+                "POPHLTH"
             ]
         },
-        "course_title": "CLINICAL TRIAL DESIGN, IMPLEMENTATION, AND ANALYSIS",
-        "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 609,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 641,
-                    "subjects": [
-                        "STAT",
-                        "BMI"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0609,610,B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0641, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 609,
-            "subjects": [
-                "BMOLCHEM",
-                "MATH",
-                "BIOCHEM",
-                "BMI"
-            ]
-        },
-        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
-        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 617,
-            "subjects": [
-                "ISYE",
-                "BMI"
-            ]
-        },
-        "course_title": "HEALTH INFORMATION SYSTEMS",
-        "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 417,
-                    "subjects": [
-                        "ISYE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0417, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 694,
-            "subjects": [
-                "POPHLTH",
-                "BMI"
-            ]
-        },
-        "course_title": "APPLIED BIOMEDICAL INFORMATICS & REAL-WORLD DATA FOR PRECISION MEDICINE & POPULATION HEALTH",
-        "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "POPHLTH",
-                "BMI"
-            ]
-        },
-        "course_title": "ADVANCED REGRESSION METHODS FOR POPULATION HEALTH",
-        "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
+        "course_title": "TOPICS IN BIOSTATISTICS FOR EPIDEMIOLOGY",
+        "description": "Each module will adopt an in-depth focus on a biostatistical method of particular relevance to epidemiology such as measurement error, missing data, intermediate variables, complex study designs, meta-analysis, splines, propensity scores, causal inference, spatial statistics and resampling. One or more modules will be offered every spring semester.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 552,
                     "subjects": [
-                        "POPHLTH",
-                        "BMI"
+                        "BMI",
+                        "POPHLTH"
                     ]
                 }
             ],
@@ -274,41 +41,60 @@
     },
     {
         "course_reference": {
-            "course_number": 552,
+            "course_number": 741,
             "subjects": [
-                "POPHLTH",
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "SURVIVAL ANALYSIS THEORY AND METHODS",
+        "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 877,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR MOLECULAR BIOLOGY",
+        "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 722,
+            "subjects": [
+                "ECE",
+                "MEDPHYS",
+                "COMPSCI",
                 "BMI"
             ]
         },
-        "course_title": "REGRESSION METHODS FOR POPULATION HEALTH",
-        "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
+        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
+        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 541,
-                    "subjects": [
-                        "STAT",
-                        "BMI"
-                    ]
-                },
-                {
-                    "course_number": 551,
-                    "subjects": [
-                        "POPHLTH",
-                        "BMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0541orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 542,
             "subjects": [
-                "STAT",
-                "BMI"
+                "BMI",
+                "STAT"
             ]
         },
         "course_title": "INTRODUCTION TO CLINICAL TRIALS I",
@@ -319,8 +105,8 @@
                 {
                     "course_number": 541,
                     "subjects": [
-                        "STAT",
-                        "BMI"
+                        "BMI",
+                        "STAT"
                     ]
                 }
             ],
@@ -329,17 +115,32 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 738,
             "subjects": [
                 "BMI"
             ]
         },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Directed study to pursue knowledge beyond curriculum.",
+        "course_title": "ETHICS FOR DATA SCIENTISTS",
+        "description": "Designed to educate data scientists, particularly those who work with biomedical data, about ethical and regulatory issues that may arise in the course of their research and professional interactions.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 899,
+            "subjects": [
+                "BMI"
+            ]
+        },
+        "course_title": "PRE-DISSERTATOR RESEARCH",
+        "description": "Pre-dissertator Research. Course is open to pre-dissertator students only.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -360,72 +161,141 @@
     },
     {
         "course_reference": {
-            "course_number": 800,
+            "course_number": 727,
             "subjects": [
-                "BMI"
+                "BMI",
+                "STAT"
             ]
         },
-        "course_title": "BECOMING A BIOMEDICAL DATA SCIENTIST",
-        "description": "Learn how to conduct research as an interdisciplinary scientist at the interface of biomedical sciences and data science. Consider the diverse career trajectories available to an individual scientist. Gain an overview of problems in the field, approaches and practices in biomedical research, and different examples of approaches and paths taken from conceptualization to implementation of computational/statistical/data science tools to address specific biomedical research problems.",
+        "course_title": "THEORY AND METHODS OF LONGITUDINAL DATA ANALYSIS",
+        "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "course_references": [
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0610"
         }
     },
     {
         "course_reference": {
-            "course_number": 541,
+            "course_number": 567,
             "subjects": [
-                "STAT",
+                "COMPSCI",
                 "BMI"
             ]
         },
-        "course_title": "INTRODUCTION TO BIOSTATISTICS",
-        "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
+        "course_title": "MEDICAL IMAGE ANALYSIS",
+        "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 551,
                     "subjects": [
-                        "POPHLTH",
-                        "BMI"
+                        "BMI",
+                        "POPHLTH"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 571,
+                    "subjects": [
+                        "STAT",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 541,
+                    "subjects": [
+                        "BMI",
+                        "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing. Not open to students with credit for STAT 511 orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
+            "prerequisites_text": "(MATH\u00a0320or340) and (STAT 511,541,POP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551,STAT\u00a0324,371, orSTAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571) or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 773,
+            "course_number": 609,
             "subjects": [
-                "BMI"
+                "BMI",
+                "BIOCHEM",
+                "MATH",
+                "BMOLCHEM"
             ]
         },
-        "course_title": "CLINICAL RESEARCH INFORMATICS",
-        "description": "Course will familiarize students with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 877,
+        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
+        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+        "optimized": {
+            "course_number": 415,
             "subjects": [
-                "STAT",
-                "BMI"
+                "MATH"
             ]
         },
-        "course_title": "STATISTICAL METHODS FOR MOLECULAR BIOLOGY",
-        "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
-        "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "course_references": [
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
         }
     },
     {
@@ -437,7 +307,12 @@
         },
         "course_title": "BIOMEDICAL DATA SCIENCE PROFESSIONAL SKILLS 2",
         "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
-        "optimized": null,
+        "optimized": {
+            "course_number": 883,
+            "subjects": [
+                "BMI"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -452,42 +327,10 @@
     },
     {
         "course_reference": {
-            "course_number": 775,
-            "subjects": [
-                "COMPSCI",
-                "BMI"
-            ]
-        },
-        "course_title": "COMPUTATIONAL NETWORK BIOLOGY",
-        "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 828,
-            "subjects": [
-                "STAT",
-                "BMI"
-            ]
-        },
-        "course_title": "SEMIPARAMETRIC METHODS IN DATA SCIENCE",
-        "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 451,
             "subjects": [
-                "POPHLTH",
-                "BMI"
+                "BMI",
+                "POPHLTH"
             ]
         },
         "course_title": "INTRODUCTION TO SAS PROGRAMMING FOR POPULATION HEALTH",
@@ -500,13 +343,110 @@
     },
     {
         "course_reference": {
-            "course_number": 883,
+            "course_number": 918,
+            "subjects": [
+                "MEDICINE",
+                "BMI"
+            ]
+        },
+        "course_title": "HEALTH INFORMATICS FOR MEDICAL STUDENTS ELECTIVE",
+        "description": "Biomedical Informatics is an interdisciplinary field that combines knowledge of information sciences and medical sciences to optimize the use and application of biomedical data across the spectrum from molecules to individuals to populations. Offers an overview of the field of health informatics by providing students with the fundamental knowledge of the concepts of health informatics and how technology can be used in the delivery of health care.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 544,
             "subjects": [
                 "BMI"
             ]
         },
-        "course_title": "BIOMEDICAL DATA SCIENCE PROFESSIONAL SKILLS 1",
-        "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
+        "course_title": "INTRODUCTION TO CLINICAL AND HEALTHCARE RESEARCH II",
+        "description": "Practical training and skills required in clinical and healthcare research; design, implementation, and conduct of clinical trials and health services research studies; protocol and informed consent development using protocol templates; regulatory requirements; human subjects research protections considerations; data and safety monitoring plans; data collection strategies and data management; strategies to recruit/retain diverse and equitable study participants; research study agreements; budget development and justification; federal, institutional, and sponsor-defined requirements; establishment of research infrastructures for participant safety and study success; preparation of investigator-INDs/IDEs; and investigator responsibilities.",
+        "optimized": {
+            "course_number": 542,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 542,
+                    "subjects": [
+                        "BMI",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0542"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 882,
+            "subjects": [
+                "BMI"
+            ]
+        },
+        "course_title": "BIOMEDICAL DATA SCIENCE SCHOLARLY LITERATURE 2",
+        "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
+        "optimized": {
+            "course_number": 881,
+            "subjects": [
+                "BMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 881,
+                    "subjects": [
+                        "BMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "B\u00a0M\u00a0I\u00a0881"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 641,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR CLINICAL TRIALS",
+        "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 775,
+            "subjects": [
+                "COMPSCI",
+                "BMI"
+            ]
+        },
+        "course_title": "COMPUTATIONAL NETWORK BIOLOGY",
+        "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -532,14 +472,13 @@
     },
     {
         "course_reference": {
-            "course_number": 918,
+            "course_number": 773,
             "subjects": [
-                "MEDICINE",
                 "BMI"
             ]
         },
-        "course_title": "HEALTH INFORMATICS FOR MEDICAL STUDENTS ELECTIVE",
-        "description": "Biomedical Informatics is an interdisciplinary field that combines knowledge of information sciences and medical sciences to optimize the use and application of biomedical data across the spectrum from molecules to individuals to populations. Offers an overview of the field of health informatics by providing students with the fundamental knowledge of the concepts of health informatics and how technology can be used in the delivery of health care.",
+        "course_title": "CLINICAL RESEARCH INFORMATICS",
+        "description": "Course will familiarize students with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -548,13 +487,13 @@
     },
     {
         "course_reference": {
-            "course_number": 573,
+            "course_number": 881,
             "subjects": [
                 "BMI"
             ]
         },
-        "course_title": "FOUNDATIONS OF DATA-DRIVEN HEALTHCARE",
-        "description": "Familiarize students with basic informatics principles and techniques to support clinical research and quality improvement studies from a perspective of data-driven approaches. Content includes information systems for study design; regulatory compliance; use of electronic health records data for research; data collection and acquisition; data security, storage, transfer, processing and analysis.",
+        "course_title": "BIOMEDICAL DATA SCIENCE SCHOLARLY LITERATURE 1",
+        "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -563,73 +502,22 @@
     },
     {
         "course_reference": {
-            "course_number": 915,
+            "course_number": 651,
             "subjects": [
-                "COMPSCI",
-                "CBE",
-                "BME",
                 "BMI",
-                "GENETICS",
-                "BIOCHEM"
+                "POPHLTH"
             ]
         },
-        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
-        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 741,
-            "subjects": [
-                "STAT",
-                "BMI"
-            ]
-        },
-        "course_title": "SURVIVAL ANALYSIS THEORY AND METHODS",
-        "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 899,
-            "subjects": [
-                "BMI"
-            ]
-        },
-        "course_title": "PRE-DISSERTATOR RESEARCH",
-        "description": "Pre-dissertator Research. Course is open to pre-dissertator students only.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 652,
-            "subjects": [
-                "POPHLTH",
-                "BMI"
-            ]
-        },
-        "course_title": "TOPICS IN BIOSTATISTICS FOR EPIDEMIOLOGY",
-        "description": "Each module will adopt an in-depth focus on a biostatistical method of particular relevance to epidemiology such as measurement error, missing data, intermediate variables, complex study designs, meta-analysis, splines, propensity scores, causal inference, spatial statistics and resampling. One or more modules will be offered every spring semester.",
+        "course_title": "ADVANCED REGRESSION METHODS FOR POPULATION HEALTH",
+        "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 552,
                     "subjects": [
-                        "POPHLTH",
-                        "BMI"
+                        "BMI",
+                        "POPHLTH"
                     ]
                 }
             ],
@@ -654,14 +542,14 @@
     },
     {
         "course_reference": {
-            "course_number": 551,
+            "course_number": 767,
             "subjects": [
-                "POPHLTH",
+                "COMPSCI",
                 "BMI"
             ]
         },
-        "course_title": "INTRODUCTION TO BIOSTATISTICS FOR POPULATION HEALTH",
-        "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+        "course_title": "COMPUTATIONAL METHODS FOR MEDICAL IMAGE ANALYSIS",
+        "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -670,25 +558,34 @@
     },
     {
         "course_reference": {
-            "course_number": 727,
+            "course_number": 800,
             "subjects": [
-                "STAT",
                 "BMI"
             ]
         },
-        "course_title": "THEORY AND METHODS OF LONGITUDINAL DATA ANALYSIS",
-        "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
+        "course_title": "BECOMING A BIOMEDICAL DATA SCIENTIST",
+        "description": "Learn how to conduct research as an interdisciplinary scientist at the interface of biomedical sciences and data science. Consider the diverse career trajectories available to an individual scientist. Gain an overview of problems in the field, approaches and practices in biomedical research, and different examples of approaches and paths taken from conceptualization to implementation of computational/statistical/data science tools to address specific biomedical research problems.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT\u00a0610"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 841,
+            "subjects": [
+                "PSYCH",
+                "COMPSCI",
+                "BMI"
+            ]
+        },
+        "course_title": "COMPUTATIONAL COGNITIVE SCIENCE",
+        "description": "Studies the biological and computational basis of intelligence, by combining methods from cognitive science, artificial intelligence, machine learning, computational biology, and cognitive neuroscience. Requires ability to program.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -715,6 +612,12 @@
                     ]
                 },
                 {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
                     "course_number": 813,
                     "subjects": [
                         "MEDSC-M"
@@ -725,15 +628,88 @@
                     "subjects": [
                         "MEDSC-M"
                     ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
                 }
             ],
             "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 883,
+            "subjects": [
+                "BMI"
+            ]
+        },
+        "course_title": "BIOMEDICAL DATA SCIENCE PROFESSIONAL SKILLS 1",
+        "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 573,
+            "subjects": [
+                "BMI"
+            ]
+        },
+        "course_title": "FOUNDATIONS OF DATA-DRIVEN HEALTHCARE",
+        "description": "Familiarize students with basic informatics principles and techniques to support clinical research and quality improvement studies from a perspective of data-driven approaches. Content includes information systems for study design; regulatory compliance; use of electronic health records data for research; data collection and acquisition; data security, storage, transfer, processing and analysis.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 609,
+            "subjects": [
+                "BMOLCHEM",
+                "BMI",
+                "MATH",
+                "BIOCHEM"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
+        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
         }
     },
     {
@@ -753,77 +729,48 @@
     },
     {
         "course_reference": {
-            "course_number": 641,
+            "course_number": 699,
             "subjects": [
-                "STAT",
                 "BMI"
             ]
         },
-        "course_title": "STATISTICAL METHODS FOR CLINICAL TRIALS",
-        "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Directed study to pursue knowledge beyond curriculum.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 882,
+            "course_number": 552,
             "subjects": [
-                "BMI"
+                "BMI",
+                "POPHLTH"
             ]
         },
-        "course_title": "BIOMEDICAL DATA SCIENCE SCHOLARLY LITERATURE 2",
-        "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
+        "course_title": "REGRESSION METHODS FOR POPULATION HEALTH",
+        "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 881,
+                    "course_number": 551,
                     "subjects": [
-                        "BMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "B\u00a0M\u00a0I\u00a0881"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "STAT",
-                "BMI"
-            ]
-        },
-        "course_title": "STATISTICS IN HUMAN GENETICS",
-        "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
+                        "BMI",
+                        "POPHLTH"
                     ]
                 },
                 {
-                    "course_number": 333,
+                    "course_number": 541,
                     "subjects": [
+                        "BMI",
                         "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "STAT\u00a0333,340, or graduate/professional standing"
+            "prerequisites_text": "STAT/\u200bB\u00a0M\u00a0I\u00a0\u00a0541orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
         }
     },
     {
@@ -840,7 +787,7 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 400,
+                    "course_number": 320,
                     "subjects": [
                         "COMPSCI"
                     ]
@@ -852,7 +799,7 @@
                     ]
                 },
                 {
-                    "course_number": 320,
+                    "course_number": 400,
                     "subjects": [
                         "COMPSCI"
                     ]
@@ -863,16 +810,67 @@
     },
     {
         "course_reference": {
-            "course_number": 722,
+            "course_number": 642,
             "subjects": [
-                "COMPSCI",
-                "ECE",
-                "MEDPHYS",
-                "BMI"
+                "BMI",
+                "STAT"
             ]
         },
-        "course_title": "COMPUTATIONAL OPTICS AND IMAGING",
-        "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+        "course_title": "STATISTICAL METHODS FOR EPIDEMIOLOGY",
+        "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0310or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICS IN HUMAN GENETICS",
+        "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0333,340, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 694,
+            "subjects": [
+                "BMI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "APPLIED BIOMEDICAL INFORMATICS & REAL-WORLD DATA FOR PRECISION MEDICINE & POPULATION HEALTH",
+        "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -881,13 +879,37 @@
     },
     {
         "course_reference": {
-            "course_number": 881,
+            "course_number": 617,
             "subjects": [
-                "BMI"
+                "BMI",
+                "ISYE"
             ]
         },
-        "course_title": "BIOMEDICAL DATA SCIENCE SCHOLARLY LITERATURE 1",
-        "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
+        "course_title": "HEALTH INFORMATION SYSTEMS",
+        "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 417,
+                    "subjects": [
+                        "ISYE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "I\u00a0SY\u00a0E\u00a0417, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 768,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "STATISTICAL METHODS FOR MEDICAL IMAGE ANALYSIS",
+        "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -911,14 +933,14 @@
     },
     {
         "course_reference": {
-            "course_number": 767,
+            "course_number": 828,
             "subjects": [
-                "COMPSCI",
-                "BMI"
+                "BMI",
+                "STAT"
             ]
         },
-        "course_title": "COMPUTATIONAL METHODS FOR MEDICAL IMAGE ANALYSIS",
-        "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
+        "course_title": "SEMIPARAMETRIC METHODS IN DATA SCIENCE",
+        "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -927,17 +949,82 @@
     },
     {
         "course_reference": {
-            "course_number": 738,
+            "course_number": 541,
             "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO BIOSTATISTICS",
+        "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 551,
+                    "subjects": [
+                        "BMI",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing. Not open to students with credit for STAT 511 orPOP\u00a0HLTH/\u200bB\u00a0M\u00a0I\u00a0\u00a0551"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 643,
+            "subjects": [
+                "BMI",
+                "STAT"
+            ]
+        },
+        "course_title": "CLINICAL TRIAL DESIGN, IMPLEMENTATION, AND ANALYSIS",
+        "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 641,
+                    "subjects": [
+                        "BMI",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 609,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "STAT\u00a0609,610,B\u00a0M\u00a0I/\u200bSTAT\u00a0\u00a0641, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 915,
+            "subjects": [
+                "CBE",
+                "BIOCHEM",
+                "BME",
+                "GENETICS",
+                "COMPSCI",
                 "BMI"
             ]
         },
-        "course_title": "ETHICS FOR DATA SCIENTISTS",
-        "description": "Designed to educate data scientists, particularly those who work with biomedical data, about ethical and regulatory issues that may arise in the course of their research and professional interactions.",
+        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
+        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

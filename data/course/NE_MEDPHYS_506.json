@@ -9,26 +9,19 @@
     "course_title": "MONTE CARLO RADIATION TRANSPORT",
     "description": "Use of Monte Carlo technique for applications in nuclear engineering and medical physics. Major theory of Monte Carlo neutral particle transport is discussed. Standard Monte Carlo transport software is used for exercises and projects. Major emphasis is on analysis of real-world problems.",
     "optimized": {
-        "course_number": 501,
+        "course_number": 569,
         "subjects": [
-            "MEDPHYS",
-            "PHYSICS",
-            "HONCOL",
-            "BME"
+            "NE",
+            "MEDPHYS"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 305,
+                "course_number": 569,
                 "subjects": [
-                    "NE"
-                ]
-            },
-            {
-                "course_number": 405,
-                "subjects": [
-                    "NE"
+                    "NE",
+                    "MEDPHYS"
                 ]
             },
             {
@@ -40,16 +33,21 @@
             {
                 "course_number": 501,
                 "subjects": [
-                    "MEDPHYS",
-                    "PHYSICS",
                     "HONCOL",
-                    "BME"
+                    "BME",
+                    "PHYSICS",
+                    "MEDPHYS"
                 ]
             },
             {
-                "course_number": 569,
+                "course_number": 305,
                 "subjects": [
-                    "MEDPHYS",
+                    "NE"
+                ]
+            },
+            {
+                "course_number": 405,
+                "subjects": [
                     "NE"
                 ]
             }

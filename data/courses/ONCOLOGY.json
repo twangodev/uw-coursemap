@@ -1,21 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 675,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "ADVANCED OR SPECIAL TOPICS IN CANCER RESEARCH",
-        "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 778,
             "subjects": [
                 "ONCOLOGY"
@@ -46,21 +31,18 @@
     },
     {
         "course_reference": {
-            "course_number": 640,
+            "course_number": 625,
             "subjects": [
-                "MM&I",
+                "PHMSCI",
                 "ONCOLOGY",
-                "PLPATH"
+                "POPHLTH",
+                "M&ENVTOX",
+                "PHMCOL-M"
             ]
         },
-        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
-        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-        "optimized": {
-            "course_number": 467,
-            "subjects": [
-                "GENETICS"
-            ]
-        },
+        "course_title": "TOXICOLOGY I",
+        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -70,9 +52,27 @@
                     ]
                 },
                 {
-                    "course_number": 466,
+                    "course_number": 404,
                     "subjects": [
-                        "GENETICS"
+                        "PATH"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
                     ]
                 },
                 {
@@ -82,207 +82,13 @@
                     ]
                 },
                 {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 745,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
-        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 545,
-            "subjects": [
-                "MICROBIO",
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "TOPICS IN BIOTECHNOLOGY",
-        "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
-        "optimized": {
-            "course_number": 151,
-            "subjects": [
-                "ZOOLOGY",
-                "BIOLOGY",
-                "BOTANY"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 383,
+                    "course_number": 486,
                     "subjects": [
                         "BIOCORE"
                     ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
                 }
             ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 545,
-            "subjects": [
-                "ONCOLOGY",
-                "MICROBIO"
-            ]
-        },
-        "course_title": "TOPICS IN BIOTECHNOLOGY",
-        "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
-        "optimized": {
-            "course_number": 151,
-            "subjects": [
-                "ZOOLOGY",
-                "BIOLOGY",
-                "BOTANY"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 401,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EXPERIMENTAL ONCOLOGY",
-        "description": "Biological processes associated with and characteristic of neoplasia.",
-        "optimized": {
-            "course_number": 151,
-            "subjects": [
-                "ZOOLOGY",
-                "BIOLOGY",
-                "BOTANY"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
         }
     },
     {
@@ -302,208 +108,16 @@
     },
     {
         "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "READINGS IN CANCER BIOLOGY",
-        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 640,
             "subjects": [
-                "PLPATH",
-                "ONCOLOGY",
-                "MM&I"
-            ]
-        },
-        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
-        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-        "optimized": {
-            "course_number": 467,
-            "subjects": [
-                "GENETICS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "SEMINAR",
-        "description": "Critical review of selected topics in cancer research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 673,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "PURIFICATION AND CHARACTERIZATION OF PROTEIN AND PROTEIN COMPLEXES",
-        "description": "The theory and practice of protein purification. Topics covered include conventional and recent protein fractionation techniques; enzyme assays, handling, and characterization; purification strategy; and overproduction of cloned gene products. The emphasis is on micro and laboratory scale purifications.",
-        "optimized": {
-            "course_number": 508,
-            "subjects": [
-                "BIOCHEM"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 511,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 735,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
-        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "PHMSCI",
-                "ONCOLOGY",
-                "PHMCOL-M",
-                "M&ENVTOX",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "TOXICOLOGY I",
-        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "PLPATH",
                 "MM&I",
-                "ONCOLOGY"
+                "ONCOLOGY",
+                "PLPATH"
             ]
         },
         "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
         "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-        "optimized": {
-            "course_number": 467,
-            "subjects": [
-                "GENETICS"
-            ]
-        },
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
@@ -513,15 +127,15 @@
                     ]
                 },
                 {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
                     "course_number": 508,
                     "subjects": [
                         "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
                     ]
                 },
                 {
@@ -551,6 +165,150 @@
     },
     {
         "course_reference": {
+            "course_number": 673,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "PURIFICATION AND CHARACTERIZATION OF PROTEIN AND PROTEIN COMPLEXES",
+        "description": "The theory and practice of protein purification. Topics covered include conventional and recent protein fractionation techniques; enzyme assays, handling, and characterization; purification strategy; and overproduction of cloned gene products. The emphasis is on micro and laboratory scale purifications.",
+        "optimized": {
+            "course_number": 508,
+            "subjects": [
+                "BIOCHEM"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 511,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "READINGS IN CANCER BIOLOGY",
+        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Critical review of selected topics in cancer research.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 675,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "ADVANCED OR SPECIAL TOPICS IN CANCER RESEARCH",
+        "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EXPERIMENTAL ONCOLOGY",
+        "description": "Biological processes associated with and characteristic of neoplasia.",
+        "optimized": {
+            "course_number": 151,
+            "subjects": [
+                "BIOLOGY",
+                "ZOOLOGY",
+                "BOTANY"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 735,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
+        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 990,
             "subjects": [
                 "ONCOLOGY"
@@ -558,6 +316,78 @@
         },
         "course_title": "RESEARCH",
         "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 545,
+            "subjects": [
+                "MICROBIO",
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "TOPICS IN BIOTECHNOLOGY",
+        "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 745,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
+        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],

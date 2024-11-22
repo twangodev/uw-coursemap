@@ -1,67 +1,51 @@
 [
     {
         "course_reference": {
-            "course_number": 565,
+            "course_number": 708,
             "subjects": [
-                "MDGENET",
-                "GENETICS"
+                "GENETICS",
+                "MDGENET"
             ]
         },
-        "course_title": "HUMAN GENETICS",
-        "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
+        "course_title": "METHODS AND LOGIC IN GENETIC ANALYSIS",
+        "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 587,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GENETICS\u00a0466,468,BIOCORE\u00a0587, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Declared in Genetics graduate program"
         }
     },
     {
         "course_reference": {
-            "course_number": 620,
+            "course_number": 636,
             "subjects": [
                 "MDGENET",
                 "GENETICS",
-                "BIOCHEM"
+                "POPHLTH"
             ]
         },
-        "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
-        "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
-        "optimized": null,
+        "course_title": "PUBLIC HEALTH GENOMICS",
+        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+        "optimized": {
+            "course_number": 151,
+            "subjects": [
+                "BIOLOGY",
+                "ZOOLOGY",
+                "BOTANY"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 508,
+                    "course_number": 151,
                     "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "BIOCHEM\u00a0501,508or graduate/professional standing"
+            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
         }
     },
     {
@@ -81,19 +65,25 @@
     },
     {
         "course_reference": {
-            "course_number": 662,
+            "course_number": 565,
             "subjects": [
-                "MDGENET",
-                "GENETICS"
+                "GENETICS",
+                "MDGENET"
             ]
         },
-        "course_title": "CANCER GENETICS",
-        "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
+        "course_title": "HUMAN GENETICS",
+        "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 383,
+                    "course_number": 468,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 587,
                     "subjects": [
                         "BIOCORE"
                     ]
@@ -103,31 +93,81 @@
                     "subjects": [
                         "GENETICS"
                     ]
-                },
-                {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
                 }
             ],
-            "prerequisites_text": "GENETICS\u00a0466,467orBIOCORE\u00a0383"
+            "prerequisites_text": "GENETICS\u00a0466,468,BIOCORE\u00a0587, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 708,
+            "course_number": 620,
             "subjects": [
-                "MDGENET",
-                "GENETICS"
+                "GENETICS",
+                "BIOCHEM",
+                "MDGENET"
             ]
         },
-        "course_title": "METHODS AND LOGIC IN GENETIC ANALYSIS",
-        "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
+        "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
+        "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCHEM\u00a0501,508or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 707,
+            "subjects": [
+                "GENETICS",
+                "MDGENET"
+            ]
+        },
+        "course_title": "GENETICS OF DEVELOPMENT",
+        "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Genetics graduate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 636,
+            "subjects": [
+                "GENETICS",
+                "POPHLTH",
+                "MDGENET"
+            ]
+        },
+        "course_title": "PUBLIC HEALTH GENOMICS",
+        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
         }
     },
     {
@@ -147,52 +187,10 @@
     },
     {
         "course_reference": {
-            "course_number": 636,
-            "subjects": [
-                "MDGENET",
-                "GENETICS",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PUBLIC HEALTH GENOMICS",
-        "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Junior standing andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 707,
-            "subjects": [
-                "MDGENET",
-                "GENETICS"
-            ]
-        },
-        "course_title": "GENETICS OF DEVELOPMENT",
-        "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Genetics graduate program"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 677,
             "subjects": [
-                "MDGENET",
-                "GENETICS"
+                "GENETICS",
+                "MDGENET"
             ]
         },
         "course_title": "ADVANCED TOPICS IN GENETICS",
@@ -201,9 +199,9 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 383,
+                    "course_number": 468,
                     "subjects": [
-                        "BIOCORE"
+                        "GENETICS"
                     ]
                 },
                 {
@@ -213,9 +211,9 @@
                     ]
                 },
                 {
-                    "course_number": 468,
+                    "course_number": 383,
                     "subjects": [
-                        "GENETICS"
+                        "BIOCORE"
                     ]
                 }
             ],
@@ -246,6 +244,12 @@
                     ]
                 },
                 {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
                     "course_number": 813,
                     "subjects": [
                         "MEDSC-M"
@@ -256,15 +260,44 @@
                     "subjects": [
                         "MEDSC-M"
                     ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
                 }
             ],
             "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 662,
+            "subjects": [
+                "GENETICS",
+                "MDGENET"
+            ]
+        },
+        "course_title": "CANCER GENETICS",
+        "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 467,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GENETICS\u00a0466,467orBIOCORE\u00a0383"
         }
     }
 ]

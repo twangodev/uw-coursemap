@@ -1,71 +1,20 @@
 [
     {
         "data": {
-            "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
-            "id": "ZOOLOGY/NTP 620"
+            "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
+            "id": "NEURODPT/NTP 610"
         }
     },
     {
         "data": {
-            "source": "ZOOLOGY/PSYCH 523",
-            "target": "NTP 677"
+            "source": "NEURODPT/NTP 610",
+            "target": "PSYCH/NEURODPT/NTP 611"
         }
     },
     {
         "data": {
-            "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
-            "id": "NTP/ANTHRO/ZOOLOGY/PSYCH 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
-            "id": "NTP/NEURODPT/PSYCH 611"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
-            "id": "NTP 700",
-            "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "description": "Sleep occupies a third of our life, is found in all animal species carefully studied so far, and loss of sleep has both acute and long- term negative consequences on the brain and the body. Still, why we sleep remains unclear, and hypotheses on the role of sleep for synaptic homeostasis, learning and memory are being tested. Focuses on the neurobiology of sleep, with detailed review of the brain structures involved in controlling wake and sleep, as well as the circadian and homeostatic regulation of sleep. Other topics include changes in sleep need with age, animal models to study sleep, sleep disorders, and genetics of sleep.",
-            "id": "NTP 677",
-            "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "id": "PSYCH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "NTP 990",
-            "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
-            "id": "NTP/MEDPHYS 651"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 202",
-            "target": "PSYCH 454"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
@@ -76,70 +25,28 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY/BIOLOGY/BOTANY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical review of selected topics in neurobiology.",
-            "id": "NTP 900",
-            "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY/BIOLOGY/BOTANY 151",
-            "target": "ZOOLOGY/PSYCH 523"
-        }
-    },
-    {
-        "data": {
-            "source": "NTP/NEURODPT/PSYCH 611",
-            "target": "NTP 660"
-        }
-    },
-    {
-        "data": {
-            "id": "NTP",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "ZOOLOGY/BIOLOGY/BOTANY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar course relating major categories of human neurological and opthalmological disease to fundamental topics in neurobiology.",
-            "id": "NTP 735",
-            "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
-            "id": "NTP/NEURODPT 610"
-        }
-    },
-    {
-        "data": {
             "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
             "id": "NTP 660",
+            "parent": "NTP"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
+            "id": "PSYCH/ZOOLOGY 523"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "NTP 675",
+            "parent": "NTP"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "NTP 990",
             "parent": "NTP"
         }
     },
@@ -152,64 +59,33 @@
     },
     {
         "data": {
-            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
-            "id": "NTP/NEURODPT/ZOOLOGY 765"
+            "id": "NTP",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "NEURODPT/NTP 610"
         }
     },
     {
         "data": {
-            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
-            "id": "ZOOLOGY/PSYCH 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
-            "id": "PSYCH 202",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 454",
-            "target": "NTP 666"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "NTP 675",
+            "description": "Critical review of selected topics in neurobiology.",
+            "id": "NTP 900",
             "parent": "NTP"
-        }
-    },
-    {
-        "data": {
-            "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
-            "id": "NTP/PSYCH/ZOOLOGY/ANTHRO 619"
-        }
-    },
-    {
-        "data": {
-            "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
-            "id": "NTP/ZOOLOGY 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
-            "id": "ZOOLOGY/NTP/ANTHRO/PSYCH 619"
         }
     },
     {
         "data": {
             "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
             "id": "ZOOLOGY/NTP/NEURODPT 765"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -221,14 +97,89 @@
     },
     {
         "data": {
-            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
-            "id": "NTP/NEURODPT 640"
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "PSYCH/ZOOLOGY 523"
         }
     },
     {
         "data": {
-            "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
-            "id": "NTP/NEURODPT 629"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH 202",
+            "target": "PSYCH 454"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+            "id": "ZOOLOGY/NEURODPT/NTP 765"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
+            "id": "NTP 700",
+            "parent": "NTP"
+        }
+    },
+    {
+        "data": {
+            "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+            "id": "ANTHRO/PSYCH/ZOOLOGY/NTP 619"
+        }
+    },
+    {
+        "data": {
+            "id": "PSYCH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
+            "id": "PSYCH/NEURODPT/NTP 611"
+        }
+    },
+    {
+        "data": {
+            "source": "NEURODPT/NTP 610",
+            "target": "NTP 735"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Sleep occupies a third of our life, is found in all animal species carefully studied so far, and loss of sleep has both acute and long- term negative consequences on the brain and the body. Still, why we sleep remains unclear, and hypotheses on the role of sleep for synaptic homeostasis, learning and memory are being tested. Focuses on the neurobiology of sleep, with detailed review of the brain structures involved in controlling wake and sleep, as well as the circadian and homeostatic regulation of sleep. Other topics include changes in sleep need with age, animal models to study sleep, sleep disorders, and genetics of sleep.",
+            "id": "NTP 677",
+            "parent": "NTP"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH 454",
+            "target": "NTP 666"
+        }
+    },
+    {
+        "data": {
+            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
+            "id": "PSYCH 202",
+            "parent": "PSYCH"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "NTP 677"
         }
     },
     {
@@ -236,6 +187,43 @@
             "description": "Biological basis of human and animal behaviors, including perception, action, cognition, social interaction and disease. Weekly themes from \"Cracking the Neural Code\" to \"Love and War\". Learn, develop and use neural mechanisms to explain and (attempt to) predict what they and others think and do in all facets of life.",
             "id": "PSYCH 454",
             "parent": "PSYCH"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar course relating major categories of human neurological and opthalmological disease to fundamental topics in neurobiology.",
+            "id": "NTP 735",
+            "parent": "NTP"
+        }
+    },
+    {
+        "data": {
+            "description": "A group discussion of primary literature articles relevant to the neural basis of behavior with a purpose to understand the neural basis of behavior in animals, to learn to read papers critically and improve discussion leading skills.",
+            "id": "ZOOLOGY/NTP 620"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
+            "id": "MEDPHYS/NTP 651"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+            "id": "NEURODPT/NTP 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
+            "id": "NEURODPT/NTP 629"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH/NEURODPT/NTP 611",
+            "target": "NTP 660"
         }
     }
 ]

@@ -1,6 +1,36 @@
 [
     {
         "course_reference": {
+            "course_number": 910,
+            "subjects": [
+                "OPHTHALM"
+            ]
+        },
+        "course_title": "INDEPENDENT READING AND RESEARCH FOR FOURTH YEAR MEDICAL STUDENTS",
+        "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "OPHTHALM"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 911,
             "subjects": [
                 "OPHTHALM"
@@ -23,6 +53,12 @@
                     ]
                 },
                 {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
                     "course_number": 813,
                     "subjects": [
                         "MEDSC-M"
@@ -33,45 +69,9 @@
                     "subjects": [
                         "MEDSC-M"
                     ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
                 }
             ],
             "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "OPHTHALM"
-            ]
-        },
-        "course_title": "OCULAR DISEASES OF THE MAMMALIAN VISION SYSTEM",
-        "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 910,
-            "subjects": [
-                "OPHTHALM"
-            ]
-        },
-        "course_title": "INDEPENDENT READING AND RESEARCH FOR FOURTH YEAR MEDICAL STUDENTS",
-        "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -91,17 +91,17 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 750,
             "subjects": [
                 "OPHTHALM"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with faculty member.",
+        "course_title": "OCULAR DISEASES OF THE MAMMALIAN VISION SYSTEM",
+        "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

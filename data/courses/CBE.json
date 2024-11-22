@@ -1,35 +1,229 @@
 [
     {
         "course_reference": {
-            "course_number": 250,
+            "course_number": 747,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "PROCESS SYNTHESIS",
-        "description": "An introduction to the invention of processes for the large scale, low cost processing of materials such as water, chemicals, petroleum products, food, drugs and wastes.",
-        "optimized": {
-            "course_number": 329,
+        "course_title": "ADVANCED COLLOID AND INTERFACE SCIENCE",
+        "description": "Advanced topics in colloid and interface science. Topics include: intermolecular forces, stability of thin films, association colloids, liquid crystals, microhydrodynamics, electrostatics, electrokinetics, colloidal stability, and dispersion rheology.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 430,
             "subjects": [
-                "CHEM"
+                "CBE"
+            ]
+        },
+        "course_title": "CHEMICAL KINETICS AND REACTOR DESIGN",
+        "description": "Analysis and interpretation of kinetic data and catalytic phenomena; application of basic engineering principles to chemical reactor design.",
+        "optimized": {
+            "course_number": 311,
+            "subjects": [
+                "CBE"
             ]
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 116,
+                    "course_number": 311,
                     "subjects": [
-                        "CHEM"
+                        "CBE"
                     ]
                 },
                 {
-                    "course_number": 329,
+                    "course_number": 320,
                     "subjects": [
-                        "CHEM"
+                        "CBE"
                     ]
                 }
             ],
-            "prerequisites_text": "CHEM\u00a0116,329, or concurrent enrollment"
+            "prerequisites_text": "CBE\u00a0311and320"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 525,
+            "subjects": [
+                "CBE",
+                "ME"
+            ]
+        },
+        "course_title": "MACROMOLECULAR HYDRODYNAMICS",
+        "description": "Observed phenomena in polymeric flow systems. Techniques of viscometry and viscoelastic measurements for polymeric fluids. Rheological models. Analytical solutions to flow problems: non-Newtonian viscosity, linear viscoelasticity, normal stresses, recoil, stress relaxation, etc. Dimensional analysis. Unit operations of the polymer industry: extrusion, blow molding, injection molding, mixing.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 363,
+                    "subjects": [
+                        "ME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "M\u00a0E\u00a0363,CBE\u00a0320, member of Engineering Guest Students, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 320,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INTRODUCTORY TRANSPORT PHENOMENA",
+        "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
+        "optimized": {
+            "course_number": 201,
+            "subjects": [
+                "PHYSICS"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 376,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 319,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0201,207,247, orE\u00a0M\u00a0A\u00a0201) and (MATH\u00a0319,320or376), or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 555,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "SEMINAR-CHEMICAL ENGINEERING CONNECTIONS",
+        "description": "Considers a variety of current engineering applications and problems. Investigate background information on topics of their choice, and present seminars to describe how engineering fundamentals interact with societal impact and how chemical engineering is relevant to societal concerns at large.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 538,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "PROCESSES FOR THE PRODUCTION OF RENEWABLE FUELS AND CHEMICALS FROM BIOMASS",
+        "description": "Various options for conversion of biomass into fuels and chemicals.  Evaluation of different biofuel technologies from a chemical engineering perspective, and a holistic overview of the current technical, legal, business, and financial challenges, and opportunities for the production of fuels and chemicals from biomass.  Several case studies on biomass conversion provide an overview of how technology is developed.",
+        "optimized": {
+            "course_number": 250,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 250,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0250and310, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "PROCESS DESIGN",
+        "description": "Analysis and design of chemical processing systems and equipment.",
+        "optimized": {
+            "course_number": 430,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 430,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 326,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 426,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0326,426, and430"
         }
     },
     {
@@ -50,25 +244,168 @@
     },
     {
         "course_reference": {
-            "course_number": 361,
+            "course_number": 554,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "BIOMOLECULAR ENGINEERING LABORATORY",
-        "description": "Instruction and laboratory experiments in basic molecular biology techniques, recombinant protein production, fermentation processes, protein purification and characterization, and related bioengineering laboratory topics. Geared towards those with interests in biotechnology and synthetic biology.",
+        "course_title": "CHEMICAL ENGINEERING AND THE COMMUNITY",
+        "description": "Connect with a local community through the development and implementation of two research based hands-on inquiry engineering demonstrations for middle school level after-school science programs.",
         "optimized": {
-            "course_number": 153,
+            "course_number": 250,
             "subjects": [
-                "ZOOLOGY"
+                "CBE"
             ]
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 381,
+                    "course_number": 250,
                     "subjects": [
-                        "BIOCORE"
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0250"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 777,
+            "subjects": [
+                "ECE",
+                "CBE",
+                "MATH"
+            ]
+        },
+        "course_title": "NONLINEAR DYNAMICS, BIFURCATIONS AND CHAOS",
+        "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ADVANCED CHEMICAL ENGINEERING THERMODYNAMICS",
+        "description": "Application of thermodynamic principles to selected topics, including equations of state, non-ideal solutions, and complex physical and chemical equilibria.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 541,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "PLASTICS AND HIGH POLYMER LABORATORY",
+        "description": "Experiments on polymerization, fabrication, and testing of plastics.",
+        "optimized": {
+            "course_number": 540,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 664,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 540,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 345,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 344,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0344,345, and (CBE\u00a0540,CHEM\u00a0664, or concurrent enrollment), or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INSTRUMENTAL ANALYSIS FOR CHEMICAL ENGINEERS",
+        "description": "Instrumental methods as applied to chemical and physical processes in chemical engineering. Spectroscopic, optical, and electrochemical methods; chromatography, differential thermal analysis, and microscopy.",
+        "optimized": {
+            "course_number": 324,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0324or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ADVANCED CHEMICAL PROCESS SYNTHESIS AND OPTIMIZATION",
+        "description": "Methodologies for synthesis and optimization of chemical process systems. Application of linear, nonlinear, and mixed integer programming to steady state process optimization, production planning, and flowsheet synthesis.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 560,
+            "subjects": [
+                "CBE",
+                "BME"
+            ]
+        },
+        "course_title": "BIOCHEMICAL ENGINEERING",
+        "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -80,96 +417,41 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
                         "BIOLOGY",
+                        "ZOOLOGY",
                         "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153,BIOCORE\u00a0381, or member of Engineering Guest Students"
+            "prerequisites_text": "Junior standing and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 150,
+            "course_number": 731,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "INTRODUCTION TO CHEMICAL ENGINEERING",
-        "description": "Overview of the field of chemical engineering, including types of careers, industries, and skills required for successful completion of the degree and entry into the chemical engineering profession.",
+        "course_title": "COMPUTATIONAL MODELLING OF REACTIVE SYSTEMS",
+        "description": "Principles of computer-aided modelling of chemical reaction systems. Formulation, numerical solution and sensitivity analysis of reactor models. Bayesian estimation of parameters. Iterative strategies for model development. Structure and use of related software.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 547,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO COLLOID AND INTERFACE SCIENCE",
-        "description": "Introduction to topics in colloid and interface science, including sedimentation and diffusion, solution thermodynamics, rheology, light scattering, surface tension and contact angle, adsorption, association colloids, particle interactions, electrokinetics, and colloidal stability.",
-        "optimized": {
-            "course_number": 311,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 561,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 562,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CBE\u00a0311,CHEM\u00a0561, or562), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 567,
-            "subjects": [
-                "CBE",
-                "ME"
-            ]
-        },
-        "course_title": "SOLAR ENERGY TECHNOLOGY",
-        "description": "Radiant energy transfer and its application to solar exchangers; energy balances for solar exchangers, review of theory, economics, and practice of solar energy applications.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 364,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 326,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(M\u00a0E\u00a0364,CBE\u00a0326, or concurrent enrollment), or graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -185,6 +467,144 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDIES",
+        "description": "",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "CHEMICAL PROCESS THERMODYNAMICS",
+        "description": "Introduction to thermodynamics, energy balances, applications to steady state and unsteady state processes, behavior of pure fluids, chemical reaction equilibria.",
+        "optimized": {
+            "course_number": 255,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "ME"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 376,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 250,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 234,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 255,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0234or376), (PHYSICS\u00a0201,207,247,E\u00a0M\u00a0A\u00a0202orM\u00a0E\u00a0240),CBE\u00a0250, and (CBE\u00a0255or concurrent enrollment), or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 326,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "MOMENTUM AND HEAT TRANSFER OPERATIONS",
+        "description": "Analysis of chemical engineering operations involving fluid flow and heat transfer. Flow of fluids through ducts and porous media; motion of particulate matter in fluids; general design and operation of fluid-flow equipment. Conductive, convective and radiative heat exchange with and without phase change; general design and operation of heat-exchange equipment.",
+        "optimized": {
+            "course_number": 320,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CBE\u00a0310and320) or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 562,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN CHEMICAL ENGINEERING",
+        "description": "Topics of specialized interest to majors in chemical engineering. Given on demand.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
         }
     },
     {
@@ -205,13 +625,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 426,
+                    "course_number": 324,
                     "subjects": [
                         "CBE"
                     ]
                 },
                 {
-                    "course_number": 324,
+                    "course_number": 430,
                     "subjects": [
                         "CBE"
                     ]
@@ -223,7 +643,7 @@
                     ]
                 },
                 {
-                    "course_number": 430,
+                    "course_number": 426,
                     "subjects": [
                         "CBE"
                     ]
@@ -234,28 +654,13 @@
     },
     {
         "course_reference": {
-            "course_number": 735,
+            "course_number": 660,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "KINETICS AND CATALYSIS",
-        "description": "Survey of kinetic principles and factors which influence reaction rates, with particular emphasis on catalysts and catalytic reactions. May include a seminar on modern catalytic research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INTERMEDIATE TRANSPORT PHENOMENA",
-        "description": "Mass, momentum, and energy transport; kinetic theory of transport properties; analytical and approximate solutions to the equations of change; boundary layer theory; turbulence; simultaneous heat and mass transfer; multicomponent diffusion.",
+        "course_title": "INTERMEDIATE PROBLEMS IN CHEMICAL ENGINEERING",
+        "description": "Illustrations of solving chemical engineering problems by using a variety of mathematical topics such as ordinary and partial differential equations, Laplace transform, Bessel functions, matrices, and tensor analysis. Problem formulation and interpretation of results emphasized.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -264,15 +669,15 @@
     },
     {
         "course_reference": {
-            "course_number": 470,
+            "course_number": 720,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "PROCESS DYNAMICS AND CONTROL",
-        "description": "A systematic introduction to dynamic behavior and automatic control of industrial processes; lab includes instrumentation, measurement and control of process variables by using conventional hardware and real-time digital computers.",
+        "course_title": "MICROHYDRODYNAMICS, BROWNIAN MOTION, AND COMPLEX FLUIDS",
+        "description": "Foundations for understanding microscale flow and transport phenomena in multiphase and complex fluids, as well as tools for modeling and simulation of their dynamics.",
         "optimized": {
-            "course_number": 430,
+            "course_number": 620,
             "subjects": [
                 "CBE"
             ]
@@ -280,19 +685,19 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 326,
+                    "course_number": 620,
                     "subjects": [
                         "CBE"
                     ]
                 },
                 {
-                    "course_number": 430,
+                    "course_number": 660,
                     "subjects": [
                         "CBE"
                     ]
                 }
             ],
-            "prerequisites_text": "CBE\u00a0326and (CBE\u00a0430or concurrent enrollment)"
+            "prerequisites_text": "CBE\u00a0620and660"
         }
     },
     {
@@ -304,6 +709,130 @@
         },
         "course_title": "MASTER'S RESEARCH OR THESIS",
         "description": "Directed study projects arranged with instructor.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 505,
+            "subjects": [
+                "CBE",
+                "CHEM"
+            ]
+        },
+        "course_title": "ASPECTS OF INDUSTRIAL CHEMISTRY AND BUSINESS FUNDAMENTALS",
+        "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 345,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing andCHEM\u00a0345, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 361,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "BIOMOLECULAR ENGINEERING LABORATORY",
+        "description": "Instruction and laboratory experiments in basic molecular biology techniques, recombinant protein production, fermentation processes, protein purification and characterization, and related bioengineering laboratory topics. Geared towards those with interests in biotechnology and synthetic biology.",
+        "optimized": {
+            "course_number": 153,
+            "subjects": [
+                "ZOOLOGY"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153,BIOCORE\u00a0381, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 255,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO CHEMICAL PROCESS MODELING",
+        "description": "Introduction to modeling of chemical processes and introduction to using modern computational tools to analyze the models.",
+        "optimized": {
+            "course_number": 250,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 250,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 319,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 376,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CBE\u00a0250or concurrent enrollment) and (MATH\u00a0319,320,376, or concurrent enrollment)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDIES",
+        "description": "Research on assigned topics under the guidance of a qualified instructor.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -343,532 +872,6 @@
     },
     {
         "course_reference": {
-            "course_number": 538,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "PROCESSES FOR THE PRODUCTION OF RENEWABLE FUELS AND CHEMICALS FROM BIOMASS",
-        "description": "Various options for conversion of biomass into fuels and chemicals.  Evaluation of different biofuel technologies from a chemical engineering perspective, and a holistic overview of the current technical, legal, business, and financial challenges, and opportunities for the production of fuels and chemicals from biomass.  Several case studies on biomass conversion provide an overview of how technology is developed.",
-        "optimized": {
-            "course_number": 250,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 250,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0250and310, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "ADVANCED CHEMICAL ENGINEERING THERMODYNAMICS",
-        "description": "Application of thermodynamic principles to selected topics, including equations of state, non-ideal solutions, and complex physical and chemical equilibria.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "ADVANCED INDEPENDENT STUDIES",
-        "description": "Research on assigned topics under the guidance of a qualified instructor.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 512,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "ENERGY TECHNOLOGIES AND SUSTAINABILITY",
-        "description": "Chemical engineering principles of material and energy balances, chemical process design, and chemical engineering economics are used to analyze a wide variety of energy systems and their impact on the economy, the environment, society, and the chemical process industry.",
-        "optimized": {
-            "course_number": 310,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 361,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0310,CIV\u00a0ENGR\u00a0324,M\u00a0E\u00a0361, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 426,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "MASS TRANSFER OPERATIONS",
-        "description": "Analysis of chemical engineering operations involving mass transfer. Differential and stagewise separation processes; simultaneous heat and mass transfer; mass transfer accompanied by chemical reaction; general design and operation of mass-transfer equipment.",
-        "optimized": {
-            "course_number": 320,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0311and320"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 535,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "HETEROGENEOUS CATALYSIS: PRINCIPLES AND APPLICATIONS",
-        "description": "Discusses catalytic phenomena, with extensions to reactor design and catalyst characterization. Examples will be drawn from current problems in catalysis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 430,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0430, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "CHEM",
-                "CBE"
-            ]
-        },
-        "course_title": "ASPECTS OF INDUSTRIAL CHEMISTRY AND BUSINESS FUNDAMENTALS",
-        "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 345,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing andCHEM\u00a0345, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 770,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "ADVANCED PROCESS DYNAMICS AND CONTROL",
-        "description": "Modern methods for the mathematical analysis and control of dynamical systems. Application to physico-chemical systems. Real-time computer control.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 890,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "PRE-DISSERTATOR'S RESEARCH",
-        "description": "Directed study projects arranged with instructor.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 310,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "CHEMICAL PROCESS THERMODYNAMICS",
-        "description": "Introduction to thermodynamics, energy balances, applications to steady state and unsteady state processes, behavior of pure fluids, chemical reaction equilibria.",
-        "optimized": {
-            "course_number": 255,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 250,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 255,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0234or376), (PHYSICS\u00a0201,207,247,E\u00a0M\u00a0A\u00a0202orM\u00a0E\u00a0240),CBE\u00a0250, and (CBE\u00a0255or concurrent enrollment), or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 660,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INTERMEDIATE PROBLEMS IN CHEMICAL ENGINEERING",
-        "description": "Illustrations of solving chemical engineering problems by using a variety of mathematical topics such as ordinary and partial differential equations, Laplace transform, Bessel functions, matrices, and tensor analysis. Problem formulation and interpretation of results emphasized.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in a Chemical Engineering graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 747,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "ADVANCED COLLOID AND INTERFACE SCIENCE",
-        "description": "Advanced topics in colloid and interface science. Topics include: intermolecular forces, stability of thin films, association colloids, liquid crystals, microhydrodynamics, electrostatics, electrokinetics, colloidal stability, and dispersion rheology.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "THERMODYNAMICS OF MIXTURES",
-        "description": "Properties of ideal and non-ideal vapors and liquids, ideal and non-ideal multicomponent vapor-liquid and liquid-liquid equilibria, complex chemical reaction equilibria, electrolytic solutions, surface thermodynamics, solid phase thermodynamics.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0310"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 599,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Research or independent study.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 777,
-            "subjects": [
-                "CBE",
-                "ECE",
-                "MATH"
-            ]
-        },
-        "course_title": "NONLINEAR DYNAMICS, BIFURCATIONS AND CHAOS",
-        "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 540,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "POLYMER SCIENCE AND TECHNOLOGY",
-        "description": "Synthesis, properties, and fabrication of plastic materials of industrial importance.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 345,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0345, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 555,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "SEMINAR-CHEMICAL ENGINEERING CONNECTIONS",
-        "description": "Considers a variety of current engineering applications and problems. Investigate background information on topics of their choice, and present seminars to describe how engineering fundamentals interact with societal impact and how chemical engineering is relevant to societal concerns at large.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Senior standing or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 648,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "SYNTHETIC ORGANIC MATERIALS IN BIOLOGY AND MEDICINE",
-        "description": "Introduction to topics relevant to the design, synthesis, fabrication, engineering, and characterization of organic materials currently used in or being designed for use in medical and biotechnological applications.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 575,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INSTRUMENTAL ANALYSIS FOR CHEMICAL ENGINEERS",
-        "description": "Instrumental methods as applied to chemical and physical processes in chemical engineering. Spectroscopic, optical, and electrochemical methods; chromatography, differential thermal analysis, and microscopy.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0324or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 915,
-            "subjects": [
-                "COMPSCI",
-                "CBE",
-                "BME",
-                "BMI",
-                "GENETICS",
-                "BIOCHEM"
-            ]
-        },
-        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
-        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 326,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "MOMENTUM AND HEAT TRANSFER OPERATIONS",
-        "description": "Analysis of chemical engineering operations involving fluid flow and heat transfer. Flow of fluids through ducts and porous media; motion of particulate matter in fluids; general design and operation of fluid-flow equipment. Conductive, convective and radiative heat exchange with and without phase change; general design and operation of heat-exchange equipment.",
-        "optimized": {
-            "course_number": 320,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CBE\u00a0310and320) or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 489,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "HONORS IN RESEARCH",
-        "description": "Undergraduate honors research projects supervised by faculty members. Declared in Chemical Engineering Honors in Research Program",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 702,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "GRADUATE COOPERATIVE EDUCATION PROGRAM",
-        "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 782,
             "subjects": [
                 "CBE",
@@ -885,380 +888,13 @@
     },
     {
         "course_reference": {
-            "course_number": 750,
+            "course_number": 470,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "ADVANCED CHEMICAL PROCESS SYNTHESIS AND OPTIMIZATION",
-        "description": "Methodologies for synthesis and optimization of chemical process systems. Application of linear, nonlinear, and mixed integer programming to steady state process optimization, production planning, and flowsheet synthesis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "CHEMICAL KINETICS AND REACTOR DESIGN",
-        "description": "Analysis and interpretation of kinetic data and catalytic phenomena; application of basic engineering principles to chemical reactor design.",
-        "optimized": {
-            "course_number": 311,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0311and320"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 560,
-            "subjects": [
-                "CBE",
-                "BME"
-            ]
-        },
-        "course_title": "BIOCHEMICAL ENGINEERING",
-        "description": "Properties of biological molecules; enzyme kinetics, enzyme reactors, and enzyme engineering; metabolic engineering; microbial growth kinetics; bioreactor design; bioseparations.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 320,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INTRODUCTORY TRANSPORT PHENOMENA",
-        "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
-        "optimized": {
-            "course_number": 201,
-            "subjects": [
-                "PHYSICS"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0201,207,247, orE\u00a0M\u00a0A\u00a0201) and (MATH\u00a0319,320or376), or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 731,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "COMPUTATIONAL MODELLING OF REACTIVE SYSTEMS",
-        "description": "Principles of computer-aided modelling of chemical reaction systems. Formulation, numerical solution and sensitivity analysis of reactor models. Bayesian estimation of parameters. Iterative strategies for model development. Structure and use of related software.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 554,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "CHEMICAL ENGINEERING AND THE COMMUNITY",
-        "description": "Connect with a local community through the development and implementation of two research based hands-on inquiry engineering demonstrations for middle school level after-school science programs.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 250,
-                    "subjects": [
-                        "CBE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0250"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 255,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO CHEMICAL PROCESS MODELING",
-        "description": "Introduction to modeling of chemical processes and introduction to using modern computational tools to analyze the models.",
-        "optimized": {
-            "course_number": 250,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 319,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 250,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 376,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CBE\u00a0250or concurrent enrollment) and (MATH\u00a0319,320,376, or concurrent enrollment)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 961,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "SEMINAR-CHEMICAL ENGINEERING",
-        "description": "Seminar in Chemical Engineering.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "CBE",
-                "CHEM"
-            ]
-        },
-        "course_title": "ASPECTS OF INDUSTRIAL CHEMISTRY AND BUSINESS FUNDAMENTALS",
-        "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 345,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing andCHEM\u00a0345, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 777,
-            "subjects": [
-                "MATH",
-                "ECE",
-                "CBE"
-            ]
-        },
-        "course_title": "NONLINEAR DYNAMICS, BIFURCATIONS AND CHAOS",
-        "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "CBE",
-                "ME"
-            ]
-        },
-        "course_title": "MACROMOLECULAR HYDRODYNAMICS",
-        "description": "Observed phenomena in polymeric flow systems. Techniques of viscometry and viscoelastic measurements for polymeric fluids. Rheological models. Analytical solutions to flow problems: non-Newtonian viscosity, linear viscoelasticity, normal stresses, recoil, stress relaxation, etc. Dimensional analysis. Unit operations of the polymer industry: extrusion, blow molding, injection molding, mixing.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 363,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "M\u00a0E\u00a0363,CBE\u00a0320, member of Engineering Guest Students, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 324,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "TRANSPORT PHENOMENA LAB",
-        "description": "Determination of thermodynamic properties, transport properties, and transfer coefficients; study of related phenomena.",
-        "optimized": {
-            "course_number": 320,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CBE\u00a0310, (CBE\u00a0320or concurrent registration), andSTAT\u00a0324"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 450,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "PROCESS DESIGN",
-        "description": "Analysis and design of chemical processing systems and equipment.",
+        "course_title": "PROCESS DYNAMICS AND CONTROL",
+        "description": "A systematic introduction to dynamic behavior and automatic control of industrial processes; lab includes instrumentation, measurement and control of process variables by using conventional hardware and real-time digital computers.",
         "optimized": {
             "course_number": 430,
             "subjects": [
@@ -1268,7 +904,7 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 426,
+                    "course_number": 430,
                     "subjects": [
                         "CBE"
                     ]
@@ -1278,45 +914,9 @@
                     "subjects": [
                         "CBE"
                     ]
-                },
-                {
-                    "course_number": 430,
-                    "subjects": [
-                        "CBE"
-                    ]
                 }
             ],
-            "prerequisites_text": "CBE\u00a0326,426, and430"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 781,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "BIOLOGICAL ENGINEERING: MOLECULES, CELLS & SYSTEMS",
-        "description": "Protein engineering and protein-protein interactions, receptor-ligand binding, cell metabolism and signaling, metabolic engineering and synthetic biology, tissue engineering. Additional topics may be covered such as: regenerative medicine, biomaterials, microbe-host interactions.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 562,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN CHEMICAL ENGINEERING",
-        "description": "Topics of specialized interest to majors in chemical engineering. Given on demand.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing or member of Engineering Guest Students"
+            "prerequisites_text": "CBE\u00a0326and (CBE\u00a0430or concurrent enrollment)"
         }
     },
     {
@@ -1354,13 +954,99 @@
     },
     {
         "course_reference": {
-            "course_number": 999,
+            "course_number": 535,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "ADVANCED INDEPENDENT STUDIES",
-        "description": "",
+        "course_title": "HETEROGENEOUS CATALYSIS: PRINCIPLES AND APPLICATIONS",
+        "description": "Discusses catalytic phenomena, with extensions to reactor design and catalyst characterization. Examples will be drawn from current problems in catalysis.",
+        "optimized": {
+            "course_number": 430,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 430,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0430, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 567,
+            "subjects": [
+                "CBE",
+                "ME"
+            ]
+        },
+        "course_title": "SOLAR ENERGY TECHNOLOGY",
+        "description": "Radiant energy transfer and its application to solar exchangers; energy balances for solar exchangers, review of theory, economics, and practice of solar energy applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 326,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 364,
+                    "subjects": [
+                        "ME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(M\u00a0E\u00a0364,CBE\u00a0326, or concurrent enrollment), or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 648,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "SYNTHETIC ORGANIC MATERIALS IN BIOLOGY AND MEDICINE",
+        "description": "Introduction to topics relevant to the design, synthesis, fabrication, engineering, and characterization of organic materials currently used in or being designed for use in medical and biotechnological applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 702,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "GRADUATE COOPERATIVE EDUCATION PROGRAM",
+        "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 489,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "HONORS IN RESEARCH",
+        "description": "Undergraduate honors research projects supervised by faculty members. Declared in Chemical Engineering Honors in Research Program",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -1369,60 +1055,42 @@
     },
     {
         "course_reference": {
-            "course_number": 541,
-            "subjects": [
-                "CBE"
-            ]
-        },
-        "course_title": "PLASTICS AND HIGH POLYMER LABORATORY",
-        "description": "Experiments on polymerization, fabrication, and testing of plastics.",
-        "optimized": {
             "course_number": 540,
             "subjects": [
                 "CBE"
             ]
         },
+        "course_title": "POLYMER SCIENCE AND TECHNOLOGY",
+        "description": "Synthesis, properties, and fabrication of plastic materials of industrial importance.",
+        "optimized": {
+            "course_number": 345,
+            "subjects": [
+                "CHEM"
+            ]
+        },
         "prerequisites": {
             "course_references": [
-                {
-                    "course_number": 540,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
                 {
                     "course_number": 345,
                     "subjects": [
                         "CHEM"
                     ]
-                },
-                {
-                    "course_number": 344,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 664,
-                    "subjects": [
-                        "CHEM"
-                    ]
                 }
             ],
-            "prerequisites_text": "CHEM\u00a0344,345, and (CBE\u00a0540,CHEM\u00a0664, or concurrent enrollment), or member of Engineering Guest Students"
+            "prerequisites_text": "CHEM\u00a0345, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 720,
+            "course_number": 311,
             "subjects": [
                 "CBE"
             ]
         },
-        "course_title": "MICROHYDRODYNAMICS, BROWNIAN MOTION, AND COMPLEX FLUIDS",
-        "description": "Foundations for understanding microscale flow and transport phenomena in multiphase and complex fluids, as well as tools for modeling and simulation of their dynamics.",
+        "course_title": "THERMODYNAMICS OF MIXTURES",
+        "description": "Properties of ideal and non-ideal vapors and liquids, ideal and non-ideal multicomponent vapor-liquid and liquid-liquid equilibria, complex chemical reaction equilibria, electrolytic solutions, surface thermodynamics, solid phase thermodynamics.",
         "optimized": {
-            "course_number": 620,
+            "course_number": 310,
             "subjects": [
                 "CBE"
             ]
@@ -1430,19 +1098,336 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 660,
-                    "subjects": [
-                        "CBE"
-                    ]
-                },
-                {
-                    "course_number": 620,
+                    "course_number": 310,
                     "subjects": [
                         "CBE"
                     ]
                 }
             ],
-            "prerequisites_text": "CBE\u00a0620and660"
+            "prerequisites_text": "CBE\u00a0310"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 735,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "KINETICS AND CATALYSIS",
+        "description": "Survey of kinetic principles and factors which influence reaction rates, with particular emphasis on catalysts and catalytic reactions. May include a seminar on modern catalytic research.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 961,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "SEMINAR-CHEMICAL ENGINEERING",
+        "description": "Seminar in Chemical Engineering.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 150,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO CHEMICAL ENGINEERING",
+        "description": "Overview of the field of chemical engineering, including types of careers, industries, and skills required for successful completion of the degree and entry into the chemical engineering profession.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 324,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "TRANSPORT PHENOMENA LAB",
+        "description": "Determination of thermodynamic properties, transport properties, and transfer coefficients; study of related phenomena.",
+        "optimized": {
+            "course_number": 320,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0310, (CBE\u00a0320or concurrent registration), andSTAT\u00a0324"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 547,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO COLLOID AND INTERFACE SCIENCE",
+        "description": "Introduction to topics in colloid and interface science, including sedimentation and diffusion, solution thermodynamics, rheology, light scattering, surface tension and contact angle, adsorption, association colloids, particle interactions, electrokinetics, and colloidal stability.",
+        "optimized": {
+            "course_number": 311,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 562,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 561,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CBE\u00a0311,CHEM\u00a0561, or562), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 426,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "MASS TRANSFER OPERATIONS",
+        "description": "Analysis of chemical engineering operations involving mass transfer. Differential and stagewise separation processes; simultaneous heat and mass transfer; mass transfer accompanied by chemical reaction; general design and operation of mass-transfer equipment.",
+        "optimized": {
+            "course_number": 320,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CBE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0311and320"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 599,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Research or independent study.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 781,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "BIOLOGICAL ENGINEERING: MOLECULES, CELLS & SYSTEMS",
+        "description": "Protein engineering and protein-protein interactions, receptor-ligand binding, cell metabolism and signaling, metabolic engineering and synthetic biology, tissue engineering. Additional topics may be covered such as: regenerative medicine, biomaterials, microbe-host interactions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "INTERMEDIATE TRANSPORT PHENOMENA",
+        "description": "Mass, momentum, and energy transport; kinetic theory of transport properties; analytical and approximate solutions to the equations of change; boundary layer theory; turbulence; simultaneous heat and mass transfer; multicomponent diffusion.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in a Chemical Engineering graduate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 890,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "PRE-DISSERTATOR'S RESEARCH",
+        "description": "Directed study projects arranged with instructor.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 770,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ADVANCED PROCESS DYNAMICS AND CONTROL",
+        "description": "Modern methods for the mathematical analysis and control of dynamical systems. Application to physico-chemical systems. Real-time computer control.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 250,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "PROCESS SYNTHESIS",
+        "description": "An introduction to the invention of processes for the large scale, low cost processing of materials such as water, chemicals, petroleum products, food, drugs and wastes.",
+        "optimized": {
+            "course_number": 329,
+            "subjects": [
+                "CHEM"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 329,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0116,329, or concurrent enrollment"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 512,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "course_title": "ENERGY TECHNOLOGIES AND SUSTAINABILITY",
+        "description": "Chemical engineering principles of material and energy balances, chemical process design, and chemical engineering economics are used to analyze a wide variety of energy systems and their impact on the economy, the environment, society, and the chemical process industry.",
+        "optimized": {
+            "course_number": 310,
+            "subjects": [
+                "CBE"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "CBE"
+                    ]
+                },
+                {
+                    "course_number": 361,
+                    "subjects": [
+                        "ME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CBE\u00a0310,CIV\u00a0ENGR\u00a0324,M\u00a0E\u00a0361, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 915,
+            "subjects": [
+                "CBE",
+                "BIOCHEM",
+                "BME",
+                "GENETICS",
+                "COMPSCI",
+                "BMI"
+            ]
+        },
+        "course_title": "COMPUTATION AND INFORMATICS IN BIOLOGY AND MEDICINE",
+        "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

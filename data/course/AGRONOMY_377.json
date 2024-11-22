@@ -11,20 +11,32 @@
         "course_number": 103,
         "subjects": [
             "ENTOM",
-            "AGRONOMY",
+            "C&ESOC",
             "AGROECOL",
-            "ENVIRST",
-            "C&ESOC"
+            "AGRONOMY",
+            "ENVIRST"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 120,
+                "subjects": [
+                    "HORT"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "AGRONOMY"
+                ]
+            },
+            {
                 "course_number": 151,
                 "subjects": [
                     "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
@@ -35,6 +47,16 @@
                 ]
             },
             {
+                "course_number": 103,
+                "subjects": [
+                    "ENTOM",
+                    "C&ESOC",
+                    "AGROECOL",
+                    "AGRONOMY",
+                    "ENVIRST"
+                ]
+            },
+            {
                 "course_number": 101,
                 "subjects": [
                     "BIOLOGY",
@@ -42,31 +64,9 @@
                 ]
             },
             {
-                "course_number": 100,
-                "subjects": [
-                    "AGRONOMY"
-                ]
-            },
-            {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "HORT"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "ENTOM",
-                    "AGRONOMY",
-                    "AGROECOL",
-                    "ENVIRST",
-                    "C&ESOC"
                 ]
             }
         ],

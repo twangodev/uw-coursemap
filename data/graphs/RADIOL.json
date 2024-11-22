@@ -1,8 +1,9 @@
 [
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "RADIOL 928"
+            "description": "High-level procedural experience on a clinical interventional radiology service. Interventional radiology uniquely blends the concepts of imaging anatomy and pathophysiology to provide minimally invasive solutions to patients. Hone clinical and procedural skills while being exposed to a rich background curriculum with the goal of case report publication.",
+            "id": "RADIOL 926",
+            "parent": "RADIOL"
         }
     },
     {
@@ -13,22 +14,9 @@
     },
     {
         "data": {
-            "description": "High-level procedural experience on a clinical interventional radiology service. Interventional radiology uniquely blends the concepts of imaging anatomy and pathophysiology to provide minimally invasive solutions to patients. Hone clinical and procedural skills while being exposed to a rich background curriculum with the goal of case report publication.",
-            "id": "RADIOL 926",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
             "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
         }
     },
     {
@@ -53,15 +41,47 @@
     },
     {
         "data": {
-            "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
-            "id": "RADIOL 813",
+            "description": "Independent research under the supervision of faculty in the Department of Radiology. Student's research projects are individualized to meet individual student research goals within the context of faculty research needs.",
+            "id": "RADIOL 910",
             "parent": "RADIOL"
         }
     },
     {
         "data": {
+            "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
+            "id": "RADIOL 928",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "RADIOL/BME/PHYSICS/MEDPHYS/PHMCOL-M 619"
+        }
+    },
+    {
+        "data": {
+            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
+            "id": "MEDSC-M 813",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "RADIOL 911"
+        }
+    },
+    {
+        "data": {
             "source": "MEDSC-M 812",
-            "target": "RADIOL 912"
+            "target": "RADIOL 914"
+        }
+    },
+    {
+        "data": {
+            "id": "RADIOL",
+            "type": "compound"
         }
     },
     {
@@ -73,16 +93,8 @@
     },
     {
         "data": {
-            "description": "Independent research under the supervision of faculty in the Department of Radiology. Student's research projects are individualized to meet individual student research goals within the context of faculty research needs.",
-            "id": "RADIOL 910",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Work directly with faculty in the Nuclear Medicine section of the Department of Radiology. Broad-based experience in a variety of procedures routinely performed by the nuclear medicine service, including nuclear cardiology. Practice in building and presenting a case report.",
-            "id": "RADIOL 923",
-            "parent": "RADIOL"
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
         }
     },
     {
@@ -94,21 +106,35 @@
     },
     {
         "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "RADIOL/BME/PHMCOL-M/MEDPHYS/PHYSICS 619"
+            "description": "Work directly with faculty in the Nuclear Medicine section of the Department of Radiology. Broad-based experience in a variety of procedures routinely performed by the nuclear medicine service, including nuclear cardiology. Practice in building and presenting a case report.",
+            "id": "RADIOL 923",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
+            "id": "RADIOL 813",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "RADIOL 928"
+        }
+    },
+    {
+        "data": {
+            "description": "Familiarizes the student with the various imaging and therapeutic procedures that are performed in radiology. In addition to learning about the strengths and limitations of different imaging studies, the student should attempt to relate abnormal radiologic findings to pathophysiology with logic and confidence. Students will be given the opportunity to rotate through the section of their choice for 2 weeks in the Radiology department and are able to tailor their reading room experiences to their interests. They will engage in hands on learning activities, interactive assignments, and learn to communicate in interdisciplinary conversations about patient care when it comes to best practices with radiology.",
+            "id": "RADIOL 920",
+            "parent": "RADIOL"
         }
     },
     {
@@ -121,7 +147,14 @@
     {
         "data": {
             "source": "MEDSC-M 812",
-            "target": "RADIOL 914"
+            "target": "RADIOL 912"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
         }
     },
     {
@@ -129,39 +162,6 @@
             "description": "The diagnosis and management of congenital abnormality requires an understanding of the basic principles of embryology, imaging, and genetics. Replicating how patients enter the medical system, the didactic path begins with ultrasound diagnosis of fetal abnormality. The embryological basis of the fetal malformations will be examined. From this center, exposure to advanced diagnostics, such as fetal echocardiography, fetal MRI, and genetic testing and counseling. Topics extend to early postnatal care (pediatric genetics and pediatric radiology). Participate in the Meriter Perinatal Conference, learn about genetic approaches to the diagnosis of fetal malformation syndromes, and learn the rudiments of an obstetrical sonogram.",
             "id": "RADIOL 911",
             "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "id": "RADIOL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Familiarizes the student with the various imaging and therapeutic procedures that are performed in radiology. In addition to learning about the strengths and limitations of different imaging studies, the student should attempt to relate abnormal radiologic findings to pathophysiology with logic and confidence. Students will be given the opportunity to rotate through the section of their choice for 2 weeks in the Radiology department and are able to tailor their reading room experiences to their interests. They will engage in hands on learning activities, interactive assignments, and learn to communicate in interdisciplinary conversations about patient care when it comes to best practices with radiology.",
-            "id": "RADIOL 920",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
-            "id": "MEDSC-M 813",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
-            "id": "RADIOL 928",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "RADIOL 911"
         }
     }
 ]

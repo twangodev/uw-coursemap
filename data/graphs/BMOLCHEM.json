@@ -1,8 +1,67 @@
 [
     {
         "data": {
+            "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
+            "id": "BMOLCHEM 675",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
+            "id": "BMOLCHEM 720",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 415",
+            "target": "BMI/BIOCHEM/MATH/BMOLCHEM 609"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BMI/BIOCHEM/MATH/BMOLCHEM 609"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BMOLCHEM/BMI/MATH/BIOCHEM 609"
+        }
+    },
+    {
+        "data": {
             "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
             "id": "BMOLCHEM/BIOCHEM 701"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
+            "id": "MATH 415",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
+            "id": "BMOLCHEM 700",
+            "parent": "BMOLCHEM"
         }
     },
     {
@@ -14,8 +73,21 @@
     },
     {
         "data": {
-            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-            "id": "BMOLCHEM/MATH/BIOCHEM/BMI 609"
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
@@ -32,40 +104,6 @@
     },
     {
         "data": {
-            "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
-            "id": "BMOLCHEM 700",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
-            "id": "BMOLCHEM 720",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
-            "id": "BMOLCHEM 699",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines special topics in biomolecular chemistry. Topics and content will vary each semester and by section of the course.",
-            "id": "BMOLCHEM 675",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
             "description": "Student-led discussions of RNA-related problems.",
             "id": "BMOLCHEM/BIOCHEM 913"
         }
@@ -74,6 +112,19 @@
         "data": {
             "description": "Critical review of selected topics in biomolecular chemistry.",
             "id": "BMOLCHEM 901",
+            "parent": "BMOLCHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 415"
+        }
+    },
+    {
+        "data": {
+            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
+            "id": "BMOLCHEM 699",
             "parent": "BMOLCHEM"
         }
     }

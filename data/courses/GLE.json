@@ -1,375 +1,14 @@
 [
     {
         "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO SLOPE STABILITY AND EARTH RETENTION",
-        "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 350,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO GEOPHYSICS: THE DYNAMIC EARTH",
-        "description": "Methods of geophysics applied to earth structure and plate tectonics. Principles of seismology, gravity, geodesy, magnetism and heat flow.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0217,221, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 530,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "SEEPAGE AND SLOPES",
-        "description": "Practical aspects of seepage effects and ground water flow. Stability of natural and man-made slopes under various loading conditions. Design and construction of earth dams and embankments. Flow net and its use; wells; filters; total and effective stress methods of slope analysis; selection of pertinent soil parameters.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "FOUNDATIONS",
-        "description": "Shallow and deep foundations. Analysis and design of footings, mats, piers and piles, and related fill and excavation operations. Consolidation settlement, time rate of settlement, stress distribution, elastic (immediate) settlement, load bearing capacity; methods to reduce settlements and increase shear strength; the selection of a foundation system.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 291,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "PROBLEM SOLVING USING COMPUTER TOOLS",
-        "description": "Introduction to engineering computations with emphasis on computer tools and computer based measurement, data collection, and processing. Tools will include computer aided design, spreadsheets, other engineering computation tools, and hardware and software for laboratory and spatial measurements.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0222or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF MINERALOGY",
-        "description": "Minerals, their physical and chemical properties, crystallography, and geologic significance.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 115,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 106,
-                    "subjects": [
-                        "ENVIRST",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEOSCI\u00a0100orENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0106) and (CHEM\u00a0103,109,115, or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 612,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "ECOHYDROLOGY",
-        "description": "Mutual interactions between the hydrologic cycle and ecosystems, including hydrologic mechanisms that underlie ecological patterns and processes, movement of water and energy through the soil-plant-atmosphere continuum, application and development of models for simulating ecohydrologic processes, and case studies on ecohydrologic function and ecosystem services of varied environments.",
-        "optimized": {
-            "course_number": 311,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 627,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR\u00a0311,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0627, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 511,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
-        "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
-        "optimized": {
-            "course_number": 310,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 220,
-                    "subjects": [
-                        "COMPSCI"
-                    ]
-                },
-                {
-                    "course_number": 363,
-                    "subjects": [
-                        "ME"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 291,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 203,
-                    "subjects": [
-                        "ECE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0291,COMP\u00a0SCI\u00a0220, orE\u00a0C\u00a0E\u00a0203) and (CIV\u00a0ENGR\u00a0310orM\u00a0E\u00a0363), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 434,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO UNDERGROUND OPENINGS ENGINEERING",
-        "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
-        "optimized": {
-            "course_number": 474,
-            "subjects": [
-                "MS&E",
-                "CIVENGR",
-                "GEOSCI",
-                "GLE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 474,
-                    "subjects": [
-                        "MS&E",
-                        "CIVENGR",
-                        "GEOSCI",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330,GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 629,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "CONTAMINANT HYDROGEOLOGY",
-        "description": "Physical and chemical processes governing the transport of solutes in groundwater; application of hydrogeologic and geochemical theory and practice to the protection of aquifers from contamination.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 627,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "G\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627andMATH\u00a0222, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 900,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "SEMINAR",
-        "description": "Topics vary.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 372,
             "subjects": [
-                "GLE",
-                "GEOSCI",
-                "ENVIRST",
-                "F&WECOL",
                 "LANDARC",
-                "GEOG"
+                "GLE",
+                "GEOG",
+                "F&WECOL",
+                "ENVIRST",
+                "GEOSCI"
             ]
         },
         "course_title": "INTERMEDIATE ENVIRONMENTAL REMOTE SENSING",
@@ -380,367 +19,16 @@
                 {
                     "course_number": 371,
                     "subjects": [
-                        "GLE",
-                        "GEOSCI",
-                        "ENVIRST",
-                        "F&WECOL",
                         "LANDARC",
-                        "GEOG"
+                        "GLE",
+                        "GEOG",
+                        "F&WECOL",
+                        "ENVIRST",
+                        "GEOSCI"
                     ]
                 }
             ],
             "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 733,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "PHYSICOCHEMICAL BASIS OF SOIL BEHAVIOR",
-        "description": "Applications of physiochemical, mineralogical and environmental considerations to the engineering behavior of soils. Soil composition, formation, fabric, pore fluid chemistry and interaction of phases. The particulate nature of soils and the fabric-engineering property (volume change, strength, deformation and conduction) relationships. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 757,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "ADVANCED ROCK MECHANICS",
-        "description": "Experimental rock mechanics, rock mechanics apparatus design, static and dynamic rock friction, rate and state friction, crack phenomena and rock fracture mechanics, earthquake energy budget, elastic/viscoelastic/plastic behavior of rocks, engineering and geological applications. Knowledge of introductory rock mechanics [such as M S  E/GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474] required.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 1,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "COOPERATIVE EDUCATION PROGRAM",
-        "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN GEOLOGICAL ENGINEERING",
-        "description": "Topics vary.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 635,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "REMEDIATION GEOTECHNICS",
-        "description": "Geotechnical practice for remediation of sites containing contaminated soil and groundwater is discussed. Topics include non-invasive and invasive subsurface exploration techniques, methods to monitor for the presence of contaminants in the saturated and unsaturated zones, and geotechnically-oriented remedial action technologies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 474,
-            "subjects": [
-                "MS&E",
-                "CIVENGR",
-                "GEOSCI",
-                "GLE"
-            ]
-        },
-        "course_title": "ROCK MECHANICS",
-        "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or247, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 537,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "QUANTITATIVE METHODS FOR GEOSCIENCE",
-        "description": "MATLAB is a powerful, high-level programming language and integrated development environment (IDE) that is used across a broad variety of scientific disciplines for tasks including data visualization, modeling, and application development. Focus on the active use of MATLAB for developing practical programming and data analysis skills that can be applied across a range of geoscience- relevant problems. Applications will include: data visualization and publishable figure development; automation of data processing; statistical and time-series analysis; image processing and mapping; and optimization. Additional topics may be guided by student interest.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0222, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 431,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "SEDIMENTARY & STRATIGRAPHY LAB",
-        "description": "Covers Sedimentology and Stratigraphy; emphasizes qualitative and quantitative description and interpretation of sediments and sedimentary deposits.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 360,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 204,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI\u00a0204orG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0360, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "GLE",
-                "GEOSCI",
-                "ENVIRST",
-                "F&WECOL",
-                "LANDARC",
-                "GEOG"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
-        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 113,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 114,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 171,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 890,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "PRE-DISSERTATOR'S RESEARCH",
-        "description": "Under faculty supervision.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Geological Engineering PHD"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 730,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "ENGINEERING PROPERTIES OF SOILS",
-        "description": "Determination and interpretation of soil properties for engineering purposes; physio-chemical properties of soil-water systems, permeability and capillarity, compression characteristics of soils, measurement of soil properties in the triaxial test, properties of frozen soils and permafrost.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 530,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "SEEPAGE AND SLOPES",
-        "description": "Practical aspects of seepage effects and ground water flow. Stability of natural and man-made slopes under various loading conditions. Design and construction of earth dams and embankments. Flow net and its use; wells; filters; total and effective stress methods of slope analysis; selection of pertinent soil parameters.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 627,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "HYDROGEOLOGY",
-        "description": "Mathematical treatment of the physical principles governing the flow of groundwater; emphasis on well hydraulics and flow system analysis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 110,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 105,
-                    "subjects": [
-                        "GEOSCI",
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 160,
-                    "subjects": [
-                        "GEOSCI",
-                        "ASTRON"
-                    ]
-                },
-                {
-                    "course_number": 140,
-                    "subjects": [
-                        "GEOSCI",
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 106,
-                    "subjects": [
-                        "ENVIRST",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEOSCI\u00a0100,109,110,ATM\u00a0OCN/\u200bGEOSCI\u00a0\u00a0105,140,ENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0106, orASTRON/\u200bGEOSCI\u00a0\u00a0160) and (MATH\u00a0217or221), graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -759,8 +47,8 @@
                 {
                     "course_number": 330,
                     "subjects": [
-                        "CIVENGR",
-                        "GLE"
+                        "GLE",
+                        "CIVENGR"
                     ]
                 }
             ],
@@ -781,776 +69,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 330,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "SOIL MECHANICS",
-        "description": "Basic principles of soil mechanics and fundamentals of application in engineering practice; soil composition and texture; classification; permeability and seepage; consolidation; settlement; shear strength; lateral earth pressures and retaining structures, shallow and deep foundations, slope stability; subsurface exploration; laboratory characterization of physical and engineering properties of soils.",
-        "optimized": {
-            "course_number": 303,
-            "subjects": [
-                "EMA"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 730,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "ENGINEERING PROPERTIES OF SOILS",
-        "description": "Determination and interpretation of soil properties for engineering purposes; physio-chemical properties of soil-water systems, permeability and capillarity, compression characteristics of soils, measurement of soil properties in the triaxial test, properties of frozen soils and permafrost.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 534,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "NONDESTRUCTIVE EVALUATION",
-        "description": "Practical aspects of nondestructive evaluation (NDE) techniques for identifying physical properties and damage within civil and geologic materials and structures. Data analyses and data science for wave propagation, arrival picking, distributed fiber optic sensing, and visualization tools such as augmented/mixed/virtual reality.",
-        "optimized": {
-            "course_number": 201,
-            "subjects": [
-                "EMA"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 434,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "INTRODUCTION TO UNDERGROUND OPENINGS ENGINEERING",
-        "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
-        "optimized": {
-            "course_number": 474,
-            "subjects": [
-                "MS&E",
-                "CIVENGR",
-                "GEOSCI",
-                "GLE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 474,
-                    "subjects": [
-                        "MS&E",
-                        "CIVENGR",
-                        "GEOSCI",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330,GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 612,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "ECOHYDROLOGY",
-        "description": "Mutual interactions between the hydrologic cycle and ecosystems, including hydrologic mechanisms that underlie ecological patterns and processes, movement of water and energy through the soil-plant-atmosphere continuum, application and development of models for simulating ecohydrologic processes, and case studies on ecohydrologic function and ecosystem services of varied environments.",
-        "optimized": {
-            "course_number": 311,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 627,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR\u00a0311,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0627, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 724,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "GROUNDWATER FLOW MODELING",
-        "description": "An introduction to the principles of modeling groundwater flow systems, with emphasis on regional flow system analysis. Conceptual understanding of governing equations, and the use of finite difference techniques to solve such equations are stressed. Develop codes and become introduced to packaged models, including those developed by the U. S. Geological Survey. Knowledge of hydrogeology [such asG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627or629] required.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 735,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "SOIL DYNAMICS",
-        "description": "Geotechnical considerations of earthquake engineering and foundation vibrations. Seismic surveying; ground motion during earthquakes; determination of soil properties for ground response analysis; dynamic properties of soils; soil structure interaction effects; soil liquefaction; dynamic analysis of earth dams; settlements resulting from earthquakes, lateral earth pressures during earthquakes; foundation vibrations. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] and Foundations [such as G L E 452 orCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0532] is required.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 534,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "NONDESTRUCTIVE EVALUATION",
-        "description": "Practical aspects of nondestructive evaluation (NDE) techniques for identifying physical properties and damage within civil and geologic materials and structures. Data analyses and data science for wave propagation, arrival picking, distributed fiber optic sensing, and visualization tools such as augmented/mixed/virtual reality.",
-        "optimized": {
-            "course_number": 201,
-            "subjects": [
-                "EMA"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 595,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "FIELD METHODS IN APPLIED AND ENGINEERING GEOPHYSICS",
-        "description": "The application of geophysical field methods for delineating near-surface features and/or structures as applied to engineering, environmental and exploration problems.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 594,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0594or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 474,
-            "subjects": [
-                "GLE",
-                "CIVENGR",
-                "GEOSCI",
-                "MS&E"
-            ]
-        },
-        "course_title": "ROCK MECHANICS",
-        "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
-        "optimized": {
-            "course_number": 201,
-            "subjects": [
-                "EMA"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or247, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 732,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "UNSATURATED SOIL GEOENGINEERING",
-        "description": "Engineering principles of unsaturated soils as they apply to geotechnical and geoenvironmental systems. Effect of soil water suction and stress on hydraulic conductivity, shear strength, and compressibility of soils in the context of geoengineering problems of flow and stability. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 444,
-            "subjects": [
-                "ENVIRST",
-                "CIVENGR",
-                "GEOSCI",
-                "GLE"
-            ]
-        },
-        "course_title": "PRACTICAL APPLICATIONS OF GPS SURVEYING",
-        "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
-        "optimized": {
-            "course_number": 221,
-            "subjects": [
-                "MATH"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0211,217,221, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 444,
-            "subjects": [
-                "GLE",
-                "CIVENGR",
-                "GEOSCI",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "PRACTICAL APPLICATIONS OF GPS SURVEYING",
-        "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
-        "optimized": {
-            "course_number": 221,
-            "subjects": [
-                "MATH"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0211,217,221, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 171,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "INTRODUCTION TO GEOLOGICAL ENGINEERING",
-        "description": "Comprehensive introduction to engineering applications of earth sciences. Exploitation and management of geologic resources; mitigation of geologic hazards such as landslides and earthquakes; abatement of environmental problems such as land and water pollution; design of surface and underground excavations; principal methods of geological engineering.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "INTRODUCTION TO SLOPE STABILITY AND EARTH RETENTION",
-        "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 596,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "GEOMECHANICS",
-        "description": "Observation, description, and prediction of deformation of geomechanical systems at depth, and the forces (stress) causing those deformations, relevant for petroleum/geothermal reservoirs and studies of earthquake mechanics. Emphasis on computational exercises using datasets from the petroleum industry and earthquake catalogues, as well as prediction of ground deformation.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 474,
-                    "subjects": [
-                        "MS&E",
-                        "CIVENGR",
-                        "GEOSCI",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 330,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "SOIL MECHANICS",
-        "description": "Basic principles of soil mechanics and fundamentals of application in engineering practice; soil composition and texture; classification; permeability and seepage; consolidation; settlement; shear strength; lateral earth pressures and retaining structures, shallow and deep foundations, slope stability; subsurface exploration; laboratory characterization of physical and engineering properties of soils.",
-        "optimized": {
-            "course_number": 303,
-            "subjects": [
-                "EMA"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "ME"
-                    ]
-                }
-            ],
-            "prerequisites_text": "E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 421,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL SUSTAINABILITY ENGINEERING",
-        "description": "Uses the three paradigms of sustainability (environmental, social, and economic) for strategic environmental initiatives in an engineering setting. Proactive environmental management opportunities, including practices of pollution prevention, industrial ecology, and design for the environment. A systems approach to manufacturing, examining the life cycle of products, incorporating total cost accounting, extended producer responsibility, and design for end-of-life.",
-        "optimized": {
-            "course_number": 104,
-            "subjects": [
-                "CHEM"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0217or221) and (CHEM\u00a0104or109), or graduate/professional standing or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 444,
-            "subjects": [
-                "CIVENGR",
-                "GEOSCI",
-                "ENVIRST",
-                "GLE"
-            ]
-        },
-        "course_title": "PRACTICAL APPLICATIONS OF GPS SURVEYING",
-        "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0211,217,221, or graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 455,
-            "subjects": [
-                "GLE",
-                "GEOSCI"
-            ]
-        },
-        "course_title": "STRUCTURAL GEOLOGY",
-        "description": "Principles of rock deformation, structures in layered rocks, structural analysis, intrusive structures. Lab: three-dimensional problems involving structural concepts; field trip.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 204,
-                    "subjects": [
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 370,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOSCI\u00a0202,204, and (G\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0370or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "INDEPENDENT WORK",
-        "description": "Under faculty supervision.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 635,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "REMEDIATION GEOTECHNICS",
-        "description": "Geotechnical practice for remediation of sites containing contaminated soil and groundwater is discussed. Topics include non-invasive and invasive subsurface exploration techniques, methods to monitor for the presence of contaminants in the saturated and unsaturated zones, and geotechnically-oriented remedial action technologies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 479,
-            "subjects": [
-                "GLE"
-            ]
-        },
-        "course_title": "GEOLOGICAL ENGINEERING DESIGN",
-        "description": "A practical problem in an area of geological engineering (such as development of a geologic resource or design of a structure in soil and/or rock) is selected, and then the principles and processes of design and analysis are applied to the solution of the problem.",
-        "optimized": {
-            "course_number": 735,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 635,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 430,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 535,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 530,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 532,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 735,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 629,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI"
-                    ]
-                },
-                {
-                    "course_number": 427,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 514,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 434,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 432,
-                    "subjects": [
-                        "CIVENGR",
-                        "GLE"
-                    ]
-                },
-                {
-                    "course_number": 414,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing, declared in Geological Engineering BS, andCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0530,532,535,635,735,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0629,CIV\u00a0ENGR\u00a0414,427,514, or (CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0430,432, and434)"
         }
     },
     {
@@ -1594,71 +112,105 @@
     },
     {
         "course_reference": {
-            "course_number": 535,
+            "course_number": 444,
             "subjects": [
+                "GLE",
                 "CIVENGR",
-                "GLE"
+                "ENVIRST",
+                "GEOSCI"
             ]
         },
-        "course_title": "WIND ENERGY BALANCE-OF-PLANT DESIGN",
-        "description": "Wind Energy Development and Balance-of-Plant Design. Up-front coverage includes the science and mechanics of wind energy including turbine basics, wind resource assessment, energy production, and economic return. Balance-of-plant design aspects include site layout and micro-siting, foundation systems, collector systems and interconnection, site civil and electrical infrastructure, and structural tower analysis. Development includes environmental due diligence and permitting, stakeholder engagement, energy policy and markets, and levelized cost of energy (LCOE).",
+        "course_title": "PRACTICAL APPLICATIONS OF GPS SURVEYING",
+        "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
         "optimized": {
-            "course_number": 201,
+            "course_number": 221,
             "subjects": [
-                "PHYSICS"
+                "MATH"
             ]
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 201,
+                    "course_number": 217,
                     "subjects": [
-                        "EMA"
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 207,
+                    "course_number": 211,
                     "subjects": [
-                        "PHYSICS"
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 201,
+                    "course_number": 221,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "PHYSICS\u00a0201,207,247,E\u00a0M\u00a0A\u00a0201, graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "MATH\u00a0211,217,221, or graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 291,
             "subjects": [
-                "GLE"
+                "GLE",
+                "CIVENGR"
             ]
         },
-        "course_title": "RESEARCH AND THESIS",
-        "description": "Under faculty supervision.",
+        "course_title": "PROBLEM SOLVING USING COMPUTER TOOLS",
+        "description": "Introduction to engineering computations with emphasis on computer tools and computer based measurement, data collection, and processing. Tools will include computer aided design, spreadsheets, other engineering computation tools, and hardware and software for laboratory and spatial measurements.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Geological Engineering PHD"
+            "course_references": [
+                {
+                    "course_number": 222,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0222or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 629,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "CONTAMINANT HYDROGEOLOGY",
+        "description": "Physical and chemical processes governing the transport of solutes in groundwater; application of hydrogeologic and geochemical theory and practice to the protection of aquifers from contamination.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 222,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 627,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "G\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627andMATH\u00a0222, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
             "course_number": 733,
             "subjects": [
-                "CIVENGR",
-                "GLE"
+                "GLE",
+                "CIVENGR"
             ]
         },
         "course_title": "PHYSICOCHEMICAL BASIS OF SOIL BEHAVIOR",
@@ -1679,28 +231,11 @@
         },
         "course_title": "WIND ENERGY BALANCE-OF-PLANT DESIGN",
         "description": "Wind Energy Development and Balance-of-Plant Design. Up-front coverage includes the science and mechanics of wind energy including turbine basics, wind resource assessment, energy production, and economic return. Balance-of-plant design aspects include site layout and micro-siting, foundation systems, collector systems and interconnection, site civil and electrical infrastructure, and structural tower analysis. Development includes environmental due diligence and permitting, stakeholder engagement, energy policy and markets, and levelized cost of energy (LCOE).",
-        "optimized": {
-            "course_number": 201,
-            "subjects": [
-                "PHYSICS"
-            ]
-        },
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 201,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
                     "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 201,
                     "subjects": [
                         "PHYSICS"
                     ]
@@ -1710,137 +245,21 @@
                     "subjects": [
                         "PHYSICS"
                     ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
                 }
             ],
             "prerequisites_text": "PHYSICS\u00a0201,207,247,E\u00a0M\u00a0A\u00a0201, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
-            "subjects": [
-                "GLE",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "REACTIVE PROCESSES FOR SUSTAINABLE ENERGY AND RESOURCE PRODUCTION",
-        "description": "Key scientific concepts related to fossil and renewable energy resources. Apply the fundamentals of thermodynamics and chemical kinetics at solid interfaces to better understand the science behind using fossil and renewable energy resources. Evaluate the impacts of existing and emerging energy technologies on the environment.",
-        "optimized": {
-            "course_number": 320,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing, (MATH\u00a0211,217, or221), (CHEM\u00a0103,104, or109), andCIV\u00a0ENGR\u00a0320, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
-            "subjects": [
-                "CIVENGR",
-                "GLE"
-            ]
-        },
-        "course_title": "REACTIVE PROCESSES FOR SUSTAINABLE ENERGY AND RESOURCE PRODUCTION",
-        "description": "Key scientific concepts related to fossil and renewable energy resources. Apply the fundamentals of thermodynamics and chemical kinetics at solid interfaces to better understand the science behind using fossil and renewable energy resources. Evaluate the impacts of existing and emerging energy technologies on the environment.",
-        "optimized": {
-            "course_number": 320,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "CIVENGR"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing, (MATH\u00a0211,217, or221), (CHEM\u00a0103,104, or109), andCIV\u00a0ENGR\u00a0320, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -1861,87 +280,220 @@
     },
     {
         "course_reference": {
-            "course_number": 291,
+            "course_number": 990,
             "subjects": [
-                "CIVENGR",
                 "GLE"
             ]
         },
-        "course_title": "PROBLEM SOLVING USING COMPUTER TOOLS",
-        "description": "Introduction to engineering computations with emphasis on computer tools and computer based measurement, data collection, and processing. Tools will include computer aided design, spreadsheets, other engineering computation tools, and hardware and software for laboratory and spatial measurements.",
+        "course_title": "RESEARCH AND THESIS",
+        "description": "Under faculty supervision.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0222or member of Engineering Guest Students"
+            "course_references": [],
+            "prerequisites_text": "Declared in Geological Engineering PHD"
         }
     },
     {
         "course_reference": {
-            "course_number": 594,
+            "course_number": 890,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "PRE-DISSERTATOR'S RESEARCH",
+        "description": "Under faculty supervision.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Geological Engineering PHD"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 350,
             "subjects": [
                 "GLE",
                 "GEOSCI"
             ]
         },
-        "course_title": "INTRODUCTION TO APPLIED GEOPHYSICS",
-        "description": "Survey of applied geophysics, including seismic refraction, seismic reflection, electrical resistivity, gravity, and magnetics methods. Basic physics of each method and modeling techniques and field procedures.",
+        "course_title": "INTRODUCTION TO GEOPHYSICS: THE DYNAMIC EARTH",
+        "description": "Methods of geophysics applied to earth structure and plate tectonics. Principles of seismology, gravity, geodesy, magnetism and heat flow.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 202,
-                    "subjects": [
-                        "EMA"
-                    ]
-                },
-                {
-                    "course_number": 222,
+                    "course_number": 217,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 248,
+                    "course_number": 221,
                     "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0222and (PHYSICS\u00a0202,208,248, orE\u00a0M\u00a0A\u00a0202), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "MATH\u00a0217,221, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 401,
+            "course_number": 627,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "HYDROGEOLOGY",
+        "description": "Mathematical treatment of the physical principles governing the flow of groundwater; emphasis on well hydraulics and flow system analysis.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 110,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 140,
+                    "subjects": [
+                        "ATMOCN",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 160,
+                    "subjects": [
+                        "GEOSCI",
+                        "ASTRON"
+                    ]
+                },
+                {
+                    "course_number": 106,
+                    "subjects": [
+                        "GEOSCI",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 105,
+                    "subjects": [
+                        "ATMOCN",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEOSCI\u00a0100,109,110,ATM\u00a0OCN/\u200bGEOSCI\u00a0\u00a0105,140,ENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0106, orASTRON/\u200bGEOSCI\u00a0\u00a0160) and (MATH\u00a0217or221), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 430,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "INTRODUCTION TO SLOPE STABILITY AND EARTH RETENTION",
+        "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 431,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "SEDIMENTARY & STRATIGRAPHY LAB",
+        "description": "Covers Sedimentology and Stratigraphy; emphasizes qualitative and quantitative description and interpretation of sediments and sedimentary deposits.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 360,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 204,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOSCI\u00a0204orG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0360, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
             "subjects": [
                 "GLE"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN GEOLOGICAL ENGINEERING",
-        "description": "Various topics in the field of geological engineering.",
+        "course_title": "INDEPENDENT STUDY",
+        "description": "",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 900,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Topics vary.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -1961,22 +513,22 @@
     },
     {
         "course_reference": {
-            "course_number": 432,
+            "course_number": 635,
             "subjects": [
-                "CIVENGR",
-                "GLE"
+                "GLE",
+                "CIVENGR"
             ]
         },
-        "course_title": "INTRODUCTION TO SHALLOW AND DEEP FOUNDATION SYSTEMS",
-        "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
+        "course_title": "REMEDIATION GEOTECHNICS",
+        "description": "Geotechnical practice for remediation of sites containing contaminated soil and groundwater is discussed. Topics include non-invasive and invasive subsurface exploration techniques, methods to monitor for the presence of contaminants in the saturated and unsaturated zones, and geotechnically-oriented remedial action technologies.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 330,
                     "subjects": [
-                        "CIVENGR",
-                        "GLE"
+                        "GLE",
+                        "CIVENGR"
                     ]
                 }
             ],
@@ -1985,55 +537,262 @@
     },
     {
         "course_reference": {
-            "course_number": 511,
+            "course_number": 360,
             "subjects": [
-                "CIVENGR",
-                "GLE"
+                "GLE",
+                "GEOSCI"
             ]
         },
-        "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
-        "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
-        "optimized": {
-            "course_number": 310,
-            "subjects": [
-                "CIVENGR"
-            ]
-        },
+        "course_title": "PRINCIPLES OF MINERALOGY",
+        "description": "Minerals, their physical and chemical properties, crystallography, and geologic significance.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 220,
+                    "course_number": 115,
                     "subjects": [
-                        "COMPSCI"
+                        "CHEM"
                     ]
                 },
                 {
-                    "course_number": 363,
+                    "course_number": 109,
                     "subjects": [
-                        "ME"
+                        "CHEM"
                     ]
                 },
                 {
-                    "course_number": 310,
+                    "course_number": 103,
                     "subjects": [
-                        "CIVENGR"
+                        "CHEM"
                     ]
                 },
                 {
-                    "course_number": 291,
+                    "course_number": 100,
                     "subjects": [
-                        "CIVENGR",
-                        "GLE"
+                        "GEOSCI"
                     ]
                 },
                 {
-                    "course_number": 203,
+                    "course_number": 106,
                     "subjects": [
-                        "ECE"
+                        "GEOSCI",
+                        "ENVIRST"
                     ]
                 }
             ],
-            "prerequisites_text": "(CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0291,COMP\u00a0SCI\u00a0220, orE\u00a0C\u00a0E\u00a0203) and (CIV\u00a0ENGR\u00a0310orM\u00a0E\u00a0363), graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(GEOSCI\u00a0100orENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0106) and (CHEM\u00a0103,109,115, or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 534,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "NONDESTRUCTIVE EVALUATION",
+        "description": "Practical aspects of nondestructive evaluation (NDE) techniques for identifying physical properties and damage within civil and geologic materials and structures. Data analyses and data science for wave propagation, arrival picking, distributed fiber optic sensing, and visualization tools such as augmented/mixed/virtual reality.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 730,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "ENGINEERING PROPERTIES OF SOILS",
+        "description": "Determination and interpretation of soil properties for engineering purposes; physio-chemical properties of soil-water systems, permeability and capillarity, compression characteristics of soils, measurement of soil properties in the triaxial test, properties of frozen soils and permafrost.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 171,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "INTRODUCTION TO GEOLOGICAL ENGINEERING",
+        "description": "Comprehensive introduction to engineering applications of earth sciences. Exploitation and management of geologic resources; mitigation of geologic hazards such as landslides and earthquakes; abatement of environmental problems such as land and water pollution; design of surface and underground excavations; principal methods of geological engineering.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 474,
+            "subjects": [
+                "GLE",
+                "CIVENGR",
+                "GEOSCI",
+                "MS&E"
+            ]
+        },
+        "course_title": "ROCK MECHANICS",
+        "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0M\u00a0A\u00a0201,PHYSICS\u00a0201,207, or247, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "LANDARC",
+                "GLE",
+                "GEOG",
+                "F&WECOL",
+                "ENVIRST",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
+        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 113,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 171,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 114,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN GEOLOGICAL ENGINEERING",
+        "description": "Various topics in the field of geological engineering.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 537,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "QUANTITATIVE METHODS FOR GEOSCIENCE",
+        "description": "MATLAB is a powerful, high-level programming language and integrated development environment (IDE) that is used across a broad variety of scientific disciplines for tasks including data visualization, modeling, and application development. Focus on the active use of MATLAB for developing practical programming and data analysis skills that can be applied across a range of geoscience- relevant problems. Applications will include: data visualization and publishable figure development; automation of data processing; statistical and time-series analysis; image processing and mapping; and optimization. Additional topics may be guided by student interest.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 222,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0222, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 596,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "GEOMECHANICS",
+        "description": "Observation, description, and prediction of deformation of geomechanical systems at depth, and the forces (stress) causing those deformations, relevant for petroleum/geothermal reservoirs and studies of earthquake mechanics. Emphasis on computational exercises using datasets from the petroleum industry and earthquake catalogues, as well as prediction of ground deformation.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 474,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR",
+                        "GEOSCI",
+                        "MS&E"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -2054,30 +813,92 @@
     },
     {
         "course_reference": {
-            "course_number": 421,
+            "course_number": 330,
             "subjects": [
                 "GLE",
                 "CIVENGR"
             ]
         },
-        "course_title": "ENVIRONMENTAL SUSTAINABILITY ENGINEERING",
-        "description": "Uses the three paradigms of sustainability (environmental, social, and economic) for strategic environmental initiatives in an engineering setting. Proactive environmental management opportunities, including practices of pollution prevention, industrial ecology, and design for the environment. A systems approach to manufacturing, examining the life cycle of products, incorporating total cost accounting, extended producer responsibility, and design for end-of-life.",
-        "optimized": {
-            "course_number": 104,
-            "subjects": [
-                "CHEM"
-            ]
-        },
+        "course_title": "SOIL MECHANICS",
+        "description": "Basic principles of soil mechanics and fundamentals of application in engineering practice; soil composition and texture; classification; permeability and seepage; consolidation; settlement; shear strength; lateral earth pressures and retaining structures, shallow and deep foundations, slope stability; subsurface exploration; laboratory characterization of physical and engineering properties of soils.",
+        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 104,
+                    "course_number": 306,
                     "subjects": [
-                        "CHEM"
+                        "ME"
                     ]
                 },
                 {
+                    "course_number": 303,
+                    "subjects": [
+                        "EMA"
+                    ]
+                }
+            ],
+            "prerequisites_text": "E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 455,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "STRUCTURAL GEOLOGY",
+        "description": "Principles of rock deformation, structures in layered rocks, structural analysis, intrusive structures. Lab: three-dimensional problems involving structural concepts; field trip.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 370,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 204,
+                    "subjects": [
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOSCI\u00a0202,204, and (G\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0370or concurrent enrollment), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 444,
+            "subjects": [
+                "GLE",
+                "CIVENGR",
+                "GEOSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "PRACTICAL APPLICATIONS OF GPS SURVEYING",
+        "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
                     "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 211,
                     "subjects": [
                         "MATH"
                     ]
@@ -2087,15 +908,404 @@
                     "subjects": [
                         "MATH"
                     ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0211,217,221, or graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "INDEPENDENT WORK",
+        "description": "Under faculty supervision.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 511,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
+        "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 203,
+                    "subjects": [
+                        "ECE"
+                    ]
+                },
+                {
+                    "course_number": 291,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                },
+                {
+                    "course_number": 363,
+                    "subjects": [
+                        "ME"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0291,COMP\u00a0SCI\u00a0220, orE\u00a0C\u00a0E\u00a0203) and (CIV\u00a0ENGR\u00a0310orM\u00a0E\u00a0363), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 421,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL SUSTAINABILITY ENGINEERING",
+        "description": "Uses the three paradigms of sustainability (environmental, social, and economic) for strategic environmental initiatives in an engineering setting. Proactive environmental management opportunities, including practices of pollution prevention, industrial ecology, and design for the environment. A systems approach to manufacturing, examining the life cycle of products, incorporating total cost accounting, extended producer responsibility, and design for end-of-life.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
                 },
                 {
                     "course_number": 109,
                     "subjects": [
                         "CHEM"
                     ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
                 }
             ],
             "prerequisites_text": "(MATH\u00a0217or221) and (CHEM\u00a0104or109), or graduate/professional standing or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 594,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO APPLIED GEOPHYSICS",
+        "description": "Survey of applied geophysics, including seismic refraction, seismic reflection, electrical resistivity, gravity, and magnetics methods. Basic physics of each method and modeling techniques and field procedures.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "EMA"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 222,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0222and (PHYSICS\u00a0202,208,248, orE\u00a0M\u00a0A\u00a0202), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 434,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "INTRODUCTION TO UNDERGROUND OPENINGS ENGINEERING",
+        "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 474,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR",
+                        "GEOSCI",
+                        "MS&E"
+                    ]
+                },
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330,GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 479,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "GEOLOGICAL ENGINEERING DESIGN",
+        "description": "A practical problem in an area of geological engineering (such as development of a geologic resource or design of a structure in soil and/or rock) is selected, and then the principles and processes of design and analysis are applied to the solution of the problem.",
+        "optimized": {
+            "course_number": 735,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 432,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 427,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 629,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                },
+                {
+                    "course_number": 434,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 535,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 530,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 735,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 532,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 514,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 635,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 414,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 430,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing, declared in Geological Engineering BS, andCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0530,532,535,635,735,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0629,CIV\u00a0ENGR\u00a0414,427,514, or (CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0430,432, and434)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 612,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "ECOHYDROLOGY",
+        "description": "Mutual interactions between the hydrologic cycle and ecosystems, including hydrologic mechanisms that underlie ecological patterns and processes, movement of water and energy through the soil-plant-atmosphere continuum, application and development of models for simulating ecohydrologic processes, and case studies on ecohydrologic function and ecosystem services of varied environments.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 627,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR\u00a0311,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0627, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 1,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "COOPERATIVE EDUCATION PROGRAM",
+        "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 530,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "SEEPAGE AND SLOPES",
+        "description": "Practical aspects of seepage effects and ground water flow. Stability of natural and man-made slopes under various loading conditions. Design and construction of earth dams and embankments. Flow net and its use; wells; filters; total and effective stress methods of slope analysis; selection of pertinent soil parameters.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "GLE",
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 801,
+            "subjects": [
+                "GLE"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN GEOLOGICAL ENGINEERING",
+        "description": "Topics vary.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 595,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "FIELD METHODS IN APPLIED AND ENGINEERING GEOPHYSICS",
+        "description": "The application of geophysical field methods for delineating near-surface features and/or structures as applied to engineering, environmental and exploration problems.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 594,
+                    "subjects": [
+                        "GLE",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0594or concurrent enrollment, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
@@ -2114,12 +1324,103 @@
                 {
                     "course_number": 330,
                     "subjects": [
-                        "CIVENGR",
-                        "GLE"
+                        "GLE",
+                        "CIVENGR"
                     ]
                 }
             ],
             "prerequisites_text": "CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 520,
+            "subjects": [
+                "GLE",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "REACTIVE PROCESSES FOR SUSTAINABLE ENERGY AND RESOURCE PRODUCTION",
+        "description": "Key scientific concepts related to fossil and renewable energy resources. Apply the fundamentals of thermodynamics and chemical kinetics at solid interfaces to better understand the science behind using fossil and renewable energy resources. Evaluate the impacts of existing and emerging energy technologies on the environment.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing, (MATH\u00a0211,217, or221), (CHEM\u00a0103,104, or109), andCIV\u00a0ENGR\u00a0320, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 724,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "GROUNDWATER FLOW MODELING",
+        "description": "An introduction to the principles of modeling groundwater flow systems, with emphasis on regional flow system analysis. Conceptual understanding of governing equations, and the use of finite difference techniques to solve such equations are stressed. Develop codes and become introduced to packaged models, including those developed by the U. S. Geological Survey. Knowledge of hydrogeology [such asG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627or629] required.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 757,
+            "subjects": [
+                "GLE",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "ADVANCED ROCK MECHANICS",
+        "description": "Experimental rock mechanics, rock mechanics apparatus design, static and dynamic rock friction, rate and state friction, crack phenomena and rock fracture mechanics, earthquake energy budget, elastic/viscoelastic/plastic behavior of rocks, engineering and geological applications. Knowledge of introductory rock mechanics [such as M S  E/GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474] required.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

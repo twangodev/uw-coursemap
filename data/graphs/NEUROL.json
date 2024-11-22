@@ -1,48 +1,20 @@
 [
     {
         "data": {
+            "source": "MEDSC-M 812",
+            "target": "NEUROL 914"
+        }
+    },
+    {
+        "data": {
             "id": "MEDSC-M",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Independent research under the direct supervision of Neurology faculty. Each project is individualized to meet the research goals of the student within the context of the faculty's research.",
-            "id": "NEUROL 910",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic science concepts will be integrated to examine the relationship between neuroanatomy and cognition (e.g., learning and memory, executive function, visual perceptual abilities, etc.). Utilize stroke, epilepsy, dementia and other neurodegenerative disorders from clinical practice to demonstrate the connection between brain structure and cognitive function. Hands on experience in neuropsychological test administration and interpretation will be integrated into learning. Brain imaging correlates for clinical cases will be presented by a clinical neurologist.",
-            "id": "NEUROL 913",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
             "description": "Gain insight into the role of diet and nutrition in neurological disease while utilizing analytical and evidence-based-medicine research skills. Gain understanding of the role of diet and nutrition in the exacerbation and the treatment of neurological disorders (e.g. Epilepsy, Autism, Fragile X Syndrome, Phenylketonuria (PKU), Multiple Sclerosis).",
             "id": "NEUROL 914",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "id": "NEUROL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Offers the undergraduate student majoring in the life sciences (including biology, chemistry psychology, or related fields) and with interest in preparing for advanced coursework in graduate or medical school, an opportunity to participate in basic and translation research in neuroscience and neurological disorders.",
-            "id": "NEUROL 699",
-            "parent": "NEUROL"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Neurology faculty. Each student's project is individualized to meet the research goals of the student within the context of the faculty's research.",
-            "id": "NEUROL 990",
             "parent": "NEUROL"
         }
     },
@@ -55,8 +27,15 @@
     },
     {
         "data": {
+            "description": "Offers the undergraduate student majoring in the life sciences (including biology, chemistry psychology, or related fields) and with interest in preparing for advanced coursework in graduate or medical school, an opportunity to participate in basic and translation research in neuroscience and neurological disorders.",
+            "id": "NEUROL 699",
+            "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
             "source": "MEDSC-M 812",
-            "target": "NEUROL 914"
+            "target": "NEUROL 913"
         }
     },
     {
@@ -68,8 +47,29 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "NEUROL 913"
+            "description": "Independent research under the direct supervision of Neurology faculty. Each student's project is individualized to meet the research goals of the student within the context of the faculty's research.",
+            "id": "NEUROL 990",
+            "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic science concepts will be integrated to examine the relationship between neuroanatomy and cognition (e.g., learning and memory, executive function, visual perceptual abilities, etc.). Utilize stroke, epilepsy, dementia and other neurodegenerative disorders from clinical practice to demonstrate the connection between brain structure and cognitive function. Hands on experience in neuropsychological test administration and interpretation will be integrated into learning. Brain imaging correlates for clinical cases will be presented by a clinical neurologist.",
+            "id": "NEUROL 913",
+            "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research under the direct supervision of Neurology faculty. Each project is individualized to meet the research goals of the student within the context of the faculty's research.",
+            "id": "NEUROL 910",
+            "parent": "NEUROL"
+        }
+    },
+    {
+        "data": {
+            "id": "NEUROL",
+            "type": "compound"
         }
     }
 ]

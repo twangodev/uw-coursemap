@@ -1,66 +1,76 @@
 [
     {
         "data": {
-            "description": "Indigenous foods of North America are a vital component of modern agricultural and food systems. Indigenous foods and foodways will be examined from interdisciplinary historical, legal, biological, and social perspectives. Historic indigenous foodways of the present-day upper Midwestern United States and the impact on food and seed sovereignty of settler colonialism and subsequent agricultural practices and policies will be explored. Current efforts to re-claim agricultural traditions and foodways to improve public health, economic opportunity, and food and seed sovereignty will be covered, including the right to healthy and culturally appropriate food produced through ecologically sound and sustainable methods, to define one's own food and agriculture systems, and to control the mechanisms and policies that govern food distribution. Hands-on activities are featured; previous examples include cooking with indigenous foods, ice fishing, and tapping maple trees for syrup.",
-            "id": "HORT 380",
+            "description": "Plants are essential for human wellbeing, yet they are often manipulated in ways that contribute significantly to human and environmental detriment. Provides an opportunity for students to consider the scientific, social, economic, and public policy implications of plants or groups of plants and dive deeply into those subjects for a variety of crops that are essential for human societies.",
+            "id": "HORT 351",
             "parent": "HORT"
         }
     },
     {
         "data": {
-            "description": "Introduction of basic concepts of plant molecular biology and molecular techniques in current use. Topics include: organization and regulation of plant genes, gene cloning and analysis, transformation systems for plants, and molecular techniques for crop improvement.",
-            "id": "HORT/GENETICS 550"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Principles of transferring plant genes by sexual, somatic, and molecular methods and the application of gene transfer in plant breeding and genetic engineering to improve crop plants.",
-            "id": "HORT/AGRONOMY 338"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics on issues relevant to horticulture.",
-            "id": "HORT 375",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Theoretical and practical training in plant biotechnology including molecular biology, protein biochemistry and basic bioinformatic techniques used in fundamental and applied research on plants. Valuable hands-on training to those interested in careers in biotechnology.",
-            "id": "HORT/AGRONOMY/BOTANY 339"
-        }
-    },
-    {
-        "data": {
-            "description": "Internship under guidance of a Horticulture faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Horticulture faculty or instructional academic staff member and the internship site supervisor.",
-            "id": "HORT 399",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "source": "SOILSCI 301",
-            "target": "HORT/AGRONOMY/SOILSCI 326"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
+            "id": "GENETICS",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 103",
-            "target": "SOILSCI 301"
+            "source": "STAT/F&WECOL 572",
+            "target": "HORT/AGRONOMY 811"
         }
     },
     {
         "data": {
-            "description": "An introduction to grape production and wine culture targeting students interested in learning the science of growing grapes, winemaking, and wine appreciation. Topics include cultural history and geography of the world's grape-producing regions, principles of plant anatomy and physiology, biochemistry of wine production, wine producing regions of the world and wine styles, and sensory evaluation of wines. Includes a wine tasting discussion to explore the sensory attributes of the wines and production practices specific to the wine production regions to be covered.  Students must be 21 years old by the beginning of class.",
-            "id": "HORT 330",
+            "description": "Plants provide not only the foundation of food, clothing, and shelter essential for human existence, but also some of the key raw materials for transcendence and abstraction through music, art, and spirituality. Since antiquity, we have co-evolved with plants and their derivative products, with each exerting a domesticating force on the other. It is, for example, impossible to think of our modern life without its plant-based accompaniments in the form of cotton, sugar, bread, coffee, and wood. Yet they are so ubiquitous we may forget they all derive from plants discovered, domesticated, bred, and farmed for millennia in a never-ending pursuit to improve our wellbeing. Major points of intersection between plants and human wellbeing will be explored from a horticultural point of view by highlighting a plant or group of plants that represent a primary commodity or resource through which humans have pursued their own aims and explore effects and impacts on human society.",
+            "id": "HORT 350",
             "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
+            "id": "GENETICS/ANSCI/HORT/AGRONOMY 615"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents an overview of the techniques, biology and underlying theory of plant tissue culture, genetic engineering and genome editing. Overviews of research and commercial applications, and issues/challenges in the area of plant biotechnology are also covered.",
+            "id": "AGRONOMY/HORT/BOTANY 340"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive statistics, distributions, one- and two-sample normal inference, power, one-way ANOVA, simple linear regression, categorical data, non-parametric methods; underlying assumptions and diagnostic work.",
+            "id": "STAT/F&WECOL 571"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "HORT/AGRONOMY 360"
+        }
+    },
+    {
+        "data": {
+            "description": "Discuss advanced topics in selection theory and the utilization of molecular markers in selection.",
+            "id": "AGRONOMY/HORT 812"
         }
     },
     {
@@ -72,86 +82,21 @@
     },
     {
         "data": {
-            "description": "Weekly seminar topics in agronomy and horticulture.",
-            "id": "HORT 910",
+            "description": "An overview of the importance of fresh and processed vegetables worldwide. Vegetable origin, history, classification, culture, marketing, physiology, genetics, handling, quality, significance in world cultures and diets.",
+            "id": "HORT 370",
             "parent": "HORT"
         }
     },
     {
         "data": {
-            "id": "SOILSCI",
-            "type": "compound"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
         "data": {
-            "source": "HORT 120",
-            "target": "HORT 334"
-        }
-    },
-    {
-        "data": {
-            "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
-            "id": "HORT/SOILSCI 332"
-        }
-    },
-    {
-        "data": {
-            "description": "For the beginning student. Scientific basis for horticultural practices; scope of the field of horticulture; introduction to propagation, culture, management, improvement, storage, and marketing of flowers, fruits, ornamentals and vegetables.",
-            "id": "HORT 120",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Lab and field techniques used in breeding and maintaining economic crops.",
-            "id": "HORT/AGRONOMY 502"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study and research for students completing theses under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
-            "id": "HORT 681",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study and research for students completing theses under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program. Continuation ofHORT\u00a0681",
-            "id": "HORT 682",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "source": "HORT 120",
-            "target": "HORT 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
-            "id": "HORT/AAE/AGRONOMY/PLPATH 367"
-        }
-    },
-    {
-        "data": {
-            "description": "Graduate seminar in Plant Breeding  Plant Genetics (PBPG) that requires students to give oral scientific presentations on topics chosen by the instructors and/or the student\u00bfs thesis research. This seminar is coordinated by PBPG faculty on a rotating basis.",
-            "id": "HORT/GENETICS/AGRONOMY 957"
-        }
-    },
-    {
-        "data": {
-            "description": "This international field study will meet during the winter intercession in a tropical country in Central America. Reflect on the role of plants in our daily lives and the effects that our daily choices have on the environment, human health, conflicts, poverty, and development. Provides an opportunity to develop a holistic appreciation of horticulture by highlighting the interactions between plants and society. Discuss some of the social, scientific and environmental challenges that conventional, sustainable and organic horticulture practices face in the production, marketing, and use of tropical crops. The field study will provide an opportunity to contextualize what was learned during \"Tropical Horticultural Systems\" (HORT/\u200bAGRONOMY\u00a0\u00a0376). Visit diverse agricultural systems, such as small farms, large-scale operations, market growers, and industrial export businesses. In addition, we will visit agronomic centers, botanical gardens, herbaria, germplasm banks, and nature preserves.",
-            "id": "HORT 378",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of world, national, and regional horticulture plants and industries presented by various faculty. History and profiles of research advancing horticulture presented by department faculty.",
-            "id": "HORT 121",
-            "parent": "HORT"
+            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
+            "id": "AGRONOMY/SOILSCI/HORT 326"
         }
     },
     {
@@ -169,165 +114,38 @@
     },
     {
         "data": {
-            "description": "Use of statistical methods to facilitate improvements in quantitative traits of cultivated plants.",
-            "id": "HORT/AGRONOMY 811"
+            "description": "Explores how and why genetically modified (GM) crops are created and their regulation at the federal and state level. Through case studies, students will learn about the impacts of GM crops and critically evaluate arguments both for and against their use. Readings and discussion introduce students to the complex economic, cultural, and political issues surrounding GM crops.",
+            "id": "AGRONOMY/HORT 360"
         }
     },
     {
         "data": {
-            "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
-            "id": "HORT/SOILSCI/BOTANY 626"
-        }
-    },
-    {
-        "data": {
-            "description": "Physical chemical and biological properties of soils as they affect soil-plant-water relations, soil classification and suitability for agricultural and other uses.",
-            "id": "SOILSCI 301",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
-        }
-    },
-    {
-        "data": {
-            "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
-            "id": "HORT/GENETICS/AGRONOMY/ANSCI 615"
-        }
-    },
-    {
-        "data": {
-            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "HORT 799",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Plants are essential for human wellbeing, yet they are often manipulated in ways that contribute significantly to human and environmental detriment. Provides an opportunity for students to consider the scientific, social, economic, and public policy implications of plants or groups of plants and dive deeply into those subjects for a variety of crops that are essential for human societies.",
-            "id": "HORT 351",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "On-site identification and description, aesthetic qualities and uses, environmental requirements and adaptability of selected ornamental plants with emphasis on annuals, herbaceous perennials, and those used for interior design.",
-            "id": "HORT 234",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Plants provide not only the foundation of food, clothing, and shelter essential for human existence, but also some of the key raw materials for transcendence and abstraction through music, art, and spirituality. Since antiquity, we have co-evolved with plants and their derivative products, with each exerting a domesticating force on the other. It is, for example, impossible to think of our modern life without its plant-based accompaniments in the form of cotton, sugar, bread, coffee, and wood. Yet they are so ubiquitous we may forget they all derive from plants discovered, domesticated, bred, and farmed for millennia in a never-ending pursuit to improve our wellbeing. Major points of intersection between plants and human wellbeing will be explored from a horticultural point of view by highlighting a plant or group of plants that represent a primary commodity or resource through which humans have pursued their own aims and explore effects and impacts on human society.",
-            "id": "HORT 350",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Field identification, landscape characteristics, uses, environmental requirements, adaptability of woody ornamental plants; their autumn and winter character.",
-            "id": "HORT/LANDARC 263"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "ZOOLOGY/BIOLOGY/BOTANY 152"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of the history, legality, regulation, anatomy and botany, agronomic and horticultural practices, and end-use potential of industrial hemp. Focus on sustainable agricultural production and processing of industrial hemp for food, fiber, and cannabinoids. Gain real world insight into this rapidly expanding area. Hands-on experience growing, propagating and pollinating hemp.",
-            "id": "HORT 240",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics on issues relevant to Horticulture.",
-            "id": "HORT 875",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Hands-on turf establishment, cool- and warm-season grass, seed and weed identification, chemical application, and turf cultivation techniques and equipment use, plus field trips to major league sport facilities and golf courses.",
-            "id": "HORT/PLPATH 262"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
+            "id": "HORT",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
+            "description": "Explores how and why genetically modified (GM) crops are created and their regulation at the federal and state level. Through case studies, students will learn about the impacts of GM crops and critically evaluate arguments both for and against their use. Readings and discussion introduce students to the complex economic, cultural, and political issues surrounding GM crops.",
+            "id": "HORT/AGRONOMY 360"
         }
     },
     {
         "data": {
-            "description": "Dig into the history of plant sciences to understand why plants and humans have the relationships they do today.  Focus on the experiences of Indigenous Americans and People of Color to understand the roots of inequities in horticulture, agriculture, and other plant sciences. Practice skills as a translator of science and history through engagement with scientific publications, library resources, and archival materials. Define important societal questions, collect and analyze evidence, present original conclusions, and contribute to ongoing discussions about the relationship of people and plants.  Includes intensive writing and oral presentations.",
-            "id": "HISTSCI/HORT 301"
+            "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
+            "id": "SOILSCI/F&WECOL/HORT 524"
         }
     },
     {
         "data": {
-            "description": "Faculty, regional professionals, local organic farmers, and students present and discuss topics relevant to history, marketing, economics, production, and social context of organic and sustainable agriculture.",
-            "id": "HORT 372",
-            "parent": "HORT"
+            "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
+            "id": "SOILSCI/HORT 332"
         }
     },
     {
         "data": {
-            "description": "Survey of the basic principles and concepts of the biology of plants and their application to cultivation of food crops in controlled environments. Integrates topics including: organic systems, sustainability, urban agriculture, and socioecological factors.",
-            "id": "HORT 333",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Provide students with hands-on experience in and understanding of greenhouse cultivation. The optional lab component ofHORT\u00a0334Greenhouse Cultivation.",
-            "id": "HORT 335",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
-            "id": "HORT/SOILSCI/AGRONOMY 326"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of the importance of fresh and processed vegetables worldwide. Vegetable origin, history, classification, culture, marketing, physiology, genetics, handling, quality, significance in world cultures and diets.",
-            "id": "HORT 370",
-            "parent": "HORT"
-        }
-    },
-    {
-        "data": {
-            "description": "Dig into the history of plant sciences to understand why plants and humans have the relationships they do today.  Focus on the experiences of Indigenous Americans and People of Color to understand the roots of inequities in horticulture, agriculture, and other plant sciences. Practice skills as a translator of science and history through engagement with scientific publications, library resources, and archival materials. Define important societal questions, collect and analyze evidence, present original conclusions, and contribute to ongoing discussions about the relationship of people and plants.  Includes intensive writing and oral presentations.",
-            "id": "HORT/HISTSCI 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides academic credit for directed study under direct guidance of a Horticulture faculty member or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "HORT 699",
-            "parent": "HORT"
+            "source": "GENETICS 466",
+            "target": "AGRONOMY/HORT 502"
         }
     },
     {
@@ -339,8 +157,40 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "HORT 370"
+            "source": "STAT/F&WECOL 572",
+            "target": "AGRONOMY/HORT 811"
+        }
+    },
+    {
+        "data": {
+            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
+            "id": "ENTOM/C&ESOC/AGROECOL/AGRONOMY/ENVIRST 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Highlights the connections between tropical plants and society. Topics include multidisciplinary reflections on the biology of tropical plants, as well as an overview of different production systems and some of the social and environmental problems associated with the utilization of tropical plants in the context of local and global markets. Provides the opportunity to demonstrate comparative skills with respect to local and international challenges posed by the topics we address in class. Illustrates connections between horticulture and conservation, food security, nutrition, and global health.",
+            "id": "HORT/AGRONOMY 376"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT/F&WECOL 571",
+            "target": "STAT/F&WECOL 572"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical chemical and biological properties of soils as they affect soil-plant-water relations, soil classification and suitability for agricultural and other uses.",
+            "id": "SOILSCI 301",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of world, national, and regional horticulture plants and industries presented by various faculty. History and profiles of research advancing horticulture presented by department faculty.",
+            "id": "HORT 121",
+            "parent": "HORT"
         }
     },
     {
@@ -352,39 +202,27 @@
     },
     {
         "data": {
-            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
-            "id": "HORT/AGRONOMY/SOILSCI 326"
-        }
-    },
-    {
-        "data": {
-            "description": "Discuss advanced topics in selection theory and the utilization of molecular markers in selection.",
-            "id": "HORT/AGRONOMY 812"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of selection, production, handling, use of fruits, vegetables, flowers, and foliage plants grown indoors. One-day field trip required.",
-            "id": "HORT 334",
+            "description": "Honors research work under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
+            "id": "HORT 289",
             "parent": "HORT"
         }
     },
     {
         "data": {
-            "description": "Principles involved in breeding and maintaining economic crops; factors affecting the choice of breeding methods; alternative approaches through hybridization and selection.",
-            "id": "HORT/AGRONOMY 501"
+            "description": "Dig into the history of plant sciences to understand why plants and humans have the relationships they do today.  Focus on the experiences of Indigenous Americans and People of Color to understand the roots of inequities in horticulture, agriculture, and other plant sciences. Practice skills as a translator of science and history through engagement with scientific publications, library resources, and archival materials. Define important societal questions, collect and analyze evidence, present original conclusions, and contribute to ongoing discussions about the relationship of people and plants.  Includes intensive writing and oral presentations.",
+            "id": "HORT/HISTSCI 301"
         }
     },
     {
         "data": {
-            "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
-            "id": "HORT/SOILSCI/F&WECOL 524"
+            "source": "GENETICS 466",
+            "target": "HORT/AGRONOMY 501"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "HORT 227"
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
         }
     },
     {
@@ -396,15 +234,129 @@
     },
     {
         "data": {
-            "description": "Survey of fruit production, emphasizing commercial production of temperate fruits. Fruit origin, history, classification, physiology, genetics, harvest and post-harvest handling.",
-            "id": "HORT 345",
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 152",
+            "target": "HORT 345"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+            "id": "AAE/HORT/AGRONOMY/PLPATH 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on issues relevant to Horticulture.",
+            "id": "HORT 875",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to grape production and wine culture targeting students interested in learning the science of growing grapes, winemaking, and wine appreciation. Topics include cultural history and geography of the world's grape-producing regions, principles of plant anatomy and physiology, biochemistry of wine production, wine producing regions of the world and wine styles, and sensory evaluation of wines. Includes a wine tasting discussion to explore the sensory attributes of the wines and production practices specific to the wine production regions to be covered.  Students must be 21 years old by the beginning of class.",
+            "id": "HORT 330",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "AGRONOMY/HORT 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Provide students with hands-on experience in and understanding of greenhouse cultivation. The optional lab component ofHORT\u00a0334Greenhouse Cultivation.",
+            "id": "HORT 335",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "HORT/AGRONOMY 338"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of transferring plant genes by sexual, somatic, and molecular methods and the application of gene transfer in plant breeding and genetic engineering to improve crop plants.",
+            "id": "HORT/AGRONOMY 338"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
+            "id": "HORT/PLPATH 261"
+        }
+    },
+    {
+        "data": {
+            "source": "ENTOM/C&ESOC/AGROECOL/AGRONOMY/ENVIRST 103",
+            "target": "AAE/PLPATH/HORT/AGRONOMY 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Theoretical and practical training in plant biotechnology including molecular biology, protein biochemistry and basic bioinformatic techniques used in fundamental and applied research on plants. Valuable hands-on training to those interested in careers in biotechnology.",
+            "id": "AGRONOMY/HORT/BOTANY 339"
+        }
+    },
+    {
+        "data": {
+            "description": "On-site identification and description, aesthetic qualities and uses, environmental requirements and adaptability of selected ornamental plants with emphasis on annuals, herbaceous perennials, and those used for interior design.",
+            "id": "HORT 234",
             "parent": "HORT"
         }
     },
     {
         "data": {
             "description": "Highlights the connections between tropical plants and society. Topics include multidisciplinary reflections on the biology of tropical plants, as well as an overview of different production systems and some of the social and environmental problems associated with the utilization of tropical plants in the context of local and global markets. Provides the opportunity to demonstrate comparative skills with respect to local and international challenges posed by the topics we address in class. Illustrates connections between horticulture and conservation, food security, nutrition, and global health.",
-            "id": "HORT/AGRONOMY 376"
+            "id": "AGRONOMY/HORT 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of statistical methods to facilitate improvements in quantitative traits of cultivated plants.",
+            "id": "AGRONOMY/HORT 811"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides academic credit for directed study under direct guidance of a Horticulture faculty member or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "HORT 699",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Internship under guidance of a Horticulture faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Horticulture faculty or instructional academic staff member and the internship site supervisor.",
+            "id": "HORT 399",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "HORT 227"
         }
     },
     {
@@ -416,51 +368,329 @@
     },
     {
         "data": {
-            "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
-            "id": "HORT/F&WECOL/SOILSCI 524"
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "AGRONOMY/HORT/BOTANY 340"
         }
     },
     {
         "data": {
-            "id": "HORT",
-            "type": "compound"
+            "source": "HORT 334",
+            "target": "HORT 335"
         }
     },
     {
         "data": {
-            "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
-            "id": "HORT/PLPATH 261"
+            "description": "Principles involved in breeding and maintaining economic crops; factors affecting the choice of breeding methods; alternative approaches through hybridization and selection.",
+            "id": "AGRONOMY/HORT 501"
         }
     },
     {
         "data": {
-            "source": "ENVIRST/SOILSCI/GEOG 230",
-            "target": "HORT/F&WECOL/SOILSCI 524"
+            "description": "Hands-on turf establishment, cool- and warm-season grass, seed and weed identification, chemical application, and turf cultivation techniques and equipment use, plus field trips to major league sport facilities and golf courses.",
+            "id": "HORT/PLPATH 262"
         }
     },
     {
         "data": {
-            "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
-            "id": "ENVIRST/SOILSCI/GEOG 230"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores how and why genetically modified (GM) crops are created and their regulation at the federal and state level. Through case studies, students will learn about the impacts of GM crops and critically evaluate arguments both for and against their use. Readings and discussion introduce students to the complex economic, cultural, and political issues surrounding GM crops.",
-            "id": "HORT/AGRONOMY 360"
-        }
-    },
-    {
-        "data": {
-            "description": "Honors research work under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
-            "id": "HORT 289",
+            "description": "Faculty, regional professionals, local organic farmers, and students present and discuss topics relevant to history, marketing, economics, production, and social context of organic and sustainable agriculture.",
+            "id": "HORT 372",
             "parent": "HORT"
         }
     },
     {
         "data": {
-            "source": "ZOOLOGY/BIOLOGY/BOTANY 152",
-            "target": "HORT 345"
+            "description": "Principles of selection, production, handling, use of fruits, vegetables, flowers, and foliage plants grown indoors. One-day field trip required.",
+            "id": "HORT 334",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "HORT 120",
+            "target": "HORT 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of transferring plant genes by sexual, somatic, and molecular methods and the application of gene transfer in plant breeding and genetic engineering to improve crop plants.",
+            "id": "AGRONOMY/HORT 338"
+        }
+    },
+    {
+        "data": {
+            "description": "Graduate seminar in Plant Breeding  Plant Genetics (PBPG) that requires students to give oral scientific presentations on topics chosen by the instructors and/or the student\u00bfs thesis research. This seminar is coordinated by PBPG faculty on a rotating basis.",
+            "id": "AGRONOMY/GENETICS/HORT 957"
+        }
+    },
+    {
+        "data": {
+            "source": "SOILSCI 301",
+            "target": "AGRONOMY/SOILSCI/HORT 326"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
+            "id": "GENETICS 467",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Graduate seminar in Plant Breeding  Plant Genetics (PBPG) that requires students to give oral scientific presentations on topics chosen by the instructors and/or the student\u00bfs thesis research. This seminar is coordinated by PBPG faculty on a rotating basis.",
+            "id": "GENETICS/HORT/AGRONOMY 957"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study and research for students completing theses under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
+            "id": "HORT 681",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles involved in breeding and maintaining economic crops; factors affecting the choice of breeding methods; alternative approaches through hybridization and selection.",
+            "id": "HORT/AGRONOMY 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
+            "id": "SOILSCI/HORT/AGRONOMY 326"
+        }
+    },
+    {
+        "data": {
+            "source": "HORT 120",
+            "target": "HORT 334"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+            "id": "AAE/PLPATH/HORT/AGRONOMY 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Field identification, landscape characteristics, uses, environmental requirements, adaptability of woody ornamental plants; their autumn and winter character.",
+            "id": "LANDARC/HORT 263"
+        }
+    },
+    {
+        "data": {
+            "description": "Indigenous foods of North America are a vital component of modern agricultural and food systems. Indigenous foods and foodways will be examined from interdisciplinary historical, legal, biological, and social perspectives. Historic indigenous foodways of the present-day upper Midwestern United States and the impact on food and seed sovereignty of settler colonialism and subsequent agricultural practices and policies will be explored. Current efforts to re-claim agricultural traditions and foodways to improve public health, economic opportunity, and food and seed sovereignty will be covered, including the right to healthy and culturally appropriate food produced through ecologically sound and sustainable methods, to define one's own food and agriculture systems, and to control the mechanisms and policies that govern food distribution. Hands-on activities are featured; previous examples include cooking with indigenous foods, ice fishing, and tapping maple trees for syrup.",
+            "id": "HORT 380",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "AGRONOMY/HORT 338"
+        }
+    },
+    {
+        "data": {
+            "id": "SOILSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
+            "id": "SOILSCI/HORT/BOTANY 626"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of fruit production, emphasizing commercial production of temperate fruits. Fruit origin, history, classification, physiology, genetics, harvest and post-harvest handling.",
+            "id": "HORT 345",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Lab and field techniques used in breeding and maintaining economic crops.",
+            "id": "AGRONOMY/HORT 502"
+        }
+    },
+    {
+        "data": {
+            "description": "Weekly seminar topics in agronomy and horticulture.",
+            "id": "HORT 910",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction of basic concepts of plant molecular biology and molecular techniques in current use. Topics include: organization and regulation of plant genes, gene cloning and analysis, transformation systems for plants, and molecular techniques for crop improvement.",
+            "id": "GENETICS/HORT 550"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on issues relevant to horticulture.",
+            "id": "HORT 375",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "HORT 350",
+            "target": "HORT 351"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of the basic principles and concepts of the biology of plants and their application to cultivation of food crops in controlled environments. Integrates topics including: organic systems, sustainability, urban agriculture, and socioecological factors.",
+            "id": "HORT 333",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Discuss advanced topics in selection theory and the utilization of molecular markers in selection.",
+            "id": "HORT/AGRONOMY 812"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of statistical methods to facilitate improvements in quantitative traits of cultivated plants.",
+            "id": "HORT/AGRONOMY 811"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "HORT/AGRONOMY 502"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study and research for students completing theses under direct guidance of a Horticulture faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program. Continuation ofHORT\u00a0681",
+            "id": "HORT 682",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "AGRONOMY/HORT 376",
+            "target": "HORT 378"
+        }
+    },
+    {
+        "data": {
+            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "HORT 799",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "AGRONOMY/HORT 360"
+        }
+    },
+    {
+        "data": {
+            "description": "This international field study will meet during the winter intercession in a tropical country in Central America. Reflect on the role of plants in our daily lives and the effects that our daily choices have on the environment, human health, conflicts, poverty, and development. Provides an opportunity to develop a holistic appreciation of horticulture by highlighting the interactions between plants and society. Discuss some of the social, scientific and environmental challenges that conventional, sustainable and organic horticulture practices face in the production, marketing, and use of tropical crops. The field study will provide an opportunity to contextualize what was learned during \"Tropical Horticultural Systems\" (HORT/\u200bAGRONOMY\u00a0\u00a0376). Visit diverse agricultural systems, such as small farms, large-scale operations, market growers, and industrial export businesses. In addition, we will visit agronomic centers, botanical gardens, herbaria, germplasm banks, and nature preserves.",
+            "id": "HORT 378",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "description": "Theoretical and practical training in plant biotechnology including molecular biology, protein biochemistry and basic bioinformatic techniques used in fundamental and applied research on plants. Valuable hands-on training to those interested in careers in biotechnology.",
+            "id": "HORT/AGRONOMY/BOTANY 339"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "HORT 370"
+        }
+    },
+    {
+        "data": {
+            "description": "Polynomial regression, multiple regression, two-way ANOVA with and without interaction, split-plot design, subsampling, analysis of covariance, elementary sampling, introduction to bioassay.",
+            "id": "STAT/F&WECOL 572"
+        }
+    },
+    {
+        "data": {
+            "description": "Computing-intensive course to prepare students for genetic mapping research; linkage analysis and QTL mapping in designed crosses; linkage disequilibrium and association analysis (GWAS). Recommended preparation is undergraduate courses in genetics and statistics and prior experience writing R scripts (such as module 1 of STAT 327).",
+            "id": "AGRONOMY/GENETICS/ANSCI/HORT 615"
+        }
+    },
+    {
+        "data": {
+            "description": "For the beginning student. Scientific basis for horticultural practices; scope of the field of horticulture; introduction to propagation, culture, management, improvement, storage, and marketing of flowers, fruits, ornamentals and vegetables.",
+            "id": "HORT 120",
+            "parent": "HORT"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "SOILSCI 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Lab and field techniques used in breeding and maintaining economic crops.",
+            "id": "HORT/AGRONOMY 502"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 152",
+            "target": "AGRONOMY/HORT/BOTANY 339"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of the history, legality, regulation, anatomy and botany, agronomic and horticultural practices, and end-use potential of industrial hemp. Focus on sustainable agricultural production and processing of industrial hemp for food, fiber, and cannabinoids. Gain real world insight into this rapidly expanding area. Hands-on experience growing, propagating and pollinating hemp.",
+            "id": "HORT 240",
+            "parent": "HORT"
         }
     }
 ]

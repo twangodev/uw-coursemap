@@ -1,72 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-RISK MANAGEMENT",
-        "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "GENBUS",
-                "RMI"
-            ]
-        },
-        "course_title": "MANAGING LEGAL RISKS",
-        "description": "Legal implications for business managers of selected areas of the law including negligence, contract, intellectual property, officer/director liability, financing the business enterprise, and employment and trade regulation; introduction to the legal process, including alternative dispute resolution systems.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 530,
-            "subjects": [
-                "RMI",
-                "ECON"
-            ]
-        },
-        "course_title": "INSURING LIFE'S RISKS: HEALTH, AGING, AND POLICY",
-        "description": "Covers risks related to health and aging, rationales for social insurance programs to protect against these risks, and costs and benefits of these programs.  Broad topics include health insurance, disability insurance, and Social Security and pension policy.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ECON\u00a0301or311) andECON\u00a0310; or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 636,
             "subjects": [
                 "RMI"
@@ -89,13 +23,13 @@
                     ]
                 },
                 {
-                    "course_number": 300,
+                    "course_number": 635,
                     "subjects": [
                         "RMI"
                     ]
                 },
                 {
-                    "course_number": 635,
+                    "course_number": 300,
                     "subjects": [
                         "RMI"
                     ]
@@ -106,13 +40,294 @@
     },
     {
         "course_reference": {
-            "course_number": 875,
+            "course_number": 930,
             "subjects": [
                 "RMI"
             ]
         },
-        "course_title": "SEMINAR-RISK MANAGEMENT AND INSURANCE",
-        "description": "Applied learning in risk management and insurance.",
+        "course_title": "SEMINAR IN ACTUARIAL SCIENCE, RISK MANAGEMENT & INSURANCE II",
+        "description": "Doctoral seminar in actuarial science, risk management and insurance, with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 660,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "RISK ANALYTICS AND BEHAVIORAL SCIENCE",
+        "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 704,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 705,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or graduate/professional standing) and (GEN\u00a0BUS\u00a0306,704,705,ECON\u00a0310,MATH/\u200bSTAT\u00a0\u00a0309,431, orMATH\u00a0331), or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 365,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 645,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "COMMERCIAL INSURANCE",
+        "description": "Consideration of the structure, use, benefits, and limitations of corporate insurance products. Fundamental to the material is the economic underpinning of the insurance contract structure. The major commercial property and liability insurance products will be analyzed in detail with the purpose of illustrating these economic principles and applying them to specific organizational situations.",
+        "optimized": {
+            "course_number": 700,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "RMI"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or700) or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 655,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "RISK FINANCING TECHNIQUES",
+        "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "FINANCE"
+                    ]
+                },
+                {
+                    "course_number": 704,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "FINANCE",
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or graduate/professional standing) and (GEN\u00a0BUS\u00a0306,704,ECON\u00a0310,STAT/\u200bMATH\u00a0\u00a0309,431, orMATH\u00a0331), and (FINANCE/\u200bECON\u00a0\u00a0300orFINANCE\u00a0700), or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "PROPERTY RISK MANAGEMENT",
+        "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 306,
+                    "subjects": [
+                        "AAE",
+                        "ECON",
+                        "URBRPL",
+                        "REALEST"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300orURB\u00a0R\u00a0PL/\u200bA\u00a0A\u00a0E/\u200bECON/\u200bREAL\u00a0EST\u00a0\u00a0306"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "PRINCIPLES OF RISK MANAGEMENT",
+        "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
+        "optimized": {
+            "course_number": 101,
+            "subjects": [
+                "ECON"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 111,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ECON"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ECON\u00a0101or111) or declared in undergraduate Business Exchange program. Not open to graduate/professional students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "READING AND RESEARCH-RISK MANAGEMENT",
+        "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -123,8 +338,8 @@
         "course_reference": {
             "course_number": 701,
             "subjects": [
-                "RMI",
-                "GENBUS"
+                "GENBUS",
+                "RMI"
             ]
         },
         "course_title": "MANAGING LEGAL RISKS",
@@ -185,46 +400,13 @@
     },
     {
         "course_reference": {
-            "course_number": 640,
+            "course_number": 615,
             "subjects": [
                 "RMI"
             ]
         },
-        "course_title": "MANAGEMENT OF INSURANCE ENTERPRISE",
-        "description": "Functional analysis of the operations of insurance organizations; legal organization, marketing systems, management and control, underwriting, rating, financial analysis, rate making and regulation.",
-        "optimized": {
-            "course_number": 700,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "RMI"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or700) or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 635,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "CAPTIVE INSURANCE",
-        "description": "Examines how captive insurance works, the different structures of captives, and advantages and disadvantages of their use in various settings. In addition, the captive feasibility process, as well as techniques for measuring financial performance, will be covered.",
+        "course_title": "LIABILITY RISK MANAGEMENT",
+        "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
         "optimized": {
             "course_number": 300,
             "subjects": [
@@ -234,283 +416,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 700,
-                    "subjects": [
-                        "RMI"
-                    ]
-                },
-                {
                     "course_number": 300,
                     "subjects": [
                         "RMI"
                     ]
                 }
             ],
-            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300,700, or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "RISK FINANCING TECHNIQUES",
-        "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
-        "optimized": {
-            "course_number": 300,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                },
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "FINANCE"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "FINANCE",
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 704,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or graduate/professional standing) and (GEN\u00a0BUS\u00a0306,704,ECON\u00a0310,STAT/\u200bMATH\u00a0\u00a0309,431, orMATH\u00a0331), and (FINANCE/\u200bECON\u00a0\u00a0300orFINANCE\u00a0700), or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF RISK MANAGEMENT",
-        "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Graduate/professional standing. Not open to students with credit forR\u00a0M\u00a0I\u00a0300"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 670,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "CYBER RISK & REGULATIONS",
-        "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 660,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "RISK ANALYTICS AND BEHAVIORAL SCIENCE",
-        "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
-        "optimized": {
-            "course_number": 300,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 705,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 704,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or graduate/professional standing) and (GEN\u00a0BUS\u00a0306,704,705,ECON\u00a0310,MATH/\u200bSTAT\u00a0\u00a0309,431, orMATH\u00a0331), or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 799,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-RISK MANAGEMENT",
-        "description": "Individual work suited to the needs of graduate students may be arranged.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "RISK MANAGEMENT",
-        "description": "The purpose of risk management is to minimize the adverse consequences of variability. Topics include the general philosophy of risk management, environmental factors affecting risk, options to manage risk, and decision processes to select among those options.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate Students Only"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 650,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "SUSTAINABILITY, ENVIRONMENTAL AND SOCIAL RISK MANAGEMENT",
-        "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF RISK MANAGEMENT",
-        "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
-        "optimized": {
-            "course_number": 101,
-            "subjects": [
-                "ECON"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 111,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ECON\u00a0101or111) or declared in undergraduate Business Exchange program. Not open to graduate/professional students"
+            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300"
         }
     },
     {
@@ -548,168 +460,13 @@
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 640,
             "subjects": [
                 "RMI"
             ]
         },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 930,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "SEMINAR IN ACTUARIAL SCIENCE, RISK MANAGEMENT & INSURANCE II",
-        "description": "Doctoral seminar in actuarial science, risk management and insurance, with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-RISK MANAGEMENT AND INSURANCE PHD",
-        "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "PROPERTY RISK MANAGEMENT",
-        "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
-        "optimized": {
-            "course_number": 300,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                },
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "REALEST",
-                        "AAE",
-                        "URBRPL",
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300orURB\u00a0R\u00a0PL/\u200bA\u00a0A\u00a0E/\u200bECON/\u200bREAL\u00a0EST\u00a0\u00a0306"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 620,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "EMPLOYEE BENEFITS MANAGEMENT",
-        "description": "Nongovernmental schemes for treating the risks of superannuation of members of a group; property, liability, legal expense, life and health coverages available to groups; organizational characteristics, benefit structure and pricing of risk transfer schemes for groups; characteristics and funding of various types of pension plans; effects of ERISA.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300or graduate standing or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 365,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "LIABILITY RISK MANAGEMENT",
-        "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "RMI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 820,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "ADVANCED TOPICS IN RISK MANAGEMENT",
-        "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 645,
-            "subjects": [
-                "RMI"
-            ]
-        },
-        "course_title": "COMMERCIAL INSURANCE",
-        "description": "Consideration of the structure, use, benefits, and limitations of corporate insurance products. Fundamental to the material is the economic underpinning of the insurance contract structure. The major commercial property and liability insurance products will be analyzed in detail with the purpose of illustrating these economic principles and applying them to specific organizational situations.",
+        "course_title": "MANAGEMENT OF INSURANCE ENTERPRISE",
+        "description": "Functional analysis of the operations of insurance organizations; legal organization, marketing systems, management and control, underwriting, rating, financial analysis, rate making and regulation.",
         "optimized": {
             "course_number": 700,
             "subjects": [
@@ -736,6 +493,66 @@
     },
     {
         "course_reference": {
+            "course_number": 670,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "CYBER RISK & REGULATIONS",
+        "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 650,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "SUSTAINABILITY, ENVIRONMENTAL AND SOCIAL RISK MANAGEMENT",
+        "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 820,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "ADVANCED TOPICS IN RISK MANAGEMENT",
+        "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "READING AND RESEARCH-RISK MANAGEMENT",
+        "description": "Individual work suited to the needs of graduate students may be arranged.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 990,
             "subjects": [
                 "RMI"
@@ -747,6 +564,188 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 530,
+            "subjects": [
+                "ECON",
+                "RMI"
+            ]
+        },
+        "course_title": "INSURING LIFE'S RISKS: HEALTH, AGING, AND POLICY",
+        "description": "Covers risks related to health and aging, rationales for social insurance programs to protect against these risks, and costs and benefits of these programs.  Broad topics include health insurance, disability insurance, and Social Security and pension policy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "ECON"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ECON\u00a0301or311) andECON\u00a0310; or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 620,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "EMPLOYEE BENEFITS MANAGEMENT",
+        "description": "Nongovernmental schemes for treating the risks of superannuation of members of a group; property, liability, legal expense, life and health coverages available to groups; organizational characteristics, benefit structure and pricing of risk transfer schemes for groups; characteristics and funding of various types of pension plans; effects of ERISA.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300or graduate standing or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 635,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "CAPTIVE INSURANCE",
+        "description": "Examines how captive insurance works, the different structures of captives, and advantages and disadvantages of their use in various settings. In addition, the captive feasibility process, as well as techniques for measuring financial performance, will be covered.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "RMI"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "R\u00a0M\u00a0I\u00a0300,700, or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "RISK MANAGEMENT",
+        "description": "The purpose of risk management is to minimize the adverse consequences of variability. Topics include the general philosophy of risk management, environmental factors affecting risk, options to manage risk, and decision processes to select among those options.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate Students Only"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 875,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "SEMINAR-RISK MANAGEMENT AND INSURANCE",
+        "description": "Applied learning in risk management and insurance.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "READING AND RESEARCH-RISK MANAGEMENT AND INSURANCE PHD",
+        "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 700,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "course_title": "PRINCIPLES OF RISK MANAGEMENT",
+        "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
+        "optimized": {
+            "course_number": 300,
+            "subjects": [
+                "RMI"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "RMI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing. Not open to students with credit forR\u00a0M\u00a0I\u00a0300"
         }
     }
 ]

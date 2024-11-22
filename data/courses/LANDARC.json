@@ -1,33 +1,109 @@
 [
     {
         "course_reference": {
-            "course_number": 366,
+            "course_number": 372,
             "subjects": [
-                "LANDARC"
+                "LANDARC",
+                "GLE",
+                "GEOG",
+                "F&WECOL",
+                "ENVIRST",
+                "GEOSCI"
             ]
         },
-        "course_title": "INTRODUCTION TO ARCHITECTURAL AND ENVIRONMENTAL DESIGN",
-        "description": "Introduces beginning design students to the interdisciplinary processes used in solving three-dimensional design problems for both exterior and interior spaces. Allows students to understand the integration between architectural design, site design and interior design, and how these design realms create physical and sensory experiences in our everyday lives. Helps students develop fundamental verbal and graphic communication skills used in the professional design world. Questions explored in this course include: How to humans experience their environment? How do we perceive and interact with spaces where we live, work, and play? What makes great interior and exterior spaces? How do designers think to solve creative spatial design problems?",
+        "course_title": "INTERMEDIATE ENVIRONMENTAL REMOTE SENSING",
+        "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "LANDARC",
+                        "GLE",
+                        "GEOG",
+                        "F&WECOL",
+                        "ENVIRST",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
         }
     },
     {
         "course_reference": {
-            "course_number": 670,
+            "course_number": 360,
             "subjects": [
-                "LANDARC",
-                "BOTANY"
+                "LANDARC"
             ]
         },
-        "course_title": "ADAPTIVE RESTORATION LAB",
-        "description": "Field experience in restoration as an adaptive process involving field experimentation; baseline data collection on restoration sites; design of experiments to advance restoration science; quantitative evaluation of restoration outcomes. Includes analysis and interpretation of data.",
+        "course_title": "EARTH PARTNERSHIP RESTORATION EDUCATION: INDIGENOUS ARTS & SCIENCES",
+        "description": "Participate in a one-week community-based, intergenerational Institute focused on ecological restoration and water stewardship rooted in Indigenous knowledge while working with Native Nations in Wisconsin. An emphasis is on environmental science aligned with cultural values and indigenous science processes and address environmental, education and health issues through restoration and stewardship action. Learn culturally accurate and authentic resources about tribal sovereignty, history, and culture and contemporary issues relevant to each community. Through hands-on stewardship action, a greater sense of self and diversity of perspectives related to impacts of climate change and preserving biodiversity will be gained.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 563,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "DESIGNING SUSTAINABLE AND RESILIENT REGIONS",
+        "description": "Exploration of broad scale design issues to develop synthesis and design skills. Uses spatial form and bioregional cultural, ecological and environmental concepts to solve land use and conservation problems. Regional design requires advanced techniques for inventory, analysis, and design to help in understanding complex trends, policy and design impacts, hazard mitigation, design intervention suitability, design guidelines, and systems level design. These techniques help us explore the relationships between regions and sites, especially regional implications of site design decisions and site design impacts on regional characteristics and systems.",
+        "optimized": {
+            "course_number": 562,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 562,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0562"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 321,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "ENVIRONMENT AND BEHAVIOR STUDIO - DESIGNING HEALTH PROMOTING ENVIRONMENTS",
+        "description": "Design studio with an emphasis on the application of design principles aimed at promoting people's health and wellbeing in the built environment.",
+        "optimized": {
+            "course_number": 261,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "DS"
+                    ]
+                },
+                {
+                    "course_number": 261,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0261andDS\u00a0221"
         }
     },
     {
@@ -39,7 +115,12 @@
         },
         "course_title": "ADVANCED VISUAL COMMUNICATION IN LANDSCAPE ARCHITECTURE",
         "description": "Focuses on the symbolic and representational computer graphics that are essential elements of design communication in landscape architecture. Reviews the strengths and weaknesses of hand and digital media and the use of both when appropriate. Topics and assignments include advanced hand sketching and graphics, computer graphic techniques, digital photography, advanced digital color theory and rendering, digital image processing, CAD drafting, 2D/3D modeling, image compositing, media formats, and video.",
-        "optimized": null,
+        "optimized": {
+            "course_number": 261,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -54,15 +135,15 @@
     },
     {
         "course_reference": {
-            "course_number": 562,
+            "course_number": 380,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "URBAN DESIGN AND OPEN SPACE SYSTEMS",
-        "description": "With a focus on public open spaces as shared social places, emphasizes the social dimensions and connectedness of urban design and open space systems through perspectives from allied disciplines, such as landscape architecture, architecture, urban planning, real estate development, urban ecology, civil engineering, and the visual arts. Integrates human activity requirements and experiences with physical (or built) and natural site features. Builds upon technical design skills developed in prior studio work, paying close attention to form-giving, place-making, and sustainability at the site and neighborhood scale.",
+        "course_title": "PLANTS FOR ECOLOGICAL DESIGN I",
+        "description": "Plants as the basis for ecological landscape design in urban and rural settings in late summer, fall, and early winter and their role in creating beautiful, resilient, and high performing outdoor spaces that enhance human health and well-being and provide a number of global ecosystem services.  Study plants in their native and designed habitats to understand the relationships between and among plants and their environment. Identify the aesthetic, structural, functional, and cultural characteristics of key Wisconsin native plants and a variety of non-invasive horticultural species as well as the composition, structure, and functions of  forest, wetland, and grassland communities. Express the essence and cultural meaning of plants and plant communities through hand and digital graphics and writing.",
         "optimized": {
-            "course_number": 560,
+            "course_number": 250,
             "subjects": [
                 "LANDARC"
             ]
@@ -70,30 +151,121 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 560,
+                    "course_number": 250,
                     "subjects": [
                         "LANDARC"
                     ]
                 },
                 {
-                    "course_number": 321,
+                    "course_number": 382,
                     "subjects": [
-                        "LANDARC"
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
                     ]
                 }
             ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0321and560"
+            "prerequisites_text": "LAND\u00a0ARC\u00a0250, (BOTANY\u00a0100,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orBIOCORE\u00a0381and382), and sophomore standing, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 999,
+            "course_number": 532,
+            "subjects": [
+                "LANDARC",
+                "GEOG",
+                "URBRPL",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
+        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
+        "optimized": {
+            "course_number": 377,
+            "subjects": [
+                "CIVENGR",
+                "GEOG",
+                "ENVIRST"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 590,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "INDEPENDENT STUDIES",
-        "description": "Opportunity to explore concepts or issues of interest.",
+        "course_title": "SPECIAL TOPICS",
+        "description": "Exploration of special issues or problems in landscape architecture.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN LANDSCAPE ARCHITECTURE",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "SPECIAL PROBLEMS-LANDSCAPE ARCHITECTURE",
+        "description": "Independent study as arranged with a faculty member.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -102,13 +274,32 @@
     },
     {
         "course_reference": {
-            "course_number": 720,
+            "course_number": 211,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "CRITICAL INQUIRY INTO LANDSCAPE DESIGN EXPRESSION",
-        "description": "Normative design theory as it relates to historical and contemporary aesthetic expression in landscape design. Review of critical theory and meaning associated with a broad landscape architecture typology.",
+        "course_title": "SHAPING THE BUILT ENVIRONMENT",
+        "description": "Urban, suburban, and rural environments intersect with the natural environment in important yet complex ways. Cultural as well as biophysical systems influence the structure and function of these environments at both local and regional scales. Exploration of these relationships by analyzing built environments and simulating future design and planning scenarios offer a transdisciplinary foundation for subsequent coursework.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 764,
+            "subjects": [
+                "LANDARC",
+                "ARTHIST",
+                "DS",
+                "ANTHRO",
+                "HISTORY"
+            ]
+        },
+        "course_title": "DIMENSIONS OF MATERIAL CULTURE",
+        "description": "This course introduces students to the interdisciplinary field of material culture studies. It is intended for students interested in any professional endeavor related to material culture, including careers in museums, galleries, historical societies, historic preservation organizations, and academic institutions. During the semester, students have varied opportunities to engage with and contemplate the material world to which people give meaning and which, in turn, influences their lives. Sessions combine in some way the following: presentations from faculty members and professionals who lecture on a phase of material culture related to his/her own scholarship or other professional work; discussion of foundational readings in the field; visits to collections and sites on campus and around Madison; discussion of readings assigned by visiting presenters or the professors; and exams and short papers that engage material culture topics.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -117,13 +308,73 @@
     },
     {
         "course_reference": {
-            "course_number": 375,
+            "course_number": 556,
+            "subjects": [
+                "LANDARC",
+                "CIVENGR",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "REMOTE SENSING DIGITAL IMAGE PROCESSING",
+        "description": "Techniques of enhancement and quantification of remote sensing imagery. Emphasis on processing and analyzing data gathered by airborne and satellite sensors. Techniques to quantitatively analyze data from photography, electro-optical scanners, satellite systems, and radar and passive microwave systems. Applications to: agriculture and forestry, geology and soils, water quality, and urban and regional planning.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "LANDARC",
+                        "GLE",
+                        "GEOG",
+                        "F&WECOL",
+                        "ENVIRST",
+                        "GEOSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 363,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Exploration of special issues or problems in landscape architecture. Topic and faculty vary.",
+        "course_title": "EARTH PARTNERSHIP: RESTORATION EDUCATION FOR EQUITY AND RESILIENCE",
+        "description": "Ecological restoration education utilizes the power of place to work towards social justice and sustainability. Work with Native Nations and community partners to apply Earth Partnership's 10 Step process. This process includes historical, cultural, ecological, and social justice components. Learn about assets-based, culturally relevant approaches to working with community partners. Interact with guest speakers and partners to experience firsthand different perspectives on environment, cultural priorities, protocols for interaction, and opportunities for relationship building.  Work on community-based stewardship projects and reflect upon your epistemological relationship to land and people as global citizens.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 106,
+            "subjects": [
+                "LANDARC",
+                "AMERIND"
+            ]
+        },
+        "course_title": "EARTH PARTNERSHIP INDIGENOUS ARTS AND SCIENCES",
+        "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 366,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ARCHITECTURAL AND ENVIRONMENTAL DESIGN",
+        "description": "Introduces beginning design students to the interdisciplinary processes used in solving three-dimensional design problems for both exterior and interior spaces. Allows students to understand the integration between architectural design, site design and interior design, and how these design realms create physical and sensory experiences in our everyday lives. Helps students develop fundamental verbal and graphic communication skills used in the professional design world. Questions explored in this course include: How to humans experience their environment? How do we perceive and interact with spaces where we live, work, and play? What makes great interior and exterior spaces? How do designers think to solve creative spatial design problems?",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -148,17 +399,48 @@
     },
     {
         "course_reference": {
-            "course_number": 250,
+            "course_number": 999,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "SURVEY OF LANDSCAPE ARCHITECTURE DESIGN",
-        "description": "Principles of landscape and environmental design; incorporates elements of landscape planning and management. Provides background to the ideas and personalities shaping landscape architecture in America. Establishes design basics with a focus on the processes used by landscape architects to create meaningful site and context-sensitive designs in the built and natural environment.",
+        "course_title": "INDEPENDENT STUDIES",
+        "description": "Opportunity to explore concepts or issues of interest.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 475,
+            "subjects": [
+                "LANDARC",
+                "CHICLA"
+            ]
+        },
+        "course_title": "LATINO URBANISM: DESIGN AND ENGAGEMENT IN THE AMERICAN CITY",
+        "description": "Urban design in the 21st century American city explores a new understanding of urban placemaking and development. Explores the intersections of culture, place, and design to critically address how the socioeconomic dynamics that underlie demographic shifts in the U.S. are influencing urban change in the American landscape. Focuses on the evolution and ways by which Latinos shape the built environment, both in the public realm and in the home.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 353,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "LANDSCAPE ARCHITECTURAL TECHNOLOGY I",
+        "description": "Problems dealing with the comprehension and modification of the earth's surface including landform design, preparation of grading plans, earthwork calculations.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Landscape Architecture BLA"
         }
     },
     {
@@ -170,173 +452,6 @@
         },
         "course_title": "DESIGNING HEALTHY COMMUNITIES SEMINAR",
         "description": "Sustainable community planning and design principles aimed at promoting human health and wellbeing as it relates to the quality of the physical environment. Special topics include access to settings that promote physical activity, social interaction and mental restoration; walk- and bikeability; access healthy food, complete streets, place-making, and biophilic design, active living assessment tools, and architectural sustainability certification systems focusing on the health benefits of good community design.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 372,
-            "subjects": [
-                "GLE",
-                "GEOSCI",
-                "ENVIRST",
-                "F&WECOL",
-                "LANDARC",
-                "GEOG"
-            ]
-        },
-        "course_title": "INTERMEDIATE ENVIRONMENTAL REMOTE SENSING",
-        "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI",
-                        "ENVIRST",
-                        "F&WECOL",
-                        "LANDARC",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 264,
-            "subjects": [
-                "ANTHRO",
-                "HISTORY",
-                "DS",
-                "ARTHIST",
-                "LANDARC"
-            ]
-        },
-        "course_title": "DIMENSIONS OF MATERIAL CULTURE",
-        "description": "This course introduces students to the interdisciplinary field of material culture studies. It is intended for students interested in any professional endeavor related to material culture, including careers in museums, galleries, historical societies, historic preservation organizations, and academic institutions. During the semester, students have varied opportunities to engage with and contemplate the material world to which people give meaning and which, in turn, influences their lives. Sessions combine in some way the following: presentations from faculty members and professionals who lecture on a phase of material culture related to his/her own scholarship or other professional work; discussion of foundational readings in the field; visits to collections and sites on campus and around Madison; discussion of readings assigned by visiting presenters or the professors; and exams and short papers that engage material culture topics.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 260,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "HISTORY OF LANDSCAPE ARCHITECTURE",
-        "description": "A critical and historical analysis of our design of outdoor space.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "INTRODUCTION TO DESIGN FRAMEWORKS AND SPATIAL TECHNOLOGIES",
-        "description": "Geodesign considers questions and methods necessary to solve large, complicated, and significant design problems across a range of geographic scales. Introduces methods and technologies related to geodesign problems through interactive lessons, discussions, and laboratory exercises.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 940,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "GRADUATE SEMINAR",
-        "description": "Individual research, group discussion and workshop covering selected problems relating to the environment and landscape architecture.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 611,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "LANDSCAPE ARCHITECTURE CAPSTONE II",
-        "description": "Problems in landscape design, planning, and management of projects from a regional to site scale. Provides an opportunity for synthesis of the knowledge, skills, and approaches learned in previous course work.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0610"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 239,
-            "subjects": [
-                "HISTORY",
-                "ENVIRST",
-                "ARTHIST",
-                "LANDARC",
-                "GEOG"
-            ]
-        },
-        "course_title": "MAKING THE AMERICAN LANDSCAPE",
-        "description": "Traces the history and evolution of the American cultural landscape from precolonial times to present. Explores how class, ethnic, and racial inequality have shaped the appearance of the American landscape over time, and how that landscape in turn has affected relationships between people and groups through the present day. Examines extraordinary things (civic structures (like our State Capitol), National Parks, War Memorials) and more ordinary kinds of places (mining towns, cotton plantations, sites of recreation and leisure, and suburban tract housing) to stimulate critical thinking about how these places have served people and groups unequally and disproportionately over time and across space. Considers complex meanings of American spaces and places to different people and groups, stimulating empathy and encouraging participation in a multicultural society.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Individual mentored research and study for completing theses, as arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 740,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "RESEARCH IN LANDSCAPE ARCHITECTURE",
-        "description": "Overview of research: Logic and language of the process, substantive issues, criticism of research literature, developments of detailed proposals.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -360,54 +475,13 @@
     },
     {
         "course_reference": {
-            "course_number": 651,
+            "course_number": 866,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "PLANT COMMUNITY RESTORATION AND MANAGEMENT WORKSHOP",
-        "description": "Formulation of plant community restoration and management plans; including the preparation of planting plans and working drawings for implementation. Classroom and practical exposure to natural areas management tools, including prescription prairie fire.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0211"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 363,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "EARTH PARTNERSHIP: RESTORATION EDUCATION FOR EQUITY AND RESILIENCE",
-        "description": "Ecological restoration education utilizes the power of place to work towards social justice and sustainability. Work with Native Nations and community partners to apply Earth Partnership's 10 Step process. This process includes historical, cultural, ecological, and social justice components. Learn about assets-based, culturally relevant approaches to working with community partners. Interact with guest speakers and partners to experience firsthand different perspectives on environment, cultural priorities, protocols for interaction, and opportunities for relationship building.  Work on community-based stewardship projects and reflect upon your epistemological relationship to land and people as global citizens.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 764,
-            "subjects": [
-                "ANTHRO",
-                "HISTORY",
-                "DS",
-                "ARTHIST",
-                "LANDARC"
-            ]
-        },
-        "course_title": "DIMENSIONS OF MATERIAL CULTURE",
-        "description": "This course introduces students to the interdisciplinary field of material culture studies. It is intended for students interested in any professional endeavor related to material culture, including careers in museums, galleries, historical societies, historic preservation organizations, and academic institutions. During the semester, students have varied opportunities to engage with and contemplate the material world to which people give meaning and which, in turn, influences their lives. Sessions combine in some way the following: presentations from faculty members and professionals who lecture on a phase of material culture related to his/her own scholarship or other professional work; discussion of foundational readings in the field; visits to collections and sites on campus and around Madison; discussion of readings assigned by visiting presenters or the professors; and exams and short papers that engage material culture topics.",
+        "course_title": "SEMINAR IN NATURAL PLANT COMMUNITY RESTORATION AND MANAGEMENT",
+        "description": "Presentations on topics related to plant community management and restoration.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -416,251 +490,13 @@
     },
     {
         "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "GLE",
-                "GEOSCI",
-                "ENVIRST",
-                "F&WECOL",
-                "LANDARC",
-                "GEOG"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
-        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 113,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 114,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 171,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 556,
-            "subjects": [
-                "ENVIRST",
-                "CIVENGR",
-                "LANDARC"
-            ]
-        },
-        "course_title": "REMOTE SENSING DIGITAL IMAGE PROCESSING",
-        "description": "Techniques of enhancement and quantification of remote sensing imagery. Emphasis on processing and analyzing data gathered by airborne and satellite sensors. Techniques to quantitatively analyze data from photography, electro-optical scanners, satellite systems, and radar and passive microwave systems. Applications to: agriculture and forestry, geology and soils, water quality, and urban and regional planning.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "GLE",
-                        "GEOSCI",
-                        "ENVIRST",
-                        "F&WECOL",
-                        "LANDARC",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 639,
-            "subjects": [
-                "LANDARC",
-                "DS"
-            ]
-        },
-        "course_title": "CULTURE AND BUILT ENVIRONMENT",
-        "description": "Explores cultural values embedded in buildings through understanding physical configurations, social organizations, practiced/symbolic/representational aspects of buildings. Covers a wide range of cultures and the built environments they produce including examples from the Americas, the Middle East, as well as those of the many ethnic minorities in the U.S.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 565,
-            "subjects": [
-                "ZOOLOGY",
-                "LANDARC",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "PRINCIPLES OF LANDSCAPE ECOLOGY",
-        "description": "Emphasizes the importance of spatial patterns at broad scales. Concepts and applications are covered.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 550,
-                    "subjects": [
-                        "F&WECOL"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 571,
-                    "subjects": [
-                        "STAT",
-                        "F&WECOL"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "F&WECOL",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460orF&W\u00a0ECOL\u00a0550) and (STAT\u00a0301,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "ENVIRST",
-                "LANDARC",
-                "URBRPL",
-                "GEOG"
-            ]
-        },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
-        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 377,
-                    "subjects": [
-                        "CIVENGR",
-                        "ENVIRST",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 373,
+            "course_number": 990,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "MINDFULNESS IN RESTORATIVE ENVIRONMENTS",
-        "description": "Explore the intersection of nature-based mindfulness practices and design of restorative outdoor environments that support health and well-being in public places, including school gardens, botanical gardens, and campus natural areas, with a focus on sensory engagement and sense of belonging. Design and co-design restorative environments and features through a participatory planning process with community partners.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 581,
-            "subjects": [
-                "ENVIRST",
-                "LANDARC"
-            ]
-        },
-        "course_title": "PRESCRIBED FIRE: ECOLOGY AND IMPLEMENTATION",
-        "description": "Covers the use of live fire in land management and provides a background in fire ecology, fire behavior, fire effects, and the prediction of fire behavior for wetland, prairie and savanna fuels. Instruction includes field training with live fire exercises and the use of fire management equipment. Participate in prescribed burns outside of scheduled class times. Confers certificates of completion that qualify an individual to participate on prescribed fire crews with public and private sector organizations.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS-LANDSCAPE ARCHITECTURE",
-        "description": "Independent study as arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 353,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "LANDSCAPE ARCHITECTURAL TECHNOLOGY I",
-        "description": "Problems dealing with the comprehension and modification of the earth's surface including landform design, preparation of grading plans, earthwork calculations.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Landscape Architecture BLA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+        "course_title": "RESEARCH",
+        "description": "Individual mentored research and study for completing theses, as arranged with a faculty member.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -684,207 +520,29 @@
     },
     {
         "course_reference": {
-            "course_number": 866,
+            "course_number": 611,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "SEMINAR IN NATURAL PLANT COMMUNITY RESTORATION AND MANAGEMENT",
-        "description": "Presentations on topics related to plant community management and restoration.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 563,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "DESIGNING SUSTAINABLE AND RESILIENT REGIONS",
-        "description": "Exploration of broad scale design issues to develop synthesis and design skills. Uses spatial form and bioregional cultural, ecological and environmental concepts to solve land use and conservation problems. Regional design requires advanced techniques for inventory, analysis, and design to help in understanding complex trends, policy and design impacts, hazard mitigation, design intervention suitability, design guidelines, and systems level design. These techniques help us explore the relationships between regions and sites, especially regional implications of site design decisions and site design impacts on regional characteristics and systems.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 562,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0562"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 321,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "ENVIRONMENT AND BEHAVIOR STUDIO - DESIGNING HEALTH PROMOTING ENVIRONMENTS",
-        "description": "Design studio with an emphasis on the application of design principles aimed at promoting people's health and wellbeing in the built environment.",
+        "course_title": "LANDSCAPE ARCHITECTURE CAPSTONE II",
+        "description": "Problems in landscape design, planning, and management of projects from a regional to site scale. Provides an opportunity for synthesis of the knowledge, skills, and approaches learned in previous course work.",
         "optimized": {
-            "course_number": 261,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 261,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "DS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0261andDS\u00a0221"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 610,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "LANDSCAPE ARCHITECTURE SEMINAR",
-        "description": "Capstone project proposal development from a regional to site scale. Includes site visits with clients to gain a better understanding of local conditions and the client's expectations. The final proposal document is grounded in research and includes a literature review, precedent studies, programmatic development, and inventory and analysis mappings that address issues from ecology to public/private partnerships.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Landscape Architecture BLA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 261,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "PRINCIPLES OF LANDSCAPE ARCHITECTURE DESIGN AND GRAPHICS",
-        "description": "Basic principles in the design of landscapes to aid in developing individual capacities and approaches to designing. Principles of graphic communication media and development of practical graphic skills.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Landscape Architecture BLA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 106,
-            "subjects": [
-                "AMERIND",
-                "LANDARC"
-            ]
-        },
-        "course_title": "EARTH PARTNERSHIP INDIGENOUS ARTS AND SCIENCES",
-        "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 561,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "HOUSING AND URBAN DESIGN",
-        "description": "An application of landscape design principles and problem-solving methods to housing and urban issues with attention to physical site design, land-use controls, and the relationship between housing and associated land uses. The built environment is continuously changing through multiple land development-and redevelopment-decisions. Public policies on housing, transportation, mortgage financing, and taxation, in conjunction with changing demographics and lifestyle preferences, are just some of the factors that influence the evolving structure and function of the built environment. Landscape architects can play important roles--through design, civic engagement, and policy advocacy--in making our cities and suburbs healthier and more sustainable. Studio projects focus on the central city and/or suburbs.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 321,
+                    "course_number": 610,
                     "subjects": [
                         "LANDARC"
                     ]
                 }
             ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0321"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 381,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "PLANTS FOR ECOLOGICAL DESIGN II",
-        "description": "Plants as the basis for ecological landscape design in urban and rural settings.   Study plants in their native and designed habitats to understand the relationships between and among plants and their environment in late winter and early spring. Identify the aesthetic, functional, and cultural characteristics of key Wisconsin native plants and plant communities as well as a variety of non-invasive horticultural species.  Discuss how to use plants together in settings with environmental conditions to which they are adapted in order to create resilient and high-performing outdoor spaces that enhance human health and well-being and provide a number of global ecosystem services.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 380,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0380or Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "THEORIES OF LANDSCAPE CHANGE",
-        "description": "Theories of landscape change in the arts and sciences. Contributions of the scientific method and humanistic frameworks to major issues in landscape architecture.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 289,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "HONORS INDEPENDENT STUDY",
-        "description": "Independent study as arranged with a faculty member for Honors in the Major.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "LAND\u00a0ARC\u00a0610"
         }
     },
     {
@@ -905,9 +563,15 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
+                    "course_number": 102,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
                         "BIOLOGY",
                         "BOTANY"
                     ]
@@ -919,16 +583,10 @@
                     ]
                 },
                 {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
+                    "course_number": 152,
                     "subjects": [
                         "BIOLOGY",
+                        "ZOOLOGY",
                         "BOTANY"
                     ]
                 }
@@ -938,13 +596,17 @@
     },
     {
         "course_reference": {
-            "course_number": 210,
+            "course_number": 239,
             "subjects": [
-                "LANDARC"
+                "LANDARC",
+                "ARTHIST",
+                "GEOG",
+                "ENVIRST",
+                "HISTORY"
             ]
         },
-        "course_title": "INTRODUCTION TO LANDSCAPE ARCHITECTURE DESIGN STUDIO",
-        "description": "Introduction to the techniques and processes used in solving three-dimensional design problems in the urban and natural environment through studio exercises. Understand how design process and design principles create physical and sensory experiences in our everyday lives. Develop fundamental verbal and graphic communication skills used in the professional design world. Gives attention to the basics of design theory and philosophy.",
+        "course_title": "MAKING THE AMERICAN LANDSCAPE",
+        "description": "Traces the history and evolution of the American cultural landscape from precolonial times to present. Explores how class, ethnic, and racial inequality have shaped the appearance of the American landscape over time, and how that landscape in turn has affected relationships between people and groups through the present day. Examines extraordinary things (civic structures (like our State Capitol), National Parks, War Memorials) and more ordinary kinds of places (mining towns, cotton plantations, sites of recreation and leisure, and suburban tract housing) to stimulate critical thinking about how these places have served people and groups unequally and disproportionately over time and across space. Considers complex meanings of American spaces and places to different people and groups, stimulating empathy and encouraging participation in a multicultural society.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -953,152 +615,47 @@
     },
     {
         "course_reference": {
-            "course_number": 361,
+            "course_number": 525,
             "subjects": [
-                "ENVIRST",
                 "LANDARC"
             ]
         },
-        "course_title": "WETLANDS ECOLOGY",
-        "description": "Types, origins, settings, and structure of wetlands. Physical, biological, and cultural values, uses and assessments. Physical and biological characteristics and dynamics. Protection, management and restoration.",
+        "course_title": "SOCIAL JUSTICE AND THE URBAN LANDSCAPE",
+        "description": "Examines the cultural, social and political interactions that occur in urban landscapes including parks, plazas, streets and other public open spaces. An examination of past and present landscapes as sites of the struggle for social justice. The focus is on urban landscapes of the United States.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY\u00a0153, (BIOCORE\u00a0381and382),BIOLOGY/\u200bBOTANY\u00a0\u00a0130, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 263,
+            "course_number": 681,
             "subjects": [
-                "HORT",
                 "LANDARC"
             ]
         },
-        "course_title": "LANDSCAPE PLANTS I",
-        "description": "Field identification, landscape characteristics, uses, environmental requirements, adaptability of woody ornamental plants; their autumn and winter character.",
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orBOTANY\u00a0100)"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 475,
+            "course_number": 375,
             "subjects": [
-                "LANDARC",
-                "CHICLA"
+                "LANDARC"
             ]
         },
-        "course_title": "LATINO URBANISM: DESIGN AND ENGAGEMENT IN THE AMERICAN CITY",
-        "description": "Urban design in the 21st century American city explores a new understanding of urban placemaking and development. Explores the intersections of culture, place, and design to critically address how the socioeconomic dynamics that underlie demographic shifts in the U.S. are influencing urban change in the American landscape. Focuses on the evolution and ways by which Latinos shape the built environment, both in the public realm and in the home.",
+        "course_title": "SPECIAL TOPICS",
+        "description": "Exploration of special issues or problems in landscape architecture. Topic and faculty vary.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 695,
-            "subjects": [
-                "ENVIRST",
-                "LANDARC",
-                "SOILSCI"
-            ]
-        },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN NATURAL RESOURCES",
-        "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                },
-                {
-                    "course_number": 377,
-                    "subjects": [
-                        "ENVIRST",
-                        "CIVENGR",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0211orENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
         }
     },
     {
@@ -1118,28 +675,96 @@
     },
     {
         "course_reference": {
-            "course_number": 211,
+            "course_number": 710,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "SHAPING THE BUILT ENVIRONMENT",
-        "description": "Urban, suburban, and rural environments intersect with the natural environment in important yet complex ways. Cultural as well as biophysical systems influence the structure and function of these environments at both local and regional scales. Exploration of these relationships by analyzing built environments and simulating future design and planning scenarios offer a transdisciplinary foundation for subsequent coursework.",
+        "course_title": "THEORIES OF LANDSCAPE CHANGE",
+        "description": "Theories of landscape change in the arts and sciences. Contributions of the scientific method and humanistic frameworks to major issues in landscape architecture.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 299,
+            "course_number": 263,
+            "subjects": [
+                "LANDARC",
+                "HORT"
+            ]
+        },
+        "course_title": "LANDSCAPE PLANTS I",
+        "description": "Field identification, landscape characteristics, uses, environmental requirements, adaptability of woody ornamental plants; their autumn and winter character.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orBOTANY\u00a0100)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 940,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "INDEPENDENT STUDIES",
-        "description": "Independent study as arranged with a faculty member.",
+        "course_title": "GRADUATE SEMINAR",
+        "description": "Individual research, group discussion and workshop covering selected problems relating to the environment and landscape architecture.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 720,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "CRITICAL INQUIRY INTO LANDSCAPE DESIGN EXPRESSION",
+        "description": "Normative design theory as it relates to historical and contemporary aesthetic expression in landscape design. Review of critical theory and meaning associated with a broad landscape architecture typology.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -1148,13 +773,13 @@
     },
     {
         "course_reference": {
-            "course_number": 400,
+            "course_number": 250,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "STUDY ABROAD IN LANDSCAPE ARCHITECTURE",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+        "course_title": "SURVEY OF LANDSCAPE ARCHITECTURE DESIGN",
+        "description": "Principles of landscape and environmental design; incorporates elements of landscape planning and management. Provides background to the ideas and personalities shaping landscape architecture in America. Establishes design basics with a focus on the processes used by landscape architects to create meaningful site and context-sensitive designs in the built and natural environment.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
@@ -1163,17 +788,344 @@
     },
     {
         "course_reference": {
-            "course_number": 590,
+            "course_number": 210,
             "subjects": [
                 "LANDARC"
             ]
         },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Exploration of special issues or problems in landscape architecture.",
+        "course_title": "INTRODUCTION TO LANDSCAPE ARCHITECTURE DESIGN STUDIO",
+        "description": "Introduction to the techniques and processes used in solving three-dimensional design problems in the urban and natural environment through studio exercises. Understand how design process and design principles create physical and sensory experiences in our everyday lives. Develop fundamental verbal and graphic communication skills used in the professional design world. Gives attention to the basics of design theory and philosophy.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 560,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "PLANTS AND ECOLOGY IN DESIGN",
+        "description": "Explores the process of plant selection and placement in the landscape. The desired landscape will be ecologically appropriate to the setting, sustainable, functional in response to goals, and aesthetically pleasing. Acquire an awareness and understanding of the physical characteristics of plant materials and a sensitivity to their needs based on past and present. Emphasis on the recognition of the philosophy of planting design as a dynamic and changing spatial art and science, the relationship between environment and plants, application of design composition principles to plant selection and placement, and functional and utilitarian uses of plants; i.e., the opportunities and constraints for plants in the designed landscape.",
+        "optimized": {
+            "course_number": 263,
+            "subjects": [
+                "LANDARC",
+                "HORT"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 263,
+                    "subjects": [
+                        "LANDARC",
+                        "HORT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Declared in Landscape Architecture BLA andHORT/\u200bLAND\u00a0ARC\u00a0\u00a0263"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "LANDARC",
+                "GLE",
+                "GEOG",
+                "F&WECOL",
+                "ENVIRST",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
+        "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 113,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 171,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 114,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(Sophomore standing andMATH\u00a0113,114, or171), graduate/professional standing, or member of Engineering Guest Students"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 361,
+            "subjects": [
+                "LANDARC",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "WETLANDS ECOLOGY",
+        "description": "Types, origins, settings, and structure of wetlands. Physical, biological, and cultural values, uses and assessments. Physical and biological characteristics and dynamics. Protection, management and restoration.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY\u00a0153, (BIOCORE\u00a0381and382),BIOLOGY/\u200bBOTANY\u00a0\u00a0130, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 581,
+            "subjects": [
+                "LANDARC",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "PRESCRIBED FIRE: ECOLOGY AND IMPLEMENTATION",
+        "description": "Covers the use of live fire in land management and provides a background in fire ecology, fire behavior, fire effects, and the prediction of fire behavior for wetland, prairie and savanna fuels. Instruction includes field training with live fire exercises and the use of fire management equipment. Participate in prescribed burns outside of scheduled class times. Confers certificates of completion that qualify an individual to participate on prescribed fire crews with public and private sector organizations.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 261,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "PRINCIPLES OF LANDSCAPE ARCHITECTURE DESIGN AND GRAPHICS",
+        "description": "Basic principles in the design of landscapes to aid in developing individual capacities and approaches to designing. Principles of graphic communication media and development of practical graphic skills.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Landscape Architecture BLA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 311,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "INTRODUCTION TO DESIGN FRAMEWORKS AND SPATIAL TECHNOLOGIES",
+        "description": "Geodesign considers questions and methods necessary to solve large, complicated, and significant design problems across a range of geographic scales. Introduces methods and technologies related to geodesign problems through interactive lessons, discussions, and laboratory exercises.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 381,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "PLANTS FOR ECOLOGICAL DESIGN II",
+        "description": "Plants as the basis for ecological landscape design in urban and rural settings.   Study plants in their native and designed habitats to understand the relationships between and among plants and their environment in late winter and early spring. Identify the aesthetic, functional, and cultural characteristics of key Wisconsin native plants and plant communities as well as a variety of non-invasive horticultural species.  Discuss how to use plants together in settings with environmental conditions to which they are adapted in order to create resilient and high-performing outdoor spaces that enhance human health and well-being and provide a number of global ecosystem services.",
+        "optimized": {
+            "course_number": 380,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 380,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0380or Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 354,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "LANDSCAPE ARCHITECTURAL TECHNOLOGY II",
+        "description": "Problems dealing with construction detailing, including roadways, drainage structures, construction materials, cost estimating, specifications and working drawings.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Landscape Architecture BLA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 260,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "HISTORY OF LANDSCAPE ARCHITECTURE",
+        "description": "A critical and historical analysis of our design of outdoor space.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "LANDARC",
+                "URBRPL",
+                "GEOG",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN PLANNING",
+        "description": "Explores planning-related Geographic Information System (GIS) data, applications, analytical tools, and implementation issues.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "GEOG/\u200bCIV\u00a0ENGR/\u200bENVIR\u00a0ST\u00a0\u00a0377or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 562,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "URBAN DESIGN AND OPEN SPACE SYSTEMS",
+        "description": "With a focus on public open spaces as shared social places, emphasizes the social dimensions and connectedness of urban design and open space systems through perspectives from allied disciplines, such as landscape architecture, architecture, urban planning, real estate development, urban ecology, civil engineering, and the visual arts. Integrates human activity requirements and experiences with physical (or built) and natural site features. Builds upon technical design skills developed in prior studio work, paying close attention to form-giving, place-making, and sustainability at the site and neighborhood scale.",
+        "optimized": {
+            "course_number": 560,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 321,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                },
+                {
+                    "course_number": 560,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0321and560"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 695,
+            "subjects": [
+                "LANDARC",
+                "SOILSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN NATURAL RESOURCES",
+        "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0211orENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
         }
     },
     {
@@ -1203,8 +1155,8 @@
                     "course_number": 377,
                     "subjects": [
                         "CIVENGR",
-                        "ENVIRST",
-                        "GEOG"
+                        "GEOG",
+                        "ENVIRST"
                     ]
                 }
             ],
@@ -1213,31 +1165,248 @@
     },
     {
         "course_reference": {
-            "course_number": 556,
+            "course_number": 692,
             "subjects": [
-                "CIVENGR",
-                "LANDARC",
-                "ENVIRST"
+                "LANDARC"
             ]
         },
-        "course_title": "REMOTE SENSING DIGITAL IMAGE PROCESSING",
-        "description": "Techniques of enhancement and quantification of remote sensing imagery. Emphasis on processing and analyzing data gathered by airborne and satellite sensors. Techniques to quantitatively analyze data from photography, electro-optical scanners, satellite systems, and radar and passive microwave systems. Applications to: agriculture and forestry, geology and soils, water quality, and urban and regional planning.",
+        "course_title": "SENIOR THESIS",
+        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 740,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "RESEARCH IN LANDSCAPE ARCHITECTURE",
+        "description": "Overview of research: Logic and language of the process, substantive issues, criticism of research literature, developments of detailed proposals.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "LANDSCAPE ARCHITECTURE SEMINAR",
+        "description": "Capstone project proposal development from a regional to site scale. Includes site visits with clients to gain a better understanding of local conditions and the client's expectations. The final proposal document is grounded in research and includes a literature review, precedent studies, programmatic development, and inventory and analysis mappings that address issues from ecology to public/private partnerships.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Landscape Architecture BLA"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 373,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "MINDFULNESS IN RESTORATIVE ENVIRONMENTS",
+        "description": "Explore the intersection of nature-based mindfulness practices and design of restorative outdoor environments that support health and well-being in public places, including school gardens, botanical gardens, and campus natural areas, with a focus on sensory engagement and sense of belonging. Design and co-design restorative environments and features through a participatory planning process with community partners.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 651,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "PLANT COMMUNITY RESTORATION AND MANAGEMENT WORKSHOP",
+        "description": "Formulation of plant community restoration and management plans; including the preparation of planting plans and working drawings for implementation. Classroom and practical exposure to natural areas management tools, including prescription prairie fire.",
+        "optimized": {
+            "course_number": 211,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0211"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 639,
+            "subjects": [
+                "LANDARC",
+                "DS"
+            ]
+        },
+        "course_title": "CULTURE AND BUILT ENVIRONMENT",
+        "description": "Explores cultural values embedded in buildings through understanding physical configurations, social organizations, practiced/symbolic/representational aspects of buildings. Covers a wide range of cultures and the built environments they produce including examples from the Americas, the Middle East, as well as those of the many ethnic minorities in the U.S.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 670,
+            "subjects": [
+                "LANDARC",
+                "BOTANY"
+            ]
+        },
+        "course_title": "ADAPTIVE RESTORATION LAB",
+        "description": "Field experience in restoration as an adaptive process involving field experimentation; baseline data collection on restoration sites; design of experiments to advance restoration science; quantitative evaluation of restoration outcomes. Includes analysis and interpretation of data.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 561,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "HOUSING AND URBAN DESIGN",
+        "description": "An application of landscape design principles and problem-solving methods to housing and urban issues with attention to physical site design, land-use controls, and the relationship between housing and associated land uses. The built environment is continuously changing through multiple land development-and redevelopment-decisions. Public policies on housing, transportation, mortgage financing, and taxation, in conjunction with changing demographics and lifestyle preferences, are just some of the factors that influence the evolving structure and function of the built environment. Landscape architects can play important roles--through design, civic engagement, and policy advocacy--in making our cities and suburbs healthier and more sustainable. Studio projects focus on the central city and/or suburbs.",
+        "optimized": {
+            "course_number": 321,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 321,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0321"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDIES",
+        "description": "Independent study as arranged with a faculty member.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 289,
+            "subjects": [
+                "LANDARC"
+            ]
+        },
+        "course_title": "HONORS INDEPENDENT STUDY",
+        "description": "Independent study as arranged with a faculty member for Honors in the Major.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 565,
+            "subjects": [
+                "LANDARC",
+                "F&WECOL",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "PRINCIPLES OF LANDSCAPE ECOLOGY",
+        "description": "Emphasizes the importance of spatial patterns at broad scales. Concepts and applications are covered.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 460,
+                    "subjects": [
+                        "F&WECOL",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 371,
                     "subjects": [
-                        "GLE",
-                        "GEOSCI",
-                        "ENVIRST",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 571,
+                    "subjects": [
                         "F&WECOL",
-                        "LANDARC",
-                        "GEOG"
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 550,
+                    "subjects": [
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, graduate/professional standing, or member of Engineering Guest Students"
+            "prerequisites_text": "(ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460orF&W\u00a0ECOL\u00a0550) and (STAT\u00a0301,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 264,
+            "subjects": [
+                "LANDARC",
+                "ARTHIST",
+                "DS",
+                "ANTHRO",
+                "HISTORY"
+            ]
+        },
+        "course_title": "DIMENSIONS OF MATERIAL CULTURE",
+        "description": "This course introduces students to the interdisciplinary field of material culture studies. It is intended for students interested in any professional endeavor related to material culture, including careers in museums, galleries, historical societies, historic preservation organizations, and academic institutions. During the semester, students have varied opportunities to engage with and contemplate the material world to which people give meaning and which, in turn, influences their lives. Sessions combine in some way the following: presentations from faculty members and professionals who lecture on a phase of material culture related to his/her own scholarship or other professional work; discussion of foundational readings in the field; visits to collections and sites on campus and around Madison; discussion of readings assigned by visiting presenters or the professors; and exams and short papers that engage material culture topics.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -1253,134 +1422,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Senior standing and declared in Landscape Architecture BLA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 560,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "PLANTS AND ECOLOGY IN DESIGN",
-        "description": "Explores the process of plant selection and placement in the landscape. The desired landscape will be ecologically appropriate to the setting, sustainable, functional in response to goals, and aesthetically pleasing. Acquire an awareness and understanding of the physical characteristics of plant materials and a sensitivity to their needs based on past and present. Emphasis on the recognition of the philosophy of planting design as a dynamic and changing spatial art and science, the relationship between environment and plants, application of design composition principles to plant selection and placement, and functional and utilitarian uses of plants; i.e., the opportunities and constraints for plants in the designed landscape.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 263,
-                    "subjects": [
-                        "HORT",
-                        "LANDARC"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Declared in Landscape Architecture BLA andHORT/\u200bLAND\u00a0ARC\u00a0\u00a0263"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 354,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "LANDSCAPE ARCHITECTURAL TECHNOLOGY II",
-        "description": "Problems dealing with construction detailing, including roadways, drainage structures, construction materials, cost estimating, specifications and working drawings.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Landscape Architecture BLA"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 380,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "PLANTS FOR ECOLOGICAL DESIGN I",
-        "description": "Plants as the basis for ecological landscape design in urban and rural settings in late summer, fall, and early winter and their role in creating beautiful, resilient, and high performing outdoor spaces that enhance human health and well-being and provide a number of global ecosystem services.  Study plants in their native and designed habitats to understand the relationships between and among plants and their environment. Identify the aesthetic, structural, functional, and cultural characteristics of key Wisconsin native plants and a variety of non-invasive horticultural species as well as the composition, structure, and functions of  forest, wetland, and grassland communities. Express the essence and cultural meaning of plants and plant communities through hand and digital graphics and writing.",
-        "optimized": {
-            "course_number": 250,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 250,
-                    "subjects": [
-                        "LANDARC"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0250, (BOTANY\u00a0100,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orBIOCORE\u00a0381and382), and sophomore standing, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "SOCIAL JUSTICE AND THE URBAN LANDSCAPE",
-        "description": "Examines the cultural, social and political interactions that occur in urban landscapes including parks, plazas, streets and other public open spaces. An examination of past and present landscapes as sites of the struggle for social justice. The focus is on urban landscapes of the United States.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 360,
-            "subjects": [
-                "LANDARC"
-            ]
-        },
-        "course_title": "EARTH PARTNERSHIP RESTORATION EDUCATION: INDIGENOUS ARTS & SCIENCES",
-        "description": "Participate in a one-week community-based, intergenerational Institute focused on ecological restoration and water stewardship rooted in Indigenous knowledge while working with Native Nations in Wisconsin. An emphasis is on environmental science aligned with cultural values and indigenous science processes and address environmental, education and health issues through restoration and stewardship action. Learn culturally accurate and authentic resources about tribal sovereignty, history, and culture and contemporary issues relevant to each community. Through hands-on stewardship action, a greater sense of self and diversity of perspectives related to impacts of climate change and preserving biodiversity will be gained.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
         }
     }
 ]

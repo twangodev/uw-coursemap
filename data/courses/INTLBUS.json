@@ -1,55 +1,41 @@
 [
     {
         "course_reference": {
-            "course_number": 450,
+            "course_number": 200,
             "subjects": [
                 "INTLBUS"
             ]
         },
-        "course_title": "STUDY ABROAD IN INTERNATIONAL BUSINESS",
-        "description": "Engage in activities that aim to translate and integrate the study abroad experience. Build international business and global competencies while connecting with others engaged in an immersion experience.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Certificate in International Business"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 329,
+        "course_title": "INTERNATIONAL BUSINESS",
+        "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
+        "optimized": {
+            "course_number": 101,
             "subjects": [
-                "INTLBUS",
-                "SPANISH"
+                "ECON"
             ]
         },
-        "course_title": "SPANISH FOR BUSINESS",
-        "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
-        "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 311,
+                    "course_number": 102,
                     "subjects": [
-                        "SPANISH"
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 111,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ECON"
                     ]
                 }
             ],
-            "prerequisites_text": "SPANISH\u00a0311"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "INTLBUS"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+            "prerequisites_text": "(ECON\u00a0101,102, or111); or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -69,33 +55,54 @@
     },
     {
         "course_reference": {
-            "course_number": 767,
+            "course_number": 445,
             "subjects": [
+                "FINANCE",
                 "INTLBUS"
             ]
         },
-        "course_title": "GLOBAL LEARNING EXPERIENCE",
-        "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
+        "course_title": "MULTINATIONAL BUSINESS FINANCE",
+        "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
         "optimized": null,
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Business: General Management, MBA"
+            "course_references": [
+                {
+                    "course_number": 213,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "FINANCE",
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 222,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "FINANCE/\u200bECON\u00a0\u00a0300and (MATH\u00a0213or222), or declared in undergraduate Business Exchange program"
         }
     },
     {
         "course_reference": {
-            "course_number": 320,
+            "course_number": 403,
             "subjects": [
-                "INTLBUS",
-                "GENBUS"
+                "MHR",
+                "INTLBUS"
             ]
         },
-        "course_title": "INTERCULTURAL COMMUNICATION IN BUSINESS",
-        "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
+        "course_title": "GLOBAL ISSUES IN MANAGEMENT",
+        "description": "Focuses on the strategic management required in global business. Topics include environmental analysis, global strategy, and subsidiary control. The aim of the course is to develop special skills that are required to manage international firms.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing or declared in the Business Exchange program"
+            "prerequisites_text": "Sophomore standing. Not open to graduate/professional students"
         }
     },
     {
@@ -114,10 +121,10 @@
                 {
                     "course_number": 306,
                     "subjects": [
-                        "REALEST",
                         "AAE",
+                        "ECON",
                         "URBRPL",
-                        "ECON"
+                        "REALEST"
                     ]
                 }
             ],
@@ -126,90 +133,25 @@
     },
     {
         "course_reference": {
-            "course_number": 799,
+            "course_number": 365,
             "subjects": [
                 "INTLBUS"
             ]
         },
-        "course_title": "READING AND RESEARCH-INTERNATIONAL BUSINESS",
-        "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "INTLBUS",
-                "REALEST"
-            ]
-        },
-        "course_title": "INTERNATIONAL REAL ESTATE",
-        "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 306,
-                    "subjects": [
-                        "REALEST",
-                        "AAE",
-                        "URBRPL",
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bA\u00a0A\u00a0E/\u200bECON/\u200bREAL\u00a0EST\u00a0\u00a0306or declared in the Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 200,
-            "subjects": [
-                "INTLBUS"
-            ]
-        },
-        "course_title": "INTERNATIONAL BUSINESS",
-        "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
-        "optimized": {
-            "course_number": 101,
-            "subjects": [
-                "ECON"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 111,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ECON\u00a0101,102, or111); or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
         }
     },
     {
         "course_reference": {
             "course_number": 313,
             "subjects": [
-                "INTLBUS",
-                "FRENCH"
+                "FRENCH",
+                "INTLBUS"
             ]
         },
         "course_title": "PROFESSIONAL COMMUNICATION AND CULTURE IN THE FRANCOPHONE WORLD",
@@ -235,46 +177,33 @@
     },
     {
         "course_reference": {
-            "course_number": 445,
+            "course_number": 745,
             "subjects": [
-                "INTLBUS",
-                "FINANCE"
+                "FINANCE",
+                "INTLBUS"
             ]
         },
         "course_title": "MULTINATIONAL BUSINESS FINANCE",
-        "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
+        "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 222,
+                    "course_number": 700,
                     "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "FINANCE",
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 213,
-                    "subjects": [
-                        "MATH"
+                        "FINANCE"
                     ]
                 }
             ],
-            "prerequisites_text": "FINANCE/\u200bECON\u00a0\u00a0300and (MATH\u00a0213or222), or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "FINANCE\u00a0700"
         }
     },
     {
         "course_reference": {
             "course_number": 314,
             "subjects": [
-                "INTLBUS",
-                "FRENCH"
+                "FRENCH",
+                "INTLBUS"
             ]
         },
         "course_title": "CONTEMPORARY ISSUES IN BUSINESS, GOVERNMENT AND NGOS",
@@ -289,15 +218,15 @@
                     ]
                 },
                 {
-                    "course_number": 228,
+                    "course_number": 313,
                     "subjects": [
-                        "FRENCH"
+                        "FRENCH",
+                        "INTLBUS"
                     ]
                 },
                 {
-                    "course_number": 313,
+                    "course_number": 228,
                     "subjects": [
-                        "INTLBUS",
                         "FRENCH"
                     ]
                 }
@@ -307,53 +236,17 @@
     },
     {
         "course_reference": {
-            "course_number": 365,
+            "course_number": 799,
             "subjects": [
                 "INTLBUS"
             ]
         },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
+        "course_title": "READING AND RESEARCH-INTERNATIONAL BUSINESS",
+        "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 462,
-            "subjects": [
-                "INTLBUS",
-                "AAE",
-                "ECON"
-            ]
-        },
-        "course_title": "LATIN AMERICAN ECONOMIC DEVELOPMENT",
-        "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "AAE"
-                    ]
-                },
-                {
-                    "course_number": 111,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ECON"
-                    ]
-                }
-            ],
-            "prerequisites_text": "A\u00a0A\u00a0E\u00a0101(215 prior to Fall 2024),ECON\u00a0101, or111"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -373,41 +266,86 @@
     },
     {
         "course_reference": {
-            "course_number": 403,
+            "course_number": 320,
             "subjects": [
-                "MHR",
+                "GENBUS",
                 "INTLBUS"
             ]
         },
-        "course_title": "GLOBAL ISSUES IN MANAGEMENT",
-        "description": "Focuses on the strategic management required in global business. Topics include environmental analysis, global strategy, and subsidiary control. The aim of the course is to develop special skills that are required to manage international firms.",
+        "course_title": "INTERCULTURAL COMMUNICATION IN BUSINESS",
+        "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing. Not open to graduate/professional students"
+            "prerequisites_text": "Sophomore standing or declared in the Business Exchange program"
         }
     },
     {
         "course_reference": {
-            "course_number": 745,
+            "course_number": 329,
             "subjects": [
-                "INTLBUS",
-                "FINANCE"
+                "SPANISH",
+                "INTLBUS"
             ]
         },
-        "course_title": "MULTINATIONAL BUSINESS FINANCE",
-        "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
+        "course_title": "SPANISH FOR BUSINESS",
+        "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
         "optimized": null,
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 700,
+                    "course_number": 311,
                     "subjects": [
-                        "FINANCE"
+                        "SPANISH"
                     ]
                 }
             ],
-            "prerequisites_text": "FINANCE\u00a0700"
+            "prerequisites_text": "SPANISH\u00a0311"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "INTLBUS"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN INTERNATIONAL BUSINESS",
+        "description": "Engage in activities that aim to translate and integrate the study abroad experience. Build international business and global competencies while connecting with others engaged in an immersion experience.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Certificate in International Business"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "INTLBUS"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 767,
+            "subjects": [
+                "INTLBUS"
+            ]
+        },
+        "course_title": "GLOBAL LEARNING EXPERIENCE",
+        "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Business: General Management, MBA"
         }
     },
     {
@@ -431,6 +369,42 @@
                 }
             ],
             "prerequisites_text": "(MARKETNG\u00a0300and sophomore standing) or declared in the Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 462,
+            "subjects": [
+                "AAE",
+                "ECON",
+                "INTLBUS"
+            ]
+        },
+        "course_title": "LATIN AMERICAN ECONOMIC DEVELOPMENT",
+        "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 111,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "AAE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "A\u00a0A\u00a0E\u00a0101(215 prior to Fall 2024),ECON\u00a0101, or111"
         }
     }
 ]

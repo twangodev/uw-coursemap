@@ -11,8 +11,8 @@
     "optimized": {
         "course_number": 525,
         "subjects": [
-            "COMPSCI",
             "MATH",
+            "COMPSCI",
             "STAT",
             "ISYE"
         ]
@@ -20,13 +20,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 310,
+                "course_number": 525,
                 "subjects": [
-                    "COMPSCI"
+                    "MATH",
+                    "COMPSCI",
+                    "STAT",
+                    "ISYE"
                 ]
             },
             {
-                "course_number": 220,
+                "course_number": 200,
                 "subjects": [
                     "COMPSCI"
                 ]
@@ -38,18 +41,15 @@
                 ]
             },
             {
-                "course_number": 200,
+                "course_number": 310,
                 "subjects": [
                     "COMPSCI"
                 ]
             },
             {
-                "course_number": 525,
+                "course_number": 220,
                 "subjects": [
-                    "COMPSCI",
-                    "MATH",
-                    "STAT",
-                    "ISYE"
+                    "COMPSCI"
                 ]
             }
         ],

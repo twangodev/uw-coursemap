@@ -10,23 +10,23 @@
     "optimized": {
         "course_number": 105,
         "subjects": [
-            "GEOSCI",
-            "ATMOCN"
+            "ATMOCN",
+            "GEOSCI"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 110,
+                "course_number": 105,
                 "subjects": [
+                    "ATMOCN",
                     "GEOSCI"
                 ]
             },
             {
-                "course_number": 105,
+                "course_number": 110,
                 "subjects": [
-                    "GEOSCI",
-                    "ATMOCN"
+                    "GEOSCI"
                 ]
             },
             {
@@ -38,8 +38,8 @@
             {
                 "course_number": 106,
                 "subjects": [
-                    "ENVIRST",
-                    "GEOSCI"
+                    "GEOSCI",
+                    "ENVIRST"
                 ]
             }
         ],

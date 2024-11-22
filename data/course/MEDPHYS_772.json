@@ -7,14 +7,20 @@
     },
     "course_title": "ADVANCED RADIATION TREATMENT PLANNING",
     "description": "Physics of clinical, computer-based radiotherapy planning is taught. Topics include dose algorithms, measurement data, commissioning, contouring and volume definition, beam placement, modifiers and apertures and plan evaluation. Forward based and inverse planning (including IMRT optimization) are taught.",
-    "optimized": null,
+    "optimized": {
+        "course_number": 566,
+        "subjects": [
+            "MEDPHYS",
+            "BME"
+        ]
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 566,
                 "subjects": [
-                    "BME",
-                    "MEDPHYS"
+                    "MEDPHYS",
+                    "BME"
                 ]
             }
         ],

@@ -8,11 +8,10 @@
     "course_title": "IMMUNOLOGY",
     "description": "An introduction to the immune response to infectious disease. Examines the role of the host in host-parasite relationships using select microbial agents or antigens to illustrate the nonspecific and specific mechanisms of host defenses. Includes study of the nonspecific inflammatory response, the nature of microbial antigens, current concepts of antibody and cell-mediated immune reactions to infectious agents and the principles underlying the development of vaccines.",
     "optimized": {
-        "course_number": 151,
+        "course_number": 101,
         "subjects": [
-            "ZOOLOGY",
             "BIOLOGY",
-            "BOTANY"
+            "ZOOLOGY"
         ]
     },
     "prerequisites": {
@@ -20,22 +19,22 @@
             {
                 "course_number": 101,
                 "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
                 ]
             }
         ],

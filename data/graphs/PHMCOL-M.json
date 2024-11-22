@@ -1,21 +1,28 @@
 [
     {
         "data": {
-            "description": "Special topics in pharmacology. Topics may vary.",
-            "id": "PHMCOL-M 875",
+            "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
+            "id": "PHMCOL-M 739",
+            "parent": "PHMCOL-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Research facilities of the department available to qualified students.",
+            "id": "PHMCOL-M 990",
             "parent": "PHMCOL-M"
         }
     },
     {
         "data": {
             "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-            "id": "PHMSCI/ONCOLOGY/PHMCOL-M/M&ENVTOX/POPHLTH 625"
+            "id": "PHMSCI/ONCOLOGY/POPHLTH/M&ENVTOX/PHMCOL-M 625"
         }
     },
     {
         "data": {
             "description": "Pharmacological actions of important drugs, including hematopoietic, thrombolytic, antihyperlipidemic, immunopharmacologic, anticancer, anti-inflammatory, diuretic, antihypertensive, antianginal, and anti-arrhythmic agents, and agents used to treat congestive heart failure.",
-            "id": "PHMCOL-M/PHMSCI 522"
+            "id": "PHMSCI/PHMCOL-M 522"
         }
     },
     {
@@ -27,27 +34,14 @@
     },
     {
         "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "RADIOL/BME/PHYSICS/MEDPHYS/PHMCOL-M 619"
+        }
+    },
+    {
+        "data": {
             "description": "Directed study projects for juniors and seniors.",
             "id": "PHMCOL-M 699",
-            "parent": "PHMCOL-M"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "RADIOL/BME/PHMCOL-M/MEDPHYS/PHYSICS 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
-            "id": "PHMCOL-M 781",
             "parent": "PHMCOL-M"
         }
     },
@@ -60,8 +54,9 @@
     },
     {
         "data": {
-            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-            "id": "PATH/PHMSCI/PHMCOL-M/M&ENVTOX/POPHLTH 626"
+            "description": "Provides an in-depth introduction to the molecular and cellular principles of pharmacology. Emphasis is on the mechanisms of drug and small molecule action in cells, with a particular focus on downstream signaling pathways, second messenger systems, protein kinase cascades, and the regulation of gene transcription.",
+            "id": "PHMCOL-M 781",
+            "parent": "PHMCOL-M"
         }
     },
     {
@@ -72,15 +67,20 @@
     },
     {
         "data": {
-            "description": "Focuses on two of the cornerstones of science advancement, which are rigor in designing and performing scientific research and the ability to reproduce biomedical research findings. Emphasizes the application of rigor that ensures robust and unbiased experimental design, methodology, analysis, interpretation, and reporting of results. Highlights topics of particular importance to first year graduate students, including the development of effective presentation skills, communication in a professional setting, and a strong mentor-mentee relationship.",
-            "id": "PHMCOL-M 739",
-            "parent": "PHMCOL-M"
+            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+            "id": "PHMSCI/POPHLTH/PATH/M&ENVTOX/PHMCOL-M 626"
         }
     },
     {
         "data": {
-            "description": "Research facilities of the department available to qualified students.",
-            "id": "PHMCOL-M 990",
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in pharmacology. Topics may vary.",
+            "id": "PHMCOL-M 875",
             "parent": "PHMCOL-M"
         }
     }

@@ -10,28 +10,12 @@
     "optimized": {
         "course_number": 301,
         "subjects": [
-            "LINGUIS",
-            "ANTHRO"
+            "ANTHRO",
+            "LINGUIS"
         ]
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 429,
-                "subjects": [
-                    "FRENCH",
-                    "PORTUG",
-                    "ITALIAN",
-                    "SPANISH"
-                ]
-            },
-            {
-                "course_number": 301,
-                "subjects": [
-                    "LINGUIS",
-                    "ANTHRO"
-                ]
-            },
             {
                 "course_number": 631,
                 "subjects": [
@@ -45,8 +29,9 @@
                 ]
             },
             {
-                "course_number": 101,
+                "course_number": 301,
                 "subjects": [
+                    "ANTHRO",
                     "LINGUIS"
                 ]
             },
@@ -57,9 +42,24 @@
                 ]
             },
             {
+                "course_number": 429,
+                "subjects": [
+                    "SPANISH",
+                    "FRENCH",
+                    "PORTUG",
+                    "ITALIAN"
+                ]
+            },
+            {
                 "course_number": 650,
                 "subjects": [
                     "GERMAN"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "LINGUIS"
                 ]
             }
         ],

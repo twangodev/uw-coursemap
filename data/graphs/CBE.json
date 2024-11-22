@@ -1,104 +1,6 @@
 [
     {
         "data": {
-            "description": "Seminar in Chemical Engineering.",
-            "id": "CBE 961",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis and interpretation of kinetic data and catalytic phenomena; application of basic engineering principles to chemical reactor design.",
-            "id": "CBE 430",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
-            "id": "CBE 702",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of thermodynamic principles to selected topics, including equations of state, non-ideal solutions, and complex physical and chemical equilibria.",
-            "id": "CBE 710",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics of specialized interest to majors in chemical engineering. Given on demand.",
-            "id": "CBE 562",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects arranged with instructor.",
-            "id": "CBE 890",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 329",
-            "target": "CBE 250"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 255",
-            "target": "CBE 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Undergraduate honors research projects supervised by faculty members. Declared in Chemical Engineering Honors in Research Program",
-            "id": "CBE 489",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
-            "id": "MATH/ECE/CBE 777"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of chemical engineering operations involving fluid flow and heat transfer. Flow of fluids through ducts and porous media; motion of particulate matter in fluids; general design and operation of fluid-flow equipment. Conductive, convective and radiative heat exchange with and without phase change; general design and operation of heat-exchange equipment.",
-            "id": "CBE 326",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
-            "id": "CBE/BME 783"
-        }
-    },
-    {
-        "data": {
             "description": "Survey of kinetic principles and factors which influence reaction rates, with particular emphasis on catalysts and catalytic reactions. May include a seminar on modern catalytic research.",
             "id": "CBE 735",
             "parent": "CBE"
@@ -106,120 +8,15 @@
     },
     {
         "data": {
-            "description": "Overview of the field of chemical engineering, including types of careers, industries, and skills required for successful completion of the degree and entry into the chemical engineering profession.",
-            "id": "CBE 150",
+            "description": "Various options for conversion of biomass into fuels and chemicals.  Evaluation of different biofuel technologies from a chemical engineering perspective, and a holistic overview of the current technical, legal, business, and financial challenges, and opportunities for the production of fuels and chemicals from biomass.  Several case studies on biomass conversion provide an overview of how technology is developed.",
+            "id": "CBE 538",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Modern methods for the mathematical analysis and control of dynamical systems. Application to physico-chemical systems. Real-time computer control.",
-            "id": "CBE 770",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 430",
-            "target": "CBE 450"
-        }
-    },
-    {
-        "data": {
-            "description": "Research or independent study.",
-            "id": "CBE 599",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 327",
-            "target": "CHEM 329"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of ideal and non-ideal vapors and liquids, ideal and non-ideal multicomponent vapor-liquid and liquid-liquid equilibria, complex chemical reaction equilibria, electrolytic solutions, surface thermodynamics, solid phase thermodynamics.",
-            "id": "CBE 311",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Considers a variety of current engineering applications and problems. Investigate background information on topics of their choice, and present seminars to describe how engineering fundamentals interact with societal impact and how chemical engineering is relevant to societal concerns at large.",
-            "id": "CBE 555",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
-            "id": "CBE 1",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to thermodynamics, energy balances, applications to steady state and unsteady state processes, behavior of pure fluids, chemical reaction equilibria.",
-            "id": "CBE 310",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 320",
-            "target": "CBE 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
-            "id": "CBE/CHEM 505"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "CBE 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Instruction and laboratory experiments in basic molecular biology techniques, recombinant protein production, fermentation processes, protein purification and characterization, and related bioengineering laboratory topics. Geared towards those with interests in biotechnology and synthetic biology.",
-            "id": "CBE 361",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamentals of chemical measurement in chemistry, biology, engineering, geology, and the medical sciences. Topics include equilibria of complex systems, spectroscopy, electrochemistry, separations, and quantitative laboratory technique. Covers chemical equilibria in greater depth and with greater mathematical rigor thanCHEM\u00a0327.",
-            "id": "CHEM 329",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 430",
-            "target": "CBE 470"
-        }
-    },
-    {
-        "data": {
-            "description": "Structure and properties of metallic and nonmetallic materials of construction; interrelations between chemical bonding, structure, and behavior of materials.",
-            "id": "CBE 440",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Biotechnology Training Program trainees will present their research for critical review by audience.",
-            "id": "CBE/BIOCHEM 932"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -231,9 +28,8 @@
     },
     {
         "data": {
-            "description": "Fundamentals of chemical measurement in chemistry, biology, engineering, geology, and the medical sciences. Topics include equilibria of complex systems, spectroscopy, electrochemistry, separations, and quantitative laboratory technique.",
-            "id": "CHEM 327",
-            "parent": "CHEM"
+            "id": "ZOOLOGY",
+            "type": "compound"
         }
     },
     {
@@ -245,16 +41,40 @@
     },
     {
         "data": {
-            "description": "Introduction to modeling of chemical processes and introduction to using modern computational tools to analyze the models.",
-            "id": "CBE 255",
+            "source": "PHYSICS 201",
+            "target": "CBE 320"
+        }
+    },
+    {
+        "data": {
+            "id": "CBE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of computer-aided modelling of chemical reaction systems. Formulation, numerical solution and sensitivity analysis of reactor models. Bayesian estimation of parameters. Iterative strategies for model development. Structure and use of related software.",
+            "id": "CBE 731",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "",
-            "id": "CBE 990",
-            "parent": "CBE"
+            "source": "BIOLOGY/ZOOLOGY/BOTANY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/ZOOLOGY/BOTANY 151"
         }
     },
     {
@@ -266,21 +86,159 @@
     },
     {
         "data": {
+            "source": "CBE 310",
+            "target": "CBE 311"
+        }
+    },
+    {
+        "data": {
             "description": "Directed study projects arranged with instructor.",
-            "id": "CBE 790",
+            "id": "CBE 890",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 153"
+            "source": "CBE 320",
+            "target": "CBE 326"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 426",
+            "target": "CBE 424"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 329",
+            "target": "CHEM 327"
+        }
+    },
+    {
+        "data": {
+            "description": "Synthesis, properties, and fabrication of plastic materials of industrial importance.",
+            "id": "CBE 540",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar in Chemical Engineering.",
+            "id": "CBE 961",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Radiant energy transfer and its application to solar exchangers; energy balances for solar exchangers, review of theory, economics, and practice of solar energy applications.",
+            "id": "CBE/ME 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis and interpretation of kinetic data and catalytic phenomena; application of basic engineering principles to chemical reactor design.",
+            "id": "CBE 430",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
+            "id": "ZOOLOGY 153",
+            "parent": "ZOOLOGY"
         }
     },
     {
         "data": {
             "description": "",
             "id": "CBE 999",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modeling of chemical processes and introduction to using modern computational tools to analyze the models.",
+            "id": "CBE 255",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundations for understanding microscale flow and transport phenomena in multiphase and complex fluids, as well as tools for modeling and simulation of their dynamics.",
+            "id": "CBE 720",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 620",
+            "target": "CBE 720"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Structure and properties of metallic and nonmetallic materials of construction; interrelations between chemical bonding, structure, and behavior of materials.",
+            "id": "CBE 440",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of ideal and non-ideal vapors and liquids, ideal and non-ideal multicomponent vapor-liquid and liquid-liquid equilibria, complex chemical reaction equilibria, electrolytic solutions, surface thermodynamics, solid phase thermodynamics.",
+            "id": "CBE 311",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Determination of thermodynamic properties, transport properties, and transfer coefficients; study of related phenomena.",
+            "id": "CBE 324",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Methodologies for synthesis and optimization of chemical process systems. Application of linear, nonlinear, and mixed integer programming to steady state process optimization, production planning, and flowsheet synthesis.",
+            "id": "CBE 750",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 311",
+            "target": "CBE 547"
+        }
+    },
+    {
+        "data": {
+            "description": "Discusses catalytic phenomena, with extensions to reactor design and catalyst characterization. Examples will be drawn from current problems in catalysis.",
+            "id": "CBE 535",
             "parent": "CBE"
         }
     },
@@ -293,230 +251,35 @@
     },
     {
         "data": {
-            "description": "Principles of computer-aided modelling of chemical reaction systems. Formulation, numerical solution and sensitivity analysis of reactor models. Bayesian estimation of parameters. Iterative strategies for model development. Structure and use of related software.",
-            "id": "CBE 731",
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to topics in colloid and interface science, including sedimentation and diffusion, solution thermodynamics, rheology, light scattering, surface tension and contact angle, adsorption, association colloids, particle interactions, electrokinetics, and colloidal stability.",
+            "id": "CBE 547",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Analysis and design of chemical processing systems and equipment.",
-            "id": "CBE 450",
+            "description": "Fundamentals of chemical measurement in chemistry, biology, engineering, geology, and the medical sciences. Topics include equilibria of complex systems, spectroscopy, electrochemistry, separations, and quantitative laboratory technique. Covers chemical equilibria in greater depth and with greater mathematical rigor thanCHEM\u00a0327.",
+            "id": "CHEM 329",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career.  The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
+            "id": "CBE 702",
             "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in colloid and interface science. Topics include: intermolecular forces, stability of thin films, association colloids, liquid crystals, microhydrodynamics, electrostatics, electrokinetics, colloidal stability, and dispersion rheology.",
-            "id": "CBE 747",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 426",
-            "target": "CBE 424"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 250",
-            "target": "CBE 538"
-        }
-    },
-    {
-        "data": {
-            "description": "Experiments on polymerization, fabrication, and testing of plastics.",
-            "id": "CBE 541",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Discusses catalytic phenomena, with extensions to reactor design and catalyst characterization. Examples will be drawn from current problems in catalysis.",
-            "id": "CBE 535",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Synthesis, properties, and fabrication of plastic materials of industrial importance.",
-            "id": "CBE 540",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Observed phenomena in polymeric flow systems. Techniques of viscometry and viscoelastic measurements for polymeric fluids. Rheological models. Analytical solutions to flow problems: non-Newtonian viscosity, linear viscoelasticity, normal stresses, recoil, stress relaxation, etc. Dimensional analysis. Unit operations of the polymer industry: extrusion, blow molding, injection molding, mixing.",
-            "id": "CBE/ME 525"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 620",
-            "target": "CBE 720"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Connect with a local community through the development and implementation of two research based hands-on inquiry engineering demonstrations for middle school level after-school science programs.",
-            "id": "CBE 554",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemical engineering principles of material and energy balances, chemical process design, and chemical engineering economics are used to analyze a wide variety of energy systems and their impact on the economy, the environment, society, and the chemical process industry.",
-            "id": "CBE 512",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 329",
-            "target": "CHEM 327"
-        }
-    },
-    {
-        "data": {
-            "id": "CBE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
         }
     },
     {
         "data": {
             "description": "Introduction to topics relevant to the design, synthesis, fabrication, engineering, and characterization of organic materials currently used in or being designed for use in medical and biotechnological applications.",
             "id": "CBE 648",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-            "id": "COMPSCI/CBE/BME/BMI/GENETICS/BIOCHEM 915"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 250",
-            "target": "CBE 255"
-        }
-    },
-    {
-        "data": {
-            "description": "Various options for conversion of biomass into fuels and chemicals.  Evaluation of different biofuel technologies from a chemical engineering perspective, and a holistic overview of the current technical, legal, business, and financial challenges, and opportunities for the production of fuels and chemicals from biomass.  Several case studies on biomass conversion provide an overview of how technology is developed.",
-            "id": "CBE 538",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 310",
-            "target": "CBE 440"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 311",
-            "target": "CBE 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundations for understanding microscale flow and transport phenomena in multiphase and complex fluids, as well as tools for modeling and simulation of their dynamics.",
-            "id": "CBE 720",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Protein engineering and protein-protein interactions, receptor-ligand binding, cell metabolism and signaling, metabolic engineering and synthetic biology, tissue engineering. Additional topics may be covered such as: regenerative medicine, biomaterials, microbe-host interactions.",
-            "id": "CBE 781",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
-            "id": "CBE 320",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 320",
-            "target": "CBE 426"
-        }
-    },
-    {
-        "data": {
-            "source": "CBE 540",
-            "target": "CBE 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Experiments in unit operations, and supervised individual assignments selected from areas such as: fluid dynamics, analytical methods, reaction kinetics, plastics technology, and use of computers in data processing and simulation.",
-            "id": "CBE 424",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Mass, momentum, and energy transport; kinetic theory of transport properties; analytical and approximate solutions to the equations of change; boundary layer theory; turbulence; simultaneous heat and mass transfer; multicomponent diffusion.",
-            "id": "CBE 620",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "Instrumental methods as applied to chemical and physical processes in chemical engineering. Spectroscopic, optical, and electrochemical methods; chromatography, differential thermal analysis, and microscopy.",
-            "id": "CBE 575",
-            "parent": "CBE"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of chemical engineering operations involving mass transfer. Differential and stagewise separation processes; simultaneous heat and mass transfer; mass transfer accompanied by chemical reaction; general design and operation of mass-transfer equipment.",
-            "id": "CBE 426",
             "parent": "CBE"
         }
     },
@@ -529,14 +292,177 @@
     },
     {
         "data": {
-            "description": "Radiant energy transfer and its application to solar exchangers; energy balances for solar exchangers, review of theory, economics, and practice of solar energy applications.",
-            "id": "CBE/ME 567"
+            "source": "ZOOLOGY 153",
+            "target": "CBE 361"
         }
     },
     {
         "data": {
-            "source": "CBE 311",
-            "target": "CBE 547"
+            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+            "id": "CBE/BIOCHEM/BME/GENETICS/COMPSCI/BMI 915"
+        }
+    },
+    {
+        "data": {
+            "description": "Biotechnology Training Program trainees will present their research for critical review by audience.",
+            "id": "CBE/BIOCHEM 932"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 430",
+            "target": "CBE 470"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 329",
+            "target": "CBE 250"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Mass, momentum, and energy transport; calculation of transport coefficients; solution to problems in viscous flow, heat conduction, and diffusion; dimensional analysis; mass, momentum, and heat transfer coefficients; over-all balances; elementary applications.",
+            "id": "CBE 320",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 430",
+            "target": "CBE 535"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis and design of chemical processing systems and equipment.",
+            "id": "CBE 450",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Research or independent study.",
+            "id": "CBE 599",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ZOOLOGY 153"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 250",
+            "target": "CBE 255"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 250",
+            "target": "CBE 538"
+        }
+    },
+    {
+        "data": {
+            "description": "Considers a variety of current engineering applications and problems. Investigate background information on topics of their choice, and present seminars to describe how engineering fundamentals interact with societal impact and how chemical engineering is relevant to societal concerns at large.",
+            "id": "CBE 555",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of chemical engineering operations involving mass transfer. Differential and stagewise separation processes; simultaneous heat and mass transfer; mass transfer accompanied by chemical reaction; general design and operation of mass-transfer equipment.",
+            "id": "CBE 426",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamentals of chemical measurement in chemistry, biology, engineering, geology, and the medical sciences. Topics include equilibria of complex systems, spectroscopy, electrochemistry, separations, and quantitative laboratory technique.",
+            "id": "CHEM 327",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "CBE 990",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in colloid and interface science. Topics include: intermolecular forces, stability of thin films, association colloids, liquid crystals, microhydrodynamics, electrostatics, electrokinetics, colloidal stability, and dispersion rheology.",
+            "id": "CBE 747",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects arranged with instructor.",
+            "id": "CBE 790",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 320",
+            "target": "CBE 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Instruction and laboratory experiments in basic molecular biology techniques, recombinant protein production, fermentation processes, protein purification and characterization, and related bioengineering laboratory topics. Geared towards those with interests in biotechnology and synthetic biology.",
+            "id": "CBE 361",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of chemical engineering operations involving fluid flow and heat transfer. Flow of fluids through ducts and porous media; motion of particulate matter in fluids; general design and operation of fluid-flow equipment. Conductive, convective and radiative heat exchange with and without phase change; general design and operation of heat-exchange equipment.",
+            "id": "CBE 326",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to thermodynamics, energy balances, applications to steady state and unsteady state processes, behavior of pure fluids, chemical reaction equilibria.",
+            "id": "CBE 310",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Connect with a local community through the development and implementation of two research based hands-on inquiry engineering demonstrations for middle school level after-school science programs.",
+            "id": "CBE 554",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
+            "id": "CBE/CHEM 505"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 327",
+            "target": "CHEM 329"
         }
     },
     {
@@ -547,47 +473,65 @@
     },
     {
         "data": {
-            "source": "CBE 320",
-            "target": "CBE 326"
+            "source": "CBE 430",
+            "target": "CBE 450"
         }
     },
     {
         "data": {
-            "description": "Introduction to topics in colloid and interface science, including sedimentation and diffusion, solution thermodynamics, rheology, light scattering, surface tension and contact angle, adsorption, association colloids, particle interactions, electrokinetics, and colloidal stability.",
-            "id": "CBE 547",
+            "description": "Introduction to the methodologies for engineering the structure and function of biological molecules, especially proteins. Develop an understanding for the integration of computation and experiment to address biological molecular engineering problems. Knowledge of biochemistry and cell biology [such asBIOCHEM\u00a0501orZOOLOGY\u00a0570] required.",
+            "id": "CBE/BME 783"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 324",
+            "target": "CBE 575"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 250",
+            "target": "CBE 554"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics of specialized interest to majors in chemical engineering. Given on demand.",
+            "id": "CBE 562",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Learn the chemistry and chemical engineering that defines societies' standard of living. Commercial chemical processes will be reviewed. Practical realities of how a discovery moves from research to commercial product will be taught through examples and case studies. Financial concepts that guide investment will be reviewed.",
-            "id": "CHEM/CBE 505"
+            "description": "Observed phenomena in polymeric flow systems. Techniques of viscometry and viscoelastic measurements for polymeric fluids. Rheological models. Analytical solutions to flow problems: non-Newtonian viscosity, linear viscoelasticity, normal stresses, recoil, stress relaxation, etc. Dimensional analysis. Unit operations of the polymer industry: extrusion, blow molding, injection molding, mixing.",
+            "id": "CBE/ME 525"
         }
     },
     {
         "data": {
-            "description": "Methodologies for synthesis and optimization of chemical process systems. Application of linear, nonlinear, and mixed integer programming to steady state process optimization, production planning, and flowsheet synthesis.",
-            "id": "CBE 750",
+            "description": "Experiments in unit operations, and supervised individual assignments selected from areas such as: fluid dynamics, analytical methods, reaction kinetics, plastics technology, and use of computers in data processing and simulation.",
+            "id": "CBE 424",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Determination of thermodynamic properties, transport properties, and transfer coefficients; study of related phenomena.",
-            "id": "CBE 324",
+            "description": "Modern methods for the mathematical analysis and control of dynamical systems. Application to physico-chemical systems. Real-time computer control.",
+            "id": "CBE 770",
             "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
-            "id": "CBE/ECE/MATH 777"
+            "source": "CBE 311",
+            "target": "CBE 430"
+        }
+    },
+    {
+        "data": {
+            "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
+            "id": "CBE/BME 782"
         }
     },
     {
@@ -598,20 +542,146 @@
     },
     {
         "data": {
+            "source": "CBE 320",
+            "target": "CBE 426"
+        }
+    },
+    {
+        "data": {
+            "description": "Mass, momentum, and energy transport; kinetic theory of transport properties; analytical and approximate solutions to the equations of change; boundary layer theory; turbulence; simultaneous heat and mass transfer; multicomponent diffusion.",
+            "id": "CBE 620",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/ZOOLOGY/BOTANY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "description": "Protein engineering and protein-protein interactions, receptor-ligand binding, cell metabolism and signaling, metabolic engineering and synthetic biology, tissue engineering. Additional topics may be covered such as: regenerative medicine, biomaterials, microbe-host interactions.",
+            "id": "CBE 781",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 310",
+            "target": "CBE 440"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 540",
+            "target": "CBE 541"
+        }
+    },
+    {
+        "data": {
+            "description": "Experiments on polymerization, fabrication, and testing of plastics.",
+            "id": "CBE 541",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of thermodynamic principles to selected topics, including equations of state, non-ideal solutions, and complex physical and chemical equilibria.",
+            "id": "CBE 710",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
             "source": "CBE 310",
             "target": "CBE 512"
         }
     },
     {
         "data": {
-            "source": "ZOOLOGY 153",
-            "target": "CBE 361"
+            "description": "Undergraduate honors research projects supervised by faculty members. Declared in Chemical Engineering Honors in Research Program",
+            "id": "CBE 489",
+            "parent": "CBE"
         }
     },
     {
         "data": {
-            "description": "Literature survey of mathematical models in biology at the molecular and cellular levels; application of chemical kinetics and thermodynamics to biological systems; comparison of deterministic and stochastic strategies.",
-            "id": "CBE/BME 782"
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
+            "id": "ECE/CBE/MATH 777"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
+            "id": "CBE 1",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CBE 255",
+            "target": "CBE 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemical engineering principles of material and energy balances, chemical process design, and chemical engineering economics are used to analyze a wide variety of energy systems and their impact on the economy, the environment, society, and the chemical process industry.",
+            "id": "CBE 512",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "CBE 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Instrumental methods as applied to chemical and physical processes in chemical engineering. Spectroscopic, optical, and electrochemical methods; chromatography, differential thermal analysis, and microscopy.",
+            "id": "CBE 575",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of the field of chemical engineering, including types of careers, industries, and skills required for successful completion of the degree and entry into the chemical engineering profession.",
+            "id": "CBE 150",
+            "parent": "CBE"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
         }
     }
 ]

@@ -1,30 +1,6 @@
 [
     {
         "data": {
-            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
-            "id": "EP/COMPSCI/ECE/EMA/ME 759"
-        }
-    },
-    {
-        "data": {
-            "id": "EP",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
-            "id": "EMA/EP 548"
-        }
-    },
-    {
-        "data": {
             "description": "An introduction to multi-step engineering problem solving using Maple (symbolic mathematics) software.",
             "id": "EP 272",
             "parent": "EP"
@@ -32,29 +8,15 @@
     },
     {
         "data": {
-            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
-            "id": "COMPSCI/EP/ECE/EMA/ME 759"
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Students will be able to enroll for credit more than once because the topics of the course will differ substantially from semester to semester. Our MS requirements permit up to 3 credits within the 30-credit minimum for the degree.",
-            "id": "EP 920",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to current research topics in engineering physics. Development of an undergraduate research proposal supervised by faculty members.",
-            "id": "EP 469",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
+            "source": "MATH 221",
+            "target": "MATH 211"
         }
     },
     {
@@ -66,8 +28,14 @@
     },
     {
         "data": {
-            "description": "Undergraduate research projects supervised by faculty members. Senior thesis.",
-            "id": "EP 569",
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
+            "id": "EP 418",
             "parent": "EP"
         }
     },
@@ -79,8 +47,52 @@
     },
     {
         "data": {
-            "description": "An introduction to the conduct of engineering research: the scientific method, ethics in research, documentation and treatment of research data, publication practices, and the structure of the broader research community are covered.",
-            "id": "EP 468",
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 469",
+            "target": "EP 568"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
+            "id": "EP/EMA 471"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
+            "id": "EP/EMA 476"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to current research topics in engineering physics. Development of an undergraduate research proposal supervised by faculty members.",
+            "id": "EP 469",
             "parent": "EP"
         }
     },
@@ -93,14 +105,15 @@
     },
     {
         "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
+            "source": "MATH 222",
+            "target": "EP 272"
         }
     },
     {
         "data": {
-            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
-            "id": "EMA/EP 547"
+            "description": "Undergraduate research projects supervised by faculty members. Senior thesis.",
+            "id": "EP 569",
+            "parent": "EP"
         }
     },
     {
@@ -111,8 +124,33 @@
     },
     {
         "data": {
-            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
-            "id": "EMA/EP 471"
+            "source": "PHYSICS 201",
+            "target": "EP 271"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 568",
+            "target": "EP 569"
+        }
+    },
+    {
+        "data": {
+            "description": "Students will be able to enroll for credit more than once because the topics of the course will differ substantially from semester to semester. Our MS requirements permit up to 3 credits within the 30-credit minimum for the degree.",
+            "id": "EP 920",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
+            "id": "EP/EMA 615"
         }
     },
     {
@@ -123,15 +161,15 @@
     },
     {
         "data": {
-            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
-            "id": "EMA/EP 615"
+            "description": "An introduction to the conduct of engineering research: the scientific method, ethics in research, documentation and treatment of research data, publication practices, and the structure of the broader research community are covered.",
+            "id": "EP 468",
+            "parent": "EP"
         }
     },
     {
         "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
+            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+            "id": "ME/ECE/COMPSCI/EP/EMA 759"
         }
     },
     {
@@ -142,8 +180,45 @@
     },
     {
         "data": {
-            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
-            "id": "EMA/EP 476"
+            "id": "EP",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
+            "id": "EP/EMA 548"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+            "id": "ME/EP/ECE/COMPSCI/EMA 759"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
+            "id": "EP/EMA 547"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 468",
+            "target": "EP 469"
         }
     },
     {
@@ -155,15 +230,9 @@
     },
     {
         "data": {
-            "description": "Interdisciplinary survey of energy research topics. Understand how sustainable energy challenges are being studied and solved by different disciplines, from science and engineering to social sciences and humanities. Analyze energy sustainability using a multi-disciplinary, systems-based approach.",
-            "id": "EP 418",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "EP 271"
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
         }
     }
 ]

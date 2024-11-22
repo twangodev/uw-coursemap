@@ -1,60 +1,15 @@
 [
     {
         "data": {
-            "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
-            "id": "INTLBUS/FINANCE 745"
-        }
-    },
-    {
-        "data": {
             "id": "ECON",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
-            "id": "INTLBUS/REALEST 430"
-        }
-    },
-    {
-        "data": {
-            "id": "INTLBUS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
-            "id": "INTLBUS 200",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INTLBUS 365",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
-            "id": "INTLBUS 767",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the acquisition of knowledge and the development of skills over a broad range of issues related to global management.  The overall goal is to improve global competence by discussing: why organizations \"go global;\" global business venture options; the impact of foreign business activities on host countries; how to conduct a \"CAGE\" analysis; how to identify and mitigate global risks; issues related to CSR and corruption for foreign business activity; the role of labor codes; ways to manage a global work force; the role of \"global cadres;\" and the roles and management of expatriates.  Country/region knowledge explored will encompass Asia, Africa, South America, and Europe.",
-            "id": "INTLBUS 766",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
-            "id": "INTLBUS/GENBUS 320"
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
+            "parent": "ECON"
         }
     },
     {
@@ -65,39 +20,20 @@
     },
     {
         "data": {
-            "description": "Cultural study of contemporary Francophone Africa, focusing on issues in government, organizations and enterprise. Exploration of cultural and professional relations between Francophone Africa and France, the European Union, and the United States.",
-            "id": "INTLBUS/FRENCH 314"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of undergraduate students may be arranged both during regular sessions and the intersession periods.",
-            "id": "INTLBUS 399",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
             "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
-            "id": "INTLBUS/FINANCE 445"
+            "id": "FINANCE/INTLBUS 445"
         }
     },
     {
         "data": {
-            "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
-            "id": "INTLBUS/SPANISH 329"
+            "source": "ECON 101",
+            "target": "INTLBUS 200"
         }
     },
     {
         "data": {
             "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
-            "id": "INTLBUS/AAE/ECON 462"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "id": "AAE/ECON/INTLBUS 462"
         }
     },
     {
@@ -115,27 +51,15 @@
     },
     {
         "data": {
-            "description": "Study and analysis of the culture and sociology of professional environments in the French and Francophone worlds, including government, international organizations, NGO's and business. Students develop communication skills through interactive teaching methods in multimedia labs.",
-            "id": "INTLBUS/FRENCH 313"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "INTLBUS 200"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-            "id": "INTLBUS 765",
+            "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
+            "id": "INTLBUS 799",
             "parent": "INTLBUS"
         }
     },
     {
         "data": {
-            "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
-            "id": "INTLBUS 799",
+            "description": "Individual work suited to the needs of undergraduate students may be arranged both during regular sessions and the intersession periods.",
+            "id": "INTLBUS 399",
             "parent": "INTLBUS"
         }
     },
@@ -147,9 +71,98 @@
     },
     {
         "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
+            "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
+            "id": "GENBUS/INTLBUS 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
+            "id": "INTLBUS 767",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
+            "id": "SPANISH/INTLBUS 329"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+            "id": "INTLBUS 765",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the acquisition of knowledge and the development of skills over a broad range of issues related to global management.  The overall goal is to improve global competence by discussing: why organizations \"go global;\" global business venture options; the impact of foreign business activities on host countries; how to conduct a \"CAGE\" analysis; how to identify and mitigate global risks; issues related to CSR and corruption for foreign business activity; the role of labor codes; ways to manage a global work force; the role of \"global cadres;\" and the roles and management of expatriates.  Country/region knowledge explored will encompass Asia, Africa, South America, and Europe.",
+            "id": "INTLBUS 766",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Cultural study of contemporary Francophone Africa, focusing on issues in government, organizations and enterprise. Exploration of cultural and professional relations between Francophone Africa and France, the European Union, and the United States.",
+            "id": "FRENCH/INTLBUS 314"
+        }
+    },
+    {
+        "data": {
+            "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INTLBUS 365",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "id": "INTLBUS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 111",
+            "target": "ECON 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
             "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
+            "id": "FINANCE/INTLBUS 745"
+        }
+    },
+    {
+        "data": {
+            "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
+            "id": "INTLBUS 200",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Study and analysis of the culture and sociology of professional environments in the French and Francophone worlds, including government, international organizations, NGO's and business. Students develop communication skills through interactive teaching methods in multimedia labs.",
+            "id": "FRENCH/INTLBUS 313"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 111"
         }
     }
 ]

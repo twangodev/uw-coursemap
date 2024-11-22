@@ -10,8 +10,8 @@
     "optimized": {
         "course_number": 102,
         "subjects": [
-            "ZOOLOGY",
-            "BIOLOGY"
+            "BIOLOGY",
+            "ZOOLOGY"
         ]
     },
     "prerequisites": {
@@ -19,8 +19,16 @@
             {
                 "course_number": 101,
                 "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             },
             {
@@ -32,16 +40,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
-                    "BOTANY"
+                    "ZOOLOGY"
                 ]
             }
         ],

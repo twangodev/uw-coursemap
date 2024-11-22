@@ -1,17 +1,32 @@
 [
     {
         "course_reference": {
-            "course_number": 710,
+            "course_number": 755,
             "subjects": [
                 "ABT"
             ]
         },
-        "course_title": "PROFESSIONAL AND TECHNICAL COMMUNICATION IN BIOTECHNOLOGY",
-        "description": "Application and analysis of professional scientific communication, both written and oral. Focuses on designing documents that convey complex, data-rich technical and scientific content to audiences with diverse information needs using a variety of professional genres, including reports, proposals, presentations, and documentation.",
+        "course_title": "GLOBAL OPERATIONS AND SUPPLY CHAIN MANAGEMENT",
+        "description": "Focuses on the strategic importance of operations and supply chain to overall performance relevant to a variety of business processes specific to biotechnology. Topics include production, transportation, distribution systems, sourcing, and purchasing.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Applied Biotechnology program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 730,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "PYTHON FOR BIOINFORMATICS",
+        "description": "Introduce diverse strategies for computational analysis of macromolecular data using Python including sequence alignment, genome annotation, data retrieval from databases, phylogenetic analysis, and molecular evolution. Experiential learning is emphasized; confidence in practical skills is developed through persistent application of course content to projects focused on current problems in bioinformatic research.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Applied Biotechnology or Capstone Certificate in Applied Bioinformatics"
         }
     },
     {
@@ -23,7 +38,12 @@
         },
         "course_title": "TECHNIQUES IN BIOTECHNOLOGY",
         "description": "Application of biological and chemical methods to modern biotechnological product development. Overview of analysis techniques used to characterize products and evaluate quality and safety. Exploration of technological pipeline from conception to market, including proof-of-concept assessment, pre-clinical trials, clinical trials, and post-production testing.",
-        "optimized": null,
+        "optimized": {
+            "course_number": 700,
+            "subjects": [
+                "ABT"
+            ]
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -34,6 +54,63 @@
                 }
             ],
             "prerequisites_text": "ABT\u00a0700"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "BIOTECHNOLOGY MARKETING AND ENTREPRENEURSHIP",
+        "description": "Examines marketing case studies in diverse areas of biotechnology. Addresses marketing fundamentals and strategies, communicating value proposition strategy, ethical and regulatory concerns, startup strategies, pharmaceutical marketing, b2b marketing, salesforce development, branding, and promotion. Culminates with the creation of a marketing plan/analysis.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Applied Biotechnology program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 790,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "CAPSTONE",
+        "description": "Complete a project (report, business plan, program, etc.) in an area of quality assurance and compliance, business and management, and/or research and development. Culminating in a substantive body of work, executive summary, and reflection. Networking and communication in a professional capacity is expected.",
+        "optimized": {
+            "course_number": 789,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 789,
+                    "subjects": [
+                        "ABT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ABT\u00a0789"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 789,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "PRE-CAPSTONE",
+        "description": "Prepares the student for applied self-directed capstone experience. Addressing problem identification, research, and project formulation. Culminates in an oral and written proposal with project schedule.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -71,6 +148,105 @@
     },
     {
         "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "LEADERSHIP IN ORGANIZATIONS",
+        "description": "Focuses on strategies and tools that managers use to maximize employee contribution and create organizational excellence. Basic business and leadership principles. Best practices to overcome biases that inhibit organizations and teams from communicating effectively. Examples will come from diverse biotechnology fields, including pharmaceutics, agriculture, and biotechnology services.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Applied Biotechnology program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "PROFESSIONAL AND TECHNICAL COMMUNICATION IN BIOTECHNOLOGY",
+        "description": "Application and analysis of professional scientific communication, both written and oral. Focuses on designing documents that convey complex, data-rich technical and scientific content to audiences with diverse information needs using a variety of professional genres, including reports, proposals, presentations, and documentation.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Applied Biotechnology program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 700,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "PRINCIPLES OF BIOTECHNOLOGY",
+        "description": "Principles and techniques pertaining to biotechnology and its applications to our society. Survey of classical and emerging techniques.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Applied Biotechnology program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 745,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "INDUSTRIAL APPLICATIONS IN REGULATORY AFFAIRS",
+        "description": "Examines regulatory environments in risk-based assessment of biotechnological developments in industry, agriculture, and probiotics ensuring consumer and environmental protection. Addresses how validation is essential to the incorporation of emerging technologies into viable, accessible, and successful products. Highlights the stakeholders' role in regulatory oversight and policy through relevant industry case studies.",
+        "optimized": {
+            "course_number": 705,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 705,
+                    "subjects": [
+                        "ABT"
+                    ]
+                },
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "ABT"
+                    ]
+                },
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "ABT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ABT\u00a0700,705, and710"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 720,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "EXPERIMENTAL DESIGN AND ANALYSIS IN BIOTECHNOLOGY",
+        "description": "Principles of descriptive and inferential statistics with applications in biotechnology including experimental design, quantitative data analysis, and bioinformatic evaluation of complex molecular and biological data sets.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Applied Biotechnology or Capstone Certificate in Applied Bioinformatics"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 785,
             "subjects": [
                 "ABT"
@@ -104,82 +280,6 @@
     },
     {
         "course_reference": {
-            "course_number": 790,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "CAPSTONE",
-        "description": "Complete a project (report, business plan, program, etc.) in an area of quality assurance and compliance, business and management, and/or research and development. Culminating in a substantive body of work, executive summary, and reflection. Networking and communication in a professional capacity is expected.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 789,
-                    "subjects": [
-                        "ABT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ABT\u00a0789"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 720,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "EXPERIMENTAL DESIGN AND ANALYSIS IN BIOTECHNOLOGY",
-        "description": "Principles of descriptive and inferential statistics with applications in biotechnology including experimental design, quantitative data analysis, and bioinformatic evaluation of complex molecular and biological data sets.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Applied Biotechnology or Capstone Certificate in Applied Bioinformatics"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 740,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "REGULATORY PRACTICE AND COMPLIANCE",
-        "description": "Identifies and examines the key regulatory agencies and practices that govern the highly regulated and diverse biotechnology industry, both domestically and internationally. Highlights current and emerging FDA and ICH regulations and guidance documents to successfully navigate meeting with the agencies and to submit required documentation for successful product development.",
-        "optimized": {
-            "course_number": 705,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 710,
-                    "subjects": [
-                        "ABT"
-                    ]
-                },
-                {
-                    "course_number": 705,
-                    "subjects": [
-                        "ABT"
-                    ]
-                },
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "ABT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ABT\u00a0700,705, and710"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 735,
             "subjects": [
                 "ABT"
@@ -196,13 +296,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 710,
+                    "course_number": 705,
                     "subjects": [
                         "ABT"
                     ]
                 },
                 {
-                    "course_number": 705,
+                    "course_number": 710,
                     "subjects": [
                         "ABT"
                     ]
@@ -215,69 +315,6 @@
                 }
             ],
             "prerequisites_text": "ABT\u00a0700,705, and710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "LEADERSHIP IN ORGANIZATIONS",
-        "description": "Focuses on strategies and tools that managers use to maximize employee contribution and create organizational excellence. Basic business and leadership principles. Best practices to overcome biases that inhibit organizations and teams from communicating effectively. Examples will come from diverse biotechnology fields, including pharmaceutics, agriculture, and biotechnology services.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Applied Biotechnology program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 780,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "BIOINFORMATIC INQUIRY",
-        "description": "Advances the development of competencies promoting efficient analysis of biological data. Emphasizes matching a research problem with the most effective tools for its completion, balancing use of existing software and de novo software development. Advanced aspects of Python and R, algorithmics, machine learning, simulations, and effective communication of results are emphasized.",
-        "optimized": {
-            "course_number": 730,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 720,
-                    "subjects": [
-                        "ABT"
-                    ]
-                },
-                {
-                    "course_number": 730,
-                    "subjects": [
-                        "ABT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ABT\u00a0720and730"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 730,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "PYTHON FOR BIOINFORMATICS",
-        "description": "Introduce diverse strategies for computational analysis of macromolecular data using Python including sequence alignment, genome annotation, data retrieval from databases, phylogenetic analysis, and molecular evolution. Experiential learning is emphasized; confidence in practical skills is developed through persistent application of course content to projects focused on current problems in bioinformatic research.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Applied Biotechnology or Capstone Certificate in Applied Bioinformatics"
         }
     },
     {
@@ -297,30 +334,15 @@
     },
     {
         "course_reference": {
-            "course_number": 750,
+            "course_number": 765,
             "subjects": [
                 "ABT"
             ]
         },
-        "course_title": "BIOTECHNOLOGY MARKETING AND ENTREPRENEURSHIP",
-        "description": "Examines marketing case studies in diverse areas of biotechnology. Addresses marketing fundamentals and strategies, communicating value proposition strategy, ethical and regulatory concerns, startup strategies, pharmaceutical marketing, b2b marketing, salesforce development, branding, and promotion. Culminates with the creation of a marketing plan/analysis.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Applied Biotechnology program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 745,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "INDUSTRIAL APPLICATIONS IN REGULATORY AFFAIRS",
-        "description": "Examines regulatory environments in risk-based assessment of biotechnological developments in industry, agriculture, and probiotics ensuring consumer and environmental protection. Addresses how validation is essential to the incorporation of emerging technologies into viable, accessible, and successful products. Highlights the stakeholders' role in regulatory oversight and policy through relevant industry case studies.",
+        "course_title": "ASSESSING INNOVATION IN BIOTECHNOLOGY",
+        "description": "A survey of biotechnology assessments in areas such as regenerative medicine, agricultural biotechnology, and bioremediation. Course links disciplines with the critical evaluative role played by scientific discovery, market valuation, intellectual property, freedom-to-operate (FTO), and licensing strategy by assessing the role each played in the commercialization of a specific technology.",
         "optimized": {
-            "course_number": 705,
+            "course_number": 700,
             "subjects": [
                 "ABT"
             ]
@@ -328,40 +350,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 710,
-                    "subjects": [
-                        "ABT"
-                    ]
-                },
-                {
-                    "course_number": 705,
-                    "subjects": [
-                        "ABT"
-                    ]
-                },
-                {
                     "course_number": 700,
                     "subjects": [
                         "ABT"
                     ]
                 }
             ],
-            "prerequisites_text": "ABT\u00a0700,705, and710"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 789,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "PRE-CAPSTONE",
-        "description": "Prepares the student for applied self-directed capstone experience. Addressing problem identification, research, and project formulation. Culminates in an oral and written proposal with project schedule.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "ABT\u00a0700"
         }
     },
     {
@@ -399,17 +394,74 @@
     },
     {
         "course_reference": {
-            "course_number": 755,
+            "course_number": 780,
             "subjects": [
                 "ABT"
             ]
         },
-        "course_title": "GLOBAL OPERATIONS AND SUPPLY CHAIN MANAGEMENT",
-        "description": "Focuses on the strategic importance of operations and supply chain to overall performance relevant to a variety of business processes specific to biotechnology. Topics include production, transportation, distribution systems, sourcing, and purchasing.",
-        "optimized": null,
+        "course_title": "BIOINFORMATIC INQUIRY",
+        "description": "Advances the development of competencies promoting efficient analysis of biological data. Emphasizes matching a research problem with the most effective tools for its completion, balancing use of existing software and de novo software development. Advanced aspects of Python and R, algorithmics, machine learning, simulations, and effective communication of results are emphasized.",
+        "optimized": {
+            "course_number": 730,
+            "subjects": [
+                "ABT"
+            ]
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Applied Biotechnology program"
+            "course_references": [
+                {
+                    "course_number": 720,
+                    "subjects": [
+                        "ABT"
+                    ]
+                },
+                {
+                    "course_number": 730,
+                    "subjects": [
+                        "ABT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ABT\u00a0720and730"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 740,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "course_title": "REGULATORY PRACTICE AND COMPLIANCE",
+        "description": "Identifies and examines the key regulatory agencies and practices that govern the highly regulated and diverse biotechnology industry, both domestically and internationally. Highlights current and emerging FDA and ICH regulations and guidance documents to successfully navigate meeting with the agencies and to submit required documentation for successful product development.",
+        "optimized": {
+            "course_number": 705,
+            "subjects": [
+                "ABT"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 705,
+                    "subjects": [
+                        "ABT"
+                    ]
+                },
+                {
+                    "course_number": 710,
+                    "subjects": [
+                        "ABT"
+                    ]
+                },
+                {
+                    "course_number": 700,
+                    "subjects": [
+                        "ABT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ABT\u00a0700,705, and710"
         }
     },
     {
@@ -443,43 +495,6 @@
                 }
             ],
             "prerequisites_text": "ABT\u00a0700and715"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "ASSESSING INNOVATION IN BIOTECHNOLOGY",
-        "description": "A survey of biotechnology assessments in areas such as regenerative medicine, agricultural biotechnology, and bioremediation. Course links disciplines with the critical evaluative role played by scientific discovery, market valuation, intellectual property, freedom-to-operate (FTO), and licensing strategy by assessing the role each played in the commercialization of a specific technology.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 700,
-                    "subjects": [
-                        "ABT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ABT\u00a0700"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "ABT"
-            ]
-        },
-        "course_title": "PRINCIPLES OF BIOTECHNOLOGY",
-        "description": "Principles and techniques pertaining to biotechnology and its applications to our society. Survey of classical and emerging techniques.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Applied Biotechnology program"
         }
     }
 ]

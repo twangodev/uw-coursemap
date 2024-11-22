@@ -11,32 +11,29 @@
     "optimized": {
         "course_number": 102,
         "subjects": [
-            "ZOOLOGY",
-            "BIOLOGY"
+            "BIOLOGY",
+            "ZOOLOGY"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
-                    "BOTANY"
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
                 ]
             },
             {
@@ -46,15 +43,18 @@
                 ]
             },
             {
-                "course_number": 115,
+                "course_number": 152,
                 "subjects": [
-                    "CHEM"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 101,
                 "subjects": [
-                    "CHEM"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],

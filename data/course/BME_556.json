@@ -10,21 +10,26 @@
     "optimized": {
         "course_number": 523,
         "subjects": [
-            "ZOOLOGY",
-            "PSYCH"
+            "PSYCH",
+            "ZOOLOGY"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 523,
+                "course_number": 570,
                 "subjects": [
-                    "ZOOLOGY",
-                    "PSYCH"
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 319,
+                "course_number": 470,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
@@ -36,9 +41,10 @@
                 ]
             },
             {
-                "course_number": 510,
+                "course_number": 523,
                 "subjects": [
-                    "BME"
+                    "PSYCH",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -48,21 +54,15 @@
                 ]
             },
             {
-                "course_number": 375,
+                "course_number": 510,
+                "subjects": [
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 319,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 470,
-                "subjects": [
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 570,
-                "subjects": [
-                    "ZOOLOGY"
                 ]
             }
         ],

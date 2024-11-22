@@ -10,19 +10,13 @@
     "optimized": {
         "course_number": 377,
         "subjects": [
-            "ENVIRST",
             "CIVENGR",
-            "GEOG"
+            "GEOG",
+            "ENVIRST"
         ]
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 370,
-                "subjects": [
-                    "GEOG"
-                ]
-            },
             {
                 "course_number": 170,
                 "subjects": [
@@ -32,8 +26,14 @@
             {
                 "course_number": 377,
                 "subjects": [
-                    "ENVIRST",
                     "CIVENGR",
+                    "GEOG",
+                    "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 370,
+                "subjects": [
                     "GEOG"
                 ]
             }

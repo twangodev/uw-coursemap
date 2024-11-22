@@ -11,30 +11,35 @@
     "optimized": {
         "course_number": 541,
         "subjects": [
-            "STAT",
-            "BMI"
+            "BMI",
+            "STAT"
         ]
     },
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 551,
+                "subjects": [
+                    "BMI",
+                    "POPHLTH"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 340,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 541,
+                "course_number": 324,
                 "subjects": [
-                    "STAT",
-                    "BMI"
-                ]
-            },
-            {
-                "course_number": 551,
-                "subjects": [
-                    "POPHLTH",
-                    "BMI"
+                    "STAT"
                 ]
             },
             {
@@ -45,21 +50,16 @@
                 ]
             },
             {
-                "course_number": 371,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 324,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 340,
+                "course_number": 320,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 541,
+                "subjects": [
+                    "BMI",
+                    "STAT"
                 ]
             }
         ],

@@ -1,58 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 425,
-            "subjects": [
-                "ARTED"
-            ]
-        },
-        "course_title": "SEMINAR IN ART EDUCATION",
-        "description": "Advanced study of current topics in elementary, middle and high school visual arts education.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "ARTED"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ART\u00a0ED\u00a0324"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ARTED"
-            ]
-        },
-        "course_title": "INDEPENDENT READING AND RESEARCH",
-        "description": "Student-designed project and activities to explore a topic in depth.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 323,
-            "subjects": [
-                "ARTED"
-            ]
-        },
-        "course_title": "FOUNDATIONS IN ART EDUCATION",
-        "description": "Examination of foundational principles of art education and art curriculum planning, instruction and assessment for kindergarten through twelfth-grade students.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 324,
             "subjects": [
                 "ARTED"
@@ -64,22 +12,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 493,
-            "subjects": [
-                "ARTED",
-                "CURRIC"
-            ]
-        },
-        "course_title": "PRACTICUM IN SECONDARY SCHOOL ART",
-        "description": "Observation and instruction of elementary and secondary pupils in a laboratory setting. Lecture and discussion of topics related to art instruction.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Art Education BSE"
         }
     },
     {
@@ -99,61 +31,18 @@
     },
     {
         "course_reference": {
-            "course_number": 327,
+            "course_number": 493,
             "subjects": [
+                "CURRIC",
                 "ARTED"
             ]
         },
-        "course_title": "PRACTICUM IN ART EDUCATION",
-        "description": "Observation and instruction of learners in elementary and secondary school settings. Study of art curriculum, instruction, assessment, learner diversity and class management.",
+        "course_title": "PRACTICUM IN SECONDARY SCHOOL ART",
+        "description": "Observation and instruction of elementary and secondary pupils in a laboratory setting. Lecture and discussion of topics related to art instruction.",
         "optimized": null,
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 424,
-            "subjects": [
-                "ARTED"
-            ]
-        },
-        "course_title": "STUDENT TEACHING IN SECONDARY ART",
-        "description": "Supervised student teaching in middle or high school art classrooms.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "ARTED"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ART\u00a0ED\u00a0324"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 423,
-            "subjects": [
-                "ARTED"
-            ]
-        },
-        "course_title": "STUDENT TEACHING IN ELEMENTARY ART",
-        "description": "Supervised student teaching in elementary art classrooms.",
-        "optimized": null,
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "ARTED"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ART\u00a0ED\u00a0324"
+            "prerequisites_text": "Declared in Art Education BSE"
         }
     },
     {
@@ -169,6 +58,132 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 424,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "STUDENT TEACHING IN SECONDARY ART",
+        "description": "Supervised student teaching in middle or high school art classrooms.",
+        "optimized": {
+            "course_number": 324,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "ARTED"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ART\u00a0ED\u00a0324"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 323,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "FOUNDATIONS IN ART EDUCATION",
+        "description": "Examination of foundational principles of art education and art curriculum planning, instruction and assessment for kindergarten through twelfth-grade students.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 425,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "SEMINAR IN ART EDUCATION",
+        "description": "Advanced study of current topics in elementary, middle and high school visual arts education.",
+        "optimized": {
+            "course_number": 324,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "ARTED"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ART\u00a0ED\u00a0324"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 327,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "PRACTICUM IN ART EDUCATION",
+        "description": "Observation and instruction of learners in elementary and secondary school settings. Study of art curriculum, instruction, assessment, learner diversity and class management.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "INDEPENDENT READING AND RESEARCH",
+        "description": "Student-designed project and activities to explore a topic in depth.",
+        "optimized": null,
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 423,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "course_title": "STUDENT TEACHING IN ELEMENTARY ART",
+        "description": "Supervised student teaching in elementary art classrooms.",
+        "optimized": {
+            "course_number": 324,
+            "subjects": [
+                "ARTED"
+            ]
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "ARTED"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ART\u00a0ED\u00a0324"
         }
     }
 ]
