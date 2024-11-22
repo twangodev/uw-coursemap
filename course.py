@@ -56,7 +56,7 @@ class Course(JsonSerializable):
             }
 
         def get_identifier(self) -> str:
-            subjects = "/".join(self.subjects)
+            subjects = "/".join(sorted(self.subjects))
             return f"{subjects} {self.course_number}"
 
         def __eq__(self, other):

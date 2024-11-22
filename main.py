@@ -125,6 +125,7 @@ def main():
     site_map_urls = get_course_urls(sitemap_url=sitemap_url, logger=logger)
     subject_to_full_subject, course_ref_to_course, subject_to_courses = scrape_all(urls=site_map_urls, logger=logger)
     identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+
     optimize_prerequisites(
         client=open_ai_client,
         model="text-embedding-3-small",
