@@ -103,7 +103,7 @@ def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Refe
 
     with ThreadPoolExecutor(max_workers=max_threads) as executor:
         future_to_course = {
-            executor.submit(optimize_prerequisite_thread, client, model, course, course_ref_to_course, max_runtime, max_retries, stats,logger): course
+            executor.submit(optimize_prerequisite_thread, client, model, course, course_ref_to_course, max_runtime, max_retries, stats, logger): course
             for course in course_ref_to_course.values()
         }
         for future in as_completed(future_to_course):
