@@ -96,7 +96,6 @@ def main():
 
     openai_api_key = os.getenv("OPENAI_API_KEY", None)
     data_dir = os.getenv("DATA_DIRECTORY", None)
-    max_prerequisites = os.getenv("MAX_PREREQUISITES", None)
     logging_level = os.getenv("LOGGING_LEVEL", None)
     show_api_key = os.getenv("SHOW_API_KEY", False) == "True"
 
@@ -104,18 +103,12 @@ def main():
     if warn_missing_data_dir:
         raise ValueError("No data directory set. Please set the DATA_DIRECTORY environment variable.")
 
-    warn_missing_max_prerequisites = max_prerequisites is None
-    max_prerequisites = int(max_prerequisites) if max_prerequisites is not None else 1
-
     logger = logging.getLogger(__name__)
 
     warn_missing_logging_level = logging_level is None
     logging_level = get_logging_level(level_name=logging_level) or logging.INFO
     logger.setLevel(logging_level)
     coloredlogs.install(level=logging_level, logger=logger)
-
-    if warn_missing_max_prerequisites:
-        logger.warning("No max prerequisites set. Defaulting to 1")
 
     if warn_missing_logging_level:
         logger.warning("No logging level set. Defaulting to INFO")
@@ -125,6 +118,7 @@ def main():
     site_map_urls = get_course_urls(sitemap_url=sitemap_url, logger=logger)
     subject_to_full_subject, course_ref_to_course, subject_to_courses = scrape_all(urls=site_map_urls, logger=logger)
     identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+
     optimize_prerequisites(
         client=open_ai_client,
         model="text-embedding-3-small",
