@@ -6,6 +6,8 @@
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
     import {LucideFullscreen, LucideMinus, LucidePlus} from "lucide-svelte";
+    import {Progress} from "$lib/components/ui/progress";
+    import {cn} from "$lib/utils.ts";
 
     export let url: string
     export let styleUrl: string
@@ -13,6 +15,11 @@
     type StyleData = {
         [parent: string]: string;
     };
+
+    let progress = {
+        text: "Loading Graph...",
+        number: 10,
+    }
 
     let isFullscreen = false;
     let cy: cytoscape.Core;
@@ -59,11 +66,20 @@
         myTip = newTip;
     }
 
-
     onMount(async () => {
+
+        progress = {
+            text: "Fetching Graph Data...",
+            number: 25,
+        }
 
         let response = await fetch(url);
         let courseData = await response.json();
+
+        progress = {
+            text: "Styling Graph...",
+            number: 50,
+        }
 
         let styleResponse = await fetch(styleUrl);
         let styleData: StyleData[] = await styleResponse.json();
@@ -143,8 +159,24 @@
 
         cytoscapeStyles = cytoscapeStyles.concat(styles);
 
+        progress = {
+            text: "Loading Layout...",
+            number: 55,
+        }
+
         cytoscape.use(cytoscapeFcose);
+
+        progress = {
+            text: "Loading Tooltips...",
+            number: 60,
+        }
+
         cytoscape.use(cytoscapePopper(tippyFactory))
+
+        progress = {
+            text: "Rendering Graph...",
+            number: 65,
+        }
 
         let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
             name: 'fcose',
@@ -188,6 +220,11 @@
             //     {left: '200', right: '300', gap: 100},
             //     {left: '221', right: '222', gap: 200},
             // ]
+        }
+
+        progress = {
+            text: "Graph Loaded",
+            number: 99,
         }
 
         cy = cytoscape({
@@ -235,6 +272,11 @@
             setTip(tip);
         });
 
+        progress = {
+            text: "Graph Loaded",
+            number: 100,
+        }
+
         function getNonCompoundNodes() {
             return cy.nodes().filter(function (node) {
                 return node.data('type') !== 'compound';
@@ -267,11 +309,16 @@
             fadeEdges.addClass('faded');
         }
 
+
     })
 
 </script>
 <div class="relative flex-grow" id="cy-container">
-    <div id="cy" class="w-full h-full"></div>
+    <div class={cn("absolute inset-0 flex flex-col justify-center items-center space-y-4 transition-opacity", progress.number === 100 ? "opacity-0" : "")}>
+        <p class="text-lg font-semibold">{progress.text}</p>
+        <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
+    </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
+
     <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
         <Button size="sm" variant="outline" class="h-8 w-8 px-0" on:click={zoomIn}>
             <LucidePlus class="h-5 w-5"/>
