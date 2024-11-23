@@ -1,35 +1,162 @@
 [
     {
         "data": {
-            "description": "Implementation of database management systems, the impact of new technology on database management systems, back-end database computers, distributed database management systems, concurrency control, and query execution in both distributed and centralized systems, implementation of multiple user views, roll-back and recovery mechanisms, database translation. Students are strongly encouraged to have knowledge of database design (e.g.,COMP\u00a0SCI\u00a0564).",
-            "id": "COMPSCI 764",
-            "parent": "COMPSCI"
+            "source": "MATH 211",
+            "target": "MATH 222"
         }
     },
     {
         "data": {
-            "source": "MATH 340",
-            "target": "COMPSCI/ISYE/MATH 425"
+            "source": "COMPSCI 220",
+            "target": "COMPSCI/ECE/ME 539"
         }
     },
     {
         "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
+            "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
+            "id": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "description": "Ideas and techniques for designing, developing, and modifying large software systems. Topics include software engineering processes; requirements and specifications; project team organization and management; software architectures; design patterns; testing and debugging; and cost and quality metrics and estimation. Students will work in large teams on a substantial programming project.",
+            "id": "COMPSCI/ECE 506"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 234",
-            "target": "MATH 341"
+            "description": "Introduction to fundamental geometric computations and algorithms, and their use for solving engineering and scientific problems. Computer representations of simple geometric objects and paradigms for algorithm design. Applications from areas of engineering analysis, design and manufacturing, biology, statistics, and other sciences.",
+            "id": "COMPSCI/ISYE/ME 558"
         }
     },
     {
         "data": {
-            "description": "Interpolation, solution of linear and nonlinear systems of equations, approximate integration and differentiation, numerical solution of ordinary differential equations, Data fitting (such as least squares) by polynomials and splines. Knowledge of matrix algebra recommended, such asMATH\u00a0340.",
-            "id": "COMPSCI 412",
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 407"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 321"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "COMPSCI/ECE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 331",
+            "target": "COMPSCI 566"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced level mentored reading and research for dissertators.",
+            "id": "COMPSCI 999",
             "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
+            "id": "STAT 311",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 113"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "COMPSCI 541"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Polynomial forms, divided differences. Polynomial interpolation. Polynomial approximation: uniform approximation and Chebyshev polynomials, least-squares approximation and orthogonal polynomials. Numerical differentiation and integration. Splines, B-splines and spline approximation. Numerical methods for solving initial and boundary value problems for ordinary differential equations.",
+            "id": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/LIS 472",
+            "target": "COMPSCI 272"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the user experience design including key stages of the design process, design ethics, and the methods and tools involved at each stage of design.  Conduct formative research on clients, users, use contexts and tasks. Gain experience with user research methodologies and learn to create intermediate design tools such as personas. Develop and present a design proposal for a chosen project.",
+            "id": "COMPSCI/LIS 611"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ISYE 635"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to spectral methods (Fourier, Chebyshev, Fast Fourier Transform), finite element methods (Galerkin methods, energy estimates and error analysis), and mesh-free methods (Monte-Carlo, smoothed-particle hydrodynamics) for solving partial differential equations. Applications from science and engineering. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200), undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis (MATH\u00a0322and521) and linear algebra (e.g.MATH\u00a0341or equiv.)",
+            "id": "COMPSCI/MATH 715"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI/ISYE 526"
+        }
+    },
+    {
+        "data": {
+            "description": "The third course in our programming fundamentals sequence. It presumes that students understand and use functional and object-oriented design and abstract data types as needed. This course introduces balanced search trees, graphs, graph traversal algorithms, hash tables and sets, and complexity analysis and about classes of problems that require each data type. Students are required to design and implement using high quality professional code, a medium sized program, that demonstrates knowledge and use of latest language features, tools, and conventions. Additional topics introduced will include as needed for projects: inheritance and polymorphism; anonymous inner classes, lambda functions, performance analysis to discover and optimize critical code blocks. Students learn about industry standards for code development. Students will design and implement a medium size project with a more advanced user-interface design, such as a web or mobile application with a GUI and event- driven implementation; use of version-control software.",
+            "id": "COMPSCI 400",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "MATH 222"
         }
     },
     {
@@ -41,237 +168,14 @@
     },
     {
         "data": {
-            "description": "Introduction to the unique issues in the design and analysis of computer systems for real-time applications. Hardware and software support for guaranteeing timeliness with and without failures. Resource management, time-constrained communication, scheduling and imprecise computations, real-time kernels and case studies.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552) and operating system functions (e.g.,COMP\u00a0SCI\u00a0537)",
-            "id": "COMPSCI/ECE 750"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "COMPSCI 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics selected from advanced areas.",
-            "id": "COMPSCI 839",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 571"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI/LIS 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to spectral methods (Fourier, Chebyshev, Fast Fourier Transform), finite element methods (Galerkin methods, energy estimates and error analysis), and mesh-free methods (Monte-Carlo, smoothed-particle hydrodynamics) for solving partial differential equations. Applications from science and engineering. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200), undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis (MATH\u00a0322and521) and linear algebra (e.g.MATH\u00a0341or equiv.)",
-            "id": "COMPSCI/MATH 715"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in computing. Each offering of the course will cover a topic selected by the instructor. Offerings of this course will provide sufficient depth into their subject to count as electives to meet CS Major requirements.",
-            "id": "COMPSCI 639",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
-            "id": "COMPSCI 699",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Design and implementation of protocols, systems, and applications for mobile and wireless networking, particularly at the media access control, network, transport, and application layers. Focus is on the unique problems and challenges presented by the properties of wireless transmission, various device constraints such as limited battery power, and node mobility. Knower of computer networking is strongly encouraged, such as fromCOMP\u00a0SCI\u00a0640orE\u00a0C\u00a0E\u00a0537.",
-            "id": "COMPSCI/ECE 707"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced course covering various analysis techniques used in software engineering. Covers techniques for analyzing various software artifacts. Some of the topics that will be covered are: model checking, testing, program analysis, requirements analysis, and safety analysis. Students are strongly encouraged to have knowledge of programming languages and compiler design, such asCOMP\u00a0SCI\u00a0536, and a basic knowledge of mathematical logic.",
-            "id": "COMPSCI 706",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 421",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ECE 354",
-            "target": "COMPSCI/ECE 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
-            "id": "COMPSCI/ISYE/MATH 425"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to principles of advanced programming languages and programming-language theory. Topics include: lambda-calculus, functional languages, polymorphic functions, type inference, structural induction, lazy evaluation, operational semantics, denotational semantics, and axiomatic semantics. Students are strongly encouraged to have knowledge of programming languages, such as fromCOMP\u00a0SCI\u00a0536.",
-            "id": "COMPSCI 704",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of linear programming. Polynomial time methods for linear programming. Quadratic programs and linear complementarity problems and related solution techniques. Solution sets and their continuity properties. Error bounds for linear inequalities and programs. Parallel algorithms for linear and quadratic programs.",
-            "id": "COMPSCI/ISYE 526"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced level mentored reading and research for students with dissertator status.",
-            "id": "COMPSCI 990",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
-            "id": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical representation of continuous and digital images; models of image degradation; picture enhancement, restoration, segmentation, and coding; pattern recognition, tomography.",
-            "id": "COMPSCI/ECE 533"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
-            "target": "COMPSCI 541"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "COMPSCI/MATH 240"
-        }
-    },
-    {
-        "data": {
             "source": "MATH 376",
-            "target": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
-            "id": "COMPSCI/STAT 471"
-        }
-    },
-    {
-        "data": {
-            "description": "Probabilistic tools for machine learning and analysis of real-world datasets. Introductory topics include classification, regression, probability theory, decision theory and quantifying information with entropy, relative entropy and mutual information. Additional topics include naive Bayes, probabilistic graphical models, discriminant analysis, logistic regression, expectation maximization, source coding and variational inference.",
-            "id": "COMPSCI/ECE 561"
-        }
-    },
-    {
-        "data": {
-            "description": "Algorithms for computational problems in molecular biology. Studies algorithms for problems such as: genome sequencing and mapping, pairwise and multiple sequence alignment, modeling sequence classes and features, phylogenetic tree construction, and gene-expression data analysis.",
-            "id": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to fundamental structures of computer systems and the C programming language with a focus on the low-level interrelationships and impacts on performance. Topics include the virtual address space and virtual memory, the heap and dynamic memory management, the memory hierarchy and caching, assembly language and the stack, communication and interrupts/signals, compiling and assemblers/linkers.",
-            "id": "COMPSCI/ECE 354"
-        }
-    },
-    {
-        "data": {
-            "description": "Issues in the design and implementation of big data processing systems, including: an overview of cluster architecture, key design goals (flexibility, performance and fault tolerance), popular execution frameworks, basic abstractions, and applications (e.g., batch analytics, stream processing, graph processing, and machine learning).",
-            "id": "COMPSCI 744",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 300"
+            "target": "MATH 531"
         }
     },
     {
         "data": {
             "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 304"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic concepts of logic, sets, partial order and other relations, and functions. Basic concepts of mathematics (definitions, proofs, sets, functions, and relations) with a focus on discrete structures: integers, bits, strings, trees, and graphs.  Propositional logic, Boolean algebra, and predicate logic. Mathematical induction and recursion. Invariants and algorithmic correctness. Recurrences and asymptotic growth analysis. Fundamentals of counting.",
-            "id": "COMPSCI/MATH 240"
-        }
-    },
-    {
-        "data": {
-            "description": "Computational approaches to learning: including inductive inference, explanation-based learning, analogical learning, connectionism, and formal models. What it means to learn. Algorithms for learning. Comparison and evaluation of learning algorithms. Cognitive modeling and relevant psychological results.",
-            "id": "COMPSCI/ECE 760"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "COMPSCI/ECE/ME 532"
-        }
-    },
-    {
-        "data": {
-            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
-            "id": "COMPSCI/MATH/STAT 475"
+            "target": "STAT 340"
         }
     },
     {
@@ -282,9 +186,145 @@
     },
     {
         "data": {
-            "description": "Survey of algorithms and design paradigms for exact arithmetic, as used in public-key cryptography, computer algebra, and pseudo-random number generation. Topics include primality testing, factorization of integers and polynomials, discrete logarithms, and (optionally) elliptic curves and integer lattices.  Students are strongly encourage to have knowledge of basic abstract algebra (e.g.,MATH\u00a0541), and intermediate programming ability (e.g., COMP SCI 367 orCOMP\u00a0SCI\u00a0300).",
-            "id": "COMPSCI 812",
+            "source": "MATH 96",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 113",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of human-computer interaction (HCI); human subjects research methods and procedures, qualitative and quantitative data analysis; and semester-long research project situated in critical domains of HCI, including applications in ubiquitous, affective, assistive, social, and embodied computing.",
+            "id": "COMPSCI/EDPSYCH/PSYCH 770"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
+            "id": "MATH 321",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "description": "Design and theory of programming languages: procedural, object-oriented, functional and logic paradigms. Serial and concurrent programming. Execution models and formal specification techniques.",
+            "id": "COMPSCI 538",
             "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 331",
+            "target": "COMPSCI/ECE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/LIS 102",
+            "target": "COMPSCI 638"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Stochastic programming is concerned with decision making in the presence of uncertainty, where the eventual outcome depends on a future random event. Topics include modeling uncertainty in optimization problems, risk measures, stochastic programming algorithms, approximation and sampling methods, and applications.  Students are strongly encouraged to have knowledge of linear programming (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525) and probability and statistics (e.g.,MATH/\u200bSTAT\u00a0\u00a0431). Knowledge of integer optimization (MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0728) is helpful, but not required.",
+            "id": "COMPSCI/ISYE 719"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 537",
+            "target": "COMPSCI 640"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ECE 533"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 354",
+            "target": "COMPSCI/ECE 552"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "COMPSCI/MATH 240"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 830",
+            "target": "COMPSCI/ECE/STAT 861"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
+            "id": "COMPSCI 200",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Grad st; Master's candidates only",
+            "id": "COMPSCI 790",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 354",
+            "target": "COMPSCI 536"
         }
     },
     {
@@ -296,27 +336,158 @@
     },
     {
         "data": {
-            "description": "Mathematical foundations of machine learning theory and algorithms. Probabilistic, algebraic, and geometric models and representations of data, mathematical analysis of state-of-the-art learning algorithms and optimization methods, and applications of machine learning. Knowledge of probability [such asMATH/\u200bSTAT\u00a0\u00a0431orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0561] and linear algebra [such asMATH\u00a0341orM\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532] is required.",
-            "id": "COMPSCI/ECE 761"
+            "source": "STAT 371",
+            "target": "STAT 324"
         }
     },
     {
         "data": {
-            "source": "COMPSCI/LIS 102",
-            "target": "COMPSCI 402"
+            "source": "MATH/STAT 309",
+            "target": "MATH/STAT 310"
         }
     },
     {
         "data": {
-            "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
-            "id": "COMPSCI/ECE/STAT 861"
+            "description": "Algorithms for computational problems in molecular biology. Studies algorithms for problems such as: genome sequencing and mapping, pairwise and multiple sequence alignment, modeling sequence classes and features, phylogenetic tree construction, and gene-expression data analysis.",
+            "id": "BMI/COMPSCI 576"
         }
     },
     {
         "data": {
-            "description": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
-            "id": "COMPSCI 577",
+            "source": "MATH 421",
+            "target": "MATH 531"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, conditional probability and conditional expectations, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem. Includes a brief introduction to techniques of multivariate integration.",
+            "id": "MATH 331",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
+            "id": "STAT 240",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "STAT 312"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/LIS 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of algorithms and design paradigms for exact arithmetic, as used in public-key cryptography, computer algebra, and pseudo-random number generation. Topics include primality testing, factorization of integers and polynomials, discrete logarithms, and (optionally) elliptic curves and integer lattices.  Students are strongly encourage to have knowledge of basic abstract algebra (e.g.,MATH\u00a0541), and intermediate programming ability (e.g., COMP SCI 367 orCOMP\u00a0SCI\u00a0300).",
+            "id": "COMPSCI 812",
             "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "ECE 203"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
+            "id": "MATH 217",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 331"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI/ECE/ISYE 524"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 322",
+            "target": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 319",
+            "target": "COMPSCI 320"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/LIS 613",
+            "target": "COMPSCI/LIS 614"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics of special interest to students in various areas of Computer Science.\u00a0Each offering of the course will cover a topic\u00a0selected by the instructor.\u00a0Credit varies by offering - check with the department to determine how an offering counts toward degree requirements.",
+            "id": "COMPSCI 838",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+            "id": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in computing. Each offering of the course will cover a topic selected by the instructor and may cover one or more topics from all of computer\u00a0science.",
+            "id": "COMPSCI 638",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI/ISYE/ME 558"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "COMPSCI/LIS 102"
         }
     },
     {
@@ -328,93 +499,144 @@
     },
     {
         "data": {
-            "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
-            "id": "COMPSCI/ISYE 635"
+            "description": "Advanced mathematical theory and methods of machine learning. Statistical learning theory, Vapnik-Chevronenkis Theory, model selection, high-dimensional models, nonparametric methods, probabilistic analysis, optimization, learning paradigms.",
+            "id": "COMPSCI/ECE/STAT 861"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ISYE/MATH/STAT 726",
+            "target": "COMPSCI/ISYE/MATH 730"
+        }
+    },
+    {
+        "data": {
+            "description": "Basics about the notion, capabilities, and limitations of computation: elements of finite automata and regular languages, computability theory, and computational complexity theory. Additional topics include context-free grammars and languages, and complexity-theoretic cryptography.",
+            "id": "COMPSCI 520",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 354",
+            "target": "COMPSCI 538"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
+            "id": "MATH 234",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 330",
+            "target": "ECE 331"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 320",
+            "target": "BMI/COMPSCI 576"
+        }
+    },
+    {
+        "data": {
+            "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
+            "id": "STAT 312",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced study of UX design. Introduces processes of ideation, key concepts of visual design, conceptual and interaction design, low and high-resolution prototyping of design techniques. Applications include drafting designs based on user models and initial testing of prototypes.",
+            "id": "COMPSCI/LIS 612"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the unique issues in the design and analysis of computer systems for real-time applications. Hardware and software support for guaranteeing timeliness with and without failures. Resource management, time-constrained communication, scheduling and imprecise computations, real-time kernels and case studies.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552) and operating system functions (e.g.,COMP\u00a0SCI\u00a0537)",
+            "id": "COMPSCI/ECE 750"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI/ECE/ME 539"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 620"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 537",
+            "target": "COMPSCI 642"
+        }
+    },
+    {
+        "data": {
+            "description": "Convex sets in finite-dimensional spaces: relative interiors, separation, set operations. Convex functions: conjugacy, subdifferentials and directional derivations, functional operations, Fenchel-Rockafellar duality. Applications to operations research and related areas.  Students taking this course are strongly encouraged to have had a course in basic analysis (e.g.MATH\u00a0521) and a course in linear algebra (e.g.,MATH\u00a0340).",
+            "id": "COMPSCI/ISYE 727"
         }
     },
     {
         "data": {
             "source": "COMPSCI 220",
-            "target": "COMPSCI 320"
+            "target": "COMPSCI 300"
         }
     },
     {
         "data": {
-            "description": "Intermediate approach to Data Science programming using Python. Experience with basic tabular analysis in Python is assumed. Learn to implement data structures (e.g., graphs) to efficiently represent datasets. Software-engineering tools such as version control and Python virtual environments will be introduced, with an emphasis on reproducibility of analysis. Tracing and A/B testing will be introduced as techniques for generating meaningful datasets. Introduces basic classification, clustering, optimization, and simulation techniques. Plotting and visual communication will be emphasized throughout the course.",
-            "id": "COMPSCI 320",
+            "source": "STAT 311",
+            "target": "STAT 312"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of computer graphics. Image representation, formation, presentation, composition and manipulation. Modeling, transformation, and display of geometric objects in two and three dimensions. Representation of curves and surfaces. Rendering, animation, multi-media and visualization. Fluency with vector mathematics (e.g., fromMATH\u00a0234or a linear algebra class) is recommended.",
+            "id": "COMPSCI 559",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Big Data is often said to deal with four Vs: volume, velocity, variety, and veracity. The focus is on variety and veracity challenges, which often arise in data science projects. In many such projects, data is often incorrect, hard to understand, and come from a variety of sources. Data scientists often spend 80% of their effort to explore, clean, and integrate this data, before analysis can be carried out to extract insights. As a result, managing variety and veracity has received significant attention. Study these topics, understand their challenges, and discuss solutions. These solutions often require data management, machine learning, big data scaling, cloud, crowdsourcing, and user interaction techniques. Knowledge of machine learning/AI [COMP\u00a0SCI\u00a0540], databases [COMP\u00a0SCI\u00a0564] and Python [COMP\u00a0SCI\u00a0320] recommended.",
-            "id": "COMPSCI 774",
-            "parent": "COMPSCI"
+            "source": "COMPSCI 320",
+            "target": "COMPSCI 544"
         }
     },
     {
         "data": {
-            "source": "COMPSCI/LIS 612",
-            "target": "COMPSCI/LIS 613"
+            "source": "MATH 96",
+            "target": "COMPSCI/LIS 102"
         }
     },
     {
         "data": {
-            "description": "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation.",
-            "id": "COMPSCI 537",
-            "parent": "COMPSCI"
+            "source": "STAT 312",
+            "target": "STAT 333"
         }
     },
     {
         "data": {
-            "description": "Stochastic programming is concerned with decision making in the presence of uncertainty, where the eventual outcome depends on a future random event. Topics include modeling uncertainty in optimization problems, risk measures, stochastic programming algorithms, approximation and sampling methods, and applications.  Students are strongly encouraged to have knowledge of linear programming (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525) and probability and statistics (e.g.,MATH/\u200bSTAT\u00a0\u00a0431). Knowledge of integer optimization (MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0728) is helpful, but not required.",
-            "id": "COMPSCI/ISYE 719"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the signals, information, and computational techniques in electrical engineering.",
-            "id": "ECE 203",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member.",
-            "id": "COMPSCI 691",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 400"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ISYE/MATH/STAT 525",
-            "target": "COMPSCI/ISYE 526"
-        }
-    },
-    {
-        "data": {
-            "description": "User-centered software design including principles and methods for understanding user needs, designing and prototyping interface solutions, and evaluating their usability covered through lectures and hands-on in-class activities.  Meets withCOMP\u00a0SCI\u00a0570.",
-            "id": "COMPSCI 270",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Data Science programming using Python. In addition to a survey of programming basics (control flow and data structures), web scraping, database queries, and tabular analysis will be introduced. Projects will emphasize analyzing real datasets in a variety of forms and visual communication using plotting tools. Similar toCOMP\u00a0SCI\u00a0220but the pedagogical style of the projects will be adapted to graduate students in fields other than computer science and data science. No previous programming experience required.",
-            "id": "COMPSCI 319",
-            "parent": "COMPSCI"
+            "source": "MATH 340",
+            "target": "MATH 443"
         }
     },
     {
@@ -426,34 +648,20 @@
     },
     {
         "data": {
-            "source": "MATH 521",
-            "target": "MATH 531"
+            "description": "Applied web development introduces methods and tools for creating/maintaining secure and interactive web content. Topics include programming fundamentals to support core web concepts, application development essentials, and content management systems. Web best practices - such as accessibility, design, and critical thinking about relevant ethics and organization - will be incorporated throughout. Gain practical skills to design and implement websites using popular scripting languages and frameworks, content management systems (CMSs), and related tools.",
+            "id": "COMPSCI/LIS 472"
         }
     },
     {
         "data": {
-            "description": "Undergraduate directed study in computer sciences.",
-            "id": "COMPSCI 298",
-            "parent": "COMPSCI"
+            "source": "COMPSCI/LIS 102",
+            "target": "COMPSCI 402"
         }
     },
     {
         "data": {
-            "description": "Introduction to the user experience design including key stages of the design process, design ethics, and the methods and tools involved at each stage of design.  Conduct formative research on clients, users, use contexts and tasks. Gain experience with user research methodologies and learn to create intermediate design tools such as personas. Develop and present a design proposal for a chosen project.",
-            "id": "COMPSCI/LIS 611"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic concepts; distributed programming; distributed file systems; atomic actions; fault tolerance, transactions, program and data replication, recovery; distributed machine architectures; security and authentication; load balancing and process migration; distributed debugging; distributed performance measurement; distributed simulation techniques; distributed applications; correctness considerations and proof systems.",
-            "id": "COMPSCI 739",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 538"
+            "source": "MATH 531",
+            "target": "MATH/STAT 310"
         }
     },
     {
@@ -465,35 +673,216 @@
     },
     {
         "data": {
-            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
-            "id": "COMPSCI 300",
+            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
+            "id": "COMPSCI 699",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "source": "COMPSCI/LIS 472",
-            "target": "COMPSCI 272"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
+            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
+            "id": "MATH 322",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses for honors in the Computer Sciences major as arranged with a faculty member.",
-            "id": "COMPSCI 681",
+            "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
+            "id": "COMPSCI/STAT 403"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 531",
+            "target": "STAT 312"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "MATH 421"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/MATH 240",
+            "target": "COMPSCI 412"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques for quantitative analysis of algorithms. Charging arguments, amortization, probabilistic methods. Adversary and information lower bounds. Use of methods from combinatorics, complex analysis, and asymptotics in obtaining precise analyses of quicksort, chained hashing, and other algorithms.  Students are strongly encouraged to have knowledge of algorithms (e.g.,COMP\u00a0SCI\u00a0577) or applied math analysis (e.g.,MATH\u00a0321) and theory of probability (e.g.,MATH/\u200bSTAT\u00a0\u00a0431).",
+            "id": "COMPSCI 809",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
-            "id": "COMPSCI 310",
+            "source": "COMPSCI/MATH/STAT 475",
+            "target": "COMPSCI 577"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "ECE 203"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced paradigms for the design and analysis of efficient algorithms, including the use of randomness, linear programming, and semi-definite programming. Applications to data structures, approximating NP-hard optimization problems, learning, on-line and distributed problems.  Students are strongly encouraged to have introductory knowledge of algorithms (e.g.,COMP\u00a0SCI\u00a0577)",
+            "id": "COMPSCI 787",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 577"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of basic probability. Advanced probability concepts. Random vectors; linear filtering of random processes; stationarity; power spectral densities; estimation; convergence; Markov chains; Poisson process; Wiener process. Knowledge of basic probability analysis [such asE\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0431, orSTAT\u00a0311] strongly encouraged.",
+            "id": "ECE 730",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced course covering computational problems in molecular biology. The course will study algorithms for problems such as: modeling sequence classes and features, phylogenetic tree construction, gene-expression data analysis, protein and RNA structure prediction, and whole-genome analysis and comparisons.",
+            "id": "BMI/COMPSCI 776"
+        }
+    },
+    {
+        "data": {
+            "description": "Computational approaches to learning: including inductive inference, explanation-based learning, analogical learning, connectionism, and formal models. What it means to learn. Algorithms for learning. Comparison and evaluation of learning algorithms. Cognitive modeling and relevant psychological results.",
+            "id": "COMPSCI/ECE 760"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 272",
+            "target": "COMPSCI/LIS 472"
+        }
+    },
+    {
+        "data": {
+            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+            "id": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "COMPSCI 540"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 443",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
+            "id": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 402"
+        }
+    },
+    {
+        "data": {
+            "description": "Applies a design studio critique approach to produce a learning environment of collaborative and interdisciplinary peer critique and learning, in addition to provide expert feedback and suggestions. Present and defend the latest iteration of the user experience design project developed in earlier courses while learning about the professions associated with digital user experience design.",
+            "id": "COMPSCI/LIS 614"
+        }
+    },
+    {
+        "data": {
+            "description": "User-centered software design: (1) principles of and methods for understanding user needs; designing and prototyping interface solutions; and evaluating their usability, (2) their applications in designing multiple types of interfaces through group projects.",
+            "id": "COMPSCI 570",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "COMPSCI 412"
+        }
+    },
+    {
+        "data": {
+            "description": "Study of the capabilities and limitations of efficient computation. Relationships between models representing capabilities such as parallelism, randomness, quantum effects, and non-uniformity; and models based on the notions of nondeterminism, alternation, and counting, which capture the complexity of important problems.  Knowledge of the theory of computation is strongly encouraged, such asCOMP\u00a0SCI\u00a0520.",
+            "id": "COMPSCI 710",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ECE/ISYE 524"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 322"
+        }
+    },
+    {
+        "data": {
+            "description": "What a database management system is; different data models currently used to structure the logical view of the database: relational, hierarchical, and network. Hands-on experience with relational and network-based database systems. Implementation techniques for database systems. File organization, query processing, concurrency control, rollback and recovery, integrity and consistency, and view implementation.",
+            "id": "COMPSCI 564",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+            "id": "STAT 333",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 531"
+        }
+    },
+    {
+        "data": {
+            "description": "Training in computer programming for competitions: assessing the coding difficulty and complexity of computational problems, recognizing the applicability of known algorithms, fast coding and testing, team work.COMP\u00a0SCI\u00a0577is suggested but not required.",
+            "id": "COMPSCI 578",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Architecture of computer networks and network protocols, protocol layering, reliable transmission, congestion control, flow control, naming and addressing, unicast and multicast routing, network security, network performance widely used protocols such as Ethernet, wireless LANs, IP, TCP, and HTTP.",
+            "id": "COMPSCI 640",
             "parent": "COMPSCI"
         }
     },
@@ -506,8 +895,60 @@
     },
     {
         "data": {
-            "source": "COMPSCI/MATH 240",
-            "target": "COMPSCI 520"
+            "source": "MATH 320",
+            "target": "MATH 443"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
+            "id": "COMPSCI 300",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of the design and implementation of programming languages. Topics include: Principles of compilation, static program analysis, compilation methods to support profiling, and code-generation methods. Knowledge of programming languages and compiler design strongly encouraged, such asCOMP\u00a0SCI\u00a0536.",
+            "id": "COMPSCI 701",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member.",
+            "id": "COMPSCI 691",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 736",
+            "target": "COMPSCI 739"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 252",
+            "target": "COMPSCI/ECE 352"
+        }
+    },
+    {
+        "data": {
+            "description": "Design and implementation of protocols, systems, and applications for mobile and wireless networking, particularly at the media access control, network, transport, and application layers. Focus is on the unique problems and challenges presented by the properties of wireless transmission, various device constraints such as limited battery power, and node mobility. Knower of computer networking is strongly encouraged, such as fromCOMP\u00a0SCI\u00a0640orE\u00a0C\u00a0E\u00a0537.",
+            "id": "COMPSCI/ECE 707"
+        }
+    },
+    {
+        "data": {
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
         }
     },
     {
@@ -518,14 +959,196 @@
     },
     {
         "data": {
-            "description": "Conduct formal evaluations of the user experience (UX) or usability of a digital system. Gain familiarity with the evaluation and research process including key stages, tasks for each stage, common data collection and analysis methods, and common tools employed in the field. Gain experience with a variety of UX evaluation approaches. Collect pilot data and develop a proposal for further UX testing.",
-            "id": "COMPSCI/LIS 613"
+            "description": "Estimation and decision theory applied to random processes and signals in noise: Bayesian, maximum likelihood, and least squares estimation; the Kalman filter; maximum likelihood and maximum aposteriori detection; adaptive receivers for channels with unknown parameters or dispersive, fading characteristics; the RAKE receiver; detection systems with learning features.",
+            "id": "ECE 830",
+            "parent": "ECE"
         }
     },
     {
         "data": {
-            "description": "What a database management system is; different data models currently used to structure the logical view of the database: relational, hierarchical, and network. Hands-on experience with relational and network-based database systems. Implementation techniques for database systems. File organization, query processing, concurrency control, rollback and recovery, integrity and consistency, and view implementation.",
-            "id": "COMPSCI 564",
+            "source": "MATH 341",
+            "target": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
+            "id": "BMI/COMPSCI 775"
+        }
+    },
+    {
+        "data": {
+            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
+            "id": "COMPSCI 310",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "COMPSCI 320"
+        }
+    },
+    {
+        "data": {
+            "description": "User-centered software design including principles and methods for understanding user needs, designing and prototyping interface solutions, and evaluating their usability covered through lectures and hands-on in-class activities.  Meets withCOMP\u00a0SCI\u00a0570.",
+            "id": "COMPSCI 270",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 730",
+            "target": "ECE 830"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "COMPSCI 541"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "BMI/COMPSCI 576"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
+            "id": "COMPSCI 577",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in computer communications networks: congestion and flow control; routing; rate-based protocols; high speed interfaces and technologies: metropolitan area networks; fast packet switching technologies; advanced applications; network services: name service, authentication, resource location.  Students are strongly encouraged to have knowledge of computer network design and protocols (e.g.,COMP\u00a0SCI\u00a0640)",
+            "id": "COMPSCI 740",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Computer science educational pedagogy and general teaching practices. Practical experience gained through tutoring students. Knowledge of object-oriented programming required.",
+            "id": "COMPSCI/CURRIC 502"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 304"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a broad overview of computing at an introductory level, including topics such as security, robotics, and artificial intelligence. Increases understanding of how computers work and how algorithms solve problems. Design and implement creative applications in an introductory coding environment. Provides a broad overview of computing and algorithms without an emphasis on programming.",
+            "id": "COMPSCI/LIS 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical foundations of machine learning theory and algorithms. Probabilistic, algebraic, and geometric models and representations of data, mathematical analysis of state-of-the-art learning algorithms and optimization methods, and applications of machine learning. Knowledge of probability [such asMATH/\u200bSTAT\u00a0\u00a0431orCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0561] and linear algebra [such asMATH\u00a0341orM\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532] is required.",
+            "id": "COMPSCI/ECE 761"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces students to the field of virtual reality and focuses on creating immersive, interactive virtual experiences. Survey topics include historical perspectives on virtual reality technology, computer graphics and 3D modeling, human perception and psychology, human computer interaction and user interface design. This course is designed for students with backgrounds in Computer Science, Engineering, Art, Architecture and Design. Students will work in interdisciplinary teams on projects, culminating in a final event that will be showcased to the public. While not an official uisite, the class will be technologically motivated; therefore students should be comfortable learning new software. The class will utilize publicly available game design software which provides tools and services for the creation of interactive content. While not necessary, students may find it helpful to have taken classes in programming and computer graphics (suchCOMP\u00a0SCI\u00a0559: Computer Graphics) or in 3D modeling (such asART\u00a0429: 3D Digital Studio I orDS\u00a0242: Visual Communication II).",
+            "id": "COMPSCI/DS 579"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic concepts of logic, sets, partial order and other relations, and functions. Basic concepts of mathematics (definitions, proofs, sets, functions, and relations) with a focus on discrete structures: integers, bits, strings, trees, and graphs.  Propositional logic, Boolean algebra, and predicate logic. Mathematical induction and recursion. Invariants and algorithmic correctness. Recurrences and asymptotic growth analysis. Fundamentals of counting.",
+            "id": "COMPSCI/MATH 240"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 321"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/MATH 240",
+            "target": "COMPSCI 520"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "COMPSCI 799",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI 566"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in operating systems, including process communication, resource allocation, multiprocess and network operating systems, kernel philosophies, fault-tolerant systems, virtual machines, high-level language systems, verifiability and proof techniques. Comp Sci 537 or cons inst",
+            "id": "COMPSCI 736",
             "parent": "COMPSCI"
         }
     },
@@ -538,21 +1161,38 @@
     },
     {
         "data": {
-            "id": "COMPSCI",
-            "type": "compound"
+            "source": "MATH 221",
+            "target": "STAT 324"
         }
     },
     {
         "data": {
-            "description": "Applies a design studio critique approach to produce a learning environment of collaborative and interdisciplinary peer critique and learning, in addition to provide expert feedback and suggestions. Present and defend the latest iteration of the user experience design project developed in earlier courses while learning about the professions associated with digital user experience design.",
-            "id": "COMPSCI/LIS 614"
+            "source": "COMPSCI 200",
+            "target": "COMPSCI/ISYE 526"
         }
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member, continuation ofCOMP\u00a0SCI\u00a0691",
-            "id": "COMPSCI 692",
-            "parent": "COMPSCI"
+            "source": "COMPSCI 570",
+            "target": "COMPSCI 270"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
         }
     },
     {
@@ -563,284 +1203,21 @@
     },
     {
         "data": {
-            "description": "Logic components, Boolean algebra, combinational logic analysis and synthesis, synchronous and asynchronous sequential logic analysis and design, digital subsystems, computer organization and design.",
-            "id": "COMPSCI/ECE 352"
+            "source": "COMPSCI 220",
+            "target": "COMPSCI 402"
         }
     },
     {
         "data": {
-            "description": "Introduction to fundamental geometric computations and algorithms, and their use for solving engineering and scientific problems. Computer representations of simple geometric objects and paradigms for algorithm design. Applications from areas of engineering analysis, design and manufacturing, biology, statistics, and other sciences.",
-            "id": "COMPSCI/ISYE/ME 558"
+            "description": "Introduction to the signals, information, and computational techniques in electrical engineering.",
+            "id": "ECE 203",
+            "parent": "ECE"
         }
     },
     {
         "data": {
-            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
-            "id": "MATH 421",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "The design of computer systems and components. Processor design, instruction set design, and addressing; control structures and microprogramming; memory management, caches, and memory hierarchies; and interrupts and I/O structures.E\u00a0C\u00a0E\u00a0551or knowledge of Verilog is recommended.",
-            "id": "COMPSCI/ECE 552"
-        }
-    },
-    {
-        "data": {
-            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
-            "id": "MATH 341",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/LIS 613",
-            "target": "COMPSCI/LIS 614"
-        }
-    },
-    {
-        "data": {
-            "description": "Gives students hands-on experience in building wearable computing platforms. Designed for students who have a background in textiles and apparel design, computer science, engineering or media arts. By the completion of the course students will have fundamental knowledge of electronic circuitry, programming, and \"maker skills\".",
-            "id": "COMPSCI/DS/ISYE 518"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied web development introduces methods and tools for creating/maintaining secure and interactive web content. Topics include programming fundamentals to support core web concepts, application development essentials, and content management systems. Web best practices - such as accessibility, design, and critical thinking about relevant ethics and organization - will be incorporated throughout. Gain practical skills to design and implement websites using popular scripting languages and frameworks, content management systems (CMSs), and related tools.",
-            "id": "COMPSCI/LIS 472"
-        }
-    },
-    {
-        "data": {
-            "description": "Logic components built with transistors, rudimentary Boolean algebra, basic combinational logic design, basic synchronous sequential logic design, basic computer organization and design, introductory machine- and assembly-language programming.",
-            "id": "COMPSCI/ECE 252"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-            "id": "COMPSCI/ISYE/MATH/STAT 525"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 310",
-            "target": "COMPSCI 412"
-        }
-    },
-    {
-        "data": {
-            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
-            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 559"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI/ECE 506"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the problems of representation and reasoning for large amounts of visual data, including images and videos, medical imaging data, and their associated tags or text descriptions. Introduces deep learning in the context of computer vision. Covers topics on visual recognition using deep models, such as image classification, object detection, human pose estimation, action recognition, 3D understanding, and medical image analysis. Emphasizes the design of vision and learning algorithms and models, as well as their practical implementations. Strongly recommended to have knowledge in computer vision or machine learning [such asCOMP\u00a0SCI\u00a0540] or medical image analysis [such as B M I /COMP\u00a0SCI/\u200bB\u00a0M\u00a0I\u00a0\u00a0567].",
-            "id": "BMI/COMPSCI 771"
-        }
-    },
-    {
-        "data": {
-            "description": "A rigorous introduction to probability theory at an advanced undergraduate level. Only a minimal amount of measure theory is used, in particular, the theory of Lebesgue integrals is not needed. It is aimed at math majors and Master's degree students, or students in other fields who will need probability in their future careers. Gives an introduction to the basics (Kolmogorov axioms, conditional probability and independence, random variables, expectation) and discusses some classical results with proofs (DeMoivre-Laplace limit theorems, the study of simple random walk on the one dimensional lattice, applications of generating functions).",
-            "id": "MATH 531",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI/ISYE/ME 558"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a broad overview of computing at an introductory level, including topics such as security, robotics, and artificial intelligence. Increases understanding of how computers work and how algorithms solve problems. Design and implement creative applications in an introductory coding environment. Provides a broad overview of computing and algorithms without an emphasis on programming.",
-            "id": "COMPSCI/LIS 102"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 578"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 564"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 620"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "COMPSCI/ISYE/MATH/STAT 525"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 537",
-            "target": "COMPSCI 640"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "COMPSCI/MATH 513"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 330",
-            "target": "COMPSCI/ECE 533"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of the design and implementation of programming languages. Topics include: Principles of compilation, static program analysis, compilation methods to support profiling, and code-generation methods. Knowledge of programming languages and compiler design strongly encouraged, such asCOMP\u00a0SCI\u00a0536.",
-            "id": "COMPSCI 701",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 320",
-            "target": "COMPSCI 565"
-        }
-    },
-    {
-        "data": {
-            "description": "Enables students with outside internships to earn academic credit connected to their work experience related to the Computer Sciences or Data Science programs.",
-            "id": "COMPSCI/STAT 403"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore methods and applications of deep learning. Covers cutting-edge topics, including neural architecture design, robustness and reliability of deep learning, learning with less supervision, lifelong machine learning, deep generative modeling, theoretical understanding of deep learning, and interpretable deep learning.",
-            "id": "COMPSCI 762",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced study of UX design. Introduces processes of ideation, key concepts of visual design, conceptual and interaction design, low and high-resolution prototyping of design techniques. Applications include drafting designs based on user models and initial testing of prototypes.",
-            "id": "COMPSCI/LIS 612"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced course covering computational problems in molecular biology. The course will study algorithms for problems such as: modeling sequence classes and features, phylogenetic tree construction, gene-expression data analysis, protein and RNA structure prediction, and whole-genome analysis and comparisons.",
-            "id": "BMI/COMPSCI 776"
-        }
-    },
-    {
-        "data": {
-            "description": "Computer science educational pedagogy and general teaching practices. Practical experience gained through tutoring students. Knowledge of object-oriented programming required.",
-            "id": "COMPSCI/CURRIC 502"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of the visual presentation of data. Survey of Information Visualization, Scientific Visualization, and Visual Analytics. Design and evaluation of visualizations and interactive exploration tools. Introduction to relevant foundations in visual design, human perception, and data analysis. Encodings, layout and interaction. Approaches to large data sets. Visualization of complex data types such as scalar fields, graphs, sets, texts, and multi-variate data. Use of 2D, 3D and motion in data presentations. Implementation issues.",
-            "id": "COMPSCI 765",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 310",
-            "target": "COMPSCI/ECE/ISYE 524"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "COMPSCI/ECE/MATH 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics of special interest to students in various areas of Computer Science.\u00a0Each offering of the course will cover a topic\u00a0selected by the instructor.\u00a0Credit varies by offering - check with the department to determine how an offering counts toward degree requirements.",
-            "id": "COMPSCI 838",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses for honors in the Computer Sciences major as arranged with a faculty member. Continuation ofCOMP\u00a0SCI\u00a0681",
-            "id": "COMPSCI 682",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/MATH 240",
-            "target": "COMPSCI 577"
-        }
-    },
-    {
-        "data": {
-            "description": "Build a meaningful product from start to finish with a local, regional, national and international corporate client that solves a real-world problem. In a collaborative space design, develop, test, debug, document, and deliver a software project for a corporate client, learning and using new technologies and agile software development techniques.",
-            "id": "COMPSCI 620",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Security and privacy concerns in data science. Three core subjects will be considered: Differential privacy and algorithmic fairness; Adversarial machine learning; and Applied cryptography, especially with applications to machine learning. In addition, a selection of more advanced topics will be covered. Possible examples include additional notions of privacy, language-based security, robust optimization. A firm grasp of probability/statistics (STAT/\u200bMATH\u00a0\u00a0431) is recommended. Previous exposure to at least one of cryptography (COMP\u00a0SCI/\u200bE\u00a0C\u00a0E/\u200bMATH\u00a0\u00a0435), security (COMP\u00a0SCI\u00a0642), and modern machine learning (COMP\u00a0SCI/\u200bE\u00a0C\u00a0E/\u200bM\u00a0E\u00a0\u00a0539or540) is also recommended.",
-            "id": "COMPSCI 763",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of knowledge-based search techniques, automatic deduction, knowledge representation using predicate logic, machine learning, probabilistic reasoning. Applications in tasks such as problem solving, data mining, game playing, natural language understanding, computer vision, speech recognition, and robotics.",
-            "id": "COMPSCI 540",
-            "parent": "COMPSCI"
+            "source": "STAT 301",
+            "target": "STAT 333"
         }
     },
     {
@@ -851,22 +1228,88 @@
     },
     {
         "data": {
-            "description": "Processor design, computer arithmetic, pipelining, multi-operation processors, vector processors, control units, precise interrupts, main memory, cache memories, instruction set design, stack machines, busses and I/O, protection and security.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
-            "id": "COMPSCI/ECE 752"
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 540"
         }
     },
     {
         "data": {
-            "description": "Design and implementation of applications, systems, and services for mobile platforms with (i) constraints, such as limited processing, memory, energy, interfaces, variable bandwidth, and high mobility, and (ii) features, such as touchscreens, cameras, electronic compasses, GPS, and accelerometers.",
-            "id": "COMPSCI 407",
+            "description": "General and special techniques of dynamic programming developed by means of examples. Shortest-path algorithms. Deterministic equipment replacement models. Resource allocation problem. Traveling-salesman problem. Knapsack problem. Analysis of inventory systems. General stochastic formulations. Markovian decision processes.  Students are strongly encouraged to have knowledge of mathematical optimization (e.g.,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0525, I SY E 623,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0726), knowledge of analysis (e.g.,MATH/\u200bSTAT\u00a0\u00a0431or521) and programming ability (e.g.,COMP\u00a0SCI\u00a0200or 301)",
+            "id": "COMPSCI/ISYE 723"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses for honors in the Computer Sciences major as arranged with a faculty member.",
+            "id": "COMPSCI 681",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "The third course in our programming fundamentals sequence. It presumes that students understand and use functional and object-oriented design and abstract data types as needed. This course introduces balanced search trees, graphs, graph traversal algorithms, hash tables and sets, and complexity analysis and about classes of problems that require each data type. Students are required to design and implement using high quality professional code, a medium sized program, that demonstrates knowledge and use of latest language features, tools, and conventions. Additional topics introduced will include as needed for projects: inheritance and polymorphism; anonymous inner classes, lambda functions, performance analysis to discover and optimize critical code blocks. Students learn about industry standards for code development. Students will design and implement a medium size project with a more advanced user-interface design, such as a web or mobile application with a GUI and event- driven implementation; use of version-control software.",
-            "id": "COMPSCI 400",
-            "parent": "COMPSCI"
+            "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
+            "id": "COMPSCI/ISYE/MATH 728"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
+            "id": "MATH 340",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI/ECE/ME 539"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 565"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ECE 533"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "COMPSCI 541"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "COMPSCI 534"
+        }
+    },
+    {
+        "data": {
+            "description": "Security and privacy issues in software, networks, and hardware systems. Security vulnerabilities, privacy threats, threats modeling, and mitigation strategies. Privacy issues related to user interaction with devices, online systems, and networks. In addition, a selection of more advanced topics will be covered. Possible examples include applied cryptography in the context of systems, security and privacy policies, user authentication, and cyber-physical systems. Builds on prior experiences with one or more of the following: networking, security, modern machine learning, embedded systems, and mobile computing.",
+            "id": "COMPSCI/ECE 782"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 578"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "STAT 371"
         }
     },
     {
@@ -878,28 +1321,39 @@
     },
     {
         "data": {
-            "description": "Overview of MOS devices and circuits; introduction to integrated circuit fabrication; topological design of data flow and control; interactive graphics layout; circuit simulation; system timing; organizational and architectural considerations; alternative implementation approaches; design project.E\u00a0C\u00a0E\u00a0555or equivalent experience is strongly recommended.",
-            "id": "COMPSCI/ECE 755"
+            "source": "ECE 203",
+            "target": "ECE 331"
         }
     },
     {
         "data": {
-            "description": "Senior level undergraduate course covering various topics on information security. Covers a wide range of topics, such as cryptographic primitives, security protocols, system security, and emerging topics.  Elementary knowledge of mathematical logic and discrete probability theory needed, such asMATH/\u200bCOMP\u00a0SCI\u00a0\u00a0240.",
-            "id": "COMPSCI 642",
+            "source": "MATH 322",
+            "target": "MATH 521"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate approach to Data Science programming using Python. Experience with basic tabular analysis in Python is assumed. Learn to implement data structures (e.g., graphs) to efficiently represent datasets. Software-engineering tools such as version control and Python virtual environments will be introduced, with an emphasis on reproducibility of analysis. Tracing and A/B testing will be introduced as techniques for generating meaningful datasets. Introduces basic classification, clustering, optimization, and simulation techniques. Plotting and visual communication will be emphasized throughout the course.",
+            "id": "COMPSCI 320",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
+            "source": "MATH 376",
+            "target": "MATH 521"
         }
     },
     {
         "data": {
-            "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
-            "id": "BMI/COMPSCI 767"
+            "source": "MATH/STAT 431",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of MOS devices and circuits; introduction to integrated circuit fabrication; topological design of data flow and control; interactive graphics layout; circuit simulation; system timing; organizational and architectural considerations; alternative implementation approaches; design project.E\u00a0C\u00a0E\u00a0555or equivalent experience is strongly recommended.",
+            "id": "COMPSCI/ECE 755"
         }
     },
     {
@@ -910,8 +1364,256 @@
     },
     {
         "data": {
+            "source": "COMPSCI/ISYE/MATH/STAT 525",
+            "target": "COMPSCI/ISYE 526"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 217"
+        }
+    },
+    {
+        "data": {
+            "description": "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation.",
+            "id": "COMPSCI 537",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 443"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI/ISYE 635"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research supervised by a faculty member for students who have completed a master's degree but have not reached dissertator status.",
+            "id": "COMPSCI 899",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "description": "Build a meaningful product from start to finish with a local, regional, national and international corporate client that solves a real-world problem. In a collaborative space design, develop, test, debug, document, and deliver a software project for a corporate client, learning and using new technologies and agile software development techniques.",
+            "id": "COMPSCI 620",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of the visual presentation of data. Survey of Information Visualization, Scientific Visualization, and Visual Analytics. Design and evaluation of visualizations and interactive exploration tools. Introduction to relevant foundations in visual design, human perception, and data analysis. Encodings, layout and interaction. Approaches to large data sets. Visualization of complex data types such as scalar fields, graphs, sets, texts, and multi-variate data. Use of 2D, 3D and motion in data presentations. Implementation issues.",
+            "id": "COMPSCI 765",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "A full-time cooperative experience (10 or 5 week option) in computer science in a commercial, government, or nonprofit setting, usually in the form of an internship. The work will be monitored by a graduate advisor from the faculty of the Department of Computer Sciences.  10 week option for 2 credits, 5 week option for 1 credit.",
+            "id": "COMPSCI 702",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/ECE 354"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 320",
+            "target": "COMPSCI 565"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "COMPSCI 310"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 542"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI 412"
+        }
+    },
+    {
+        "data": {
+            "description": "A rigorous introduction to probability theory at an advanced undergraduate level. Only a minimal amount of measure theory is used, in particular, the theory of Lebesgue integrals is not needed. It is aimed at math majors and Master's degree students, or students in other fields who will need probability in their future careers. Gives an introduction to the basics (Kolmogorov axioms, conditional probability and independence, random variables, expectation) and discusses some classical results with proofs (DeMoivre-Laplace limit theorems, the study of simple random walk on the one dimensional lattice, applications of generating functions).",
+            "id": "MATH 531",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Gives students hands-on experience in building wearable computing platforms. Designed for students who have a background in textiles and apparel design, computer science, engineering or media arts. By the completion of the course students will have fundamental knowledge of electronic circuitry, programming, and \"maker skills\".",
+            "id": "COMPSCI/DS/ISYE 518"
+        }
+    },
+    {
+        "data": {
             "description": "Cryptography is the art and science of transmitting digital information in a secure manner. Provides an introduction to its technical aspects.",
             "id": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
+            "id": "MATH 113",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 400"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+            "id": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "COMPSCI 566"
+        }
+    },
+    {
+        "data": {
+            "description": "Probabilistic tools for machine learning and analysis of real-world datasets. Introductory topics include classification, regression, probability theory, decision theory and quantifying information with entropy, relative entropy and mutual information. Additional topics include naive Bayes, probabilistic graphical models, discriminant analysis, logistic regression, expectation maximization, source coding and variational inference.",
+            "id": "COMPSCI/ECE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+            "id": "BMI/POPHLTH 551"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 544"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of finite difference methods for hyperbolic, parabolic and elliptic partial differential equations. Analysis of accuracy and stability of difference schemes. Direct and iterative methods for solving linear systems. Introduction to finite volume methods. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200) and some undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis and differential equations (e.g.MATH\u00a0322andMATH\u00a0521) and linear algebra (e.g.MATH\u00a0341).",
+            "id": "COMPSCI/MATH 714"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/MATH/STAT 475",
+            "target": "COMPSCI 520"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 552",
+            "target": "COMPSCI/ECE 506"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 354",
+            "target": "COMPSCI 564"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 537"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 320",
+            "target": "COMPSCI 542"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+            "id": "STAT 340",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 538"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "COMPSCI 540"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 531",
+            "target": "COMPSCI/ECE 561"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "COMPSCI 541"
         }
     },
     {
@@ -928,199 +1630,8 @@
     },
     {
         "data": {
-            "description": "Introduction to the theory and practice of compiler design. Comparison of features of several programming languages and their implications for implementation techniques. Several programming projects required.",
-            "id": "COMPSCI 536",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in computing. Each offering of the course will cover a topic selected by the instructor and may cover one or more topics from all of computer\u00a0science.",
-            "id": "COMPSCI 638",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in operating systems, including process communication, resource allocation, multiprocess and network operating systems, kernel philosophies, fault-tolerant systems, virtual machines, high-level language systems, verifiability and proof techniques. Comp Sci 537 or cons inst",
-            "id": "COMPSCI 736",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "General and special techniques of dynamic programming developed by means of examples. Shortest-path algorithms. Deterministic equipment replacement models. Resource allocation problem. Traveling-salesman problem. Knapsack problem. Analysis of inventory systems. General stochastic formulations. Markovian decision processes.  Students are strongly encouraged to have knowledge of mathematical optimization (e.g.,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0525, I SY E 623,COMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bMATH/\u200bSTAT\u00a0\u00a0726), knowledge of analysis (e.g.,MATH/\u200bSTAT\u00a0\u00a0431or521) and programming ability (e.g.,COMP\u00a0SCI\u00a0200or 301)",
-            "id": "COMPSCI/ISYE 723"
-        }
-    },
-    {
-        "data": {
-            "description": "Design and theory of programming languages: procedural, object-oriented, functional and logic paradigms. Serial and concurrent programming. Execution models and formal specification techniques.",
-            "id": "COMPSCI 538",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "For students interested in learning a particular programming language. Focuses on a specific language offered at one of three levels: beginner, intermediate, and advanced. Students may repeat the course if the topic title is different.",
-            "id": "COMPSCI 368",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Studies the biological and computational basis of intelligence, by combining methods from cognitive science, artificial intelligence, machine learning, computational biology, and cognitive neuroscience. Requires ability to program.",
-            "id": "BMI/COMPSCI/PSYCH 841"
-        }
-    },
-    {
-        "data": {
-            "description": "Convex sets in finite-dimensional spaces: relative interiors, separation, set operations. Convex functions: conjugacy, subdifferentials and directional derivations, functional operations, Fenchel-Rockafellar duality. Applications to operations research and related areas.  Students taking this course are strongly encouraged to have had a course in basic analysis (e.g.MATH\u00a0521) and a course in linear algebra (e.g.,MATH\u00a0340).",
-            "id": "COMPSCI/ISYE 727"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
-            "id": "COMPSCI/ISYE/MATH 730"
-        }
-    },
-    {
-        "data": {
-            "description": "Security and privacy issues in software, networks, and hardware systems. Security vulnerabilities, privacy threats, threats modeling, and mitigation strategies. Privacy issues related to user interaction with devices, online systems, and networks. In addition, a selection of more advanced topics will be covered. Possible examples include applied cryptography in the context of systems, security and privacy policies, user authentication, and cyber-physical systems. Builds on prior experiences with one or more of the following: networking, security, modern machine learning, embedded systems, and mobile computing.",
-            "id": "COMPSCI/ECE 782"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-            "id": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in computer communications networks: congestion and flow control; routing; rate-based protocols; high speed interfaces and technologies: metropolitan area networks; fast packet switching technologies; advanced applications; network services: name service, authentication, resource location.  Students are strongly encouraged to have knowledge of computer network design and protocols (e.g.,COMP\u00a0SCI\u00a0640)",
-            "id": "COMPSCI 740",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 566"
-        }
-    },
-    {
-        "data": {
-            "description": "Polynomial forms, divided differences. Polynomial interpolation. Polynomial approximation: uniform approximation and Chebyshev polynomials, least-squares approximation and orthogonal polynomials. Numerical differentiation and integration. Splines, B-splines and spline approximation. Numerical methods for solving initial and boundary value problems for ordinary differential equations.",
-            "id": "COMPSCI/MATH 514"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Broad introduction to computer-aided design tools for VLSI, emphasizing implementation algorithms and data structures. Topics covered: design styles, layout editors, symbolic compaction, module generators, placement and routing, automatic synthesis, design-rule checking, circuit extraction, simulation and verification.  Students are strongly encourage to have programming skills and to  have taken a course in Digital System Fundamentals such asE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0352.",
-            "id": "COMPSCI/ECE 756"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces students to the field of virtual reality and focuses on creating immersive, interactive virtual experiences. Survey topics include historical perspectives on virtual reality technology, computer graphics and 3D modeling, human perception and psychology, human computer interaction and user interface design. This course is designed for students with backgrounds in Computer Science, Engineering, Art, Architecture and Design. Students will work in interdisciplinary teams on projects, culminating in a final event that will be showcased to the public. While not an official uisite, the class will be technologically motivated; therefore students should be comfortable learning new software. The class will utilize publicly available game design software which provides tools and services for the creation of interactive content. While not necessary, students may find it helpful to have taken classes in programming and computer graphics (suchCOMP\u00a0SCI\u00a0559: Computer Graphics) or in 3D modeling (such asART\u00a0429: 3D Digital Studio I orDS\u00a0242: Visual Communication II).",
-            "id": "COMPSCI/DS 579"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI/CURRIC 502"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-            "id": "BMI/POPHLTH 551"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of human-computer interaction (HCI); human subjects research methods and procedures, qualitative and quantitative data analysis; and semester-long research project situated in critical domains of HCI, including applications in ubiquitous, affective, assistive, social, and embodied computing.",
-            "id": "COMPSCI/EDPSYCH/PSYCH 770"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "description": "Basics about the notion, capabilities, and limitations of computation: elements of finite automata and regular languages, computability theory, and computational complexity theory. Additional topics include context-free grammars and languages, and complexity-theoretic cryptography.",
-            "id": "COMPSCI 520",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "A full-time cooperative experience (10 or 5 week option) in computer science in a commercial, government, or nonprofit setting, usually in the form of an internship. The work will be monitored by a graduate advisor from the faculty of the Department of Computer Sciences.  10 week option for 2 credits, 5 week option for 1 credit.",
-            "id": "COMPSCI 702",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 272",
-            "target": "COMPSCI/LIS 472"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
-            "id": "COMPSCI/ISYE/MATH 728"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 537",
-            "target": "COMPSCI 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Architecture of computer networks and network protocols, protocol layering, reliable transmission, congestion control, flow control, naming and addressing, unicast and multicast routing, network security, network performance widely used protocols such as Ethernet, wireless LANs, IP, TCP, and HTTP.",
-            "id": "COMPSCI 640",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ISYE/MATH/STAT 726",
-            "target": "COMPSCI/ISYE/MATH 730"
+            "source": "MATH 375",
+            "target": "MATH 443"
         }
     },
     {
@@ -1132,100 +1643,81 @@
     },
     {
         "data": {
-            "description": "Grad st; Master's candidates only",
-            "id": "COMPSCI 790",
+            "source": "MATH 320",
+            "target": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 320",
+            "target": "COMPSCI 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and applications of artificial neural networks: multi-layer perceptron, self-organization mapdeep neural network convolutional neural network, recurrent network, support vector machines genetic algorithm, and evolution computing. Applications to control, pattern recognition, prediction, and object detection and tracking.",
+            "id": "COMPSCI/ECE/ME 539"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 252",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "MATH 321"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 536",
+            "target": "COMPSCI/ECE 506"
+        }
+    },
+    {
+        "data": {
+            "description": "Studies the biological and computational basis of intelligence, by combining methods from cognitive science, artificial intelligence, machine learning, computational biology, and cognitive neuroscience. Requires ability to program.",
+            "id": "BMI/COMPSCI/PSYCH 841"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "COMPSCI 559"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE/ME 532",
+            "target": "COMPSCI/ECE 561"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the theory and practice of compiler design. Comparison of features of several programming languages and their implications for implementation techniques. Several programming projects required.",
+            "id": "COMPSCI 536",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
-            "id": "BMI/COMPSCI 775"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "ECE 203"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar on recent research on various aspects of computer science.",
-            "id": "COMPSCI 900",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of the capabilities and limitations of efficient computation. Relationships between models representing capabilities such as parallelism, randomness, quantum effects, and non-uniformity; and models based on the notions of nondeterminism, alternation, and counting, which capture the complexity of important problems.  Knowledge of the theory of computation is strongly encouraged, such asCOMP\u00a0SCI\u00a0520.",
-            "id": "COMPSCI 710",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "COMPSCI 407"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
-            "id": "COMPSCI 200",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 638"
-        }
-    },
-    {
-        "data": {
-            "description": "Ideas and techniques for designing, developing, and modifying large software systems. Topics include software engineering processes; requirements and specifications; project team organization and management; software architectures; design patterns; testing and debugging; and cost and quality metrics and estimation. Students will work in large teams on a substantial programming project.",
-            "id": "COMPSCI/ECE 506"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop algorithms and mathematical models for natural language processing tasks, including text categorization, information retrieval, speech recognition, machine translation, and information extraction. Focus is on the state-of-the-art computational techniques as they are applied to natural language tasks.  Students are strongly encouraged to have knowledge of introductory artificial intelligence (e.g.,COMP\u00a0SCI\u00a0540).",
-            "id": "COMPSCI 769",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced paradigms for the design and analysis of efficient algorithms, including the use of randomness, linear programming, and semi-definite programming. Applications to data structures, approximating NP-hard optimization problems, learning, on-line and distributed problems.  Students are strongly encouraged to have introductory knowledge of algorithms (e.g.,COMP\u00a0SCI\u00a0577)",
-            "id": "COMPSCI 787",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
-            "id": "MATH 340",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
-            "target": "COMPSCI/ECE/ME 539"
-        }
-    },
-    {
-        "data": {
-            "description": "Parallel algorithms, principles of parallelism detection and vectorizing compilers, interconnection networks, MIMD machines, processor synchronization, data coherence, multis, dataflow machines, special purpose processors.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
-            "id": "COMPSCI/ECE 757"
+            "source": "MATH 234",
+            "target": "MATH/STAT 309"
         }
     },
     {
@@ -1237,15 +1729,173 @@
     },
     {
         "data": {
-            "description": "User-centered software design: (1) principles of and methods for understanding user needs; designing and prototyping interface solutions; and evaluating their usability, (2) their applications in designing multiple types of interfaces through group projects.",
-            "id": "COMPSCI 570",
+            "source": "STAT 311",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 541",
+            "target": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI/ECE/ISYE 524"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI/ECE 506"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 571"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to principles of advanced programming languages and programming-language theory. Topics include: lambda-calculus, functional languages, polymorphic functions, type inference, structural induction, lazy evaluation, operational semantics, denotational semantics, and axiomatic semantics. Students are strongly encouraged to have knowledge of programming languages, such as fromCOMP\u00a0SCI\u00a0536.",
+            "id": "COMPSCI 704",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "source": "COMPSCI/LIS 611",
-            "target": "COMPSCI/LIS 612"
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/LIS 102",
+            "target": "COMPSCI/ISYE 635"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 320"
+        }
+    },
+    {
+        "data": {
+            "description": "The design of computer systems and components. Processor design, instruction set design, and addressing; control structures and microprogramming; memory management, caches, and memory hierarchies; and interrupts and I/O structures.E\u00a0C\u00a0E\u00a0551or knowledge of Verilog is recommended.",
+            "id": "COMPSCI/ECE 552"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "MATH 341"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Processor design, computer arithmetic, pipelining, multi-operation processors, vector processors, control units, precise interrupts, main memory, cache memories, instruction set design, stack machines, busses and I/O, protection and security.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
+            "id": "COMPSCI/ECE 752"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 331"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of linear programming. Polynomial time methods for linear programming. Quadratic programs and linear complementarity problems and related solution techniques. Solution sets and their continuity properties. Error bounds for linear inequalities and programs. Parallel algorithms for linear and quadratic programs.",
+            "id": "COMPSCI/ISYE 526"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical representation of continuous and digital images; models of image degradation; picture enhancement, restoration, segmentation, and coding; pattern recognition, tomography.",
+            "id": "COMPSCI/ECE 533"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
+            "id": "MATH 443",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 203",
+            "target": "ECE 330"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
         }
     },
     {
@@ -1257,33 +1907,33 @@
     },
     {
         "data": {
-            "source": "COMPSCI/ECE 252",
-            "target": "COMPSCI/ECE 352"
+            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
+            "id": "MATH 320",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 531",
-            "target": "COMPSCI/ECE 561"
+            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+            "id": "COMPSCI/ECE/EMA/EP/ME 759"
         }
     },
     {
         "data": {
-            "description": "Topics include image formation, feature detection, motion estimation, image mosaics, 3D shape reconstruction, and object recognition. Applications of these techniques include building 3D maps, creating virtual characters, organizing photo and video databases, human computer interaction, video surveillance, and automatic vehicle navigation. Broad overview of various computer vision and machine learning techniques and sensing and imaging technologies used in computer vision applications. This is a project-based course.",
-            "id": "COMPSCI 566",
-            "parent": "COMPSCI"
+            "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
+            "id": "BMI/COMPSCI 767"
         }
     },
     {
         "data": {
-            "source": "ECE 203",
-            "target": "ECE 330"
+            "source": "MATH 321",
+            "target": "MATH 322"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 534"
+            "source": "COMPSCI 310",
+            "target": "COMPSCI 402"
         }
     },
     {
@@ -1294,80 +1944,53 @@
     },
     {
         "data": {
-            "description": "Deploy and use distributed systems to store and analyze large datasets.  Unstructured and structured approaches to storage will be covered.  Analysis will involve learning new query languages, processing streaming data, and training machine learning models.  Most programming will be done in Python.",
-            "id": "COMPSCI 544",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of computer graphics. Image representation, formation, presentation, composition and manipulation. Modeling, transformation, and display of geometric objects in two and three dimensions. Representation of curves and surfaces. Rendering, animation, multi-media and visualization. Fluency with vector mathematics (e.g., fromMATH\u00a0234or a linear algebra class) is recommended.",
-            "id": "COMPSCI 559",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques for quantitative analysis of algorithms. Charging arguments, amortization, probabilistic methods. Adversary and information lower bounds. Use of methods from combinatorics, complex analysis, and asymptotics in obtaining precise analyses of quicksort, chained hashing, and other algorithms.  Students are strongly encouraged to have knowledge of algorithms (e.g.,COMP\u00a0SCI\u00a0577) or applied math analysis (e.g.,MATH\u00a0321) and theory of probability (e.g.,MATH/\u200bSTAT\u00a0\u00a0431).",
-            "id": "COMPSCI 809",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ECE 252",
-            "target": "COMPSCI/ECE 354"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of finite difference methods for hyperbolic, parabolic and elliptic partial differential equations. Analysis of accuracy and stability of difference schemes. Direct and iterative methods for solving linear systems. Introduction to finite volume methods. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200) and some undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis and differential equations (e.g.MATH\u00a0322andMATH\u00a0521) and linear algebra (e.g.MATH\u00a0341).",
-            "id": "COMPSCI/MATH 714"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
-            "id": "COMPSCI 698",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research supervised by a faculty member for students who have completed a master's degree but have not reached dissertator status.",
-            "id": "COMPSCI 899",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundational concepts in databases and data management. The first part of the course discusses topics on query languages (conjunctive queries, Datalog), their expressivity and complexity of evaluation. The second part studies advanced topics in modern data management, including data streams, massive parallelism, provenance, uncertain data management and privacy. There are no specific course prerequisites. It is strongly encouraged that the students are familiar with databases and relational algebra (COMP\u00a0SCI\u00a0564or equivalent). Knowledge of algorithms, complexity theory and probability will also be helpful.",
-            "id": "COMPSCI 784",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ECE 760",
-            "target": "COMPSCI 762"
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
         }
     },
     {
         "data": {
             "source": "COMPSCI 400",
-            "target": "COMPSCI 542"
+            "target": "COMPSCI 559"
         }
     },
     {
         "data": {
-            "source": "MATH 211",
+            "source": "MATH 213",
             "target": "MATH 221"
         }
     },
     {
         "data": {
-            "description": "Theory and applications of artificial neural networks: multi-layer perceptron, self-organization mapdeep neural network convolutional neural network, recurrent network, support vector machines genetic algorithm, and evolution computing. Applications to control, pattern recognition, prediction, and object detection and tracking.",
-            "id": "COMPSCI/ECE/ME 539"
+            "source": "MATH 320",
+            "target": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 421",
+            "target": "MATH 521"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Implementation of database management systems, the impact of new technology on database management systems, back-end database computers, distributed database management systems, concurrency control, and query execution in both distributed and centralized systems, implementation of multiple user views, roll-back and recovery mechanisms, database translation. Students are strongly encouraged to have knowledge of database design (e.g.,COMP\u00a0SCI\u00a0564).",
+            "id": "COMPSCI 764",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python. In addition to a survey of programming basics (control flow and data structures), web scraping, database queries, and tabular analysis will be introduced. Projects will emphasize analyzing real datasets in a variety of forms and visual communication using plotting tools. Similar toCOMP\u00a0SCI\u00a0220but the pedagogical style of the projects will be adapted to graduate students in fields other than computer science and data science. No previous programming experience required.",
+            "id": "COMPSCI 319",
+            "parent": "COMPSCI"
         }
     },
     {
@@ -1378,78 +2001,148 @@
     },
     {
         "data": {
+            "source": "MATH 234",
+            "target": "COMPSCI 412"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/ISYE 526"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop algorithms and mathematical models for natural language processing tasks, including text categorization, information retrieval, speech recognition, machine translation, and information extraction. Focus is on the state-of-the-art computational techniques as they are applied to natural language tasks.  Students are strongly encouraged to have knowledge of introductory artificial intelligence (e.g.,COMP\u00a0SCI\u00a0540).",
+            "id": "COMPSCI 769",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "BMI/COMPSCI 576"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses for honors in the Computer Sciences major as arranged with a faculty member. Continuation ofCOMP\u00a0SCI\u00a0681",
+            "id": "COMPSCI 682",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
             "description": "Introduction to mathematical optimization from a modeling and solution perspective. Formulation of applications as discrete and continuous optimization problems and equilibrium models. Survey and appropriate usage of basic algorithms, data and software tools, including modeling languages and subroutine libraries.",
             "id": "COMPSCI/ECE/ISYE 524"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 736",
-            "target": "COMPSCI 739"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 320",
-            "target": "COMPSCI 544"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
+            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
+            "id": "MATH 213",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Advanced level mentored reading and research for dissertators.",
-            "id": "COMPSCI 999",
+            "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
+            "id": "COMPSCI/ISYE/MATH 730"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
+            "id": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 330",
+            "target": "COMPSCI/ECE 533"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/LIS 612",
+            "target": "COMPSCI/LIS 613"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
+            "id": "MATH 341",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced level mentored reading and research for students with dissertator status.",
+            "id": "COMPSCI 990",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Advanced topics in computer architecture that explore the implications to architecture of forthcoming evolutionary and revolutionary changes in application demands, software paradigms, and hardware implementation technologies.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
-            "id": "COMPSCI 758",
+            "source": "MATH 213",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Issues in the design and implementation of big data processing systems, including: an overview of cluster architecture, key design goals (flexibility, performance and fault tolerance), popular execution frameworks, basic abstractions, and applications (e.g., batch analytics, stream processing, graph processing, and machine learning).",
+            "id": "COMPSCI 744",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 570",
-            "target": "COMPSCI 270"
+            "source": "COMPSCI/LIS 611",
+            "target": "COMPSCI/LIS 612"
         }
     },
     {
         "data": {
-            "description": "Fundamentals of image analysis and computer vision; image acquisition and geometry; image enhancement; recovery of physical scene characteristics; shape-from techniques; segmentation and perceptual organization; representation and description of two-dimensional objects; shape analysis; texture analysis; goal-directed and model-based systems; parallel algorithms and special-purpose architectures. Students are strongly encouraged to have basic proficiency in calculus and linear algebra, such asMATH\u00a0340, and basic programming such asCOMP\u00a0SCI\u00a0300.",
-            "id": "COMPSCI/ECE 766"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ECE 761",
-            "target": "COMPSCI/ECE/STAT 861"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "COMPSCI 799",
+            "description": "Security and privacy concerns in data science. Three core subjects will be considered: Differential privacy and algorithmic fairness; Adversarial machine learning; and Applied cryptography, especially with applications to machine learning. In addition, a selection of more advanced topics will be covered. Possible examples include additional notions of privacy, language-based security, robust optimization. A firm grasp of probability/statistics (STAT/\u200bMATH\u00a0\u00a0431) is recommended. Previous exposure to at least one of cryptography (COMP\u00a0SCI/\u200bE\u00a0C\u00a0E/\u200bMATH\u00a0\u00a0435), security (COMP\u00a0SCI\u00a0642), and modern machine learning (COMP\u00a0SCI/\u200bE\u00a0C\u00a0E/\u200bM\u00a0E\u00a0\u00a0539or540) is also recommended.",
+            "id": "COMPSCI 763",
             "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
-            "id": "COMPSCI/ECE/EMA/EP/ME 759"
+            "source": "MATH 320",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 760",
+            "target": "COMPSCI 762"
+        }
+    },
+    {
+        "data": {
+            "description": "Design and implementation of applications, systems, and services for mobile platforms with (i) constraints, such as limited processing, memory, energy, interfaces, variable bandwidth, and high mobility, and (ii) features, such as touchscreens, cameras, electronic compasses, GPS, and accelerometers.",
+            "id": "COMPSCI 407",
+            "parent": "COMPSCI"
         }
     },
     {
@@ -1461,8 +2154,47 @@
     },
     {
         "data": {
-            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-            "id": "BIOCHEM/BME/BMI/CBE/COMPSCI/GENETICS 915"
+            "source": "STAT 324",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of knowledge-based search techniques, automatic deduction, knowledge representation using predicate logic, machine learning, probabilistic reasoning. Applications in tasks such as problem solving, data mining, game playing, natural language understanding, computer vision, speech recognition, and robotics.",
+            "id": "COMPSCI 540",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Deploy and use distributed systems to store and analyze large datasets.  Unstructured and structured approaches to storage will be covered.  Analysis will involve learning new query languages, processing streaming data, and training machine learning models.  Most programming will be done in Python.",
+            "id": "COMPSCI 544",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "COMPSCI/MATH 240"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamentals of image analysis and computer vision; image acquisition and geometry; image enhancement; recovery of physical scene characteristics; shape-from techniques; segmentation and perceptual organization; representation and description of two-dimensional objects; shape analysis; texture analysis; goal-directed and model-based systems; parallel algorithms and special-purpose architectures. Students are strongly encouraged to have basic proficiency in calculus and linear algebra, such asMATH\u00a0340, and basic programming such asCOMP\u00a0SCI\u00a0300.",
+            "id": "COMPSCI/ECE 766"
         }
     },
     {
@@ -1473,14 +2205,431 @@
     },
     {
         "data": {
-            "source": "MATH 320",
+            "description": "Senior level undergraduate course covering various topics on information security. Covers a wide range of topics, such as cryptographic primitives, security protocols, system security, and emerging topics.  Elementary knowledge of mathematical logic and discrete probability theory needed, such asMATH/\u200bCOMP\u00a0SCI\u00a0\u00a0240.",
+            "id": "COMPSCI 642",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 321"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 352",
+            "target": "COMPSCI/ECE 552"
+        }
+    },
+    {
+        "data": {
+            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
+            "id": "STAT 301",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 566"
+        }
+    },
+    {
+        "data": {
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI 638"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundational concepts in databases and data management. The first part of the course discusses topics on query languages (conjunctive queries, Datalog), their expressivity and complexity of evaluation. The second part studies advanced topics in modern data management, including data streams, massive parallelism, provenance, uncertain data management and privacy. There are no specific course prerequisites. It is strongly encouraged that the students are familiar with databases and relational algebra (COMP\u00a0SCI\u00a0564or equivalent). Knowledge of algorithms, complexity theory and probability will also be helpful.",
+            "id": "COMPSCI 784",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced course covering various analysis techniques used in software engineering. Covers techniques for analyzing various software artifacts. Some of the topics that will be covered are: model checking, testing, program analysis, requirements analysis, and safety analysis. Students are strongly encouraged to have knowledge of programming languages and compiler design, such asCOMP\u00a0SCI\u00a0536, and a basic knowledge of mathematical logic.",
+            "id": "COMPSCI 706",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/MATH 240",
+            "target": "COMPSCI 577"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "STAT 312"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
             "target": "COMPSCI/MATH 514"
         }
     },
     {
         "data": {
-            "source": "MATH/STAT 310",
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 252",
+            "target": "COMPSCI/ECE 354"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 534"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to probability, random variables, and random processes. Confidence intervals, introduction to experimental design and hypothesis testing. Statistical averages, correlation, and spectral analysis for wide sense stationary processes. Random signals and noise in linear systems.",
+            "id": "ECE 331",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE 761",
+            "target": "COMPSCI/ECE/STAT 861"
+        }
+    },
+    {
+        "data": {
+            "description": "Interpolation, solution of linear and nonlinear systems of equations, approximate integration and differentiation, numerical solution of ordinary differential equations, Data fitting (such as least squares) by polynomials and splines. Knowledge of matrix algebra recommended, such asMATH\u00a0340.",
+            "id": "COMPSCI 412",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Undergraduate directed study in computer sciences.",
+            "id": "COMPSCI 298",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Broad introduction to computer-aided design tools for VLSI, emphasizing implementation algorithms and data structures. Topics covered: design styles, layout editors, symbolic compaction, module generators, placement and routing, automatic synthesis, design-rule checking, circuit extraction, simulation and verification.  Students are strongly encourage to have programming skills and to  have taken a course in Digital System Fundamentals such asE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0352.",
+            "id": "COMPSCI/ECE 756"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/CURRIC 502"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
+            "target": "COMPSCI/ISYE/ME 558"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 536"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
             "target": "COMPSCI/STAT 471"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses the problems of representation and reasoning for large amounts of visual data, including images and videos, medical imaging data, and their associated tags or text descriptions. Introduces deep learning in the context of computer vision. Covers topics on visual recognition using deep models, such as image classification, object detection, human pose estimation, action recognition, 3D understanding, and medical image analysis. Emphasizes the design of vision and learning algorithms and models, as well as their practical implementations. Strongly recommended to have knowledge in computer vision or machine learning [such asCOMP\u00a0SCI\u00a0540] or medical image analysis [such as B M I /COMP\u00a0SCI/\u200bB\u00a0M\u00a0I\u00a0\u00a0567].",
+            "id": "BMI/COMPSCI 771"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member, continuation ofCOMP\u00a0SCI\u00a0691",
+            "id": "COMPSCI 692",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/ECE/ME 539"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore methods and applications of deep learning. Covers cutting-edge topics, including neural architecture design, robustness and reliability of deep learning, learning with less supervision, lifelong machine learning, deep generative modeling, theoretical understanding of deep learning, and interpretable deep learning.",
+            "id": "COMPSCI 762",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Logic components built with transistors, rudimentary Boolean algebra, basic combinational logic design, basic synchronous sequential logic design, basic computer organization and design, introductory machine- and assembly-language programming.",
+            "id": "COMPSCI/ECE 252"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
+            "id": "MATH 421",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/STAT 541"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 521"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 310",
+            "target": "COMPSCI 300"
+        }
+    },
+    {
+        "data": {
+            "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
+            "id": "COMPSCI/ISYE 635"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include image formation, feature detection, motion estimation, image mosaics, 3D shape reconstruction, and object recognition. Applications of these techniques include building 3D maps, creating virtual characters, organizing photo and video databases, human computer interaction, video surveillance, and automatic vehicle navigation. Broad overview of various computer vision and machine learning techniques and sensing and imaging technologies used in computer vision applications. This is a project-based course.",
+            "id": "COMPSCI 566",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics selected from advanced areas.",
+            "id": "COMPSCI 839",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 320",
+            "target": "COMPSCI/LIS 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "COMPSCI 564"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI/ECE/ISYE 524"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar on recent research on various aspects of computer science.",
+            "id": "COMPSCI 900",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 638"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
+            "id": "COMPSCI 698",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 570",
+            "target": "COMPSCI/ECE 506"
+        }
+    },
+    {
+        "data": {
+            "description": "Conduct formal evaluations of the user experience (UX) or usability of a digital system. Gain familiarity with the evaluation and research process including key stages, tasks for each stage, common data collection and analysis methods, and common tools employed in the field. Gain experience with a variety of UX evaluation approaches. Collect pilot data and develop a proposal for further UX testing.",
+            "id": "COMPSCI/LIS 613"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in computing. Each offering of the course will cover a topic selected by the instructor. Offerings of this course will provide sufficient depth into their subject to count as electives to meet CS Major requirements.",
+            "id": "COMPSCI 639",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+            "id": "BIOCHEM/BME/BMI/CBE/COMPSCI/GENETICS 915"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "COMPSCI 534"
+        }
+    },
+    {
+        "data": {
+            "description": "Logic components, Boolean algebra, combinational logic analysis and synthesis, synchronous and asynchronous sequential logic analysis and design, digital subsystems, computer organization and design.",
+            "id": "COMPSCI/ECE 352"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to fundamental structures of computer systems and the C programming language with a focus on the low-level interrelationships and impacts on performance. Topics include the virtual address space and virtual memory, the heap and dynamic memory management, the memory hierarchy and caching, assembly language and the stack, communication and interrupts/signals, compiling and assemblers/linkers.",
+            "id": "COMPSCI/ECE 354"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic concepts; distributed programming; distributed file systems; atomic actions; fault tolerance, transactions, program and data replication, recovery; distributed machine architectures; security and authentication; load balancing and process migration; distributed debugging; distributed performance measurement; distributed simulation techniques; distributed applications; correctness considerations and proof systems.",
+            "id": "COMPSCI 739",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "ECE 203"
         }
     },
     {
@@ -1491,15 +2640,41 @@
     },
     {
         "data": {
-            "source": "COMPSCI/ECE 354",
-            "target": "COMPSCI 536"
+            "description": "Advanced topics in computer architecture that explore the implications to architecture of forthcoming evolutionary and revolutionary changes in application demands, software paradigms, and hardware implementation technologies.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
+            "id": "COMPSCI 758",
+            "parent": "COMPSCI"
         }
     },
     {
         "data": {
-            "description": "Training in computer programming for competitions: assessing the coding difficulty and complexity of computational problems, recognizing the applicability of known algorithms, fast coding and testing, team work.COMP\u00a0SCI\u00a0577is suggested but not required.",
-            "id": "COMPSCI 578",
+            "source": "COMPSCI 200",
+            "target": "COMPSCI 638"
+        }
+    },
+    {
+        "data": {
+            "description": "For students interested in learning a particular programming language. Focuses on a specific language offered at one of three levels: beginner, intermediate, and advanced. Students may repeat the course if the topic title is different.",
+            "id": "COMPSCI 368",
             "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Big Data is often said to deal with four Vs: volume, velocity, variety, and veracity. The focus is on variety and veracity challenges, which often arise in data science projects. In many such projects, data is often incorrect, hard to understand, and come from a variety of sources. Data scientists often spend 80% of their effort to explore, clean, and integrate this data, before analysis can be carried out to extract insights. As a result, managing variety and veracity has received significant attention. Study these topics, understand their challenges, and discuss solutions. These solutions often require data management, machine learning, big data scaling, cloud, crowdsourcing, and user interaction techniques. Knowledge of machine learning/AI [COMP\u00a0SCI\u00a0540], databases [COMP\u00a0SCI\u00a0564] and Python [COMP\u00a0SCI\u00a0320] recommended.",
+            "id": "COMPSCI 774",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Parallel algorithms, principles of parallelism detection and vectorizing compilers, interconnection networks, MIMD machines, processor synchronization, data coherence, multis, dataflow machines, special purpose processors.  Students are strongly encouraged to have knowledge of computer architecture (e.g.,E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0552).",
+            "id": "COMPSCI/ECE 757"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "BMI/COMPSCI 567"
         }
     }
 ]

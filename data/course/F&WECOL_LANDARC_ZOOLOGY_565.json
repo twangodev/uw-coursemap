@@ -2,21 +2,78 @@
     "course_reference": {
         "course_number": 565,
         "subjects": [
-            "F&WECOL",
             "ZOOLOGY",
+            "F&WECOL",
             "LANDARC"
         ]
     },
     "course_title": "PRINCIPLES OF LANDSCAPE ECOLOGY",
     "description": "Emphasizes the importance of spatial patterns at broad scales. Concepts and applications are covered.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 460,
                 "subjects": [
-                    "F&WECOL",
                     "ZOOLOGY",
+                    "F&WECOL",
                     "BOTANY"
+                ]
+            },
+            {
+                "course_number": 550,
+                "subjects": [
+                    "F&WECOL"
+                ]
+            },
+            {
+                "course_number": 571,
+                "subjects": [
+                    "F&WECOL",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460orF&W\u00a0ECOL\u00a0550) and (STAT\u00a0301,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571), or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 571,
+                "subjects": [
+                    "F&WECOL",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 460,
+                "subjects": [
+                    "ZOOLOGY",
+                    "F&WECOL",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 550,
+                "subjects": [
+                    "F&WECOL"
                 ]
             }
         ],

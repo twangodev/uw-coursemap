@@ -7,12 +7,76 @@
     },
     "course_title": "EMERGING INFECTIOUS DISEASES AND BIOTERRORISM",
     "description": "Identification of analysis and solution of emerging infectious disease problems and the problems of bioterrorism.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 301,
                 "subjects": [
                     "MM&I"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, (BIOCORE\u00a0383andM\u00a0M\u00a0&\u00a0I\u00a0301),MICROBIO\u00a0101,MICROBIO\u00a0303, or graduate/professional standing."
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "MM&I"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "MICROBIO"
                 ]
             }
         ],

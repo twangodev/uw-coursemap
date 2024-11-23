@@ -1,13 +1,6 @@
 [
     {
         "data": {
-            "description": "Individual research projects conducted under professorial supervision.",
-            "id": "MOLBIOL 699",
-            "parent": "MOLBIOL"
-        }
-    },
-    {
-        "data": {
             "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
             "id": "MOLBIOL 691",
             "parent": "MOLBIOL"
@@ -15,15 +8,21 @@
     },
     {
         "data": {
-            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member. Must have completed MOL BIO 681 and declared in an honors program.",
-            "id": "MOLBIOL 682",
-            "parent": "MOLBIOL"
+            "id": "MOLBIOL",
+            "type": "compound"
         }
     },
     {
         "data": {
             "description": "A seminar on the origins, present frontiers, and future prospects of molecular biology.",
             "id": "MOLBIOL 686",
+            "parent": "MOLBIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member. Must be declared in an honors program.",
+            "id": "MOLBIOL 681",
             "parent": "MOLBIOL"
         }
     },
@@ -36,14 +35,15 @@
     },
     {
         "data": {
-            "id": "MOLBIOL",
-            "type": "compound"
+            "description": "Individual research projects conducted under professorial supervision.",
+            "id": "MOLBIOL 699",
+            "parent": "MOLBIOL"
         }
     },
     {
         "data": {
-            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member. Must be declared in an honors program.",
-            "id": "MOLBIOL 681",
+            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member. Must have completed MOL BIO 681 and declared in an honors program.",
+            "id": "MOLBIOL 682",
             "parent": "MOLBIOL"
         }
     }

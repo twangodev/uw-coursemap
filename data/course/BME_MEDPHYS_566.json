@@ -8,15 +8,29 @@
     },
     "course_title": "PHYSICS OF RADIOTHERAPY",
     "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BME",
+                    "MEDPHYS",
+                    "PHYSICS",
+                    "HONCOL"
+                ]
+            }
+        ],
+        "prerequisites_text": "PHYSICS/\u200bB\u00a0M\u00a0E/\u200bH\u00a0ONCOL/\u200bMED\u00a0PHYS\u00a0\u00a0501"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 501,
                 "subjects": [
-                    "HONCOL",
                     "BME",
                     "MEDPHYS",
-                    "PHYSICS"
+                    "PHYSICS",
+                    "HONCOL"
                 ]
             }
         ],

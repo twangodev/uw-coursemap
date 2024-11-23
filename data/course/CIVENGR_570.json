@@ -7,12 +7,67 @@
     },
     "course_title": "CONNECTED AND AUTOMATED TRANSPORTATION SYSTEMS",
     "description": "Connected vehicle and automated vehicle technologies; comprehensive studies of sensing, trajectory planning, and vehicle control within the context of the automated vehicle; consideration of pertinent development and technologies in this field.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 370,
                 "subjects": [
                     "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 324,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "CIV\u00a0ENGR\u00a0370and (STAT\u00a0324,E\u00a0C\u00a0E\u00a0331,STAT/\u200bMATH\u00a0\u00a0431, orSTAT\u00a0311), graduate/professional standing, or member of Engineering Guest Students"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 370,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 324,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
                 ]
             }
         ],

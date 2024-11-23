@@ -7,12 +7,47 @@
     },
     "course_title": "MATERIAL CULTURE FOR PERFORMANCE DESIGN",
     "description": "Introduction to art, architecture, interior design, objects, and clothing history, including social and economic factors that influenced development. Through research and critical thinking, demonstrate knowledge of historical and contemporary art movements, architecture, and clothing for application in performance design.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 120,
+                "subjects": [
+                    "DS"
+                ]
+            },
             {
                 "course_number": 130,
                 "subjects": [
                     "THEATRE"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "ART"
+                ]
+            }
+        ],
+        "prerequisites_text": "THEATRE\u00a0130,ART\u00a0100, orDS\u00a0120"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 120,
+                "subjects": [
+                    "DS"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "THEATRE"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "ART"
                 ]
             }
         ],

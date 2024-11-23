@@ -2,18 +2,69 @@
     "course_reference": {
         "course_number": 575,
         "subjects": [
-            "BIOCHEM",
-            "MM&I"
+            "MM&I",
+            "BIOCHEM"
         ]
     },
     "course_title": "BIOLOGY OF VIRUSES",
     "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
             {
                 "course_number": 301,
                 "subjects": [
                     "MM&I"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            }
+        ],
+        "prerequisites_text": "(BIOCORE\u00a0381and382),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,M\u00a0M\u00a0&\u00a0I\u00a0301, or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "MM&I"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

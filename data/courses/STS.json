@@ -1,13 +1,17 @@
 [
     {
         "course_reference": {
-            "course_number": 999,
+            "course_number": 699,
             "subjects": [
                 "STS"
             ]
         },
-        "course_title": "INDEPENDENT STUDY IN SCIENCE AND TECHNOLOGY STUDIES",
-        "description": "Independent study as arranged with a faculty member. Topics, readings, assignments and  meetings will be outlined in a student-faculty \"contract.\"",
+        "course_title": "DIRECTED STUDY",
+        "description": "Advanced directed study projects as arranged with a faculty member. Requires completion ofSTS\u00a0201.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -15,16 +19,20 @@
     },
     {
         "course_reference": {
-            "course_number": 903,
+            "course_number": 201,
             "subjects": [
                 "STS"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN SCIENCE AND TECHNOLOGY STUDIES",
-        "description": "An interdisciplinary exploration of one or more high profile issues motivated debate and discussion among science and technology studies scholars.",
+        "course_title": "WHERE SCIENCE MEETS SOCIETY",
+        "description": "An overview of science and technology studies. Explores science and technology as central institutions in modern societies. Teaches approaches to analyzing social dimensions of recent advances in areas such as genetics, environment, Internet, surveillance, and nanotechnology..",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -37,49 +45,10 @@
         },
         "course_title": "SCIENCE STUDIES AND SCIENCE EDUCATION",
         "description": "Examination of the key ideas from the field of science and technology studies (history, philosophy, sociology of science, etc.) and how they have been taken up in both the school science curriculum as well as the science education research community.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 201,
-            "subjects": [
-                "STS"
-            ]
         },
-        "course_title": "WHERE SCIENCE MEETS SOCIETY",
-        "description": "An overview of science and technology studies. Explores science and technology as central institutions in modern societies. Teaches approaches to analyzing social dimensions of recent advances in areas such as genetics, environment, Internet, surveillance, and nanotechnology..",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "STS"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Advanced directed study projects as arranged with a faculty member. Requires completion ofSTS\u00a0201.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 733,
-            "subjects": [
-                "STS",
-                "CURRIC"
-            ]
-        },
-        "course_title": "PUBLIC ENGAGEMENT WITH SCIENCE",
-        "description": "Examines the influence of science in everyday life. Provides both academic context (research and theory) and a firsthand look at how science matters to people who are not themselves scientists.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -94,9 +63,31 @@
         },
         "course_title": "SCIENCE, TECHNOLOGY AND MEDICINE IN SOCIETY",
         "description": "Key themes, issues and scholarship in the interdisciplinary fields of science and technology studies. Explores how different disciplinary perspectives contribute to and influence the questions, methods and theoretical approaches within particular fields of science studies.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "STS"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY IN SCIENCE AND TECHNOLOGY STUDIES",
+        "description": "Independent study as arranged with a faculty member. Topics, readings, assignments and  meetings will be outlined in a student-faculty \"contract.\"",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -108,6 +99,47 @@
         },
         "course_title": "CURRENT TOPICS IN SCIENCE AND TECNOLOGY STUDIES",
         "description": "Key themes, issues and scholarship in the interdisciplinary field of science and technology studies (STS). Participating faculty and speakers will be drawn from the social sciences, humanities, and physical and life sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 903,
+            "subjects": [
+                "STS"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN SCIENCE AND TECHNOLOGY STUDIES",
+        "description": "An interdisciplinary exploration of one or more high profile issues motivated debate and discussion among science and technology studies scholars.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 733,
+            "subjects": [
+                "STS",
+                "CURRIC"
+            ]
+        },
+        "course_title": "PUBLIC ENGAGEMENT WITH SCIENCE",
+        "description": "Examines the influence of science in everyday life. Provides both academic context (research and theory) and a firsthand look at how science matters to people who are not themselves scientists.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"

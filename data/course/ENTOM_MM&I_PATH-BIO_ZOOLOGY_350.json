@@ -2,21 +2,81 @@
     "course_reference": {
         "course_number": 350,
         "subjects": [
-            "ENTOM",
-            "PATH-BIO",
             "ZOOLOGY",
-            "MM&I"
+            "MM&I",
+            "ENTOM",
+            "PATH-BIO"
         ]
     },
     "course_title": "PARASITOLOGY",
     "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
                     "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY\u00a0153, orBIOCORE\u00a0381"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

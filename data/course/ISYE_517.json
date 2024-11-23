@@ -7,14 +7,72 @@
     },
     "course_title": "DECISION MAKING IN HEALTH CARE",
     "description": "Introduction to the use of decision sciences in health-care. Conceptual understanding of medical decision making and its tools including decision trees, sensitivity analysis, Markow (decision) processes, and Monte Carlo simulations with examples from the current medical literature.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 524,
+                "subjects": [
+                    "ISYE",
+                    "ECE",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 323,
+                "subjects": [
+                    "ISYE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,STAT\u00a0311, orSTAT/\u200bMATH\u00a0\u00a0431) and (I\u00a0SY\u00a0E\u00a0323orE\u00a0C\u00a0E/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E\u00a0\u00a0524), or graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 524,
                 "subjects": [
+                    "ISYE",
                     "ECE",
-                    "COMPSCI",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 323,
+                "subjects": [
                     "ISYE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
                 ]
             }
         ],

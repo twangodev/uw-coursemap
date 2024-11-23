@@ -7,8 +7,32 @@
     },
     "course_title": "INTRODUCTION TO OPERATING SYSTEMS",
     "description": "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 354,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0354and (COMP SCI 367 or400) or graduate/professional standing or declared in the Capstone Certificate in Computer Sciences for Professionals"
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
             {
                 "course_number": 354,
                 "subjects": [

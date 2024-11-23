@@ -1,43 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 431,
-            "subjects": [
-                "FOLKLORE",
-                "AMERIND",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "AMERICAN INDIAN FOLKLORE",
-        "description": "An introduction to the genres of American Indian Folklore. Special attention is given to creation stories, trickster tales, and the relationship between folklore and historical memory.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 230,
-                    "subjects": [
-                        "FOLKLORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Junior standing and (AMER\u00a0IND/\u200bANTHRO\u00a0\u00a0314,FOLKLORE\u00a0100,230, or320), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 303,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "BEGINNER LEVEL INDIGENOUS LANGUAGE",
-        "description": "Gain an understanding of the grammatical and cultural features of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 401,
             "subjects": [
                 "AMERIND"
@@ -45,6 +8,17 @@
         },
         "course_title": "OJIBWE LANGUAGE III",
         "description": "Represents the third semester of the Ojibwe language, focusing on word structure and conversational skills.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 302,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0302"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -59,107 +33,6 @@
     },
     {
         "course_reference": {
-            "course_number": 404,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "INTERMEDIATE LEVEL INDIGENOUS LANGUAGE II",
-        "description": "Build on intermediate skills of a specific indigenous language. Increased focus on developing conversational skills.  Requires completion ofAMER\u00a0IND\u00a0403in the same language.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 185,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "INDIGENOUS ATHLETES AND SPORTS",
-        "description": "Offers an overview of physical, competitive games, from ancient Mesoamerica to the United States today, highlighting those with Indigenous cultural and social connections. Profile Indigenous athletes competing in both team and individual sports, from schoolyards to professional competitions with a central focus on Indigenous contributions to sports in North America.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 230,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "INDIGENOUS RESISTANCE AND ACTIVISM",
-        "description": "Examines historic and contemporary forms of Indigenous resistance including grassroots organizing, treaty rights, language revitalization, art and media, and environmental justice from Indigenous perspectives in North America and the Pacific.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 199,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study for freshmen and sophomores in collaboration with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 246,
-            "subjects": [
-                "AMERIND",
-                "ENGL"
-            ]
-        },
-        "course_title": "LITERATURE BY AMERICAN INDIAN WOMEN",
-        "description": "Presents a broad range of literatures from diverse Native traditions and eras, to provide students with a basic knowledge of major issues affecting and best-known texts by American Indian women authors.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 190,
-            "subjects": [
-                "AMERIND",
-                "HISTORY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO AMERICAN INDIAN HISTORY",
-        "description": "A broad survey of American Indian history which centers Indigenous peoples, communities, and nations in the context of U.S. policy and culture that emphasizes decolonial methods and Native ways of knowing the past.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 636,
-            "subjects": [
-                "AMERIND",
-                "SOCWORK"
-            ]
-        },
-        "course_title": "SOCIAL WORK IN AMERICAN INDIAN COMMUNITIES: THE INDIAN CHILD WELFARE ACT",
-        "description": "The role of social workers and social services in American Indian and tribal communities, particularly compliance with the Indian Child Welfare Act. Historical context includes land removal and loss, the boarding school and adoption eras, and social determinants of health including the impacts of historical and intergenerational trauma.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 402,
             "subjects": [
                 "AMERIND"
@@ -167,6 +40,17 @@
         },
         "course_title": "OJIBWE LANGUAGE IV",
         "description": "Represents the fourth semester in the Ojibwe language, focusing on conversational skills.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 401,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0401"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -183,134 +67,22 @@
         "course_reference": {
             "course_number": 102,
             "subjects": [
-                "AMERIND",
-                "ASIANAM",
                 "AFROAMER",
+                "AMERIND",
                 "FOLKLORE",
-                "CHICLA"
+                "CHICLA",
+                "ASIANAM"
             ]
         },
         "course_title": "INTRODUCTION TO COMPARATIVE US ETHNIC AND AMERICAN INDIAN STUDIES",
         "description": "Introduction to comparative ethnic studies, examining race, ethnicity, and indigeneity within the United States. Includes perspectives from African American, American Indian, Asian American, and Chican@ and Latin@ studies.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 403,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "INTERMEDIATE LEVEL INDIGENOUS LANGUAGE",
-        "description": "Build on elementary skills of a specific indigenous language. Advanced grammar and syntax; advanced conversation and composition; cultural background of Indigenous people speaking the language through reading of stories, histories and cultural exploration. Requires completion ofAMER\u00a0IND\u00a0304in the same language.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 450,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "ISSUES IN AMERICAN INDIAN STUDIES",
-        "description": "Special focus on American Indian thought and perspectives on subjects in the arts and sciences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 172,
-            "subjects": [
-                "AMERIND",
-                "ENGL"
-            ]
-        },
-        "course_title": "LITERATURES OF NATIVE AMERICA",
-        "description": "Introduction to the oral and written literatures of the peoples of native North America. An engagement with texts across historical periods, tribal groups, and regions to examine forms such as oratory, sermon, testimony, autobiography, and contemporary poetry and novels.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 250,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "INDIANS OF WISCONSIN",
-        "description": "Introduction to the various American Indian Nations within Wisconsin's borders with an emphasis on their history, culture, and sovereignty.  Examines individual tribes and bands as well as common issues that affect tribal and non-tribal people in Wisconsin.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 330,
-            "subjects": [
-                "AMERIND",
-                "CSCS"
-            ]
-        },
-        "course_title": "AMERICAN INDIAN COMMUNITIES: SOVEREIGNTY, STRUGGLES, AND SUCCESSES",
-        "description": "Learn about contemporary Native communities, both domestically and globally, through a carefully curated selection of readings, podcasts, and videos from Indigenous scholars, community members, knowledge holders, and activists. Offers a broad historical overview of Native American communities in the United States that illustrates the historical trajectory from early colonization and dispossession through self-determination and the recognition of tribal sovereignty in action by local, state, and federal governments.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 325,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "AMERICAN INDIANS IN FILM",
-        "description": "A critical examination of the portrayal of the American Indian in film, including documentaries and films made by Native filmmakers.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 106,
-            "subjects": [
-                "AMERIND",
-                "LANDARC"
-            ]
-        },
-        "course_title": "EARTH PARTNERSHIP INDIGENOUS ARTS AND SCIENCES",
-        "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 355,
-            "subjects": [
-                "AMERIND",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "ARCHAEOLOGY OF EASTERN NORTH AMERICA",
-        "description": "Learn about the great diversity of Native American cultures in eastern North America, with an emphasis on those of the Midwest and Southeast. More than twelve thousand years of accommodations to diverse natural and social environments are covered, starting with archaeological evidence for and oral traditions describing the initial peopling of the Americas and ending with the European invasion and interactions with the Native Americans of the Eastern Woodlands.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -322,6 +94,10 @@
         },
         "course_title": "SPECIAL TOPICS IN AMERICAN INDIAN STUDIES",
         "description": "Special focus on American Indian thought and perspectives on subjects in the arts and sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -329,43 +105,18 @@
     },
     {
         "course_reference": {
-            "course_number": 341,
+            "course_number": 355,
             "subjects": [
-                "ENVIRST",
+                "ANTHRO",
                 "AMERIND"
             ]
         },
-        "course_title": "INDIGENOUS ENVIRONMENTAL COMMUNICATORS",
-        "description": "Native Nations show leadership globally in addressing major environmental issues. Indigenous languages describe deep relationships with the natural world, including information on environmental stewardship - harvesting, caretaking and reciprocity. Indigenous scholars contribute crucial perspectives to conversations about human relationships to the Earth - cultural relationships to wildlife and plants, and the ethical and practical roles of humans in socio-ecological systems. Focuses on indigenous environmental scholarship, including the ongoing legacy of oral traditions, developing research, writing, and public speaking skills.",
-        "prerequisites": {
+        "course_title": "ARCHAEOLOGY OF EASTERN NORTH AMERICA",
+        "description": "Learn about the great diversity of Native American cultures in eastern North America, with an emphasis on those of the Midwest and Southeast. More than twelve thousand years of accommodations to diverse natural and social environments are covered, starting with archaeological evidence for and oral traditions describing the initial peopling of the Americas and ending with the European invasion and interactions with the Native Americans of the Eastern Woodlands.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Satisfied Communications A requirement and sophomore standing, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 308,
-            "subjects": [
-                "AMERIND"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "BEGINNER LEVEL HOOCAK/HO-CHUNK LANGUAGE",
-        "description": "Provides an instruction to the Hoocak language (Ho-Chunk, formerly referred to as the Wisconsin Winnebago). Hoocak is one of the five aboriginal languages spoken in the state of Wisconsin and part of a larger Souian language family found only in North America. Learn the sounds and writing system of the language and examine the associated grammar and vocabulary. Develop literacy and an understanding of the unique sentence and verb structures, and utilize basic introductory conversational skills currently being used among Hoocak speakers.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 314,
-            "subjects": [
-                "AMERIND",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "INDIANS OF NORTH AMERICA",
-        "description": "Description and analysis of native cultures, and the role of environmental and historical factors in North America.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -373,13 +124,36 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 636,
+            "subjects": [
+                "SOCWORK",
+                "AMERIND"
+            ]
+        },
+        "course_title": "SOCIAL WORK IN AMERICAN INDIAN COMMUNITIES: THE INDIAN CHILD WELFARE ACT",
+        "description": "The role of social workers and social services in American Indian and tribal communities, particularly compliance with the Indian Child Welfare Act. Historical context includes land removal and loss, the boarding school and adoption eras, and social determinants of health including the impacts of historical and intergenerational trauma.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 403,
             "subjects": [
                 "AMERIND"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study for junior, senior and graduate students in collaboration with a faculty member.",
+        "course_title": "INTERMEDIATE LEVEL INDIGENOUS LANGUAGE",
+        "description": "Build on elementary skills of a specific indigenous language. Advanced grammar and syntax; advanced conversation and composition; cultural background of Indigenous people speaking the language through reading of stories, histories and cultural exploration. Requires completion ofAMER\u00a0IND\u00a0304in the same language.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -387,168 +161,20 @@
     },
     {
         "course_reference": {
-            "course_number": 437,
-            "subjects": [
-                "FOLKLORE",
-                "AMERIND",
-                "GEN&WS",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "AMERICAN INDIAN WOMEN",
-        "description": "Examines and interprets the roles of American Indian women in traditional societies, and in contemporary North America.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 100,
+            "course_number": 325,
             "subjects": [
                 "AMERIND"
             ]
         },
-        "course_title": "INTRODUCTION TO AMERICAN INDIAN STUDIES",
-        "description": "Focus is history, social organization, political experience, artistic expression of North American Indians, using methods and materials from a number of disciplines as an introduction to the interdisciplinary field.",
-        "prerequisites": {
+        "course_title": "AMERICAN INDIANS IN FILM",
+        "description": "A critical examination of the portrayal of the American Indian in film, including documentaries and films made by Native filmmakers.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 354,
-            "subjects": [
-                "AMERIND",
-                "ANTHRO"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "ARCHAEOLOGY OF WISCONSIN",
-        "description": "Introduction to the archaeological evidence for the diverse Native American cultures of Wisconsin over the past 12,000 years.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 474,
-            "subjects": [
-                "AMERIND",
-                "BOTANY",
-                "ANTHRO"
-            ]
-        },
-        "course_title": "ETHNOBOTANY",
-        "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 371,
-            "subjects": [
-                "AMERIND",
-                "LINGUIS"
-            ]
-        },
-        "course_title": "SURVEY OF NORTH AMERICAN INDIAN LANGUAGES",
-        "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 306,
-            "subjects": [
-                "ENVIRST",
-                "AMERIND"
-            ]
-        },
-        "course_title": "INDIGENOUS PEOPLES AND THE ENVIRONMENT",
-        "description": "Indigenous peoples often have very close relationships to ancestral homelands, species and natural resources. However, definitions of \"indigenous\" can be controversial and highly politicized. Diverse outlooks on identities, worldviews and environmental governance clarify the complex meanings of indigeneity in the US. Highlights American Indian perspectives, conservation practices, and policy environments through consideration of US and international case studies. American Indian experiences shed light on pressing issues of resource sustainability and sovereignty, and demonstrate linkages to global Indigenous environmental issues and strategies.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 304,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "BEGINNER LEVEL INDIGENOUS LANGUAGE II",
-        "description": "Focus on proficiency in reading, speaking, and writing of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "AMERIND"
-                    ]
-                }
-            ],
-            "prerequisites_text": "AMER\u00a0IND\u00a0303"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 345,
-            "subjects": [
-                "GEOG",
-                "AMERIND",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
-        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 301,
-            "subjects": [
-                "AMERIND"
-            ]
-        },
-        "course_title": "FIRST SEMESTER OJIBWE",
-        "description": "Introduction to the Ojibwe language, spoken and written, with emphasis on oral tradition and extensive study of grammar.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 380,
-            "subjects": [
-                "AMERIND",
-                "HISTORY"
-            ]
-        },
-        "course_title": "SOVEREIGNTY AND THE SCHOOLHOUSE",
-        "description": "Introduction to the history of American Indian education. Evaluate the relationship between education and sovereignty through a survey of schools including missions, boarding schools, survival schools, tribal colleges, language nests, charter schools, and more.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 190,
-                    "subjects": [
-                        "AMERIND",
-                        "HISTORY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "AMER\u00a0IND\u00a0100,HISTORY/\u200bAMER\u00a0IND\u00a0\u00a0190, or graduate/professional standing"
         }
     },
     {
@@ -560,6 +186,17 @@
         },
         "course_title": "SECOND SEMESTER OJIBWE",
         "description": "Continuation of Ojibwe language study, with an emphasis on traditional winter cycle myths.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0301"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -574,6 +211,598 @@
     },
     {
         "course_reference": {
+            "course_number": 314,
+            "subjects": [
+                "ANTHRO",
+                "AMERIND"
+            ]
+        },
+        "course_title": "INDIANS OF NORTH AMERICA",
+        "description": "Description and analysis of native cultures, and the role of environmental and historical factors in North America.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 474,
+            "subjects": [
+                "ANTHRO",
+                "BOTANY",
+                "AMERIND"
+            ]
+        },
+        "course_title": "ETHNOBOTANY",
+        "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 306,
+            "subjects": [
+                "AMERIND",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INDIGENOUS PEOPLES AND THE ENVIRONMENT",
+        "description": "Indigenous peoples often have very close relationships to ancestral homelands, species and natural resources. However, definitions of \"indigenous\" can be controversial and highly politicized. Diverse outlooks on identities, worldviews and environmental governance clarify the complex meanings of indigeneity in the US. Highlights American Indian perspectives, conservation practices, and policy environments through consideration of US and international case studies. American Indian experiences shed light on pressing issues of resource sustainability and sovereignty, and demonstrate linkages to global Indigenous environmental issues and strategies.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 250,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "INDIANS OF WISCONSIN",
+        "description": "Introduction to the various American Indian Nations within Wisconsin's borders with an emphasis on their history, culture, and sovereignty.  Examines individual tribes and bands as well as common issues that affect tribal and non-tribal people in Wisconsin.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 345,
+            "subjects": [
+                "ENVIRST",
+                "GEOG",
+                "AMERIND"
+            ]
+        },
+        "course_title": "CARING FOR NATURE IN NATIVE NORTH AMERICA",
+        "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 303,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "BEGINNER LEVEL INDIGENOUS LANGUAGE",
+        "description": "Gain an understanding of the grammatical and cultural features of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "CSCS",
+                "AMERIND"
+            ]
+        },
+        "course_title": "AMERICAN INDIAN COMMUNITIES: SOVEREIGNTY, STRUGGLES, AND SUCCESSES",
+        "description": "Learn about contemporary Native communities, both domestically and globally, through a carefully curated selection of readings, podcasts, and videos from Indigenous scholars, community members, knowledge holders, and activists. Offers a broad historical overview of Native American communities in the United States that illustrates the historical trajectory from early colonization and dispossession through self-determination and the recognition of tribal sovereignty in action by local, state, and federal governments.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 185,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "INDIGENOUS ATHLETES AND SPORTS",
+        "description": "Offers an overview of physical, competitive games, from ancient Mesoamerica to the United States today, highlighting those with Indigenous cultural and social connections. Profile Indigenous athletes competing in both team and individual sports, from schoolyards to professional competitions with a central focus on Indigenous contributions to sports in North America.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 172,
+            "subjects": [
+                "ENGL",
+                "AMERIND"
+            ]
+        },
+        "course_title": "LITERATURES OF NATIVE AMERICA",
+        "description": "Introduction to the oral and written literatures of the peoples of native North America. An engagement with texts across historical periods, tribal groups, and regions to examine forms such as oratory, sermon, testimony, autobiography, and contemporary poetry and novels.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 246,
+            "subjects": [
+                "ENGL",
+                "AMERIND"
+            ]
+        },
+        "course_title": "LITERATURE BY AMERICAN INDIAN WOMEN",
+        "description": "Presents a broad range of literatures from diverse Native traditions and eras, to provide students with a basic knowledge of major issues affecting and best-known texts by American Indian women authors.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 190,
+            "subjects": [
+                "HISTORY",
+                "AMERIND"
+            ]
+        },
+        "course_title": "INTRODUCTION TO AMERICAN INDIAN HISTORY",
+        "description": "A broad survey of American Indian history which centers Indigenous peoples, communities, and nations in the context of U.S. policy and culture that emphasizes decolonial methods and Native ways of knowing the past.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "FIRST SEMESTER OJIBWE",
+        "description": "Introduction to the Ojibwe language, spoken and written, with emphasis on oral tradition and extensive study of grammar.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 341,
+            "subjects": [
+                "AMERIND",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INDIGENOUS ENVIRONMENTAL COMMUNICATORS",
+        "description": "Native Nations show leadership globally in addressing major environmental issues. Indigenous languages describe deep relationships with the natural world, including information on environmental stewardship - harvesting, caretaking and reciprocity. Indigenous scholars contribute crucial perspectives to conversations about human relationships to the Earth - cultural relationships to wildlife and plants, and the ethical and practical roles of humans in socio-ecological systems. Focuses on indigenous environmental scholarship, including the ongoing legacy of oral traditions, developing research, writing, and public speaking skills.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Satisfied Communications A requirement and sophomore standing, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Satisfied Communications A requirement and sophomore standing, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 437,
+            "subjects": [
+                "FOLKLORE",
+                "ANTHRO",
+                "GEN&WS",
+                "AMERIND"
+            ]
+        },
+        "course_title": "AMERICAN INDIAN WOMEN",
+        "description": "Examines and interprets the roles of American Indian women in traditional societies, and in contemporary North America.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "ISSUES IN AMERICAN INDIAN STUDIES",
+        "description": "Special focus on American Indian thought and perspectives on subjects in the arts and sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 308,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "BEGINNER LEVEL HOOCAK/HO-CHUNK LANGUAGE",
+        "description": "Provides an instruction to the Hoocak language (Ho-Chunk, formerly referred to as the Wisconsin Winnebago). Hoocak is one of the five aboriginal languages spoken in the state of Wisconsin and part of a larger Souian language family found only in North America. Learn the sounds and writing system of the language and examine the associated grammar and vocabulary. Develop literacy and an understanding of the unique sentence and verb structures, and utilize basic introductory conversational skills currently being used among Hoocak speakers.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 199,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study for freshmen and sophomores in collaboration with a faculty member.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 230,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "INDIGENOUS RESISTANCE AND ACTIVISM",
+        "description": "Examines historic and contemporary forms of Indigenous resistance including grassroots organizing, treaty rights, language revitalization, art and media, and environmental justice from Indigenous perspectives in North America and the Pacific.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 106,
+            "subjects": [
+                "LANDARC",
+                "AMERIND"
+            ]
+        },
+        "course_title": "EARTH PARTNERSHIP INDIGENOUS ARTS AND SCIENCES",
+        "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "LINGUIS",
+                "AMERIND"
+            ]
+        },
+        "course_title": "SURVEY OF NORTH AMERICAN INDIAN LANGUAGES",
+        "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 431,
+            "subjects": [
+                "ANTHRO",
+                "FOLKLORE",
+                "AMERIND"
+            ]
+        },
+        "course_title": "AMERICAN INDIAN FOLKLORE",
+        "description": "An introduction to the genres of American Indian Folklore. Special attention is given to creation stories, trickster tales, and the relationship between folklore and historical memory.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                },
+                {
+                    "course_number": 314,
+                    "subjects": [
+                        "ANTHRO",
+                        "AMERIND"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                },
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing and (AMER\u00a0IND/\u200bANTHRO\u00a0\u00a0314,FOLKLORE\u00a0100,230, or320), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                },
+                {
+                    "course_number": 314,
+                    "subjects": [
+                        "ANTHRO",
+                        "AMERIND"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                },
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "FOLKLORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing and (AMER\u00a0IND/\u200bANTHRO\u00a0\u00a0314,FOLKLORE\u00a0100,230, or320), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 304,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "BEGINNER LEVEL INDIGENOUS LANGUAGE II",
+        "description": "Focus on proficiency in reading, speaking, and writing of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0303"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0303"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 404,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "INTERMEDIATE LEVEL INDIGENOUS LANGUAGE II",
+        "description": "Build on intermediate skills of a specific indigenous language. Increased focus on developing conversational skills.  Requires completion ofAMER\u00a0IND\u00a0403in the same language.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 578,
+            "subjects": [
+                "SOC",
+                "C&ESOC",
+                "AMERIND"
+            ]
+        },
+        "course_title": "POVERTY AND PLACE",
+        "description": "The allocation of economic and social rewards in the United States; emphasis on persistently poor regions and communities; analysis of selected minority groups and their poverty statuses; poverty programs and their consequences for structural and cultural changes.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 140,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 181,
+                    "subjects": [
+                        "SOC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bC&E\u00a0SOC\u00a0\u00a0140,210,211, orSOC\u00a0181"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 140,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "SOC",
+                        "C&ESOC"
+                    ]
+                },
+                {
+                    "course_number": 181,
+                    "subjects": [
+                        "SOC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bC&E\u00a0SOC\u00a0\u00a0140,210,211, orSOC\u00a0181"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 100,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "INTRODUCTION TO AMERICAN INDIAN STUDIES",
+        "description": "Focus is history, social organization, political experience, artistic expression of North American Indians, using methods and materials from a number of disciplines as an introduction to the interdisciplinary field.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 410,
             "subjects": [
                 "GEOG",
@@ -582,6 +811,10 @@
         },
         "course_title": "CRITICAL INDIGENOUS ECOLOGICAL KNOWLEDGES",
         "description": "Critical Indigenous Ecological Knowledges are a set of diverse understandings, responsibilities, and laws held by distinct groups of Indigenous peoples that are enacted in multiple ways across socio-political and geographical contexts. These knowledges intersect with Indigenous political sovereignties and longstanding, complex, and nuanced relationships to the more-than-human world. Learn multiple entry points to exploring and examining these knowledge sets in the context of what's for now called the U.S. and Canada to think critically about the politics of Nature, environmentalism, race, indigeneity, and colonialism both historically and in the contemporary moment. Reflect upon how critical Indigenous knowledges about ecology, environment, and government have been erased, co-opted, criminalized, and also continually practiced, reimagined, and revitalized in multiple spheres through a range of interdisciplinary, critical, and cutting-edge Native scholarships and writings.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -589,26 +822,86 @@
     },
     {
         "course_reference": {
-            "course_number": 578,
+            "course_number": 380,
             "subjects": [
-                "C&ESOC",
-                "AMERIND",
-                "SOC"
+                "HISTORY",
+                "AMERIND"
             ]
         },
-        "course_title": "POVERTY AND PLACE",
-        "description": "The allocation of economic and social rewards in the United States; emphasis on persistently poor regions and communities; analysis of selected minority groups and their poverty statuses; poverty programs and their consequences for structural and cultural changes.",
-        "prerequisites": {
+        "course_title": "SOVEREIGNTY AND THE SCHOOLHOUSE",
+        "description": "Introduction to the history of American Indian education. Evaluate the relationship between education and sovereignty through a survey of schools including missions, boarding schools, survival schools, tribal colleges, language nests, charter schools, and more.",
+        "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 140,
+                    "course_number": 100,
                     "subjects": [
-                        "C&ESOC",
-                        "SOC"
+                        "AMERIND"
+                    ]
+                },
+                {
+                    "course_number": 190,
+                    "subjects": [
+                        "HISTORY",
+                        "AMERIND"
                     ]
                 }
             ],
-            "prerequisites_text": "SOC/\u200bC&E\u00a0SOC\u00a0\u00a0140,210,211, orSOC\u00a0181"
+            "prerequisites_text": "AMER\u00a0IND\u00a0100,HISTORY/\u200bAMER\u00a0IND\u00a0\u00a0190, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "AMERIND"
+                    ]
+                },
+                {
+                    "course_number": 190,
+                    "subjects": [
+                        "HISTORY",
+                        "AMERIND"
+                    ]
+                }
+            ],
+            "prerequisites_text": "AMER\u00a0IND\u00a0100,HISTORY/\u200bAMER\u00a0IND\u00a0\u00a0190, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 354,
+            "subjects": [
+                "ANTHRO",
+                "AMERIND"
+            ]
+        },
+        "course_title": "ARCHAEOLOGY OF WISCONSIN",
+        "description": "Introduction to the archaeological evidence for the diverse Native American cultures of Wisconsin over the past 12,000 years.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "AMERIND"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study for junior, senior and graduate students in collaboration with a faculty member.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

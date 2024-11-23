@@ -2,18 +2,65 @@
     "course_reference": {
         "course_number": 526,
         "subjects": [
-            "ECON",
-            "AAE"
+            "AAE",
+            "ECON"
         ]
     },
     "course_title": "QUANTITATIVE METHODS IN AGRICULTURAL AND APPLIED ECONOMICS",
     "description": "Use of quantitative methods (mathematics, statistics, and optimization) to analyze problems faced by decision makers in natural resources and agriculture. Extensive homework requiring use of quantitative methods via spreadsheet tools to solve problems from an applied decision context.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 301,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ECON"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH\u00a0211or221),ECON\u00a0301, andSTAT\u00a0301, or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ECON"
                 ]
             }
         ],

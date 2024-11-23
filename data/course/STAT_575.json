@@ -7,10 +7,69 @@
     },
     "course_title": "STATISTICAL METHODS FOR SPATIAL DATA",
     "description": "Detecting, quantifying, and modeling spatial patterns and structure in data. Variograms and covariance functions, linear predictions with uncertainty qualification, and conditional simulations. Spectral domain models and spectral densities. Spatial point processes. Contemporary applications and Gaussian process model fitting at scale.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(STAT\u00a0333or340) and (MATH\u00a0320,340,341, or375), graduate/professional standing, or declared in Statistics VISP"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 333,
                 "subjects": [
                     "STAT"
                 ]

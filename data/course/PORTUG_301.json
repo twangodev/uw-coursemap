@@ -7,12 +7,65 @@
     },
     "course_title": "INTENSIVE PORTUGUESE",
     "description": "Grammar, conversation, and reading. Equivalent ofPORTUG\u00a0101and102.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
                     "PORTUG"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "PORTUG"
+                ]
+            },
+            {
+                "course_number": 226,
+                "subjects": [
+                    "SPANISH"
+                ]
+            },
+            {
+                "course_number": 228,
+                "subjects": [
+                    "FRENCH"
+                ]
+            }
+        ],
+        "prerequisites_text": "SPANISH\u00a0226,FRENCH\u00a0228, orITALIAN\u00a0311. Not open to students with credit forPORTUG\u00a0101and102"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 102,
+                "subjects": [
+                    "PORTUG"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "PORTUG"
+                ]
+            },
+            {
+                "course_number": 228,
+                "subjects": [
+                    "FRENCH"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "ITALIAN"
+                ]
+            },
+            {
+                "course_number": 226,
+                "subjects": [
+                    "SPANISH"
                 ]
             }
         ],

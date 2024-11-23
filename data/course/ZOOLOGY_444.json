@@ -7,13 +7,53 @@
     },
     "course_title": "NEURONAL CELL BIOLOGY IN HEALTH AND DISEASE",
     "description": "Provides an advanced understanding of cell biology as it relates to the nervous system. Covers the neuronal cytoskeleton, molecular motors and their cargos, the secretory system and how it functions in neurons, formation and maintenance of pre- and post-synaptic structures, neuronal organelles and their functions. Discussion of what is known about the disruptions to cell biology of neurons that contributes to neurodevelopmental and neurodegenerative diseases such as Alzheimer's disease, Parkinson's disease, Amyotrophic Lateral Sclerosis, Charcot Marie Tooth Disease, Spinal Muscular Atrophy, and others.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 384,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            }
+        ],
+        "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0152, orBIOCORE\u00a0384"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 384,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

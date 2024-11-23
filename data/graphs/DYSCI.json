@@ -1,57 +1,75 @@
 [
     {
         "data": {
-            "source": "ANSCI/DYSCI 101",
-            "target": "DYSCI 233"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in preparation of a graduate thesis under supervision of a faculty member.",
-            "id": "DYSCI 990",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 101",
+            "source": "BIOCORE 381",
             "target": "ANSCI/DYSCI 370"
         }
     },
     {
         "data": {
-            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
-            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 472"
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "ANSCI/DYSCI 320"
         }
     },
     {
         "data": {
-            "description": "Provides an introduction to and exploration of the interconnectivity between factors that affect health and disease and the central role of the immune system using infectious disease in animals as a key focus. Explores principal causes and identification of animal diseases, common diseases of farm animals, zoonoses and public health, disease prevention and management including biosecurity measures and host immune responses. Fosters appreciation for the translatability and universality of knowledge between human and animal health and disease.",
-            "id": "ANSCI/DYSCI 320"
+            "source": "MATH 112",
+            "target": "CHEM 103"
         }
     },
     {
         "data": {
-            "description": "Physical, biological and social nature of animal agriculture systems and their improvement in developing countries; analysis of the state of livestock research and development in the developing countries and the world role of U.S. animal agriculture.",
-            "id": "ANSCI/DYSCI 370"
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "ANSCI/DYSCI 434",
+            "target": "DYSCI 534"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "source": "DYSCI 233",
+            "target": "DYSCI 234"
         }
     },
     {
@@ -62,14 +80,20 @@
     },
     {
         "data": {
-            "description": "Delves into aspects of natural sciences (biology and agricultural sciences) and social sciences underpinning the assessment of food production systems as related to a variety of outcomes including but not restricted to human and environmental health, air and water quality, greenhouse gases emission, land use, economic opportunity, social justice, as well as mitigation and adaptation to climate change, locally, regionally, domestically, across continents, and globally.",
-            "id": "AGRONOMY/DYSCI 471"
+            "source": "CHEM 343",
+            "target": "BIOCHEM 501"
         }
     },
     {
         "data": {
-            "description": "Focuses on calf and heifer nutrition, regulation of dry matter intake, plant and forage chemistry, vitamins, lipids, and starch.",
-            "id": "ANSCI/DYSCI 825"
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
         }
     },
     {
@@ -80,15 +104,44 @@
     },
     {
         "data": {
-            "source": "DYSCI 234",
-            "target": "DYSCI 535"
+            "source": "ANSCI/DYSCI/FOODSCI/SOILSCI 472",
+            "target": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
         }
     },
     {
         "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
+            "description": "Delves into aspects of natural sciences (biology and agricultural sciences) and social sciences underpinning the assessment of food production systems as related to a variety of outcomes including but not restricted to human and environmental health, air and water quality, greenhouse gases emission, land use, economic opportunity, social justice, as well as mitigation and adaptation to climate change, locally, regionally, domestically, across continents, and globally.",
+            "id": "AGRONOMY/DYSCI 471"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "DYSCI 378"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "BIOCHEM 301"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of animal sciences covering anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals. Food animals are emphasized to discuss their contributions to humans.",
+            "id": "ANSCI/DYSCI 101"
         }
     },
     {
@@ -100,119 +153,34 @@
     },
     {
         "data": {
-            "source": "BIOCHEM 501",
-            "target": "ANSCI/DYSCI/NUTRSCI 311"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANSCI/DYSCI 320"
         }
     },
     {
         "data": {
-            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
-            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Focuses on lactation physiology across mammalian species. Structure and function of mammary glands; hormonal control of mammary development and lactation; cellular mechanisms of milk synthesis; the chemistry of milk synthesis; mastitis and other abnormalities of mammary functions.",
-            "id": "DYSCI 378",
-            "parent": "DYSCI"
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "ANSCI/DYSCI 361"
         }
     },
     {
         "data": {
-            "description": "Overview of practical dairy herd management with components of reproduction, nutrition, milk quality, raising dairy replacements, facilities and records. Laboratories emphasize practical applications, analyses of alternatives and decision making.",
-            "id": "DYSCI 233",
-            "parent": "DYSCI"
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Principles of reproductive physiology, improvement of fertility, and artificial insemination.",
-            "id": "ANSCI/DYSCI 434"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
-            "id": "DYSCI 681",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 361",
-            "target": "ANSCI/DYSCI 362"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual introductory to intermediate work under direct guidance of a faculty member in an area of Dairy Science. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "DYSCI 299",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on rumen microbiology, metabolite modeling, as well as protein and VFA nutrition and metabolism.",
-            "id": "ANSCI/DYSCI 824"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Honors research work under direct guidance of a faculty member in an area of Dairy Science. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "DYSCI 289",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Specialized subject matter of current interest to graduate students.",
-            "id": "DYSCI 875",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI/FOODSCI/SOILSCI 472",
-            "target": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides the technical knowledge and practical skills to design and execute an effective reproductive management program for dairy cattle. Study key reproductive physiology and practical research results that underlie reproductive management programs. Participate in hands-on laboratories to learn, practice, and demonstrate practical reproductive management techniques including: semen handling, artificial insemination, and ultrasound of ovaries and uterus.",
-            "id": "DYSCI 534",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI/NUTRSCI 311",
-            "target": "ANSCI/DYSCI 414"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual advanced work in an area of Dairy Sciences under the direct guidance of a faculty member.",
-            "id": "DYSCI 699",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Discussion of literature that has a bearing on animal nutrition. Students are to survey the literature and present a seminar.",
-            "id": "ANSCI/DYSCI 931"
+            "source": "MATH 96",
+            "target": "MATH 114"
         }
     },
     {
@@ -223,44 +191,14 @@
     },
     {
         "data": {
-            "source": "DYSCI 233",
-            "target": "DYSCI 234"
+            "source": "CHEM 116",
+            "target": "CHEM 343"
         }
     },
     {
         "data": {
-            "id": "DYSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Nutrients and their assimilation, function, and interactions that affect metabolism in mammals.  Differences among species will be used to emphasize unique digestive and physiological functions and how these differences affect metabolism of nutrients. Humans will be used in some comparisons. Follows physiological progression of nutrients, starting with an overview of the digestive tract followed by water and builds on specific roles of nutrients and substrates needed to provide basic processes required for maintenance, tissue accretion, and homeostatic regulation of nutrients.",
-            "id": "ANSCI/DYSCI/NUTRSCI 311"
-        }
-    },
-    {
-        "data": {
-            "description": "The genetic basis for predisposition to disease or resistance to disease in livestock and companion animal species. Genetic defects, their discovery, diagnosis and treatment.",
-            "id": "ANSCI/DYSCI 362"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of the principles of quantitative genetics to the improvement of livestock and poultry; breeding value estimation and selection techniques; effects of inbreeding and hybrid vigor; crossbreeding systems.",
-            "id": "ANSCI/DYSCI 363"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 361",
-            "target": "ANSCI/DYSCI 363"
+            "source": "ANSCI/DYSCI 101",
+            "target": "ANSCI/DYSCI 370"
         }
     },
     {
@@ -278,41 +216,77 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
+            "id": "BIOCORE",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
+            "source": "MATH 171",
             "target": "CHEM 104"
         }
     },
     {
         "data": {
-            "description": "Instructional orientation to teaching at the higher eductation level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "DYSCI 799",
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANSCI/DYSCI 370"
+        }
+    },
+    {
+        "data": {
+            "description": "Specialized subject matter of current interest to graduate students.",
+            "id": "DYSCI 875",
             "parent": "DYSCI"
         }
     },
     {
         "data": {
-            "description": "Integrates nutritional and biochemical concepts to understand digestive and metabolic processes in dairy and beef cattle, which are then quantitatively represented to predict and manipulate production and health outcomes.",
-            "id": "ANSCI/DYSCI 414"
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count toward credit in another course.",
-            "id": "DYSCI 1",
-            "parent": "DYSCI"
+            "source": "ANSCI/DYSCI 101",
+            "target": "DYSCI 205"
         }
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANSCI/DYSCI 361"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "DYSCI 378"
+        }
+    },
+    {
+        "data": {
+            "source": "ANSCI/DYSCI 361",
+            "target": "ANSCI/DYSCI 363"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 301",
+            "target": "ANSCI/DYSCI/NUTRSCI 311"
+        }
+    },
+    {
+        "data": {
+            "id": "DYSCI",
+            "type": "compound"
         }
     },
     {
@@ -323,72 +297,59 @@
     },
     {
         "data": {
-            "description": "Principles of nutrition, breeding, reproduction, and management at the farm level are integrated. Develop skills in decision making, information gathering, problem solving, and interpersonal communication through field trips to working commercial dairy operations.",
-            "id": "DYSCI 535",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "The second of a two course sequence designed as an overview of practical dairy herd management with components of animal welfare and handling, health, calf and heifer rearing, facilities and production economics. Laboratories emphasize practical applications, investigation of alternatives and decision making.",
-            "id": "DYSCI 234",
-            "parent": "DYSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 434",
-            "target": "DYSCI 534"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
             "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
             "id": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
-            "id": "CHEM",
-            "type": "compound"
+            "source": "BIOCHEM 301",
+            "target": "ANSCI/DYSCI 414"
         }
     },
     {
         "data": {
-            "description": "An overview of animal sciences covering anatomy, physiology, nutrition, reproduction, genetics, management, animal welfare, and behavior of domesticated animals. Food animals are emphasized to discuss their contributions to humans.",
-            "id": "ANSCI/DYSCI 101"
+            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
+            "id": "CHEM 116",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member in Animal and Dairy Sciences and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-            "id": "DYSCI 399",
+            "description": "Various topics in Dairy Science of current interest to undergraduate students.",
+            "id": "DYSCI 375",
             "parent": "DYSCI"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
+            "source": "ANSCI/DYSCI 361",
+            "target": "ANSCI/DYSCI 362"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore the basic chemical properties of proteins, lipids, carbohydrates, and nucleic acids. Topics to be discussed include protein structure and function, the chemical logic of metabolism, and the mechanisms of DNA replication, DNA transcription, DNA repair, and gene expression. Understand principles and themes in biochemistry that relate to metabolic diseases, drug design, virus infection and vaccination, and gene therapy. Does not cover the foundational material necessary to succeed in additional biochemistry coursework, and is not likely to be acceptable for medical or veterinary school admission.",
+            "id": "BIOCHEM 301",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of reproductive physiology, improvement of fertility, and artificial insemination.",
+            "id": "ANSCI/DYSCI 434"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrates nutritional and biochemical concepts to understand digestive and metabolic processes in dairy and beef cattle, which are then quantitatively represented to predict and manipulate production and health outcomes.",
+            "id": "ANSCI/DYSCI 414"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "ANSCI/DYSCI 373"
         }
     },
     {
@@ -400,8 +361,369 @@
     },
     {
         "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ANSCI/DYSCI/NUTRSCI 311",
+            "target": "ANSCI/DYSCI 414"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for majors completing theses for Honors degrees as arranged with a faculty member.",
+            "id": "DYSCI 681",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Instructional orientation to teaching at the higher eductation level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "DYSCI 799",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on rumen microbiology, metabolite modeling, as well as protein and VFA nutrition and metabolism.",
+            "id": "ANSCI/DYSCI 824"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANSCI/DYSCI 361"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 382",
+            "target": "ANSCI/DYSCI 361"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "The genetic basis for predisposition to disease or resistance to disease in livestock and companion animal species. Genetic defects, their discovery, diagnosis and treatment.",
+            "id": "ANSCI/DYSCI 362"
+        }
+    },
+    {
+        "data": {
+            "description": "The second of a two course sequence designed as an overview of practical dairy herd management with components of animal welfare and handling, health, calf and heifer rearing, facilities and production economics. Laboratories emphasize practical applications, investigation of alternatives and decision making.",
+            "id": "DYSCI 234",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "The molecular basis for inheritance of monogenic and polygenic traits related to animal disease and production. An introduction to the principles of improving animal health and performance by selection and mating systems in companion animals, horses, livestock, and poultry.",
+            "id": "ANSCI/DYSCI 361"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "ANSCI/DYSCI 320"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical, biological and social nature of animal agriculture systems and their improvement in developing countries; analysis of the state of livestock research and development in the developing countries and the world role of U.S. animal agriculture.",
+            "id": "ANSCI/DYSCI 370"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANSCI/DYSCI 373"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
             "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses.",
             "id": "DYSCI 400",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "source": "ANSCI/DYSCI 101",
+            "target": "DYSCI 233"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "ANSCI/DYSCI 434"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Writing-intensive with opportunities to make observations and generate and test questions. Includes ecology field trips and research projects that focus on genetics and evolution.",
+            "id": "BIOCORE 382",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 116"
+        }
+    },
+    {
+        "data": {
+            "source": "ANSCI/DYSCI 101",
+            "target": "ANSCI/DYSCI 102"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANSCI/DYSCI 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of the principles of quantitative genetics to the improvement of livestock and poultry; breeding value estimation and selection techniques; effects of inbreeding and hybrid vigor; crossbreeding systems.",
+            "id": "ANSCI/DYSCI 363"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "ANSCI/DYSCI/NUTRSCI 311"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 116",
+            "target": "BIOCHEM 301"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on lactation physiology across mammalian species. Structure and function of mammary glands; hormonal control of mammary development and lactation; cellular mechanisms of milk synthesis; the chemistry of milk synthesis; mastitis and other abnormalities of mammary functions.",
+            "id": "DYSCI 378",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "ANSCI/DYSCI 414"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "DYSCI 378"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides the technical knowledge and practical skills to design and execute an effective reproductive management program for dairy cattle. Study key reproductive physiology and practical research results that underlie reproductive management programs. Participate in hands-on laboratories to learn, practice, and demonstrate practical reproductive management techniques including: semen handling, artificial insemination, and ultrasound of ovaries and uterus.",
+            "id": "DYSCI 534",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in preparation of a graduate thesis under supervision of a faculty member.",
+            "id": "DYSCI 990",
             "parent": "DYSCI"
         }
     },
@@ -415,44 +737,133 @@
     {
         "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "target": "ANSCI/DYSCI 434"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "BIOCHEM 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual advanced work in an area of Dairy Sciences under the direct guidance of a faculty member.",
+            "id": "DYSCI 699",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member in Animal and Dairy Sciences and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+            "id": "DYSCI 399",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual introductory to intermediate work under direct guidance of a faculty member in an area of Dairy Science. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "DYSCI 299",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Nutrients and their assimilation, function, and interactions that affect metabolism in mammals.  Differences among species will be used to emphasize unique digestive and physiological functions and how these differences affect metabolism of nutrients. Humans will be used in some comparisons. Follows physiological progression of nutrients, starting with an overview of the digestive tract followed by water and builds on specific roles of nutrients and substrates needed to provide basic processes required for maintenance, tissue accretion, and homeostatic regulation of nutrients.",
+            "id": "ANSCI/DYSCI/NUTRSCI 311"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an introduction to and exploration of the interconnectivity between factors that affect health and disease and the central role of the immune system using infectious disease in animals as a key focus. Explores principal causes and identification of animal diseases, common diseases of farm animals, zoonoses and public health, disease prevention and management including biosecurity measures and host immune responses. Fosters appreciation for the translatability and universality of knowledge between human and animal health and disease.",
+            "id": "ANSCI/DYSCI 320"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
             "target": "DYSCI 378"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "ANSCI/DYSCI 320"
-        }
-    },
-    {
-        "data": {
-            "description": "The molecular basis for inheritance of monogenic and polygenic traits related to animal disease and production. An introduction to the principles of improving animal health and performance by selection and mating systems in companion animals, horses, livestock, and poultry.",
-            "id": "ANSCI/DYSCI 361"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 101",
-            "target": "DYSCI 205"
-        }
-    },
-    {
-        "data": {
-            "source": "ANSCI/DYSCI 101",
-            "target": "ANSCI/DYSCI 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Various topics in Dairy Science of current interest to undergraduate students.",
-            "id": "DYSCI 375",
+            "description": "Overview of practical dairy herd management with components of reproduction, nutrition, milk quality, raising dairy replacements, facilities and records. Laboratories emphasize practical applications, analyses of alternatives and decision making.",
+            "id": "DYSCI 233",
             "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count toward credit in another course.",
+            "id": "DYSCI 1",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 382"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Discussion of literature that has a bearing on animal nutrition. Students are to survey the literature and present a seminar.",
+            "id": "ANSCI/DYSCI 931"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
+            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 472"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANSCI/DYSCI 370"
+        }
+    },
+    {
+        "data": {
+            "source": "DYSCI 234",
+            "target": "DYSCI 535"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on calf and heifer nutrition, regulation of dry matter intake, plant and forage chemistry, vitamins, lipids, and starch.",
+            "id": "ANSCI/DYSCI 825"
         }
     },
     {
@@ -463,14 +874,66 @@
     },
     {
         "data": {
+            "description": "Principles of nutrition, breeding, reproduction, and management at the farm level are integrated. Develop skills in decision making, information gathering, problem solving, and interpersonal communication through field trips to working commercial dairy operations.",
+            "id": "DYSCI 535",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ANSCI/DYSCI 361"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANSCI/DYSCI 373"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 382",
+            "target": "ANSCI/DYSCI 434"
+        }
+    },
+    {
+        "data": {
+            "description": "Honors research work under direct guidance of a faculty member in an area of Dairy Science. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "DYSCI 289",
+            "parent": "DYSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "ANSCI/DYSCI/NUTRSCI 311"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "ANSCI/DYSCI/NUTRSCI 311"
         }
     }
 ]

@@ -2,19 +2,31 @@
     "course_reference": {
         "course_number": 710,
         "subjects": [
-            "STAT",
-            "MATH"
+            "MATH",
+            "STAT"
         ]
     },
     "course_title": "MATHEMATICAL STATISTICS",
     "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 709,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "STAT/\u200bMATH\u00a0\u00a0709"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 709,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             }
         ],

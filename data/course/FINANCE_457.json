@@ -7,13 +7,61 @@
     },
     "course_title": "ENTREPRENEURIAL FINANCE",
     "description": "Discusses the tools helpful for financing new ventures, with emphasis on their applications. The course also helps students understand the institutional setting that has an impact on the financing conditions of new ventures.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 213,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 300,
                 "subjects": [
-                    "ECON",
-                    "FINANCE"
+                    "FINANCE",
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 222,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ACCTIS"
+                ]
+            }
+        ],
+        "prerequisites_text": "FINANCE/\u200bECON\u00a0\u00a0300,ACCT\u00a0I\u00a0S\u00a0301, and (MATH\u00a0213or222)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 213,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "FINANCE",
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 222,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ACCTIS"
                 ]
             }
         ],

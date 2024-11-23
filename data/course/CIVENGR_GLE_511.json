@@ -8,12 +8,67 @@
     },
     "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
     "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 310,
                 "subjects": [
                     "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 291,
+                "subjects": [
+                    "GLE",
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 363,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 203,
+                "subjects": [
+                    "ECE"
+                ]
+            }
+        ],
+        "prerequisites_text": "(CIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0291,COMP\u00a0SCI\u00a0220, orE\u00a0C\u00a0E\u00a0203) and (CIV\u00a0ENGR\u00a0310orM\u00a0E\u00a0363), graduate/professional standing, or member of Engineering Guest Students"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 363,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 203,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 291,
+                "subjects": [
+                    "GLE",
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 220,
+                "subjects": [
+                    "COMPSCI"
                 ]
             }
         ],

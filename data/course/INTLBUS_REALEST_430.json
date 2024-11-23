@@ -2,21 +2,35 @@
     "course_reference": {
         "course_number": 430,
         "subjects": [
-            "REALEST",
-            "INTLBUS"
+            "INTLBUS",
+            "REALEST"
         ]
     },
     "course_title": "INTERNATIONAL REAL ESTATE",
     "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 306,
+                "subjects": [
+                    "AAE",
+                    "URBRPL",
+                    "REALEST",
+                    "ECON"
+                ]
+            }
+        ],
+        "prerequisites_text": "URB\u00a0R\u00a0PL/\u200bA\u00a0A\u00a0E/\u200bECON/\u200bREAL\u00a0EST\u00a0\u00a0306or declared in the Business Exchange program"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 306,
                 "subjects": [
-                    "ECON",
                     "AAE",
                     "URBRPL",
-                    "REALEST"
+                    "REALEST",
+                    "ECON"
                 ]
             }
         ],

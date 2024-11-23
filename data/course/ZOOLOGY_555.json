@@ -7,12 +7,61 @@
     },
     "course_title": "LABORATORY IN DEVELOPMENTAL BIOLOGY",
     "description": "Developmental anatomy and laboratory manipulations of representative animal embryos used extensively for analysis of developmental phenomena (sea urchins, amphibia, annelids, molluscs, ascidians, insects, chicks, fish, mice).",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 625,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
             {
                 "course_number": 470,
                 "subjects": [
                     "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 587,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            }
+        ],
+        "prerequisites_text": "ZOOLOGY\u00a0470,625,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523, orBIOCORE\u00a0587"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 625,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 470,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 587,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

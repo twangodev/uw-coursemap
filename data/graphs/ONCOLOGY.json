@@ -1,59 +1,8 @@
 [
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 485",
-            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "id": "GENETICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
-            "id": "ONCOLOGY 735",
-            "parent": "ONCOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
-            "id": "GENETICS 467",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
+            "source": "BIOCORE 381",
+            "target": "GENETICS 467"
         }
     },
     {
@@ -65,9 +14,138 @@
     },
     {
         "data": {
-            "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
-            "id": "ONCOLOGY 778",
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
+            "id": "ONCOLOGY 725",
             "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Emphasizes the symmetry, structure and bonding of inorganic compounds. Selected topics may include applications in transition metal chemistry, organometallic chemistry, industrial catalysis, advanced bioinorganic chemistry, solid-state chemistry or main group chemistry.",
+            "id": "CHEM 511",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ZOOLOGY 153",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "MICROBIO/ONCOLOGY 545"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "ONCOLOGY 401"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "ZOOLOGY 153"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
+            "id": "ANAT&PHY 435",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ZOOLOGY 153"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
         }
     },
     {
@@ -79,28 +157,123 @@
     },
     {
         "data": {
+            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
+            "id": "ANAT&PHY 335",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
+            "id": "ZOOLOGY 153",
+            "parent": "ZOOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
+            "id": "CHEM 341",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 508",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
+            "id": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
             "source": "BIOCHEM 507",
             "target": "BIOCHEM 508"
         }
     },
     {
         "data": {
-            "source": "BIOCHEM 508",
-            "target": "ONCOLOGY 673"
+            "source": "CHEM 116",
+            "target": "CHEM 343"
         }
     },
     {
         "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
+            "id": "BIOCORE",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Critical review of selected topics in cancer research.",
-            "id": "ONCOLOGY 901",
+            "source": "MATH 171",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+            "id": "ONCOLOGY 990",
             "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
         }
     },
     {
@@ -118,39 +291,9 @@
     },
     {
         "data": {
-            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-            "id": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "ONCOLOGY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
         }
     },
     {
@@ -161,88 +304,52 @@
     },
     {
         "data": {
-            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-            "id": "MM&I/ONCOLOGY/PLPATH 640"
+            "source": "ANAT&PHY 335",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
         }
     },
     {
         "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
+            "description": "Critical review of selected topics in cancer research.",
+            "id": "ONCOLOGY 901",
+            "parent": "ONCOLOGY"
         }
     },
     {
         "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "ZOOLOGY 153"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
+            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
+            "id": "CHEM 116",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "source": "CHEM 511",
+            "target": "ONCOLOGY 673"
         }
     },
     {
         "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
+            "source": "BIOCHEM 508",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
         }
     },
     {
         "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
-            "id": "ONCOLOGY 675",
-            "parent": "ONCOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "ONCOLOGY 699",
-            "parent": "ONCOLOGY"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
-            "id": "ONCOLOGY 725",
-            "parent": "ONCOLOGY"
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -253,34 +360,81 @@
     },
     {
         "data": {
-            "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
-            "id": "ONCOLOGY 745",
-            "parent": "ONCOLOGY"
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "source": "ZOOLOGY 153",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "id": "ZOOLOGY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 341"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
             "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Viral, chemical, and physical factors involved in tumor formation in humans and experimental animals; biology and biochemistry of neoplasia, both in vivo and in vitro.",
-            "id": "ONCOLOGY 703",
-            "parent": "ONCOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
         }
     },
     {
@@ -292,14 +446,278 @@
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
+            "source": "CHEM 115",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "MICROBIO/ONCOLOGY 545"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ONCOLOGY 401"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
+            "id": "BIOCHEM 508",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
+            "id": "ONCOLOGY 675",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "ONCOLOGY 401"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 116"
+        }
+    },
+    {
+        "data": {
+            "description": "Viral, chemical, and physical factors involved in tumor formation in humans and experimental animals; biology and biochemistry of neoplasia, both in vivo and in vitro.",
+            "id": "ONCOLOGY 703",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "CHEM 511"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+            "id": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "MICROBIO/ONCOLOGY 545"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 435",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
+            "id": "ONCOLOGY 735",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
+            "id": "ONCOLOGY 745",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "ONCOLOGY 699",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 508",
+            "target": "ONCOLOGY 673"
+        }
+    },
+    {
+        "data": {
+            "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
+            "id": "ONCOLOGY 778",
+            "parent": "ONCOLOGY"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
         }
     },
     {
@@ -311,8 +729,8 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
         }
     },
     {
@@ -323,9 +741,110 @@
     },
     {
         "data": {
-            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-            "id": "ONCOLOGY 990",
-            "parent": "ONCOLOGY"
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "id": "GENETICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "id": "ONCOLOGY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 468"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "MICROBIO/ONCOLOGY 545"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
+            "id": "GENETICS 468",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
+            "id": "GENETICS 467",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 468",
+            "target": "GENETICS 466"
         }
     }
 ]

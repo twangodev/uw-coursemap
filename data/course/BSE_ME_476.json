@@ -2,18 +2,77 @@
     "course_reference": {
         "course_number": 476,
         "subjects": [
-            "BSE",
-            "ME"
+            "ME",
+            "BSE"
         ]
     },
     "course_title": "ENGINEERING PRINCIPLES OF OFF-ROAD VEHICLES",
     "description": "Engineering design principles of heavy-duty vehicles intended for off-road use: fuels, engine cycles, engine principles and construction, clutches, mechanical and hydrostatic transmissions, final drives, traction systems, traction modeling, dynamic behavior, suspension systems and braking.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 240,
                 "subjects": [
                     "ME"
+                ]
+            },
+            {
+                "course_number": 201,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 361,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            }
+        ],
+        "prerequisites_text": "(M\u00a0E\u00a0361or concurrent enrollment), (M\u00a0E\u00a0240,E\u00a0M\u00a0A\u00a0202,PHYSICS\u00a0201,207, or247), and declared in Biological Systems Engineering or Mechanical Engineering or graduate/professional standing, or member of Engineering Guest Students"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 202,
+                "subjects": [
+                    "EMA"
+                ]
+            },
+            {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 240,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 361,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 201,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
                 ]
             }
         ],

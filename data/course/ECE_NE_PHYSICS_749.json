@@ -2,13 +2,24 @@
     "course_reference": {
         "course_number": 749,
         "subjects": [
+            "NE",
             "ECE",
-            "PHYSICS",
-            "NE"
+            "PHYSICS"
         ]
     },
     "course_title": "COHERENT GENERATION AND PARTICLE BEAMS",
     "description": "Fundamental theory and recent advances in coherent radiation charged particle beam sources (microwave to X-ray wavelengths) including free electron lasers, wiggler/wave-particle dynamics, Cerenkov masers, gyrotrons, coherent gain and efficiency, spontaneous emission, beam sources and quality, related accelerator concepts experimental results and applications.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 740,
+                "subjects": [
+                    "ECE"
+                ]
+            }
+        ],
+        "prerequisites_text": "E\u00a0C\u00a0E\u00a0740"
+    },
     "prerequisites": {
         "course_references": [
             {

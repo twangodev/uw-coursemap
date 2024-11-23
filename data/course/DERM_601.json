@@ -7,13 +7,71 @@
     },
     "course_title": "SKIN BIOLOGY AND SKIN DISEASES",
     "description": "Introduction to basic science principles of skin biology and skin diseases (biochemistry, molecular biology, genetics, etc.). Provides a strong base and training to future scientists, physicians, and industrial leaders in skin sciences and skin care, as well as drug and device development.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "CHEM"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101), (CHEM\u00a0104,CHEM\u00a0109orBIOCHEM\u00a0501), or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

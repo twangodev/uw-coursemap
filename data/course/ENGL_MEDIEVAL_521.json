@@ -2,19 +2,31 @@
     "course_reference": {
         "course_number": 521,
         "subjects": [
-            "MEDIEVAL",
-            "ENGL"
+            "ENGL",
+            "MEDIEVAL"
         ]
     },
     "course_title": "ADVANCED OLD ENGLISH LITERATURE",
     "description": "An intensive study of a major work or works of Old English, usually focusing on either Beowulf or the poems of a single manuscript. Line-by-line translation of the text will be supplemented by discussion of related issues (whether linguistic, thematic, or contextual) as well as by readings from relevant critical literature. Primary texts will be read in Old English.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 520,
+                "subjects": [
+                    "ENGL",
+                    "MEDIEVAL"
+                ]
+            }
+        ],
+        "prerequisites_text": "MEDIEVAL/\u200bENGL\u00a0\u00a0520"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 520,
                 "subjects": [
-                    "MEDIEVAL",
-                    "ENGL"
+                    "ENGL",
+                    "MEDIEVAL"
                 ]
             }
         ],

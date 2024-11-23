@@ -7,11 +7,36 @@
     },
     "course_title": "INTRODUCTION TO THE THEORY AND DESIGN OF PROGRAMMING LANGUAGES",
     "description": "Design and theory of programming languages: procedural, object-oriented, functional and logic paradigms. Serial and concurrent programming. Execution models and formal specification techniques.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 354,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0354and (COMP SCI 367 or400) or graduate/professional standing or declared in the Capstone Certificate in Computer Sciences for Professionals"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 400,
                 "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 354,
+                "subjects": [
+                    "ECE",
                     "COMPSCI"
                 ]
             }

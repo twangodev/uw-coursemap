@@ -7,14 +7,77 @@
     },
     "course_title": "HUMAN NUTRITIONAL NEEDS",
     "description": "Biochemical and physiological basis of the nutritional requirements of humans.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
+                ]
+            }
+        ],
+        "prerequisites_text": "(CHEM\u00a0103,109, or115) and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381)"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

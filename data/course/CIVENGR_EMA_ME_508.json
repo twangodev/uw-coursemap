@@ -2,19 +2,42 @@
     "course_reference": {
         "course_number": 508,
         "subjects": [
-            "ME",
             "EMA",
+            "ME",
             "CIVENGR"
         ]
     },
     "course_title": "COMPOSITE MATERIALS",
     "description": "Physical properties and mechanical behavior of polymer, metal, ceramic, cementitious, cellulosic and biological composite systems; micro- and macro-mechanics; lamination and strength analyses; static and transient loading; fabrication; recycling; design; analytical-experimental correlation; applications.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            }
+        ],
+        "prerequisites_text": "(E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306), graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
                 ]
             }
         ],

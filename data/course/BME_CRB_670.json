@@ -2,20 +2,45 @@
     "course_reference": {
         "course_number": 670,
         "subjects": [
-            "CRB",
-            "BME"
+            "BME",
+            "CRB"
         ]
     },
     "course_title": "BIOLOGY OF HEART DISEASE AND REGENERATION",
     "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151andBIOCHEM\u00a0501) or graduate/professional standing."
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
                 ]
             }
         ],

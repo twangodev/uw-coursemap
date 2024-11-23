@@ -7,12 +7,73 @@
     },
     "course_title": "PATHOGENIC BACTERIOLOGY",
     "description": "Medically important bacteria, emphasizing the process of pathogenesis and host/parasite interactions, as well as intervention strategies, immunity and genetics as they apply to the pathogens.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "(BIOCORE\u00a0381and382), (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102), orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

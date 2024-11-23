@@ -2,12 +2,23 @@
     "course_reference": {
         "course_number": 523,
         "subjects": [
-            "NURSING",
-            "KINES"
+            "KINES",
+            "NURSING"
         ]
     },
     "course_title": "CLINICAL EXERCISE TESTING & TRAINING",
     "description": "Physiological basis and methods of human exercise testing and training. Topics: clinical exercise physiology, exercise testing protocols, cardiopulmonary monitoring, basic ECG interpretation, exercise prescription.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 314,
+                "subjects": [
+                    "KINES"
+                ]
+            }
+        ],
+        "prerequisites_text": "Declared in Kinesiology andKINES\u00a0314"
+    },
     "prerequisites": {
         "course_references": [
             {

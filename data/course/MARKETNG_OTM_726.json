@@ -2,16 +2,63 @@
     "course_reference": {
         "course_number": 726,
         "subjects": [
-            "OTM",
-            "MARKETNG"
+            "MARKETNG",
+            "OTM"
         ]
     },
     "course_title": "SUPPLY CHAIN STRATEGY",
     "description": "Focuses on strategic issues and current theory and practice in supply chain management. Effective design and management of supply chain resources is a key source of competitive advantage for organizations. Supply chain management is a cross-functional discipline that concentrates on the management of goods, services, and information among all links in the value chain.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 300,
+                "subjects": [
+                    "MARKETNG"
+                ]
+            },
+            {
+                "course_number": 700,
+                "subjects": [
+                    "MARKETNG"
+                ]
+            },
+            {
+                "course_number": 700,
+                "subjects": [
+                    "OTM"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "OTM"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MARKETNG\u00a0300andOTM\u00a0300) or (MARKETNG\u00a0700andOTM\u00a0700) and graduate/professional standing, or declared in graduate Business Exchange program"
+    },
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 300,
+                "subjects": [
+                    "MARKETNG"
+                ]
+            },
+            {
                 "course_number": 700,
+                "subjects": [
+                    "MARKETNG"
+                ]
+            },
+            {
+                "course_number": 700,
+                "subjects": [
+                    "OTM"
+                ]
+            },
+            {
+                "course_number": 300,
                 "subjects": [
                     "OTM"
                 ]

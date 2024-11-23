@@ -7,12 +7,74 @@
     },
     "course_title": "OPERATIONS ANALYTICS",
     "description": "Focuses on the application of analytical methodologies to problems that arise in the context of a company's operations and supply chains. Touches on all three dimensions of analytics (descriptive, predictive, and prescriptive). Emphasis on data and real industry data collected from the university, alumni, and executive board members when possible. Explore, analyze, and utilize such data in a hands-on way, using a variety of software tools. Significantly driven by a set of case problems as opposed to systematic coverage of methodologies.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 300,
                 "subjects": [
                     "OTM"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "OTM\u00a0300and (GEN\u00a0BUS\u00a0306,ECON\u00a0310,MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309, or431), or declared in undergraduate Business Exchange program"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 331,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "OTM"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "GENBUS"
                 ]
             }
         ],

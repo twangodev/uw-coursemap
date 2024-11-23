@@ -2,18 +2,85 @@
     "course_reference": {
         "course_number": 421,
         "subjects": [
-            "ECON",
-            "AAE"
+            "AAE",
+            "ECON"
         ]
     },
     "course_title": "ECONOMIC DECISION ANALYSIS",
     "description": "Managerial oriented, applied presentation of microeconomic theory. Quantitative emphasis with extensive homework use of spreadsheets and written executive summaries of applied economic analyses. Applications on natural resources and agricultural markets.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 310,
                 "subjects": [
                     "ECON"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
+                ]
+            }
+        ],
+        "prerequisites_text": "STAT\u00a0301,371,ECON\u00a0310,SOC/\u200bC&E\u00a0SOC\u00a0\u00a0360,PSYCH\u00a0210, or (GEN\u00a0BUS\u00a0306and307)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
                 ]
             }
         ],

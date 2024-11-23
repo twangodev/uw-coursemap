@@ -1,20 +1,26 @@
 [
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "source": "BIOCORE 381",
+            "target": "ANTHRO/BOTANY/ZOOLOGY 410"
         }
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
+            "source": "BIOCORE 381",
+            "target": "GENETICS 467"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
+            "id": "ANTHRO/BOTANY/ZOOLOGY 410"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -26,8 +32,20 @@
     },
     {
         "data": {
-            "id": "BIOLOGY",
-            "type": "compound"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
         }
     },
     {
@@ -39,42 +57,14 @@
     },
     {
         "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "GENETICS 466"
         }
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
-            "id": "BIOLOGY 692",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
-        }
-    },
-    {
-        "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
-            "id": "BIOLOGY 399",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced directed study as arranged with a faculty member. Open only to students declared in Biology.",
-            "id": "BIOLOGY 699",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
-            "id": "BIOLOGY 682",
-            "parent": "BIOLOGY"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "ANTHRO/BOTANY/ZOOLOGY 410"
         }
     },
     {
@@ -91,22 +81,8 @@
     },
     {
         "data": {
-            "description": "Intermediate special topics on contemporary issues relevant to studying biology.",
-            "id": "BIOLOGY 675",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOLOGY/GENETICS 522"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
+            "id": "BIOLOGY",
+            "type": "compound"
         }
     },
     {
@@ -117,27 +93,71 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
             "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "id": "BIOCORE",
+            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
+            "id": "BIOLOGY 692",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ANTHRO/BOTANY/ZOOLOGY 410"
+        }
+    },
+    {
+        "data": {
+            "id": "GENETICS",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "GENETICS 466",
+            "target": "BIOLOGY/GENETICS 522"
         }
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
-            "id": "BIOLOGY 681",
+            "description": "Advanced directed study as arranged with a faculty member. Open only to students declared in Biology.",
+            "id": "BIOLOGY 699",
             "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate special topics on contemporary issues relevant to studying biology.",
+            "id": "BIOLOGY 675",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -149,8 +169,154 @@
     },
     {
         "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ANTHRO/BOTANY/ZOOLOGY 410",
+            "target": "BIOLOGY/GENETICS 522"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOLOGY/GENETICS 522"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetic basis of morphological, physiological and behavioral variations within and between human populations, and their origins and evolution.",
+            "id": "ANTHRO 105",
+            "parent": "ANTHRO"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
+            "id": "BIOLOGY 399",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "id": "ANTHRO",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ANTHRO 105",
+            "target": "ANTHRO/BOTANY/ZOOLOGY 410"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 468"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
+            "id": "BIOLOGY 682",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
+            "id": "GENETICS 468",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
+            "id": "BIOLOGY 681",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
+            "id": "GENETICS 467",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 468",
+            "target": "BIOLOGY/GENETICS 522"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 468",
+            "target": "GENETICS 466"
         }
     }
 ]

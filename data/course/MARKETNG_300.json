@@ -7,12 +7,47 @@
     },
     "course_title": "MARKETING MANAGEMENT",
     "description": "Planning and controlling the elements of the marketing program; marketing organization, product and service, packaging, pricing, promotion and physical distribution.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
             {
                 "course_number": 101,
                 "subjects": [
                     "ECON"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "AAE"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ECON\u00a0101,111,A\u00a0A\u00a0E\u00a0101, or 215 prior to Fall 2024) or declared in the Business Exchange program"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "AAE"
                 ]
             }
         ],

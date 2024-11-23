@@ -2,20 +2,49 @@
     "course_reference": {
         "course_number": 102,
         "subjects": [
-            "BIOLOGY",
-            "ZOOLOGY"
+            "ZOOLOGY",
+            "BIOLOGY"
         ]
     },
     "course_title": "ANIMAL BIOLOGY LABORATORY",
     "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

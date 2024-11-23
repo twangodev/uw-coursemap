@@ -7,8 +7,32 @@
     },
     "course_title": "DIGITAL CIRCUITS AND COMPONENTS",
     "description": "Principles and characterization of logic circuits. Design and analysis techniques for applied logic circuits. Transmission lines in digital applications. Families of circuit logic currently in use and their characteristics.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 340,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 352,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "(E\u00a0C\u00a0E/\u200bCOMP\u00a0SCI\u00a0\u00a0352andE\u00a0C\u00a0E\u00a0340), graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 340,
+                "subjects": [
+                    "ECE"
+                ]
+            },
             {
                 "course_number": 352,
                 "subjects": [

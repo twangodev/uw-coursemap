@@ -2,18 +2,69 @@
     "course_reference": {
         "course_number": 668,
         "subjects": [
-            "MICROBIO",
-            "BMOLCHEM"
+            "BMOLCHEM",
+            "MICROBIO"
         ]
     },
     "course_title": "MICROBIOLOGY AT ATOMIC RESOLUTION",
     "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 612,
+                "subjects": [
+                    "MICROBIO",
+                    "BIOCHEM",
+                    "GENETICS"
+                ]
+            },
             {
                 "course_number": 507,
                 "subjects": [
                     "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 470,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            }
+        ],
+        "prerequisites_text": "(BIOCHEM\u00a0501or507) and (MICROBIO\u00a0470or612) or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 612,
+                "subjects": [
+                    "MICROBIO",
+                    "BIOCHEM",
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 507,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 470,
+                "subjects": [
+                    "MICROBIO"
                 ]
             }
         ],

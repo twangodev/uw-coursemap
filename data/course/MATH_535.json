@@ -7,13 +7,126 @@
     },
     "course_title": "MATHEMATICAL METHODS IN DATA SCIENCE",
     "description": "A rigorous introduction to mathematical concepts important for modern data science.   Topics include: matrix factorizations,  optimization theory and algorithms, probabilistic models, finite Markov chains.  Mathematical techniques are motivated by and illustrated on a range of applied problems from machine learning and statistics.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 532,
                 "subjects": [
-                    "ECE",
                     "ME",
+                    "ECE",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 531,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH\u00a0320,340,341,375orM\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532) and (STAT/\u200bMATH\u00a0\u00a0309,431,MATH\u00a0531,STAT\u00a0311orE\u00a0C\u00a0E\u00a0331) and (MATH\u00a0322,341,375,421,467, orCOMP\u00a0SCI\u00a0577), graduate/professional standing, or member of Pre-Masters Mathematics (Visiting Intl) Prgrm"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 421,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 467,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 322,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 577,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 531,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 532,
+                "subjects": [
+                    "ME",
+                    "ECE",
                     "COMPSCI"
                 ]
             }

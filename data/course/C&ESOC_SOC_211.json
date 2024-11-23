@@ -2,14 +2,39 @@
     "course_reference": {
         "course_number": 211,
         "subjects": [
-            "C&ESOC",
-            "SOC"
+            "SOC",
+            "C&ESOC"
         ]
     },
     "course_title": "THE SOCIOLOGICAL ENTERPRISE",
     "description": "Basic principles and definitions of sociology. Readings and discussion of the perspectives of sociology, the individual and society, groups and social process, stratification, organizations and power, demography, and social change.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 210,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
+            {
+                "course_number": 181,
+                "subjects": [
+                    "SOC"
+                ]
+            }
+        ],
+        "prerequisites_text": "Not open to students with credit forSOC\u00a0181orC&E\u00a0SOC/\u200bSOC\u00a0\u00a0210"
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 210,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
             {
                 "course_number": 181,
                 "subjects": [

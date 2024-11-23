@@ -2,21 +2,34 @@
     "course_reference": {
         "course_number": 527,
         "subjects": [
+            "NE",
             "ECE",
-            "PHYSICS",
-            "NE"
+            "PHYSICS"
         ]
     },
     "course_title": "PLASMA CONFINEMENT AND HEATING",
     "description": "Principles of magnetic confinement and heating of plasmas for controlled thermonuclear fusion: magnetic field structures, single particle orbits, equilibrium, stability, collisions, transport, heating, modeling and diagnostics. Discussion of current leading confinement concepts: tokamaks, tandem mirrors, stellarators, reversed field pinches, etc.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 525,
+                "subjects": [
+                    "NE",
+                    "ECE",
+                    "PHYSICS"
+                ]
+            }
+        ],
+        "prerequisites_text": "E\u00a0C\u00a0E/\u200bN\u00a0E/\u200bPHYSICS\u00a0\u00a0525, graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 525,
                 "subjects": [
+                    "NE",
                     "ECE",
-                    "PHYSICS",
-                    "NE"
+                    "PHYSICS"
                 ]
             }
         ],

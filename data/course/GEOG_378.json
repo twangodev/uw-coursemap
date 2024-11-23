@@ -7,14 +7,27 @@
     },
     "course_title": "INTRODUCTION TO GEOCOMPUTING",
     "description": "Introduction to scripting for Geographic Information Science. Geoprocessing with open-source GIS utilities. Python scripting with ArcGIS and open-source libraries.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 377,
+                "subjects": [
+                    "CIVENGR",
+                    "GEOG",
+                    "ENVIRST"
+                ]
+            }
+        ],
+        "prerequisites_text": "CIV\u00a0ENGR/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0377or concurrent enrollment, or graduate/professional standing"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 377,
                 "subjects": [
+                    "CIVENGR",
                     "GEOG",
-                    "ENVIRST",
-                    "CIVENGR"
+                    "ENVIRST"
                 ]
             }
         ],

@@ -2,14 +2,37 @@
     "course_reference": {
         "course_number": 307,
         "subjects": [
-            "ME",
-            "EMA"
+            "EMA",
+            "ME"
         ]
     },
     "course_title": "MECHANICS OF MATERIALS LAB",
     "description": "Data processing, tension/compression tests, creep stress concentrations, fatigue, fracture, composite materials, combined stress, beam flexure, dynamic loads, buckling.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
+                ]
+            }
+        ],
+        "prerequisites_text": "(M\u00a0E\u00a0306,E\u00a0M\u00a0A\u00a0303or concurrent enrollment) or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            },
             {
                 "course_number": 303,
                 "subjects": [

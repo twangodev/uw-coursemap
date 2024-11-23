@@ -7,6 +7,24 @@
     },
     "course_title": "GROUNDWATER HYDRAULICS",
     "description": "Engineering fundamentals of groundwater flow. Focus is on developing and implementing 2-D, steady-state, analytical models of groundwater flow. Also introduces transient groundwater flow modeling, hydraulic testing methods, and numerical modeling.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 627,
+                "subjects": [
+                    "GEOSCI",
+                    "GLE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            }
+        ],
+        "prerequisites_text": "CIV\u00a0ENGR\u00a0311,GEOSCI/\u200bG\u00a0L\u00a0E\u00a0\u00a0627, graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
@@ -14,6 +32,12 @@
                 "subjects": [
                     "GEOSCI",
                     "GLE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "CIVENGR"
                 ]
             }
         ],

@@ -7,13 +7,55 @@
     },
     "course_title": "TROPICAL HERPETOLOGY",
     "description": "Introduction to perhaps the least known but most threatened groups of tropical vertebrates, the amphibians and reptiles (\"herps\"). Focuses on the range of tropical habitats and the amphibians and reptiles to be found there, using the current extinction crisis among these animals as an underlying theme.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

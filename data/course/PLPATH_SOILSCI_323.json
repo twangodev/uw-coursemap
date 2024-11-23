@@ -8,14 +8,93 @@
     },
     "course_title": "SOIL BIOLOGY",
     "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 152,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0384) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 116,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 384,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

@@ -1,15 +1,99 @@
 [
     {
         "data": {
-            "description": "Grammar and readings in Biblical Aramaic (Daniel, Ezra).",
-            "id": "HEBR-BIB 701",
+            "description": "Introduction to the language of the Hebrew Bible (Biblical Hebrew). Serves as basis for later forms of Classical Hebrew.",
+            "id": "HEBR-BIB 104",
             "parent": "HEBR-BIB"
         }
     },
     {
         "data": {
-            "description": "Selections from non-biblical Aramaic texts: Inscriptions, Elephentine letters, Ahiqar, Targumim.",
-            "id": "HEBR-BIB 702",
+            "source": "HEBR-BIB 303",
+            "target": "HEBR-BIB 304"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 304",
+            "target": "HEBR-BIB 323"
+        }
+    },
+    {
+        "data": {
+            "description": "Philological and literary study of the Hebrew narratives in Genesis through Deuteronomy, with readings in the ancient translations.",
+            "id": "HEBR-BIB 743",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent study as arranged with a faculty member.",
+            "id": "HEBR-BIB 799",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings in Peshitta, literary texts.",
+            "id": "HEBR-BIB 706",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the text, development, history, and social context of the Hebrew Bible/Old Testament. Covers the Torah (Pentateuch), Neviim (Former and Latter Prophets), and Ketuvim (Writings), and provides a brief introduction to early Jewish literature (Pseudepigrapha/Apocrypha). Discusses various methods of analysis and theories of composition. Addresses major theological claims made of the text by Jewish and Christian communities. Explores contextualized interpretations in the ancient and modern day.",
+            "id": "CLASSICS/JEWISH/LITTRANS/RELIGST 227"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
+            "id": "HEBR-BIB 324",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "id": "HEBR-BIB",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Critical reading of selected texts from the Minor Prophets and the Writings.",
+            "id": "HEBR-BIB/JEWISH 513"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 103",
+            "target": "HEBR-BIB 391"
+        }
+    },
+    {
+        "data": {
+            "description": "The phonology, morphology and syntax of biblical Hebrew; viewed from historical and descriptive linguistic perspectives.",
+            "id": "HEBR-BIB 723",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 324",
+            "target": "HEBR-BIB/JEWISH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Philological and literary study of the Hebrew text of Job. Readings in the ancient translations.",
+            "id": "HEBR-BIB 754",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for research and completing theses, as arranged with a faculty member.",
+            "id": "HEBR-BIB 990",
             "parent": "HEBR-BIB"
         }
     },
@@ -22,8 +106,14 @@
     },
     {
         "data": {
-            "source": "HEBR-BIB/JEWISH 513",
-            "target": "HEBR-BIB/JEWISH 514"
+            "source": "HEBR-BIB 323",
+            "target": "HEBR-BIB 324"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the thought, literature, and history of the prophets of ancient Israel (in English).",
+            "id": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
         }
     },
     {
@@ -42,199 +132,8 @@
     },
     {
         "data": {
-            "description": "Critical reading of selected texts from the Minor Prophets and the Writings.",
-            "id": "HEBR-BIB/JEWISH 513"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for research and completing theses, as arranged with a faculty member.",
-            "id": "HEBR-BIB 990",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
-            "id": "HEBR-BIB 324",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Forms and syntax, reading of Classical Hebrew prose in preparation for research.",
-            "id": "HEBR-BIB 304",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Philological and literary study of the Hebrew text of Isiah 1-39. Readings in the ancient translations.",
-            "id": "HEBR-BIB 751",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Forms and syntax, reading of Classical Hebrew prose in preparation for research.",
-            "id": "HEBR-BIB 303",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
             "description": "Introduction to the language of the Hebrew Bible (Biblical Hebrew). Serves as basis for later forms of Classical Hebrew.",
             "id": "HEBR-BIB 103",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 324",
-            "target": "HEBR-BIB/JEWISH 513"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 104",
-            "target": "HEBR-BIB 323"
-        }
-    },
-    {
-        "data": {
-            "description": "The phonology, morphology and syntax of biblical Hebrew; viewed from historical and descriptive linguistic perspectives.",
-            "id": "HEBR-BIB 723",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings in Peshitta, literary texts.",
-            "id": "HEBR-BIB 706",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Philological and literary study of the Hebrew text of Isiah 40-66. Readings in the ancient translations.",
-            "id": "HEBR-BIB 752",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "id": "HEBR-BIB",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the text, development, history, and social context of the Hebrew Bible/Old Testament. Covers the Torah (Pentateuch), Neviim (Former and Latter Prophets), and Ketuvim (Writings), and provides a brief introduction to early Jewish literature (Pseudepigrapha/Apocrypha). Discusses various methods of analysis and theories of composition. Addresses major theological claims made of the text by Jewish and Christian communities. Explores contextualized interpretations in the ancient and modern day.",
-            "id": "CLASSICS/JEWISH/LITTRANS/RELIGST 227"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical reading of selected texts from the Latter Prophets and the Writings.",
-            "id": "HEBR-BIB/JEWISH 514"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
-            "id": "HEBR-BIB 323",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 323",
-            "target": "HEBR-BIB 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Examine topics relevant to Biblical Studies through textual analysis and research.",
-            "id": "HEBR-BIB 951",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "source": "CLASSICS/JEWISH/LITTRANS/RELIGST 227",
-            "target": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the thought, literature, and history of the prophets of ancient Israel (in English).",
-            "id": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
-        }
-    },
-    {
-        "data": {
-            "description": "An intensive introduction to the grammar and vocabulary of Classical (Biblical) Hebrew, the language of the Hebrew Bible and Ancient Israel, equivalent toHEBR-BIB\u00a0103and104. Gain skills in preparation for reading the Hebrew Bible in the original language. Focus on translation of Hebrew text (written grammar and lexicon). Includes aspects of ancient Israelite culture, history, and literature.",
-            "id": "HEBR-BIB 391",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Phoenician, Punic, Moabite, and Hebrew epigraphic texts.",
-            "id": "HEBR-BIB 704",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 103",
-            "target": "HEBR-BIB 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Philological and literary study of the Hebrew text of Job. Readings in the ancient translations.",
-            "id": "HEBR-BIB 754",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent study as arranged with a faculty member.",
-            "id": "HEBR-BIB 799",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Philological and literary study of the Hebrew narratives in Genesis through Deuteronomy, with readings in the ancient translations.",
-            "id": "HEBR-BIB 743",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the language of the Hebrew Bible (Biblical Hebrew). Serves as basis for later forms of Classical Hebrew.",
-            "id": "HEBR-BIB 104",
-            "parent": "HEBR-BIB"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 103",
-            "target": "HEBR-BIB 391"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 303",
-            "target": "HEBR-BIB 304"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides graduate-level instruction in languages required for research in the literature, history, and culture of the Ancient Near East. Languages typically offered include Akkadian, Phoenician, Sumerian, Hittite, and Egyptian.",
-            "id": "HEBR-BIB 700",
             "parent": "HEBR-BIB"
         }
     },
@@ -247,8 +146,121 @@
     },
     {
         "data": {
+            "description": "Philological and literary study of the Hebrew text of Isiah 40-66. Readings in the ancient translations.",
+            "id": "HEBR-BIB 752",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Examine topics relevant to Biblical Studies through textual analysis and research.",
+            "id": "HEBR-BIB 951",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Grammar and readings in Biblical Aramaic (Daniel, Ezra).",
+            "id": "HEBR-BIB 701",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB/JEWISH 513",
+            "target": "HEBR-BIB/JEWISH 514"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
+            "id": "HEBR-BIB 323",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 104",
+            "target": "HEBR-BIB 391"
+        }
+    },
+    {
+        "data": {
+            "description": "Selections from non-biblical Aramaic texts: Inscriptions, Elephentine letters, Ahiqar, Targumim.",
+            "id": "HEBR-BIB 702",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides graduate-level instruction in languages required for research in the literature, history, and culture of the Ancient Near East. Languages typically offered include Akkadian, Phoenician, Sumerian, Hittite, and Egyptian.",
+            "id": "HEBR-BIB 700",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "An intensive introduction to the grammar and vocabulary of Classical (Biblical) Hebrew, the language of the Hebrew Bible and Ancient Israel, equivalent toHEBR-BIB\u00a0103and104. Gain skills in preparation for reading the Hebrew Bible in the original language. Focus on translation of Hebrew text (written grammar and lexicon). Includes aspects of ancient Israelite culture, history, and literature.",
+            "id": "HEBR-BIB 391",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Critical reading of selected texts from the Latter Prophets and the Writings.",
+            "id": "HEBR-BIB/JEWISH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 103",
+            "target": "HEBR-BIB 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Philological and literary study of the Hebrew text of Isiah 1-39. Readings in the ancient translations.",
+            "id": "HEBR-BIB 751",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "source": "CLASSICS/JEWISH/LITTRANS/RELIGST 227",
+            "target": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
+        }
+    },
+    {
+        "data": {
+            "description": "Forms and syntax, reading of Classical Hebrew prose in preparation for research.",
+            "id": "HEBR-BIB 304",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Forms and syntax, reading of Classical Hebrew prose in preparation for research.",
+            "id": "HEBR-BIB 303",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Phoenician, Punic, Moabite, and Hebrew epigraphic texts.",
+            "id": "HEBR-BIB 704",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 104",
+            "target": "HEBR-BIB 323"
         }
     }
 ]

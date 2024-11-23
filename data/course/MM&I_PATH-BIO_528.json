@@ -2,20 +2,77 @@
     "course_reference": {
         "course_number": 528,
         "subjects": [
-            "PATH-BIO",
-            "MM&I"
+            "MM&I",
+            "PATH-BIO"
         ]
     },
     "course_title": "IMMUNOLOGY",
     "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "CHEM"
+                ]
+            }
+        ],
+        "prerequisites_text": "(CHEM\u00a0104orCHEM\u00a0109) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151orBIOCORE\u00a0383), or graduate/professional standing"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

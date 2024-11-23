@@ -7,12 +7,49 @@
     },
     "course_title": "STRUCTURAL ANALYSIS I",
     "description": "Analysis of statically determinate and indeterminate beams, trusses, and rigid frames; deflections by virtual-work, moment-area; influence lines; force methods; structural design loads, introduction to structural design, approximate methods.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "EMA",
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            }
+        ],
+        "prerequisites_text": "(E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306) andM\u00a0E/\u200bE\u00a0M\u00a0A\u00a0\u00a0307, graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "EMA",
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
                 ]
             }
         ],

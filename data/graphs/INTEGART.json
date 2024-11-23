@@ -2,14 +2,26 @@
     {
         "data": {
             "description": "Guest artists will offer interdisciplinary studio courses on topics appropriate to their specializations. See go.wisc.edu/artsresidency for information on specific residencies.",
-            "id": "INTEGART 610",
+            "id": "INTEGART 310",
             "parent": "INTEGART"
         }
     },
     {
         "data": {
-            "description": "The residents of The Studio: Creative Arts Community engage in an interdisciplinary, hands-on experience of creative arts and professional practice, including developing and showing their original work in the local community.",
-            "id": "INTEGART 112",
+            "id": "INTEGART",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Become familiar with basic entrepreneurship principles and value proposition design techniques in social entrepreneurship settings with attention to the perspective of arts and cultural organizations. Content includes business model development, customer-driven innovation, lean startup practices, organizational capacity for entrepreneurial action, team performance, the structure of alliances and partnerships and funding mechanisms in the sector.",
+            "id": "INTEGART/MHR 636"
+        }
+    },
+    {
+        "data": {
+            "description": "Specialized subject matter in the areas of interdisciplinary or integrated arts.",
+            "id": "INTEGART 630",
             "parent": "INTEGART"
         }
     },
@@ -22,22 +34,23 @@
     },
     {
         "data": {
-            "description": "Guest artists will offer interdisciplinary courses on topics appropriate to their specializations. see go.wisc.edu/artsresidency for information on specific residencies. Requisites vary according to topic",
-            "id": "INTEGART 312",
+            "description": "Specialized subject matter in the areas of interdisciplinary or integrated arts. Requisite varies according to topic.",
+            "id": "INTEGART 330",
+            "parent": "INTEGART"
+        }
+    },
+    {
+        "data": {
+            "description": "The residents of The Studio: Creative Arts Community engage in an interdisciplinary, hands-on experience of creative arts and professional practice, including developing and showing their original work in the local community.",
+            "id": "INTEGART 112",
             "parent": "INTEGART"
         }
     },
     {
         "data": {
             "description": "Guest artists will offer interdisciplinary studio courses on topics appropriate to their specializations. See go.wisc.edu/artsresidency for information on specific residencies.",
-            "id": "INTEGART 310",
+            "id": "INTEGART 610",
             "parent": "INTEGART"
-        }
-    },
-    {
-        "data": {
-            "description": "Become familiar with basic entrepreneurship principles and value proposition design techniques in social entrepreneurship settings with attention to the perspective of arts and cultural organizations. Content includes business model development, customer-driven innovation, lean startup practices, organizational capacity for entrepreneurial action, team performance, the structure of alliances and partnerships and funding mechanisms in the sector.",
-            "id": "INTEGART/MHR 636"
         }
     },
     {
@@ -48,15 +61,9 @@
     },
     {
         "data": {
-            "description": "Specialized subject matter in the areas of interdisciplinary or integrated arts.",
-            "id": "INTEGART 630",
+            "description": "Guest artists will offer interdisciplinary courses on topics appropriate to their specializations. see go.wisc.edu/artsresidency for information on specific residencies. Requisites vary according to topic",
+            "id": "INTEGART 312",
             "parent": "INTEGART"
-        }
-    },
-    {
-        "data": {
-            "id": "INTEGART",
-            "type": "compound"
         }
     },
     {
@@ -70,13 +77,6 @@
         "data": {
             "id": "CROSSLISTED",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Specialized subject matter in the areas of interdisciplinary or integrated arts. Requisite varies according to topic.",
-            "id": "INTEGART 330",
-            "parent": "INTEGART"
         }
     }
 ]

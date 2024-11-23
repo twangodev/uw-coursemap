@@ -7,10 +7,63 @@
     },
     "course_title": "ECONOMIC APPROACH TO CURRENT ISSUES",
     "description": "Emphasizes current economic issues and illustrates how the economist's perspective helps understand them. Academic readings and popular books such as Freakonomics will be used to indicate the breadth and scope of questions that can be analyzed from an economic perspective.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 96,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "MATH\u00a096or placement intoMATH\u00a0112or satisfied Quantitative Reasoning (QR) A requirement. Not open to students with credit forECON\u00a0101,102, or111"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 112,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 96,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 111,
                 "subjects": [
                     "ECON"
                 ]

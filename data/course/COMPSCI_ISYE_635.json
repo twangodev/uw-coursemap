@@ -2,16 +2,83 @@
     "course_reference": {
         "course_number": 635,
         "subjects": [
-            "COMPSCI",
-            "ISYE"
+            "ISYE",
+            "COMPSCI"
         ]
     },
     "course_title": "TOOLS AND ENVIRONMENTS FOR OPTIMIZATION",
     "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 200,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "LIS",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH\u00a0320,340,341, or375) and (COMP\u00a0SCI\u00a0200,300, 301, 302, placement intoCOMP\u00a0SCI\u00a0300, orL\u00a0I\u00a0S/\u200bCOMP\u00a0SCI\u00a0\u00a0102(COMP SCI 202 prior to Fall 2023)); grad/professional standing; declared in the Capstone Certificate in Computer Sciences for Professionals"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "LIS",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 200,
                 "subjects": [
                     "COMPSCI"
                 ]

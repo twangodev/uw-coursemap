@@ -2,12 +2,23 @@
     "course_reference": {
         "course_number": 722,
         "subjects": [
-            "INFOSYS",
-            "ISYE"
+            "ISYE",
+            "INFOSYS"
         ]
     },
     "course_title": "COMPUTER-BASED DATA MANAGEMENT",
     "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 371,
+                "subjects": [
+                    "INFOSYS"
+                ]
+            }
+        ],
+        "prerequisites_text": "Graduate/professional standing andINFO\u00a0SYS\u00a0371"
+    },
     "prerequisites": {
         "course_references": [
             {

@@ -1,14 +1,129 @@
 [
     {
         "course_reference": {
+            "course_number": 425,
+            "subjects": [
+                "LEGALST",
+                "SOC",
+                "GEN&WS"
+            ]
+        },
+        "course_title": "CRIME, GENDER AND JUSTICE",
+        "description": "Focuses on the intersection between gender, crime and justice from a cross-cultural perspective. The gendered nature of the criminal justice system, female experiences of crime, prosecution and incarceration as well as the extent to which women are victims, offenders, and participants in the criminal justice system will be explored. Special emphasis will be placed on the theoretical implications of offending behavior and the intersection of gender with sexuality, race, ethnicity and class. The goal of this course is to provide a foundation for critically assessing the often controversial issues surrounding race, gender, crime, and criminal justice in society.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                },
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131,GEN&WS\u00a0101,102,103or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                },
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "GEN&WS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131,GEN&WS\u00a0101,102,103or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 250,
+            "subjects": [
+                "LEGALST",
+                "CURRIC",
+                "EDPOL"
+            ]
+        },
+        "course_title": "INCARCERATION AND EDUCATION",
+        "description": "Investigates how the systems of incarceration and education operate alongside, within, around and through one another. Provides a historical examination of how education and incarceration have interacted. Examines how prisons operate as 'teaching institutions,' what it teaches all of us impacted by it, and what interventions have been designed to facilitate particular kinds of learning. Presents firsthand accounts of those who work and live in the carceral system currently.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 442,
+            "subjects": [
+                "LEGALST",
+                "ELPA"
+            ]
+        },
+        "course_title": "CIVIL RIGHTS LAWS, THE COURTS, AND PUBLIC EDUCATION",
+        "description": "Examines several legal issues confronting students and educators within the U.S. education system with a particular focus on race discrimination. Examines how civil rights laws and constitutional provisions can help create more equitable schooling experiences for students and educators from historically marginalized populations. Identifies pragmatic approaches to the law, and explores issues of the democratic underpinnings of education.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 663,
             "subjects": [
-                "LIS",
-                "LEGALST"
+                "LEGALST",
+                "LIS"
             ]
         },
         "course_title": "INTRODUCTION TO CYBERLAW",
         "description": "The emphasis is on critical thinking about a broad variety of legal and policy problems that arise because of ever-changing information and communication technologies.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -18,12 +133,16 @@
         "course_reference": {
             "course_number": 645,
             "subjects": [
-                "LIS",
-                "LEGALST"
+                "LEGALST",
+                "LIS"
             ]
         },
         "course_title": "INTELLECTUAL FREEDOM",
         "description": "An examination of intellectual freedom in the United States including censorship, minors' rights, the Internet, privacy, and copyright with focus on theoretical questions related to the First Amendment to the U.S. Constitution, and historical developments.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -38,13 +157,39 @@
         },
         "course_title": "HUMAN RIGHTS IN LAW AND SOCIETY",
         "description": "Introduction to the theory, the politics and the sociology of human rights. Main themes: international human rights legal regime, questions of why human rights have become \"legalized,\" and what the consequences of this legalization are on the ground.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
                 {
                     "course_number": 217,
                     "subjects": [
-                        "POLISCI",
-                        "LEGALST"
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131,POLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217, or Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
                     ]
                 }
             ],
@@ -53,60 +198,93 @@
     },
     {
         "course_reference": {
-            "course_number": 510,
+            "course_number": 203,
             "subjects": [
-                "HISTORY",
-                "LEGALST"
+                "LEGALST",
+                "RELIGST",
+                "JEWISH"
             ]
         },
-        "course_title": "LEGAL PLURALISM",
-        "description": "Historical and anthropological perspectives on non-state \"law,\" or systems of rules generated by normative orders that lay beyond the state; case studies include the mafia, Tokyo tuna traders' court, orthodox Jewish diamond merchants, California gold miners' courts, Inuit song dueling.",
+        "course_title": "JEWISH LAW, BUSINESS, AND ETHICS",
+        "description": "Explores the development of Jewish law from antiquity to modernity, with a focus on legal questions related to business practices and ethics. Consider issues ranging from ethical practices in agriculture to how to run a modern multi billion-dollar kosher industry; from the ethics of Jews celebrating Thanksgiving to regulations governing the preparation, consumption, and sale of coffee.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "POLISCI",
-                        "LEGALST"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
         "course_reference": {
-            "course_number": 694,
+            "course_number": 692,
             "subjects": [
-                "SOC",
                 "LEGALST"
             ]
         },
-        "course_title": "CRIMINAL JUSTICE FIELD OBSERVATION",
-        "description": "Field placements and seminar sessions to develop sociological understanding of criminal justice processes. Placement in criminal justice agencies and lectures and discussions applying concepts and theories to field experience.",
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for majors writing senior thesis (nonhonors).",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 131,
-                    "subjects": [
-                        "SOC",
-                        "LEGALST"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Declared in Criminal Justice certificate andLEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 261,
+            "course_number": 131,
             "subjects": [
-                "HISTORY",
+                "LEGALST",
+                "SOC"
+            ]
+        },
+        "course_title": "CRIMINAL JUSTICE IN AMERICA",
+        "description": "Day-to-day functioning of the elements of the criminal justice system in the U.S. Nature of crime in the U.S., ideas about causes and solutions. Emphasis on the sociology of the components of criminal justice system--organization and roles of police, lawyers, court and correctional personnel.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 135,
+            "subjects": [
+                "LEGALST",
+                "RP&SE"
+            ]
+        },
+        "course_title": "DISABILITY AND THE CRIMINAL JUSTICE SYSTEM",
+        "description": "Explores the interaction between the criminal justice system and disability. Explores common experiences of persons with disability such as limited access to community services, poverty, and homelessness and the connection of these experiences to mass incarceration. Explores federal disability rights laws and the implementation of these laws in education, legal, and incarceration settings. Introduction to criminal justice reform to address the experiences of persons with disabilities in this system.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
                 "LEGALST"
             ]
         },
-        "course_title": "AMERICAN LEGAL HISTORY TO 1860",
-        "description": "Surveys the development of American law down to the U.S. Civil War. Reviews the English historical background, and examines how law changed in colonial America, culminating in the framing of the U.S. Constitution. Explores how territorial expansion, democracy, and slavery shaped nineteenth-century American law. Emphasis is on how law interacts with political, social, and cultural change, with a focus on the origins of modern civil and constitutional rights.",
+        "course_title": "TOPICS IN LEGAL STUDIES AND THE HUMANITIES",
+        "description": "Addresses a variety of issues linking various humanities perspectives to the central themes of law and legal institutions.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -114,106 +292,17 @@
     },
     {
         "course_reference": {
-            "course_number": 217,
+            "course_number": 681,
             "subjects": [
-                "POLISCI",
                 "LEGALST"
             ]
         },
-        "course_title": "LAW, POLITICS AND SOCIETY",
-        "description": "Introduction to the legal process. Examination of the various concepts of law, the perennial problems of the law, legal reasoning, and the nature and function of law and the courts.",
-        "prerequisites": {
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual study for majors writing theses for honors degree.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Freshman or sophomore standing only"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 542,
-            "subjects": [
-                "EDPOL",
-                "ELPA",
-                "LEGALST"
-            ]
+            "prerequisites_text": "Consent of instructor"
         },
-        "course_title": "LAW AND PUBLIC EDUCATION",
-        "description": "Examines the legal issues related to the policy decisions and delivery of public education (elementary and secondary) in the United States. Learn how law impacts both curriculum development and curricular delivery, explore current legal controversies, constitutional issues, and learn about legal reasoning and analysis. Examines how both legislation and litigation affects public education. Particular attention is paid to law as public policy and the analysis of the same.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "ENVIRST",
-                "HISTORY",
-                "LEGALST"
-            ]
-        },
-        "course_title": "LAW AND ENVIRONMENT: HISTORICAL AND CONTEMPORARY PERSPECTIVES",
-        "description": "Explores environmental studies through a focus on law and legal history. Although its main concentration is on U.S. environmental law, the course will begin and end with broader historical and global perspectives. Topics include a survey of English, European, and early American legal approaches to land use, natural resources, and pollution through World War II as well as an examination of the development and practice of contemporary U.S. environmental law and consideration of the recent emergence of international environmental law.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 476,
-            "subjects": [
-                "HISTORY",
-                "LEGALST"
-            ]
-        },
-        "course_title": "MEDIEVAL LAW AND SOCIETY",
-        "description": "Introduction to the central historical developments of law and legal institutions in the European middle ages (400-1500).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 641,
-            "subjects": [
-                "LAW",
-                "SOC",
-                "LEGALST"
-            ]
-        },
-        "course_title": "SOCIOLOGY OF LAW",
-        "description": "Theory and research on the social origins, processes and effects of law; examination of law-related behavior, legal institutions, law and social structure, and law and social change; linkage to contemporary theoretical and political debates.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 262,
-            "subjects": [
-                "HISTORY",
-                "LEGALST"
-            ]
-        },
-        "course_title": "AMERICAN LEGAL HISTORY, 1860 TO THE PRESENT",
-        "description": "Surveys the development of American law from the Civil War to the early Twenty-First Century. After a review of the U.S. Constitution and its modification by the Civil War amendments, examine the legal dimensions of such topics as race relations and the Civil Rights movement, the growth of modern business, the New Deal, labor rights, the women's movement, the individual rights revolution of the postwar period, and the contemporary conservative reaction. Emphasis on how law interacts with political, social, and cultural change.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 473,
-            "subjects": [
-                "LEGALST"
-            ]
-        },
-        "course_title": "HEALTH IMPACTS OF UNMET SOCIAL NEEDS",
-        "description": "Engage in service learning through direct work with patients in the Community Resource Navigator Program. Develop a better understanding of how social determinants of health equity affect peoples' lives. Partner with patients to identify social and legal services, assist patients in connecting to needed resources, follow up with patients to be sure that the connection was made and evaluate the quality of the resources provided. Reflect on experiences in the clinic and further explore how social location impacts health, legal and social service delivery. Working directly in local primary care clinics will provide the opportunity to communicate directly with the health care team to problem solve barriers patients are facing in accessing resources for their social needs.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -230,13 +319,116 @@
         },
         "course_title": "ETHNICITY, RACE, AND JUSTICE",
         "description": "An examination of ethnicity, race, and justice, with a specific emphasis on US Latinos, the largest minority group in the United States.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [
                 {
                     "course_number": 231,
                     "subjects": [
                         "POLISCI",
                         "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 245,
+                    "subjects": [
+                        "HISTORY",
+                        "GEN&WS",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                }
+            ],
+            "prerequisites_text": "C&E\u00a0SOC/\u200bSOC\u00a0\u00a0140,210,211,SOC\u00a0181,FOLKLORE/\u200bAFROAMER/\u200bAMER\u00a0IND/\u200bASIAN\u00a0AM/\u200bCHICLA\u00a0\u00a0102,CHICLA\u00a0201,CHICLA\u00a0210, CHICLA 230,POLI\u00a0SCI/\u200bCHICLA\u00a0\u00a0231,HISTORY/\u200bCHICLA/\u200bGEN&WS\u00a0\u00a0245,LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 231,
+                    "subjects": [
+                        "POLISCI",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 245,
+                    "subjects": [
+                        "HISTORY",
+                        "GEN&WS",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "AFROAMER",
+                        "AMERIND",
+                        "FOLKLORE",
+                        "CHICLA",
+                        "ASIANAM"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 181,
+                    "subjects": [
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 140,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
                     ]
                 }
             ],
@@ -245,57 +437,18 @@
     },
     {
         "course_reference": {
-            "course_number": 422,
+            "course_number": 160,
             "subjects": [
-                "GEN&WS",
-                "LEGALST"
+                "LEGALST",
+                "ENGL"
             ]
         },
-        "course_title": "WOMEN AND THE LAW",
-        "description": "Legal system, laws, and proposed legislation that have specific impact on the lives of women. Topics investigated in both the social and legal contexts.",
-        "prerequisites": {
+        "course_title": "TRUTH AND CRIME",
+        "description": "Examines the development, scope, and effects of the \"True Crime\" genre in the United States. Using literary analysis and legal studies methods, explore various areas of the genre (written, podcasts, documentaries, etc.) and try to find answer as to why we are so compelled by true crime narratives and what true crime's \"truth\" is. Untangle the complex relationship between law and narrative (background on each will be provided) and the various epistemological systems it combines, including the role of science and technology. Gain a detailed understanding of what our culture's relationship to \"real life\" crime narratives tells us about the fundamental and complex role criminality plays in defining us as a society.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 444,
-            "subjects": [
-                "LEGALST"
-            ]
+            "prerequisites_text": "None"
         },
-        "course_title": "LAW IN ACTION",
-        "description": "A review of the interaction of law (judicial decisions, legislation, administrative actions) with public policy by studying the approaches used to resolve a number of significant issues by use of law and examining the actual impact of such efforts.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 405,
-            "subjects": [
-                "LEGALST"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF FIELD EDUCATION",
-        "description": "Preparation for extensive, hands-on internship at a community criminal or juvenile justice agency.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Criminal Justice certificate"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 235,
-            "subjects": [
-                "HISTORY",
-                "LEGALST"
-            ]
-        },
-        "course_title": "PRISONS: FROM ANTIQUITY TO SUPERMAX",
-        "description": "Examines the development of prisons from the ancient Mediterranean world to the present in the US and Europe. Pays particular attention to the way in which imprisonment has been used against marginalized populations. Examines the development of carceral tactics across a number of registers, including the prison as an ancient political tactic, the economic logic of early modern debtors' prisons, the relationship of prisons and workhouses to forms of capitalism, prisons and colonial expansion, the relationship between mass incarceration and democratic forms of government, as well as the connections between the abolition of slavery and modern carceral practices. Also looks at the legal and constitutional limitations that have been put on imprisonment by the American legal system. Relies on interdisciplinary approaches to the study of prisons, including History, law, literature, and political theory.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -303,31 +456,21 @@
     },
     {
         "course_reference": {
-            "course_number": 442,
+            "course_number": 435,
             "subjects": [
-                "ELPA",
-                "LEGALST"
+                "LEGALST",
+                "AFROAMER"
             ]
         },
-        "course_title": "CIVIL RIGHTS LAWS, THE COURTS, AND PUBLIC EDUCATION",
-        "description": "Examines several legal issues confronting students and educators within the U.S. education system with a particular focus on race discrimination. Examines how civil rights laws and constitutional provisions can help create more equitable schooling experiences for students and educators from historically marginalized populations. Identifies pragmatic approaches to the law, and explores issues of the democratic underpinnings of education.",
-        "prerequisites": {
+        "course_title": "CIVIL RIGHTS: POLICING, PRISONS, VOTING, HOUSING, EMPLOYMENT",
+        "description": "Exploration of civil rights. Question what it means to discriminate (on the basis of race, sex, national origin, religion, and disability), how we might investigate and detect acts of discrimination, and the legal constraints on governmental efforts to remedy discrimination in employment, housing, and voting. Explore the intersection of government power and civil rights. Examine how the government targets groups during times of national crisis. Consider what constitutes acceptable conditions of incarceration for prisoners. Finally, learn police use-of-force doctrine, and discuss the challenge of protecting both officer and civilian safety.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "LEGALST"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for majors writing senior thesis (nonhonors).",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -341,12 +484,116 @@
         },
         "course_title": "IMMIGRATION, CRIME, AND ENFORCEMENT",
         "description": "A study of immigration, crime, and border enforcement, engaging both historical and present-day debates, focusing on Latino immigration and the U.S.-Mexico border.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [
                 {
                     "course_number": 201,
                     "subjects": [
                         "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 245,
+                    "subjects": [
+                        "HISTORY",
+                        "GEN&WS",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 231,
+                    "subjects": [
+                        "POLISCI",
+                        "CHICLA"
+                    ]
+                }
+            ],
+            "prerequisites_text": "C&E\u00a0SOC/\u200bSOC\u00a0\u00a0140,210,211,SOC\u00a0181,FOLKLORE/\u200bAFROAMER/\u200bAMER\u00a0IND/\u200bASIAN\u00a0AM/\u200bCHICLA\u00a0\u00a0102,CHICLA\u00a0201,CHICLA\u00a0210, CHICLA 230,POLI\u00a0SCI/\u200bCHICLA\u00a0\u00a0231,HISTORY/\u200bCHICLA/\u200bGEN&WS\u00a0\u00a0245,LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 231,
+                    "subjects": [
+                        "POLISCI",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 245,
+                    "subjects": [
+                        "HISTORY",
+                        "GEN&WS",
+                        "CHICLA"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "AFROAMER",
+                        "AMERIND",
+                        "FOLKLORE",
+                        "CHICLA",
+                        "ASIANAM"
+                    ]
+                },
+                {
+                    "course_number": 210,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 181,
+                    "subjects": [
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 140,
+                    "subjects": [
+                        "C&ESOC",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
                     ]
                 }
             ],
@@ -355,27 +602,19 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 430,
             "subjects": [
-                "LEGALST"
+                "LEGALST",
+                "HISTORY",
+                "ENVIRST"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study in legal studies.",
-        "prerequisites": {
+        "course_title": "LAW AND ENVIRONMENT: HISTORICAL AND CONTEMPORARY PERSPECTIVES",
+        "description": "Explores environmental studies through a focus on law and legal history. Although its main concentration is on U.S. environmental law, the course will begin and end with broader historical and global perspectives. Topics include a survey of English, European, and early American legal approaches to land use, natural resources, and pollution through World War II as well as an examination of the development and practice of contemporary U.S. environmental law and consideration of the recent emergence of international environmental law.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "LEGALST"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "TOPICS IN LEGAL STUDIES AND THE SOCIAL SCIENCES",
-        "description": "Addresses a variety of issues linking various social sciences perspectives to the central themes of law and legal institutions.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -383,13 +622,89 @@
     },
     {
         "course_reference": {
-            "course_number": 681,
+            "course_number": 445,
+            "subjects": [
+                "LEGALST",
+                "POLISCI"
+            ]
+        },
+        "course_title": "LEGAL WRITING, FROM COUNSELOR TO ADVOCATE",
+        "description": "Introduction to legal reasoning, writing, and research. Draft memos and briefs based on fictional case files and independent legal research, simulating the practice of law. Topics include precedent, sources of law, reading and interpreting legal texts, objective legal analysis, persuasion, and oral argument.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 694,
+            "subjects": [
+                "LEGALST",
+                "SOC"
+            ]
+        },
+        "course_title": "CRIMINAL JUSTICE FIELD OBSERVATION",
+        "description": "Field placements and seminar sessions to develop sociological understanding of criminal justice processes. Placement in criminal justice agencies and lectures and discussions applying concepts and theories to field experience.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Declared in Criminal Justice certificate andLEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Declared in Criminal Justice certificate andLEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 405,
             "subjects": [
                 "LEGALST"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual study for majors writing theses for honors degree.",
+        "course_title": "FOUNDATIONS OF FIELD EDUCATION",
+        "description": "Preparation for extensive, hands-on internship at a community criminal or juvenile justice agency.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Criminal Justice certificate"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Criminal Justice certificate"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 473,
+            "subjects": [
+                "LEGALST"
+            ]
+        },
+        "course_title": "HEALTH IMPACTS OF UNMET SOCIAL NEEDS",
+        "description": "Engage in service learning through direct work with patients in the Community Resource Navigator Program. Develop a better understanding of how social determinants of health equity affect peoples' lives. Partner with patients to identify social and legal services, assist patients in connecting to needed resources, follow up with patients to be sure that the connection was made and evaluate the quality of the resources provided. Reflect on experiences in the clinic and further explore how social location impacts health, legal and social service delivery. Working directly in local primary care clinics will provide the opportunity to communicate directly with the health care team to problem solve barriers patients are facing in accessing resources for their social needs.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -404,6 +719,110 @@
         },
         "course_title": "SPECIAL TOPICS IN LEGAL STUDIES",
         "description": "Special seminars are designed for opportunities such as short international seminar courses, the summer forum, and other special opportunities.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "LEGALST"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for majors writing senior thesis (nonhonors).",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 477,
+            "subjects": [
+                "LEGALST",
+                "HISTORY"
+            ]
+        },
+        "course_title": "HISTORY OF FORENSIC SCIENCE",
+        "description": "Examines the diverse paths followed by forensic science (including medical jurisprudence or forensic medicine) in various times and places, focusing on the English-speaking world from the nineteenth century until the present. Explore the many ways that law and science have worked together--or at cross-purposes--to generate and assess evidence at the crime scene, in the lab, in the courtroom, and beyond.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 261,
+                    "subjects": [
+                        "LEGALST",
+                        "HISTORY"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 261,
+                    "subjects": [
+                        "LEGALST",
+                        "HISTORY"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 460,
+            "subjects": [
+                "LEGALST",
+                "LIS"
+            ]
+        },
+        "course_title": "SURVEILLANCE, PRIVACY, AND POLICE POWERS",
+        "description": "Examines individual privacy and government information collection in law enforcement, security, public health, administrative law, and other contexts from a variety of disciplinary perspectives.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -413,12 +832,16 @@
         "course_reference": {
             "course_number": 459,
             "subjects": [
-                "HISTORY",
-                "LEGALST"
+                "LEGALST",
+                "HISTORY"
             ]
         },
         "course_title": "RULE OF LAW: PHILOSOPHICAL AND HISTORICAL MODELS",
         "description": "From the perspectives of history and political theory, examines the multiple meanings of the idea of the rule of idea, and its uses in American history. Explore prominent critiques of the rule of law ideal.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Junior standing"
@@ -426,14 +849,37 @@
     },
     {
         "course_reference": {
-            "course_number": 435,
+            "course_number": 235,
             "subjects": [
-                "AFROAMER",
-                "LEGALST"
+                "LEGALST",
+                "HISTORY"
             ]
         },
-        "course_title": "CIVIL RIGHTS: POLICING, PRISONS, VOTING, HOUSING, EMPLOYMENT",
-        "description": "Exploration of civil rights. Question what it means to discriminate (on the basis of race, sex, national origin, religion, and disability), how we might investigate and detect acts of discrimination, and the legal constraints on governmental efforts to remedy discrimination in employment, housing, and voting. Explore the intersection of government power and civil rights. Examine how the government targets groups during times of national crisis. Consider what constitutes acceptable conditions of incarceration for prisoners. Finally, learn police use-of-force doctrine, and discuss the challenge of protecting both officer and civilian safety.",
+        "course_title": "PRISONS: FROM ANTIQUITY TO SUPERMAX",
+        "description": "Examines the development of prisons from the ancient Mediterranean world to the present in the US and Europe. Pays particular attention to the way in which imprisonment has been used against marginalized populations. Examines the development of carceral tactics across a number of registers, including the prison as an ancient political tactic, the economic logic of early modern debtors' prisons, the relationship of prisons and workhouses to forms of capitalism, prisons and colonial expansion, the relationship between mass incarceration and democratic forms of government, as well as the connections between the abolition of slavery and modern carceral practices. Also looks at the legal and constitutional limitations that have been put on imprisonment by the American legal system. Relies on interdisciplinary approaches to the study of prisons, including History, law, literature, and political theory.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 262,
+            "subjects": [
+                "LEGALST",
+                "HISTORY"
+            ]
+        },
+        "course_title": "AMERICAN LEGAL HISTORY, 1860 TO THE PRESENT",
+        "description": "Surveys the development of American law from the Civil War to the early Twenty-First Century. After a review of the U.S. Constitution and its modification by the Civil War amendments, examine the legal dimensions of such topics as race relations and the Civil Rights movement, the growth of modern business, the New Deal, labor rights, the women's movement, the individual rights revolution of the postwar period, and the contemporary conservative reaction. Emphasis on how law interacts with political, social, and cultural change.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -441,28 +887,17 @@
     },
     {
         "course_reference": {
-            "course_number": 460,
+            "course_number": 444,
             "subjects": [
-                "LIS",
                 "LEGALST"
             ]
         },
-        "course_title": "SURVEILLANCE, PRIVACY, AND POLICE POWERS",
-        "description": "Examines individual privacy and government information collection in law enforcement, security, public health, administrative law, and other contexts from a variety of disciplinary perspectives.",
-        "prerequisites": {
+        "course_title": "LAW IN ACTION",
+        "description": "A review of the interaction of law (judicial decisions, legislation, administrative actions) with public policy by studying the approaches used to resolve a number of significant issues by use of law and examining the actual impact of such efforts.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 450,
-            "subjects": [
-                "LEGALST"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "TOPICS IN LEGAL STUDIES AND THE HUMANITIES",
-        "description": "Addresses a variety of issues linking various humanities perspectives to the central themes of law and legal institutions.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -477,6 +912,10 @@
         },
         "course_title": "SENIOR HONORS THESIS",
         "description": "Individual study for majors writing theses for honors degree.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -484,102 +923,21 @@
     },
     {
         "course_reference": {
-            "course_number": 477,
-            "subjects": [
-                "HISTORY",
-                "LEGALST"
-            ]
-        },
-        "course_title": "HISTORY OF FORENSIC SCIENCE",
-        "description": "Examines the diverse paths followed by forensic science (including medical jurisprudence or forensic medicine) in various times and places, focusing on the English-speaking world from the nineteenth century until the present. Explore the many ways that law and science have worked together--or at cross-purposes--to generate and assess evidence at the crime scene, in the lab, in the courtroom, and beyond.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 261,
-                    "subjects": [
-                        "HISTORY",
-                        "LEGALST"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 131,
-            "subjects": [
-                "SOC",
-                "LEGALST"
-            ]
-        },
-        "course_title": "CRIMINAL JUSTICE IN AMERICA",
-        "description": "Day-to-day functioning of the elements of the criminal justice system in the U.S. Nature of crime in the U.S., ideas about causes and solutions. Emphasis on the sociology of the components of criminal justice system--organization and roles of police, lawyers, court and correctional personnel.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 135,
+            "course_number": 261,
             "subjects": [
                 "LEGALST",
-                "RP&SE"
+                "HISTORY"
             ]
         },
-        "course_title": "DISABILITY AND THE CRIMINAL JUSTICE SYSTEM",
-        "description": "Explores the interaction between the criminal justice system and disability. Explores common experiences of persons with disability such as limited access to community services, poverty, and homelessness and the connection of these experiences to mass incarceration. Explores federal disability rights laws and the implementation of these laws in education, legal, and incarceration settings. Introduction to criminal justice reform to address the experiences of persons with disabilities in this system.",
-        "prerequisites": {
+        "course_title": "AMERICAN LEGAL HISTORY TO 1860",
+        "description": "Surveys the development of American law down to the U.S. Civil War. Reviews the English historical background, and examines how law changed in colonial America, culminating in the framing of the U.S. Constitution. Explores how territorial expansion, democracy, and slavery shaped nineteenth-century American law. Emphasis is on how law interacts with political, social, and cultural change, with a focus on the origins of modern civil and constitutional rights.",
+        "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 250,
-            "subjects": [
-                "EDPOL",
-                "CURRIC",
-                "LEGALST"
-            ]
+            "prerequisites_text": "Sophomore standing"
         },
-        "course_title": "INCARCERATION AND EDUCATION",
-        "description": "Investigates how the systems of incarceration and education operate alongside, within, around and through one another. Provides a historical examination of how education and incarceration have interacted. Examines how prisons operate as 'teaching institutions,' what it teaches all of us impacted by it, and what interventions have been designed to facilitate particular kinds of learning. Presents firsthand accounts of those who work and live in the carceral system currently.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 415,
-            "subjects": [
-                "SOC",
-                "LEGALST"
-            ]
-        },
-        "course_title": "THE LEGAL PROFESSION",
-        "description": "History, structure, and functioning of legal professions in the United States and in other countries around the world.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 203,
-            "subjects": [
-                "LEGALST",
-                "RELIGST",
-                "JEWISH"
-            ]
-        },
-        "course_title": "JEWISH LAW, BUSINESS, AND ETHICS",
-        "description": "Explores the development of Jewish law from antiquity to modernity, with a focus on legal questions related to business practices and ethics. Consider issues ranging from ethical practices in agriculture to how to run a modern multi billion-dollar kosher industry; from the ethics of Jews celebrating Thanksgiving to regulations governing the preparation, consumption, and sale of coffee.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -591,17 +949,125 @@
         },
         "course_title": "WRONGFUL CONVICTIONS",
         "description": "Study of evidentiary causes of wrongful convictions, including eyewitness misidentifications, false confessions, the use of jailhouse informants, and flaws in forensic science. Procedural and institutional causes of wrongful convictions, and within this context, question whether constitutional rights adequately protect against illegitimate outcomes. Explore potential ways to broaden conceptions of wrongful convictions, looking at mass surveillance, mass prosecution, mass conviction, sentencing severity, and the system's racially disproportionate impact at all intercept points.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131or217"
+        },
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 131,
                     "subjects": [
-                        "SOC",
-                        "LEGALST"
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
                     ]
                 }
             ],
             "prerequisites_text": "LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131or217"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 510,
+            "subjects": [
+                "LEGALST",
+                "HISTORY"
+            ]
+        },
+        "course_title": "LEGAL PLURALISM",
+        "description": "Historical and anthropological perspectives on non-state \"law,\" or systems of rules generated by normative orders that lay beyond the state; case studies include the mafia, Tokyo tuna traders' court, orthodox Jewish diamond merchants, California gold miners' courts, Inuit song dueling.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 261,
+                    "subjects": [
+                        "LEGALST",
+                        "HISTORY"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 261,
+                    "subjects": [
+                        "LEGALST",
+                        "HISTORY"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (LEGAL\u00a0ST/\u200bHISTORY\u00a0\u00a0261,SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 422,
+            "subjects": [
+                "LEGALST",
+                "GEN&WS"
+            ]
+        },
+        "course_title": "WOMEN AND THE LAW",
+        "description": "Legal system, laws, and proposed legislation that have specific impact on the lives of women. Topics investigated in both the social and legal contexts.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
@@ -613,13 +1079,39 @@
         },
         "course_title": "JURISPRUDENCE AND SOCIAL ISSUES",
         "description": "Examines fundamental questions about the nature and content of law, addressing both analytic and normative jurisprudence. Questions in analytic jurisprudence include: What does it mean for something to be the law? Why are some things a matter of law, while others are not? What is the relationship between law and morality? Is the law exhausted by the meaning of words in constitutions and statutes? Questions of normative jurisprudence concern the proper content of law, such as, what should the law permit, prohibit, and promote? These questions are examined by looking at a number of topics that are at issue in U.S. (and other nations') laws. These will include interpreting criminal law statutes, policies promoting public welfare, and the justifications for property, especially intellectual property rights.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
                 {
                     "course_number": 217,
                     "subjects": [
-                        "POLISCI",
-                        "LEGALST"
+                        "LEGALST",
+                        "POLISCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131,POLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 131,
+                    "subjects": [
+                        "LEGALST",
+                        "SOC"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "LEGALST",
+                        "POLISCI"
                     ]
                 }
             ],
@@ -628,66 +1120,18 @@
     },
     {
         "course_reference": {
-            "course_number": 692,
-            "subjects": [
-                "LEGALST"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for majors writing senior thesis (nonhonors).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 425,
-            "subjects": [
-                "GEN&WS",
-                "SOC",
-                "LEGALST"
-            ]
-        },
-        "course_title": "CRIME, GENDER AND JUSTICE",
-        "description": "Focuses on the intersection between gender, crime and justice from a cross-cultural perspective. The gendered nature of the criminal justice system, female experiences of crime, prosecution and incarceration as well as the extent to which women are victims, offenders, and participants in the criminal justice system will be explored. Special emphasis will be placed on the theoretical implications of offending behavior and the intersection of gender with sexuality, race, ethnicity and class. The goal of this course is to provide a foundation for critically assessing the often controversial issues surrounding race, gender, crime, and criminal justice in society.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "GEN&WS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOC/\u200bLEGAL\u00a0ST\u00a0\u00a0131,GEN&WS\u00a0101,102,103or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 160,
-            "subjects": [
-                "ENGL",
-                "LEGALST"
-            ]
-        },
-        "course_title": "TRUTH AND CRIME",
-        "description": "Examines the development, scope, and effects of the \"True Crime\" genre in the United States. Using literary analysis and legal studies methods, explore various areas of the genre (written, podcasts, documentaries, etc.) and try to find answer as to why we are so compelled by true crime narratives and what true crime's \"truth\" is. Untangle the complex relationship between law and narrative (background on each will be provided) and the various epistemological systems it combines, including the role of science and technology. Gain a detailed understanding of what our culture's relationship to \"real life\" crime narratives tells us about the fundamental and complex role criminality plays in defining us as a society.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 426,
             "subjects": [
-                "HISTORY",
-                "LEGALST"
+                "LEGALST",
+                "HISTORY"
             ]
         },
         "course_title": "THE HISTORY OF PUNISHMENT",
         "description": "Examines punishment across a vast range of historical traditions, examining how wrongdoing and punishment have been figured in law, literature, art and philosophy. Examines ancient, medieval and modern traditions.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"
@@ -695,14 +1139,132 @@
     },
     {
         "course_reference": {
-            "course_number": 445,
+            "course_number": 217,
             "subjects": [
-                "POLISCI",
+                "LEGALST",
+                "POLISCI"
+            ]
+        },
+        "course_title": "LAW, POLITICS AND SOCIETY",
+        "description": "Introduction to the legal process. Examination of the various concepts of law, the perennial problems of the law, legal reasoning, and the nature and function of law and the courts.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Freshman or sophomore standing only"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Freshman or sophomore standing only"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 542,
+            "subjects": [
+                "LEGALST",
+                "ELPA",
+                "EDPOL"
+            ]
+        },
+        "course_title": "LAW AND PUBLIC EDUCATION",
+        "description": "Examines the legal issues related to the policy decisions and delivery of public education (elementary and secondary) in the United States. Learn how law impacts both curriculum development and curricular delivery, explore current legal controversies, constitutional issues, and learn about legal reasoning and analysis. Examines how both legislation and litigation affects public education. Particular attention is paid to law as public policy and the analysis of the same.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 641,
+            "subjects": [
+                "LAW",
+                "SOC",
                 "LEGALST"
             ]
         },
-        "course_title": "LEGAL WRITING, FROM COUNSELOR TO ADVOCATE",
-        "description": "Introduction to legal reasoning, writing, and research. Draft memos and briefs based on fictional case files and independent legal research, simulating the practice of law. Topics include precedent, sources of law, reading and interpreting legal texts, objective legal analysis, persuasion, and oral argument.",
+        "course_title": "SOCIOLOGY OF LAW",
+        "description": "Theory and research on the social origins, processes and effects of law; examination of law-related behavior, legal institutions, law and social structure, and law and social change; linkage to contemporary theoretical and political debates.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "LEGALST"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study in legal studies.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "LEGALST"
+            ]
+        },
+        "course_title": "TOPICS IN LEGAL STUDIES AND THE SOCIAL SCIENCES",
+        "description": "Addresses a variety of issues linking various social sciences perspectives to the central themes of law and legal institutions.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 415,
+            "subjects": [
+                "LEGALST",
+                "SOC"
+            ]
+        },
+        "course_title": "THE LEGAL PROFESSION",
+        "description": "History, structure, and functioning of legal professions in the United States and in other countries around the world.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 476,
+            "subjects": [
+                "LEGALST",
+                "HISTORY"
+            ]
+        },
+        "course_title": "MEDIEVAL LAW AND SOCIETY",
+        "description": "Introduction to the central historical developments of law and legal institutions in the European middle ages (400-1500).",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Sophomore standing"

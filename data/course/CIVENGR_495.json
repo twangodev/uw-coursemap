@@ -7,13 +7,37 @@
     },
     "course_title": "SUSTAINABLE BUILDING AND MATERIALS",
     "description": "Concepts of sustainability in Civil Engineering with an emphasis on construction materials. Introduction to life-cycle assessment approach to evaluating the impact of infrastructure development. Current sustainable practices in construction projects. Connecting values to clients, stakeholders, and societal needs. Sustainability rating programs, such as LEED, Envision, and INVEST.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 325,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
             {
                 "course_number": 395,
                 "subjects": [
-                    "CIVENGR",
-                    "EMA"
+                    "EMA",
+                    "CIVENGR"
+                ]
+            }
+        ],
+        "prerequisites_text": "CIV\u00a0ENGR\u00a0325,E\u00a0M\u00a0A/\u200bCIV\u00a0ENGR\u00a0\u00a0395, graduate/professional standing, or member of Engineering Guest Students"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 325,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 395,
+                "subjects": [
+                    "EMA",
+                    "CIVENGR"
                 ]
             }
         ],

@@ -7,12 +7,71 @@
     },
     "course_title": "FUNDAMENTALS OF ELECTRICAL AND ELECTRO-MECHANICAL POWER CONVERSION",
     "description": "Fundamentals of electromagnetic induction and application to transformers and induction heating; Lorentz forces with a focus on the operation and control of DC and AC motors and linear actuators; electrical power conversion using power electronics for motor drives and direct power converters.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 376,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 248,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH\u00a0234or376), (PHYSICS\u00a0202,208, or248), andE\u00a0C\u00a0E\u00a0376, or member of Engineering Guest Students"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 376,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 248,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 376,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 234,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

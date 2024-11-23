@@ -7,12 +7,59 @@
     },
     "course_title": "BUSINESS ANALYTICS I",
     "description": "Development of quantitative intuition through practical applications and use of analysis tools. Specifically, emphasis will be on how to manage, summarize, explore, and visualize databases. The essentials of probability will be introduced and applied to decision problems where there is uncertainty. Emphasis on hypothesis testing and regression analysis and include an introduction to simulation methods. Throughout, attention will be paid to effective communication of data analysis. The use of business cases will connect the course material to both real world settings and recent advances in data analysis, including big data and data mining.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 106,
                 "subjects": [
                     "GENBUS"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(GEN\u00a0BUS\u00a0106or concurrent enrollment) and (MATH\u00a0211,217, or221), or declared in undergraduate Business Exchange program"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 106,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

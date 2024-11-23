@@ -7,12 +7,65 @@
     },
     "course_title": "PHARMACOLOGY I",
     "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 508,
                 "subjects": [
                     "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 404,
+                "subjects": [
+                    "PATH"
+                ]
+            },
+            {
+                "course_number": 335,
+                "subjects": [
+                    "ANAT&PHY"
+                ]
+            },
+            {
+                "course_number": 435,
+                "subjects": [
+                    "ANAT&PHY"
+                ]
+            }
+        ],
+        "prerequisites_text": "Declared in the Doctor of Pharmacy program with second year standing; or declared in Pharmacology and Toxicology BS,BIOCHEM\u00a0508,PATH\u00a0404, and (ANAT&PHY\u00a0335,435, orBIOCORE\u00a0486)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 486,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 435,
+                "subjects": [
+                    "ANAT&PHY"
+                ]
+            },
+            {
+                "course_number": 508,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 335,
+                "subjects": [
+                    "ANAT&PHY"
+                ]
+            },
+            {
+                "course_number": 404,
+                "subjects": [
+                    "PATH"
                 ]
             }
         ],

@@ -2,19 +2,31 @@
     "course_reference": {
         "course_number": 409,
         "subjects": [
-            "SCANDST",
-            "MEDIEVAL"
+            "MEDIEVAL",
+            "SCANDST"
         ]
     },
     "course_title": "SURVEY OF OLD NORSE-ICELANDIC LITERATURE",
     "description": "Eddic and skaldic poetry; homilies and saints' lives, kings' sagas, sagas of the Icelanders; mythical-heroic sagas and romances; rimur.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 407,
+                "subjects": [
+                    "MEDIEVAL",
+                    "SCANDST"
+                ]
+            }
+        ],
+        "prerequisites_text": "MEDIEVAL/\u200bSCAND\u00a0ST\u00a0\u00a0407or graduate/professional standing"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 407,
                 "subjects": [
-                    "SCANDST",
-                    "MEDIEVAL"
+                    "MEDIEVAL",
+                    "SCANDST"
                 ]
             }
         ],

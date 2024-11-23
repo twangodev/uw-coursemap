@@ -1,20 +1,21 @@
 [
     {
         "data": {
-            "source": "ANAT&PHY 338",
-            "target": "ANATOMY 329"
+            "source": "ANAT&PHY 337",
+            "target": "ANAT&PHY 338"
         }
     },
     {
         "data": {
-            "id": "ANATOMY",
+            "id": "ANAT&PHY",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "ANAT&PHY 337",
-            "target": "ANAT&PHY 338"
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "ANATOMY 699",
+            "parent": "ANATOMY"
         }
     },
     {
@@ -33,12 +34,6 @@
     },
     {
         "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "description": "Laboratory with dissection of human cadaver specimens and study of prosections.",
             "id": "ANATOMY 329",
             "parent": "ANATOMY"
@@ -53,9 +48,14 @@
     },
     {
         "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "ANATOMY 699",
-            "parent": "ANATOMY"
+            "id": "ANATOMY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 338",
+            "target": "ANATOMY 329"
         }
     }
 ]

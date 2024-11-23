@@ -7,12 +7,71 @@
     },
     "course_title": "PRIMATE PSYCHOLOGY: INSIGHTS INTO HUMAN BEHAVIOR",
     "description": "Explore the psychology and biology of our closest living ancestors and how it can provide insights into human behavior and cognition. Learn how a variety of factors (ecological, evolutionary, developmental, and experiential) shape the variation we see across and within primate species. Topics include investigation of similarities and differences across taxa in development, learning, memory, evolution of the brain, spatial navigation, tool-use, social behavior, parental behavior, communication, self-recognition, and theory of mind, as well as ethical issues and conservation.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 202,
                 "subjects": [
                     "PSYCH"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "PSYCH\u00a0202,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or (BIOCORE\u00a0381and382)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

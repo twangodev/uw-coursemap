@@ -7,14 +7,53 @@
     },
     "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
     "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 611,
+                "subjects": [
+                    "NEURODPT",
+                    "NTP",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 485,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
+                ]
+            }
+        ],
+        "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 611,
                 "subjects": [
-                    "PSYCH",
                     "NEURODPT",
-                    "NTP"
+                    "NTP",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 485,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
                 ]
             }
         ],

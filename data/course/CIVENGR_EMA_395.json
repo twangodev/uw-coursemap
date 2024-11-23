@@ -2,18 +2,41 @@
     "course_reference": {
         "course_number": 395,
         "subjects": [
-            "CIVENGR",
-            "EMA"
+            "EMA",
+            "CIVENGR"
         ]
     },
     "course_title": "MATERIALS FOR CONSTRUCTED FACILITIES",
     "description": "Properties and tests of materials used in the initial construction or repair of facilities (including buildings, transportation systems, utility systems, and reinforced earth). Introduction to laboratory and field measurement techniques to assess material performance capabilities. Technical report preparation.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            }
+        ],
+        "prerequisites_text": "(E\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306), graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
                 ]
             }
         ],

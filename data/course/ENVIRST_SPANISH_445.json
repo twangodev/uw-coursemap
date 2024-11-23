@@ -2,14 +2,51 @@
     "course_reference": {
         "course_number": 445,
         "subjects": [
-            "ENVIRST",
-            "SPANISH"
+            "SPANISH",
+            "ENVIRST"
         ]
     },
     "course_title": "CULTURE AND THE ENVIRONMENT IN THE LUSO-HISPANIC WORLD",
     "description": "Investigates how economy and culture work together, consuming and/or restoring their environments in divergent scenarios of the Hispanic World.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 224,
+                "subjects": [
+                    "SPANISH"
+                ]
+            },
+            {
+                "course_number": 222,
+                "subjects": [
+                    "SPANISH",
+                    "CHICLA"
+                ]
+            },
+            {
+                "course_number": 223,
+                "subjects": [
+                    "SPANISH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(CHICLA/\u200bSPANISH\u00a0\u00a0222orSPANISH\u00a0223) andSPANISH\u00a0224"
+    },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 224,
+                "subjects": [
+                    "SPANISH"
+                ]
+            },
+            {
+                "course_number": 222,
+                "subjects": [
+                    "SPANISH",
+                    "CHICLA"
+                ]
+            },
             {
                 "course_number": 223,
                 "subjects": [

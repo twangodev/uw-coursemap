@@ -2,18 +2,59 @@
     "course_reference": {
         "course_number": 541,
         "subjects": [
-            "GEOSCI",
-            "ZOOLOGY"
+            "ZOOLOGY",
+            "GEOSCI"
         ]
     },
     "course_title": "PALEOBIOLOGY",
     "description": "The evolutionary process as interpreted from the fossil record. Topics include: the study of form; tempo and mode of evolution; levels and mechanisms of evolutionary change; extinction in the fossil record; trends and patterns in the history of life; macroevolution.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 304,
+                "subjects": [
+                    "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "GEOSCI\u00a0304,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, or graduate/professional standing"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 304,
                 "subjects": [
                     "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

@@ -2,16 +2,39 @@
     "course_reference": {
         "course_number": 414,
         "subjects": [
-            "MEDIEVAL",
-            "SPANISH"
+            "SPANISH",
+            "MEDIEVAL"
         ]
     },
     "course_title": "LITERATURA DE LA EDAD MEDIA CASTELLANA (SS. XII-XV)",
     "description": "The study of a particular author, work, topic, or literary genre of the Middle Ages and/or Early Renaissance (through15th century): Poema de mio Cid, mester de juglaria, Libro de buen amor, mester de clerecia, El conde Lucanor, La Celestina, etc.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 224,
+                "subjects": [
+                    "SPANISH"
+                ]
+            },
+            {
+                "course_number": 223,
+                "subjects": [
+                    "SPANISH"
+                ]
+            }
+        ],
+        "prerequisites_text": "SPANISH\u00a0223and224. Graduate students may not enroll"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 224,
+                "subjects": [
+                    "SPANISH"
+                ]
+            },
+            {
+                "course_number": 223,
                 "subjects": [
                     "SPANISH"
                 ]

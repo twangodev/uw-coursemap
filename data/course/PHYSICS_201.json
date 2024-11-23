@@ -7,12 +7,59 @@
     },
     "course_title": "GENERAL PHYSICS",
     "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
             {
                 "course_number": 207,
                 "subjects": [
                     "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "MATH\u00a0217or221. Not open to students with credit forPHYSICS\u00a0207or247."
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

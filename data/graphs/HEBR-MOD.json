@@ -1,20 +1,22 @@
 [
     {
         "data": {
-            "source": "HEBR-MOD/JEWISH 302",
-            "target": "HEBR-MOD/JEWISH 401"
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 301"
         }
     },
     {
         "data": {
-            "source": "HEBR-MOD/JEWISH 401",
-            "target": "HEBR-MOD/JEWISH 402"
+            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
+            "id": "HEBR-MOD 202",
+            "parent": "HEBR-MOD"
         }
     },
     {
         "data": {
-            "source": "HEBR-MOD 101",
-            "target": "HEBR-MOD 102"
+            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+            "id": "HEBR-MOD 101",
+            "parent": "HEBR-MOD"
         }
     },
     {
@@ -25,15 +27,26 @@
     },
     {
         "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 302"
+            "description": "Readings in Hebrew literature. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 402"
         }
     },
     {
         "data": {
-            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 201",
-            "parent": "HEBR-MOD"
+            "source": "HEBR-MOD/JEWISH 301",
+            "target": "HEBR-MOD/JEWISH 302"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings in Hebrew literature. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 401"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD/JEWISH 401",
+            "target": "HEBR-MOD/JEWISH 402"
         }
     },
     {
@@ -51,27 +64,33 @@
     },
     {
         "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 301"
-        }
-    },
-    {
-        "data": {
             "source": "HEBR-MOD 202",
             "target": "HEBR-MOD/JEWISH 301"
         }
     },
     {
         "data": {
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 302"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 102",
+            "target": "HEBR-MOD 201"
+        }
+    },
+    {
+        "data": {
             "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 202",
+            "id": "HEBR-MOD 201",
             "parent": "HEBR-MOD"
         }
     },
     {
         "data": {
-            "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 401"
+            "source": "HEBR-MOD/JEWISH 302",
+            "target": "HEBR-MOD/JEWISH 401"
         }
     },
     {
@@ -83,15 +102,8 @@
     },
     {
         "data": {
-            "source": "HEBR-MOD/JEWISH 301",
-            "target": "HEBR-MOD/JEWISH 302"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
-            "id": "HEBR-MOD 101",
-            "parent": "HEBR-MOD"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
@@ -103,20 +115,8 @@
     },
     {
         "data": {
-            "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 402"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 102",
-            "target": "HEBR-MOD 201"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "source": "HEBR-MOD 101",
+            "target": "HEBR-MOD 102"
         }
     }
 ]

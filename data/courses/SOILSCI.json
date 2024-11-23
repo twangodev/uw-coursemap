@@ -1,16 +1,694 @@
 [
     {
         "course_reference": {
-            "course_number": 681,
+            "course_number": 699,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual study for majors completing theses for Soil Science Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Individual study for majors completing theses for Soil Science degrees as arranged with a faculty member. Requires consent of supervising instructor.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "F&WECOL",
+                "ENTOM",
+                "SOILSCI",
+                "PLPATH"
+            ]
+        },
+        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
+        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing to complete dissertation requirements.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 695,
+            "subjects": [
+                "LANDARC",
+                "SOILSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN NATURAL RESOURCES",
+        "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                },
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0211orENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "LANDARC"
+                    ]
+                },
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "LAND\u00a0ARC\u00a0211orENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 622,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "SOIL PHYSICS",
+        "description": "Physical properties of soils. Water retention and transmission in soils. Transport of heat, gas, and solutes. Physical environment of soil organisms and soil-plant-water relations.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248) andSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248) andSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 324,
+            "subjects": [
+                "SOILSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "SOILS AND ENVIRONMENTAL QUALITY",
+        "description": "Interaction of soils with environmental contaminants and the role of soils in pollution control.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "AGRONOMY",
+                "ATMOCN",
+                "SOILSCI"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL BIOPHYSICS",
+        "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOLOGY/\u200bBOTANY\u00a0\u00a0130and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0103,201,207, or247), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOLOGY/\u200bBOTANY\u00a0\u00a0130and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0103,201,207, or247), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 526,
+            "subjects": [
+                "SOILSCI",
+                "GEOG"
+            ]
+        },
+        "course_title": "HUMAN TRANSFORMATIONS OF EARTH SURFACE PROCESSES",
+        "description": "Takes an earth systems approach to explore the role of human societies in shaping earth surface processes from local to global scales. We address how alterations to our landscapes and waterways affect biological, physical and chemical interactions among our biosphere, geosphere, hydrosphere and atmosphere. We discuss methods used to distinguish the \"human impact\" from background variability.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing orENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Junior standing orENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 499,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "SOIL MANAGEMENT",
+        "description": "A capstone applying independent and team problem solving, critical thinking and oral and written communication skills to issues in soil and environmental sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing only and declared in Soil Science or Environmental Sciences"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing only and declared in Soil Science or Environmental Sciences"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN SOIL SCIENCE",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 728,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "GRADUATE SEMINAR",
+        "description": "Topical oral presentations by guest speakers and graduate students on contemporary concerns and issues involving land and soils.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 630,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "FIELD METHODS FOR ENVIRONMENTAL CHARACTERIZATION, ANALYSIS, AND MONITORING",
+        "description": "Introduce standard operating procedures and guidance for intrusive and non-intrusive sampling techniques for assessing soil, sediment, surface water, and ground water. Prepare boring logs and install groundwater monitoring well.  Properly prepare samples for preservation and shipment. Prepare and maintain defensible field documentation. Use quality control sampling, data verification and validation, and data quality assessment. Decontaminate drilling and field sampling equipment and manage investigative-derived waste.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Environmental Remediation and Management MS"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Environmental Remediation and Management MS"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 799,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "PRACTICUM IN SOIL SCIENCE TEACHING",
+        "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 710,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "SYSTEMATIC REVIEWS IN AGRICULTURE AND THE ENVIRONMENT",
+        "description": "Covers how to develop a publishable systematic review for dissertations and professional work. Understand the distinguishing features of systematic review typologies and apply this understanding to selecting and conducting systematic reviews applicable to a variety of research questions in agricultural sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 370,
+            "subjects": [
+                "AGRONOMY",
+                "SOILSCI",
+                "BOTANY"
+            ]
+        },
+        "course_title": "GRASSLAND ECOLOGY",
+        "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "AGRONOMY"
+                    ]
+                },
+                {
+                    "course_number": 123,
+                    "subjects": [
+                        "BOTANY",
+                        "PLPATH"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "SOILSCI",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "SOILSCI",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 123,
+                    "subjects": [
+                        "BOTANY",
+                        "PLPATH"
+                    ]
+                },
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "AGRONOMY"
+                    ]
+                },
+                {
+                    "course_number": 100,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 132,
+                    "subjects": [
+                        "ATMOCN",
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 302,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "MEET YOUR SOIL: SOIL ANALYSIS AND INTERPRETATION LABORATORY",
+        "description": "Hands-on laboratory on soil analysis and interpretation of soil properties for different uses, such as food production, waste management, water quality, stormwater control, and environmental sustainability.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEOG/\u200bENVIR\u00a0ST/\u200bSOIL\u00a0SCI\u00a0\u00a0230orSOIL\u00a0SCI\u00a0301, or concurrent enrollment) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEOG/\u200bENVIR\u00a0ST/\u200bSOIL\u00a0SCI\u00a0\u00a0230orSOIL\u00a0SCI\u00a0301, or concurrent enrollment) or graduate/professional standing"
         }
     },
     {
@@ -22,6 +700,10 @@
         },
         "course_title": "COLLOQUIUM: ENVIRONMENTAL REMEDIATION AND MANAGEMENT",
         "description": "Topical oral presentations by students, faculty, staff, and guest speakers on contemporary concerns and issues designed to increase knowledge and foster understanding of environmental contamination and remediation of soils and groundwater. Includes instruction and practice in public speaking, presentation visuals, resumes, and networking.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Environmental Remediation and Management MS"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Environmental Remediation and Management MS"
@@ -36,6 +718,10 @@
         },
         "course_title": "SPECIAL TOPICS",
         "description": "Special topics on contemporary issues relevant to soil science.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -43,52 +729,142 @@
     },
     {
         "course_reference": {
-            "course_number": 575,
+            "course_number": 372,
             "subjects": [
+                "BSE",
                 "SOILSCI",
-                "ENVIRST"
+                "CIVENGR"
             ]
         },
-        "course_title": "ASSESSMENT OF ENVIRONMENTAL IMPACT",
-        "description": "Overview of methods for collecting and analyzing information about environmental impacts on agricultural and natural resources, including monitoring the physical environment and relating impacts to people and society.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "SOILSCI"
-            ]
+        "course_title": "ON-SITE WASTE WATER TREATMENT AND DISPERSAL",
+        "description": "On-site treatment and dispersal of waste water from homes, commercial sources and small communities. Sources, pretreatment units, nutrient removal units, constructed wetlands, surface and soil dispersal systems, recycle and reuse systems, regulations, alternative collection systems.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0103,109, or115"
         },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0103,109, or115"
         }
     },
     {
         "course_reference": {
             "course_number": 524,
             "subjects": [
-                "SOILSCI",
                 "F&WECOL",
-                "HORT"
+                "HORT",
+                "SOILSCI"
             ]
         },
         "course_title": "URBAN SOIL AND ENVIRONMENT",
         "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
-        "prerequisites": {
+        "optimized_prerequisites": {
             "course_references": [
                 {
                     "course_number": 230,
                     "subjects": [
                         "SOILSCI",
-                        "ENVIRST",
-                        "GEOG"
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0103,201,207, or247) and (SOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230orSOIL\u00a0SCI\u00a0301or concurrent), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 201,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 207,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 247,
+                    "subjects": [
+                        "PHYSICS"
                     ]
                 }
             ],
@@ -97,17 +873,39 @@
     },
     {
         "course_reference": {
-            "course_number": 101,
+            "course_number": 332,
             "subjects": [
-                "SOILSCI",
-                "ENVIRST"
+                "HORT",
+                "SOILSCI"
             ]
         },
-        "course_title": "FORUM ON THE ENVIRONMENT",
-        "description": "Lectures and discussions about environmental issues. Historical and contemporary environmental impacts of humans on the biosphere. Global futures: population, technology, societal values, resources and prospects for sustainable management.",
+        "course_title": "TURFGRASS NUTRIENT AND WATER MANAGEMENT",
+        "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 326,
+                    "subjects": [
+                        "HORT",
+                        "AGRONOMY",
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOIL\u00a0SCI/\u200bAGRONOMY/\u200bHORT\u00a0\u00a0326or graduate/professional standing"
+        },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
+            "course_references": [
+                {
+                    "course_number": 326,
+                    "subjects": [
+                        "HORT",
+                        "AGRONOMY",
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOIL\u00a0SCI/\u200bAGRONOMY/\u200bHORT\u00a0\u00a0326or graduate/professional standing"
         }
     },
     {
@@ -119,8 +917,43 @@
         },
         "course_title": "SOILS AND ENVIRONMENTAL CHEMISTRY",
         "description": "Sources, reactions, transport, effects, and fates of chemical species in soils and associated water and air environments. Emphasis on the chemical behavior of elements and compounds and the phenomena affecting natural and anthropogenic materials in soils.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
+        },
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
                 {
                     "course_number": 104,
                     "subjects": [
@@ -133,169 +966,55 @@
     },
     {
         "course_reference": {
-            "course_number": 375,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Special topics on contemporary issues relevant to soil science.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 301,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "GENERAL SOIL SCIENCE",
-        "description": "Physical chemical and biological properties of soils as they affect soil-plant-water relations, soil classification and suitability for agricultural and other uses.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0103,109, or115) and (MATH\u00a0112,114,171or placement intoMATH\u00a0221), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 327,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL MONITORING AND SOIL CHARACTERIZATION FOR EARTH'S CRITICAL ZONE",
-        "description": "Characterization of a soil in the field. Monitoring water flow, heat exchange, solute transport and greenhouse gas emission using soil physical models and state-of-the-art soil sensing technologies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 230,
-                    "subjects": [
-                        "SOILSCI",
-                        "ENVIRST",
-                        "GEOG"
-                    ]
-                }
-            ],
-            "prerequisites_text": "SOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230,SOIL\u00a0SCI\u00a0301, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 710,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SYSTEMATIC REVIEWS IN AGRICULTURE AND THE ENVIRONMENT",
-        "description": "Covers how to develop a publishable systematic review for dissertations and professional work. Understand the distinguishing features of systematic review typologies and apply this understanding to selecting and conducting systematic reviews applicable to a variety of research questions in agricultural sciences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 606,
-            "subjects": [
-                "SOILSCI",
-                "ENTOM",
-                "PLPATH",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
-        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "STUDY ABROAD IN SOIL SCIENCE",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 499,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SOIL MANAGEMENT",
-        "description": "A capstone applying independent and team problem solving, critical thinking and oral and written communication skills to issues in soil and environmental sciences.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Senior standing only and declared in Soil Science or Environmental Sciences"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 631,
-            "subjects": [
-                "SOILSCI",
-                "CIVENGR",
-                "M&ENVTOX"
-            ]
-        },
-        "course_title": "TOXICANTS IN THE ENVIRONMENT: SOURCES, DISTRIBUTION, FATE, & EFFECTS",
-        "description": "Nature, sources, distribution, and fate of contaminants in air, water, soil, and food and potential for harmful exposure.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0104,109, or116) and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248)"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 425,
             "subjects": [
-                "SOILSCI",
-                "MICROBIO"
+                "MICROBIO",
+                "SOILSCI"
             ]
         },
         "course_title": "ENVIRONMENTAL MICROBIOLOGY",
         "description": "Microbial interactions in soils, water, extreme environments and biofilms. Modern methods for studying microbial ecology. role of microbes in nutrient cycles and biogeochemistry. Use of microbes for mitigating manmade environmental problems of industrial, agricultural, and domestic origin.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 343,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0303and (CHEM\u00a0341or343), or graduate/professional standing"
+        },
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 303,
                     "subjects": [
                         "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 343,
+                    "subjects": [
+                        "CHEM"
                     ]
                 }
             ],
@@ -304,59 +1023,17 @@
     },
     {
         "course_reference": {
-            "course_number": 585,
+            "course_number": 289,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "USING R FOR SOIL AND ENVIRONMENTAL SCIENCES",
-        "description": "Data science techniques are increasingly important in soil and environmental science, improving the efficiency and repeatability of data analysis and enhancing fundamental understanding of soil and environmental issues. Various R packages will be introduced and used to analyze and process soil and environmental data collected using a variety of in situ, ground-based, and remote sensing platforms. R software will be applied to detailed case studies covering soil and environmental data processing, manipulation, and modeling.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT\u00a0240,301,324,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571) and (BSE\u00a0301,ENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377,LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, or372), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 695,
-            "subjects": [
-                "SOILSCI",
-                "ENVIRST",
-                "LANDARC"
-            ]
+        "course_title": "HONORS INDEPENDENT STUDY",
+        "description": "Research work under direct guidance of a Soil Science faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         },
-        "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN NATURAL RESOURCES",
-        "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 377,
-                    "subjects": [
-                        "GEOG",
-                        "ENVIRST",
-                        "CIVENGR"
-                    ]
-                }
-            ],
-            "prerequisites_text": "LAND\u00a0ARC\u00a0211orENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
-        "description": "An internship under guidance of a Soil Science faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Soil Science faculty or instructional academic staff member and the internship site supervisor.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -364,14 +1041,160 @@
     },
     {
         "course_reference": {
-            "course_number": 132,
+            "course_number": 299,
             "subjects": [
-                "SOILSCI",
-                "ATMOCN"
+                "SOILSCI"
             ]
         },
-        "course_title": "EARTH'S WATER: NATURAL SCIENCE AND HUMAN USE",
-        "description": "Water is central to the functioning of planet Earth. As humans increase their impact on Earth's systems and cohabitants, our understanding of the multiple roles of water becomes critical to finding sustainable strategies for human and ecosystem health. Explores the science of Earth's hydrosphere, with constant attention to human uses and impacts.",
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual study for majors completing theses for Soil Science Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 631,
+            "subjects": [
+                "M&ENVTOX",
+                "SOILSCI",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "TOXICANTS IN THE ENVIRONMENT: SOURCES, DISTRIBUTION, FATE, & EFFECTS",
+        "description": "Nature, sources, distribution, and fate of contaminants in air, water, soil, and food and potential for harmful exposure.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0104,109, or116) and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248)"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 217,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0104,109, or116) and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 101,
+            "subjects": [
+                "SOILSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "FORUM ON THE ENVIRONMENT",
+        "description": "Lectures and discussions about environmental issues. Historical and contemporary environmental impacts of humans on the biosphere. Global futures: population, technology, societal values, resources and prospects for sustainable management.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -379,16 +1202,195 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 211,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Individual study for majors completing theses for Soil Science degrees as arranged with a faculty member. Requires consent of supervising instructor.",
+        "course_title": "SOILS AND CLIMATE CHANGE",
+        "description": "Soil represents the largest terrestrial pool of carbon, and our management of soil will play a key role in the future of our planet. Course topics include overviews of basic soil science and climate change science; how climate affects soil formation, soil carbon and soil organic matter; soil carbon dynamics in urban areas, the tropics, and the arctic; how humans\u00a0influence soil carbon stocks around the globe.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 472,
+            "subjects": [
+                "DYSCI",
+                "ANSCI",
+                "SOILSCI",
+                "FOODSCI"
+            ]
+        },
+        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
+        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 430,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL SOIL CONTAMINATION",
+        "description": "Environmental pollution on global, regional, and local scales is one of humanity's most pressing issues, and will remain so for the foreseeable future. Examine the sources and properties of anthropogenic soil pollution including emerging contaminants such as PFAS, nanomaterials, microplastics. Apply the principles of soil science to understand the transport, mobilization, and partitioning of contaminants in soil and, in turn, how these contaminants affect ecosystem and human health. Through industry guest lecturers and case studies discuss methods to solve issues of soil contamination.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103and104) orCHEM\u00a0109or (CHEM\u00a0115and116) or graduate/professional student standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103and104) orCHEM\u00a0109or (CHEM\u00a0115and116) or graduate/professional student standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 326,
+            "subjects": [
+                "HORT",
+                "AGRONOMY",
+                "SOILSCI"
+            ]
+        },
+        "course_title": "PLANT NUTRITION MANAGEMENT",
+        "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103,109, or115andSOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230) orSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103,109, or115andSOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230) orSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
         }
     },
     {
@@ -396,12 +1398,23 @@
             "course_number": 230,
             "subjects": [
                 "SOILSCI",
-                "ENVIRST",
-                "GEOG"
+                "GEOG",
+                "ENVIRST"
             ]
         },
         "course_title": "SOIL: ECOSYSTEM AND RESOURCE",
         "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forSOIL\u00a0SCI\u00a0301"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -416,378 +1429,17 @@
     },
     {
         "course_reference": {
-            "course_number": 250,
+            "course_number": 375,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "INTRODUCTION TO ENVIRONMENTAL SCIENCE",
-        "description": "Discuss how Planet Earth is an interconnected system dominated by the ever-present exchange of materials and energy that control the fitness and fate of all living organisms. Designed to introduce the interdisciplinary field of Environmental Science by providing a broad overview of the basic concepts used to make sense of the environment. Explore how natural systems work, the services they provide, important environmental challenges facing these systems, and how people are working to address them. Includes professionals in the field as guest speakers to discuss a future in Environmental Sciences.",
-        "prerequisites": {
+        "course_title": "SPECIAL TOPICS",
+        "description": "Special topics on contemporary issues relevant to soil science.",
+        "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "SOILSCI",
-                "HORT",
-                "BOTANY"
-            ]
         },
-        "course_title": "MINERAL NUTRITION OF PLANTS",
-        "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Continuation of 681.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 621,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SOIL CHEMISTRY",
-        "description": "Solubility relationships, complex ions, ion exchange and oxidation-reduction reactions in soils.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 326,
-            "subjects": [
-                "SOILSCI",
-                "AGRONOMY",
-                "HORT"
-            ]
-        },
-        "course_title": "PLANT NUTRITION MANAGEMENT",
-        "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0103,109, or115andSOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230) orSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 523,
-            "subjects": [
-                "SOILSCI",
-                "MICROBIO"
-            ]
-        },
-        "course_title": "SOIL MICROBIOLOGY AND BIOCHEMISTRY",
-        "description": "Transformations of nutrients and contaminants in soils and groundwater by microorganisms: emphasis on enzymatic mechanisms and metabolic pathways. Approaches for analyzing microbial populations and activities including molecular techniques. Applications of microbial activities for bioremediation of contaminated soils and groundwater. Students should have completed one course in either Soil Science or Microbiology to feel comfortable with the course content.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Senior standing, (CHEM\u00a0104,109, or116) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL SOIL CONTAMINATION",
-        "description": "Environmental pollution on global, regional, and local scales is one of humanity's most pressing issues, and will remain so for the foreseeable future. Examine the sources and properties of anthropogenic soil pollution including emerging contaminants such as PFAS, nanomaterials, microplastics. Apply the principles of soil science to understand the transport, mobilization, and partitioning of contaminants in soil and, in turn, how these contaminants affect ecosystem and human health. Through industry guest lecturers and case studies discuss methods to solve issues of soil contamination.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 115,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(CHEM\u00a0103and104) orCHEM\u00a0109or (CHEM\u00a0115and116) or graduate/professional student standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 1,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "COOPERATIVE EDUCATION/CO-OP IN SOIL SCIENCE",
-        "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count towards credit in Soil Science 399.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 289,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "HONORS INDEPENDENT STUDY",
-        "description": "Research work under direct guidance of a Soil Science faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 451,
-            "subjects": [
-                "SOILSCI",
-                "F&WECOL"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL BIOGEOCHEMISTRY",
-        "description": "Explores long and short-term cycles of carbon, nitrogen, phosphorus, sulfur, and metals as well as water and energy cycles between water, the atmosphere, terrestrial vegetation, and soils. Emphasizes the linkage between terrestrial vegetation and soils across global biomes for managed and unmanaged ecosystems. Investigates biogeochemical processes through their biochemical constituents, conceptual models and exploration of isotopic and chemical data. Provides a practical understanding of the interactions between components and fluxes of terrestrial ecosystems and how data is developed and employed.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 323,
-            "subjects": [
-                "SOILSCI",
-                "PLPATH"
-            ]
-        },
-        "course_title": "SOIL BIOLOGY",
-        "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0384) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 623,
-            "subjects": [
-                "SOILSCI",
-                "CIVENGR"
-            ]
-        },
-        "course_title": "MICROBIOLOGY OF WATERBORNE PATHOGENS AND INDICATOR ORGANISMS",
-        "description": "Source, environmental fate and transport of major groups of waterborne pathogens, including epidemiology and testing of associated indicator organism. Management and treatment technologies for prevention of pathogen transmission.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "SOILSCI",
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CIV\u00a0ENGR\u00a0322orSOIL\u00a0SCI/\u200bMICROBIO\u00a0\u00a0523or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing to complete dissertation requirements.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 370,
-            "subjects": [
-                "SOILSCI",
-                "AGRONOMY",
-                "BOTANY"
-            ]
-        },
-        "course_title": "GRASSLAND ECOLOGY",
-        "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "AGRONOMY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 601,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS IN SOIL SCIENCE",
-        "description": "Topics in various areas of soil science.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 622,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "SOIL PHYSICS",
-        "description": "Physical properties of soils. Water retention and transmission in soils. Transport of heat, gas, and solutes. Physical environment of soil organisms and soil-plant-water relations.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248) andSOIL\u00a0SCI\u00a0301, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "SOILSCI",
-                "AGRONOMY",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL BIOPHYSICS",
-        "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOLOGY/\u200bBOTANY\u00a0\u00a0130and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0103,201,207, or247), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 630,
-            "subjects": [
-                "SOILSCI"
-            ]
-        },
-        "course_title": "FIELD METHODS FOR ENVIRONMENTAL CHARACTERIZATION, ANALYSIS, AND MONITORING",
-        "description": "Introduce standard operating procedures and guidance for intrusive and non-intrusive sampling techniques for assessing soil, sediment, surface water, and ground water. Prepare boring logs and install groundwater monitoring well.  Properly prepare samples for preservation and shipment. Prepare and maintain defensible field documentation. Use quality control sampling, data verification and validation, and data quality assessment. Decontaminate drilling and field sampling equipment and manage investigative-derived waste.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Environmental Remediation and Management MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 525,
-            "subjects": [
-                "SOILSCI",
-                "GEOG"
-            ]
-        },
-        "course_title": "SOIL GEOMORPHOLOGY",
-        "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "SOIL SCI 325 or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 472,
-            "subjects": [
-                "SOILSCI",
-                "ANSCI",
-                "DYSCI",
-                "FOODSCI"
-            ]
-        },
-        "course_title": "ANIMAL AGRICULTURE AND GLOBAL SUSTAINABLE DEVELOPMENT",
-        "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -797,14 +1449,28 @@
         "course_reference": {
             "course_number": 473,
             "subjects": [
-                "SOILSCI",
-                "ANSCI",
                 "DYSCI",
+                "ANSCI",
+                "SOILSCI",
                 "FOODSCI"
             ]
         },
         "course_title": "INTERNATIONAL FIELD STUDY IN ANIMAL AGRICULTURE AND SUSTAINABLE DEVELOPMENT",
         "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 472,
+                    "subjects": [
+                        "DYSCI",
+                        "ANSCI",
+                        "SOILSCI",
+                        "FOODSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "DY\u00a0SCI/\u200bAN\u00a0SCI/\u200bFOOD\u00a0SCI/\u200bSOIL\u00a0SCI\u00a0\u00a0472"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -822,50 +1488,157 @@
     },
     {
         "course_reference": {
-            "course_number": 372,
+            "course_number": 585,
             "subjects": [
-                "SOILSCI",
-                "BSE",
-                "CIVENGR"
+                "SOILSCI"
             ]
         },
-        "course_title": "ON-SITE WASTE WATER TREATMENT AND DISPERSAL",
-        "description": "On-site treatment and dispersal of waste water from homes, commercial sources and small communities. Sources, pretreatment units, nutrient removal units, constructed wetlands, surface and soil dispersal systems, recycle and reuse systems, regulations, alternative collection systems.",
-        "prerequisites": {
+        "course_title": "USING R FOR SOIL AND ENVIRONMENTAL SCIENCES",
+        "description": "Data science techniques are increasingly important in soil and environmental science, improving the efficiency and repeatability of data analysis and enhancing fundamental understanding of soil and environmental issues. Various R packages will be introduced and used to analyze and process soil and environmental data collected using a variety of in situ, ground-based, and remote sensing platforms. R software will be applied to detailed case studies covering soil and environmental data processing, manipulation, and modeling.",
+        "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 115,
+                    "course_number": 371,
                     "subjects": [
-                        "CHEM"
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 372,
+                    "subjects": [
+                        "GEOSCI",
+                        "GLE",
+                        "LANDARC",
+                        "GEOG",
+                        "ENVIRST",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "GEOSCI",
+                        "GLE",
+                        "LANDARC",
+                        "GEOG",
+                        "ENVIRST",
+                        "F&WECOL"
                     ]
                 }
             ],
-            "prerequisites_text": "CHEM\u00a0103,109, or115"
+            "prerequisites_text": "(STAT\u00a0240,301,324,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571) and (BSE\u00a0301,ENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377,LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, or372), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 571,
+                    "subjects": [
+                        "F&WECOL",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "GEOSCI",
+                        "GLE",
+                        "LANDARC",
+                        "GEOG",
+                        "ENVIRST",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 372,
+                    "subjects": [
+                        "GEOSCI",
+                        "GLE",
+                        "LANDARC",
+                        "GEOG",
+                        "ENVIRST",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 377,
+                    "subjects": [
+                        "CIVENGR",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "BSE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT\u00a0240,301,324,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571) and (BSE\u00a0301,ENVIR\u00a0ST/\u200bCIV\u00a0ENGR/\u200bGEOG\u00a0\u00a0377,LAND\u00a0ARC/\u200bENVIR\u00a0ST/\u200bF&W\u00a0ECOL/\u200bG\u00a0L\u00a0E/\u200bGEOG/\u200bGEOSCI\u00a0\u00a0371, or372), or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 728,
+            "course_number": 1,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "GRADUATE SEMINAR",
-        "description": "Topical oral presentations by guest speakers and graduate students on contemporary concerns and issues involving land and soils.",
+        "course_title": "COOPERATIVE EDUCATION/CO-OP IN SOIL SCIENCE",
+        "description": "Full-time off-campus work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career. Students receive credit only for the term in which they are actively enrolled and working. The same work experience may not count towards credit in Soil Science 399.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 330,
+            "course_number": 132,
             "subjects": [
+                "ATMOCN",
                 "SOILSCI"
             ]
         },
-        "course_title": "HAZARDOUS WASTE OPERATIONS AND EMERGENCY RESPONSE (HAZWOPER) AND FIELD SAFETY TRAINING",
-        "description": "Conforms to the guidelines covered under the Occupational Safety and Health Administration (OSHA) standard 29 CFR part 1910.120 for providing Hazardous Wasted Operations and Emergency Response (HAZWOPER) 40-hour certification, required for workers involved in clean-up operations, voluntary clean-up operations, emergency response operations, and the storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. Beyond satisfying OSHA standards, provides safety training for personnel conducting field sampling operations in proximity of heavy equipment (e.g. excavators, drilling rigs, dump trucks) through guest lectures and videos. Additionally, case studies relating to field safety operations will be examined.",
+        "course_title": "EARTH'S WATER: NATURAL SCIENCE AND HUMAN USE",
+        "description": "Water is central to the functioning of planet Earth. As humans increase their impact on Earth's systems and cohabitants, our understanding of the multiple roles of water becomes critical to finding sustainable strategies for human and ecosystem health. Explores the science of Earth's hydrosphere, with constant attention to human uses and impacts.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -873,39 +1646,50 @@
     },
     {
         "course_reference": {
-            "course_number": 526,
+            "course_number": 621,
             "subjects": [
-                "SOILSCI",
-                "GEOG"
+                "SOILSCI"
             ]
         },
-        "course_title": "HUMAN TRANSFORMATIONS OF EARTH SURFACE PROCESSES",
-        "description": "Takes an earth systems approach to explore the role of human societies in shaping earth surface processes from local to global scales. We address how alterations to our landscapes and waterways affect biological, physical and chemical interactions among our biosphere, geosphere, hydrosphere and atmosphere. We discuss methods used to distinguish the \"human impact\" from background variability.",
-        "prerequisites": {
+        "course_title": "SOIL CHEMISTRY",
+        "description": "Solubility relationships, complex ions, ion exchange and oxidation-reduction reactions in soils.",
+        "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 120,
+                    "course_number": 109,
                     "subjects": [
-                        "GEOG",
-                        "ENVIRST"
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
                     ]
                 }
             ],
-            "prerequisites_text": "Junior standing orENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 324,
-            "subjects": [
-                "SOILSCI",
-                "ENVIRST"
-            ]
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
         },
-        "course_title": "SOILS AND ENVIRONMENTAL QUALITY",
-        "description": "Interaction of soils with environmental contaminants and the role of soils in pollution control.",
         "prerequisites": {
             "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
                 {
                     "course_number": 104,
                     "subjects": [
@@ -918,23 +1702,473 @@
     },
     {
         "course_reference": {
-            "course_number": 302,
+            "course_number": 301,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "MEET YOUR SOIL: SOIL ANALYSIS AND INTERPRETATION LABORATORY",
-        "description": "Hands-on laboratory on soil analysis and interpretation of soil properties for different uses, such as food production, waste management, water quality, stormwater control, and environmental sustainability.",
+        "course_title": "GENERAL SOIL SCIENCE",
+        "description": "Physical chemical and biological properties of soils as they affect soil-plant-water relations, soil classification and suitability for agricultural and other uses.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103,109, or115) and (MATH\u00a0112,114,171or placement intoMATH\u00a0221), or graduate/professional standing"
+        },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 301,
+                    "course_number": 112,
                     "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 171,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 114,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 115,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(CHEM\u00a0103,109, or115) and (MATH\u00a0112,114,171or placement intoMATH\u00a0221), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 623,
+            "subjects": [
+                "SOILSCI",
+                "CIVENGR"
+            ]
+        },
+        "course_title": "MICROBIOLOGY OF WATERBORNE PATHOGENS AND INDICATOR ORGANISMS",
+        "description": "Source, environmental fate and transport of major groups of waterborne pathogens, including epidemiology and testing of associated indicator organism. Management and treatment technologies for prevention of pathogen transmission.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 322,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "MICROBIO",
                         "SOILSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "(GEOG/\u200bENVIR\u00a0ST/\u200bSOIL\u00a0SCI\u00a0\u00a0230orSOIL\u00a0SCI\u00a0301, or concurrent enrollment) or graduate/professional standing"
+            "prerequisites_text": "CIV\u00a0ENGR\u00a0322orSOIL\u00a0SCI/\u200bMICROBIO\u00a0\u00a0523or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 322,
+                    "subjects": [
+                        "CIVENGR"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "MICROBIO",
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CIV\u00a0ENGR\u00a0322orSOIL\u00a0SCI/\u200bMICROBIO\u00a0\u00a0523or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 323,
+            "subjects": [
+                "SOILSCI",
+                "PLPATH"
+            ]
+        },
+        "course_title": "SOIL BIOLOGY",
+        "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0384) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 384,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0384) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
+        "description": "An internship under guidance of a Soil Science faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Soil Science faculty or instructional academic staff member and the internship site supervisor.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 250,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ENVIRONMENTAL SCIENCE",
+        "description": "Discuss how Planet Earth is an interconnected system dominated by the ever-present exchange of materials and energy that control the fitness and fate of all living organisms. Designed to introduce the interdisciplinary field of Environmental Science by providing a broad overview of the basic concepts used to make sense of the environment. Explore how natural systems work, the services they provide, important environmental challenges facing these systems, and how people are working to address them. Includes professionals in the field as guest speakers to discuss a future in Environmental Sciences.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 523,
+            "subjects": [
+                "MICROBIO",
+                "SOILSCI"
+            ]
+        },
+        "course_title": "SOIL MICROBIOLOGY AND BIOCHEMISTRY",
+        "description": "Transformations of nutrients and contaminants in soils and groundwater by microorganisms: emphasis on enzymatic mechanisms and metabolic pathways. Approaches for analyzing microbial populations and activities including molecular techniques. Applications of microbial activities for bioremediation of contaminated soils and groundwater. Students should have completed one course in either Soil Science or Microbiology to feel comfortable with the course content.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing, (CHEM\u00a0104,109, or116) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Senior standing, (CHEM\u00a0104,109, or116) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "HORT",
+                "SOILSCI",
+                "BOTANY"
+            ]
+        },
+        "course_title": "MINERAL NUTRITION OF PLANTS",
+        "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "SOILSCI",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "ASSESSMENT OF ENVIRONMENTAL IMPACT",
+        "description": "Overview of methods for collecting and analyzing information about environmental impacts on agricultural and natural resources, including monitoring the physical environment and relating impacts to people and society.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 451,
+            "subjects": [
+                "F&WECOL",
+                "SOILSCI"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL BIOGEOCHEMISTRY",
+        "description": "Explores long and short-term cycles of carbon, nitrogen, phosphorus, sulfur, and metals as well as water and energy cycles between water, the atmosphere, terrestrial vegetation, and soils. Emphasizes the linkage between terrestrial vegetation and soils across global biomes for managed and unmanaged ecosystems. Investigates biogeochemical processes through their biochemical constituents, conceptual models and exploration of isotopic and chemical data. Provides a practical understanding of the interactions between components and fluxes of terrestrial ecosystems and how data is developed and employed.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0104,109,116, or graduate/professional standing"
         }
     },
     {
@@ -946,6 +2180,10 @@
         },
         "course_title": "EARTH'S SOIL: NATURAL SCIENCE AND HUMAN USE",
         "description": "A overview of the soils of the world and the grand environmental challenges that face humanity. Soils of the USA and Wisconsin included.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -953,54 +2191,123 @@
     },
     {
         "course_reference": {
-            "course_number": 211,
+            "course_number": 601,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "SOILS AND CLIMATE CHANGE",
-        "description": "Soil represents the largest terrestrial pool of carbon, and our management of soil will play a key role in the future of our planet. Course topics include overviews of basic soil science and climate change science; how climate affects soil formation, soil carbon and soil organic matter; soil carbon dynamics in urban areas, the tropics, and the arctic; how humans\u00a0influence soil carbon stocks around the globe.",
+        "course_title": "SPECIAL TOPICS IN SOIL SCIENCE",
+        "description": "Topics in various areas of soil science.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Junior standing"
+        },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Junior standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 799,
+            "course_number": 682,
             "subjects": [
                 "SOILSCI"
             ]
         },
-        "course_title": "PRACTICUM IN SOIL SCIENCE TEACHING",
-        "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Continuation of 681.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 332,
+            "course_number": 525,
             "subjects": [
                 "SOILSCI",
-                "HORT"
+                "GEOG"
             ]
         },
-        "course_title": "TURFGRASS NUTRIENT AND WATER MANAGEMENT",
-        "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
+        "course_title": "SOIL GEOMORPHOLOGY",
+        "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "SOIL SCI 325 or graduate/professional standing"
+        },
         "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "SOIL SCI 325 or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 327,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL MONITORING AND SOIL CHARACTERIZATION FOR EARTH'S CRITICAL ZONE",
+        "description": "Characterization of a soil in the field. Monitoring water flow, heat exchange, solute transport and greenhouse gas emission using soil physical models and state-of-the-art soil sensing technologies.",
+        "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 326,
+                    "course_number": 230,
                     "subjects": [
                         "SOILSCI",
-                        "AGRONOMY",
-                        "HORT"
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "SOIL\u00a0SCI/\u200bAGRONOMY/\u200bHORT\u00a0\u00a0326or graduate/professional standing"
+            "prerequisites_text": "SOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230,SOIL\u00a0SCI\u00a0301, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 230,
+                    "subjects": [
+                        "SOILSCI",
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 301,
+                    "subjects": [
+                        "SOILSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "SOIL\u00a0SCI/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0230,SOIL\u00a0SCI\u00a0301, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "SOILSCI"
+            ]
+        },
+        "course_title": "HAZARDOUS WASTE OPERATIONS AND EMERGENCY RESPONSE (HAZWOPER) AND FIELD SAFETY TRAINING",
+        "description": "Conforms to the guidelines covered under the Occupational Safety and Health Administration (OSHA) standard 29 CFR part 1910.120 for providing Hazardous Wasted Operations and Emergency Response (HAZWOPER) 40-hour certification, required for workers involved in clean-up operations, voluntary clean-up operations, emergency response operations, and the storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. Beyond satisfying OSHA standards, provides safety training for personnel conducting field sampling operations in proximity of heavy equipment (e.g. excavators, drilling rigs, dump trucks) through guest lectures and videos. Additionally, case studies relating to field safety operations will be examined.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     }
 ]

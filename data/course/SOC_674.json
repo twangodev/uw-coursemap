@@ -7,13 +7,88 @@
     },
     "course_title": "DEMOGRAPHIC TECHNIQUES I",
     "description": "Methods of measurement for enumeration and registration data; construction of life tables; measures of fertility, nuptiality and migration; examination of census variables.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 360,
                 "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 357,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "GEOG"
+                ]
+            }
+        ],
+        "prerequisites_text": "SOC/\u200bC&E\u00a0SOC\u00a0\u00a0357,360,STAT\u00a0301,371,ECON\u00a0310,PSYCH\u00a0210,GEOG\u00a0360,MATH/\u200bSTAT\u00a0\u00a0310, or graduate/professional standing"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "GEOG"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 357,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
                 ]
             }
         ],

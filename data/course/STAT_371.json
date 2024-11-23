@@ -7,12 +7,77 @@
     },
     "course_title": "INTRODUCTORY APPLIED STATISTICS FOR THE LIFE SCIENCES",
     "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 324,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 171,
+                "subjects": [
+                    "MATH"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH\u00a0112and placed out ofMATH\u00a0113), (MATH\u00a0113and placed out ofMATH\u00a0112), (MATH\u00a0112and113),MATH\u00a0114,171,211or221or placement inMATH\u00a0221. Not open to students with credit for STAT 302 or324"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 113,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 112,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 171,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 114,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 324,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

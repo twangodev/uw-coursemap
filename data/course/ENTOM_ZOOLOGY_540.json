@@ -2,12 +2,24 @@
     "course_reference": {
         "course_number": 540,
         "subjects": [
-            "ENTOM",
-            "ZOOLOGY"
+            "ZOOLOGY",
+            "ENTOM"
         ]
     },
     "course_title": "THEORETICAL ECOLOGY",
     "description": "Introduction to theoretical ecology, including hands-on experience in computer modeling.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 571,
+                "subjects": [
+                    "F&WECOL",
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "STAT/\u200bF&W\u00a0ECOL\u00a0\u00a0571"
+    },
     "prerequisites": {
         "course_references": [
             {

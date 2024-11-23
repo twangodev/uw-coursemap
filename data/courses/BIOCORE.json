@@ -1,20 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "BIOCORE"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent mentored study as arranged with a faculty member",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 486,
             "subjects": [
                 "BIOCORE"
@@ -22,6 +8,17 @@
         },
         "course_title": "PRINCIPLES OF PHYSIOLOGY LABORATORY",
         "description": "Experience the process of science by collaborating on  independent experiments to investigate your questions about animal and plant physiology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0485or concurrent enrollment"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -43,6 +40,17 @@
         },
         "course_title": "EVOLUTION, ECOLOGY, AND GENETICS LABORATORY",
         "description": "Writing-intensive with opportunities to make observations and generate and test questions. Includes ecology field trips and research projects that focus on genetics and evolution.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0381or concurrent enrollment"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -57,70 +65,14 @@
     },
     {
         "course_reference": {
-            "course_number": 401,
+            "course_number": 485,
             "subjects": [
                 "BIOCORE"
             ]
         },
-        "course_title": "PEER MENTORING",
-        "description": "Develops mentoring, group facilitation, leadership, and interpersonal skills used in peer learning and leading mentored study groups. Focuses on the pedagogy, skills, and effective techniques used to facilitate learning in small groups. Discuss lower order to higher order cognitive levels using Blooms Taxonomy, and reciprocal mentor observations.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 382,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCORE\u00a0381,383, and (BIOCORE\u00a0382or384)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 181,
-            "subjects": [
-                "BIOCORE"
-            ]
-        },
-        "course_title": "BECOMING A SCIENTIST: DOING BIOLOGY RESEARCH",
-        "description": "Orientation to biology research on campus, work in a research team to investigate a novel research question, and do biology research on a choice of topics: from ecology and physiology to cell biology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 587,
-            "subjects": [
-                "BIOCORE"
-            ]
-        },
-        "course_title": "BIOLOGICAL INTERACTIONS",
-        "description": "A capstone course to build on and integrate the knowledge and skills gained in previous Biocore coursework through readings and analysis of primary scientific literature. Work in small groups to analyze current and emerging topics through the lens of scientific research. Topics include signaling pathways, systems biology, genetic disease, and cancer.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCORE\u00a0485"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 384,
-            "subjects": [
-                "BIOCORE"
-            ]
-        },
-        "course_title": "CELLULAR BIOLOGY LABORATORY",
-        "description": "Writing-intensive with opportunities to generate and test questions utilizing concepts and procedures of cell biology. Includes research projects in subcellular fractionation, protein structure and enzyme catalysis, molecular genetics of C.elegans worms, and signal transduction in yeast.",
-        "prerequisites": {
+        "course_title": "PRINCIPLES OF PHYSIOLOGY",
+        "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
+        "optimized_prerequisites": {
             "course_references": [
                 {
                     "course_number": 383,
@@ -129,18 +81,8 @@
                     ]
                 }
             ],
-            "prerequisites_text": "BIOCORE\u00a0383or concurrent enrollment"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 485,
-            "subjects": [
-                "BIOCORE"
-            ]
+            "prerequisites_text": "BIOCORE\u00a0383"
         },
-        "course_title": "PRINCIPLES OF PHYSIOLOGY",
-        "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
         "prerequisites": {
             "course_references": [
                 {
@@ -162,9 +104,49 @@
         },
         "course_title": "EVOLUTION, ECOLOGY, AND GENETICS",
         "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Biology Core Curriculum Honors Certificate"
+        },
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in Biology Core Curriculum Honors Certificate"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "BIOCORE"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent mentored study as arranged with a faculty member",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 181,
+            "subjects": [
+                "BIOCORE"
+            ]
+        },
+        "course_title": "BECOMING A SCIENTIST: DOING BIOLOGY RESEARCH",
+        "description": "Orientation to biology research on campus, work in a research team to investigate a novel research question, and do biology research on a choice of topics: from ecology and physiology to cell biology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -176,6 +158,17 @@
         },
         "course_title": "CELLULAR BIOLOGY",
         "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0381"
+        },
         "prerequisites": {
             "course_references": [
                 {
@@ -186,6 +179,138 @@
                 }
             ],
             "prerequisites_text": "BIOCORE\u00a0381"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 384,
+            "subjects": [
+                "BIOCORE"
+            ]
+        },
+        "course_title": "CELLULAR BIOLOGY LABORATORY",
+        "description": "Writing-intensive with opportunities to generate and test questions utilizing concepts and procedures of cell biology. Includes research projects in subcellular fractionation, protein structure and enzyme catalysis, molecular genetics of C.elegans worms, and signal transduction in yeast.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0383or concurrent enrollment"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0383or concurrent enrollment"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "BIOCORE"
+            ]
+        },
+        "course_title": "PEER MENTORING",
+        "description": "Develops mentoring, group facilitation, leadership, and interpersonal skills used in peer learning and leading mentored study groups. Focuses on the pedagogy, skills, and effective techniques used to facilitate learning in small groups. Discuss lower order to higher order cognitive levels using Blooms Taxonomy, and reciprocal mentor observations.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 384,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0381,383, and (BIOCORE\u00a0382or384)"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 382,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 384,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0381,383, and (BIOCORE\u00a0382or384)"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 587,
+            "subjects": [
+                "BIOCORE"
+            ]
+        },
+        "course_title": "BIOLOGICAL INTERACTIONS",
+        "description": "A capstone course to build on and integrate the knowledge and skills gained in previous Biocore coursework through readings and analysis of primary scientific literature. Work in small groups to analyze current and emerging topics through the lens of scientific research. Topics include signaling pathways, systems biology, genetic disease, and cancer.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0485"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0485"
         }
     }
 ]

@@ -7,12 +7,36 @@
     },
     "course_title": "TESTING AND TESTABLE DESIGN OF DIGITAL SYSTEMS",
     "description": "Faults and fault modeling, test equipment, test generation for combinational and sequential circuits, fault simulation, memory and microprocessor testing, design for testability, built-in self-test techniques, and fault location.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 352,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "COMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0352andCOMP\u00a0SCI\u00a0300, graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 352,
                 "subjects": [
                     "ECE",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
                     "COMPSCI"
                 ]
             }

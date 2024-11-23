@@ -7,13 +7,53 @@
     },
     "course_title": "INTRODUCTION TO ALGORITHMS",
     "description": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 475,
+                "subjects": [
+                    "MATH",
+                    "STAT",
+                    "COMPSCI"
+                ]
+            },
             {
                 "course_number": 240,
                 "subjects": [
-                    "COMPSCI",
-                    "MATH"
+                    "MATH",
+                    "COMPSCI"
+                ]
+            }
+        ],
+        "prerequisites_text": "(MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0240orSTAT/\u200bCOMP\u00a0SCI/\u200bMATH\u00a0\u00a0475) and (COMP SCI 367 or400), or graduate/professional standing, or declared in the Capstone Certificate in Computer Sciences for Professionals"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 475,
+                "subjects": [
+                    "MATH",
+                    "STAT",
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 240,
+                "subjects": [
+                    "MATH",
+                    "COMPSCI"
                 ]
             }
         ],

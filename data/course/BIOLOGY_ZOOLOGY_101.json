@@ -2,20 +2,49 @@
     "course_reference": {
         "course_number": 101,
         "subjects": [
-            "BIOLOGY",
-            "ZOOLOGY"
+            "ZOOLOGY",
+            "BIOLOGY"
         ]
     },
     "course_title": "ANIMAL BIOLOGY",
     "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 151,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            }
+        ],
+        "prerequisites_text": "Not open to students with credit forBOTANY/\u200bBIOLOGY/\u200bZOOLOGY\u00a0\u00a0151or152"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

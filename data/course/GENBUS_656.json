@@ -7,12 +7,78 @@
     },
     "course_title": "MACHINE LEARNING FOR BUSINESS ANALYTICS",
     "description": "Introduction to machine learning techniques in business. Focus on applications for solving business problems, including hands-on practice in the context of various real-world data sets. Materials covered include machine learning foundations, different methodological approaches, and implementation tools for machine learning for business applications. Methods include both supervised learning techniques (linear regression and classification, non-linear regression, CARTs, random forests, SVMs, artificial neural nets, etc.) as well as unsupervised learning techniques (clustering, principal components, etc.).",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 307,
                 "subjects": [
                     "GENBUS"
+                ]
+            },
+            {
+                "course_number": 317,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "GEN\u00a0BUS\u00a0307,317704, 705,ECON\u00a0400,410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or declared in the Business Exchange program"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 400,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 410,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 317,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "MATH",
+                    "STAT"
                 ]
             }
         ],

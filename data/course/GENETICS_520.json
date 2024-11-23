@@ -7,13 +7,67 @@
     },
     "course_title": "NEUROGENETICS",
     "description": "The genetic basis of nervous system development, structure, function, and dysfunction. Will emphasize both current research findings on the genetic basis of specific neurological disorders, as well as genetic methodologies and experimental approaches used in neurobiological research.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 523,
                 "subjects": [
                     "ZOOLOGY",
                     "PSYCH"
+                ]
+            },
+            {
+                "course_number": 454,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 466,
+                "subjects": [
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 467,
+                "subjects": [
+                    "GENETICS"
+                ]
+            }
+        ],
+        "prerequisites_text": "GENETICS\u00a0466,467,BIOCORE\u00a0587,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523, orPSYCH\u00a0454"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 454,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 467,
+                "subjects": [
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 466,
+                "subjects": [
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 587,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

@@ -7,10 +7,75 @@
     },
     "course_title": "FUNDAMENTALS OF DATA ANALYTICS FOR ECONOMISTS",
     "description": "Introduction to the data that underlies quantitative economic analysis. Learn how to formulate a research question, access economic data sources, conduct preliminary and formal analysis, and report findings in a professional manner.",
-    "prerequisites": {
+    "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 240,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            }
+        ],
+        "prerequisites_text": "[ECON\u00a0310, (STAT\u00a0240and340), or (STAT\u00a0303and333)], and (ECON\u00a0301or311)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 240,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 301,
                 "subjects": [
                     "ECON"
                 ]

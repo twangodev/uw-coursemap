@@ -1,27 +1,246 @@
 [
     {
         "data": {
+            "source": "MEDSC-M 813",
+            "target": "RADIOL 928"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
+            "id": "RADIOL 813",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
+            "id": "MEDSC-M 775",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "RADIOL 920"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
+            "id": "MEDSC-M 812",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Intensive training in clinical ultrasound scanning, including the physical basis of the image generation, the resulting opportunities and limitations of this technique, and ultrasound anatomy and physiology. Practice scanning skills on classmates and phantoms in daily lab sessions and at the UW Simulation Center. Observe and work with expert ultrasound practitioners at clinical sites.",
+            "id": "RADIOL 912",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
+            "id": "MATH 213",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 113"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 217"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 103"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "RADIOL 914"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "PHYSICS 103"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 103",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 104",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "description": "Organized around physiological themes, the course includes material related to the cardiovascular system, hematology, nephrology, and pulmonology to present an integrated picture of how these systems function together to maintain homeostasis. In addition, there is significant content from other competency domains such as public health, ethics, evidence-based medicine, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 771",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+            "id": "PHYSICS 202",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
             "id": "PHYSICS",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 208",
-            "target": "MEDPHYS/PHYSICS 265"
+            "source": "MATH 217",
+            "target": "MATH 222"
         }
     },
     {
         "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
+            "source": "MATH 96",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 113",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "RADIOL 920"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
+            "id": "MATH 113",
             "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 211"
         }
     },
     {
@@ -32,15 +251,9 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "RADIOL 912"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
         }
     },
     {
@@ -51,8 +264,15 @@
     },
     {
         "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
+            "description": "High-level procedural experience on a clinical interventional radiology service. Interventional radiology uniquely blends the concepts of imaging anatomy and pathophysiology to provide minimally invasive solutions to patients. Hone clinical and procedural skills while being exposed to a rich background curriculum with the goal of case report publication.",
+            "id": "RADIOL 926",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
             "parent": "MATH"
         }
     },
@@ -65,33 +285,6 @@
     },
     {
         "data": {
-            "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
-            "id": "RADIOL 928",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
-            "id": "MEDSC-M 813",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
             "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
             "id": "MATH 221",
             "parent": "MATH"
@@ -99,88 +292,117 @@
     },
     {
         "data": {
-            "description": "The diagnosis and management of congenital abnormality requires an understanding of the basic principles of embryology, imaging, and genetics. Replicating how patients enter the medical system, the didactic path begins with ultrasound diagnosis of fetal abnormality. The embryological basis of the fetal malformations will be examined. From this center, exposure to advanced diagnostics, such as fetal echocardiography, fetal MRI, and genetic testing and counseling. Topics extend to early postnatal care (pediatric genetics and pediatric radiology). Participate in the Meriter Perinatal Conference, learn about genetic approaches to the diagnosis of fetal malformation syndromes, and learn the rudiments of an obstetrical sonogram.",
-            "id": "RADIOL 911",
-            "parent": "RADIOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
+            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
+            "id": "MEDSC-M 811",
             "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 104",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Intensive training in clinical ultrasound scanning, including the physical basis of the image generation, the resulting opportunities and limitations of this technique, and ultrasound anatomy and physiology. Practice scanning skills on classmates and phantoms in daily lab sessions and at the UW Simulation Center. Observe and work with expert ultrasound practitioners at clinical sites.",
-            "id": "RADIOL 912",
-            "parent": "RADIOL"
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 103"
         }
     },
     {
         "data": {
-            "id": "MATH",
-            "type": "compound"
+            "source": "MEDSC-M 812",
+            "target": "RADIOL 928"
         }
     },
     {
         "data": {
-            "description": "High-level procedural experience on a clinical interventional radiology service. Interventional radiology uniquely blends the concepts of imaging anatomy and pathophysiology to provide minimally invasive solutions to patients. Hone clinical and procedural skills while being exposed to a rich background curriculum with the goal of case report publication.",
-            "id": "RADIOL 926",
-            "parent": "RADIOL"
+            "source": "MEDSC-M 775",
+            "target": "MEDSC-M 810"
         }
     },
     {
         "data": {
-            "id": "RADIOL",
-            "type": "compound"
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 247",
+            "source": "MATH 217",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "RADIOL 920"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 234",
             "target": "PHYSICS 248"
         }
     },
     {
         "data": {
-            "description": "Elective opportunity to study basic radiological studies and modalities. Gain proficiency in identifying normal structures and can't miss diagnoses on a chest radiograph and abdominal films as well as determining indications for advanced studies (computed tomography CT, magnetic resonance imaging MRI, ultrasound US, angiograms). Practice in building and presenting a case report.",
-            "id": "RADIOL 924",
-            "parent": "RADIOL"
+            "source": "MATH 118",
+            "target": "MATH 171"
         }
     },
     {
         "data": {
-            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-            "id": "MEDPHYS/PHYSICS 265"
-        }
-    },
-    {
-        "data": {
-            "description": "Student Seminar and Journal club for second year students in the Medical Scientist Training Program.",
-            "id": "RADIOL 711",
-            "parent": "RADIOL"
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
             "source": "MEDSC-M 813",
-            "target": "RADIOL 920"
+            "target": "RADIOL 912"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "RADIOL 911"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
+            "id": "MATH 217",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "RADIOL 912"
         }
     },
     {
@@ -191,21 +413,70 @@
     },
     {
         "data": {
-            "description": "Independent research under the supervision of faculty in the Department of Radiology. Student's research projects are individualized to meet individual student research goals within the context of faculty research needs.",
-            "id": "RADIOL 910",
-            "parent": "RADIOL"
+            "source": "MEDSC-M 911",
+            "target": "RADIOL 928"
         }
     },
     {
         "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
+            "source": "MEDSC-M 770",
+            "target": "MEDSC-M 810"
         }
     },
     {
         "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "RADIOL 914"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
         }
     },
     {
@@ -217,8 +488,64 @@
     },
     {
         "data": {
+            "source": "MATH 118",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
             "source": "MATH 221",
             "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to physics at the non-calculus level. Principles of mechanics, heat, and waves, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 103",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
         }
     },
     {
@@ -230,8 +557,100 @@
     },
     {
         "data": {
+            "source": "MATH 211",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research under the supervision of faculty in the Department of Radiology. Student's research projects are individualized to meet individual student research goals within the context of faculty research needs.",
+            "id": "RADIOL 910",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
             "source": "MATH 221",
-            "target": "MATH 211"
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+            "id": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
+            "id": "MATH 234",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
+            "id": "MEDSC-M 770",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
+            "id": "MEDSC-M 813",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Elective opportunity to study basic radiological studies and modalities. Gain proficiency in identifying normal structures and can't miss diagnoses on a chest radiograph and abdominal films as well as determining indications for advanced studies (computed tomography CT, magnetic resonance imaging MRI, ultrasound US, angiograms). Practice in building and presenting a case report.",
+            "id": "RADIOL 924",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Student Seminar and Journal club for second year students in the Medical Scientist Training Program.",
+            "id": "RADIOL 711",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 771",
+            "target": "MEDSC-M 810"
         }
     },
     {
@@ -243,21 +662,125 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "RADIOL 928"
+            "source": "MATH 217",
+            "target": "PHYSICS 201"
         }
     },
     {
         "data": {
-            "description": "Introduction to principles and technology of diagnostic radiology. Emphasis on fundamental interpretation skills in chest, abdominal and bone films, and in cross-sectional anatomy. Discussions focused on appropriate, cost efficient radiologic workup and image guided surgery.",
-            "id": "RADIOL 813",
+            "id": "RADIOL",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "RADIOL 912"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 202",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "The diagnosis and management of congenital abnormality requires an understanding of the basic principles of embryology, imaging, and genetics. Replicating how patients enter the medical system, the didactic path begins with ultrasound diagnosis of fetal abnormality. The embryological basis of the fetal malformations will be examined. From this center, exposure to advanced diagnostics, such as fetal echocardiography, fetal MRI, and genetic testing and counseling. Topics extend to early postnatal care (pediatric genetics and pediatric radiology). Participate in the Meriter Perinatal Conference, learn about genetic approaches to the diagnosis of fetal malformation syndromes, and learn the rudiments of an obstetrical sonogram.",
+            "id": "RADIOL 911",
             "parent": "RADIOL"
         }
     },
     {
         "data": {
+            "source": "PHYSICS 104",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 103"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 103",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "RADIOL 911"
+        }
+    },
+    {
+        "data": {
             "source": "MEDSC-M 812",
+            "target": "RADIOL 911"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
             "target": "RADIOL 914"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
+            "id": "PHYSICS 208",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Clinical experience on diagnostic radiology service. Apply population health and epidemiology principles to screening exam selection in radiology. Participate in interdisciplinary conversations surrounding patient care. Practice in patient-centered communication and in creating a case report.",
+            "id": "RADIOL 928",
+            "parent": "RADIOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 114",
+            "target": "MATH 211"
         }
     },
     {
@@ -268,8 +791,58 @@
     },
     {
         "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "RADIOL 914"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "RADIOL 928"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "RADIOL 920"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "RADIOL 912"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses Wisconsin health disparities data as a tool to address the broader misconceptions about race, biology, and health. Includes an overview of the genetic mechanisms for species variation, human evolutionary history, human adaptation and clinical patterns, and misconceptions about the biological underpinnings of race and health outcomes with an emphasis on the social and environmental determinants of health.",
+            "id": "MEDSC-M 911",
+            "parent": "MEDSC-M"
         }
     }
 ]

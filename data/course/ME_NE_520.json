@@ -2,16 +2,51 @@
     "course_reference": {
         "course_number": 520,
         "subjects": [
-            "ME",
-            "NE"
+            "NE",
+            "ME"
         ]
     },
     "course_title": "TWO-PHASE FLOW AND HEAT TRANSFER",
     "description": "Two-phase flow and heat transfer in engineering systems. Pool boiling and flow boiling. Phenomenological modeling.",
+    "optimized_prerequisites": {
+        "course_references": [
+            {
+                "course_number": 364,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "CBE"
+                ]
+            },
+            {
+                "course_number": 361,
+                "subjects": [
+                    "ME"
+                ]
+            }
+        ],
+        "prerequisites_text": "M\u00a0E\u00a0361and (M\u00a0E\u00a0364orCBE\u00a0320), or graduate/professional standing, or member of Engineering Guest Students"
+    },
     "prerequisites": {
         "course_references": [
             {
                 "course_number": 364,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "CBE"
+                ]
+            },
+            {
+                "course_number": 361,
                 "subjects": [
                     "ME"
                 ]
