@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from functools import cache
 from logging import Logger
+from typing import List, Any
 
 import numpy as np
 from openai import OpenAI
@@ -33,7 +34,7 @@ def cosine_similarity(vec_a, vec_b):
     """
     return np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b))
 
-def find_best_prerequisite(client, model, course, prerequisites, stats) -> Course:
+def find_best_prerequisite(client, model, course, prerequisites, max_prerequisites, stats) -> list[Course]:
     course_embedding = get_embedding(client, model, course.get_full_summary(), stats)
     prerequisite_embeddings = [
         (prereq, get_embedding(client, model, prereq.get_short_summary(), stats)) for prereq in prerequisites
@@ -45,13 +46,15 @@ def find_best_prerequisite(client, model, course, prerequisites, stats) -> Cours
     ]
 
     # Find the prerequisite with the highest similarity score
-    best_prerequisite = max(similarities, key=lambda x: x[1])
+    best_prerequisite = sorted(similarities, key=lambda x: x[1], reverse=True)[:max_prerequisites]
 
     # Return the course object of the best prerequisite
-    return best_prerequisite[0]
+    return [req[0] for req in best_prerequisite]
 
-def prune_prerequisites(client, model, course: Course, course_ref_to_course, stats, logger: Logger):
-    if len(course.prerequisites.course_references) <= 1:
+def prune_prerequisites(client, model, course: Course, course_ref_to_course, max_prerequisites, stats, logger: Logger):
+    if len(course.prerequisites.course_references) <= max_prerequisites:
+        logger.debug(f"Skipping optimization for {course.get_identifier()} as it has {len(course.prerequisites.course_references)} prerequisites")
+        course.optimized_prerequisites = course.prerequisites
         return
 
     prerequisites = set()
@@ -67,19 +70,23 @@ def prune_prerequisites(client, model, course: Course, course_ref_to_course, sta
         model=model,
         course=course,
         prerequisites=prerequisites,
+        max_prerequisites=max_prerequisites,
         stats=stats
     )
-    logger.debug(f"Selected {best.get_identifier()} as the best prerequisite for {course.get_identifier()} out of {len(prerequisites)} options")
-    stats["removed_requisites"] += len(prerequisites) - 1
-    course.prerequisites.course_references = {best.course_reference}
+    logger.debug(f"Selected {([c.get_identifier() for c in best])} as the best prerequisite(s) for {course.get_identifier()} out of {len(prerequisites)} options")
+    stats["removed_requisites"] += len(prerequisites) - max_prerequisites
+    course.optimized_prerequisites = Course.Prerequisites(
+        course_references=[c.course_reference for c in best],
+        prerequisites_text=course.prerequisites.prerequisites_text
+    )
 
-def optimize_prerequisite_thread(client, model, course, course_ref_to_course, max_runtime, max_retries, stats, logger):
+def optimize_prerequisite_thread(client, model, course, course_ref_to_course, max_prerequisites, max_runtime, max_retries, stats, logger):
     retries = 0
     while retries < max_retries:
         try:
             # Optimize prerequisites (ensure the request doesn't exceed timeout)
             with ThreadPoolExecutor(max_workers=1) as executor:
-                future = executor.submit(prune_prerequisites, client, model, course, course_ref_to_course, stats, logger)
+                future = executor.submit(prune_prerequisites, client, model, course, course_ref_to_course, max_prerequisites, stats, logger)
                 return future.result(timeout=max_runtime)
         except Exception as e:
             retries += 1
@@ -88,7 +95,16 @@ def optimize_prerequisite_thread(client, model, course, course_ref_to_course, ma
                 print(f"Optimization for course {course.get_identifier()} failed completely.")
                 return None  # Abandon optimization if all retries fail
 
-def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Reference, Course], max_runtime, max_retries, max_threads, logger: Logger):
+def optimize_prerequisites(
+        client: OpenAI,
+        model: str,
+        course_ref_to_course: dict[Course.Reference, Course],
+        max_prerequisites: int | float,
+        max_runtime: int,
+        max_retries: int,
+        max_threads: int,
+        logger: Logger
+):
     logger.info("Optimizing prerequisites...")
 
     # Use ThreadPoolExecutor to handle multiple courses concurrently
@@ -103,7 +119,7 @@ def optimize_prerequisites(client, model, course_ref_to_course: dict[Course.Refe
 
     with ThreadPoolExecutor(max_workers=max_threads) as executor:
         future_to_course = {
-            executor.submit(optimize_prerequisite_thread, client, model, course, course_ref_to_course, max_runtime, max_retries, stats, logger): course
+            executor.submit(optimize_prerequisite_thread, client, model, course, course_ref_to_course, max_prerequisites, max_runtime, max_retries, stats, logger): course
             for course in course_ref_to_course.values()
         }
         for future in as_completed(future_to_course):

@@ -9,7 +9,7 @@ from openai import OpenAI
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from open_ai import get_openai_client, optimize_prerequisites
 from save import write_data
-from webscrape import get_course_urls, scrape_all
+from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
@@ -96,16 +96,16 @@ def main():
 
     openai_api_key = os.getenv("OPENAI_API_KEY", None)
     data_dir = os.getenv("DATA_DIRECTORY", None)
-    max_prerequisites = os.getenv("MAX_PREREQUISITES", None)
+
+    max_prerequisites: str = os.getenv("MAX_PREREQUISITES", None)
+
     logging_level = os.getenv("LOGGING_LEVEL", None)
     show_api_key = os.getenv("SHOW_API_KEY", False) == "True"
+
 
     warn_missing_data_dir = data_dir is None
     if warn_missing_data_dir:
         raise ValueError("No data directory set. Please set the DATA_DIRECTORY environment variable.")
-
-    warn_missing_max_prerequisites = max_prerequisites is None
-    max_prerequisites = int(max_prerequisites) if max_prerequisites is not None else 1
 
     logger = logging.getLogger(__name__)
 
@@ -114,27 +114,32 @@ def main():
     logger.setLevel(logging_level)
     coloredlogs.install(level=logging_level, logger=logger)
 
-    if warn_missing_max_prerequisites:
-        logger.warning("No max prerequisites set. Defaulting to 1")
+    warn_missing_prerequisites = max_prerequisites is None
+    max_prerequisites: int | float = int(max_prerequisites) if max_prerequisites is not None else float("inf")
 
+    if warn_missing_prerequisites:
+        logger.warning("No maximum prerequisites set. Defaulting to infinity (no optimization).")
     if warn_missing_logging_level:
-        logger.warning("No logging level set. Defaulting to INFO")
+        logger.warning("No logging level set. Defaulting to INFO.")
 
     open_ai_client = get_openai_client(api_key=openai_api_key, logger=logger, show_api_key=show_api_key)
 
     site_map_urls = get_course_urls(sitemap_url=sitemap_url, logger=logger)
-    subject_to_full_subject, course_ref_to_course, subject_to_courses = scrape_all(urls=site_map_urls, logger=logger)
-    identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
 
     optimize_prerequisites(
         client=open_ai_client,
         model="text-embedding-3-small",
         course_ref_to_course=course_ref_to_course,
+        max_prerequisites=max_prerequisites,
         max_runtime=30,
         max_retries=50,
         max_threads=10,
         logger=logger
     )
+
+    identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+    subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
 
     global_graph, subject_to_graph = build_graphs(
         course_ref_to_course=course_ref_to_course,
