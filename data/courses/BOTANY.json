@@ -1,40 +1,490 @@
 [
     {
         "course_reference": {
-            "course_number": 152,
+            "course_number": 821,
             "subjects": [
-                "ZOOLOGY",
                 "BOTANY",
-                "BIOLOGY"
+                "ZOOLOGY",
+                "F&WECOL",
+                "ENTOM"
             ]
         },
-        "course_title": "INTRODUCTORY BIOLOGY",
-        "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+        "course_title": "FOUNDATIONS OF ECOLOGY",
+        "description": "Foundational ideas in the field of ecology. Discussion topics trace the development of ecology as a discipline, and the roots of modern ecological thought, as well as the research approaches in ecology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 333,
+            "subjects": [
+                "BOTANY",
+                "PLPATH"
+            ]
+        },
+        "course_title": "BIOLOGY OF THE FUNGI",
+        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
         "optimized_prerequisites": {
             "course_references": [
                 {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [
                 {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "BOTANY",
+                "SOILSCI",
+                "HORT"
+            ]
+        },
+        "course_title": "MINERAL NUTRITION OF PLANTS",
+        "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "DIRECTED STUDY",
+        "description": "Explore research questions that facilitate learning in the field of botany through guidance and mentorship in a research environment.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "INDEPENDENT WORK",
+        "description": "Mentored reading and research for dissertators.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT SYSTEMATICS",
+        "description": "Plant systematics: the integration of taxonomy (identification, nomenclature, classification emphasizing flowering plants), evolution (speciation, reproductive biology, adaptation, convergence, biogeography), and phylogenetics. Emphasis on representative families and genera of flowering plants in Wisconsin, use of keys, manuals, and iNaturalist, plant collection.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "Topics of interest focusing on specific subjects or groups of organisms of plants, algae, or fungi.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 402,
+            "subjects": [
+                "BOTANY",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "DENDROLOGY: WOODY PLANT IDENTIFICATION AND ECOLOGY",
+        "description": "Identification, ecological characteristics, ranges, adaptations to environment, and uses of evergreen and deciduous woody plants, with emphasis on species native to Wisconsin; lab and field work.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 422,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT GEOGRAPHY",
+        "description": "Biogeography of plants. Relationship to climate and geology; paleobiogeography, historical biogeography and island biogeography; history and distribution of floras of North America and Wisconsin.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 120,
+                    "subjects": [
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 127,
+                    "subjects": [
+                        "GEOG",
+                        "ENVIRST"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 339,
+            "subjects": [
+                "BOTANY",
+                "AGRONOMY",
+                "HORT"
+            ]
+        },
+        "course_title": "PLANT BIOTECHNOLOGY: PRINCIPLES AND TECHNIQUES I",
+        "description": "Theoretical and practical training in plant biotechnology including molecular biology, protein biochemistry and basic bioinformatic techniques used in fundamental and applied research on plants. Valuable hands-on training to those interested in careers in biotechnology.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) and (CHEM\u00a0104,109, or116) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) and (CHEM\u00a0104,109, or116) or graduate/professional standing"
         }
     },
     {
@@ -57,14 +507,13 @@
     },
     {
         "course_reference": {
-            "course_number": 250,
+            "course_number": 265,
             "subjects": [
-                "F&WECOL",
                 "BOTANY"
             ]
         },
-        "course_title": "FORESTS AND HUMANS: FROM THE MIDWEST TO MADAGASCAR",
-        "description": "Provides an overview of the geography, ecology, and economic importance of the world's forest biomes. Learn how climate influences vegetation and, in-turn, how forests impact global climate. Meet scientists working to understand the astounding biodiversity and ecological complexity of forest ecosystems, and how these ecosystems support human life. Discuss the threats to forest ecosystems around the world, and hear from the people trying to protect them. Emphasizes the forest resources and services upon which humans depend, and how we can maintain these resources into the future. Analyze the idea of \"sustainability\" when it comes to forest management, hear alternative viewpoints about what this word means, and discuss potential trade-offs and conflicts. Look at the many real-world programs in place at the global, national, and local level to sustainably manage forests.",
+        "course_title": "RAINFORESTS AND CORAL REEFS",
+        "description": "Are you awed by the amazing biodiversity found in rainforests and coral reefs? See these ecosystems first hand and decide if a career in tropical biology or international conservation is for you. Focuses on the ecology of the world's most biodiverse ecosystems, and their global importance. Learn the physical, chemical, and biological processes that make rainforests and coral reefs function, and the history of human dependence upon these ecosystems. Understand why both of these ecosystems currently are threatened and what actions can and must be taken to protect them.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -76,23 +525,55 @@
     },
     {
         "course_reference": {
-            "course_number": 460,
+            "course_number": 300,
             "subjects": [
-                "ZOOLOGY",
-                "F&WECOL",
                 "BOTANY"
             ]
         },
-        "course_title": "GENERAL ECOLOGY",
-        "description": "Ecology of individual organisms, populations, communities, ecosystems, landscapes, and the biosphere. The interaction of organisms with each other and their physical environment. These relationships are studied, often in quantitative terms, in both field and laboratory settings.",
+        "course_title": "PLANT ANATOMY",
+        "description": "Plant structure and development of seed plants, primarily of flowering plants. Emphasis is placed on structure in relation to function and on the plant body as a structural and functional entity.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
+                    "course_number": 130,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Sophomore standing and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -104,166 +585,23 @@
                 {
                     "course_number": 130,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0381, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0381, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, or graduate/professional standing"
+            "prerequisites_text": "Sophomore standing and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "ENTOM",
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
-        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 260,
-            "subjects": [
-                "ZOOLOGY",
-                "BOTANY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "INTRODUCTORY ECOLOGY",
-        "description": "The relationships of organisms and the environment. Population dynamics and community organization, human-environment relationships, action programs.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 403,
+            "course_number": 698,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "FIELD COLLECTIONS AND IDENTIFICATION",
-        "description": "An independent experience in collecting plant specimens, identifying the specimens to species, making labels, and mounting of some specimens.",
+        "course_title": "DIRECTED STUDY",
+        "description": "Advanced directed research projects as arranged with a faculty member.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -275,22 +613,40 @@
     },
     {
         "course_reference": {
-            "course_number": 672,
+            "course_number": 879,
             "subjects": [
+                "BOTANY",
                 "ZOOLOGY",
-                "F&WECOL",
-                "BOTANY"
+                "F&WECOL"
             ]
         },
-        "course_title": "HISTORICAL ECOLOGY",
-        "description": "Study the importance of past events for current ecosystems. Emphasizes concepts and applications.",
+        "course_title": "ADVANCED LANDSCAPE ECOLOGY",
+        "description": "Emphasizes spatial patterning (its development and importance for ecological processes) and often focuses on large regions. Learn concepts, methods, and applications of landscape ecology.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Senior standing"
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Senior standing"
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 100,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SURVEY OF BOTANY",
+        "description": "Major emphasis on the roles of plants and microbes in past and present global ecology, and the past and present uses of plants and microbes by humans, including emerging applications of biotechnology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -305,31 +661,25 @@
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 151,
+                    "course_number": 130,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 },
                 {
-                    "course_number": 381,
+                    "course_number": 151,
                     "subjects": [
-                        "BIOCORE"
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
                     "course_number": 101,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
@@ -340,9 +690,16 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -352,17 +709,10 @@
                     ]
                 },
                 {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
                     "course_number": 130,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
@@ -371,86 +721,105 @@
     },
     {
         "course_reference": {
-            "course_number": 450,
+            "course_number": 651,
             "subjects": [
+                "BOTANY",
                 "ZOOLOGY",
-                "BOTANY"
+                "F&WECOL",
+                "ENVIRST"
             ]
         },
-        "course_title": "MIDWESTERN ECOLOGICAL ISSUES: A CASE STUDY APPROACH",
-        "description": "How ecological principles can be used to address contemporary environmental issues such as water quality, invasive species, and population growth. Emphasis on midwestern issues, practical approaches, the role of history, and geographic context.",
+        "course_title": "CONSERVATION BIOLOGY",
+        "description": "Application of ecological principles and human dimensions to the conservation of biological diversity. Topics: biodiversity science; conservation planning; population ecology; habitat loss, species exploitation, invasive species, pollution; human attitudes and activities as they affect the biosphere; approaches to monitoring interventions.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
+                    "course_number": 460,
                     "subjects": [
                         "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
                         "ZOOLOGY",
-                        "BIOLOGY"
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 455,
+                    "subjects": [
+                        "BOTANY",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 450,
+                    "subjects": [
+                        "BOTANY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102), orBIOCORE\u00a0381"
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBOTANY\u00a0\u00a0450,F&W\u00a0ECOL/\u200bBOTANY\u00a0\u00a0455,ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460, or graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
+                    "course_number": 460,
                     "subjects": [
                         "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
                         "ZOOLOGY",
-                        "BIOLOGY"
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 455,
+                    "subjects": [
+                        "BOTANY",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 450,
+                    "subjects": [
+                        "BOTANY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102), orBIOCORE\u00a0381"
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBOTANY\u00a0\u00a0450,F&W\u00a0ECOL/\u200bBOTANY\u00a0\u00a0455,ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 858,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS IN PLANT PHYSIOLOGY",
+        "description": "Topics of interest in the area of Plant Physiology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 240,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANTS AND HUMANS",
+        "description": "Plant parts and demonstrations of their utility to humans, origins of domesticated plants, modifications of plants by humans, ecosystem services owed to plants, and reasons to sustain plant diversity.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -473,31 +842,31 @@
     },
     {
         "course_reference": {
-            "course_number": 950,
+            "course_number": 299,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "SEMINAR-PLANT ECOLOGY",
-        "description": "Topics, recent advances  literature in the area of Plant Ecology.",
+        "course_title": "DIRECTED STUDY IN BOTANY",
+        "description": "Introduces students to research questions and facilitates learning in the field of botany by providing guidance and mentorship in a research environment.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 993,
+            "course_number": 801,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "RESEARCH: FUNGAL BIOLOGY",
-        "description": "Independent research in the area of Fungal Biology.",
+        "course_title": "ADVANCED PLANT COMMUNITY ECOLOGY",
+        "description": "Ecological determinants of plant community structure, dynamics, and diversity from an evolutionary perspective. Relations of vegetation types, physiognomy and phenology to plant adaptation and constraints. Gradient analysis, succession, nutrient cycling, plant-herbivore interactions, species richness.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -509,296 +878,31 @@
     },
     {
         "course_reference": {
-            "course_number": 821,
-            "subjects": [
-                "ZOOLOGY",
-                "ENTOM",
-                "F&WECOL",
-                "BOTANY"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF ECOLOGY",
-        "description": "Foundational ideas in the field of ecology. Discussion topics trace the development of ecology as a discipline, and the roots of modern ecological thought, as well as the research approaches in ecology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 422,
+            "course_number": 994,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "PLANT GEOGRAPHY",
-        "description": "Biogeography of plants. Relationship to climate and geology; paleobiogeography, historical biogeography and island biogeography; history and distribution of floras of North America and Wisconsin.",
+        "course_title": "RESEARCH-PLANT SYSTEMATICS",
+        "description": "Independent research in the area of Plant Systematics.",
         "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 120,
-                    "subjects": [
-                        "GEOG",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 120,
-                    "subjects": [
-                        "GEOG",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 127,
-                    "subjects": [
-                        "GEOG",
-                        "ENVIRST"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
-            "course_number": 563,
+            "course_number": 920,
             "subjects": [
-                "BOTANY",
-                "PLPATH"
+                "BOTANY"
             ]
         },
-        "course_title": "PHYLOGENETIC ANALYSIS OF MOLECULAR DATA",
-        "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "ZOOLOGY",
-                "F&WECOL",
-                "BOTANY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "CONSERVATION BIOLOGY",
-        "description": "Application of ecological principles and human dimensions to the conservation of biological diversity. Topics: biodiversity science; conservation planning; population ecology; habitat loss, species exploitation, invasive species, pollution; human attitudes and activities as they affect the biosphere; approaches to monitoring interventions.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "F&WECOL",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 455,
-                    "subjects": [
-                        "F&WECOL",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 450,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBOTANY\u00a0\u00a0450,F&W\u00a0ECOL/\u200bBOTANY\u00a0\u00a0455,ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "F&WECOL",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 455,
-                    "subjects": [
-                        "F&WECOL",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 450,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBOTANY\u00a0\u00a0450,F&W\u00a0ECOL/\u200bBOTANY\u00a0\u00a0455,ZOOLOGY/\u200bBOTANY/\u200bF&W\u00a0ECOL\u00a0\u00a0460, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 820,
-            "subjects": [
-                "ZOOLOGY",
-                "ENTOM",
-                "BOTANY",
-                "GENETICS"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF EVOLUTION",
-        "description": "Explore some of the most important themes and debates that have permeated evolutionary biology over the last 50 years. Read key papers related to each controversial topic, debate the pros and cons of competing viewpoints, and reflect on the relevance of the issue to contemporary evolutionary biology.",
+        "course_title": "SEMINAR IN ALGOLOGY: FRESH WATER ALGAE",
+        "description": "Topics, recent advances  literature in the area of Algology.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -829,889 +933,20 @@
     },
     {
         "course_reference": {
-            "course_number": 151,
+            "course_number": 953,
             "subjects": [
+                "ENTOM",
                 "ZOOLOGY",
+                "GEOG",
                 "BOTANY",
-                "BIOLOGY"
-            ]
-        },
-        "course_title": "INTRODUCTORY BIOLOGY",
-        "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forBIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102orBIOLOGY/\u200bBOTANY\u00a0\u00a0130"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Not open to students with credit forBIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102orBIOLOGY/\u200bBOTANY\u00a0\u00a0130"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 920,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "SEMINAR IN ALGOLOGY: FRESH WATER ALGAE",
-        "description": "Topics, recent advances  literature in the area of Algology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 951,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT ECOLOGY JOURNAL REVIEW",
-        "description": "Review of recent journal publications in the area of Plant Ecology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 474,
-            "subjects": [
-                "ANTHRO",
-                "BOTANY",
-                "AMERIND"
-            ]
-        },
-        "course_title": "ETHNOBOTANY",
-        "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 211,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "UNDERSTANDING CHANGED LANDSCAPES: WISCONSIN",
-        "description": "Exposure to  to the changing uses of Wisconsin landscapes: as the home of native peoples; as a source of fur, lead and timber; as part of the new nation of the United States; and as a modern, vibrant collection of communities focused on enterprises as diverse as agriculture and education. Asks what roles science has played in shaping the landscape and in current land use. Covers genetically modified crops, the endangered species act, water use, global change.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing and declared in an Honors program"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing and declared in an Honors program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 130,
-            "subjects": [
-                "BOTANY",
-                "BIOLOGY"
-            ]
-        },
-        "course_title": "GENERAL BOTANY",
-        "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "GENETICS",
-                "MM&I",
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "BIOLOGY AND GENETICS OF FUNGI",
-        "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 940,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "SEMINAR IN PLANT SYSTEMATICS AND EVOLUTION",
-        "description": "Topics, recent advances  literature in the area of Plant Systematics and Evolution.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 370,
-            "subjects": [
-                "AGRONOMY",
-                "SOILSCI",
-                "BOTANY"
-            ]
-        },
-        "course_title": "GRASSLAND ECOLOGY",
-        "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "AGRONOMY"
-                    ]
-                },
-                {
-                    "course_number": 123,
-                    "subjects": [
-                        "BOTANY",
-                        "PLPATH"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "SOILSCI",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "SOILSCI",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 123,
-                    "subjects": [
-                        "BOTANY",
-                        "PLPATH"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "AGRONOMY"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 132,
-                    "subjects": [
-                        "ATMOCN",
-                        "SOILSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 330,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "ALGAE",
-        "description": "Introduction to ecology, evolution, systematics, taxonomy, physiology, biochemistry, cell biology, and molecular biology of freshwater, terrestrial and marine algae. Emphasis on techniques for identification, culture, analysis of growth and reproduction, and community composition assessment.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 575,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Topics of interest focusing on specific subjects or groups of organisms of plants, algae, or fungi.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,102andBIOLOGY/\u200bBOTANY\u00a0\u00a0130),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 960,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "SEMINAR-PLANT PHYSIOLOGY",
-        "description": "Topics, recent advances  literature in the area of Plant Physiology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 802,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PHYSIOLOGICAL PLANT ECOLOGY",
-        "description": "Gas exchange at the individual plant and community level, energy balance and water relations, nutrient cycling, biomechanical adaptations; growth analysis; adaptations to sun and shade, primary productivity models, physiological ecology of selected plant communities (arctic/alpine, boreal, chaparral, desert, tropical, aquatic).",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 860,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT CELL BIOLOGY",
-        "description": "Structure/function relationships at the cellular level. Topics include the biogenesis of organelles, vesicle traffic, ion transport and signalling processes, and organization of the cytoskeleton and cell wall.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 410,
-            "subjects": [
-                "ZOOLOGY",
-                "ANTHRO",
-                "BOTANY"
-            ]
-        },
-        "course_title": "EVOLUTIONARY BIOLOGY",
-        "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 105,
-                    "subjects": [
-                        "ANTHRO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOLOGY/\u200bBOTANY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, (ANTHRO\u00a0105and satisfied QR-A requirement), or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 105,
-                    "subjects": [
-                        "ANTHRO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOLOGY/\u200bBOTANY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, (ANTHRO\u00a0105and satisfied QR-A requirement), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual research for students completing theses as arranged with a faculty member.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "MICROBIO",
-                "ANSCI",
-                "BOTANY"
-            ]
-        },
-        "course_title": "THE MICROBIOME OF PLANTS, ANIMALS, AND HUMANS",
-        "description": "Examination of the structure and function of microbial communities that live inside and on host organisms (plants, animals, and humans). Introduction to general concepts of the microbiome and microbiota, and their relationship to host nutrition, health, and disease.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 402,
-            "subjects": [
-                "F&WECOL",
-                "BOTANY"
-            ]
-        },
-        "course_title": "DENDROLOGY: WOODY PLANT IDENTIFICATION AND ECOLOGY",
-        "description": "Identification, ecological characteristics, ranges, adaptations to environment, and uses of evergreen and deciduous woody plants, with emphasis on species native to Wisconsin; lab and field work.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 305,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT MORPHOLOGY AND EVOLUTION",
-        "description": "A broad survey of the diversity of plants in the context of their evolutionary history. Similarities and differences in structure and reproduction among extant bryophytes, lycopods, ferns, gymnosperms, and flowering plants are emphasized along with the study of fossils representing extinct plant lineages.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 911,
-            "subjects": [
                 "ATMOCN",
-                "CIVENGR",
-                "GEOSCI",
-                "ENVIRST",
-                "ZOOLOGY",
-                "BOTANY"
-            ]
-        },
-        "course_title": "LIMNOLOGY AND MARINE SCIENCE SEMINAR",
-        "description": "Sections in various fields of zoological research.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 340,
-            "subjects": [
-                "HORT",
                 "AGRONOMY",
-                "BOTANY"
+                "ENVIRST",
+                "F&WECOL"
             ]
         },
-        "course_title": "PLANT CELL CULTURE AND GENETIC ENGINEERING",
-        "description": "Presents an overview of the techniques, biology and underlying theory of plant tissue culture, genetic engineering and genome editing. Overviews of research and commercial applications, and issues/challenges in the area of plant biotechnology are also covered.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102, orBIOCORE\u00a0381) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 116,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102, orBIOCORE\u00a0381) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 840,
-            "subjects": [
-                "BOTANY",
-                "BIOCHEM",
-                "GENETICS"
-            ]
-        },
-        "course_title": "REGULATORY MECHANISMS IN PLANT DEVELOPMENT",
-        "description": "Molecular mechanisms whereby endogenous and environmental regulatory factors control development; emphasis on stimulus perception and primary events in the signal chain leading to modulated gene expression and cellular development.",
+        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
+        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1723,13 +958,13 @@
     },
     {
         "course_reference": {
-            "course_number": 996,
+            "course_number": 995,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "RESEARCH-PLANT PHYSIOLOGY",
-        "description": "Independent research in the area of Plant Physiology.",
+        "course_title": "RESEARCH-PLANT ECOLOGY",
+        "description": "Independent research in the area of Plant Ecology.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -1737,177 +972,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 123,
-            "subjects": [
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANTS, PARASITES, AND PEOPLE",
-        "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT ANATOMY",
-        "description": "Plant structure and development of seed plants, primarily of flowering plants. Emphasis is placed on structure in relation to function and on the plant body as a structural and functional entity.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Sophomore standing and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 500,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT PHYSIOLOGY",
-        "description": "An in-depth look at plant growth, development, respiration, photosynthesis, mineral nutrition, and water relations. Experimental approaches will be used to demonstrate principles described.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement, sophomore standing, and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381), or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement, sophomore standing, and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381), or graduate/professional standing"
         }
     },
     {
@@ -1930,13 +994,15 @@
     },
     {
         "course_reference": {
-            "course_number": 858,
+            "course_number": 840,
             "subjects": [
-                "BOTANY"
+                "BOTANY",
+                "GENETICS",
+                "BIOCHEM"
             ]
         },
-        "course_title": "SPECIAL TOPICS IN PLANT PHYSIOLOGY",
-        "description": "Topics of interest in the area of Plant Physiology.",
+        "course_title": "REGULATORY MECHANISMS IN PLANT DEVELOPMENT",
+        "description": "Molecular mechanisms whereby endogenous and environmental regulatory factors control development; emphasis on stimulus perception and primary events in the signal chain leading to modulated gene expression and cellular development.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -1948,13 +1014,14 @@
     },
     {
         "course_reference": {
-            "course_number": 100,
+            "course_number": 250,
             "subjects": [
-                "BOTANY"
+                "BOTANY",
+                "F&WECOL"
             ]
         },
-        "course_title": "SURVEY OF BOTANY",
-        "description": "Major emphasis on the roles of plants and microbes in past and present global ecology, and the past and present uses of plants and microbes by humans, including emerging applications of biotechnology.",
+        "course_title": "FORESTS AND HUMANS: FROM THE MIDWEST TO MADAGASCAR",
+        "description": "Provides an overview of the geography, ecology, and economic importance of the world's forest biomes. Learn how climate influences vegetation and, in-turn, how forests impact global climate. Meet scientists working to understand the astounding biodiversity and ecological complexity of forest ecosystems, and how these ecosystems support human life. Discuss the threats to forest ecosystems around the world, and hear from the people trying to protect them. Emphasizes the forest resources and services upon which humans depend, and how we can maintain these resources into the future. Analyze the idea of \"sustainability\" when it comes to forest management, hear alternative viewpoints about what this word means, and discuss potential trade-offs and conflicts. Look at the many real-world programs in place at the global, national, and local level to sustainably manage forests.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -1966,97 +1033,312 @@
     },
     {
         "course_reference": {
-            "course_number": 339,
+            "course_number": 499,
             "subjects": [
-                "HORT",
+                "BOTANY"
+            ]
+        },
+        "course_title": "INTERMEDIATE DIRECTED RESEARCH",
+        "description": "Explore research questions that facilitate learning in the field of botany through guidance and mentorship in a research environment.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 370,
+            "subjects": [
+                "BOTANY",
                 "AGRONOMY",
-                "BOTANY"
+                "SOILSCI"
             ]
         },
-        "course_title": "PLANT BIOTECHNOLOGY: PRINCIPLES AND TECHNIQUES I",
-        "description": "Theoretical and practical training in plant biotechnology including molecular biology, protein biochemistry and basic bioinformatic techniques used in fundamental and applied research on plants. Valuable hands-on training to those interested in careers in biotechnology.",
+        "course_title": "GRASSLAND ECOLOGY",
+        "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
+                    "course_number": 100,
                     "subjects": [
-                        "ZOOLOGY",
+                        "AGRONOMY"
+                    ]
+                },
+                {
+                    "course_number": 123,
+                    "subjects": [
                         "BOTANY",
-                        "BIOLOGY"
+                        "PLPATH"
                     ]
                 },
                 {
-                    "course_number": 102,
+                    "course_number": 101,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
+                        "ENVIRST",
+                        "SOILSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) and (CHEM\u00a0104,109, or116) or graduate/professional standing"
+            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 109,
+                    "course_number": 100,
                     "subjects": [
-                        "CHEM"
+                        "BOTANY"
                     ]
                 },
                 {
-                    "course_number": 152,
+                    "course_number": 100,
                     "subjects": [
-                        "ZOOLOGY",
+                        "AGRONOMY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 132,
+                    "subjects": [
+                        "ATMOCN",
+                        "SOILSCI"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
                     ]
                 },
                 {
-                    "course_number": 116,
+                    "course_number": 101,
                     "subjects": [
-                        "CHEM"
+                        "ENVIRST",
+                        "SOILSCI"
                     ]
                 },
                 {
-                    "course_number": 102,
+                    "course_number": 123,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
+                        "BOTANY",
+                        "PLPATH"
                     ]
                 }
             ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) and (CHEM\u00a0104,109, or116) or graduate/professional standing"
+            "prerequisites_text": "PL\u00a0PATH/\u200bBOTANY\u00a0\u00a0123,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,SOIL\u00a0SCI/\u200bENVIR\u00a0ST\u00a0\u00a0101,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0381,BOTANY\u00a0100, orAGRONOMY\u00a0100, or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 879,
+            "course_number": 473,
             "subjects": [
+                "BOTANY",
                 "ZOOLOGY",
-                "F&WECOL",
+                "ENTOM"
+            ]
+        },
+        "course_title": "PLANT-INSECT INTERACTIONS",
+        "description": "Multiple ways in which arthropods exploit plants, plant traits that deter or augment insects, environmental mediation of these interactions, effects on population dynamics, community ecology and co-evolution, and implications to natural resource management, environmental quality, and sustainable development.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 460,
+                    "subjects": [
+                        "BOTANY",
+                        "ZOOLOGY",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "F&WECOL",
+                        "ENTOM"
+                    ]
+                },
+                {
+                    "course_number": 505,
+                    "subjects": [
+                        "BOTANY",
+                        "PLPATH",
+                        "ENTOM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 460,
+                    "subjects": [
+                        "BOTANY",
+                        "ZOOLOGY",
+                        "F&WECOL"
+                    ]
+                },
+                {
+                    "course_number": 500,
+                    "subjects": [
+                        "F&WECOL",
+                        "ENTOM"
+                    ]
+                },
+                {
+                    "course_number": 505,
+                    "subjects": [
+                        "BOTANY",
+                        "PLPATH",
+                        "ENTOM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 460,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "GENERAL ECOLOGY",
+        "description": "Ecology of individual organisms, populations, communities, ecosystems, landscapes, and the biosphere. The interaction of organisms with each other and their physical environment. These relationships are studied, often in quantitative terms, in both field and laboratory settings.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0381, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement andZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),BIOCORE\u00a0381, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 152,
+            "subjects": [
+                "BIOLOGY",
+                "BOTANY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "INTRODUCTORY BIOLOGY",
+        "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 670,
+            "subjects": [
+                "LANDARC",
                 "BOTANY"
             ]
         },
-        "course_title": "ADVANCED LANDSCAPE ECOLOGY",
-        "description": "Emphasizes spatial patterning (its development and importance for ecological processes) and often focuses on large regions. Learn concepts, methods, and applications of landscape ecology.",
+        "course_title": "ADAPTIVE RESTORATION LAB",
+        "description": "Field experience in restoration as an adaptive process involving field experimentation; baseline data collection on restoration sites; design of experiments to advance restoration science; quantitative evaluation of restoration outcomes. Includes analysis and interpretation of data.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -2068,31 +1350,13 @@
     },
     {
         "course_reference": {
-            "course_number": 240,
+            "course_number": 691,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "PLANTS AND HUMANS",
-        "description": "Plant parts and demonstrations of their utility to humans, origins of domesticated plants, modifications of plants by humans, ecosystem services owed to plants, and reasons to sustain plant diversity.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "DIRECTED STUDY IN BOTANY",
-        "description": "Introduces students to research questions and facilitates learning in the field of botany by providing guidance and mentorship in a research environment.",
+        "course_title": "SENIOR THESIS",
+        "description": "Individual research for students completing theses as arranged with a faculty member.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -2104,42 +1368,125 @@
     },
     {
         "course_reference": {
-            "course_number": 333,
+            "course_number": 260,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INTRODUCTORY ECOLOGY",
+        "description": "The relationships of organisms and the environment. Population dynamics and community organization, human-environment relationships, action programs.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 305,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT MORPHOLOGY AND EVOLUTION",
+        "description": "A broad survey of the diversity of plants in the context of their evolutionary history. Similarities and differences in structure and reproduction among extant bryophytes, lycopods, ferns, gymnosperms, and flowering plants are emphasized along with the study of fossils representing extinct plant lineages.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 332,
             "subjects": [
                 "BOTANY",
                 "PLPATH"
             ]
         },
-        "course_title": "BIOLOGY OF THE FUNGI",
-        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
+        "course_title": "FUNGI",
+        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
         "optimized_prerequisites": {
             "course_references": [
                 {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
                     ]
                 },
                 {
                     "course_number": 381,
                     "subjects": [
                         "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
                     ]
                 }
             ],
@@ -2150,9 +1497,16 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -2162,29 +1516,113 @@
                     ]
                 },
                 {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 820,
+            "subjects": [
+                "BOTANY",
+                "GENETICS",
+                "ZOOLOGY",
+                "ENTOM"
+            ]
+        },
+        "course_title": "FOUNDATIONS OF EVOLUTION",
+        "description": "Explore some of the most important themes and debates that have permeated evolutionary biology over the last 50 years. Read key papers related to each controversial topic, debate the pros and cons of competing viewpoints, and reflect on the relevance of the issue to contemporary evolutionary biology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 500,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT PHYSIOLOGY",
+        "description": "An in-depth look at plant growth, development, respiration, photosynthesis, mineral nutrition, and water relations. Experimental approaches will be used to demonstrate principles described.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
                     "course_number": 101,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement, sophomore standing, and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
                     ]
                 },
                 {
                     "course_number": 130,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "Satisfied Quantitative Reasoning (QR) A requirement, sophomore standing, and (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381), or graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 621,
             "subjects": [
-                "BIOCHEM",
-                "BOTANY"
+                "BOTANY",
+                "BIOCHEM"
             ]
         },
         "course_title": "PLANT BIOCHEMISTRY",
@@ -2226,13 +1664,32 @@
     },
     {
         "course_reference": {
-            "course_number": 265,
+            "course_number": 950,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "RAINFORESTS AND CORAL REEFS",
-        "description": "Are you awed by the amazing biodiversity found in rainforests and coral reefs? See these ecosystems first hand and decide if a career in tropical biology or international conservation is for you. Focuses on the ecology of the world's most biodiverse ecosystems, and their global importance. Learn the physical, chemical, and biological processes that make rainforests and coral reefs function, and the history of human dependence upon these ecosystems. Understand why both of these ecosystems currently are threatened and what actions can and must be taken to protect them.",
+        "course_title": "SEMINAR-PLANT ECOLOGY",
+        "description": "Topics, recent advances  literature in the area of Plant Ecology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 130,
+            "subjects": [
+                "BIOLOGY",
+                "BOTANY"
+            ]
+        },
+        "course_title": "GENERAL BOTANY",
+        "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
@@ -2244,139 +1701,117 @@
     },
     {
         "course_reference": {
-            "course_number": 499,
+            "course_number": 505,
             "subjects": [
-                "BOTANY"
+                "BOTANY",
+                "PLPATH",
+                "ENTOM"
             ]
         },
-        "course_title": "INTERMEDIATE DIRECTED RESEARCH",
-        "description": "Explore research questions that facilitate learning in the field of botany through guidance and mentorship in a research environment.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 670,
-            "subjects": [
-                "LANDARC",
-                "BOTANY"
-            ]
-        },
-        "course_title": "ADAPTIVE RESTORATION LAB",
-        "description": "Field experience in restoration as an adaptive process involving field experimentation; baseline data collection on restoration sites; design of experiments to advance restoration science; quantitative evaluation of restoration outcomes. Includes analysis and interpretation of data.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "ADVANCED PLANT COMMUNITY ECOLOGY",
-        "description": "Ecological determinants of plant community structure, dynamics, and diversity from an evolutionary perspective. Relations of vegetation types, physiognomy and phenology to plant adaptation and constraints. Gradient analysis, succession, nutrient cycling, plant-herbivore interactions, species richness.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "ZOOLOGY",
-                "BOTANY"
-            ]
-        },
-        "course_title": "ECOSYSTEM CONCEPTS",
-        "description": "Scope and objectives of ecosystem ecology; roles of theory, long-term studies, comparative studies, and large-scale experiments; scaling problems; ecosystem services and ecological economics; adaptive ecosystem assessment and management.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "ATMOCN",
-                "AGRONOMY",
-                "ENTOM",
-                "GEOG",
-                "ENVIRST",
-                "ZOOLOGY",
-                "F&WECOL",
-                "BOTANY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 698,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Advanced directed research projects as arranged with a faculty member.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 455,
-            "subjects": [
-                "F&WECOL",
-                "BOTANY"
-            ]
-        },
-        "course_title": "THE VEGETATION OF WISCONSIN",
-        "description": "Ecology of Wisconsin plant communities: floristic composition, community structure; relationship to history, climate, soil, and geology; response to human perturbation.",
+        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
+        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 151,
+                    "course_number": 303,
                     "subjects": [
-                        "ZOOLOGY",
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 468,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 993,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "RESEARCH: FUNGAL BIOLOGY",
+        "description": "Independent research in the area of Fungal Biology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 450,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "MIDWESTERN ECOLOGICAL ISSUES: A CASE STUDY APPROACH",
+        "description": "How ecological principles can be used to address contemporary environmental issues such as water quality, invasive species, and population growth. Emphasis on midwestern issues, practical approaches, the role of history, and geographic context.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 },
                 {
@@ -2384,32 +1819,39 @@
                     "subjects": [
                         "BIOCORE"
                     ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102), orBIOCORE\u00a0381"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
                 },
                 {
                     "course_number": 101,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
                     "course_number": 130,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 },
                 {
@@ -2417,58 +1859,20 @@
                     "subjects": [
                         "BIOCORE"
                     ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102), orBIOCORE\u00a0381"
         }
     },
     {
         "course_reference": {
-            "course_number": 692,
+            "course_number": 860,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual research for students completing theses as arranged with a faculty member.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 980,
-            "subjects": [
-                "ATMOCN",
-                "GEOSCI",
-                "GEOG",
-                "ENVIRST",
-                "ZOOLOGY",
-                "F&WECOL",
-                "BOTANY"
-            ]
-        },
-        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
-        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "course_title": "PLANT CELL BIOLOGY",
+        "description": "Structure/function relationships at the cellular level. Topics include the biogenesis of organelles, vesicle traffic, ion transport and signalling processes, and organization of the cytoskeleton and cell wall.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -2476,76 +1880,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "HORT",
-                "SOILSCI",
-                "BOTANY"
-            ]
-        },
-        "course_title": "MINERAL NUTRITION OF PLANTS",
-        "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BOTANY\u00a0500or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "RESEARCH-PHYCOLOGY",
-        "description": "Independent research in the area of Phycology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "INDEPENDENT WORK",
-        "description": "Mentored reading and research for dissertators.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -2569,22 +1903,587 @@
     },
     {
         "course_reference": {
-            "course_number": 332,
+            "course_number": 951,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT ECOLOGY JOURNAL REVIEW",
+        "description": "Review of recent journal publications in the area of Plant Ecology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 340,
+            "subjects": [
+                "BOTANY",
+                "AGRONOMY",
+                "HORT"
+            ]
+        },
+        "course_title": "PLANT CELL CULTURE AND GENETIC ENGINEERING",
+        "description": "Presents an overview of the techniques, biology and underlying theory of plant tissue culture, genetic engineering and genome editing. Overviews of research and commercial applications, and issues/challenges in the area of plant biotechnology are also covered.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102, orBIOCORE\u00a0381) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 109,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 116,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102, orBIOCORE\u00a0381) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 940,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SEMINAR IN PLANT SYSTEMATICS AND EVOLUTION",
+        "description": "Topics, recent advances  literature in the area of Plant Systematics and Evolution.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 672,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "HISTORICAL ECOLOGY",
+        "description": "Study the importance of past events for current ecosystems. Emphasizes concepts and applications.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Senior standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 996,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "RESEARCH-PLANT PHYSIOLOGY",
+        "description": "Independent research in the area of Plant Physiology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 211,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "UNDERSTANDING CHANGED LANDSCAPES: WISCONSIN",
+        "description": "Exposure to  to the changing uses of Wisconsin landscapes: as the home of native peoples; as a source of fur, lead and timber; as part of the new nation of the United States; and as a modern, vibrant collection of communities focused on enterprises as diverse as agriculture and education. Asks what roles science has played in shaping the landscape and in current land use. Covers genetically modified crops, the endangered species act, water use, global change.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing and declared in an Honors program"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing and declared in an Honors program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 455,
+            "subjects": [
+                "BOTANY",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "THE VEGETATION OF WISCONSIN",
+        "description": "Ecology of Wisconsin plant communities: floristic composition, community structure; relationship to history, climate, soil, and geology; response to human perturbation.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "RESEARCH-PHYCOLOGY",
+        "description": "Independent research in the area of Phycology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 335,
+            "subjects": [
+                "BOTANY",
+                "ANSCI",
+                "MICROBIO"
+            ]
+        },
+        "course_title": "THE MICROBIOME OF PLANTS, ANIMALS, AND HUMANS",
+        "description": "Examination of the structure and function of microbial communities that live inside and on host organisms (plants, animals, and humans). Introduction to general concepts of the microbiome and microbiota, and their relationship to host nutrition, health, and disease.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0101or303or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "ECOSYSTEM CONCEPTS",
+        "description": "Scope and objectives of ecosystem ecology; roles of theory, long-term studies, comparative studies, and large-scale experiments; scaling problems; ecosystem services and ecological economics; adaptive ecosystem assessment and management.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 692,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual research for students completing theses as arranged with a faculty member.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 960,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "SEMINAR-PLANT PHYSIOLOGY",
+        "description": "Topics, recent advances  literature in the area of Plant Physiology.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 403,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "FIELD COLLECTIONS AND IDENTIFICATION",
+        "description": "An independent experience in collecting plant specimens, identifying the specimens to species, making labels, and mounting of some specimens.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 410,
+            "subjects": [
+                "BOTANY",
+                "ZOOLOGY",
+                "ANTHRO"
+            ]
+        },
+        "course_title": "EVOLUTIONARY BIOLOGY",
+        "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOLOGY/\u200bBOTANY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, (ANTHRO\u00a0105and satisfied QR-A requirement), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 105,
+                    "subjects": [
+                        "ANTHRO"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOLOGY/\u200bBOTANY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BIOCORE\u00a0381, (ANTHRO\u00a0105and satisfied QR-A requirement), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 911,
+            "subjects": [
+                "ZOOLOGY",
+                "BOTANY",
+                "ENVIRST",
+                "ATMOCN",
+                "CIVENGR",
+                "GEOSCI"
+            ]
+        },
+        "course_title": "LIMNOLOGY AND MARINE SCIENCE SEMINAR",
+        "description": "Sections in various fields of zoological research.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "BOTANY"
+            ]
+        },
+        "course_title": "ALGAE",
+        "description": "Introduction to ecology, evolution, systematics, taxonomy, physiology, biochemistry, cell biology, and molecular biology of freshwater, terrestrial and marine algae. Emphasis on techniques for identification, culture, analysis of growth and reproduction, and community composition assessment.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 381,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 563,
             "subjects": [
                 "BOTANY",
                 "PLPATH"
             ]
         },
-        "course_title": "FUNGI",
-        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
+        "course_title": "PHYLOGENETIC ANALYSIS OF MOLECULAR DATA",
+        "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
         "optimized_prerequisites": {
             "course_references": [
                 {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -2592,32 +2491,56 @@
                     "subjects": [
                         "BIOCORE"
                     ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 301,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 371,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 324,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 240,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
                     "course_number": 151,
                     "subjects": [
-                        "ZOOLOGY",
+                        "BIOLOGY",
                         "BOTANY",
-                        "BIOLOGY"
+                        "ZOOLOGY"
                     ]
                 },
                 {
@@ -2625,221 +2548,175 @@
                     "subjects": [
                         "BIOCORE"
                     ]
-                },
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 655,
+            "subjects": [
+                "BOTANY",
+                "GENETICS",
+                "MM&I",
+                "PLPATH"
+            ]
+        },
+        "course_title": "BIOLOGY AND GENETICS OF FUNGI",
+        "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 151,
+            "subjects": [
+                "BIOLOGY",
+                "BOTANY",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "INTRODUCTORY BIOLOGY",
+        "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+        "optimized_prerequisites": {
+            "course_references": [
                 {
                     "course_number": 101,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 },
                 {
                     "course_number": 130,
                     "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "Not open to students with credit forBIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102orBIOLOGY/\u200bBOTANY\u00a0\u00a0130"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Not open to students with credit forBIOLOGY/\u200bZOOLOGY\u00a0\u00a0101,102orBIOLOGY/\u200bBOTANY\u00a0\u00a0130"
         }
     },
     {
         "course_reference": {
-            "course_number": 473,
+            "course_number": 980,
             "subjects": [
                 "ZOOLOGY",
-                "ENTOM",
-                "BOTANY"
+                "GEOG",
+                "BOTANY",
+                "ENVIRST",
+                "ATMOCN",
+                "GEOSCI",
+                "F&WECOL"
             ]
         },
-        "course_title": "PLANT-INSECT INTERACTIONS",
-        "description": "Multiple ways in which arthropods exploit plants, plant traits that deter or augment insects, environmental mediation of these interactions, effects on population dynamics, community ecology and co-evolution, and implications to natural resource management, environmental quality, and sustainable development.",
+        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
+        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
         "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "F&WECOL",
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "F&WECOL",
-                        "ENTOM"
-                    ]
-                },
-                {
-                    "course_number": 505,
-                    "subjects": [
-                        "ENTOM",
-                        "BOTANY",
-                        "PLPATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 460,
-                    "subjects": [
-                        "F&WECOL",
-                        "ZOOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 500,
-                    "subjects": [
-                        "F&WECOL",
-                        "ENTOM"
-                    ]
-                },
-                {
-                    "course_number": 505,
-                    "subjects": [
-                        "ENTOM",
-                        "BOTANY",
-                        "PLPATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "F&W\u00a0ECOL/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0460,F&W\u00a0ECOL/\u200bENTOM\u00a0\u00a0500,ENTOM/\u200bBOTANY/\u200bPL\u00a0PATH\u00a0\u00a0505, or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 802,
             "subjects": [
                 "BOTANY"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Explore research questions that facilitate learning in the field of botany through guidance and mentorship in a research environment.",
+        "course_title": "PHYSIOLOGICAL PLANT ECOLOGY",
+        "description": "Gas exchange at the individual plant and community level, energy balance and water relations, nutrient cycling, biomechanical adaptations; growth analysis; adaptations to sun and shade, primary productivity models, physiological ecology of selected plant communities (arctic/alpine, boreal, chaparral, desert, tropical, aquatic).",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 994,
+            "course_number": 474,
             "subjects": [
-                "BOTANY"
+                "BOTANY",
+                "ANTHRO",
+                "AMERIND"
             ]
         },
-        "course_title": "RESEARCH-PLANT SYSTEMATICS",
-        "description": "Independent research in the area of Plant Systematics.",
+        "course_title": "ETHNOBOTANY",
+        "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Sophomore standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Sophomore standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 995,
+            "course_number": 123,
             "subjects": [
-                "BOTANY"
+                "BOTANY",
+                "PLPATH"
             ]
         },
-        "course_title": "RESEARCH-PLANT ECOLOGY",
-        "description": "Independent research in the area of Plant Ecology.",
+        "course_title": "PLANTS, PARASITES, AND PEOPLE",
+        "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "None"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "BOTANY"
-            ]
-        },
-        "course_title": "PLANT SYSTEMATICS",
-        "description": "Plant systematics: the integration of taxonomy (identification, nomenclature, classification emphasizing flowering plants), evolution (speciation, reproductive biology, adaptation, convergence, biogeography), and phylogenetics. Emphasis on representative families and genera of flowering plants in Wisconsin, use of keys, manuals, and iNaturalist, plant collection.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+            "prerequisites_text": "None"
         }
     }
 ]

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 526,
         "subjects": [
-            "ISYE",
-            "COMPSCI"
+            "COMPSCI",
+            "ISYE"
         ]
     },
     "course_title": "ADVANCED LINEAR PROGRAMMING",
@@ -13,10 +13,10 @@
             {
                 "course_number": 525,
                 "subjects": [
-                    "MATH",
-                    "ISYE",
                     "STAT",
-                    "COMPSCI"
+                    "MATH",
+                    "COMPSCI",
+                    "ISYE"
                 ]
             },
             {
@@ -27,12 +27,6 @@
             },
             {
                 "course_number": 310,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 200,
                 "subjects": [
                     "COMPSCI"
                 ]
@@ -43,11 +37,8 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 525,
+                "course_number": 220,
                 "subjects": [
-                    "MATH",
-                    "ISYE",
-                    "STAT",
                     "COMPSCI"
                 ]
             },
@@ -58,9 +49,12 @@
                 ]
             },
             {
-                "course_number": 300,
+                "course_number": 525,
                 "subjects": [
-                    "COMPSCI"
+                    "STAT",
+                    "MATH",
+                    "COMPSCI",
+                    "ISYE"
                 ]
             },
             {
@@ -70,7 +64,7 @@
                 ]
             },
             {
-                "course_number": 220,
+                "course_number": 300,
                 "subjects": [
                     "COMPSCI"
                 ]

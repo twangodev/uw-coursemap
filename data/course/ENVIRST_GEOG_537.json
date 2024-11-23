@@ -30,14 +30,6 @@
                     "GEOG",
                     "ENVIRST"
                 ]
-            },
-            {
-                "course_number": 345,
-                "subjects": [
-                    "ENVIRST",
-                    "GEOG",
-                    "AMERIND"
-                ]
             }
         ],
         "prerequisites_text": "GEOG\u00a0359,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0337,339,439,AMER\u00a0IND/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0345, or graduate/professional standing"
@@ -45,9 +37,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 359,
+                "course_number": 337,
                 "subjects": [
-                    "GEOG"
+                    "GEOG",
+                    "ENVIRST"
                 ]
             },
             {
@@ -58,25 +51,24 @@
                 ]
             },
             {
-                "course_number": 439,
+                "course_number": 359,
                 "subjects": [
-                    "GEOG",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 337,
-                "subjects": [
-                    "GEOG",
-                    "ENVIRST"
+                    "GEOG"
                 ]
             },
             {
                 "course_number": 345,
                 "subjects": [
-                    "ENVIRST",
                     "GEOG",
+                    "ENVIRST",
                     "AMERIND"
+                ]
+            },
+            {
+                "course_number": 439,
+                "subjects": [
+                    "GEOG",
+                    "ENVIRST"
                 ]
             }
         ],

@@ -2,26 +2,14 @@
     "course_reference": {
         "course_number": 535,
         "subjects": [
-            "BME",
-            "MEDPHYS"
+            "MEDPHYS",
+            "BME"
         ]
     },
     "course_title": "INTRODUCTION TO ENERGY-TISSUE INTERACTIONS",
     "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
     "optimized_prerequisites": {
         "course_references": [
-            {
-                "course_number": 248,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
             {
                 "course_number": 265,
                 "subjects": [
@@ -31,6 +19,12 @@
             },
             {
                 "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 202,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -41,13 +35,19 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 248,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 202,
+                "course_number": 208,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -56,12 +56,6 @@
                 "course_number": 265,
                 "subjects": [
                     "MEDPHYS",
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 208,
-                "subjects": [
                     "PHYSICS"
                 ]
             }

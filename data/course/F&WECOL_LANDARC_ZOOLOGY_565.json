@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 565,
         "subjects": [
+            "LANDARC",
             "ZOOLOGY",
-            "F&WECOL",
-            "LANDARC"
+            "F&WECOL"
         ]
     },
     "course_title": "PRINCIPLES OF LANDSCAPE ECOLOGY",
@@ -14,9 +14,9 @@
             {
                 "course_number": 460,
                 "subjects": [
+                    "BOTANY",
                     "ZOOLOGY",
-                    "F&WECOL",
-                    "BOTANY"
+                    "F&WECOL"
                 ]
             },
             {
@@ -28,14 +28,8 @@
             {
                 "course_number": 571,
                 "subjects": [
-                    "F&WECOL",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 371,
-                "subjects": [
-                    "STAT"
+                    "STAT",
+                    "F&WECOL"
                 ]
             }
         ],
@@ -44,7 +38,21 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 460,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "F&WECOL"
+                ]
+            },
+            {
                 "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 371,
                 "subjects": [
                     "STAT"
                 ]
@@ -52,22 +60,8 @@
             {
                 "course_number": 571,
                 "subjects": [
-                    "F&WECOL",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 460,
-                "subjects": [
-                    "ZOOLOGY",
-                    "F&WECOL",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 371,
-                "subjects": [
-                    "STAT"
+                    "STAT",
+                    "F&WECOL"
                 ]
             },
             {

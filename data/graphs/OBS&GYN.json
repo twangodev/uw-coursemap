@@ -1,15 +1,46 @@
 [
     {
         "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
+            "source": "MEDSC-M 775",
+            "target": "MEDSC-M 810"
         }
     },
     {
         "data": {
-            "source": "PHARMACY 800",
+            "description": "Provides an in-depth exposure to inpatient and operative management of complicated obstetric and gynecologic patients. Work under the direct supervision of a senior resident, fellows and the obstetrician-gynecology faculty. Provides an opportunity to function at the intern level and play an active role in inpatient management of obstetric and gynecologic patients.",
+            "id": "OBS&GYN 938",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "OBS&GYN 909"
+        }
+    },
+    {
+        "data": {
+            "source": "OBS&GYN 955",
             "target": "OBS&GYN 956"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 770",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
         }
     },
     {
@@ -21,24 +52,6 @@
     },
     {
         "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "OBS&GYN/POPHLTH 807"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "OBS&GYN 935"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "OBS&GYN 935"
-        }
-    },
-    {
-        "data": {
             "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
             "id": "MEDSC-M 775",
             "parent": "MEDSC-M"
@@ -46,34 +59,15 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "In-depth exposure to outpatient care of the patient with gynecologic cancer. Occasional opportunities to provide inpatient care to patients students have examined or consulted with in clinic. Work under the direct supervision of the gynecologic oncology faculty, fellows, residents, and APPs. Function at the intern level and play an active role in the care of gynecologic oncology patients.",
-            "id": "OBS&GYN 921",
+            "description": "In-depth exposure to inpatient care of patients on Labor and Delivery. Work under the direct supervision of the Obstetrics Hospitalist whose primary role is the general medical care of hospitalized patients. Help manage laboring patients, see patients in labor and delivery, triage, and assist with cesarean sections. Round on all patients for whom you are involved in care once patients are post-partum. Function as the residents do at night and assist with cross coverage of inpatient gynecology patients as well as see patients who arrive in the emergency department with obstetric or gynecologic concerns. You may assist in the operating room if the patients who present to the emergency room require immediate surgery.",
+            "id": "OBS&GYN 934",
             "parent": "OBS&GYN"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "OBS&GYN 938"
-        }
-    },
-    {
-        "data": {
-            "id": "NURSING",
+            "id": "MEDSC-M",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with faculty member.",
-            "id": "OBS&GYN 699",
-            "parent": "OBS&GYN"
         }
     },
     {
@@ -92,125 +86,14 @@
     },
     {
         "data": {
-            "description": "Survey the history of race in American obstetrics and gynecology. Gain understanding of how race and theories of racial difference informed the development of the field and justified the treatment of Black, indigenous and immigrant patients. Understand the vital contributions of Black enslaved women, other women of color, and Irish immigrants to obstetrics and gynecology. Make connections between racialized historical practices and contemporary norms in reproductive healthcare.",
-            "id": "OBS&GYN 917",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 771",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "A broad grounding in reproductive endocrine physiology at the graduate level, with an emphasis on human and human reproductive health wherever possible. Encompasses an overview of fundamental concepts in endocrinology, the hypothalamic-pituitary axis, steroidogenesis, early embryonic development, pregnancy and maternal-fetal adaptations, and pathologies associated with endocrine disruption and dysregulation. Provides more focus on pathologic pregnancies because such pregnancies lead to a higher risk of adult onset diseases including hypertension, obesity, and metabolic syndrome. Covers pregnancy and pathologic pregnancy in detail.",
-            "id": "OBS&GYN 710",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research.",
-            "id": "OBS&GYN 955",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "id": "PHARMACY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "OBS&GYN 917"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides instruction in principles and concepts of research ethics through presentations and discussion of case studies. Topics pertinent to development of a successful career in research are also included.",
-            "id": "COMPBIO/PATH-BIO 812"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "In-depth exposure to inpatient care of patients on Labor and Delivery. Work under the direct supervision of the Obstetrics Hospitalist whose primary role is the general medical care of hospitalized patients. Help manage laboring patients, see patients in labor and delivery, triage, and assist with cesarean sections. Round on all patients for whom you are involved in care once patients are post-partum. Function as the residents do at night and assist with cross coverage of inpatient gynecology patients as well as see patients who arrive in the emergency department with obstetric or gynecologic concerns. You may assist in the operating room if the patients who present to the emergency room require immediate surgery.",
-            "id": "OBS&GYN 934",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "OBS&GYN 935"
-        }
-    },
-    {
-        "data": {
-            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
-            "id": "POPHLTH/SOC 797"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Obstetric/Gynecology faculty. Each student's research project is individualized to meet student research goals within context of faculty research needs.",
-            "id": "OBS&GYN 910",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "OBS&GYN 909"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
-            "id": "OBS&GYN/POPHLTH 807"
-        }
-    },
-    {
-        "data": {
             "id": "OBS&GYN",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Familiarizes graduate students with basic ethical issues associated with biomedical science research, taught via a case study approach.  Content structured to meet NIH and NSF requirements for Responsible Conduct of Research (RCR) training. Students declared in the Pharmacology and Toxicology undergraduate program may enroll via consent of instructor.",
-            "id": "PHARMACY 800",
-            "parent": "PHARMACY"
+            "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
+            "id": "ANSCI/OBS&GYN/ZOOLOGY 954"
         }
     },
     {
@@ -221,89 +104,14 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 811",
-            "target": "OBS&GYN 935"
-        }
-    },
-    {
-        "data": {
-            "description": "Organized around physiological themes, the course includes material related to the cardiovascular system, hematology, nephrology, and pulmonology to present an integrated picture of how these systems function together to maintain homeostasis. In addition, there is significant content from other competency domains such as public health, ethics, evidence-based medicine, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 771",
-            "parent": "MEDSC-M"
+            "source": "MEDSC-M 812",
+            "target": "OBS&GYN 938"
         }
     },
     {
         "data": {
             "source": "MEDSC-M 810",
             "target": "OBS&GYN 938"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "OBS&GYN 917"
-        }
-    },
-    {
-        "data": {
-            "source": "OBS&GYN 955",
-            "target": "OBS&GYN 956"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "OBS&GYN 917"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides advanced learning opportunities in Endocrinology and Reproductive Physiology areas, particularly reproduction, emphasizing human health whenever possible. Explores scientific questions core to the ERP graduate training program and teaches how to communicate research findings as presentations. Skills developed include information discovery; organization of papers and identification of argument(s); and creation of documents/reports. Students are the driving force behind achievement of the learning objectives by undertaking learning activities, actively engaging in their peers' activities, and providing constructive feedback to their peers. Prior completion ofOBS&GYN\u00a0710recommended but not required.",
-            "id": "OBS&GYN 712",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "source": "NURSING 802",
-            "target": "OBS&GYN 956"
-        }
-    },
-    {
-        "data": {
-            "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research. Provides advanced consideration of these topics and illustrates how to implement these responsible conduct and ethical considerations into actual grant- and career-related documents.",
-            "id": "OBS&GYN 956",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "OBS&GYN 938"
-        }
-    },
-    {
-        "data": {
-            "description": "Promotes scientific and professional development. Presenters develop and deliver research presentations to a scientific audience, field questions, and receive critiques about their presentation style and scientific approach. Additional presentations include professional development, career advancement opportunities, and topics of interest to the endocrinology and reproduction community at large.",
-            "id": "ANSCI/OBS&GYN/ZOOLOGY 954"
         }
     },
     {
@@ -315,21 +123,14 @@
     },
     {
         "data": {
+            "source": "NURSING 802",
+            "target": "OBS&GYN 956"
+        }
+    },
+    {
+        "data": {
             "source": "MEDSC-M 810",
             "target": "OBS&GYN 909"
-        }
-    },
-    {
-        "data": {
-            "description": "As Phase 3 students, apply teaching theories to the pursuit of improving the clinical learning environment for Phase 2 students. Unique opportunity for Phase 3 medical students to gain experience with clinical teaching in a capacity similar to how they will function as an intern without the demands and responsibilities of residency, with a focus on establishing good teaching practices. Spend time in the clinical setting advising and mentoring Phase 2 students. No direct participation in patient care. Prepare and deliver short teaching sessions for Phase 2 students from a standard curriculum of learning topics to help Phase 2 students achieve success on Labor  Delivery. Develop innovative ways to guide Phase 2 students to effectively utilize clinical resources, navigate the basics of patient assessment, and engage with the patient care team.",
-            "id": "OBS&GYN 935",
-            "parent": "OBS&GYN"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "OBS&GYN 917"
         }
     },
     {
@@ -341,15 +142,106 @@
     },
     {
         "data": {
-            "description": "Provides an in-depth exposure to inpatient and operative management of complicated obstetric and gynecologic patients. Work under the direct supervision of a senior resident, fellows and the obstetrician-gynecology faculty. Provides an opportunity to function at the intern level and play an active role in inpatient management of obstetric and gynecologic patients.",
-            "id": "OBS&GYN 938",
+            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
+            "id": "POPHLTH/SOC 797"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides advanced learning opportunities in Endocrinology and Reproductive Physiology areas, particularly reproduction, emphasizing human health whenever possible. Explores scientific questions core to the ERP graduate training program and teaches how to communicate research findings as presentations. Skills developed include information discovery; organization of papers and identification of argument(s); and creation of documents/reports. Students are the driving force behind achievement of the learning objectives by undertaking learning activities, actively engaging in their peers' activities, and providing constructive feedback to their peers. Prior completion ofOBS&GYN\u00a0710recommended but not required.",
+            "id": "OBS&GYN 712",
             "parent": "OBS&GYN"
         }
     },
     {
         "data": {
-            "source": "COMPBIO/PATH-BIO 812",
-            "target": "OBS&GYN 956"
+            "source": "MEDSC-M 810",
+            "target": "OBS&GYN 917"
+        }
+    },
+    {
+        "data": {
+            "source": "POPHLTH/SOC 797",
+            "target": "OBS&GYN/POPHLTH 807"
+        }
+    },
+    {
+        "data": {
+            "description": "Familiarizes graduate students with basic ethical issues associated with biomedical science research, taught via a case study approach.  Content structured to meet NIH and NSF requirements for Responsible Conduct of Research (RCR) training. Students declared in the Pharmacology and Toxicology undergraduate program may enroll via consent of instructor.",
+            "id": "PHARMACY 800",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "OBS&GYN 917"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey the history of race in American obstetrics and gynecology. Gain understanding of how race and theories of racial difference informed the development of the field and justified the treatment of Black, indigenous and immigrant patients. Understand the vital contributions of Black enslaved women, other women of color, and Irish immigrants to obstetrics and gynecology. Make connections between racialized historical practices and contemporary norms in reproductive healthcare.",
+            "id": "OBS&GYN 917",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "description": "As Phase 3 students, apply teaching theories to the pursuit of improving the clinical learning environment for Phase 2 students. Unique opportunity for Phase 3 medical students to gain experience with clinical teaching in a capacity similar to how they will function as an intern without the demands and responsibilities of residency, with a focus on establishing good teaching practices. Spend time in the clinical setting advising and mentoring Phase 2 students. No direct participation in patient care. Prepare and deliver short teaching sessions for Phase 2 students from a standard curriculum of learning topics to help Phase 2 students achieve success on Labor  Delivery. Develop innovative ways to guide Phase 2 students to effectively utilize clinical resources, navigate the basics of patient assessment, and engage with the patient care team.",
+            "id": "OBS&GYN 935",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research.",
+            "id": "OBS&GYN 955",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "OBS&GYN 935"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "OBS&GYN 935"
+        }
+    },
+    {
+        "data": {
+            "description": "In-depth exposure to ambulatory gynecology, operative gynecology, normal and high-risk obstetrics and subspecialty clinics, working under the direct supervision of Obstetric/Gynecology faculty, residents, fellows, certified midwives, and advanced practice practitioneers. Individualized to meet each location's capacity and student preference.",
+            "id": "OBS&GYN 919",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research under the direct supervision of Obstetric/Gynecology faculty. Each student's research project is individualized to meet student research goals within context of faculty research needs.",
+            "id": "OBS&GYN 910",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
+            "id": "OBS&GYN/POPHLTH 807"
         }
     },
     {
@@ -360,8 +252,48 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "OBS&GYN 909"
+            "id": "NURSING",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
+            "id": "MEDSC-M 770",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Meets the NIH Institutional Training Grant requirements of repeat/further instruction in the nine recommended areas (1) conflict of interest - personal, professional, and financial; (2) policies regarding human subjects, live vertebrate animal subjects in research, and safe laboratory practices; (3) mentor/mentee responsibilities and relationships; (4) collaborative research including collaborations with industry; (5) peer review; (6) data acquisition and laboratory tools, and management, sharing and ownership; (7) research misconduct and policies for handling misconduct; (8) responsible authorship and publication; (9) the scientist as a responsible member of society, contemporary ethical issues in biomedical research, and the environmental and societal impacts of scientific research. Provides advanced consideration of these topics and illustrates how to implement these responsible conduct and ethical considerations into actual grant- and career-related documents.",
+            "id": "OBS&GYN 956",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with faculty member.",
+            "id": "OBS&GYN 699",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "description": "In-depth exposure to outpatient care of the patient with gynecologic cancer. Occasional opportunities to provide inpatient care to patients students have examined or consulted with in clinic. Work under the direct supervision of the gynecologic oncology faculty, fellows, residents, and APPs. Function at the intern level and play an active role in the care of gynecologic oncology patients.",
+            "id": "OBS&GYN 921",
+            "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "source": "PHARMACY 800",
+            "target": "OBS&GYN 956"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "OBS&GYN 917"
         }
     },
     {
@@ -373,9 +305,28 @@
     },
     {
         "data": {
-            "description": "In-depth exposure to ambulatory gynecology, operative gynecology, normal and high-risk obstetrics and subspecialty clinics, working under the direct supervision of Obstetric/Gynecology faculty, residents, fellows, certified midwives, and advanced practice practitioneers. Individualized to meet each location's capacity and student preference.",
-            "id": "OBS&GYN 919",
+            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
+            "id": "MEDSC-M 811",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "A broad grounding in reproductive endocrine physiology at the graduate level, with an emphasis on human and human reproductive health wherever possible. Encompasses an overview of fundamental concepts in endocrinology, the hypothalamic-pituitary axis, steroidogenesis, early embryonic development, pregnancy and maternal-fetal adaptations, and pathologies associated with endocrine disruption and dysregulation. Provides more focus on pathologic pregnancies because such pregnancies lead to a higher risk of adult onset diseases including hypertension, obesity, and metabolic syndrome. Covers pregnancy and pathologic pregnancy in detail.",
+            "id": "OBS&GYN 710",
             "parent": "OBS&GYN"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "OBS&GYN 935"
+        }
+    },
+    {
+        "data": {
+            "id": "PHARMACY",
+            "type": "compound"
         }
     }
 ]

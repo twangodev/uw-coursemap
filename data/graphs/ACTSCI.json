@@ -1,551 +1,26 @@
 [
     {
         "data": {
-            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
-            "id": "MATH 322",
-            "parent": "MATH"
+            "source": "MATH 234",
+            "target": "MATH/STAT 431"
         }
     },
     {
         "data": {
-            "source": "MATH 211",
-            "target": "MATH 222"
+            "source": "STAT 301",
+            "target": "STAT 333"
         }
     },
     {
         "data": {
-            "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
-            "id": "ACTSCI 301",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical inference and analyses based on models will be introduced and applied in a business context using a calculus-based focus. Topics covered include point estimation, confidence intervals, hypothesis testing, regression models, and time series models. Various methods for fitting a model to data will be explored, and uncertainty about parameter estimates will be quantified so decision makers have information about the quality of the estimates. Regression and time series models are commonly used in business analytics applications and will be used to analyze business data and make inferences and predictions.",
-            "id": "GENBUS 317",
-            "parent": "GENBUS"
+            "source": "ACTSCI 640",
+            "target": "ACTSCI 657"
         }
     },
     {
         "data": {
             "source": "ACTSCI 303",
             "target": "ACTSCI 301"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 322",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 531",
-            "target": "STAT 312"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 656",
-            "target": "ACTSCI 657"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 421"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 306",
-            "target": "GENBUS 307"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 321"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
-            "id": "STAT 311",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 113"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 650"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 656",
-            "target": "ACTSCI 654"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 317",
-            "target": "ACTSCI 652"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 640",
-            "target": "ACTSCI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "GENBUS 317"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 322"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
-            "id": "STAT 333",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "The theory of linear algebra with an introduction to proofs and proof writing. Topics include vector spaces, linear dependence, span, basis, linear transformations, kernel, image, inner products and inner product spaces, geometry, eigenvalues, eigenvectors, standard matrix factorizations. Other content includes basic set theory, logical operations, quantifiers, direct and indirect arguments, and induction. Differential equations [MATH\u00a0320] not covered.",
-            "id": "MATH 341",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
-            "id": "ACTSCI 652",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 113",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "A rigorous introduction to probability theory at an advanced undergraduate level. Only a minimal amount of measure theory is used, in particular, the theory of Lebesgue integrals is not needed. It is aimed at math majors and Master's degree students, or students in other fields who will need probability in their future careers. Gives an introduction to the basics (Kolmogorov axioms, conditional probability and independence, random variables, expectation) and discusses some classical results with proofs (DeMoivre-Laplace limit theorems, the study of simple random walk on the one dimensional lattice, applications of generating functions).",
-            "id": "MATH 531",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
-            "id": "MATH 321",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Build fundamental skills and processes to develop a strong foundation in business analysis utilizing Excel. Learn the fundamentals of data construction, manipulation, summarization, analysis and presentation.",
-            "id": "GENBUS 106",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
-            "id": "MATH 113",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "GENBUS 656"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 640",
-            "target": "ACTSCI 654"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 655"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "ACTSCI 640"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
-            "id": "ACTSCI 654",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 652"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-            "id": "STAT 371",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "id": "STAT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "ACTSCI 303"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Emphasis on hands-on experience with many commonly used analytic methodologies using the modeling and optimization tools available on almost every professional desktop. The focus is predictive and prescriptive analytics. Predictive approaches use historical data to infer causal relationships and forecast future outcomes from a given action. Prescriptive methods take this a step further, helping managers formulate decision models that identify optimal actions given a set of circumstances.",
-            "id": "GENBUS 307",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 321"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
-            "id": "STAT 301",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
-            "id": "STAT 340",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
-            "id": "MATH 114",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 656",
-            "target": "ACTSCI 655"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "ACTSCI 765",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "STAT 312"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 640"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 421",
-            "target": "MATH 531"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to machine learning techniques in business. Focus on applications for solving business problems, including hands-on practice in the context of various real-world data sets. Materials covered include machine learning foundations, different methodological approaches, and implementation tools for machine learning for business applications. Methods include both supervised learning techniques (linear regression and classification, non-linear regression, CARTs, random forests, SVMs, artificial neural nets, etc.) as well as unsupervised learning techniques (clustering, principal components, etc.).",
-            "id": "GENBUS 656",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 300"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "ACTSCI 303"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, conditional probability and conditional expectations, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem. Includes a brief introduction to techniques of multivariate integration.",
-            "id": "MATH 331",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 654"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
         }
     },
     {
@@ -557,157 +32,8 @@
     },
     {
         "data": {
-            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
-            "id": "STAT 240",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "STAT 312"
-        }
-    },
-    {
-        "data": {
-            "id": "ACTSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 650",
-            "target": "ACTSCI 651"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 331"
-        }
-    },
-    {
-        "data": {
-            "id": "GENBUS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "MATH 321"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 321"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
-            "id": "ACTSCI 657",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 307",
-            "target": "GENBUS 656"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 317",
-            "target": "GENBUS 656"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
-            "id": "MATH 421",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 652"
-        }
-    },
-    {
-        "data": {
             "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
             "id": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
         }
     },
     {
@@ -718,63 +44,14 @@
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
+            "source": "GENBUS 317",
+            "target": "ACTSCI 652"
         }
     },
     {
         "data": {
-            "source": "GENBUS 106",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "ACTSCI 650"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "The real numbers, elements of set theory, metric spaces and basic topology, sequences and series, limits, continuity, differentiation, integration, sequences and series of functions, uniform convergence.",
-            "id": "MATH 521",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "GENBUS 656"
+            "source": "MATH 211",
+            "target": "STAT 340"
         }
     },
     {
@@ -785,83 +62,8 @@
     },
     {
         "data": {
-            "source": "STAT 311",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 657"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 106",
-            "target": "GENBUS 307"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
-            "id": "ACTSCI 650",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 311",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of quantitative intuition through practical applications and use of analysis tools. Specifically, emphasis will be on how to manage, summarize, explore, and visualize databases. The essentials of probability will be introduced and applied to decision problems where there is uncertainty. Emphasis on hypothesis testing and regression analysis and include an introduction to simulation methods. Throughout, attention will be paid to effective communication of data analysis. The use of business cases will connect the course material to both real world settings and recent advances in data analysis, including big data and data mining.",
-            "id": "GENBUS 306",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "ACTSCI 300"
+            "source": "ACTSCI 652",
+            "target": "ACTSCI 653"
         }
     },
     {
@@ -873,47 +75,21 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH/STAT 309",
-            "target": "ACTSCI 650"
+            "source": "MATH 118",
+            "target": "MATH 171"
         }
     },
     {
         "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
-            "id": "ACTSCI 640",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 640",
-            "target": "ACTSCI 657"
+            "source": "MATH/STAT 431",
+            "target": "STAT 311"
         }
     },
     {
@@ -924,134 +100,27 @@
     },
     {
         "data": {
-            "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
-            "id": "STAT 312",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 341"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 301",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 331"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 312",
-            "target": "ACTSCI 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
-            "id": "ACTSCI 651",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
-            "id": "ACTSCI 653",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 657"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 652",
-            "target": "ACTSCI 653"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 311",
-            "target": "STAT 312"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
-            "id": "ACTSCI 399",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-            "id": "ACTSCI 655",
-            "parent": "ACTSCI"
+            "source": "STAT 333",
+            "target": "ACTSCI 654"
         }
     },
     {
         "data": {
-            "source": "MATH 321",
-            "target": "MATH 322"
+            "source": "MATH 213",
+            "target": "MATH 222"
         }
     },
     {
         "data": {
-            "source": "MATH 171",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "ACTSCI 652"
+            "source": "MATH 213",
+            "target": "ACTSCI 303"
         }
     },
     {
@@ -1063,8 +132,339 @@
     },
     {
         "data": {
+            "description": "Emphasis on hands-on experience with many commonly used analytic methodologies using the modeling and optimization tools available on almost every professional desktop. The focus is predictive and prescriptive analytics. Predictive approaches use historical data to infer causal relationships and forecast future outcomes from a given action. Prescriptive methods take this a step further, helping managers formulate decision models that identify optimal actions given a set of circumstances.",
+            "id": "GENBUS 307",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
+            "id": "STAT 301",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "ACTSCI 655"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "ACTSCI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "ACTSCI 650"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Build fundamental skills and processes to develop a strong foundation in business analysis utilizing Excel. Learn the fundamentals of data construction, manipulation, summarization, analysis and presentation.",
+            "id": "GENBUS 106",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 640",
+            "target": "ACTSCI 654"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 307",
+            "target": "GENBUS 656"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "ACTSCI 650"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+            "id": "ACTSCI 301",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 317",
+            "target": "GENBUS 656"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "ACTSCI 765",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
+            "id": "MATH 217",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
+            "id": "ACTSCI 655",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 650",
+            "target": "ACTSCI 651"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "GENBUS 306"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "ACTSCI 652"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
             "source": "MATH 217",
-            "target": "STAT 340"
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 311",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 306",
+            "target": "GENBUS 307"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "id": "ACTSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "GENBUS 317"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
+            "id": "ACTSCI 652",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "GENBUS 306"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "ACTSCI 657"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 118",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
+            "id": "STAT 240",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "ACTSCI 303"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
+            "id": "STAT 311",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 301"
+        }
+    },
+    {
+        "data": {
+            "id": "GENBUS",
+            "type": "compound"
         }
     },
     {
@@ -1076,38 +476,60 @@
     },
     {
         "data": {
-            "source": "MATH 331",
+            "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+            "id": "ACTSCI 640",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
+            "id": "ACTSCI 399",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to machine learning techniques in business. Focus on applications for solving business problems, including hands-on practice in the context of various real-world data sets. Materials covered include machine learning foundations, different methodological approaches, and implementation tools for machine learning for business applications. Methods include both supervised learning techniques (linear regression and classification, non-linear regression, CARTs, random forests, SVMs, artificial neural nets, etc.) as well as unsupervised learning techniques (clustering, principal components, etc.).",
+            "id": "GENBUS 656",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
             "target": "ACTSCI 300"
         }
     },
     {
         "data": {
-            "source": "MATH 213",
-            "target": "MATH 221"
+            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
+            "id": "MATH 234",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "ACTSCI 303",
-            "target": "ACTSCI 650"
+            "source": "GENBUS 106",
+            "target": "GENBUS 307"
         }
     },
     {
         "data": {
-            "source": "STAT 312",
-            "target": "STAT 333"
+            "source": "MATH 211",
+            "target": "MATH 213"
         }
     },
     {
         "data": {
-            "source": "MATH 421",
-            "target": "MATH 521"
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
         }
     },
     {
         "data": {
-            "source": "MATH 114",
-            "target": "MATH 211"
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 310"
         }
     },
     {
@@ -1118,26 +540,282 @@
     },
     {
         "data": {
+            "source": "MATH 112",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "GENBUS 656"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 331",
+            "target": "ACTSCI 300"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+            "id": "STAT 333",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "ACTSCI 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical inference and analyses based on models will be introduced and applied in a business context using a calculus-based focus. Topics covered include point estimation, confidence intervals, hypothesis testing, regression models, and time series models. Various methods for fitting a model to data will be explored, and uncertainty about parameter estimates will be quantified so decision makers have information about the quality of the estimates. Regression and time series models are commonly used in business analytics applications and will be used to analyze business data and make inferences and predictions.",
+            "id": "GENBUS 317",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of quantitative intuition through practical applications and use of analysis tools. Specifically, emphasis will be on how to manage, summarize, explore, and visualize databases. The essentials of probability will be introduced and applied to decision problems where there is uncertainty. Emphasis on hypothesis testing and regression analysis and include an introduction to simulation methods. Throughout, attention will be paid to effective communication of data analysis. The use of business cases will connect the course material to both real world settings and recent advances in data analysis, including big data and data mining.",
+            "id": "GENBUS 306",
+            "parent": "GENBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
+            "id": "ACTSCI 650",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 217"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 331"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "STAT 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 656",
+            "target": "ACTSCI 657"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 656",
+            "target": "ACTSCI 655"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, conditional probability and conditional expectations, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem. Includes a brief introduction to techniques of multivariate integration.",
+            "id": "MATH 331",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
             "source": "MATH/STAT 309",
             "target": "GENBUS 317"
         }
     },
     {
         "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 654"
+            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
+            "id": "MATH 213",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+            "id": "ACTSCI 653",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 331"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 640",
+            "target": "ACTSCI 655"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+            "id": "ACTSCI 657",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "ACTSCI 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
+            "id": "ACTSCI 654",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
             "target": "STAT 371"
         }
     },
     {
         "data": {
-            "source": "MATH 531",
+            "source": "STAT 340",
+            "target": "ACTSCI 652"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 656",
+            "target": "ACTSCI 654"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
             "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "GENBUS 106",
+            "target": "GENBUS 306"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 217",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+            "id": "STAT 340",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
+            "id": "ACTSCI 651",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 303",
+            "target": "ACTSCI 650"
         }
     }
 ]

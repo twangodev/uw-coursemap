@@ -1,91 +1,40 @@
 [
     {
         "course_reference": {
-            "course_number": 610,
+            "course_number": 900,
             "subjects": [
-                "NEURODPT",
                 "NTP"
             ]
         },
-        "course_title": "CELLULAR AND MOLECULAR NEUROSCIENCE",
-        "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
+        "course_title": "NEUROSCIENCE SEMINAR: CURRENT TOPICS IN NEUROBIOLOGY",
+        "description": "Critical review of selected topics in neurobiology.",
         "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Declared in Neuroscience graduate program"
         },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Declared in Neuroscience graduate program"
         }
     },
     {
         "course_reference": {
-            "course_number": 629,
+            "course_number": 640,
             "subjects": [
-                "NEURODPT",
-                "NTP"
+                "NTP",
+                "NEURODPT"
             ]
         },
-        "course_title": "MOLECULAR AND CELLULAR MECHANISMS OF MEMORY",
-        "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
+        "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
+        "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 335,
+                    "course_number": 611,
                     "subjects": [
-                        "ANAT&PHY"
+                        "PSYCH",
+                        "NTP",
+                        "NEURODPT"
                     ]
                 },
                 {
@@ -96,20 +45,27 @@
                     ]
                 },
                 {
-                    "course_number": 435,
+                    "course_number": 610,
                     "subjects": [
-                        "ANAT&PHY"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 335,
+                    "course_number": 202,
                     "subjects": [
-                        "ANAT&PHY"
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
                     ]
                 },
                 {
@@ -120,13 +76,108 @@
                     ]
                 },
                 {
-                    "course_number": 435,
+                    "course_number": 208,
                     "subjects": [
-                        "ANAT&PHY"
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                },
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "PSYCH",
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 454,
+                    "subjects": [
+                        "PSYCH"
                     ]
                 }
             ],
-            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 660,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
+        "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "PSYCH",
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "PSYCH",
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
         }
     },
     {
@@ -145,52 +196,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 666,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "NEUROSCIENCE OF CONSCIOUSNESS AND ITS DISORDERS",
-        "description": "Outlines contemporary strategies to study consciousness and current knowledge of the neural correlates of consciousness and their alterations during sleep, parasomnia, anesthesia, coma, stroke, seizures, meditative and psychedelic states. Reviews recent work studying the neural correlates of conscious contents and their interactions with cognitive processes. Outlines contemporary theories of consciousness, illustrate how they can be empirically tested, and discuss their implications for the presence vs. absence of consciousness in artificial intelligent systems.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523) or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523) or graduate/professional standing"
         }
     },
     {
@@ -264,8 +269,8 @@
                 {
                     "course_number": 610,
                     "subjects": [
-                        "NEURODPT",
-                        "NTP"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
@@ -276,12 +281,179 @@
                 {
                     "course_number": 610,
                     "subjects": [
-                        "NEURODPT",
-                        "NTP"
+                        "NTP",
+                        "NEURODPT"
                     ]
                 }
             ],
             "prerequisites_text": "Graduate/professional standing andNTP/\u200bNEURODPT\u00a0\u00a0610"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "CELLULAR AND MOLECULAR NEUROSCIENCE",
+        "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ZOOLOGY",
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
+        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 611,
+            "subjects": [
+                "PSYCH",
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "SYSTEMS NEUROSCIENCE",
+        "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 666,
+            "subjects": [
+                "NTP"
+            ]
+        },
+        "course_title": "NEUROSCIENCE OF CONSCIOUSNESS AND ITS DISORDERS",
+        "description": "Outlines contemporary strategies to study consciousness and current knowledge of the neural correlates of consciousness and their alterations during sleep, parasomnia, anesthesia, coma, stroke, seizures, meditative and psychedelic states. Reviews recent work studying the neural correlates of conscious contents and their interactions with cognitive processes. Outlines contemporary theories of consciousness, illustrate how they can be empirically tested, and discuss their implications for the presence vs. absence of consciousness in artificial intelligent systems.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 454,
+                    "subjects": [
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 454,
+                    "subjects": [
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PSYCH\u00a0454andZOOLOGY/\u200bPSYCH\u00a0\u00a0523) or graduate/professional standing"
         }
     },
     {
@@ -332,15 +504,13 @@
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 701,
             "subjects": [
-                "ZOOLOGY",
-                "NEURODPT",
                 "NTP"
             ]
         },
-        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
-        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "course_title": "EXPERIMENTAL DESIGN AND STATISTICAL METHODOLOGY",
+        "description": "Application of the scientific method and experimental design, with a focus on experimental neuroscience. Topics include best practices that underlie robust and unbiased experimental approaches, methods, analyses, data interpretation and transparent reporting of results.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -352,41 +522,61 @@
     },
     {
         "course_reference": {
-            "course_number": 900,
+            "course_number": 629,
             "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "NEUROSCIENCE SEMINAR: CURRENT TOPICS IN NEUROBIOLOGY",
-        "description": "Critical review of selected topics in neurobiology.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Neuroscience graduate program"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Neuroscience graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 619,
-            "subjects": [
-                "ZOOLOGY",
                 "NTP",
-                "ANTHRO",
-                "PSYCH"
+                "NEURODPT"
             ]
         },
-        "course_title": "BIOLOGY OF MIND",
-        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
+        "course_title": "MOLECULAR AND CELLULAR MECHANISMS OF MEMORY",
+        "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
         "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "course_references": [
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
         },
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Junior standing"
+            "course_references": [
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "Graduate/professional standing orANAT&PHY\u00a0335,435, PHYSIOL 335, 435 orZOOLOGY/\u200bPSYCH\u00a0\u00a0523"
         }
     },
     {
@@ -426,100 +616,23 @@
     },
     {
         "course_reference": {
-            "course_number": 660,
+            "course_number": 619,
             "subjects": [
+                "ZOOLOGY",
+                "PSYCH",
+                "ANTHRO",
                 "NTP"
             ]
         },
-        "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
-        "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCORE\u00a0485,ZOOLOGY/\u200bPSYCH\u00a0\u00a0523,PSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611, or declared in Neuroscience graduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "PROFESSIONAL DEVELOPMENT FOR BIOMEDICAL GRADUATE STUDENTS",
-        "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
+        "course_title": "BIOLOGY OF MIND",
+        "description": "Origins and structures of mind, brain, and consciousness. Transitions from early mammalian through primate to hominid intelligence. Genetics and plasticity in brain development. Modern studies of human brain mechanisms and consciousness.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 701,
-            "subjects": [
-                "NTP"
-            ]
-        },
-        "course_title": "EXPERIMENTAL DESIGN AND STATISTICAL METHODOLOGY",
-        "description": "Application of the scientific method and experimental design, with a focus on experimental neuroscience. Topics include best practices that underlie robust and unbiased experimental approaches, methods, analyses, data interpretation and transparent reporting of results.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Junior standing"
         }
     },
     {
@@ -542,145 +655,20 @@
     },
     {
         "course_reference": {
-            "course_number": 611,
+            "course_number": 700,
             "subjects": [
-                "NEURODPT",
-                "NTP",
-                "PSYCH"
-            ]
-        },
-        "course_title": "SYSTEMS NEUROSCIENCE",
-        "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP"
-                    ]
-                }
-            ],
-            "prerequisites_text": "NEURODPT/\u200bNTP\u00a0\u00a0610or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "NEURODPT",
                 "NTP"
             ]
         },
-        "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
-        "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+        "course_title": "PROFESSIONAL DEVELOPMENT FOR BIOMEDICAL GRADUATE STUDENTS",
+        "description": "Provides graduate students with the skills and knowledge necessary to succeed in science. Topics which are covered include choosing a thesis advisor, grant writing, preparing a seminar presentation, etc.",
         "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP"
-                    ]
-                },
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NEURODPT",
-                        "NTP",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

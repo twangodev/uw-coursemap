@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 510,
         "subjects": [
-            "ISYE",
-            "ME"
+            "ME",
+            "ISYE"
         ]
     },
     "course_title": "FACILITIES PLANNING",
@@ -11,7 +11,7 @@
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 323,
+                "course_number": 315,
                 "subjects": [
                     "ISYE"
                 ]
@@ -19,20 +19,13 @@
             {
                 "course_number": 524,
                 "subjects": [
+                    "COMPSCI",
                     "ISYE",
-                    "ECE",
-                    "COMPSCI"
+                    "ECE"
                 ]
             },
             {
-                "course_number": 349,
-                "subjects": [
-                    "ISYE",
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 315,
+                "course_number": 323,
                 "subjects": [
                     "ISYE"
                 ]
@@ -43,29 +36,29 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 524,
+                "subjects": [
+                    "COMPSCI",
+                    "ISYE",
+                    "ECE"
+                ]
+            },
+            {
                 "course_number": 323,
                 "subjects": [
                     "ISYE"
                 ]
             },
             {
-                "course_number": 524,
+                "course_number": 315,
                 "subjects": [
-                    "ISYE",
-                    "ECE",
-                    "COMPSCI"
+                    "ISYE"
                 ]
             },
             {
                 "course_number": 349,
                 "subjects": [
-                    "ISYE",
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 315,
-                "subjects": [
+                    "PSYCH",
                     "ISYE"
                 ]
             }

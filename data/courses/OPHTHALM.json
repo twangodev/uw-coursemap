@@ -1,20 +1,20 @@
 [
     {
         "course_reference": {
-            "course_number": 910,
+            "course_number": 699,
             "subjects": [
                 "OPHTHALM"
             ]
         },
-        "course_title": "INDEPENDENT READING AND RESEARCH FOR FOURTH YEAR MEDICAL STUDENTS",
-        "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
+        "course_title": "DIRECTED STUDY",
+        "description": "Directed study projects as arranged with faculty member.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -37,6 +37,68 @@
     },
     {
         "course_reference": {
+            "course_number": 911,
+            "subjects": [
+                "OPHTHALM"
+            ]
+        },
+        "course_title": "INTRODUCTION TO THE VISUAL SYSTEM",
+        "description": "Become familiar with the basic science within ophthalmology. Comprehensive analysis of four common ophthalmic diseases, including ocular surface infections and immunology, glaucoma, diabetic retinopathy, and age-related macular degeneration.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 813,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 811,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                },
+                {
+                    "course_number": 812,
+                    "subjects": [
+                        "MEDSC-M"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 750,
             "subjects": [
                 "OPHTHALM"
@@ -55,88 +117,20 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 910,
             "subjects": [
                 "OPHTHALM"
             ]
         },
-        "course_title": "DIRECTED STUDY",
-        "description": "Directed study projects as arranged with faculty member.",
+        "course_title": "INDEPENDENT READING AND RESEARCH FOR FOURTH YEAR MEDICAL STUDENTS",
+        "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 911,
-            "subjects": [
-                "OPHTHALM"
-            ]
-        },
-        "course_title": "INTRODUCTION TO THE VISUAL SYSTEM",
-        "description": "Become familiar with the basic science within ophthalmology. Comprehensive analysis of four common ophthalmic diseases, including ocular surface infections and immunology, glaucoma, diabetic retinopathy, and age-related macular degeneration.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 810,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 811,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 813,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 810,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 812,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 811,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                },
-                {
-                    "course_number": 813,
-                    "subjects": [
-                        "MEDSC-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
+            "prerequisites_text": "Graduate/professional standing"
         }
     }
 ]

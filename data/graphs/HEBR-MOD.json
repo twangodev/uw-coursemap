@@ -1,14 +1,21 @@
 [
     {
         "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 301"
+            "source": "HEBR-MOD 102",
+            "target": "HEBR-MOD 201"
         }
     },
     {
         "data": {
             "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 202",
+            "id": "HEBR-MOD 201",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+            "id": "HEBR-MOD 102",
             "parent": "HEBR-MOD"
         }
     },
@@ -17,30 +24,6 @@
             "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
             "id": "HEBR-MOD 101",
             "parent": "HEBR-MOD"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 201",
-            "target": "HEBR-MOD 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 402"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD/JEWISH 301",
-            "target": "HEBR-MOD/JEWISH 302"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 401"
         }
     },
     {
@@ -57,34 +40,8 @@
     },
     {
         "data": {
-            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
-            "id": "HEBR-MOD 102",
-            "parent": "HEBR-MOD"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 202",
-            "target": "HEBR-MOD/JEWISH 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 302"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 102",
-            "target": "HEBR-MOD 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 201",
-            "parent": "HEBR-MOD"
+            "source": "HEBR-MOD 101",
+            "target": "HEBR-MOD 102"
         }
     },
     {
@@ -95,9 +52,26 @@
     },
     {
         "data": {
-            "description": "Intensive study of the fundamental structure of Hebrew language, using the four language skills (listening, speaking, reading, and writing) to improve Hebrew proficiency.  Grammar, pronunciation and vocabulary are incorporated into the daily activities, with an emphasis on speaking and using the language for communication. The Hebrew alphabet is also introduced.",
-            "id": "HEBR-MOD 310",
-            "parent": "HEBR-MOD"
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 301"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 201",
+            "target": "HEBR-MOD 202"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings in Hebrew literature. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 401"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 202",
+            "target": "HEBR-MOD/JEWISH 301"
         }
     },
     {
@@ -109,14 +83,40 @@
     {
         "data": {
             "description": "Intensive study of the fundamental structure of Hebrew language, using the four language skills (listening, speaking, reading, and writing) to improve Hebrew proficiency.  Grammar, pronunciation and vocabulary are incorporated into the daily activities, with an emphasis on speaking and using the language for communication. The Hebrew alphabet is also introduced.",
+            "id": "HEBR-MOD 310",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings in Hebrew literature. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 402"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
+            "id": "HEBR-MOD 202",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "description": "Intensive study of the fundamental structure of Hebrew language, using the four language skills (listening, speaking, reading, and writing) to improve Hebrew proficiency.  Grammar, pronunciation and vocabulary are incorporated into the daily activities, with an emphasis on speaking and using the language for communication. The Hebrew alphabet is also introduced.",
             "id": "HEBR-MOD 311",
             "parent": "HEBR-MOD"
         }
     },
     {
         "data": {
-            "source": "HEBR-MOD 101",
-            "target": "HEBR-MOD 102"
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 302"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD/JEWISH 301",
+            "target": "HEBR-MOD/JEWISH 302"
         }
     }
 ]

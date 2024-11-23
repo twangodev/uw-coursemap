@@ -1,27 +1,13 @@
 [
     {
         "data": {
-            "source": "BIOCORE 485",
-            "target": "BIOCORE 486"
-        }
-    },
-    {
-        "data": {
-            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
-            "id": "BIOCORE 485",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Experience the process of science by collaborating on  independent experiments to investigate your questions about animal and plant physiology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
-            "id": "BIOCORE 486",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
             "source": "BIOCORE 381",
+            "target": "BIOCORE 382"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 384",
             "target": "BIOCORE 401"
         }
     },
@@ -40,15 +26,8 @@
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
+            "source": "BIOCORE 383",
+            "target": "BIOCORE 384"
         }
     },
     {
@@ -60,15 +39,15 @@
     },
     {
         "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 485"
+            "description": "Experience the process of science by collaborating on  independent experiments to investigate your questions about animal and plant physiology. Emphasis is on critical thinking required in designing and conducting experiments, analyzing and interpreting data, and communicating findings orally and in writing.",
+            "id": "BIOCORE 486",
+            "parent": "BIOCORE"
         }
     },
     {
         "data": {
-            "description": "Independent mentored study as arranged with a faculty member",
-            "id": "BIOCORE 699",
-            "parent": "BIOCORE"
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 401"
         }
     },
     {
@@ -80,24 +59,6 @@
     },
     {
         "data": {
-            "source": "BIOCORE 485",
-            "target": "BIOCORE 587"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 382"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 384",
-            "target": "BIOCORE 401"
-        }
-    },
-    {
-        "data": {
             "description": "A capstone course to build on and integrate the knowledge and skills gained in previous Biocore coursework through readings and analysis of primary scientific literature. Work in small groups to analyze current and emerging topics through the lens of scientific research. Topics include signaling pathways, systems biology, genetic disease, and cancer.",
             "id": "BIOCORE 587",
             "parent": "BIOCORE"
@@ -105,15 +66,9 @@
     },
     {
         "data": {
-            "description": "Writing-intensive with opportunities to generate and test questions utilizing concepts and procedures of cell biology. Includes research projects in subcellular fractionation, protein structure and enzyme catalysis, molecular genetics of C.elegans worms, and signal transduction in yeast.",
-            "id": "BIOCORE 384",
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
             "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 384"
         }
     },
     {
@@ -125,14 +80,53 @@
     },
     {
         "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 401"
+            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
+            "id": "BIOCORE 485",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "description": "Writing-intensive with opportunities to generate and test questions utilizing concepts and procedures of cell biology. Includes research projects in subcellular fractionation, protein structure and enzyme catalysis, molecular genetics of C.elegans worms, and signal transduction in yeast.",
+            "id": "BIOCORE 384",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent mentored study as arranged with a faculty member",
+            "id": "BIOCORE 699",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "BIOCORE 486"
         }
     },
     {
         "data": {
             "id": "BIOCORE",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "BIOCORE 485"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "BIOCORE 587"
         }
     }
 ]

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 102,
         "subjects": [
-            "LIS",
-            "COMPSCI"
+            "COMPSCI",
+            "LIS"
         ]
     },
     "course_title": "INTRODUCTION TO COMPUTING",
@@ -27,12 +27,6 @@
                 "subjects": [
                     "MATH"
                 ]
-            },
-            {
-                "course_number": 96,
-                "subjects": [
-                    "MATH"
-                ]
             }
         ],
         "prerequisites_text": "MATH\u00a096or placement intoMATH\u00a0141.MATH\u00a0118does not fulfill the prerequisite. Not open to students with credit forCOMP\u00a0SCI\u00a0300or320"
@@ -40,19 +34,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 118,
+                "course_number": 141,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 320,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 96,
+                "course_number": 118,
                 "subjects": [
                     "MATH"
                 ]
@@ -64,9 +52,15 @@
                 ]
             },
             {
-                "course_number": 141,
+                "course_number": 96,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "COMPSCI"
                 ]
             }
         ],

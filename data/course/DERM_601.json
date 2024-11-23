@@ -12,28 +12,22 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
-                ]
-            },
-            {
-                "course_number": 104,
-                "subjects": [
-                    "CHEM"
                 ]
             }
         ],
@@ -42,18 +36,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 104,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
+                    "CHEM"
                 ]
             },
             {
-                "course_number": 101,
+                "course_number": 501,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOCHEM"
                 ]
             },
             {
@@ -63,15 +54,18 @@
                 ]
             },
             {
-                "course_number": 501,
+                "course_number": 101,
                 "subjects": [
-                    "BIOCHEM"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 104,
+                "course_number": 151,
                 "subjects": [
-                    "CHEM"
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             }
         ],

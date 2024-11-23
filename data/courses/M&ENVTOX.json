@@ -1,6 +1,42 @@
 [
     {
         "course_reference": {
+            "course_number": 801,
+            "subjects": [
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "SCIENTIFIC COMMUNICATION IN MOLECULAR & ENVIRONMENTAL TOXICOLOGY",
+        "description": "Provides an overview of scientific communication; specifically, students will be exposed to the various methods of communicating their science including articles, proposals, presentations / lectures, and posters. Strategies will demonstrate best practices for each method and enable students to critically define what sets apart good examples from poor. Classroom discussions allow for comprehension of these means. Assignments are designed to familiarize the students with these methods. Students will have classroom instruction and the opportunity to learn from peer mentors as well as laboratory directors on different preferences and approaches to science communication.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Directed study projects as arranged with instructor.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 990,
             "subjects": [
                 "M&ENVTOX"
@@ -19,73 +55,11 @@
     },
     {
         "course_reference": {
-            "course_number": 800,
-            "subjects": [
-                "M&ENVTOX"
-            ]
-        },
-        "course_title": "SEMINAR",
-        "description": "Current research in environmental toxicology and pathology and other topics of interest and importance to environmental toxicologists.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "PHMSCI",
-                "PHMCOL-M",
-                "M&ENVTOX",
-                "POPHLTH",
-                "PATH"
-            ]
-        },
-        "course_title": "TOXICOLOGY II",
-        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "ONCOLOGY",
-                        "PHMSCI",
-                        "PHMCOL-M",
-                        "M&ENVTOX",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "ONCOLOGY",
-                        "PHMSCI",
-                        "PHMCOL-M",
-                        "M&ENVTOX",
-                        "POPHLTH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 631,
             "subjects": [
                 "M&ENVTOX",
-                "SOILSCI",
-                "CIVENGR"
+                "CIVENGR",
+                "SOILSCI"
             ]
         },
         "course_title": "TOXICANTS IN THE ENVIRONMENT: SOURCES, DISTRIBUTION, FATE, & EFFECTS",
@@ -109,12 +83,6 @@
                     "subjects": [
                         "CHEM"
                     ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
                 }
             ],
             "prerequisites_text": "(CHEM\u00a0104,109, or116) and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0104,202,208, or248)"
@@ -122,7 +90,37 @@
         "prerequisites": {
             "course_references": [
                 {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
                     "course_number": 211,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 217,
                     "subjects": [
                         "MATH"
                     ]
@@ -134,45 +132,15 @@
                     ]
                 },
                 {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
                     "course_number": 116,
                     "subjects": [
                         "CHEM"
                     ]
                 },
                 {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
                     "course_number": 248,
                     "subjects": [
                         "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
                     ]
                 },
                 {
@@ -187,140 +155,53 @@
     },
     {
         "course_reference": {
-            "course_number": 789,
+            "course_number": 634,
             "subjects": [
                 "M&ENVTOX",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "PRINCIPLES OF ENVIRONMENTAL HEALTH: A SYSTEMS THINKING APPROACH",
-        "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 632,
-            "subjects": [
-                "ENTOM",
+                "F&WECOL",
                 "AGRONOMY",
-                "M&ENVTOX",
-                "F&WECOL"
+                "ENTOM"
             ]
         },
-        "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
-        "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
+        "course_title": "ECOTOXICOLOGY: IMPACTS ON POPULATIONS, COMMUNITIES AND ECOSYSTEMS",
+        "description": "Focuses on the impact of toxicants on populations, communities, ecosystems, and includes risk evaluation. Includes lectures, current research presentations, and discussions.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
+                    "course_number": 633,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
+                        "M&ENVTOX",
+                        "F&WECOL",
+                        "AGRONOMY",
+                        "ENTOM"
                     ]
                 }
             ],
-            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
+            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 152,
+                    "course_number": 633,
                     "subjects": [
-                        "ZOOLOGY",
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
+                        "M&ENVTOX",
+                        "F&WECOL",
+                        "AGRONOMY",
+                        "ENTOM"
                     ]
                 }
             ],
-            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "M&ENVTOX"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Directed study projects as arranged with instructor.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
         }
     },
     {
         "course_reference": {
             "course_number": 625,
             "subjects": [
+                "M&ENVTOX",
+                "PHMCOL-M",
                 "ONCOLOGY",
                 "PHMSCI",
-                "PHMCOL-M",
-                "M&ENVTOX",
                 "POPHLTH"
             ]
         },
@@ -345,12 +226,6 @@
                     "subjects": [
                         "BIOCHEM"
                     ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
                 }
             ],
             "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
@@ -364,9 +239,27 @@
                     ]
                 },
                 {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 404,
+                    "subjects": [
+                        "PATH"
+                    ]
+                },
+                {
                     "course_number": 485,
                     "subjects": [
                         "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
                     ]
                 },
                 {
@@ -380,24 +273,6 @@
                     "subjects": [
                         "BIOCHEM"
                     ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
                 }
             ],
             "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
@@ -407,10 +282,10 @@
         "course_reference": {
             "course_number": 633,
             "subjects": [
-                "ENTOM",
-                "AGRONOMY",
                 "M&ENVTOX",
-                "F&WECOL"
+                "F&WECOL",
+                "AGRONOMY",
+                "ENTOM"
             ]
         },
         "course_title": "ECOTOXICOLOGY: IMPACTS ON INDIVIDUALS",
@@ -420,10 +295,10 @@
                 {
                     "course_number": 632,
                     "subjects": [
-                        "ENTOM",
-                        "AGRONOMY",
                         "M&ENVTOX",
-                        "F&WECOL"
+                        "F&WECOL",
+                        "AGRONOMY",
+                        "ENTOM"
                     ]
                 }
             ],
@@ -434,10 +309,10 @@
                 {
                     "course_number": 632,
                     "subjects": [
-                        "ENTOM",
-                        "AGRONOMY",
                         "M&ENVTOX",
-                        "F&WECOL"
+                        "F&WECOL",
+                        "AGRONOMY",
+                        "ENTOM"
                     ]
                 }
             ],
@@ -446,54 +321,99 @@
     },
     {
         "course_reference": {
-            "course_number": 634,
+            "course_number": 632,
             "subjects": [
-                "ENTOM",
-                "AGRONOMY",
                 "M&ENVTOX",
-                "F&WECOL"
+                "F&WECOL",
+                "AGRONOMY",
+                "ENTOM"
             ]
         },
-        "course_title": "ECOTOXICOLOGY: IMPACTS ON POPULATIONS, COMMUNITIES AND ECOSYSTEMS",
-        "description": "Focuses on the impact of toxicants on populations, communities, ecosystems, and includes risk evaluation. Includes lectures, current research presentations, and discussions.",
+        "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
+        "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 633,
+                    "course_number": 152,
                     "subjects": [
-                        "ENTOM",
-                        "AGRONOMY",
-                        "M&ENVTOX",
-                        "F&WECOL"
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
                     ]
                 }
             ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
+            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 633,
+                    "course_number": 152,
                     "subjects": [
-                        "ENTOM",
-                        "AGRONOMY",
-                        "M&ENVTOX",
-                        "F&WECOL"
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 102,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 343,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "M&ENVTOX/\u200bAGRONOMY/\u200bENTOM/\u200bF&W\u00a0ECOL\u00a0\u00a0633or declared in Molecular and Environmental Toxicology, PhD program"
+            "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 801,
+            "course_number": 789,
             "subjects": [
-                "M&ENVTOX"
+                "M&ENVTOX",
+                "POPHLTH"
             ]
         },
-        "course_title": "SCIENTIFIC COMMUNICATION IN MOLECULAR & ENVIRONMENTAL TOXICOLOGY",
-        "description": "Provides an overview of scientific communication; specifically, students will be exposed to the various methods of communicating their science including articles, proposals, presentations / lectures, and posters. Strategies will demonstrate best practices for each method and enable students to critically define what sets apart good examples from poor. Classroom discussions allow for comprehension of these means. Assignments are designed to familiarize the students with these methods. Students will have classroom instruction and the opportunity to learn from peer mentors as well as laboratory directors on different preferences and approaches to science communication.",
+        "course_title": "PRINCIPLES OF ENVIRONMENTAL HEALTH: A SYSTEMS THINKING APPROACH",
+        "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -501,6 +421,68 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 800,
+            "subjects": [
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Current research in environmental toxicology and pathology and other topics of interest and importance to environmental toxicologists.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 626,
+            "subjects": [
+                "M&ENVTOX",
+                "PHMCOL-M",
+                "PATH",
+                "PHMSCI",
+                "POPHLTH"
+            ]
+        },
+        "course_title": "TOXICOLOGY II",
+        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 625,
+                    "subjects": [
+                        "M&ENVTOX",
+                        "PHMCOL-M",
+                        "ONCOLOGY",
+                        "PHMSCI",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 625,
+                    "subjects": [
+                        "M&ENVTOX",
+                        "PHMCOL-M",
+                        "ONCOLOGY",
+                        "PHMSCI",
+                        "POPHLTH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
         }
     }
 ]

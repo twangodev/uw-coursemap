@@ -1,14 +1,33 @@
 [
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 467"
+            "source": "CHEM 115",
+            "target": "CHEM 109"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 811",
-            "target": "MDGENET 911"
+            "source": "MEDSC-M 775",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
+            "id": "CHEM 116",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -19,33 +38,20 @@
     },
     {
         "data": {
-            "source": "MATH 112",
-            "target": "CHEM 103"
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 383",
-            "target": "GENETICS/MDGENET 662"
+            "source": "CHEM 343",
+            "target": "CHEM 345"
         }
     },
     {
         "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
             "parent": "MEDSC-M"
         }
     },
@@ -58,63 +64,9 @@
     },
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
         }
     },
     {
@@ -126,34 +78,27 @@
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
+            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
+            "id": "BIOCHEM 508",
+            "parent": "BIOCHEM"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "MDGENET 911"
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
-            "description": "Organized around physiological themes, the course includes material related to the cardiovascular system, hematology, nephrology, and pulmonology to present an integrated picture of how these systems function together to maintain homeostasis. In addition, there is significant content from other competency domains such as public health, ethics, evidence-based medicine, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 771",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -172,32 +117,26 @@
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 114"
+            "source": "MEDSC-M 812",
+            "target": "MDGENET 911"
         }
     },
     {
         "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
+            "source": "MATH 118",
+            "target": "MATH 171"
         }
     },
     {
         "data": {
-            "source": "CHEM 116",
-            "target": "CHEM 343"
+            "source": "GENETICS 468",
+            "target": "GENETICS 466"
         }
     },
     {
         "data": {
-            "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
-            "id": "GENETICS/MDGENET 565"
-        }
-    },
-    {
-        "data": {
-            "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
-            "id": "GENETICS/MDGENET 707"
+            "source": "BIOCORE 381",
+            "target": "GENETICS 467"
         }
     },
     {
@@ -209,212 +148,7 @@
     {
         "data": {
             "source": "MATH 171",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
-            "id": "BIOCORE 485",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
-            "id": "GENETICS/MDGENET/POPHLTH 636"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
-            "id": "CHEM 116",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "MDGENET",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS/MDGENET 677"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
-            "id": "MATH 114",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "GENETICS/MDGENET 677"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "MDGENET 911"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "BIOCHEM/GENETICS/MDGENET 620"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "MDGENET 911"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 114",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 587",
-            "target": "GENETICS/MDGENET 565"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
-            "id": "GENETICS/MDGENET 708"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
-            "id": "GENETICS/MDGENET 662"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS/MDGENET 565"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS/MDGENET 662"
+            "target": "CHEM 103"
         }
     },
     {
@@ -425,177 +159,14 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "BIOCHEM/GENETICS/MDGENET 620"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 485",
-            "target": "BIOCORE 587"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 116"
-        }
-    },
-    {
-        "data": {
             "source": "GENETICS 468",
-            "target": "GENETICS/MDGENET 677"
+            "target": "GENETICS/MDGENET 565"
         }
     },
     {
         "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 103"
+            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+            "id": "GENETICS/MDGENET/POPHLTH 636"
         }
     },
     {
@@ -606,22 +177,27 @@
     },
     {
         "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
+            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
+            "id": "CHEM 341",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
-            "id": "MEDSC-M 813",
-            "parent": "MEDSC-M"
+            "description": "Principles, problems, and methods of modern human genetics. Focuses on how researchers discover the genetics of diseases and how those discoveries are used to improve clinical practice. Surveys aspects of (i) the molecular function of the human genome, (ii) the basic principles of human genetics including statistical genetics, quantitative genetics, and genomic variation in human populations, (iii) the genetics of rare disorders and common diseases, and genomic analysis approaches, including genome-wide association studies and sequencing, and (iv) how genetics are used in medicine and discussions covering ethical considerations of human genomic data.",
+            "id": "GENETICS/MDGENET 565"
         }
     },
     {
         "data": {
-            "source": "GENETICS 468",
-            "target": "GENETICS/MDGENET 565"
+            "source": "BIOCORE 383",
+            "target": "BIOCORE 485"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "BIOCORE 587"
         }
     },
     {
@@ -633,69 +209,65 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 771",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 485"
-        }
-    },
-    {
-        "data": {
-            "description": "Contents vary; consideration of subjects not included in the curriculum.",
-            "id": "GENETICS/MDGENET 677"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "id": "GENETICS",
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "MDGENET 911"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 507",
+            "target": "BIOCHEM 508"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "id": "MDGENET",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
+            "source": "BIOCORE 381",
+            "target": "GENETICS 466"
         }
     },
     {
         "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS/MDGENET 662"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
+            "source": "CHEM 116",
+            "target": "CHEM 343"
         }
     },
     {
@@ -720,21 +292,8 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
-            "id": "BIOCHEM/GENETICS/MDGENET 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
+            "source": "MEDSC-M 810",
+            "target": "MDGENET 911"
         }
     },
     {
@@ -747,21 +306,200 @@
     {
         "data": {
             "source": "GENETICS 467",
-            "target": "GENETICS 468"
+            "target": "GENETICS 466"
         }
     },
     {
         "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
+            "source": "GENETICS 466",
+            "target": "GENETICS/MDGENET 662"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM/GENETICS/MDGENET 620"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS/MDGENET 565"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS/MDGENET 662"
+        }
+    },
+    {
+        "data": {
+            "description": "A research-level analysis of the current status of the investigation of processes controlling differential gene activity and cellular behavior. The major emphasis is genetic. In successive years, the focus moves from the gene to the cell to the organism.",
+            "id": "GENETICS/MDGENET 707"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
-            "id": "GENETICS 468",
-            "parent": "GENETICS"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "GENETICS/MDGENET 662"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 116"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 770",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
+            "id": "MEDSC-M 775",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "id": "GENETICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 587",
+            "target": "GENETICS/MDGENET 565"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
+            "id": "BIOCORE 485",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Contemporary issues in genetic, developmental, cell, and molecular biology are addressed in a discussion format. Invited speakers give research lectures and reading material is taken from the primary literature. The discussion focuses on evaluating genetic approaches to biological problems.",
+            "id": "GENETICS/MDGENET 708"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
+            "id": "BIOCHEM 507",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 468",
+            "target": "GENETICS/MDGENET 677"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
         }
     },
     {
@@ -773,14 +511,176 @@
     },
     {
         "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "GENETICS/MDGENET 677"
+        }
+    },
+    {
+        "data": {
+            "description": "Contents vary; consideration of subjects not included in the curriculum.",
+            "id": "GENETICS/MDGENET 677"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
+            "id": "BIOCHEM/GENETICS/MDGENET 620"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS/MDGENET 677"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
             "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
             "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "GENETICS 468",
-            "target": "GENETICS 466"
+            "source": "CHEM 345",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
+            "id": "GENETICS 468",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 468"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
+            "id": "MEDSC-M 811",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
+            "id": "MEDSC-M 770",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 508",
+            "target": "BIOCHEM/GENETICS/MDGENET 620"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the genetic basis by which cancer manifests. Provides a comprehensive overview of how cancer is generated as a result of abnormalities at the DNA level, paying special attention to oncogenes, tumor suppressors, DNA mutations, DNA repair mechanisms, chromosomal instability, and tumor heterogeneity. Stresses the role of the immune system in combating cancer, the phenomenon of cancer resistance, anti-tumor strategies, and epigenetic influences on tumorigenesis. Highlights connections between course material and clinical relevance.",
+            "id": "GENETICS/MDGENET 662"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
         }
     }
 ]

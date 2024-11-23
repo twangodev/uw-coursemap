@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 501,
         "subjects": [
-            "HORT",
-            "AGRONOMY"
+            "AGRONOMY",
+            "HORT"
         ]
     },
     "course_title": "PRINCIPLES OF PLANT BREEDING",
@@ -19,22 +19,16 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             },
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -43,24 +37,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 466,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "GENETICS"
                 ]
             },
             {
@@ -70,9 +49,24 @@
                 ]
             },
             {
-                "course_number": 466,
+                "course_number": 130,
                 "subjects": [
-                    "GENETICS"
+                    "BIOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

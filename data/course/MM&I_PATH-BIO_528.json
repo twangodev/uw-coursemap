@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 528,
         "subjects": [
-            "MM&I",
-            "PATH-BIO"
+            "PATH-BIO",
+            "MM&I"
         ]
     },
     "course_title": "IMMUNOLOGY",
@@ -13,28 +13,22 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 383,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 104,
-                "subjects": [
-                    "CHEM"
                 ]
             }
         ],
@@ -43,18 +37,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 104,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "CHEM"
                 ]
             },
             {
@@ -64,15 +49,24 @@
                 ]
             },
             {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
                 "course_number": 383,
                 "subjects": [
                     "BIOCORE"
                 ]
             },
             {
-                "course_number": 104,
+                "course_number": 151,
                 "subjects": [
-                    "CHEM"
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             }
         ],

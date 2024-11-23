@@ -1,6 +1,24 @@
 [
     {
         "course_reference": {
+            "course_number": 352,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "DIGITAL STRATEGY",
+        "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 423,
             "subjects": [
                 "INFOSYS"
@@ -19,28 +37,10 @@
     },
     {
         "course_reference": {
-            "course_number": 322,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "INTRODUCTION TO DATABASES",
-        "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 722,
             "subjects": [
-                "ISYE",
-                "INFOSYS"
+                "INFOSYS",
+                "ISYE"
             ]
         },
         "course_title": "COMPUTER-BASED DATA MANAGEMENT",
@@ -70,34 +70,90 @@
     },
     {
         "course_reference": {
-            "course_number": 371,
+            "course_number": 322,
             "subjects": [
                 "INFOSYS"
             ]
         },
-        "course_title": "TECHNOLOGY OF COMPUTER-BASED BUSINESS SYSTEMS",
-        "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+        "course_title": "INTRODUCTION TO DATABASES",
+        "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 724,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "ANALYSIS AND DESIGN OF COMPUTER-BASED SYSTEMS",
+        "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 220,
+                    "course_number": 722,
                     "subjects": [
-                        "COMPSCI"
+                        "INFOSYS",
+                        "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "COMP SCI 301 or220"
+            "prerequisites_text": "INFO\u00a0SYS/\u200bI\u00a0SY\u00a0E\u00a0\u00a0722"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 220,
+                    "course_number": 722,
                     "subjects": [
-                        "COMPSCI"
+                        "INFOSYS",
+                        "ISYE"
                     ]
                 }
             ],
-            "prerequisites_text": "COMP SCI 301 or220"
+            "prerequisites_text": "INFO\u00a0SYS/\u200bI\u00a0SY\u00a0E\u00a0\u00a0722"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 365,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 723,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "TEXT ANALYTICS AND BUSINESS APPLICATION",
+        "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
@@ -146,6 +202,38 @@
     },
     {
         "course_reference": {
+            "course_number": 371,
+            "subjects": [
+                "INFOSYS"
+            ]
+        },
+        "course_title": "TECHNOLOGY OF COMPUTER-BASED BUSINESS SYSTEMS",
+        "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "COMP SCI 301 or220"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 220,
+                    "subjects": [
+                        "COMPSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "COMP SCI 301 or220"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 765,
             "subjects": [
                 "INFOSYS"
@@ -160,94 +248,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 723,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "TEXT ANALYTICS AND BUSINESS APPLICATION",
-        "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 365,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 724,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "ANALYSIS AND DESIGN OF COMPUTER-BASED SYSTEMS",
-        "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 722,
-                    "subjects": [
-                        "ISYE",
-                        "INFOSYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "INFO\u00a0SYS/\u200bI\u00a0SY\u00a0E\u00a0\u00a0722"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 722,
-                    "subjects": [
-                        "ISYE",
-                        "INFOSYS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "INFO\u00a0SYS/\u200bI\u00a0SY\u00a0E\u00a0\u00a0722"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 352,
-            "subjects": [
-                "INFOSYS"
-            ]
-        },
-        "course_title": "DIGITAL STRATEGY",
-        "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
         }
     }
 ]

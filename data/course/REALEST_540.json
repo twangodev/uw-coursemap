@@ -10,28 +10,22 @@
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 300,
-                "subjects": [
-                    "FINANCE",
-                    "ECON"
-                ]
-            },
-            {
                 "course_number": 410,
                 "subjects": [
                     "REALEST"
                 ]
             },
             {
-                "course_number": 700,
-                "subjects": [
-                    "FINANCE"
-                ]
-            },
-            {
                 "course_number": 710,
                 "subjects": [
                     "REALEST"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "ECON",
+                    "FINANCE"
                 ]
             }
         ],
@@ -40,10 +34,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 710,
+                "subjects": [
+                    "REALEST"
+                ]
+            },
+            {
                 "course_number": 300,
                 "subjects": [
-                    "FINANCE",
-                    "ECON"
+                    "ECON",
+                    "FINANCE"
                 ]
             },
             {
@@ -56,12 +56,6 @@
                 "course_number": 700,
                 "subjects": [
                     "FINANCE"
-                ]
-            },
-            {
-                "course_number": 710,
-                "subjects": [
-                    "REALEST"
                 ]
             }
         ],

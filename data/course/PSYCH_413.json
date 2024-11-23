@@ -10,27 +10,21 @@
     "optimized_prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "LINGUIS"
+                ]
+            },
+            {
                 "course_number": 202,
                 "subjects": [
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 110,
-                "subjects": [
-                    "CS&D"
-                ]
-            },
-            {
                 "course_number": 301,
                 "subjects": [
-                    "LINGUIS",
-                    "ANTHRO"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
+                    "ANTHRO",
                     "LINGUIS"
                 ]
             }
@@ -40,9 +34,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 202,
+                "course_number": 101,
                 "subjects": [
-                    "PSYCH"
+                    "LINGUIS"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ANTHRO",
+                    "LINGUIS"
                 ]
             },
             {
@@ -52,16 +53,9 @@
                 ]
             },
             {
-                "course_number": 301,
+                "course_number": 202,
                 "subjects": [
-                    "LINGUIS",
-                    "ANTHRO"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "LINGUIS"
+                    "PSYCH"
                 ]
             }
         ],

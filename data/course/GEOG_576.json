@@ -28,12 +28,6 @@
                 "subjects": [
                     "GEOG"
                 ]
-            },
-            {
-                "course_number": 370,
-                "subjects": [
-                    "GEOG"
-                ]
             }
         ],
         "prerequisites_text": "(GEOG\u00a0170,GEOG\u00a0370, orCIV\u00a0ENGR/\u200bENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0377) and (GEOG\u00a0378,COMP\u00a0SCI\u00a0300, COMP SCI 369, orCOMP\u00a0SCI\u00a0400), or graduate/professional standing"
@@ -41,19 +35,21 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 400,
+                "course_number": 377,
                 "subjects": [
-                    "COMPSCI"
+                    "CIVENGR",
+                    "GEOG",
+                    "ENVIRST"
                 ]
             },
             {
-                "course_number": 170,
+                "course_number": 378,
                 "subjects": [
                     "GEOG"
                 ]
             },
             {
-                "course_number": 378,
+                "course_number": 170,
                 "subjects": [
                     "GEOG"
                 ]
@@ -65,11 +61,9 @@
                 ]
             },
             {
-                "course_number": 377,
+                "course_number": 400,
                 "subjects": [
-                    "CIVENGR",
-                    "GEOG",
-                    "ENVIRST"
+                    "COMPSCI"
                 ]
             },
             {

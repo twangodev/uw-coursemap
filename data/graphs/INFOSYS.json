@@ -1,15 +1,27 @@
 [
     {
         "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS/ISYE 722"
+            "source": "INFOSYS/ISYE 722",
+            "target": "INFOSYS 724"
         }
     },
     {
         "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
+            "id": "INFOSYS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 365",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "INFOSYS 322",
+            "target": "INFOSYS 424"
         }
     },
     {
@@ -21,15 +33,8 @@
     },
     {
         "data": {
-            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
-            "id": "INFOSYS 424",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 765",
+            "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
+            "id": "INFOSYS 723",
             "parent": "INFOSYS"
         }
     },
@@ -42,29 +47,9 @@
     },
     {
         "data": {
-            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
-            "id": "INFOSYS 423",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
-            "id": "INFOSYS 371",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
-            "id": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 365",
-            "parent": "INFOSYS"
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
         }
     },
     {
@@ -75,13 +60,39 @@
     },
     {
         "data": {
-            "source": "INFOSYS 322",
-            "target": "INFOSYS 424"
+            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
+            "id": "INFOSYS/ISYE 722"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
+            "id": "INFOSYS 423",
+            "parent": "INFOSYS"
         }
     },
     {
         "data": {
             "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 765",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "INFOSYS 371",
+            "target": "INFOSYS/ISYE 722"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
             "type": "compound"
         }
     },
@@ -94,32 +105,21 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "source": "INFOSYS 371",
             "target": "INFOSYS 424"
         }
     },
     {
         "data": {
-            "id": "INFOSYS",
-            "type": "compound"
+            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
+            "id": "INFOSYS 424",
+            "parent": "INFOSYS"
         }
     },
     {
         "data": {
-            "source": "INFOSYS/ISYE 722",
-            "target": "INFOSYS 724"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to text mining and natural language processing for business applications. Provides an overview of text data and steps to make it usable and approaches for making text data useful in descriptive and predictive analytics applications. Topics include representation approaches, topic modeling, and an overview of key applications of natural language processing, such as chatbots and recommender systems.",
-            "id": "INFOSYS 723",
+            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+            "id": "INFOSYS 371",
             "parent": "INFOSYS"
         }
     }

@@ -12,11 +12,11 @@
             {
                 "course_number": 103,
                 "subjects": [
-                    "AGRONOMY",
                     "ENTOM",
-                    "AGROECOL",
                     "C&ESOC",
-                    "ENVIRST"
+                    "AGRONOMY",
+                    "ENVIRST",
+                    "AGROECOL"
                 ]
             },
             {
@@ -28,14 +28,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "HORT"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -44,37 +38,20 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 103,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
+                    "ENTOM",
+                    "C&ESOC",
+                    "AGRONOMY",
+                    "ENVIRST",
+                    "AGROECOL"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "HORT"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -84,13 +61,30 @@
                 ]
             },
             {
-                "course_number": 103,
+                "course_number": 120,
                 "subjects": [
-                    "AGRONOMY",
-                    "ENTOM",
-                    "AGROECOL",
-                    "C&ESOC",
-                    "ENVIRST"
+                    "HORT"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

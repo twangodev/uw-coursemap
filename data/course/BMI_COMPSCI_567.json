@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 567,
         "subjects": [
-            "BMI",
-            "COMPSCI"
+            "COMPSCI",
+            "BMI"
         ]
     },
     "course_title": "MEDICAL IMAGE ANALYSIS",
@@ -20,20 +20,14 @@
             {
                 "course_number": 551,
                 "subjects": [
-                    "POPHLTH",
-                    "BMI"
+                    "BMI",
+                    "POPHLTH"
                 ]
             },
             {
                 "course_number": 371,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],
@@ -42,9 +36,8 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 571,
+                "course_number": 371,
                 "subjects": [
-                    "F&WECOL",
                     "STAT"
                 ]
             },
@@ -55,22 +48,10 @@
                 ]
             },
             {
-                "course_number": 320,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 371,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 541,
+                "course_number": 571,
                 "subjects": [
                     "STAT",
-                    "BMI"
+                    "F&WECOL"
                 ]
             },
             {
@@ -80,9 +61,22 @@
                 ]
             },
             {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 551,
                 "subjects": [
-                    "POPHLTH",
+                    "BMI",
+                    "POPHLTH"
+                ]
+            },
+            {
+                "course_number": 541,
+                "subjects": [
+                    "STAT",
                     "BMI"
                 ]
             }

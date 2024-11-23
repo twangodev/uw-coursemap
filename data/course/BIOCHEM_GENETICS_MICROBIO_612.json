@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 612,
         "subjects": [
-            "MICROBIO",
+            "GENETICS",
             "BIOCHEM",
-            "GENETICS"
+            "MICROBIO"
         ]
     },
     "course_title": "PROKARYOTIC MOLECULAR BIOLOGY",
@@ -28,12 +28,6 @@
                 "subjects": [
                     "BIOCHEM"
                 ]
-            },
-            {
-                "course_number": 468,
-                "subjects": [
-                    "GENETICS"
-                ]
             }
         ],
         "prerequisites_text": "(BIOCHEM\u00a0501or507) and (MICROBIO\u00a0470,GENETICS\u00a0466or468) or graduate/professional standing"
@@ -41,9 +35,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 507,
+                "course_number": 466,
                 "subjects": [
-                    "BIOCHEM"
+                    "GENETICS"
                 ]
             },
             {
@@ -53,21 +47,21 @@
                 ]
             },
             {
+                "course_number": 470,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            },
+            {
                 "course_number": 468,
                 "subjects": [
                     "GENETICS"
                 ]
             },
             {
-                "course_number": 466,
+                "course_number": 507,
                 "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 470,
-                "subjects": [
-                    "MICROBIO"
+                    "BIOCHEM"
                 ]
             }
         ],

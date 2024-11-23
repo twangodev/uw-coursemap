@@ -27,14 +27,6 @@
                 "subjects": [
                     "ECE"
                 ]
-            },
-            {
-                "course_number": 532,
-                "subjects": [
-                    "ME",
-                    "ECE",
-                    "COMPSCI"
-                ]
             }
         ],
         "prerequisites_text": "(I\u00a0SY\u00a0E\u00a0521,562,M\u00a0E/\u200bCOMP\u00a0SCI/\u200bE\u00a0C\u00a0E\u00a0\u00a0532, or539) and (E\u00a0C\u00a0E\u00a0331,MATH/\u200bSTAT\u00a0\u00a0309,STAT\u00a0311,MATH\u00a0331, orSTAT/\u200bMATH\u00a0\u00a0431), or graduate/professional standing"
@@ -42,37 +34,30 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 562,
+                "subjects": [
+                    "ISYE"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 331,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 309,
+                "course_number": 532,
                 "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 539,
-                "subjects": [
+                    "COMPSCI",
                     "ME",
-                    "ECE",
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 431,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 562,
-                "subjects": [
-                    "ISYE"
+                    "ECE"
                 ]
             },
             {
@@ -94,11 +79,18 @@
                 ]
             },
             {
-                "course_number": 532,
+                "course_number": 539,
                 "subjects": [
+                    "COMPSCI",
                     "ME",
-                    "ECE",
-                    "COMPSCI"
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

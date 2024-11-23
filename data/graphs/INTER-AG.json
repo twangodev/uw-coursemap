@@ -1,14 +1,42 @@
 [
     {
         "data": {
-            "id": "INTER-AG",
-            "type": "compound"
+            "source": "INTER-AG 140",
+            "target": "INTER-AG 141"
         }
     },
     {
         "data": {
-            "description": "Full-time work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
-            "id": "INTER-AG 1",
+            "description": "Explore important issues in the application of science that cut across all majors in the College of Agricultural and Life Sciences, and that are critical for society in coming decades. Develop academic skills and explore majors and careers.",
+            "id": "INTER-AG 155",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction and exploration of the fundamentals of research: scientific process, utilization of scientific literature, and preparation of research proposals. Provides an environment external to the student's research experience that will help them grow as researchers.",
+            "id": "INTER-AG 388",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Second semester of individual study for undergraduate students in a CALS Honors program completing a thesis, as arranged with a faculty member.INTER-AG\u00a0681",
+            "id": "INTER-AG 682",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain exposure to the College of Agricultural and Life Sciences (CALS) and UW-Madison, including resources and opportunities available as well as the foundational skills necessary for a successful transition to campus. Modules focus on your personal, academic, and professional development. Reflect on your goals and engage with peers to develop a roadmap for your own Wisconsin Experience.",
+            "id": "INTER-AG 140",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Career development process including: the job search, resume and cover letter writing, networking, inclusive workplaces, and conflict resolution. Synthesize internship experience and peers' internship experiences within the larger context of personal and professional goals, strengths, and values.",
+            "id": "INTER-AG 340",
             "parent": "INTER-AG"
         }
     },
@@ -21,8 +49,67 @@
     },
     {
         "data": {
+            "description": "Participation in research or creative endeavor led by faculty or instructional staff. May include participation in research discussion groups, critiques of readings, and preparation of written or oral reports.",
+            "id": "INTER-AG/INTER-LS 250"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics of current interest to undergraduates.",
+            "id": "INTER-AG 375",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn the basics of being a researcher: the scientific community (papers, etiquette, grants), ethics, career options, using the scientific literature, and preparation of research proposals.",
+            "id": "INTER-AG 288",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain first-hand exposure to the variety academic, co-curricular and professional opportunities available to you in the College of Agricultural and Life Sciences (CALS) and broader UW-Madison campus. Through workshops and dialogue, consider how you will positively contribute to the campus community. Connect with fellow students, faculty, staff, alumni, and industry leaders, and translate these experiences into actionable plans to reach your academic and career goals.",
+            "id": "INTER-AG 141",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
+            "id": "INTER-AG",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "INTER-AG 388",
+            "target": "INTER-AG 488"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an area equivalency for science internship or research taken on UW-Madison approved study abroad programs. Current enrollment in a UW-Madison study abroad program.",
+            "id": "INTER-AG 397",
+            "parent": "INTER-AG"
+        }
+    },
+    {
+        "data": {
             "source": "INTER-AG 288",
             "target": "INTER-AG 388"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Women in Science and Engineering (WISE) learning community seminar, with speakers drawn from all fields of math, science, and engineering on campus.  Learn about research on campus and discuss the impact of research on daily life.",
+            "id": "INTER-AG 175",
+            "parent": "INTER-AG"
         }
     },
     {
@@ -41,35 +128,9 @@
     },
     {
         "data": {
-            "description": "Topics of current interest to undergraduates.",
-            "id": "INTER-AG 375",
+            "description": "Full-time work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
+            "id": "INTER-AG 1",
             "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction and exploration of the fundamentals of research: scientific process, utilization of scientific literature, and preparation of research proposals. Provides an environment external to the student's research experience that will help them grow as researchers.",
-            "id": "INTER-AG 388",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "description": "Participation in research or creative endeavor led by faculty or instructional staff. May include participation in research discussion groups, critiques of readings, and preparation of written or oral reports.",
-            "id": "INTER-AG/INTER-LS 250"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain first-hand exposure to the variety academic, co-curricular and professional opportunities available to you in the College of Agricultural and Life Sciences (CALS) and broader UW-Madison campus. Through workshops and dialogue, consider how you will positively contribute to the campus community. Connect with fellow students, faculty, staff, alumni, and industry leaders, and translate these experiences into actionable plans to reach your academic and career goals.",
-            "id": "INTER-AG 141",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
         }
     },
     {
@@ -81,69 +142,8 @@
     },
     {
         "data": {
-            "description": "Learn the basics of being a researcher: the scientific community (papers, etiquette, grants), ethics, career options, using the scientific literature, and preparation of research proposals.",
-            "id": "INTER-AG 288",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "source": "INTER-AG 140",
-            "target": "INTER-AG 141"
-        }
-    },
-    {
-        "data": {
-            "description": "Career development process including: the job search, resume and cover letter writing, networking, inclusive workplaces, and conflict resolution. Synthesize internship experience and peers' internship experiences within the larger context of personal and professional goals, strengths, and values.",
-            "id": "INTER-AG 340",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
             "description": "Specialized educational experiences that address a broad range of global health topics through interdisciplinary approaches to health and include participation in applied public health activities or service learning projects with communities and partner organizations.",
             "id": "INTER-AG/NUTRSCI 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Women in Science and Engineering (WISE) learning community seminar, with speakers drawn from all fields of math, science, and engineering on campus.  Learn about research on campus and discuss the impact of research on daily life.",
-            "id": "INTER-AG 175",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain exposure to the College of Agricultural and Life Sciences (CALS) and UW-Madison, including resources and opportunities available as well as the foundational skills necessary for a successful transition to campus. Modules focus on your personal, academic, and professional development. Reflect on your goals and engage with peers to develop a roadmap for your own Wisconsin Experience.",
-            "id": "INTER-AG 140",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "source": "INTER-AG 388",
-            "target": "INTER-AG 488"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore important issues in the application of science that cut across all majors in the College of Agricultural and Life Sciences, and that are critical for society in coming decades. Develop academic skills and explore majors and careers.",
-            "id": "INTER-AG 155",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an area equivalency for science internship or research taken on UW-Madison approved study abroad programs. Current enrollment in a UW-Madison study abroad program.",
-            "id": "INTER-AG 397",
-            "parent": "INTER-AG"
-        }
-    },
-    {
-        "data": {
-            "description": "Second semester of individual study for undergraduate students in a CALS Honors program completing a thesis, as arranged with a faculty member.INTER-AG\u00a0681",
-            "id": "INTER-AG 682",
-            "parent": "INTER-AG"
         }
     }
 ]

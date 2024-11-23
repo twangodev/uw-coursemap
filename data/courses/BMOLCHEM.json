@@ -1,101 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 700,
-            "subjects": [
-                "BMOLCHEM"
-            ]
-        },
-        "course_title": "PRACTICAL BIOPHYSICS",
-        "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 609,
-            "subjects": [
-                "MATH",
-                "BMOLCHEM",
-                "BMI",
-                "BIOCHEM"
-            ]
-        },
-        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
-        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 375,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 320,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 415,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 720,
             "subjects": [
                 "BMOLCHEM"
@@ -103,43 +8,6 @@
         },
         "course_title": "EXPERIMENTAL DESIGN AND PARADIGMS IN CELLULAR BIOCHEMISTRY AND MOLECULAR BIOLOGY",
         "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "BMOLCHEM"
-            ]
-        },
-        "course_title": "BIOMOLECULAR CHEMISTRY SEMINAR",
-        "description": "Critical review of selected topics in biomolecular chemistry.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 913,
-            "subjects": [
-                "BMOLCHEM",
-                "BIOCHEM"
-            ]
-        },
-        "course_title": "SEMINAR-RIBOGROUP (ADVANCED)",
-        "description": "Student-led discussions of RNA-related problems.",
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -170,20 +38,39 @@
     },
     {
         "course_reference": {
-            "course_number": 699,
+            "course_number": 700,
             "subjects": [
                 "BMOLCHEM"
             ]
         },
-        "course_title": "SPECIAL RESEARCH PROBLEMS",
-        "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
+        "course_title": "PRACTICAL BIOPHYSICS",
+        "description": "Introduction to methods used in biophysical measurements. Thermodynamics and kinetics are introduced along with the theory and instrumentation used for several complementary biophysical approaches. Hands-on experimentation using state-of-the-art instrumentation and data interpretation.",
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 913,
+            "subjects": [
+                "BMOLCHEM",
+                "BIOCHEM"
+            ]
+        },
+        "course_title": "SEMINAR-RIBOGROUP (ADVANCED)",
+        "description": "Student-led discussions of RNA-related problems.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -206,6 +93,77 @@
     },
     {
         "course_reference": {
+            "course_number": 609,
+            "subjects": [
+                "BMI",
+                "MATH",
+                "BMOLCHEM",
+                "BIOCHEM"
+            ]
+        },
+        "course_title": "MATHEMATICAL METHODS FOR SYSTEMS BIOLOGY",
+        "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 341,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 415,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 375,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 320,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0415and (MATH\u00a0320,340,341, or375) or graduate/professional standing or member of the Pre-Masters Mathematics (Visiting International) Program"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 675,
             "subjects": [
                 "BMOLCHEM"
@@ -224,6 +182,42 @@
     },
     {
         "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "BMOLCHEM"
+            ]
+        },
+        "course_title": "SPECIAL RESEARCH PROBLEMS",
+        "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "BMOLCHEM"
+            ]
+        },
+        "course_title": "BIOMOLECULAR CHEMISTRY SEMINAR",
+        "description": "Critical review of selected topics in biomolecular chemistry.",
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 668,
             "subjects": [
                 "BMOLCHEM",
@@ -235,23 +229,17 @@
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 612,
-                    "subjects": [
-                        "MICROBIO",
-                        "BIOCHEM",
-                        "GENETICS"
-                    ]
-                },
-                {
                     "course_number": 507,
                     "subjects": [
                         "BIOCHEM"
                     ]
                 },
                 {
-                    "course_number": 501,
+                    "course_number": 612,
                     "subjects": [
-                        "BIOCHEM"
+                        "GENETICS",
+                        "BIOCHEM",
+                        "MICROBIO"
                     ]
                 },
                 {
@@ -266,17 +254,17 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 612,
-                    "subjects": [
-                        "MICROBIO",
-                        "BIOCHEM",
-                        "GENETICS"
-                    ]
-                },
-                {
                     "course_number": 507,
                     "subjects": [
                         "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 612,
+                    "subjects": [
+                        "GENETICS",
+                        "BIOCHEM",
+                        "MICROBIO"
                     ]
                 },
                 {

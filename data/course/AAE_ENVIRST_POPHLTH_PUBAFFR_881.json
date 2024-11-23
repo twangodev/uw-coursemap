@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 881,
         "subjects": [
-            "AAE",
-            "POPHLTH",
             "PUBAFFR",
+            "POPHLTH",
+            "AAE",
             "ENVIRST"
         ]
     },
@@ -13,13 +13,7 @@
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 635,
-                "subjects": [
-                    "AAE"
-                ]
-            },
-            {
-                "course_number": 818,
+                "course_number": 880,
                 "subjects": [
                     "PUBAFFR"
                 ]
@@ -27,12 +21,12 @@
             {
                 "course_number": 875,
                 "subjects": [
-                    "ISYE",
-                    "POPHLTH"
+                    "POPHLTH",
+                    "ISYE"
                 ]
             },
             {
-                "course_number": 880,
+                "course_number": 818,
                 "subjects": [
                     "PUBAFFR"
                 ]
@@ -43,6 +37,19 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 875,
+                "subjects": [
+                    "POPHLTH",
+                    "ISYE"
+                ]
+            },
+            {
+                "course_number": 880,
+                "subjects": [
+                    "PUBAFFR"
+                ]
+            },
+            {
                 "course_number": 635,
                 "subjects": [
                     "AAE"
@@ -50,19 +57,6 @@
             },
             {
                 "course_number": 818,
-                "subjects": [
-                    "PUBAFFR"
-                ]
-            },
-            {
-                "course_number": 875,
-                "subjects": [
-                    "ISYE",
-                    "POPHLTH"
-                ]
-            },
-            {
-                "course_number": 880,
                 "subjects": [
                     "PUBAFFR"
                 ]

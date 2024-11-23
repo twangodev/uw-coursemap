@@ -27,19 +27,26 @@
                 "subjects": [
                     "PSYCH"
                 ]
-            },
-            {
-                "course_number": 522,
-                "subjects": [
-                    "GEN&WS",
-                    "PSYCH"
-                ]
             }
         ],
         "prerequisites_text": "PSYCH\u00a0403, 428,456,460, orSOC/\u200bPSYCH\u00a0\u00a0453, orPSYCH/\u200bGEN&WS\u00a0\u00a0522"
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 522,
+                "subjects": [
+                    "PSYCH",
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 453,
+                "subjects": [
+                    "SOC",
+                    "PSYCH"
+                ]
+            },
             {
                 "course_number": 460,
                 "subjects": [
@@ -55,20 +62,6 @@
             {
                 "course_number": 456,
                 "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 522,
-                "subjects": [
-                    "GEN&WS",
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 453,
-                "subjects": [
-                    "SOC",
                     "PSYCH"
                 ]
             }

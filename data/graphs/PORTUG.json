@@ -1,14 +1,67 @@
 [
     {
         "data": {
-            "source": "SPANISH 311",
-            "target": "SPANISH 226"
+            "description": "First-semester intermediate-level Portuguese language review: readings, culture, and patterns of conversation.",
+            "id": "PORTUG 201",
+            "parent": "PORTUG"
         }
     },
     {
         "data": {
-            "source": "PORTUG 101",
-            "target": "PORTUG 102"
+            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
+            "id": "FRENCH 102",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 301",
+            "target": "PORTUG 302"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 226",
+            "target": "PORTUG 642"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 226",
+            "target": "PORTUG 330"
+        }
+    },
+    {
+        "data": {
+            "description": "Oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
+            "id": "FRENCH 203",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "description": "Second-semester independent study with the goal of completing the preliminary research to write a senior honors thesis in Portuguese. Continuation ofPORTUG\u00a0681.",
+            "id": "PORTUG 682",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 202",
+            "target": "PORTUG 225"
+        }
+    },
+    {
+        "data": {
+            "description": "Conversational practice, review of grammar, viewing and discussion of Italian films, and class reading of short stories.",
+            "id": "ITALIAN 203",
+            "parent": "ITALIAN"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 311",
+            "target": "SPANISH 226"
         }
     },
     {
@@ -19,26 +72,9 @@
     },
     {
         "data": {
-            "description": "Interdisciplinary inquiry in Latin American society and culture.",
-            "id": "AAE/ANTHRO/C&ESOC/GEOG/HISTORY/LACIS/POLISCI/PORTUG/SOC/SPANISH 982"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 311",
-            "target": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 102",
-            "target": "ITALIAN 202"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 102",
-            "target": "PORTUG 302"
+            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of Italian cultures.",
+            "id": "ITALIAN 101",
+            "parent": "ITALIAN"
         }
     },
     {
@@ -50,15 +86,41 @@
     },
     {
         "data": {
-            "source": "ITALIAN 204",
-            "target": "ITALIAN 311"
+            "id": "SPANISH",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Advanced oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
-            "id": "FRENCH 204",
-            "parent": "FRENCH"
+            "id": "PORTUG",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar focusing on literature, literary criticism, culture, or theory relevant to Portuguese Literature.",
+            "id": "PORTUG 772",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects for graduate students as arranged with a faculty member.",
+            "id": "PORTUG 899",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Reading, discussion, and literary history of the sixteenth, nineteenth, and twentieth centuries.",
+            "id": "PORTUG 221",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines the work, representation and interpretation of Carmen Miranda from her early days as a radio star in Brazil to a film actress and entertainer in Hollywood in the 1940s and 50s.",
+            "id": "GEN&WS/PORTUG 460"
         }
     },
     {
@@ -75,195 +137,9 @@
     },
     {
         "data": {
-            "source": "SPANISH 226",
-            "target": "SPANISH 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
-            "id": "FRENCH 101",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines the work, representation and interpretation of Carmen Miranda from her early days as a radio star in Brazil to a film actress and entertainer in Hollywood in the 1940s and 50s.",
-            "id": "GEN&WS/PORTUG 460"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 202",
-            "target": "ITALIAN 311"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 312",
-            "target": "PORTUG 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar focusing on literature, literary criticism, culture, or theory relevant to Brazilian Literature.",
-            "id": "PORTUG 751",
+            "description": "Grammar, conversation, and reading. Equivalent ofPORTUG\u00a0101and102.",
+            "id": "PORTUG 301",
             "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 101",
-            "target": "PORTUG 301"
-        }
-    },
-    {
-        "data": {
-            "id": "PORTUG",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 311",
-            "target": "PORTUG 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Cultural evolution from the medieval period through the twentieth century. Conducted in English.",
-            "id": "PORTUG 361",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of accurate and nuanced capacity for expression in Italian and for understanding the spoken and written language. Also addresses Italian phonetics and phonology to develop accurate pronunciation.",
-            "id": "ITALIAN 311",
-            "parent": "ITALIAN"
-        }
-    },
-    {
-        "data": {
-            "description": "Second-semester independent study with the goal of completing the preliminary research to write a senior honors thesis in Portuguese. Continuation ofPORTUG\u00a0681.",
-            "id": "PORTUG 682",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 204",
-            "target": "SPANISH 226"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of Italian cultures.",
-            "id": "ITALIAN 102",
-            "parent": "ITALIAN"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for freshmen and sophomores as arranged with a faculty member.",
-            "id": "PORTUG 299",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to structural similarities and differences apparent in major Romance languages (French, Italian, Portuguese, Spanish) and to their historical developments, with reference to basic linguistic features of each language: phonology, morphology, syntax, and lexicon.",
-            "id": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 102",
-            "target": "FRENCH 203"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 102",
-            "target": "PORTUG 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced survey of Portuguese literature from 1140 to 1825.",
-            "id": "PORTUG 411",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of a variety of literary genres or periods in relation to Portuguese-speaking countries.",
-            "id": "PORTUG 640",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 225",
-            "target": "PORTUG 312"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced survey of Portuguese literature since 1825.",
-            "id": "PORTUG 467",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 102",
-            "target": "PORTUG 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated development of oral, reading and writing skills equivalent of two intermediate-level college semesters of Italian. Does not award retrocredit.",
-            "id": "ITALIAN 202",
-            "parent": "ITALIAN"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 301",
-            "target": "PORTUG 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-            "id": "PORTUG 990",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "id": "FRENCH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Fourth-year first-semester advanced oral practice and writing.",
-            "id": "PORTUG 311",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "PORTUG 412"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 226",
-            "target": "PORTUG 330"
         }
     },
     {
@@ -274,216 +150,14 @@
     },
     {
         "data": {
-            "source": "FRENCH 203",
-            "target": "FRENCH 204"
+            "description": "Introduction to structural similarities and differences apparent in major Romance languages (French, Italian, Portuguese, Spanish) and to their historical developments, with reference to basic linguistic features of each language: phonology, morphology, syntax, and lexicon.",
+            "id": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
         }
     },
     {
         "data": {
-            "source": "PORTUG 201",
-            "target": "PORTUG 302"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofSPANISH\u00a0101. All basic language skills: listening comprehension, speaking, reading, and writing.",
-            "id": "SPANISH 102",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 228",
-            "target": "PORTUG 301"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 301",
-            "target": "PORTUG 201"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 301",
-            "target": "PORTUG 302"
-        }
-    },
-    {
-        "data": {
-            "id": "SPANISH",
+            "id": "FRENCH",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 102",
-            "target": "ITALIAN 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced survey of Brazilian literature from 1500 to 1890.",
-            "id": "PORTUG 412",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Fourth-year second-semester advanced oral practice and writing.",
-            "id": "PORTUG 312",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 201",
-            "target": "ITALIAN 202"
-        }
-    },
-    {
-        "data": {
-            "description": "First-semester intermediate-level Portuguese language review: readings, culture, and patterns of conversation.",
-            "id": "PORTUG 201",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar focusing on literature, literary criticism, culture, or theory relevant to Portuguese Literature.",
-            "id": "PORTUG 772",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 225",
-            "target": "PORTUG 226"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 225",
-            "target": "PORTUG 330"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of Italian cultures.",
-            "id": "ITALIAN 101",
-            "parent": "ITALIAN"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate-level language review, Hispanic readings, culture, and patterns of conversation.",
-            "id": "SPANISH 203",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "First-semester independent study with the goal of completing the preliminary research to write a senior honors thesis in Portuguese.",
-            "id": "PORTUG 681",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Intensive practice in reading, writing, and grammar.",
-            "id": "SPANISH 226",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "PORTUG 467"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of representative writing by contemporary Brazillian women writers in relation to representations of nationality, race, class, ethnicity, gender and sexualities.",
-            "id": "GEN&WS/PORTUG 450"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate-level language review, extensive Hispanic readings and culture, intensive written and oral activities.",
-            "id": "SPANISH 204",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 102",
-            "target": "ITALIAN 203"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 204",
-            "target": "FRENCH 228"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
-            "id": "FRENCH 203",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 228",
-            "target": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
-        }
-    },
-    {
-        "data": {
-            "description": "Equivalent of the third and fourth college semesters of Portuguese. Readings, culture, and patterns of conversation.",
-            "id": "PORTUG 302",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "A course carried with a UW-Madison resident study abroad program that has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program required.",
-            "id": "PORTUG 573",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 226",
-            "target": "PORTUG 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Cultural evolution of Brazil from 1500 through the present. Conducted in English.",
-            "id": "PORTUG 362",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 312",
-            "target": "AFRICAN/PORTUG 451"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for graduate students as arranged with a faculty member.",
-            "id": "PORTUG 899",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the linguistic sources and the historical and political factors that contributed to the formation of Portuguese and the current status of Portuguese in the world today.",
-            "id": "PORTUG 330",
-            "parent": "PORTUG"
         }
     },
     {
@@ -495,96 +169,6 @@
     },
     {
         "data": {
-            "description": "Accelerated introduction to Spanish language practice through writing, reading, speaking and listening. Course equivalent toSPANISH\u00a0101and102.",
-            "id": "SPANISH 103",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Reading, discussion, and literary history of the sixteenth, nineteenth, and twentieth centuries.",
-            "id": "PORTUG 221",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "PORTUG 468"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 301",
-            "target": "PORTUG 312"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "PORTUG 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated development of oral, reading and writing skills up to a level equivalent to that of the end ofITALIAN\u00a0102. No previous knowledge of Italian is required. Does not award retrocredit.",
-            "id": "ITALIAN 201",
-            "parent": "ITALIAN"
-        }
-    },
-    {
-        "data": {
-            "id": "ITALIAN",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 226",
-            "target": "PORTUG 311"
-        }
-    },
-    {
-        "data": {
-            "source": "ITALIAN 203",
-            "target": "ITALIAN 204"
-        }
-    },
-    {
-        "data": {
-            "description": "Second-semester elementary-level Portuguese language practice: grammar, conversation, and reading.",
-            "id": "PORTUG 102",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 225",
-            "target": "PORTUG 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced language practice, including intensive writing and work in pertinent areas of grammar and stylistics.",
-            "id": "SPANISH 311",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "First-semester Intermediate High intensive practice in reading, writing, and grammar.",
-            "id": "PORTUG 225",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 102",
-            "target": "SPANISH 103"
-        }
-    },
-    {
-        "data": {
             "description": "Second-semester Intermediate High intensive practice in reading, writing, and grammar.",
             "id": "PORTUG 226",
             "parent": "PORTUG"
@@ -592,90 +176,37 @@
     },
     {
         "data": {
-            "source": "PORTUG 201",
-            "target": "PORTUG 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Second-semester intermediate-level Portuguese language review: readings, culture, and patterns of conversation.",
-            "id": "PORTUG 202",
+            "description": "Fourth-year first-semester advanced oral practice and writing.",
+            "id": "PORTUG 311",
             "parent": "PORTUG"
         }
     },
     {
         "data": {
-            "source": "FRENCH 101",
-            "target": "FRENCH 102"
+            "description": "Advanced oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
+            "id": "FRENCH 204",
+            "parent": "FRENCH"
         }
     },
     {
         "data": {
-            "source": "PORTUG 202",
-            "target": "PORTUG 311"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "AFRICAN/PORTUG 451"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 202",
-            "target": "PORTUG 225"
-        }
-    },
-    {
-        "data": {
-            "description": "First-semester elementary-level Portuguese language practice: grammar, conversation, and reading. Requires no previous knowledge of Portuguese.",
-            "id": "PORTUG 101",
+            "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+            "id": "PORTUG 990",
             "parent": "PORTUG"
         }
     },
     {
         "data": {
-            "source": "PORTUG 226",
-            "target": "PORTUG 642"
+            "description": "Advanced survey of Portuguese literature since 1825.",
+            "id": "PORTUG 467",
+            "parent": "PORTUG"
         }
     },
     {
         "data": {
-            "description": "All basic language skills: listening comprehension, speaking, reading, and writing. Requires no previous knowledge of Spanish.",
-            "id": "SPANISH 101",
+            "description": "Continuation ofSPANISH\u00a0101. All basic language skills: listening comprehension, speaking, reading, and writing.",
+            "id": "SPANISH 102",
             "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 202",
-            "target": "PORTUG 226"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
-            "id": "PORTUG 699",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 101",
-            "target": "SPANISH 102"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 221",
-            "target": "PORTUG 411"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 202",
-            "target": "PORTUG 302"
         }
     },
     {
@@ -693,14 +224,430 @@
     },
     {
         "data": {
+            "description": "Second-year Portuguese language course focusing on needs specific to business.",
+            "id": "PORTUG 207",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "AFRICAN/PORTUG 451"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 301",
+            "target": "PORTUG 207"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 202",
+            "target": "ITALIAN 311"
+        }
+    },
+    {
+        "data": {
+            "description": "A survey of representative writing by contemporary Brazillian women writers in relation to representations of nationality, race, class, ethnicity, gender and sexualities.",
+            "id": "GEN&WS/PORTUG 450"
+        }
+    },
+    {
+        "data": {
+            "description": "First-semester elementary-level Portuguese language practice: grammar, conversation, and reading. Requires no previous knowledge of Portuguese.",
+            "id": "PORTUG 101",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated development of oral, reading and writing skills up to a level equivalent to that of the end ofITALIAN\u00a0102. No previous knowledge of Italian is required. Does not award retrocredit.",
+            "id": "ITALIAN 201",
+            "parent": "ITALIAN"
+        }
+    },
+    {
+        "data": {
+            "description": "Fourth-year second-semester advanced oral practice and writing.",
+            "id": "PORTUG 312",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 101",
+            "target": "PORTUG 301"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "PORTUG 467"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 102",
+            "target": "PORTUG 301"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 203",
+            "target": "ITALIAN 204"
+        }
+    },
+    {
+        "data": {
+            "description": "Examination of a variety of literary genres or periods in relation to Portuguese-speaking countries.",
+            "id": "PORTUG 640",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of Italian cultures.",
+            "id": "ITALIAN 102",
+            "parent": "ITALIAN"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced language practice, including intensive writing and work in pertinent areas of grammar and stylistics.",
+            "id": "SPANISH 311",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar focusing on literature, literary criticism, culture, or theory relevant to Brazilian Literature.",
+            "id": "PORTUG 751",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 202",
+            "target": "PORTUG 311"
+        }
+    },
+    {
+        "data": {
             "source": "PORTUG 226",
-            "target": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
+            "target": "PORTUG 311"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 225",
+            "target": "PORTUG 642"
         }
     },
     {
         "data": {
             "description": "Chronological and thematic survey of major trends, authors, and works of Lusophone Africa since 1936.",
             "id": "AFRICAN/PORTUG 451"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 102",
+            "target": "ITALIAN 202"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 202",
+            "target": "PORTUG 221"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 301",
+            "target": "PORTUG 201"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 101",
+            "target": "SPANISH 102"
+        }
+    },
+    {
+        "data": {
+            "description": "A course carried with a UW-Madison resident study abroad program that has no equivalent on this campus. Current enrollment in a UW-Madison study abroad program required.",
+            "id": "PORTUG 573",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 102",
+            "target": "SPANISH 103"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 226",
+            "target": "PORTUG 312"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 226",
+            "target": "PORTUG 301"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 312",
+            "target": "AFRICAN/PORTUG 451"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated development of oral, reading and writing skills equivalent of two intermediate-level college semesters of Italian. Does not award retrocredit.",
+            "id": "ITALIAN 202",
+            "parent": "ITALIAN"
+        }
+    },
+    {
+        "data": {
+            "description": "Cultural evolution from the medieval period through the twentieth century. Conducted in English.",
+            "id": "PORTUG 361",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 226",
+            "target": "SPANISH 311"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 204",
+            "target": "SPANISH 226"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the linguistic sources and the historical and political factors that contributed to the formation of Portuguese and the current status of Portuguese in the world today.",
+            "id": "PORTUG 330",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "Equivalent of the third and fourth college semesters of Portuguese. Readings, culture, and patterns of conversation.",
+            "id": "PORTUG 302",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "PORTUG 468"
+        }
+    },
+    {
+        "data": {
+            "description": "Second-semester elementary-level Portuguese language practice: grammar, conversation, and reading.",
+            "id": "PORTUG 102",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 202",
+            "target": "PORTUG 302"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated introduction to Spanish language practice through writing, reading, speaking and listening. Course equivalent toSPANISH\u00a0101and102.",
+            "id": "SPANISH 103",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 201",
+            "target": "PORTUG 302"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 201",
+            "target": "ITALIAN 202"
+        }
+    },
+    {
+        "data": {
+            "description": "First-semester independent study with the goal of completing the preliminary research to write a senior honors thesis in Portuguese.",
+            "id": "PORTUG 681",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 102",
+            "target": "FRENCH 203"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 102",
+            "target": "ITALIAN 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced survey of Portuguese literature from 1140 to 1825.",
+            "id": "PORTUG 411",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 204",
+            "target": "ITALIAN 311"
+        }
+    },
+    {
+        "data": {
+            "description": "First-semester Intermediate High intensive practice in reading, writing, and grammar.",
+            "id": "PORTUG 225",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "description": "All basic language skills: listening comprehension, speaking, reading, and writing. Requires no previous knowledge of Spanish.",
+            "id": "SPANISH 101",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate-level language review, Hispanic readings, culture, and patterns of conversation.",
+            "id": "SPANISH 203",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 101",
+            "target": "FRENCH 102"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Cultural evolution of Brazil from 1500 through the present. Conducted in English.",
+            "id": "PORTUG 362",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 225",
+            "target": "PORTUG 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of accurate and nuanced capacity for expression in Italian and for understanding the spoken and written language. Also addresses Italian phonetics and phonology to develop accurate pronunciation.",
+            "id": "ITALIAN 311",
+            "parent": "ITALIAN"
+        }
+    },
+    {
+        "data": {
+            "description": "Intensive practice in reading, writing, and grammar.",
+            "id": "SPANISH 226",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 101",
+            "target": "PORTUG 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Second-semester intermediate-level Portuguese language review: readings, culture, and patterns of conversation.",
+            "id": "PORTUG 202",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "id": "ITALIAN",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "PORTUG 411"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 201",
+            "target": "ITALIAN 203"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate-level language review, extensive Hispanic readings and culture, intensive written and oral activities.",
+            "id": "SPANISH 204",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 202",
+            "target": "PORTUG 226"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 225",
+            "target": "PORTUG 312"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects for freshmen and sophomores as arranged with a faculty member.",
+            "id": "PORTUG 299",
+            "parent": "PORTUG"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 312",
+            "target": "PORTUG 642"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 228",
+            "target": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 225",
+            "target": "PORTUG 330"
         }
     },
     {
@@ -712,26 +659,26 @@
     {
         "data": {
             "source": "PORTUG 225",
-            "target": "PORTUG 311"
+            "target": "PORTUG 226"
         }
     },
     {
         "data": {
-            "source": "PORTUG 202",
-            "target": "PORTUG 221"
+            "description": "Interdisciplinary inquiry in Latin American society and culture.",
+            "id": "AAE/ANTHRO/C&ESOC/GEOG/HISTORY/LACIS/POLISCI/PORTUG/SOC/SPANISH 982"
         }
     },
     {
         "data": {
-            "source": "ITALIAN 201",
-            "target": "ITALIAN 203"
+            "source": "FRENCH 204",
+            "target": "FRENCH 228"
         }
     },
     {
         "data": {
-            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
-            "id": "FRENCH 102",
-            "parent": "FRENCH"
+            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
+            "id": "PORTUG 699",
+            "parent": "PORTUG"
         }
     },
     {
@@ -743,47 +690,64 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "source": "PORTUG 201",
+            "target": "PORTUG 202"
         }
     },
     {
         "data": {
-            "source": "PORTUG 226",
-            "target": "PORTUG 312"
-        }
-    },
-    {
-        "data": {
-            "source": "PORTUG 301",
-            "target": "PORTUG 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Grammar, conversation, and reading. Equivalent ofPORTUG\u00a0101and102.",
-            "id": "PORTUG 301",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Second-year Portuguese language course focusing on needs specific to business.",
-            "id": "PORTUG 207",
-            "parent": "PORTUG"
-        }
-    },
-    {
-        "data": {
-            "description": "Conversational practice, review of grammar, viewing and discussion of Italian films, and class reading of short stories.",
-            "id": "ITALIAN 203",
-            "parent": "ITALIAN"
+            "source": "PORTUG 102",
+            "target": "PORTUG 207"
         }
     },
     {
         "data": {
             "source": "PORTUG 102",
             "target": "PORTUG 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
+            "id": "FRENCH 101",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 203",
+            "target": "FRENCH 204"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 102",
+            "target": "ITALIAN 203"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "PORTUG 412"
+        }
+    },
+    {
+        "data": {
+            "source": "ITALIAN 311",
+            "target": "FRENCH/ITALIAN/PORTUG/SPANISH 429"
+        }
+    },
+    {
+        "data": {
+            "source": "PORTUG 221",
+            "target": "PORTUG 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced survey of Brazilian literature from 1500 to 1890.",
+            "id": "PORTUG 412",
+            "parent": "PORTUG"
         }
     }
 ]

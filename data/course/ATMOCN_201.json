@@ -27,13 +27,6 @@
                 "subjects": [
                     "ATMOCN"
                 ]
-            },
-            {
-                "course_number": 171,
-                "subjects": [
-                    "ATMOCN",
-                    "ENVIRST"
-                ]
             }
         ],
         "prerequisites_text": "ATM\u00a0OCN\u00a0100,101,141,ATM\u00a0OCN/\u200bGEOSCI\u00a0\u00a0105,140,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ATM\u00a0OCN/\u200bENVIR\u00a0ST\u00a0\u00a0171, orATM\u00a0OCN/\u200bENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0102"
@@ -41,9 +34,44 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 140,
+                "subjects": [
+                    "GEOSCI",
+                    "ATMOCN"
+                ]
+            },
+            {
                 "course_number": 101,
                 "subjects": [
                     "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 141,
+                "subjects": [
+                    "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ENVIRST",
+                    "GEOSCI",
+                    "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 171,
+                "subjects": [
+                    "ENVIRST",
+                    "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 132,
+                "subjects": [
+                    "ATMOCN",
+                    "SOILSCI"
                 ]
             },
             {
@@ -57,41 +85,6 @@
                 "subjects": [
                     "GEOSCI",
                     "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "GEOSCI",
-                    "ATMOCN",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 140,
-                "subjects": [
-                    "GEOSCI",
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 171,
-                "subjects": [
-                    "ATMOCN",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 141,
-                "subjects": [
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 132,
-                "subjects": [
-                    "ATMOCN",
-                    "SOILSCI"
                 ]
             }
         ],

@@ -27,12 +27,6 @@
                 "subjects": [
                     "GEN&WS"
                 ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "GEN&WS"
-                ]
             }
         ],
         "prerequisites_text": "GEN&WS\u00a0101,102,103,SOC/\u200bGEN&WS\u00a0\u00a0200,COM\u00a0ARTS\u00a0250or graduate/professional standing"
@@ -40,13 +34,20 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 250,
+                "course_number": 200,
                 "subjects": [
-                    "COMARTS"
+                    "SOC",
+                    "GEN&WS"
                 ]
             },
             {
                 "course_number": 102,
+                "subjects": [
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 103,
                 "subjects": [
                     "GEN&WS"
                 ]
@@ -58,16 +59,9 @@
                 ]
             },
             {
-                "course_number": 103,
+                "course_number": 250,
                 "subjects": [
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 200,
-                "subjects": [
-                    "SOC",
-                    "GEN&WS"
+                    "COMARTS"
                 ]
             }
         ],

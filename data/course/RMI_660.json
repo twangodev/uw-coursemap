@@ -26,12 +26,6 @@
                 "subjects": [
                     "GENBUS"
                 ]
-            },
-            {
-                "course_number": 705,
-                "subjects": [
-                    "GENBUS"
-                ]
             }
         ],
         "prerequisites_text": "(R\u00a0M\u00a0I\u00a0300or graduate/professional standing) and (GEN\u00a0BUS\u00a0306,704,705,ECON\u00a0310,MATH/\u200bSTAT\u00a0\u00a0309,431, orMATH\u00a0331), or declared in the Business Exchange program"
@@ -39,7 +33,14 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 704,
+                "course_number": 431,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 705,
                 "subjects": [
                     "GENBUS"
                 ]
@@ -51,17 +52,15 @@
                 ]
             },
             {
-                "course_number": 309,
+                "course_number": 306,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "GENBUS"
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 704,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "GENBUS"
                 ]
             },
             {
@@ -71,21 +70,16 @@
                 ]
             },
             {
-                "course_number": 705,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
                 "course_number": 300,
                 "subjects": [
                     "RMI"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

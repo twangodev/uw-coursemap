@@ -12,8 +12,8 @@
             {
                 "course_number": 301,
                 "subjects": [
-                    "LINGUIS",
-                    "ANTHRO"
+                    "ANTHRO",
+                    "LINGUIS"
                 ]
             },
             {
@@ -27,12 +27,6 @@
                 "subjects": [
                     "ENGL"
                 ]
-            },
-            {
-                "course_number": 631,
-                "subjects": [
-                    "ASIAN"
-                ]
             }
         ],
         "prerequisites_text": "(LINGUIS\u00a0101or301),ENGL\u00a0417,ASIAN\u00a0631,GERMAN\u00a0650,PORTUG/\u200bFRENCH/\u200bITALIAN/\u200bSPANISH\u00a0\u00a0429, orSCAND\u00a0ST\u00a0415"
@@ -40,18 +34,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 417,
+                "course_number": 101,
                 "subjects": [
-                    "ENGL"
+                    "LINGUIS"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
+                    "ANTHRO",
+                    "LINGUIS"
                 ]
             },
             {
                 "course_number": 429,
                 "subjects": [
                     "SPANISH",
+                    "ITALIAN",
                     "FRENCH",
-                    "PORTUG",
-                    "ITALIAN"
+                    "PORTUG"
                 ]
             },
             {
@@ -67,22 +68,15 @@
                 ]
             },
             {
-                "course_number": 101,
-                "subjects": [
-                    "LINGUIS"
-                ]
-            },
-            {
                 "course_number": 631,
                 "subjects": [
                     "ASIAN"
                 ]
             },
             {
-                "course_number": 301,
+                "course_number": 417,
                 "subjects": [
-                    "LINGUIS",
-                    "ANTHRO"
+                    "ENGL"
                 ]
             }
         ],

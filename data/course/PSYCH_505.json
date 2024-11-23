@@ -12,16 +12,34 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PSYCH"
+                ]
+            }
+        ],
+        "prerequisites_text": "PSYCH\u00a0202, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or (BIOCORE\u00a0381and382)"
+    },
+    "prerequisites": {
+        "course_references": [
+            {
+                "course_number": 102,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -31,30 +49,10 @@
                 ]
             },
             {
-                "course_number": 102,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            }
-        ],
-        "prerequisites_text": "PSYCH\u00a0202, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or (BIOCORE\u00a0381and382)"
-    },
-    "prerequisites": {
-        "course_references": [
-            {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -64,22 +62,17 @@
                 ]
             },
             {
-                "course_number": 202,
+                "course_number": 151,
                 "subjects": [
-                    "PSYCH"
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
                 ]
             }
         ],

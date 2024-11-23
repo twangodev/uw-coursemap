@@ -1,16 +1,36 @@
 [
     {
         "data": {
-            "description": "Focus is history, social organization, political experience, artistic expression of North American Indians, using methods and materials from a number of disciplines as an introduction to the interdisciplinary field.",
-            "id": "AMERIND 100",
+            "description": "Build on intermediate skills of a specific indigenous language. Increased focus on developing conversational skills.  Requires completion ofAMER\u00a0IND\u00a0403in the same language.",
+            "id": "AMERIND 404",
             "parent": "AMERIND"
         }
     },
     {
         "data": {
-            "description": "Focus on proficiency in reading, speaking, and writing of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
-            "id": "AMERIND 304",
+            "description": "Continuation of Ojibwe language study, with an emphasis on traditional winter cycle myths.",
+            "id": "AMERIND 302",
             "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent study for junior, senior and graduate students in collaboration with a faculty member.",
+            "id": "AMERIND 699",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent study for freshmen and sophomores in collaboration with a faculty member.",
+            "id": "AMERIND 199",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
+            "id": "AMERIND/LANDARC 106"
         }
     },
     {
@@ -21,8 +41,21 @@
     },
     {
         "data": {
-            "id": "FOLKLORE",
-            "type": "compound"
+            "description": "Represents the fourth semester in the Ojibwe language, focusing on conversational skills.",
+            "id": "AMERIND 402",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "source": "SOC 181",
+            "target": "C&ESOC/SOC 210"
+        }
+    },
+    {
+        "data": {
+            "source": "AMERIND 302",
+            "target": "AMERIND 401"
         }
     },
     {
@@ -40,164 +73,13 @@
     },
     {
         "data": {
-            "source": "C&ESOC/SOC 210",
-            "target": "AMERIND/C&ESOC/SOC 578"
+            "description": "Critical Indigenous Ecological Knowledges are a set of diverse understandings, responsibilities, and laws held by distinct groups of Indigenous peoples that are enacted in multiple ways across socio-political and geographical contexts. These knowledges intersect with Indigenous political sovereignties and longstanding, complex, and nuanced relationships to the more-than-human world. Learn multiple entry points to exploring and examining these knowledge sets in the context of what's for now called the U.S. and Canada to think critically about the politics of Nature, environmentalism, race, indigeneity, and colonialism both historically and in the contemporary moment. Reflect upon how critical Indigenous knowledges about ecology, environment, and government have been erased, co-opted, criminalized, and also continually practiced, reimagined, and revitalized in multiple spheres through a range of interdisciplinary, critical, and cutting-edge Native scholarships and writings.",
+            "id": "AMERIND/GEOG 410"
         }
     },
     {
         "data": {
-            "description": "Special focus on American Indian thought and perspectives on subjects in the arts and sciences.",
-            "id": "AMERIND 450",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 140",
-            "target": "AMERIND/C&ESOC/SOC 578"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn about the great diversity of Native American cultures in eastern North America, with an emphasis on those of the Midwest and Southeast. More than twelve thousand years of accommodations to diverse natural and social environments are covered, starting with archaeological evidence for and oral traditions describing the initial peopling of the Americas and ending with the European invasion and interactions with the Native Americans of the Eastern Woodlands.",
-            "id": "AMERIND/ANTHRO 355"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines historic and contemporary forms of Indigenous resistance including grassroots organizing, treaty rights, language revitalization, art and media, and environmental justice from Indigenous perspectives in North America and the Pacific.",
-            "id": "AMERIND 230",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the various American Indian Nations within Wisconsin's borders with an emphasis on their history, culture, and sovereignty.  Examines individual tribes and bands as well as common issues that affect tribal and non-tribal people in Wisconsin.",
-            "id": "AMERIND 250",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "id": "AMERIND",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Build on elementary skills of a specific indigenous language. Advanced grammar and syntax; advanced conversation and composition; cultural background of Indigenous people speaking the language through reading of stories, histories and cultural exploration. Requires completion ofAMER\u00a0IND\u00a0304in the same language.",
-            "id": "AMERIND 403",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "description": "Native Nations show leadership globally in addressing major environmental issues. Indigenous languages describe deep relationships with the natural world, including information on environmental stewardship - harvesting, caretaking and reciprocity. Indigenous scholars contribute crucial perspectives to conversations about human relationships to the Earth - cultural relationships to wildlife and plants, and the ethical and practical roles of humans in socio-ecological systems. Focuses on indigenous environmental scholarship, including the ongoing legacy of oral traditions, developing research, writing, and public speaking skills.",
-            "id": "AMERIND/ENVIRST 341"
-        }
-    },
-    {
-        "data": {
-            "source": "AMERIND 303",
-            "target": "AMERIND 304"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
-            "id": "AMERIND/ANTHRO/BOTANY 474"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the field of American sociology, its subfields and specialized areas of research, theoretical traditions and research methods.",
-            "id": "C&ESOC/SOC 210"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the Ojibwe language, spoken and written, with emphasis on oral tradition and extensive study of grammar.",
-            "id": "AMERIND 301",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "id": "SOC",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "The allocation of economic and social rewards in the United States; emphasis on persistently poor regions and communities; analysis of selected minority groups and their poverty statuses; poverty programs and their consequences for structural and cultural changes.",
-            "id": "AMERIND/C&ESOC/SOC 578"
-        }
-    },
-    {
-        "data": {
-            "description": "Represents the fourth semester in the Ojibwe language, focusing on conversational skills.",
-            "id": "AMERIND 402",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "source": "AMERIND/HISTORY 190",
-            "target": "AMERIND/HISTORY 380"
-        }
-    },
-    {
-        "data": {
-            "source": "AMERIND/ANTHRO 314",
-            "target": "AMERIND/ANTHRO/FOLKLORE 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents a broad range of literatures from diverse Native traditions and eras, to provide students with a basic knowledge of major issues affecting and best-known texts by American Indian women authors.",
-            "id": "AMERIND/ENGL 246"
-        }
-    },
-    {
-        "data": {
-            "description": "In collaboration with Tribal partners in Wisconsin, emphasize environmental science rooted in land stewardship and land management aligned with cultural values and Indigenous science processes. Experience the culture and ecology of a place while engaging in ecological restoration and stewardship, reflecting on relationships to the land and as global citizens. The intersection of Indigenous knowledge and Western science helps explain the need for a diversity of perspectives to respond to social and environmental justice in our changing world.",
-            "id": "AMERIND/LANDARC 106"
-        }
-    },
-    {
-        "data": {
-            "description": "A critical examination of the portrayal of the American Indian in film, including documentaries and films made by Native filmmakers.",
-            "id": "AMERIND 325",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "description": "Description and analysis of native cultures, and the role of environmental and historical factors in North America.",
-            "id": "AMERIND/ANTHRO 314"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to comparative ethnic studies, examining race, ethnicity, and indigeneity within the United States. Includes perspectives from African American, American Indian, Asian American, and Chican@ and Latin@ studies.",
-            "id": "AFROAMER/AMERIND/ASIANAM/CHICLA/FOLKLORE 102"
-        }
-    },
-    {
-        "data": {
-            "description": "A broad survey of American Indian history which centers Indigenous peoples, communities, and nations in the context of U.S. policy and culture that emphasizes decolonial methods and Native ways of knowing the past.",
-            "id": "AMERIND/HISTORY 190"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 210",
-            "target": "SOC 181"
-        }
-    },
-    {
-        "data": {
-            "source": "C&ESOC/SOC 210",
+            "source": "SOC 181",
             "target": "C&ESOC/SOC 211"
         }
     },
@@ -210,14 +92,32 @@
     },
     {
         "data": {
-            "source": "C&ESOC/SOC 211",
-            "target": "AMERIND/C&ESOC/SOC 578"
+            "description": "Learn about contemporary Native communities, both domestically and globally, through a carefully curated selection of readings, podcasts, and videos from Indigenous scholars, community members, knowledge holders, and activists. Offers a broad historical overview of Native American communities in the United States that illustrates the historical trajectory from early colonization and dispossession through self-determination and the recognition of tribal sovereignty in action by local, state, and federal governments.",
+            "id": "AMERIND/CSCS 330"
         }
     },
     {
         "data": {
-            "description": "Gain an understanding of the grammatical and cultural features of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
-            "id": "AMERIND 303",
+            "description": "Native Nations show leadership globally in addressing major environmental issues. Indigenous languages describe deep relationships with the natural world, including information on environmental stewardship - harvesting, caretaking and reciprocity. Indigenous scholars contribute crucial perspectives to conversations about human relationships to the Earth - cultural relationships to wildlife and plants, and the ethical and practical roles of humans in socio-ecological systems. Focuses on indigenous environmental scholarship, including the ongoing legacy of oral traditions, developing research, writing, and public speaking skills.",
+            "id": "AMERIND/ENVIRST 341"
+        }
+    },
+    {
+        "data": {
+            "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
+            "id": "AMERIND/ENVIRST/GEOG 345"
+        }
+    },
+    {
+        "data": {
+            "id": "SOC",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the various American Indian Nations within Wisconsin's borders with an emphasis on their history, culture, and sovereignty.  Examines individual tribes and bands as well as common issues that affect tribal and non-tribal people in Wisconsin.",
+            "id": "AMERIND 250",
             "parent": "AMERIND"
         }
     },
@@ -229,8 +129,117 @@
     },
     {
         "data": {
+            "description": "Focus on proficiency in reading, speaking, and writing of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
+            "id": "AMERIND 304",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "A critical examination of the portrayal of the American Indian in film, including documentaries and films made by Native filmmakers.",
+            "id": "AMERIND 325",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn about the great diversity of Native American cultures in eastern North America, with an emphasis on those of the Midwest and Southeast. More than twelve thousand years of accommodations to diverse natural and social environments are covered, starting with archaeological evidence for and oral traditions describing the initial peopling of the Americas and ending with the European invasion and interactions with the Native Americans of the Eastern Woodlands.",
+            "id": "AMERIND/ANTHRO 355"
+        }
+    },
+    {
+        "data": {
+            "description": "Special focus on American Indian thought and perspectives on subjects in the arts and sciences.",
+            "id": "AMERIND 450",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "The role of social workers and social services in American Indian and tribal communities, particularly compliance with the Indian Child Welfare Act. Historical context includes land removal and loss, the boarding school and adoption eras, and social determinants of health including the impacts of historical and intergenerational trauma.",
+            "id": "AMERIND/SOCWORK 636"
+        }
+    },
+    {
+        "data": {
+            "source": "AMERIND 303",
+            "target": "AMERIND 304"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the oral and written literatures of the peoples of native North America. An engagement with texts across historical periods, tribal groups, and regions to examine forms such as oratory, sermon, testimony, autobiography, and contemporary poetry and novels.",
+            "id": "AMERIND/ENGL 172"
+        }
+    },
+    {
+        "data": {
+            "source": "C&ESOC/SOC 211",
+            "target": "SOC 181"
+        }
+    },
+    {
+        "data": {
+            "description": "The allocation of economic and social rewards in the United States; emphasis on persistently poor regions and communities; analysis of selected minority groups and their poverty statuses; poverty programs and their consequences for structural and cultural changes.",
+            "id": "AMERIND/C&ESOC/SOC 578"
+        }
+    },
+    {
+        "data": {
+            "description": "Build on elementary skills of a specific indigenous language. Advanced grammar and syntax; advanced conversation and composition; cultural background of Indigenous people speaking the language through reading of stories, histories and cultural exploration. Requires completion ofAMER\u00a0IND\u00a0304in the same language.",
+            "id": "AMERIND 403",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain an understanding of the grammatical and cultural features of an Indigenous language. Includes exploration of cultural practices and values through the study of oral and written narrative.",
+            "id": "AMERIND 303",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "Represents the third semester of the Ojibwe language, focusing on word structure and conversational skills.",
+            "id": "AMERIND 401",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
             "source": "AMERIND 100",
             "target": "AMERIND/HISTORY 380"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines and interprets the roles of American Indian women in traditional societies, and in contemporary North America.",
+            "id": "AMERIND/ANTHRO/FOLKLORE/GEN&WS 437"
+        }
+    },
+    {
+        "data": {
+            "source": "AMERIND 301",
+            "target": "AMERIND 302"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus is history, social organization, political experience, artistic expression of North American Indians, using methods and materials from a number of disciplines as an introduction to the interdisciplinary field.",
+            "id": "AMERIND 100",
+            "parent": "AMERIND"
+        }
+    },
+    {
+        "data": {
+            "description": "A broad survey of American Indian history which centers Indigenous peoples, communities, and nations in the context of U.S. policy and culture that emphasizes decolonial methods and Native ways of knowing the past.",
+            "id": "AMERIND/HISTORY 190"
+        }
+    },
+    {
+        "data": {
+            "source": "FOLKLORE 100",
+            "target": "AMERIND/ANTHRO/FOLKLORE 431"
         }
     },
     {
@@ -249,34 +258,45 @@
     },
     {
         "data": {
-            "description": "Basic principles and definitions of sociology. Readings and discussion of the perspectives of sociology, the individual and society, groups and social process, stratification, organizations and power, demography, and social change.",
-            "id": "C&ESOC/SOC 211"
+            "source": "C&ESOC/SOC 210",
+            "target": "SOC 181"
         }
     },
     {
         "data": {
-            "description": "Independent study for junior, senior and graduate students in collaboration with a faculty member.",
-            "id": "AMERIND 699",
+            "description": "Introduction to the field of American sociology, its subfields and specialized areas of research, theoretical traditions and research methods.",
+            "id": "C&ESOC/SOC 210"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to comparative ethnic studies, examining race, ethnicity, and indigeneity within the United States. Includes perspectives from African American, American Indian, Asian American, and Chican@ and Latin@ studies.",
+            "id": "AFROAMER/AMERIND/ASIANAM/CHICLA/FOLKLORE 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines historic and contemporary forms of Indigenous resistance including grassroots organizing, treaty rights, language revitalization, art and media, and environmental justice from Indigenous perspectives in North America and the Pacific.",
+            "id": "AMERIND 230",
             "parent": "AMERIND"
         }
     },
     {
         "data": {
-            "source": "FOLKLORE 320",
+            "description": "Description and analysis of native cultures, and the role of environmental and historical factors in North America.",
+            "id": "AMERIND/ANTHRO 314"
+        }
+    },
+    {
+        "data": {
+            "source": "FOLKLORE 230",
             "target": "AMERIND/ANTHRO/FOLKLORE 431"
         }
     },
     {
         "data": {
-            "description": "Represents the third semester of the Ojibwe language, focusing on word structure and conversational skills.",
-            "id": "AMERIND 401",
-            "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the oral and written literatures of the peoples of native North America. An engagement with texts across historical periods, tribal groups, and regions to examine forms such as oratory, sermon, testimony, autobiography, and contemporary poetry and novels.",
-            "id": "AMERIND/ENGL 172"
+            "source": "C&ESOC/SOC 140",
+            "target": "AMERIND/C&ESOC/SOC 578"
         }
     },
     {
@@ -287,89 +307,27 @@
     },
     {
         "data": {
-            "description": "Independent study for freshmen and sophomores in collaboration with a faculty member.",
-            "id": "AMERIND 199",
-            "parent": "AMERIND"
+            "description": "Basic principles and definitions of sociology. Readings and discussion of the perspectives of sociology, the individual and society, groups and social process, stratification, organizations and power, demography, and social change.",
+            "id": "C&ESOC/SOC 211"
         }
     },
     {
         "data": {
-            "description": "Surveys the concepts, practices, and issues associated with caring for nature in American Indian communities.",
-            "id": "AMERIND/ENVIRST/GEOG 345"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical Indigenous Ecological Knowledges are a set of diverse understandings, responsibilities, and laws held by distinct groups of Indigenous peoples that are enacted in multiple ways across socio-political and geographical contexts. These knowledges intersect with Indigenous political sovereignties and longstanding, complex, and nuanced relationships to the more-than-human world. Learn multiple entry points to exploring and examining these knowledge sets in the context of what's for now called the U.S. and Canada to think critically about the politics of Nature, environmentalism, race, indigeneity, and colonialism both historically and in the contemporary moment. Reflect upon how critical Indigenous knowledges about ecology, environment, and government have been erased, co-opted, criminalized, and also continually practiced, reimagined, and revitalized in multiple spheres through a range of interdisciplinary, critical, and cutting-edge Native scholarships and writings.",
-            "id": "AMERIND/GEOG 410"
-        }
-    },
-    {
-        "data": {
-            "description": "The role of social workers and social services in American Indian and tribal communities, particularly compliance with the Indian Child Welfare Act. Historical context includes land removal and loss, the boarding school and adoption eras, and social determinants of health including the impacts of historical and intergenerational trauma.",
-            "id": "AMERIND/SOCWORK 636"
-        }
-    },
-    {
-        "data": {
-            "source": "AMERIND 302",
-            "target": "AMERIND 401"
+            "source": "C&ESOC/SOC 210",
+            "target": "C&ESOC/SOC 211"
         }
     },
     {
         "data": {
             "source": "C&ESOC/SOC 211",
-            "target": "SOC 181"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to folk cultural groups and folklore forms of Wisconsin.",
-            "id": "FOLKLORE 320",
-            "parent": "FOLKLORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines and interprets the roles of American Indian women in traditional societies, and in contemporary North America.",
-            "id": "AMERIND/ANTHRO/FOLKLORE/GEN&WS 437"
-        }
-    },
-    {
-        "data": {
-            "description": "Sociological examination of the linkages between the social and biophysical dimensions of the environment. Key topics include community organizing, local food systems, energy transitions, environmental justice, resource dependence, and sustainable development.",
-            "id": "C&ESOC/SOC 140"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
-            "id": "AMERIND/LINGUIS 371"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC 181",
             "target": "AMERIND/C&ESOC/SOC 578"
         }
     },
     {
         "data": {
-            "description": "Introduction to the archaeological evidence for the diverse Native American cultures of Wisconsin over the past 12,000 years.",
-            "id": "AMERIND/ANTHRO 354"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of Ojibwe language study, with an emphasis on traditional winter cycle myths.",
-            "id": "AMERIND 302",
+            "description": "Introduction to the Ojibwe language, spoken and written, with emphasis on oral tradition and extensive study of grammar.",
+            "id": "AMERIND 301",
             "parent": "AMERIND"
-        }
-    },
-    {
-        "data": {
-            "source": "SOC 181",
-            "target": "C&ESOC/SOC 210"
         }
     },
     {
@@ -380,15 +338,26 @@
     },
     {
         "data": {
-            "description": "Offers an overview of physical, competitive games, from ancient Mesoamerica to the United States today, highlighting those with Indigenous cultural and social connections. Profile Indigenous athletes competing in both team and individual sports, from schoolyards to professional competitions with a central focus on Indigenous contributions to sports in North America.",
-            "id": "AMERIND 185",
-            "parent": "AMERIND"
+            "description": "An introduction to the genres of American Indian Folklore. Special attention is given to creation stories, trickster tales, and the relationship between folklore and historical memory.",
+            "id": "AMERIND/ANTHRO/FOLKLORE 431"
         }
     },
     {
         "data": {
-            "source": "FOLKLORE 100",
-            "target": "AMERIND/ANTHRO/FOLKLORE 431"
+            "description": "Overview of native languages of North America, including topics such as history, distribution, diversity, government policy, language endangerment, elaboration of cultural domains, language and worldview, speech styles, language structure (phonology, morphology, grammatical categories), performance (narrative, song), writing systems.",
+            "id": "AMERIND/LINGUIS 371"
+        }
+    },
+    {
+        "data": {
+            "source": "AMERIND/HISTORY 190",
+            "target": "AMERIND/HISTORY 380"
+        }
+    },
+    {
+        "data": {
+            "source": "C&ESOC/SOC 210",
+            "target": "AMERIND/C&ESOC/SOC 578"
         }
     },
     {
@@ -400,39 +369,51 @@
     },
     {
         "data": {
-            "source": "FOLKLORE 230",
+            "id": "FOLKLORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "AMERIND/ANTHRO 314",
             "target": "AMERIND/ANTHRO/FOLKLORE 431"
         }
     },
     {
         "data": {
-            "source": "SOC 181",
-            "target": "C&ESOC/SOC 211"
+            "description": "Sociological examination of the linkages between the social and biophysical dimensions of the environment. Key topics include community organizing, local food systems, energy transitions, environmental justice, resource dependence, and sustainable development.",
+            "id": "C&ESOC/SOC 140"
         }
     },
     {
         "data": {
-            "description": "Learn about contemporary Native communities, both domestically and globally, through a carefully curated selection of readings, podcasts, and videos from Indigenous scholars, community members, knowledge holders, and activists. Offers a broad historical overview of Native American communities in the United States that illustrates the historical trajectory from early colonization and dispossession through self-determination and the recognition of tribal sovereignty in action by local, state, and federal governments.",
-            "id": "AMERIND/CSCS 330"
+            "description": "Study of the interactions between human cultures and plants. Topics include: traditional resource management and agriculture; crop domestication, evolution, and conservation; archaeobotany; indigenous knowledge; folk taxonomy; plants in symbolism and religion; dietary patterns; phytochemistry; global movement of plants and peoples.",
+            "id": "AMERIND/ANTHRO/BOTANY 474"
         }
     },
     {
         "data": {
-            "description": "Build on intermediate skills of a specific indigenous language. Increased focus on developing conversational skills.  Requires completion ofAMER\u00a0IND\u00a0403in the same language.",
-            "id": "AMERIND 404",
+            "description": "Offers an overview of physical, competitive games, from ancient Mesoamerica to the United States today, highlighting those with Indigenous cultural and social connections. Profile Indigenous athletes competing in both team and individual sports, from schoolyards to professional competitions with a central focus on Indigenous contributions to sports in North America.",
+            "id": "AMERIND 185",
             "parent": "AMERIND"
         }
     },
     {
         "data": {
-            "source": "AMERIND 301",
-            "target": "AMERIND 302"
+            "description": "Introduction to the archaeological evidence for the diverse Native American cultures of Wisconsin over the past 12,000 years.",
+            "id": "AMERIND/ANTHRO 354"
         }
     },
     {
         "data": {
-            "description": "An introduction to the genres of American Indian Folklore. Special attention is given to creation stories, trickster tales, and the relationship between folklore and historical memory.",
-            "id": "AMERIND/ANTHRO/FOLKLORE 431"
+            "description": "Presents a broad range of literatures from diverse Native traditions and eras, to provide students with a basic knowledge of major issues affecting and best-known texts by American Indian women authors.",
+            "id": "AMERIND/ENGL 246"
+        }
+    },
+    {
+        "data": {
+            "id": "AMERIND",
+            "type": "compound"
         }
     }
 ]

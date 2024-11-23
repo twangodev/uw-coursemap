@@ -1,95 +1,35 @@
 [
     {
         "data": {
+            "description": "Supervised student teaching in general and vocal K-12 settings.",
+            "id": "CURRIC/MUSIC 409"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal and performance of music for athletic events. Audition required.",
+            "id": "MUSIC 42",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 221"
+        }
+    },
+    {
+        "data": {
+            "description": "The development of musical concepts and issues in music-theoretical discourse from antiquity through the 17th century.",
+            "id": "MUSIC 821",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
             "description": "Playing and public performance of music from symphonic repertoire. Audition required.",
             "id": "MUSIC 62",
             "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores various topics in music research from the perspective of contemporary cultural theory and history. Develops skills in critical analysis of music and culture, drawing from literatures in postcolonial studies, critical race theory, studies of empire, colonialism, and capitalism.",
-            "id": "MUSIC 405",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Supervised student teaching in general and instrumental K-12 settings.",
-            "id": "CURRIC/MUSIC 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Limited instrumentation for students having attained exceptional level of performance ability. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 574",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis and stylistic composition.",
-            "id": "MUSIC 621",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Choral vocal training, study and performance of concert literature. Audition required.",
-            "id": "MUSIC 50",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to contemporary research into jazz theory through analysis of lead sheet jazz compositions, analysis of large ensemble jazz compositions and improvised solos, and critical readings of jazz theory publications.",
-            "id": "MUSIC 629",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 221",
-            "target": "MUSIC 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines a select body of Western art music composed for percussion during the twentieth and twenty-first Centuries. Important compositional styles and repertoire will be presented and discussed with an emphasis on historical perspective and compositional technique.",
-            "id": "MUSIC 550",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 331",
-            "target": "MUSIC 531"
-        }
-    },
-    {
-        "data": {
-            "description": "A comprehensive study of sources, analysis, and style of repertoire for a particular instrument(s) or voice(s).",
-            "id": "MUSIC 346",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal, study and performance of early classical symphonies, opera, and concerto literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 61",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 999",
-            "target": "MUSIC 632"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 121",
-            "target": "MUSIC 122"
         }
     },
     {
@@ -100,15 +40,86 @@
     },
     {
         "data": {
-            "description": "Consider the meaning of the words \"analysis\" and \"theory,\" specifically as they have been applied to the study of music. Gain an overview of music theory in higher education: the origin of contemporary analytical praxis, as well as critiques of that model. Take a deeper dive into current trends in analysis, focusing on non-conforming, ecumenical, and otherwise \"non-theoretical\" ways of talking and writing about music, including narrative, semiotics, hermeneutics, performance-based schemata, and others.",
-            "id": "MUSIC 517",
+            "source": "CURRIC/MUSIC 300",
+            "target": "CURRIC/MUSIC 301"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 440",
+            "target": "MUSIC 346"
+        }
+    },
+    {
+        "data": {
+            "description": "Group instruction in elementary piano.",
+            "id": "MUSPERF 103",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual study and research for students in the major writing an honors thesis.",
+            "id": "MUSIC 681",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Studies in the theoretical concepts and analytical methods of Heinrich Schenker.",
-            "id": "MUSIC 823",
+            "description": "Individual piano instruction for undergrad piano majors and doctoral minors. Instructor consent is required for students enrolling for the first time.",
+            "id": "MUSPERF 401",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 417"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of English, German, Italian, and French diction as related to vocal music.",
+            "id": "MUSIC 468",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 221",
+            "target": "MUSIC 253"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced strategies for composing, understanding, and writing about music.",
+            "id": "MUSIC 221",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual voice instruction for majors.",
+            "id": "MUSPERF 205",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "source": "CURRIC/MUSIC 301",
+            "target": "CURRIC/MUSIC 302"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 221",
+            "target": "MUSIC 271"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic tools of music theory and compositional forms. Explores development of music through general survey of musical styles. Practical application of concepts includes listening maps and simple composition projects. Includes performance opportunities in simulated real world settings.",
+            "id": "MUSIC 151",
             "parent": "MUSIC"
         }
     },
@@ -121,109 +132,21 @@
     },
     {
         "data": {
-            "source": "MUSPERF 427",
-            "target": "MUSIC 340"
+            "source": "MUSIC 201",
+            "target": "MUSIC 306"
         }
     },
     {
         "data": {
-            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 569",
+            "description": "Applied piano literature including representative works from all periods.",
+            "id": "MUSIC 791",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSPERF 401",
-            "target": "MUSIC 346"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics of current theoretical or compositional concern and in-depth discussions of recent publications.",
-            "id": "MUSIC 921",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Master's level individual conducting instruction.",
-            "id": "MUSPERF 532",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the applied theory of functional tonal and modal jazz harmony; analysis of song forms from the standard jazz repertoire; study of reharmonization techniques, chord substitution, and types of chord voicings; principles of melodic writing and motivic development, jazz counterpoint, and voice-leading considerations; and writing for common instruments in jazz ensembles. Students will analyze compositions from the standard jazz repertoire and apply the principles studied to create their own compositions for small jazz ensemble.",
-            "id": "MUSIC 229",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to musical theater and opera in Europe and America, with emphasis on the ways creators tell their stories through the interaction of music and drama. Topics include the histories and formations of the genres and their relationships to culture and society; principal creators and performers; distinctive features of representative works; relationships to film and other media; and treatments of race, class, gender, and other issues in selected examples of each genre.",
-            "id": "MUSIC 105",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced pedagogical methods for performance.",
-            "id": "MUSIC 540",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of historical evidence for performance practice and its relevance to modern performances of the music of earlier eras.",
-            "id": "MUSIC 511",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal and performance of music from wind ensemble and band literature. Audition required.",
-            "id": "MUSIC 40",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 151",
-            "target": "MUSIC 152"
-        }
-    },
-    {
-        "data": {
-            "description": "Offers a comprehensive approach to music. Students learn the basic tools of music theory, the basic compositional forms used in music, and a general survey of musical styles.",
-            "id": "MUSIC 351",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "An introductory ethnomusicology course providing a variety of ways to approach musics typically not covered in music history courses. Active engagement with these musics within their larger world contexts.",
-            "id": "FOLKLORE/MUSIC 103"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 205",
-            "target": "MUSIC 463"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores music of ethnic groups in the U.S., including that of marginalized minorities, in its cultural context.  Topics may include the music of African American, Asian American, Native American and Jewish communities.",
-            "id": "MUSIC 319",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to development of music in the European tradition, 1750 to the present.",
-            "id": "MUSIC 212",
-            "parent": "MUSIC"
+            "source": "MUSIC 172",
+            "target": "MUSIC 211"
         }
     },
     {
@@ -235,66 +158,35 @@
     },
     {
         "data": {
-            "description": "The influence of traditional West African dance/music heritage in historical, artistic, social contexts in the development of new hybrid forms of music/dance created by cross-pollination of cultures of Africans, Europeans and indigenous peoples in the New World.",
-            "id": "AFROAMER/DANCE/MUSIC 318"
-        }
-    },
-    {
-        "data": {
-            "description": "Acting and stagecraft skills, including text-targeted work, with a focus on the dramatic aspects of the operatic craft.  Text work in will involve a step-by-step process designed to facilitate the assimilation of English and foreign-language texts in rehearsal and performance.  Work in these areas will be applied to arias and scenes from the operatic and theatrical repertoire.",
-            "id": "MUSIC 463",
+            "description": "Performance plus additional study of performance practice and choir literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 578",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Develop conducting skills through experience leading an ad hoc ensemble of 9-20 musicians in rehearsal and performance on a range of orchestral and wind ensemble repertoire.",
-            "id": "MUSIC 632",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Major genres and composers of monophonic and polyphonic music, sacred and secular in Western Europe and England (ca. 7th-14th centuries).",
-            "id": "MUSIC 411",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 417"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 541",
-            "target": "MUSIC 531"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual voice instruction for majors.",
-            "id": "MUSPERF 205",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 990",
+            "source": "MUSPERF 732",
             "target": "MUSIC 632"
         }
     },
     {
         "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 415"
+            "source": "MUSIC 253",
+            "target": "MUSIC 254"
         }
     },
     {
         "data": {
-            "source": "CURRIC/MUSIC 337",
-            "target": "CURRIC/MUSIC 301"
+            "description": "Performance of scenes from standard operas or of whole operas; singing, accompanying, and dramatic action; instruction in voice projection, posture and movement; problems of staging, lighting, costume and scenery. Audition required.",
+            "id": "MUSIC 557",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration and performance of standard band literature.",
+            "id": "MUSIC 43",
+            "parent": "MUSIC"
         }
     },
     {
@@ -306,204 +198,35 @@
     },
     {
         "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 511"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 104",
-            "target": "CURRIC/MUSIC 304"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual study and research for students in the major writing an honors thesis.",
-            "id": "MUSIC 681",
+            "description": "Opera role: preparation, rehearsal and performance in University opera production.",
+            "id": "MUSIC 556",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSPERF 411",
-            "target": "MUSIC 346"
+            "description": "Introduction to ethnomusicology, including historical survey of major works in the field, classification of musical instruments, measurement of tuning systems and concepts of scale, mode and rhythm in non-Western music.",
+            "id": "FOLKLORE/MUSIC 515"
         }
     },
     {
         "data": {
-            "description": "Explore the relationships between the arts as they intersect with aspects of society, historically and in the present day, through various visual, auditory, and text-based expressive forms. Examine personal life experiences and ideas along with current issues related to music and art, and practice self-expression through the arts. No previous experience in any art form is necessary.",
-            "id": "MUSIC 240",
+            "description": "Seminar in Choral Literature from Renaissance to the Present.",
+            "id": "MUSIC 541",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 565",
+            "description": "Provides opportunity for graduate students to teach privately or in small groups under faculty supervision.",
+            "id": "MUSIC 545",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Comprehensive study of major works for specific instruments with primary focus on interpretive and technical issues for the advance musician.",
-            "id": "MUSIC 798",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 412"
-        }
-    },
-    {
-        "data": {
-            "description": "A group of select singers who study varied repertoire conducted by graduate students. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 579",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "CURRIC/MUSIC 302",
-            "target": "CURRIC/MUSIC 337"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Students enrolling for the first time should contact the School of Music for audition information",
-            "id": "MUSIC 562",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual voice instruction at the doctoral level.",
-            "id": "MUSPERF 705",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the tools (material, methodological, and ethical) for doing ethnographic fieldwork in musical contexts.",
-            "id": "FOLKLORE/MUSIC 516"
-        }
-    },
-    {
-        "data": {
-            "description": "Relationship of string solo, ensemble and orchestral literature to history, style, form, genre, and performance practice. Emphasis on bibliographic sources; research project required.",
-            "id": "MUSIC 546",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "CURRIC/MUSIC 337",
-            "target": "CURRIC/MUSIC 302"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 221",
-            "target": "MUSIC 271"
-        }
-    },
-    {
-        "data": {
-            "description": "Major genres and composers in Europe and the United States.",
-            "id": "MUSIC 416",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Intensive discussions of particular repertoire or musical problems.",
-            "id": "MUSIC 926",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "An elementary-level academic course in music taken in a UW-Madison resident study abroad program.  Course does not require any previous background in music. Enrollment in a UW-Madison resident study abroad program",
-            "id": "MUSIC 104",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed to assist the DMA student in piano performance and pedagogy in developing a pedagogical workshop for piano teachers. The project will culminate in a public workshop which may address any approved area of keyboard pedagogy.",
-            "id": "MUSIC 752",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Early Music Ensemble specializing in performance of instrumental and vocal early music, using the school's collection of replicas of early instruments. Audition required.",
-            "id": "MUSIC 461",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 151",
-            "target": "MUSIC 351"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the performance, transmission, and consumption of traditional and popular musics outside of the standard Euro-American context. Employs musical-analytic and critical approaches to trace transnational musical circulation.",
-            "id": "FOLKLORE/MUSIC 402"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 401",
-            "target": "MUSIC 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of appropriate materials, standard literature, pedagogical techniques, and structure for the intermediate to advanced student. Research in specialized topics. Includes laboratory observation and teaching.",
-            "id": "MUSIC 548",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 102",
-            "target": "MUSPERF 103"
-        }
-    },
-    {
-        "data": {
-            "source": "CURRIC/MUSIC 301",
-            "target": "CURRIC/MUSIC 302"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual studio instruction in jazz performance.",
-            "id": "MUSPERF 541",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 172",
-            "target": "MUSIC 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Ensemble specializing in 16th and 17th century secular music. Audition required.",
-            "id": "MUSIC 558",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced strategies for composing, understanding, and writing about music.",
-            "id": "MUSIC 222",
+            "description": "Introduction to the applied theory of functional tonal and modal jazz harmony; analysis of song forms from the standard jazz repertoire; study of reharmonization techniques, chord substitution, and types of chord voicings; principles of melodic writing and motivic development, jazz counterpoint, and voice-leading considerations; and writing for common instruments in jazz ensembles. Students will analyze compositions from the standard jazz repertoire and apply the principles studied to create their own compositions for small jazz ensemble.",
+            "id": "MUSIC 229",
             "parent": "MUSIC"
         }
     },
@@ -523,76 +246,16 @@
     },
     {
         "data": {
-            "description": "Group instruction in intermediate piano.",
-            "id": "MUSPERF 104",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 172",
-            "target": "MUSIC 212"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the teaching and learning of diverse vocal styles. Special emphasis on what makes each style distinct, as well as the acquisition practices associated with each style.",
-            "id": "CURRIC/MUSIC 344"
-        }
-    },
-    {
-        "data": {
-            "description": "More advanced theoretical concepts, development of aural skills, and analysis procedures related to the jazz idiom.",
-            "id": "MUSIC 332",
+            "description": "The development of musical concepts and issues in music-theoretical discourse from the 17th century through the present.",
+            "id": "MUSIC 822",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "A study of significant dance orchestras from 1920 to 1950: development of style and influence on popular musical taste.",
-            "id": "MUSIC 205",
+            "description": "Exploration and performance of standard choral literature.",
+            "id": "MUSIC 59",
             "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of standard musical techniques and devices for arranging lead-sheet-based jazz compositions for medium and large jazz ensemble through score study, musical exercises, and arranging projects for live ensembles. Topics include jazz counterpoint and melody writing; preparing arrangements through outlines and condensed scores; chord substitutions and reharmonization; ranges, timbres, notational and technical considerations of standard jazz instruments; motivic development; voicing techniques, including mechanical, spreads, upper structure triads, and voicings in 4ths, 5ths and clusters; and orchestration techniques, including couplings and concerted writing.",
-            "id": "MUSIC 529",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced individual classical guitar instruction. Instructor consent is required for students enrolling for the first time.",
-            "id": "MUSPERF 440",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Performance of scenes from standard operas or of whole operas; singing, accompanying, and dramatic action; instruction in voice projection, posture and movement; problems of staging, lighting, costume and scenery. Audition required.",
-            "id": "MUSIC 557",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Performance and study of choral chamber music. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 577",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal and performance of music from wind ensemble and band literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 41",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 101",
-            "target": "MUSPERF 102"
         }
     },
     {
@@ -604,151 +267,94 @@
     },
     {
         "data": {
-            "source": "FOLKLORE/MUSIC 103",
-            "target": "MUSIC 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to ethnomusicology, including historical survey of major works in the field, classification of musical instruments, measurement of tuning systems and concepts of scale, mode and rhythm in non-Western music.",
-            "id": "FOLKLORE/MUSIC 515"
-        }
-    },
-    {
-        "data": {
-            "description": "Intoductory istruction in aural skills.",
-            "id": "MUSIC 171",
+            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 573",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSIC 543",
-            "target": "MUSIC 544"
+            "description": "The learning and teaching of music at the high school level.",
+            "id": "CURRIC/MUSIC 302"
         }
     },
     {
         "data": {
-            "source": "MUSIC 229",
-            "target": "MUSIC 329"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of contemporary and historical string pedagogy with implications for multiple teaching settings and applied research.",
-            "id": "MUSIC 543",
+            "description": "Studies in the theoretical concepts and analytical methods of Heinrich Schenker.",
+            "id": "MUSIC 823",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSPERF 440",
-            "target": "MUSIC 340"
+            "source": "MUSIC 271",
+            "target": "MUSIC 252"
         }
     },
     {
         "data": {
-            "description": "Introduction to the teaching of musical composition, arrangement, and orchestration. Special emphasis on how music technologies interact with conceptions of composition, arrangement, and orchestration; implications for music learning and teaching.",
-            "id": "CURRIC/MUSIC 304"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 271"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate aural skills instruction.",
-            "id": "MUSIC 272",
+            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
+            "id": "MUSIC 265",
             "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced strategies for composing, understanding, and writing about music.",
-            "id": "MUSIC 221",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic tools of music theory and compositional forms. Explores development of music through general survey of musical styles. Practical application of concepts includes listening maps and simple composition projects. Includes performance opportunities in simulated real world settings.",
-            "id": "MUSIC 151",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of wide-ranging topics in music history, music performance, music theory or music education.",
-            "id": "MUSIC 297",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 172"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a variety of genres within their social and historical contexts including folk songs and ballads, the Native American Pow Wow, New England psalmody, popular song repertories, musical theater and opera, concert music, blues and jazz.",
-            "id": "MUSIC 419",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of English, German, Italian, and French diction as related to vocal music.",
-            "id": "MUSIC 468",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Studies in the theoretical concepts and analytical methods, including those of Milton Babbitt, Allen Forte, David Lewin, Robert Morris, and others.",
-            "id": "MUSIC 824",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "id": "MUSIC",
-            "type": "compound"
         }
     },
     {
         "data": {
             "source": "MUSIC 212",
-            "target": "MUSIC 253"
+            "target": "MUSIC 511"
         }
     },
     {
         "data": {
-            "description": "Advanced individual clarinet instruction. Instructor consent is required for students enrolling for the first time.",
-            "id": "MUSPERF 411",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 416"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal, study of performance of classical symphonic works of 19th and 20th century orchestra and concerto literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 571",
+            "description": "Individual research and projects with faculty. Students must have project and instructor assignment approved by department",
+            "id": "MUSIC 499",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSIC 340",
-            "target": "MUSIC 345"
+            "description": "Continuation of conducting techniques, emphasis on practical application to vocal and instrumental groups.",
+            "id": "MUSIC 254",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Ensemble specializing in 16th and 17th century secular music. Audition required.",
+            "id": "MUSIC 558",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "A comprehensive study of sources, analysis, and style of repertoire for a particular instrument(s) or voice(s).",
+            "id": "MUSIC 346",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "History of orchestration and arranging; study of representative works by means of scores, recordings, and attendance at rehearsals of University organizations; scoring for band, chorus, and orchestra.",
+            "id": "MUSIC 523",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "CURRIC/MUSIC 301",
+            "target": "CURRIC/MUSIC 337"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 101",
+            "target": "MUSPERF 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on analysis of music education in primary and secondary schools via examination of historical, philosophical, and psychological sources. Explore ideas that have shaped the field in the past and investigate the influence of these ideas on current thinking and practice.",
+            "id": "CURRIC/MUSIC 946"
         }
     },
     {
@@ -760,144 +366,41 @@
     },
     {
         "data": {
+            "description": "Examines a select body of Western art music composed for percussion during the twentieth and twenty-first Centuries. Important compositional styles and repertoire will be presented and discussed with an emphasis on historical perspective and compositional technique.",
+            "id": "MUSIC 550",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Study and analysis of various vocal techniques: pedagogical and historical viewpoints.",
+            "id": "MUSIC 749",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
             "source": "MUSIC 222",
-            "target": "MUSIC 524"
+            "target": "MUSIC 272"
         }
     },
     {
         "data": {
-            "description": "Major genres and composers in Europe (ca. 1820-1910).",
-            "id": "MUSIC 415",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 268",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Upper-level harpsichord study of advanced repertoire and basso continuo; for harpsichordists who have mastery of basic technique and repertoire. Instructor consent is required for students enrolling for the first time.",
-            "id": "MUSPERF 402",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual piano instruction for undergrad piano majors and doctoral minors. Instructor consent is required for students enrolling for the first time.",
-            "id": "MUSPERF 401",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 419"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of the works of Gershwin, Rodgers, Kern, Porter, and others; nature of the music; semantics of the lyrics, and popular song as the reflection of a social era.",
-            "id": "MUSIC 305",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 201",
-            "target": "MUSIC 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 211"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 411"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 440",
-            "target": "MUSIC 346"
-        }
-    },
-    {
-        "data": {
-            "description": "Choral vocal training, study and performance of concert literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 55",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 101",
-            "target": "MUSIC 306"
-        }
-    },
-    {
-        "data": {
-            "id": "MUSPERF",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Study/analysis of conducting techniques; score reading/interpretation of masterpieces from standard repertoire.",
-            "id": "MUSIC 553",
+            "description": "Study of modern analytical techniques; practice in analysis of representative works.",
+            "id": "MUSIC 623",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
             "source": "MUSIC 212",
-            "target": "MUSIC 414"
+            "target": "MUSIC 413"
         }
     },
     {
         "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 212"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 573",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of study of modern analytical techniques; practice in analysis of representative works.",
-            "id": "MUSIC 624",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides opportunity for advanced undergraduate students to teach privately or in small groups under faculty supervision.",
-            "id": "MUSIC 345",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of critical perspectives, musical knowledge, and pedagogical skills needed to teach instrumental popular music. Focus on popular percussion instruments, their electronic counterparts, and emerging technologies for the performance and production of popular music.",
-            "id": "CURRIC/MUSIC 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Choral vocal training, study and performance of concert literature. Audition required.",
-            "id": "MUSIC 56",
+            "description": "Offers a comprehensive approach to music. Students learn the basic tools of music theory, the basic compositional forms used in music, and a general survey of musical styles.",
+            "id": "MUSIC 351",
             "parent": "MUSIC"
         }
     },
@@ -910,9 +413,908 @@
     },
     {
         "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 411"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal, study and performance of early classical symphonies, opera, and concerto literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 61",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the tools (material, methodological, and ethical) for doing ethnographic fieldwork in musical contexts.",
+            "id": "FOLKLORE/MUSIC 516"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of standard musical techniques and devices for arranging lead-sheet-based jazz compositions for medium and large jazz ensemble through score study, musical exercises, and arranging projects for live ensembles. Topics include jazz counterpoint and melody writing; preparing arrangements through outlines and condensed scores; chord substitutions and reharmonization; ranges, timbres, notational and technical considerations of standard jazz instruments; motivic development; voicing techniques, including mechanical, spreads, upper structure triads, and voicings in 4ths, 5ths and clusters; and orchestration techniques, including couplings and concerted writing.",
+            "id": "MUSIC 529",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Faculty-mentored individual study and research.",
+            "id": "MUSIC 799",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of methods and materials related to marching band teaching, philosophy, and performance.",
+            "id": "MUSIC 465",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Historical and contemporary bibliography resources for musical scholarship; general reference tools of scholarly work and specific musicological works.",
+            "id": "LIS/MUSIC 619"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of contemporary and historical string pedagogy with implications for multiple teaching settings and applied research.",
+            "id": "MUSIC 543",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 415"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 419"
+        }
+    },
+    {
+        "data": {
+            "description": "Examination of the role played by popular song in the formation of ethnic and racial identities in the United States with particular emphasis placed on both music's role in the perpetuation of racism and its use as a form of protest and anti-racist activism.",
+            "id": "MUSIC 203",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 121",
+            "target": "MUSIC 122"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of study of modern analytical techniques; practice in analysis of representative works.",
+            "id": "MUSIC 624",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Pedagogical methods for applied music offered on all instruments and voice by appropriate applied staff. Survey of music, methods, and materials.",
+            "id": "MUSIC 340",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced individual classical guitar instruction. Instructor consent is required for students enrolling for the first time.",
+            "id": "MUSPERF 440",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 221",
+            "target": "MUSIC 272"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of wide-ranging topics in music history, music theory or music education.",
+            "id": "MUSIC 497",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 565",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 402",
+            "target": "MUSIC 346"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 543",
+            "target": "MUSIC 545"
+        }
+    },
+    {
+        "data": {
             "description": "Continuation of study and analysis of conducting techniques and score reading.",
             "id": "MUSIC 554",
             "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 532",
+            "target": "MUSIC 632"
+        }
+    },
+    {
+        "data": {
+            "description": "Observation and teaching of an advanced undergraduate student under the direct supervision of a studio professor.",
+            "id": "MUSIC 560",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 412"
+        }
+    },
+    {
+        "data": {
+            "source": "CURRIC/MUSIC 337",
+            "target": "CURRIC/MUSIC 302"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores various topics in music research from the perspective of contemporary cultural theory and history. Develops skills in critical analysis of music and culture, drawing from literatures in postcolonial studies, critical race theory, studies of empire, colonialism, and capitalism.",
+            "id": "MUSIC 405",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 172",
+            "target": "MUSIC 221"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 151",
+            "target": "MUSIC 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a variety of genres within their social and historical contexts including folk songs and ballads, the Native American Pow Wow, New England psalmody, popular song repertories, musical theater and opera, concert music, blues and jazz.",
+            "id": "MUSIC 419",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Italian, German, and French diction as related to vocal music; transcription into the International Phonetic Alphabet (IPA).",
+            "id": "MUSIC 466",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced pedagogical methods for performance.",
+            "id": "MUSIC 540",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 405"
+        }
+    },
+    {
+        "data": {
+            "description": "More advanced theoretical concepts, development of aural skills, and analysis procedures related to the jazz idiom.",
+            "id": "MUSIC 332",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Actively participate in a diverse exploration of community. Create collaborative music engagement projects and evaluate the impact of the project's implementation. Opportunity to increase self-awareness, enhance creative capacity, and cultivate music career aspirations.",
+            "id": "MUSIC 608",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "An introductory ethnomusicology course providing a variety of ways to approach musics typically not covered in music history courses. Active engagement with these musics within their larger world contexts.",
+            "id": "FOLKLORE/MUSIC 103"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 253"
+        }
+    },
+    {
+        "data": {
+            "id": "MUSIC",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal and performance of music from wind ensemble and band literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 41",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 440",
+            "target": "MUSIC 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Relationship of string solo, ensemble and orchestral literature to history, style, form, genre, and performance practice. Emphasis on bibliographic sources; research project required.",
+            "id": "MUSIC 546",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 106",
+            "target": "MUSIC 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunity for advanced undergraduate students to teach privately or in small groups under faculty supervision.",
+            "id": "MUSIC 345",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive study of major works for specific instruments with primary focus on interpretive and technical issues for the advance musician.",
+            "id": "MUSIC 798",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "The training of singers and musicians for show choir. Audition and instructor consent required for students enrolling the first time",
+            "id": "MUSIC 264",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Explore a variety of musical styles created from social movements and generational and cultural identity, through rehearsals and performance. Styles to be covered, studied, and performed include, but are not limited to Hip Hop, Reggae, Jazz, and Cumbia. Audition and instructor consent required for students enrolling the first time",
+            "id": "MUSIC 266",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 331",
+            "target": "MUSIC 531"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 271",
+            "target": "MUSIC 253"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis and stylistic composition.",
+            "id": "MUSIC 621",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal, coaching and preparing guitar literature for performance of duos, trios, and quartets. Audition and instructor consent required for students enrolling the first time. Musicians other than guitarists are permitted to enroll and be incorporated into the ensembles.",
+            "id": "MUSIC 270",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual conducting instruction at the doctoral level.",
+            "id": "MUSPERF 732",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 172",
+            "target": "MUSIC 212"
+        }
+    },
+    {
+        "data": {
+            "description": "English, German, Italian, and French diction as related to vocal music.",
+            "id": "MUSIC 467",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Music during defined historical periods with emphasis on political and social contexts. May concentrate on a specific era or geographical area.",
+            "id": "MUSIC 201",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 252"
+        }
+    },
+    {
+        "data": {
+            "description": "An elementary-level academic course in music taken in a UW-Madison resident study abroad program.  Course does not require any previous background in music. Enrollment in a UW-Madison resident study abroad program",
+            "id": "MUSIC 104",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "The \"building blocks\" of music for non-majors. Deepens one's understanding of music through hands-on experience with its component materials: melody and harmony, rhythm and meter. It has the additional aim of increasing one's fluency in read music, broadening one's acquaintance with scores and various other musical media old and new, and improving one's skills as a listener. Students will explore basic musical concepts in a lab-like environment and solve various compositional problems and analytical puzzles.",
+            "id": "MUSIC 152",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar in Choral Literature from Renaissance to the Present.",
+            "id": "MUSIC 542",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 151",
+            "target": "MUSIC 351"
+        }
+    },
+    {
+        "data": {
+            "description": "Interpretive and technical approaches to advanced keyboard performance.",
+            "id": "MUSIC 751",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Historical development of opera; investigation of main stylistic features of representative masterworks.",
+            "id": "MUSIC 513",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of standard musical techniques and devices for arranging lead-sheet-based jazz compositions for medium and large jazz ensembles through score study, musical exercises, and arranging projects for live ensembles. Topics include jazz counterpoint and melody writing; preparing arrangements through outlines and condensed scores; chord substitutions and reharmonization; ranges, timbres, notational and technical considerations of standard jazz instruments; motivic development; voicing techniques, including mechanical, spreads, upper structure triads, and voicings in 4ths, 5ths and clusters; and orchestration techniques, including couplings and concerted writing.",
+            "id": "MUSIC 329",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Theoretical concepts, development of aural skills, and analysis procedures related to the jazz idiom. Audition required.",
+            "id": "MUSIC 331",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "CURRIC/MUSIC 337",
+            "target": "CURRIC/MUSIC 301"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 42",
+            "target": "MUSIC 465"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in musicology, dealing primarily with an important aspect or genre or music or segment of a stylistic period.",
+            "id": "MUSIC 911",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Choral vocal training, study and performance of concert literature. Audition required.",
+            "id": "MUSIC 50",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal and study of string orchestra literature at the introductory level.",
+            "id": "MUSIC 60",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 104",
+            "target": "CURRIC/MUSIC 304"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 229",
+            "target": "MUSIC 329"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 543",
+            "target": "MUSIC 544"
+        }
+    },
+    {
+        "data": {
+            "description": "Preparation and public performance of a Masters Recital.",
+            "id": "MUSPERF 990",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
+            "id": "MUSIC 262",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Observation and participation in K-12 music education settings.",
+            "id": "CURRIC/MUSIC 337"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the performance, transmission, and consumption of traditional and popular musics outside of the standard Euro-American context. Employs musical-analytic and critical approaches to trace transnational musical circulation.",
+            "id": "FOLKLORE/MUSIC 402"
+        }
+    },
+    {
+        "data": {
+            "description": "Supervised student teaching in general and instrumental K-12 settings.",
+            "id": "CURRIC/MUSIC 410"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual study and research for students in the major writing an honors thesis.",
+            "id": "MUSIC 682",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive lectures on chamber music with performances by instructor and others.",
+            "id": "MUSIC 113",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Major genres and composers of sacred and secular music in Western Europe (ca. 1600-1750).",
+            "id": "MUSIC 413",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Ensemble specializing in 16th- and 17th-century secular music. Audition required.",
+            "id": "MUSIC 58",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 548",
+            "target": "MUSIC 560"
+        }
+    },
+    {
+        "data": {
+            "description": "Performance plus additional study of performance practice and orchestral literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 570",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Choral vocal training, study and performance of concert literature. Audition required.",
+            "id": "MUSIC 56",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual research study with faculty mentor for writing thesis.",
+            "id": "MUSIC 990",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of introductory instruction in aural skills.",
+            "id": "MUSIC 172",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Opera role: preparation, rehearsal and performance in University opera production. Contact School of Music for audition information",
+            "id": "MUSIC 256",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Performance of scenes from standard operas, including singing, accompanying, and dramatic action; instruction in voice projection, posture, and gesture; problems of staging, lighting, costuming, and scenery. Contact School of Music for audition information",
+            "id": "MUSIC 257",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Limited instrumentation for students having attained exceptional level of performance ability. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 574",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Vocal instruction for the non-voice major. Basics of classical vocal technique; however, repertoire may include other musical styles, such as musical theater or jazz, as approved by instructor.",
+            "id": "MUSPERF 144",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore the relationships between the arts as they intersect with aspects of society, historically and in the present day, through various visual, auditory, and text-based expressive forms. Examine personal life experiences and ideas along with current issues related to music and art, and practice self-expression through the arts. No previous experience in any art form is necessary.",
+            "id": "MUSIC 240",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 272",
+            "target": "MUSIC 222"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 171",
+            "target": "MUSIC 172"
+        }
+    },
+    {
+        "data": {
+            "description": "Major genres and composers in Western Europe (ca. 1750-1827).",
+            "id": "MUSIC 414",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 102",
+            "target": "MUSPERF 103"
+        }
+    },
+    {
+        "data": {
+            "description": "The influence of traditional West African dance/music heritage in historical, artistic, social contexts in the development of new hybrid forms of music/dance created by cross-pollination of cultures of Africans, Europeans and indigenous peoples in the New World.",
+            "id": "AFROAMER/DANCE/MUSIC 318"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 229"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 340",
+            "target": "MUSIC 345"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 990",
+            "target": "MUSIC 632"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop conducting skills through experience leading an ad hoc ensemble of 9-20 musicians in rehearsal and performance on a range of orchestral and wind ensemble repertoire.",
+            "id": "MUSIC 632",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Choral vocal training, study and performance. Audition required.",
+            "id": "MUSIC 53",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 541",
+            "target": "MUSIC 531"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Major genres and composers of monophonic and polyphonic music, sacred and secular in Western Europe and England (ca. 7th-14th centuries).",
+            "id": "MUSIC 411",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Acting and stagecraft skills, including text-targeted work, with a focus on the dramatic aspects of the operatic craft.  Text work in will involve a step-by-step process designed to facilitate the assimilation of English and foreign-language texts in rehearsal and performance.  Work in these areas will be applied to arias and scenes from the operatic and theatrical repertoire.",
+            "id": "MUSIC 463",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of study in orchestration and arranging.",
+            "id": "MUSIC 524",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Traces the history of the blues in America's racial history. Begins by examining the living conditions that produced the blues in rural Mississippi (sharecropping, the cotton industry, the Great Flood of 1927). Continues by detailing the emergence of blues in the early recording industry (Paramount, OKeh), including the earliest examples (W.C. Handy, Mamie Smith), as well as the singers emerging in the 1920s (Blind Lemon Jefferson, Charley Patton, Robert Johnson). Follows migrations northward to Memphis (jug bands) and Chicago (electric blues), tracing the emerging importance of radio and live performance (King Biscuit Time, WDIA, the Chittlin' Circuit), living conditions in Chicago (Maxwell Street). Tracks early marketing of blues to white audiences (Josh White, Lead Belly). Ends with the reemergence of the blues as '60s folk music (Son House, Sonny Boy Williamson II) and British Invasion (Yardbirds). Supplemented with extensive musical selections, documentary footage of interviews.",
+            "id": "MUSIC 202",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Examine musical improvisation from performers and select repertoire primarily from the Jazz Canon. Explore harmonic, melodic, rhythmic, and cultural expansion into the 20th and 21st centuries of improvisational performance practice. Learn elements needed to transform from a performer into a viable and competent improvisor. Emphasis on cross-cultural understanding and interdisciplinarity.",
+            "id": "MUSIC 531",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of appropriate materials, standard literature, pedagogical techniques, and structure for the intermediate to advanced student. Research in specialized topics. Includes laboratory observation and teaching.",
+            "id": "MUSIC 548",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 172"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of strategies for composing, understanding, and writing about music.",
+            "id": "MUSIC 122",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive study of vocal literature including representative works from various periods.",
+            "id": "MUSIC 792",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 332",
+            "target": "MUSIC 531"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to development of music in the European tradition, 1750 to the present.",
+            "id": "MUSIC 212",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 331",
+            "target": "MUSIC 332"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 416"
+        }
+    },
+    {
+        "data": {
+            "description": "An intermediate-level academic course in music taken in a UW-Madison resident study abroad program. Course must be taught at an intermediate level as determined by the School of Music based on prerequisites and/or course syllabus. Enrollment in a UW-Madison resident study abroad program",
+            "id": "MUSIC 204",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of critical perspectives, musical knowledge, and pedagogical skills needed to teach instrumental popular music. Focus on popular string instruments, their electronic counterparts, and emerging technologies for the performance and production of popular music.",
+            "id": "CURRIC/MUSIC 420"
+        }
+    },
+    {
+        "data": {
+            "description": "Musical genres -- songs, opera and musical theater, chamber and orchestral music, and jazz -- in the context of social and cultural history.",
+            "id": "MUSIC 101",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Major genres and composers in Europe and the United States.",
+            "id": "MUSIC 416",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 121",
+            "target": "MUSIC 171"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 144",
+            "target": "MUSIC 463"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 211"
+        }
+    },
+    {
+        "data": {
+            "source": "CURRIC/MUSIC 302",
+            "target": "CURRIC/MUSIC 337"
+        }
+    },
+    {
+        "data": {
+            "description": "Rehearsal and performance of music from wind ensemble and band literature. Audition required.",
+            "id": "MUSIC 40",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSPERF 427",
+            "target": "MUSIC 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of the works of Gershwin, Rodgers, Kern, Porter, and others; nature of the music; semantics of the lyrics, and popular song as the reflection of a social era.",
+            "id": "MUSIC 305",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 221",
+            "target": "MUSIC 252"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of a variety of global drumming traditions culminating in group performance opportunities. Learn specific techniques and rhythms as well as skills required to facilitate drum circles for all levels of players.",
+            "id": "MUSIC 260",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Examination of historical evidence for performance practice and its relevance to modern performances of the music of earlier eras.",
+            "id": "MUSIC 511",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "id": "MUSPERF",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 171",
+            "target": "MUSIC 122"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to musical theater and opera in Europe and America, with emphasis on the ways creators tell their stories through the interaction of music and drama. Topics include the histories and formations of the genres and their relationships to culture and society; principal creators and performers; distinctive features of representative works; relationships to film and other media; and treatments of race, class, gender, and other issues in selected examples of each genre.",
+            "id": "MUSIC 105",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "A low-enrollment course developing skills in critical reading, logical thinking, use of evidence, and use of library resources. Emphasis on writing in the conventions of specific fields.",
+            "id": "MUSIC 236",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 221",
+            "target": "MUSIC 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques for teaching older beginners or adults in class or individual instruction, piano literature sources and references, evaluation of repertoire and analysis of methods and structure.",
+            "id": "MUSIC 551",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the teaching and learning of diverse vocal styles. Special emphasis on what makes each style distinct, as well as the acquisition practices associated with each style.",
+            "id": "CURRIC/MUSIC 344"
+        }
+    },
+    {
+        "data": {
+            "description": "Consider the meaning of the words \"analysis\" and \"theory,\" specifically as they have been applied to the study of music. Gain an overview of music theory in higher education: the origin of contemporary analytical praxis, as well as critiques of that model. Take a deeper dive into current trends in analysis, focusing on non-conforming, ecumenical, and otherwise \"non-theoretical\" ways of talking and writing about music, including narrative, semiotics, hermeneutics, performance-based schemata, and others.",
+            "id": "MUSIC 517",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 271"
         }
     },
     {
@@ -931,545 +1333,98 @@
     },
     {
         "data": {
-            "description": "Seminar in Choral Literature from Renaissance to the Present.",
-            "id": "MUSIC 542",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of strategies for composing, understanding, and writing about music.",
-            "id": "MUSIC 122",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to development of music in the European tradition, before 1750.",
-            "id": "MUSIC 211",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Observation and teaching of an advanced undergraduate student under the direct supervision of a studio professor.",
-            "id": "MUSIC 560",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Preparation and public performance of a Masters Recital.",
-            "id": "MUSPERF 990",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "The learning and teaching of music at the elementary and middle school levels.",
-            "id": "CURRIC/MUSIC 301"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 221",
-            "target": "MUSIC 253"
-        }
-    },
-    {
-        "data": {
-            "description": "The learning and teaching of music at the high school level.",
-            "id": "CURRIC/MUSIC 302"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 103",
-            "target": "MUSPERF 104"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 271",
-            "target": "MUSIC 252"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 221",
-            "target": "MUSIC 252"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of conducting techniques, emphasis on practical application to vocal and instrumental groups.",
-            "id": "MUSIC 254",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of wide-ranging topics in music history, music theory or music education.",
-            "id": "MUSIC 497",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 405"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 732",
-            "target": "MUSIC 632"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines cultural influences on the development of jazz. Explores historical and ethnographic works by scholars in ethnomusicology, history, anthropology, and communication in order to understand cultural influences of traditional and contemporary genres of jazz. Major topics include syncretism, nationalism, modernity, ethnicity, gender, colonialism, and globalization of modern America. Emphasis on cross-cultural understanding and interdisciplinarity in jazz performance.",
-            "id": "MUSIC 102",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 548",
-            "target": "MUSIC 560"
-        }
-    },
-    {
-        "data": {
-            "description": "Preparation and public performance of a Doctoral Recital that comprises a portion of the degree requirements for all Doctor of Musical Arts degrees.",
-            "id": "MUSPERF 999",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual research and projects with faculty. Students must have project and instructor assignment approved by department",
-            "id": "MUSIC 499",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of pioneer performers who influenced popular musical taste from 1920 to 1950.",
-            "id": "MUSIC 206",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Performance plus additional study of performance practice and choir literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 578",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 532",
-            "target": "MUSIC 632"
-        }
-    },
-    {
-        "data": {
-            "description": "Actively participate in a diverse exploration of community. Create collaborative music engagement projects and evaluate the impact of the project's implementation. Opportunity to increase self-awareness, enhance creative capacity, and cultivate music career aspirations.",
-            "id": "MUSIC 608",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 567",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 513"
-        }
-    },
-    {
-        "data": {
-            "description": "Major genres and composers in Western Europe (ca. 1750-1827).",
-            "id": "MUSIC 414",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "English, German, Italian, and French diction as related to vocal music.",
-            "id": "MUSIC 467",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Examine musical improvisation from performers and select repertoire primarily from the Jazz Canon. Explore harmonic, melodic, rhythmic, and cultural expansion into the 20th and 21st centuries of improvisational performance practice. Learn elements needed to transform from a performer into a viable and competent improvisor. Emphasis on cross-cultural understanding and interdisciplinarity.",
-            "id": "MUSIC 531",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Conducting techniques, emphasis on practical application to vocal and instrumental groups.",
-            "id": "MUSIC 253",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 172",
-            "target": "MUSIC 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual conducting instruction at the doctoral level.",
-            "id": "MUSPERF 732",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in musicology, dealing primarily with an important aspect or genre or music or segment of a stylistic period.",
-            "id": "MUSIC 911",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of critical perspectives, musical knowledge, and pedagogical skills needed to teach instrumental popular music. Focus on popular string instruments, their electronic counterparts, and emerging technologies for the performance and production of popular music.",
-            "id": "CURRIC/MUSIC 420"
-        }
-    },
-    {
-        "data": {
-            "description": "Major genres and composers of sacred and secular music in Western Europe (ca. 1600-1750).",
-            "id": "MUSIC 413",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 413"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of the life, cultural background, and works of a major figure in Western music history.",
-            "id": "MUSIC 306",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 271",
-            "target": "MUSIC 253"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual research study with faculty mentor for writing thesis.",
-            "id": "MUSIC 990",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on analysis of music education in primary and secondary schools via examination of historical, philosophical, and psychological sources. Explore ideas that have shaped the field in the past and investigate the influence of these ideas on current thinking and practice.",
-            "id": "CURRIC/MUSIC 946"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of film music by the major film composers. Will include study of film scores by, among others, Alfred Newman, Max Steiner, Bernard Herrmann, and Ennio Morricone, as well as a discussion of current trends and film composers. In addition, there will be discussion of the contributions of composers such as Aaron Copland, Serge Prokofiev and Leonard Bernstein. The techniques and styles of film music will be explored through lectures, required listening, readings and viewing of relevant films.",
-            "id": "MUSIC 107",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "The \"building blocks\" of music for non-majors. Deepens one's understanding of music through hands-on experience with its component materials: melody and harmony, rhythm and meter. It has the additional aim of increasing one's fluency in read music, broadening one's acquaintance with scores and various other musical media old and new, and improving one's skills as a listener. Students will explore basic musical concepts in a lab-like environment and solve various compositional problems and analytical puzzles.",
-            "id": "MUSIC 152",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 553",
-            "target": "MUSIC 554"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 272",
-            "target": "MUSIC 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal, coaching and preparing guitar literature for performance of duos, trios, and quartets. Audition and instructor consent required for students enrolling the first time. Musicians other than guitarists are permitted to enroll and be incorporated into the ensembles.",
-            "id": "MUSIC 270",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 171",
-            "target": "MUSIC 122"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration and performance of standard band literature.",
-            "id": "MUSIC 43",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "An intermediate-level academic course in music taken in a UW-Madison resident study abroad program. Course must be taught at an intermediate level as determined by the School of Music based on prerequisites and/or course syllabus. Enrollment in a UW-Madison resident study abroad program",
-            "id": "MUSIC 204",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 42",
-            "target": "MUSIC 465"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 262",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of theory and practice of 17th and 18th-century figured bass and basso continuo realization and performance. Participants develop extemporized and written realizations that emulate the discipline, style traits, and musical vitality suggested in historical sources.",
-            "id": "MUSIC 502",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Group instruction in elementary piano.",
-            "id": "MUSPERF 103",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of introductory instruction in aural skills.",
-            "id": "MUSIC 172",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of musical concepts and issues in music-theoretical discourse from antiquity through the 17th century.",
-            "id": "MUSIC 821",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Historical and contemporary bibliography resources for musical scholarship; general reference tools of scholarly work and specific musicological works.",
-            "id": "LIS/MUSIC 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal and study of string orchestra literature at the introductory level.",
-            "id": "MUSIC 60",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "CURRIC/MUSIC 301",
-            "target": "CURRIC/MUSIC 337"
-        }
-    },
-    {
-        "data": {
-            "description": "Interpretive and technical approaches to advanced keyboard performance.",
-            "id": "MUSIC 751",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied piano literature including representative works from all periods.",
-            "id": "MUSIC 791",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 212",
-            "target": "MUSIC 252"
-        }
-    },
-    {
-        "data": {
-            "description": "Ensemble specializing in 16th- and 17th-century secular music. Audition required.",
-            "id": "MUSIC 58",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar in Choral Literature from Renaissance to the Present.",
-            "id": "MUSIC 541",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Explore a variety of musical styles created from social movements and generational and cultural identity, through rehearsals and performance. Styles to be covered, studied, and performed include, but are not limited to Hip Hop, Reggae, Jazz, and Cumbia. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 266",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "The training of singers and musicians for show choir. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 264",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 121",
-            "target": "MUSIC 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced instruction in double bass performance.",
-            "id": "MUSPERF 437",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores women's musical activities and issues related to them by focusing on composers, performers, and audiences in a wide range of contexts, from Europe in the Medieval Era through 21st-century America; no reading knowledge of music is required.",
-            "id": "MUSIC 317",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal and performance of music for athletic events. Audition required.",
-            "id": "MUSIC 42",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of methods and materials related to marching band teaching, philosophy, and performance.",
-            "id": "MUSIC 465",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of musical concepts and issues in music-theoretical discourse from the 17th century through the present.",
-            "id": "MUSIC 822",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Italian, German, and French diction as related to vocal music; transcription into the International Phonetic Alphabet (IPA).",
-            "id": "MUSIC 466",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 172",
-            "target": "MUSIC 229"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 222",
-            "target": "MUSIC 272"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 402",
-            "target": "MUSIC 346"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of the role played by popular song in the formation of ethnic and racial identities in the United States with particular emphasis placed on both music's role in the perpetuation of racism and its use as a form of protest and anti-racist activism.",
-            "id": "MUSIC 203",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 144",
+            "source": "MUSPERF 505",
             "target": "MUSIC 463"
         }
     },
     {
         "data": {
-            "source": "MUSIC 106",
-            "target": "MUSIC 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced individual percussion instruction. Instructor consent is required for students enrolling for the first time.",
-            "id": "MUSPERF 427",
+            "description": "Group instruction in intermediate piano.",
+            "id": "MUSPERF 104",
             "parent": "MUSPERF"
         }
     },
     {
         "data": {
-            "description": "Music during defined historical periods with emphasis on political and social contexts. May concentrate on a specific era or geographical area.",
-            "id": "MUSIC 201",
+            "source": "MUSIC 212",
+            "target": "FOLKLORE/MUSIC 402"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 122",
+            "target": "MUSIC 212"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 101",
+            "target": "MUSIC 306"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 222",
+            "target": "MUSIC 524"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual studio instruction in jazz performance.",
+            "id": "MUSPERF 541",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "description": "Upper-level harpsichord study of advanced repertoire and basso continuo; for harpsichordists who have mastery of basic technique and repertoire. Instructor consent is required for students enrolling for the first time.",
+            "id": "MUSPERF 402",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics of current theoretical or compositional concern and in-depth discussions of recent publications.",
+            "id": "MUSIC 921",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Individual research study with faculty mentor.",
-            "id": "MUSIC 999",
+            "source": "MUSIC 172",
+            "target": "MUSIC 122"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 569",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Faculty-mentored individual study and research.",
-            "id": "MUSIC 799",
+            "description": "Principles of music education, including philosophy, history, and current practices and curricular trends. Survey of music education in and out of schools as situated within diverse, pluralistic communities.",
+            "id": "CURRIC/MUSIC 300"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 212",
+            "target": "MUSIC 414"
+        }
+    },
+    {
+        "data": {
+            "description": "Choral vocal training, study and performance of concert literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 55",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Topics directly related to composition, including musical forms, contemporary performance practice, electronic music, intermedia.",
-            "id": "MUSIC 927",
+            "description": "Introduction to contemporary research into jazz theory through analysis of lead sheet jazz compositions, analysis of large ensemble jazz compositions and improvised solos, and critical readings of jazz theory publications.",
+            "id": "MUSIC 629",
             "parent": "MUSIC"
         }
     },
@@ -1482,35 +1437,29 @@
     },
     {
         "data": {
-            "description": "Pedagogical methods for applied music offered on all instruments and voice by appropriate applied staff. Survey of music, methods, and materials.",
-            "id": "MUSIC 340",
+            "description": "A group of select singers who study varied repertoire conducted by graduate students. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 579",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Provides opportunity for graduate students to teach privately or in small groups under faculty supervision.",
-            "id": "MUSIC 545",
+            "description": "Explores music of ethnic groups in the U.S., including that of marginalized minorities, in its cultural context.  Topics may include the music of African American, Asian American, Native American and Jewish communities.",
+            "id": "MUSIC 319",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSPERF 505",
-            "target": "MUSIC 463"
-        }
-    },
-    {
-        "data": {
-            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 568",
+            "description": "A survey of pioneer performers who influenced popular musical taste from 1920 to 1950.",
+            "id": "MUSIC 206",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Opera role: preparation, rehearsal and performance in University opera production. Contact School of Music for audition information",
-            "id": "MUSIC 256",
+            "description": "Explores women's musical activities and issues related to them by focusing on composers, performers, and audiences in a wide range of contexts, from Europe in the Medieval Era through 21st-century America; no reading knowledge of music is required.",
+            "id": "MUSIC 317",
             "parent": "MUSIC"
         }
     },
@@ -1523,29 +1472,104 @@
     },
     {
         "data": {
-            "description": "Continuation of group instruction in beginning piano.",
-            "id": "MUSPERF 102",
+            "description": "A survey of film music by the major film composers. Will include study of film scores by, among others, Alfred Newman, Max Steiner, Bernard Herrmann, and Ennio Morricone, as well as a discussion of current trends and film composers. In addition, there will be discussion of the contributions of composers such as Aaron Copland, Serge Prokofiev and Leonard Bernstein. The techniques and styles of film music will be explored through lectures, required listening, readings and viewing of relevant films.",
+            "id": "MUSIC 107",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Students enrolling for the first time should contact the School of Music for audition information",
+            "id": "MUSIC 562",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Performance and study of choral chamber music. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 577",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of critical perspectives, musical knowledge, and pedagogical skills needed to teach instrumental popular music. Focus on popular percussion instruments, their electronic counterparts, and emerging technologies for the performance and production of popular music.",
+            "id": "CURRIC/MUSIC 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Master's level individual conducting instruction.",
+            "id": "MUSPERF 532",
             "parent": "MUSPERF"
         }
     },
     {
         "data": {
-            "source": "MUSIC 172",
-            "target": "MUSIC 122"
+            "description": "Advanced individual percussion instruction. Instructor consent is required for students enrolling for the first time.",
+            "id": "MUSPERF 427",
+            "parent": "MUSPERF"
         }
     },
     {
         "data": {
-            "description": "Historical development of opera; investigation of main stylistic features of representative masterworks.",
-            "id": "MUSIC 513",
+            "description": "Rehearsal, study of performance of classical symphonic works of 19th and 20th century orchestra and concerto literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 571",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Descriptive lectures on chamber music with performances by instructor and others.",
-            "id": "MUSIC 113",
+            "description": "Individual research study with faculty mentor.",
+            "id": "MUSIC 999",
             "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics directly related to composition, including musical forms, contemporary performance practice, electronic music, intermedia.",
+            "id": "MUSIC 927",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Conducting techniques, emphasis on practical application to vocal and instrumental groups.",
+            "id": "MUSIC 253",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed to assist the DMA student in piano performance and pedagogy in developing a pedagogical workshop for piano teachers. The project will culminate in a public workshop which may address any approved area of keyboard pedagogy.",
+            "id": "MUSIC 752",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
+            "id": "MUSIC 268",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "The learning and teaching of music at the elementary and middle school levels.",
+            "id": "CURRIC/MUSIC 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Intensive discussions of particular repertoire or musical problems.",
+            "id": "MUSIC 926",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in ethnomusicology within a cross-cultural framework; melodic typology, scale and tuning systems, mode, rhythm, ornamentation, improvisation techniques, oral and written traditions of composition, notation systems, and function of music society.",
+            "id": "FOLKLORE/MUSIC 915"
         }
     },
     {
@@ -1557,133 +1581,36 @@
     },
     {
         "data": {
-            "description": "Study and analysis of various vocal techniques: pedagogical and historical viewpoints.",
-            "id": "MUSIC 749",
+            "description": "Studies in the theoretical concepts and analytical methods, including those of Milton Babbitt, Allen Forte, David Lewin, Robert Morris, and others.",
+            "id": "MUSIC 824",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Choral vocal training, study and performance. Audition required.",
-            "id": "MUSIC 53",
+            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 568",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Survey of standard musical techniques and devices for arranging lead-sheet-based jazz compositions for medium and large jazz ensembles through score study, musical exercises, and arranging projects for live ensembles. Topics include jazz counterpoint and melody writing; preparing arrangements through outlines and condensed scores; chord substitutions and reharmonization; ranges, timbres, notational and technical considerations of standard jazz instruments; motivic development; voicing techniques, including mechanical, spreads, upper structure triads, and voicings in 4ths, 5ths and clusters; and orchestration techniques, including couplings and concerted writing.",
-            "id": "MUSIC 329",
+            "description": "A study of significant dance orchestras from 1920 to 1950: development of style and influence on popular musical taste.",
+            "id": "MUSIC 205",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Observation and participation in K-12 music education settings.",
-            "id": "CURRIC/MUSIC 337"
-        }
-    },
-    {
-        "data": {
-            "source": "CURRIC/MUSIC 300",
-            "target": "CURRIC/MUSIC 301"
-        }
-    },
-    {
-        "data": {
-            "description": "History of orchestration and arranging; study of representative works by means of scores, recordings, and attendance at rehearsals of University organizations; scoring for band, chorus, and orchestra.",
-            "id": "MUSIC 523",
+            "description": "Examines cultural influences on the development of jazz. Explores historical and ethnographic works by scholars in ethnomusicology, history, anthropology, and communication in order to understand cultural influences of traditional and contemporary genres of jazz. Major topics include syncretism, nationalism, modernity, ethnicity, gender, colonialism, and globalization of modern America. Emphasis on cross-cultural understanding and interdisciplinarity in jazz performance.",
+            "id": "MUSIC 102",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Vocal instruction for the non-voice major. Basics of classical vocal technique; however, repertoire may include other musical styles, such as musical theater or jazz, as approved by instructor.",
-            "id": "MUSPERF 144",
-            "parent": "MUSPERF"
-        }
-    },
-    {
-        "data": {
-            "description": "Orchestral music from Haydn to present, relation to other arts.",
-            "id": "MUSIC 106",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual study and research for students in the major writing an honors thesis.",
-            "id": "MUSIC 682",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Performance plus additional study of performance practice and orchestral literature. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 570",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 332",
-            "target": "MUSIC 531"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 122",
-            "target": "MUSIC 229"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of study in orchestration and arranging.",
-            "id": "MUSIC 524",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Musical genres -- songs, opera and musical theater, chamber and orchestral music, and jazz -- in the context of social and cultural history.",
-            "id": "MUSIC 101",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 543",
-            "target": "MUSIC 545"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSIC 171",
-            "target": "MUSIC 172"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MUSPERF 437",
-            "target": "MUSIC 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive study of vocal literature including representative works from various periods.",
-            "id": "MUSIC 792",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "A low-enrollment course developing skills in critical reading, logical thinking, use of evidence, and use of library resources. Emphasis on writing in the conventions of specific fields.",
-            "id": "MUSIC 236",
+            "description": "Intermediate aural skills instruction.",
+            "id": "MUSIC 272",
             "parent": "MUSIC"
         }
     },
@@ -1696,70 +1623,29 @@
     },
     {
         "data": {
-            "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 269",
+            "description": "Study of theory and practice of 17th and 18th-century figured bass and basso continuo realization and performance. Participants develop extemporized and written realizations that emulate the discipline, style traits, and musical vitality suggested in historical sources.",
+            "id": "MUSIC 502",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Study of modern analytical techniques; practice in analysis of representative works.",
-            "id": "MUSIC 623",
+            "description": "Orchestral music from Haydn to present, relation to other arts.",
+            "id": "MUSIC 106",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Supervised student teaching in general and vocal K-12 settings.",
-            "id": "CURRIC/MUSIC 409"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of a variety of global drumming traditions culminating in group performance opportunities. Learn specific techniques and rhythms as well as skills required to facilitate drum circles for all levels of players.",
-            "id": "MUSIC 260",
+            "description": "Examination of the life, cultural background, and works of a major figure in Western music history.",
+            "id": "MUSIC 306",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Traces the history of the blues in America's racial history. Begins by examining the living conditions that produced the blues in rural Mississippi (sharecropping, the cotton industry, the Great Flood of 1927). Continues by detailing the emergence of blues in the early recording industry (Paramount, OKeh), including the earliest examples (W.C. Handy, Mamie Smith), as well as the singers emerging in the 1920s (Blind Lemon Jefferson, Charley Patton, Robert Johnson). Follows migrations northward to Memphis (jug bands) and Chicago (electric blues), tracing the emerging importance of radio and live performance (King Biscuit Time, WDIA, the Chittlin' Circuit), living conditions in Chicago (Maxwell Street). Tracks early marketing of blues to white audiences (Josh White, Lead Belly). Ends with the reemergence of the blues as '60s folk music (Son House, Sonny Boy Williamson II) and British Invasion (Yardbirds). Supplemented with extensive musical selections, documentary footage of interviews.",
-            "id": "MUSIC 202",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Performance of scenes from standard operas, including singing, accompanying, and dramatic action; instruction in voice projection, posture, and gesture; problems of staging, lighting, costuming, and scenery. Contact School of Music for audition information",
-            "id": "MUSIC 257",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in ethnomusicology within a cross-cultural framework; melodic typology, scale and tuning systems, mode, rhythm, ornamentation, improvisation techniques, oral and written traditions of composition, notation systems, and function of music society.",
-            "id": "FOLKLORE/MUSIC 915"
-        }
-    },
-    {
-        "data": {
-            "description": "Theoretical concepts, development of aural skills, and analysis procedures related to the jazz idiom. Audition required.",
-            "id": "MUSIC 331",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Rehearsal and performance from band literature; additional study of performance practice. Students will audition for placement prior to the beginning of the semester",
-            "id": "MUSIC 576",
-            "parent": "MUSIC"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration and performance of standard choral literature.",
-            "id": "MUSIC 59",
-            "parent": "MUSIC"
+            "source": "MUSPERF 103",
+            "target": "MUSPERF 104"
         }
     },
     {
@@ -1771,35 +1657,75 @@
     },
     {
         "data": {
-            "description": "Opera role: preparation, rehearsal and performance in University opera production.",
-            "id": "MUSIC 556",
+            "description": "Introduction to development of music in the European tradition, before 1750.",
+            "id": "MUSIC 211",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSIC 331",
-            "target": "MUSIC 332"
+            "source": "MUSPERF 401",
+            "target": "MUSIC 346"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 553",
+            "target": "MUSIC 554"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the teaching of musical composition, arrangement, and orchestration. Special emphasis on how music technologies interact with conceptions of composition, arrangement, and orchestration; implications for music learning and teaching.",
+            "id": "CURRIC/MUSIC 304"
+        }
+    },
+    {
+        "data": {
+            "description": "Major genres and composers in Europe (ca. 1820-1910).",
+            "id": "MUSIC 415",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "source": "MUSIC 172",
+            "target": "MUSIC 229"
+        }
+    },
+    {
+        "data": {
+            "description": "Early Music Ensemble specializing in performance of instrumental and vocal early music, using the school's collection of replicas of early instruments. Audition required.",
+            "id": "MUSIC 461",
+            "parent": "MUSIC"
         }
     },
     {
         "data": {
             "description": "Assignments in performing ensemble literature. Audition and instructor consent required for students enrolling the first time",
-            "id": "MUSIC 265",
+            "id": "MUSIC 269",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Techniques for teaching older beginners or adults in class or individual instruction, piano literature sources and references, evaluation of repertoire and analysis of methods and structure.",
-            "id": "MUSIC 551",
+            "description": "Intoductory istruction in aural skills.",
+            "id": "MUSIC 171",
             "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSIC 212",
-            "target": "FOLKLORE/MUSIC 402"
+            "description": "Study/analysis of conducting techniques; score reading/interpretation of masterpieces from standard repertoire.",
+            "id": "MUSIC 553",
+            "parent": "MUSIC"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced strategies for composing, understanding, and writing about music.",
+            "id": "MUSIC 222",
+            "parent": "MUSIC"
         }
     },
     {
@@ -1811,6 +1737,19 @@
     },
     {
         "data": {
+            "source": "MUSPERF 205",
+            "target": "MUSIC 463"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of group instruction in beginning piano.",
+            "id": "MUSPERF 102",
+            "parent": "MUSPERF"
+        }
+    },
+    {
+        "data": {
             "description": "Group instruction in beginning piano.",
             "id": "MUSPERF 101",
             "parent": "MUSPERF"
@@ -1818,26 +1757,29 @@
     },
     {
         "data": {
-            "source": "MUSIC 221",
-            "target": "MUSIC 272"
+            "description": "Rehearsal and performance from band literature; additional study of performance practice. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 576",
+            "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSPERF 705",
-            "target": "MUSIC 463"
+            "description": "Exploration of wide-ranging topics in music history, music performance, music theory or music education.",
+            "id": "MUSIC 297",
+            "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "description": "Principles of music education, including philosophy, history, and current practices and curricular trends. Survey of music education in and out of schools as situated within diverse, pluralistic communities.",
-            "id": "CURRIC/MUSIC 300"
+            "description": "Assignments in performing ensemble literature. Students will audition for placement prior to the beginning of the semester",
+            "id": "MUSIC 567",
+            "parent": "MUSIC"
         }
     },
     {
         "data": {
-            "source": "MUSIC 253",
-            "target": "MUSIC 254"
+            "source": "MUSPERF 401",
+            "target": "MUSIC 340"
         }
     }
 ]

@@ -26,12 +26,6 @@
                 "subjects": [
                     "BIOCHEM"
                 ]
-            },
-            {
-                "course_number": 501,
-                "subjects": [
-                    "BIOCHEM"
-                ]
             }
         ],
         "prerequisites_text": "(CHEM\u00a0116,327, or329),MATH\u00a0222, (PHYSICS\u00a0201,207, or247), and (BIOCHEM\u00a0501,507,BIOCORE\u00a0383, or concurrent enrollment), or graduate/professional standing. Not open to students with credit forCHEM\u00a0561or 565."
@@ -39,9 +33,21 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 507,
+                "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 561,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -57,13 +63,7 @@
                 ]
             },
             {
-                "course_number": 329,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 501,
+                "course_number": 507,
                 "subjects": [
                     "BIOCHEM"
                 ]
@@ -75,15 +75,15 @@
                 ]
             },
             {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 222,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
                 ]
             },
             {
@@ -93,15 +93,9 @@
                 ]
             },
             {
-                "course_number": 561,
+                "course_number": 329,
                 "subjects": [
                     "CHEM"
-                ]
-            },
-            {
-                "course_number": 247,
-                "subjects": [
-                    "PHYSICS"
                 ]
             }
         ],

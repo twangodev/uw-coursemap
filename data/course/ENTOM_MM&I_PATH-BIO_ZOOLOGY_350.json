@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 350,
         "subjects": [
+            "PATH-BIO",
             "ZOOLOGY",
             "MM&I",
-            "ENTOM",
-            "PATH-BIO"
+            "ENTOM"
         ]
     },
     "course_title": "PARASITOLOGY",
@@ -15,8 +15,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -28,16 +28,9 @@
             {
                 "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -46,24 +39,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
                 "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
+                    "BIOLOGY",
                     "BOTANY",
-                    "BIOLOGY"
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 381,
+                "course_number": 102,
                 "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -73,10 +67,9 @@
                 ]
             },
             {
-                "course_number": 102,
+                "course_number": 381,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOCORE"
                 ]
             }
         ],
