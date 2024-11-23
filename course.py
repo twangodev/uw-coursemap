@@ -96,19 +96,25 @@ class Course(JsonSerializable):
                 return False
             return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites):
+    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
         self.prerequisites = prerequisites
+        self.optimized_prerequisites = optimized_prerequisites
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
+        optimized_prerequisites = None
+        if json_data["optimized_prerequisites"]:
+            optimized_prerequisites = Course.Prerequisites.from_json(json_data["optimized_prerequisites"])
+
         return Course(
             course_reference=Course.Reference.from_json(json_data["course_reference"]),
             course_title=json_data["course_title"],
             description=json_data["description"],
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
+            optimized_prerequisites=optimized_prerequisites
         )
 
     def to_dict(self):
@@ -116,7 +122,8 @@ class Course(JsonSerializable):
             "course_reference": self.course_reference.to_dict(),
             "course_title": self.course_title,
             "description": self.description,
-            "prerequisites": self.prerequisites.to_dict()
+            "prerequisites": self.prerequisites.to_dict(),
+            "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
         }
 
     @classmethod
@@ -153,7 +160,7 @@ class Course(JsonSerializable):
         requisites_courses.discard(course_reference)  # Remove self-reference
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
-        return Course(course_reference, course_title, description, course_prerequisite)
+        return Course(course_reference, course_title, description, course_prerequisite, None)
 
     def determine_parent(self):
         parent = None

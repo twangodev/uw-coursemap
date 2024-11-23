@@ -37,7 +37,7 @@ def create_edge(target, source):
 def generate_style(parent, color):
     return { parent : color }
 
-def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course], graph_set_1, graph_set_2):
+def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course], graph_set_1: set[Course], graph_set_2: set[Course]):
     if course.get_identifier() in seen:
         return
     seen.add(course.get_identifier())
@@ -46,14 +46,14 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
     to_add.add(create_node(course))
     to_add.add(create_compound(course.determine_parent()))
 
-    for reference in course.prerequisites.course_references:
+    for reference in course.optimized_prerequisites.course_references:
         if reference not in course_ref_to_course:
             print(f"Prerequisite not found in courses: {reference}")
             continue
         edge = create_edge(target=course.get_identifier(), source=reference.get_identifier())
         to_add.add(edge)
-        course: Course = course_ref_to_course[reference]
-        to_add.add(get_subgraphs(course, course_ref_to_course, seen, graph_set_1, graph_set_2))
+        c: Course = course_ref_to_course[reference]
+        to_add.add(get_subgraphs(c, course_ref_to_course, seen, graph_set_1, graph_set_2))
 
     for graph_data in to_add:
         graph_set_1.add(graph_data)

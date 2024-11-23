@@ -21,7 +21,7 @@ def get_course_blocks(url: str, logger: Logger) -> (str, ResultSet):
     logger.info(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
 
-def add_data(subjects, course_ref_course, subject_course, full_subject, blocks):
+def add_data(subjects, course_ref_course, full_subject, blocks):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
     full_name = full_subject.group(1).strip()
     abbreviation = full_subject.group(2).replace(" ", "")
@@ -33,11 +33,6 @@ def add_data(subjects, course_ref_course, subject_course, full_subject, blocks):
         if not course:
             continue
         course_ref_course[course.course_reference] = course
-
-        for subject in course.course_reference.subjects:
-            if subject not in subject_course:
-                subject_course[subject] = set()
-            subject_course[subject].add(course)
 
 def get_course_urls(sitemap_url: str, logger: Logger) -> list[str]:
     logger.info("Fetching and parsing the sitemap...")
@@ -66,19 +61,23 @@ def scrape_all(urls: list[str], logger: Logger):
 
     subject_to_full_subject = dict()
     course_ref_to_course = dict()
-    subject_to_courses = dict()
 
     for url in urls:
         full_subject, blocks = get_course_blocks(url, logger)
-        add_data(subject_to_full_subject, course_ref_to_course, subject_to_courses, full_subject, blocks)
-
-    unmatched = set(subject_to_courses.keys()) ^ set(subject_to_full_subject.keys())
-    if unmatched:
-        logger.warning(f"Unmatched subjects: {unmatched}")
+        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
-    logger.info(f"Total subject to course mappings: {len(subject_to_courses)}")
-    return subject_to_full_subject, course_ref_to_course, subject_to_courses
+    return subject_to_full_subject, course_ref_to_course
 
+def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:
+    subject_to_courses = dict()
+    for course in course_ref_to_course.values():
+        subject = course.course_reference.subjects
 
+        for s in subject:
+            if s not in subject_to_courses:
+                subject_to_courses[s] = set()
+            subject_to_courses[s].add(course)
+
+    return subject_to_courses
