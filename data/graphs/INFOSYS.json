@@ -1,49 +1,14 @@
 [
     {
         "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 365",
-            "parent": "INFOSYS"
+            "source": "INFOSYS 371",
+            "target": "INFOSYS/ISYE 722"
         }
     },
     {
         "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "id": "INFOSYS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "COMPSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
-            "id": "INFOSYS 423",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
-            "id": "INFOSYS 371",
-            "parent": "INFOSYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-            "id": "INFOSYS 352",
-            "parent": "INFOSYS"
+            "source": "INFOSYS/ISYE 722",
+            "target": "INFOSYS 724"
         }
     },
     {
@@ -55,14 +20,9 @@
     },
     {
         "data": {
-            "source": "COMPSCI 220",
-            "target": "INFOSYS 371"
-        }
-    },
-    {
-        "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS 424"
+            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
+            "id": "INFOSYS 424",
+            "parent": "INFOSYS"
         }
     },
     {
@@ -74,7 +34,7 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
+            "id": "COMPSCI",
             "type": "compound"
         }
     },
@@ -86,14 +46,8 @@
     },
     {
         "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied principles and techniques of information systems development including requirements identification and analysis, process and data modeling, team communication and collaboration, and system testing.",
-            "id": "INFOSYS 424",
+            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
+            "id": "INFOSYS 352",
             "parent": "INFOSYS"
         }
     },
@@ -106,8 +60,54 @@
     },
     {
         "data": {
-            "source": "INFOSYS/ISYE 722",
-            "target": "INFOSYS 724"
+            "source": "INFOSYS 371",
+            "target": "INFOSYS 424"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to data analysis procedures covering topics including: data collection, pre-processing, analysis, and presentation. Content covers important data analysis concepts, such as structured and unstructured data. Learn about supervised, unsupervised learning methods and advanced analytics topics, such as text mining, recommendation systems, and algorithm bias.",
+            "id": "INFOSYS 423",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+            "id": "INFOSYS 371",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "INFOSYS 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 365",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "INFOSYS",
+            "type": "compound"
         }
     },
     {

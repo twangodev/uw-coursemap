@@ -1,59 +1,39 @@
 [
     {
         "course_reference": {
-            "course_number": 171,
+            "course_number": 925,
             "subjects": [
-                "ATMOCN",
-                "ENVIRST"
+                "ENVIRST",
+                "ATMOCN"
             ]
         },
-        "course_title": "GLOBAL CHANGE: ATMOSPHERIC ISSUES AND PROBLEMS",
-        "description": "Atmospheric problems of global significance. Greenhouse warming, ozone layer, acid rain, climate change. Study based on elementary principles of atmospheric science. Systems approach applied to changing atmospheric composition. Interactions among geochemical cycles, anthropogenic inputs and other parts of the environment.",
+        "course_title": "SEMINAR-CLIMATOLOGY",
+        "description": "Historical climatology with emphasis on the last few centuries.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 441,
+            "course_number": 323,
             "subjects": [
+                "GEOG",
                 "ATMOCN"
             ]
         },
-        "course_title": "RADAR AND SATELLITE METEOROLOGY",
-        "description": "Provides necessary knowledge about radar and satellite meteorology.",
+        "course_title": "SCIENCE OF CLIMATE CHANGE",
+        "description": "Calculus-based treatment of climate system physics and the mechanisms of modern-day anthropogenic climate change. Covers how solar radiation and rotating fluid dynamics determine the basic climate state; mechanisms of natural variability and change in climate; why anthropogenic climate change is occurring; and which scientific uncertainties are most important to estimates of 21st century change.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 340,
+                    "course_number": 425,
                     "subjects": [
                         "ATMOCN"
                     ]
                 }
             ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0340"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 638,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "ATMOSPHERIC CHEMISTRY",
-        "description": "Evolution of the atomsphere, chemical structure, instrumental analysis, trace gases, aerosol mechanics, chemical processes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+            "prerequisites_text": "(PHYSICS\u00a0103,201,207, or247) and (MATH\u00a0217or221). Not open to students with credit forATM\u00a0OCN\u00a0425."
         }
     },
     {
@@ -72,106 +52,11 @@
     },
     {
         "course_reference": {
-            "course_number": 980,
-            "subjects": [
-                "GEOG",
-                "GEOSCI",
-                "F&WECOL",
-                "ZOOLOGY",
-                "ATMOCN",
-                "BOTANY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
-        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 911,
-            "subjects": [
-                "GEOSCI",
-                "ZOOLOGY",
-                "ATMOCN",
-                "CIVENGR",
-                "BOTANY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "LIMNOLOGY AND MARINE SCIENCE SEMINAR",
-        "description": "Sections in various fields of zoological research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 404,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "METEOROLOGICAL MEASUREMENTS",
-        "description": "Practical experience in planning experiment implementation, performing instrument quality control, conducting computational data analysis, and writing and presenting of meteorological and climatological observations in a team setting.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 453,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SYNOPTIC LABORATORY II: MESOSCALE METEOROLOGY",
-        "description": "Local wind systems, thunderstorms, mesoscale convection systems, interactions with synoptic scale weather. Analysis, prediction, nowcasting and observation of mesoscale weather, including interpretation of satellite and radar information.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 340,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "PHYSICS OF THE ATMOSPHERE AND OCEAN II",
-        "description": "Radiation, energy budget, and cloud physics. Scattering, absorption, emission and diabatic heating by shortwave and longwave processes. Introduction to cloud physics including cloud nucleation processes, particle growth, precipitation development, and convective cloud processes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 330,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0330"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 332,
             "subjects": [
                 "GEOG",
-                "ATMOCN",
-                "ENVIRST"
+                "ENVIRST",
+                "ATMOCN"
             ]
         },
         "course_title": "GLOBAL WARMING: SCIENCE AND IMPACTS",
@@ -204,6 +89,62 @@
     },
     {
         "course_reference": {
+            "course_number": 965,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "SEMINAR-OCEANOGRAPHY",
+        "description": "Advanced topics in oceanography.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 340,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "PHYSICS OF THE ATMOSPHERE AND OCEAN II",
+        "description": "Radiation, energy budget, and cloud physics. Scattering, absorption, emission and diabatic heating by shortwave and longwave processes. Introduction to cloud physics including cloud nucleation processes, particle growth, precipitation development, and convective cloud processes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0330"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "TOPICS IN METEOROLOGY",
+        "description": "Special topics to be given as the need and opportunity arise.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 330,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0310and330"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 692,
             "subjects": [
                 "ATMOCN"
@@ -211,217 +152,6 @@
         },
         "course_title": "SENIOR THESIS",
         "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 801,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "TOPICS IN THEORETICAL METEOROLOGY",
-        "description": "Advanced level subjects in dynamics, synoptics, climate-dynamics and atmospheric physics including recent advances.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 311,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "DYNAMICS OF THE ATMOSPHERE AND OCEAN II",
-        "description": "Intermediate theory of fluid motions for atmosphere and ocean. Emphasis on large scale applications and basic theory for geophysical wave types. Thermal wind shear, frictional flow, vorticity concepts, Rossby waves, Sverdrup ocean flow.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0310"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 405,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "AOS SENIOR CAPSTONE SEMINAR",
-        "description": "Provides synthesis and overview. Research on topic of the student's choosing is presented at the end.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0310,311,330and340"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 615,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "LABORATORY IN ROTATING FLUID DYNAMICS",
-        "description": "Rotating fluid experiments, theory and data analysis are used to deepen understanding of geophysical fluid dynamics and observed phenomena in the atmosphere and ocean.  Focuses on hands-on experiences in the rotating tank lab and with real data.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311or610, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 630,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ATMOSPHERIC AND OCEANIC PHYSICS",
-        "description": "Covers thermodynamics theory of multiphase systems, thermodynamic analysis of atmosphere, microphysical processes in the atmosphere, atmospheric and oceanic chemical processes, conduction of heat and moisture into the atmosphere from ocean and land surface.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 760,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "LARGE-SCALE OCEAN-ATMOSPHERE COUPLING",
-        "description": "Various aspects of global ocean-atmosphere coupling and climate variability; global surface flux distribution; mixed layer dynamics; tropical dynamics and El Nino and Southern Oscillation; extratropical ocean-atmosphere coupling; interannual to interdecadal climate variability.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 953,
-            "subjects": [
-                "GEOG",
-                "ENTOM",
-                "F&WECOL",
-                "ZOOLOGY",
-                "AGRONOMY",
-                "ATMOCN",
-                "BOTANY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
-        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 810,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "PRACTICAL TRAINING IN ATMOSPHERIC AND OCEANIC SCIENCES I",
-        "description": "Practical training in atmospheric and oceanic sciences. Provides direct, hands-on exposure to careers in the discipline. Includes placement into student-designed or existing internship in atmospheric and oceanic science related companies, agencies, and organizations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Atmospheric and Oceanic Sciences MS"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Advanced independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 718,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "DYNAMICS OF MOIST CONVECTIVE SYSTEMS",
-        "description": "Governing equations for non-hydrostatic dynamics, mixed phase thermodynamics and microphysics. Cumulus parameterization and scale interactions. Application to theoretical and numerical models of thunderstorms (and attendant weather phenomena) and Mesoscale Convective Systems in the extra tropics and tropics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 201,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "EXPLORATIONS OF ATMOSPHERIC AND OCEANIC SCIENCES",
-        "description": "Exploration of a field within atmospheric and oceanic sciences. Exposure to scientific principles, current findings, and career routes as it applies to topics such as meteorology, weather systems and weather forecasting, climate and climate change, atmospheric satellite remote sensing, oceanography, and professional careers in the discipline.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 105,
-                    "subjects": [
-                        "ATMOCN",
-                        "GEOSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0100,101,141,ATM\u00a0OCN/\u200bGEOSCI\u00a0\u00a0105,140,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ATM\u00a0OCN/\u200bENVIR\u00a0ST\u00a0\u00a0171, orATM\u00a0OCN/\u200bENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0102"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -444,112 +174,16 @@
     },
     {
         "course_reference": {
-            "course_number": 335,
-            "subjects": [
-                "GEOSCI",
-                "GEOG",
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "CLIMATIC ENVIRONMENTS OF THE PAST",
-        "description": "Climate change at timescales from the last several million years to the last 100 years, with emphasis on more recent timescales. Examines how climate variability arises from interplay between external forcings, feedbacks within the earth system, and (more recently) human activity.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 141,
+            "course_number": 404,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "NATURAL HAZARDS OF WEATHER",
-        "description": "Explores the basic science of weather hazards ongoing around the globe and practical issues of Prediction, Risk Reduction, Resilience and Vulnerability (PRRRV) associated with these hazards.",
+        "course_title": "METEOROLOGICAL MEASUREMENTS",
+        "description": "Practical experience in planning experiment implementation, performing instrument quality control, conducting computational data analysis, and writing and presenting of meteorological and climatological observations in a team setting.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 105,
-            "subjects": [
-                "GEOSCI",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SURVEY OF OCEANOGRAPHY",
-        "description": "Nature and behavior of ocean water, interaction of oceans and atmosphere, structure of the ocean floor, life in the oceans, our relationship to the marine environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 132,
-            "subjects": [
-                "SOILSCI",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "EARTH'S WATER: NATURAL SCIENCE AND HUMAN USE",
-        "description": "Water is central to the functioning of planet Earth. As humans increase their impact on Earth's systems and cohabitants, our understanding of the multiple roles of water becomes critical to finding sustainable strategies for human and ecosystem health. Explores the science of Earth's hydrosphere, with constant attention to human uses and impacts.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 705,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "THE MIDDLE ATMOSPHERE",
-        "description": "Dynamics, chemistry and radiation of the stratosphere and mesosphere. Structure and composition. Observing techniques. Gravity, Rossby, and Kelvin waves. Wave-mean flow interaction. Instabilities. Tracer transport. Modeling the middle atmosphere. Ozone layer. Greenhouse effect.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 712,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "GENERAL CIRCULATION OF THE ATMOSPHERE",
-        "description": "The theory of the general circulation with emphasis on the sources, sinks, and transport of mass, angular momentum, and energy that serve to maintain the circumpolar vortex.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "GEOPHYSICAL FLUID DYNAMICS I",
-        "description": "Basic dynamic concepts: equations of motion, basic approximations, Coriolis force, wave motions, normal modes, gravity waves, frictional turbulence and convective processes, geostrophic adjustment, scaling argument, effects of rotation on wave motions. Vorticity and potential vorticity.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -568,34 +202,52 @@
     },
     {
         "course_reference": {
-            "course_number": 811,
+            "course_number": 201,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "PRACTICAL TRAINING IN ATMOSPHERIC AND OCEANIC SCIENCES II",
-        "description": "Practical training in atmospheric and oceanic sciences. Provides direct hands-on exposure to careers in the discipline. Continues the internship in atmospheric and oceanic science related companies, agencies, and organizations. Develop a portfolio of items necessary for the American Meteorological Society Certified Consulting Meteorology exam.",
+        "course_title": "EXPLORATIONS OF ATMOSPHERIC AND OCEANIC SCIENCES",
+        "description": "Exploration of a field within atmospheric and oceanic sciences. Exposure to scientific principles, current findings, and career routes as it applies to topics such as meteorology, weather systems and weather forecasting, climate and climate change, atmospheric satellite remote sensing, oceanography, and professional careers in the discipline.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 810,
+                    "course_number": 105,
                     "subjects": [
+                        "GEOSCI",
                         "ATMOCN"
                     ]
                 }
             ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0810"
+            "prerequisites_text": "ATM\u00a0OCN\u00a0100,101,141,ATM\u00a0OCN/\u200bGEOSCI\u00a0\u00a0105,140,SOIL\u00a0SCI/\u200bATM\u00a0OCN\u00a0\u00a0132,ATM\u00a0OCN/\u200bENVIR\u00a0ST\u00a0\u00a0171, orATM\u00a0OCN/\u200bENVIR\u00a0ST/\u200bGEOSCI\u00a0\u00a0102"
         }
     },
     {
         "course_reference": {
-            "course_number": 903,
+            "course_number": 335,
+            "subjects": [
+                "GEOSCI",
+                "ENVIRST",
+                "GEOG",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "CLIMATIC ENVIRONMENTS OF THE PAST",
+        "description": "Climate change at timescales from the last several million years to the last 100 years, with emphasis on more recent timescales. Examines how climate variability arises from interplay between external forcings, feedbacks within the earth system, and (more recently) human activity.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 900,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "RESEARCH ADVANCES IN THE ATMOSPHERIC AND OCEANIC SCIENCES",
-        "description": "Discussions on philosophy of science, literature review, development of ideas in Atmospheric and Oceanic Sciences, training in proposal writing, and preparation for Ph.D. dissertation proposal in advance of preliminary exam.",
+        "course_title": "SEMINAR-METEOROLOGY",
+        "description": "Discussion of the philosophy of science, communication, and history of atmospheric and oceanic science topics.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -603,13 +255,111 @@
     },
     {
         "course_reference": {
-            "course_number": 330,
+            "course_number": 902,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "PHYSICS OF THE ATMOSPHERE AND OCEAN I",
-        "description": "Physical variables, laws, characteristics and direct measurements for atmosphere and ocean. Thermodynamics and moist atmospheric processes. Basic physics of clouds, precipitation, and chemical constituents.",
+        "course_title": "SCIENTIFIC COMMUNICATIONS IN THE ATMOSPHERIC AND OCEANIC SCIENCES",
+        "description": "Written and oral communication about topics related to graduate research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 575,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "CLIMATOLOGICAL ANALYSIS",
+        "description": "Mathematical and statistical tools applicable to the investigation of climatological problems; nature and treatment of climatological data.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "FOUNDATIONS OF ATMOSPHERIC AND OCEANIC SCIENCES RESEARCH",
+        "description": "Discussions on adapting to graduate school and graduate-level research, history and future of discipline, research ethics, issues of diversity and inclusion.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 460,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "FUNDAMENTALS OF PHYSICAL OCEANOGRAPHY",
+        "description": "Introduction to the physics and thermodynamics of the ocean. Learn about the the physical characteristics and properties of the ocean and its circulation. Covers the basic equations of motion including the mathematics of Ekman transport, Sverdrup balance, thermal wind balance, ocean heat, salinity, and momentum conservation and budgets, waves, and tides.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311and (MATH\u00a0319,320, or376), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 760,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "LARGE-SCALE OCEAN-ATMOSPHERE COUPLING",
+        "description": "Various aspects of global ocean-atmosphere coupling and climate variability; global surface flux distribution; mixed layer dynamics; tropical dynamics and El Nino and Southern Oscillation; extratropical ocean-atmosphere coupling; interannual to interdecadal climate variability.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "DYNAMICS OF THE ATMOSPHERE AND OCEAN I",
+        "description": "Introduction to theory of fluid motions for atmosphere and ocean. Elementary kinematics, fundamental forces, effects of earth's gravity and rotation, concepts and applications of hydrostatic and geostrophic balance.",
         "prerequisites": {
             "course_references": [
                 {
@@ -624,136 +374,13 @@
     },
     {
         "course_reference": {
-            "course_number": 452,
+            "course_number": 712,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "SYNOPTIC LABORATORY I: THE FRONTAL CYCLONE",
-        "description": "Cyclone and frontal theory; case studies illustrating the structure and evolution of the frontal cyclone; diagnostic techniques: interpretation of satellite photographs, preparation of vertical cross sections and isentropic analysis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 311,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 532,
-            "subjects": [
-                "AGRONOMY",
-                "SOILSCI",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "ENVIRONMENTAL BIOPHYSICS",
-        "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 211,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOLOGY/\u200bBOTANY\u00a0\u00a0130and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0103,201,207, or247), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 425,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "GLOBAL CLIMATE PROCESSES",
-        "description": "Overview of physical processes of the atmosphere and its coupling to the ocean and land. Understanding its seasonal climatology and variability. Synthesis through application of junior AOS core dynamics and physics to quantitatively understand diabatic, transport, and dissipative processes. Examples include global warming, air-ocean coupling, ENSO, ozone hole, tropospheric water and chemistry issues, diurnal to interannual time scales.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 140,
-            "subjects": [
-                "GEOSCI",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "NATURAL HAZARDS AND DISASTERS",
-        "description": "An exploration of the science behind natural disasters including earthquakes, tsunamis, volcanic eruptions, landslides, tornadoes, hurricanes, and floods. Why, where, and when do these events occur, and why are some predictable but others are not? Addresses hazard assessment, forecasting, and mitigation to lessen their impact on society.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 753,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "MESOSCALE METEOROLOGY",
-        "description": "Synthesizes the fundamentals of atmospheric dynamics, thermodynamics and microphysics to explain the theory behind the structure, evolution and prediction of microscale, mesoscale and cloud scale weather. Learn the dynamics, and thermodynamics of mesoscale, fogs, cumulus, and severe storms (including tornadoes), mountain meteorology and convective tropical weather systems (including hurricanes and typhoons) and application of multi-scale numerical methods and models for analysis and prediction.",
+        "course_title": "GENERAL CIRCULATION OF THE ATMOSPHERE",
+        "description": "The theory of the general circulation with emphasis on the sources, sinks, and transport of mass, angular momentum, and energy that serve to maintain the circumpolar vortex.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -782,278 +409,38 @@
     },
     {
         "course_reference": {
-            "course_number": 900,
+            "course_number": 453,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "SEMINAR-METEOROLOGY",
-        "description": "Discussion of the philosophy of science, communication, and history of atmospheric and oceanic science topics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 323,
-            "subjects": [
-                "GEOG",
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SCIENCE OF CLIMATE CHANGE",
-        "description": "Calculus-based treatment of climate system physics and the mechanisms of modern-day anthropogenic climate change. Covers how solar radiation and rotating fluid dynamics determine the basic climate state; mechanisms of natural variability and change in climate; why anthropogenic climate change is occurring; and which scientific uncertainties are most important to estimates of 21st century change.",
+        "course_title": "SYNOPTIC LABORATORY II: MESOSCALE METEOROLOGY",
+        "description": "Local wind systems, thunderstorms, mesoscale convection systems, interactions with synoptic scale weather. Analysis, prediction, nowcasting and observation of mesoscale weather, including interpretation of satellite and radar information.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 425,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 201,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 207,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 247,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 217,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0103,201,207, or247) and (MATH\u00a0217or221). Not open to students with credit forATM\u00a0OCN\u00a0425."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 101,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "WEATHER AND CLIMATE",
-        "description": "Nature and variability of wind, temperature, clouds and precipitation. Storm systems, fronts, thunderstorms, tornadoes and their prediction. Air composition and pollution. Global winds, seasonal changes, climate and climatic change. Includes map analyses and basic quantitative lab exercises.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 100,
+                    "course_number": 311,
                     "subjects": [
                         "ATMOCN"
                     ]
                 }
             ],
-            "prerequisites_text": "Not open to students with credit forATM\u00a0OCN\u00a0100"
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
         }
     },
     {
         "course_reference": {
-            "course_number": 575,
+            "course_number": 105,
             "subjects": [
+                "GEOSCI",
                 "ATMOCN"
             ]
         },
-        "course_title": "CLIMATOLOGICAL ANALYSIS",
-        "description": "Mathematical and statistical tools applicable to the investigation of climatological problems; nature and treatment of climatological data.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
+        "course_title": "SURVEY OF OCEANOGRAPHY",
+        "description": "Nature and behavior of ocean water, interaction of oceans and atmosphere, structure of the ocean floor, life in the oceans, our relationship to the marine environment.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 901,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "FOUNDATIONS OF ATMOSPHERIC AND OCEANIC SCIENCES RESEARCH",
-        "description": "Discussions on adapting to graduate school and graduate-level research, history and future of discipline, research ethics, issues of diversity and inclusion.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 520,
-            "subjects": [
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "BIOCLIMATOLOGY",
-        "description": "How climate systems and biological organisms operate and interact at the global scale and the implications of this for climate change, ecosystem ecology and human land use.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 171,
-                    "subjects": [
-                        "ATMOCN",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 323,
-                    "subjects": [
-                        "GEOG",
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "ATMOCN"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ATM\u00a0OCN\u00a0101,ENVIR\u00a0ST/\u200bATM\u00a0OCN\u00a0\u00a0171, orGEOG/\u200bATM\u00a0OCN\u00a0\u00a0323), (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102,BIOCORE\u00a0381, or485), and junior standing, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "RADIATION IN THE ATMOSPHERE AND OCEAN",
-        "description": "Introduction to radiation: basic laws, radiative transfer under clear sky conditions, scattering by individual particles, multiple scattering, radiative properties of clouds and aerosols, energy budget, miscellaneous applications.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 965,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "SEMINAR-OCEANOGRAPHY",
-        "description": "Advanced topics in oceanography.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ATMOCN"
-            ]
-        },
-        "course_title": "DIRECTED STUDY",
-        "description": "Independent study as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 925,
-            "subjects": [
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "SEMINAR-CLIMATOLOGY",
-        "description": "Historical climatology with emphasis on the last few centuries.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "None"
         }
     },
     {
@@ -1100,70 +487,16 @@
     },
     {
         "course_reference": {
-            "course_number": 355,
-            "subjects": [
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "INTRODUCTION TO AIR QUALITY",
-        "description": "Links chemistry and meteorology to engineering, law, policy, and public health. Presents key ideas in air quality, with focus on reactive pollutants in the outdoor environment, especially gas and particle phase chemicals that react with human tissue to cause sickness and death. Discusses environmental impacts of these pollutants and regulatory approaches for their control in the U.S. and around the world. Indoor air quality will be included. Non-reactive pollutants, especially carbon dioxide, will be compared and contrasted with reactive air pollutants.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 535,
-            "subjects": [
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "ATMOSPHERIC DISPERSION AND AIR POLLUTION",
-        "description": "Physical principles of atmospheric transport processes. Variation of transport in time and place. Local and regional concentrations of pollutants. Environmental implications of air pollution and control strategies.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 234,
-                    "subjects": [
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MATH\u00a0234or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "GEOSCI",
-                "ATMOCN",
-                "ZOOLOGY",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "PROBLEMS IN OCEANOGRAPHY",
-        "description": "Introduction to techniques used in the study of the biology, chemistry, geology, and physics of the marine environment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 902,
+            "course_number": 699,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "SCIENTIFIC COMMUNICATIONS IN THE ATMOSPHERIC AND OCEANIC SCIENCES",
-        "description": "Written and oral communication about topics related to graduate research.",
+        "course_title": "DIRECTED STUDY",
+        "description": "Independent study as arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -1189,18 +522,122 @@
     },
     {
         "course_reference": {
-            "course_number": 102,
+            "course_number": 132,
             "subjects": [
-                "GEOSCI",
-                "ATMOCN",
-                "ENVIRST"
+                "SOILSCI",
+                "ATMOCN"
             ]
         },
-        "course_title": "CLIMATE AND CLIMATE CHANGE",
-        "description": "Describes the basic climate principles governing the climate system. It describes the climate and climate variability at present, climate evolution in the past, and the projected climate change into the future. The scientific principles underlying the natural and anthropogenic greenhouse effect and climate model forecasts are elucidated.",
+        "course_title": "EARTH'S WATER: NATURAL SCIENCE AND HUMAN USE",
+        "description": "Water is central to the functioning of planet Earth. As humans increase their impact on Earth's systems and cohabitants, our understanding of the multiple roles of water becomes critical to finding sustainable strategies for human and ecosystem health. Explores the science of Earth's hydrosphere, with constant attention to human uses and impacts.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 535,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "ATMOSPHERIC DISPERSION AND AIR POLLUTION",
+        "description": "Physical principles of atmospheric transport processes. Variation of transport in time and place. Local and regional concentrations of pollutants. Environmental implications of air pollution and control strategies.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 234,
+                    "subjects": [
+                        "MATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MATH\u00a0234or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "RADIATION IN THE ATMOSPHERE AND OCEAN",
+        "description": "Introduction to radiation: basic laws, radiative transfer under clear sky conditions, scattering by individual particles, multiple scattering, radiative properties of clouds and aerosols, energy budget, miscellaneous applications.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "GEOSCI",
+                "ENVIRST",
+                "ZOOLOGY",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "PROBLEMS IN OCEANOGRAPHY",
+        "description": "Introduction to techniques used in the study of the biology, chemistry, geology, and physics of the marine environment.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 322,
+            "subjects": [
+                "GEOG",
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "POLAR REGIONS AND THEIR IMPORTANCE IN THE GLOBAL ENVIRONMENT",
+        "description": "Reviews the past, present, and future of the Arctic and Antarctic regions. Covers the history, geography, atmospheric and ocean circulations, permafrost, ice sheets, glaciers, and future state of the Arctic and Antarctica as projected by earth system models. Also explores the role of the polar regions in the earth's system and associated global climatic feedbacks.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 355,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "INTRODUCTION TO AIR QUALITY",
+        "description": "Links chemistry and meteorology to engineering, law, policy, and public health. Presents key ideas in air quality, with focus on reactive pollutants in the outdoor environment, especially gas and particle phase chemicals that react with human tissue to cause sickness and death. Discusses environmental impacts of these pollutants and regulatory approaches for their control in the U.S. and around the world. Indoor air quality will be included. Non-reactive pollutants, especially carbon dioxide, will be compared and contrasted with reactive air pollutants.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Sophomore standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -1219,39 +656,196 @@
     },
     {
         "course_reference": {
-            "course_number": 322,
-            "subjects": [
-                "GEOG",
-                "ATMOCN",
-                "ENVIRST"
-            ]
-        },
-        "course_title": "POLAR REGIONS AND THEIR IMPORTANCE IN THE GLOBAL ENVIRONMENT",
-        "description": "Reviews the past, present, and future of the Arctic and Antarctic regions. Covers the history, geography, atmospheric and ocean circulations, permafrost, ice sheets, glaciers, and future state of the Arctic and Antarctica as projected by earth system models. Also explores the role of the polar regions in the earth's system and associated global climatic feedbacks.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Sophomore standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 401,
+            "course_number": 681,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "TOPICS IN METEOROLOGY",
-        "description": "Special topics to be given as the need and opportunity arise.",
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 520,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "BIOCLIMATOLOGY",
+        "description": "How climate systems and biological organisms operate and interact at the global scale and the implications of this for climate change, ecosystem ecology and human land use.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 330,
+                    "course_number": 171,
+                    "subjects": [
+                        "ENVIRST",
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ATM\u00a0OCN\u00a0101,ENVIR\u00a0ST/\u200bATM\u00a0OCN\u00a0\u00a0171, orGEOG/\u200bATM\u00a0OCN\u00a0\u00a0323), (ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102,BIOCORE\u00a0381, or485), and junior standing, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 615,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "LABORATORY IN ROTATING FLUID DYNAMICS",
+        "description": "Rotating fluid experiments, theory and data analysis are used to deepen understanding of geophysical fluid dynamics and observed phenomena in the atmosphere and ocean.  Focuses on hands-on experiences in the rotating tank lab and with real data.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 610,
                     "subjects": [
                         "ATMOCN"
                     ]
                 }
             ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0310and330"
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311or610, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Advanced independent study as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 745,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "METEOROLOGICAL SATELLITE APPLICATIONS",
+        "description": "Use of satellite imagery and measurements in meteorological research and operations; orbital characteristics; navigation; instrumentation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 753,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "MESOSCALE METEOROLOGY",
+        "description": "Synthesizes the fundamentals of atmospheric dynamics, thermodynamics and microphysics to explain the theory behind the structure, evolution and prediction of microscale, mesoscale and cloud scale weather. Learn the dynamics, and thermodynamics of mesoscale, fogs, cumulus, and severe storms (including tornadoes), mountain meteorology and convective tropical weather systems (including hurricanes and typhoons) and application of multi-scale numerical methods and models for analysis and prediction.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 171,
+            "subjects": [
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "GLOBAL CHANGE: ATMOSPHERIC ISSUES AND PROBLEMS",
+        "description": "Atmospheric problems of global significance. Greenhouse warming, ozone layer, acid rain, climate change. Study based on elementary principles of atmospheric science. Systems approach applied to changing atmospheric composition. Interactions among geochemical cycles, anthropogenic inputs and other parts of the environment.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 405,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "AOS SENIOR CAPSTONE SEMINAR",
+        "description": "Provides synthesis and overview. Research on topic of the student's choosing is presented at the end.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0310,311,330and340"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 638,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "ATMOSPHERIC CHEMISTRY",
+        "description": "Evolution of the atomsphere, chemical structure, instrumental analysis, trace gases, aerosol mechanics, chemical processes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 452,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "SYNOPTIC LABORATORY I: THE FRONTAL CYCLONE",
+        "description": "Cyclone and frontal theory; case studies illustrating the structure and evolution of the frontal cyclone; diagnostic techniques: interpretation of satellite photographs, preparation of vertical cross sections and isentropic analysis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 311,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 140,
+            "subjects": [
+                "GEOSCI",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "NATURAL HAZARDS AND DISASTERS",
+        "description": "An exploration of the science behind natural disasters including earthquakes, tsunamis, volcanic eruptions, landslides, tornadoes, hurricanes, and floods. Why, where, and when do these events occur, and why are some predictable but others are not? Addresses hazard assessment, forecasting, and mitigation to lessen their impact on society.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     },
     {
@@ -1277,6 +871,30 @@
     },
     {
         "course_reference": {
+            "course_number": 532,
+            "subjects": [
+                "SOILSCI",
+                "AGRONOMY",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "ENVIRONMENTAL BIOPHYSICS",
+        "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOLOGY/\u200bBOTANY\u00a0\u00a0130and (MATH\u00a0211,217, or221) and (PHYSICS\u00a0103,201,207, or247), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 698,
             "subjects": [
                 "ATMOCN"
@@ -1291,17 +909,105 @@
     },
     {
         "course_reference": {
-            "course_number": 745,
+            "course_number": 705,
             "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "THE MIDDLE ATMOSPHERE",
+        "description": "Dynamics, chemistry and radiation of the stratosphere and mesosphere. Structure and composition. Observing techniques. Gravity, Rossby, and Kelvin waves. Wave-mean flow interaction. Instabilities. Tracer transport. Modeling the middle atmosphere. Ozone layer. Greenhouse effect.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 911,
+            "subjects": [
+                "GEOSCI",
+                "ZOOLOGY",
+                "CIVENGR",
+                "BOTANY",
                 "ATMOCN",
                 "ENVIRST"
             ]
         },
-        "course_title": "METEOROLOGICAL SATELLITE APPLICATIONS",
-        "description": "Use of satellite imagery and measurements in meteorological research and operations; orbital characteristics; navigation; instrumentation.",
+        "course_title": "LIMNOLOGY AND MARINE SCIENCE SEMINAR",
+        "description": "Sections in various fields of zoological research.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 311,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "DYNAMICS OF THE ATMOSPHERE AND OCEAN II",
+        "description": "Intermediate theory of fluid motions for atmosphere and ocean. Emphasis on large scale applications and basic theory for geophysical wave types. Thermal wind shear, frictional flow, vorticity concepts, Rossby waves, Sverdrup ocean flow.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0310"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 610,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "GEOPHYSICAL FLUID DYNAMICS I",
+        "description": "Basic dynamic concepts: equations of motion, basic approximations, Coriolis force, wave motions, normal modes, gravity waves, frictional turbulence and convective processes, geostrophic adjustment, scaling argument, effects of rotation on wave motions. Vorticity and potential vorticity.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 903,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "RESEARCH ADVANCES IN THE ATMOSPHERIC AND OCEANIC SCIENCES",
+        "description": "Discussions on philosophy of science, literature review, development of ideas in Atmospheric and Oceanic Sciences, training in proposal writing, and preparation for Ph.D. dissertation proposal in advance of preliminary exam.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 810,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "PRACTICAL TRAINING IN ATMOSPHERIC AND OCEANIC SCIENCES I",
+        "description": "Practical training in atmospheric and oceanic sciences. Provides direct, hands-on exposure to careers in the discipline. Includes placement into student-designed or existing internship in atmospheric and oceanic science related companies, agencies, and organizations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Atmospheric and Oceanic Sciences MS"
         }
     },
     {
@@ -1327,13 +1033,145 @@
     },
     {
         "course_reference": {
-            "course_number": 310,
+            "course_number": 953,
+            "subjects": [
+                "GEOG",
+                "AGRONOMY",
+                "ZOOLOGY",
+                "ENTOM",
+                "BOTANY",
+                "ATMOCN",
+                "F&WECOL",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ECOLOGY RESEARCH AT UW-MADISON",
+        "description": "Introduces new graduate students to the diversity of ecologists across the UW-Madison campus. Includes discussions of key topics in professional development, research presentations by faculty members, and discussions of assigned papers with senior graduate students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 630,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "DYNAMICS OF THE ATMOSPHERE AND OCEAN I",
-        "description": "Introduction to theory of fluid motions for atmosphere and ocean. Elementary kinematics, fundamental forces, effects of earth's gravity and rotation, concepts and applications of hydrostatic and geostrophic balance.",
+        "course_title": "INTRODUCTION TO ATMOSPHERIC AND OCEANIC PHYSICS",
+        "description": "Covers thermodynamics theory of multiphase systems, thermodynamic analysis of atmosphere, microphysical processes in the atmosphere, atmospheric and oceanic chemical processes, conduction of heat and moisture into the atmosphere from ocean and land surface.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PHYSICS\u00a0202,208, or248) andMATH\u00a0234, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 811,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "PRACTICAL TRAINING IN ATMOSPHERIC AND OCEANIC SCIENCES II",
+        "description": "Practical training in atmospheric and oceanic sciences. Provides direct hands-on exposure to careers in the discipline. Continues the internship in atmospheric and oceanic science related companies, agencies, and organizations. Develop a portfolio of items necessary for the American Meteorological Society Certified Consulting Meteorology exam.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 810,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0810"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 980,
+            "subjects": [
+                "GEOG",
+                "GEOSCI",
+                "ZOOLOGY",
+                "BOTANY",
+                "ATMOCN",
+                "F&WECOL",
+                "ENVIRST"
+            ]
+        },
+        "course_title": "EARTH SYSTEM SCIENCE SEMINAR",
+        "description": "Topics in earth system science. Emphasis on the coupling between atmospheric, oceanic and land surface systems, involving physical geochemical and biological processes, and including interactions with human systems.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 441,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "RADAR AND SATELLITE METEOROLOGY",
+        "description": "Provides necessary knowledge about radar and satellite meteorology.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0340"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 801,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "TOPICS IN THEORETICAL METEOROLOGY",
+        "description": "Advanced level subjects in dynamics, synoptics, climate-dynamics and atmospheric physics including recent advances.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 141,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "NATURAL HAZARDS OF WEATHER",
+        "description": "Explores the basic science of weather hazards ongoing around the globe and practical issues of Prediction, Risk Reduction, Resilience and Vulnerability (PRRRV) associated with these hazards.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 330,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "PHYSICS OF THE ATMOSPHERE AND OCEAN I",
+        "description": "Physical variables, laws, characteristics and direct measurements for atmosphere and ocean. Thermodynamics and moist atmospheric processes. Basic physics of clouds, precipitation, and chemical constituents.",
         "prerequisites": {
             "course_references": [
                 {
@@ -1348,37 +1186,74 @@
     },
     {
         "course_reference": {
-            "course_number": 682,
+            "course_number": 718,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+        "course_title": "DYNAMICS OF MOIST CONVECTIVE SYSTEMS",
+        "description": "Governing equations for non-hydrostatic dynamics, mixed phase thermodynamics and microphysics. Cumulus parameterization and scale interactions. Application to theoretical and numerical models of thunderstorms (and attendant weather phenomena) and Mesoscale Convective Systems in the extra tropics and tropics.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
         "course_reference": {
-            "course_number": 460,
+            "course_number": 101,
             "subjects": [
                 "ATMOCN"
             ]
         },
-        "course_title": "FUNDAMENTALS OF PHYSICAL OCEANOGRAPHY",
-        "description": "Introduction to the physics and thermodynamics of the ocean. Learn about the the physical characteristics and properties of the ocean and its circulation. Covers the basic equations of motion including the mathematics of Ekman transport, Sverdrup balance, thermal wind balance, ocean heat, salinity, and momentum conservation and budgets, waves, and tides.",
+        "course_title": "WEATHER AND CLIMATE",
+        "description": "Nature and variability of wind, temperature, clouds and precipitation. Storm systems, fronts, thunderstorms, tornadoes and their prediction. Air composition and pollution. Global winds, seasonal changes, climate and climatic change. Includes map analyses and basic quantitative lab exercises.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 311,
+                    "course_number": 100,
                     "subjects": [
                         "ATMOCN"
                     ]
                 }
             ],
-            "prerequisites_text": "ATM\u00a0OCN\u00a0311and (MATH\u00a0319,320, or376), or graduate/professional standing"
+            "prerequisites_text": "Not open to students with credit forATM\u00a0OCN\u00a0100"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 425,
+            "subjects": [
+                "ATMOCN"
+            ]
+        },
+        "course_title": "GLOBAL CLIMATE PROCESSES",
+        "description": "Overview of physical processes of the atmosphere and its coupling to the ocean and land. Understanding its seasonal climatology and variability. Synthesis through application of junior AOS core dynamics and physics to quantitatively understand diabatic, transport, and dissipative processes. Examples include global warming, air-ocean coupling, ENSO, ozone hole, tropospheric water and chemistry issues, diurnal to interannual time scales.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "ATMOCN"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ATM\u00a0OCN\u00a0311and340"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 102,
+            "subjects": [
+                "GEOSCI",
+                "ENVIRST",
+                "ATMOCN"
+            ]
+        },
+        "course_title": "CLIMATE AND CLIMATE CHANGE",
+        "description": "Describes the basic climate principles governing the climate system. It describes the climate and climate variability at present, climate evolution in the past, and the projected climate change into the future. The scientific principles underlying the natural and anthropogenic greenhouse effect and climate model forecasts are elucidated.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
         }
     }
 ]

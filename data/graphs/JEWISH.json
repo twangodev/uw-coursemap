@@ -1,21 +1,20 @@
 [
     {
         "data": {
-            "description": "General introduction to Judaism covering the biblical, classical rabbinic, medieval, and modern periods.",
-            "id": "JEWISH/RELIGST 211"
+            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context.",
+            "id": "GNS/JEWISH 105"
         }
     },
     {
         "data": {
-            "id": "HEBR-MOD",
-            "type": "compound"
+            "description": "Explores the historical relationship between Muslims and Jews in a variety of contexts from the seventh century to the present. Surveys literary and cultural exchanges against the background of shifting political and social conditions across the Middle East, Europe, and the United States. Considers also the parallel legacies of anti-Semitism, Orientalism, and Islamophobia. Major themes include comparative religion, secularization, migration, and colonialism, as well as the politics of history and cultural memory. Introduces readings in English translation of medieval and modern texts originally written across languages, and especially in Hebrew and Arabic.",
+            "id": "AFRICAN/JEWISH/MEDIEVAL/RELIGST 462"
         }
     },
     {
         "data": {
-            "description": "Elementary topics in Jewish philosophy and the arts.",
-            "id": "JEWISH 232",
-            "parent": "JEWISH"
+            "description": "Pre-modern Jewish society's breakdown, immigration, the challenges of integration and exclusion, and the establishment of new communities will serve as a backdrop for the analysis and comparison of Jewish literary texts written in Hebrew, Yiddish, German, Russian, and English.",
+            "id": "JEWISH/LITTRANS 318"
         }
     },
     {
@@ -26,35 +25,95 @@
     },
     {
         "data": {
-            "description": "Takes a comparative look at the multiple intersections between Jewish history and histories of racism. Covers relevant case studies ranging from the Bible to the present, in order to analyze the long, global trajectory that has shaped issues of race and racial inequality in the United States and beyond. Topics include the so-called \"curse of Ham\"; the role of \"the Jew\" in medieval Christian theology; the demonization of Jews and Muslims during the Crusades; the interaction between Jews, European colonialism, and transatlantic slavery; nineteenth-century debates about \"Semites\"; the racialization of Jews during the Holocaust; the role of race and racism in the development of Zionism and the history of the Palestinian Nakba; debates about Black-Jewish relations in the United States; the question of Jews and whiteness; as well as historical encounters between Jews and Native Americans.",
-            "id": "JEWISH 225",
+            "description": "Exploration of American Yiddish poetry, fiction, theater, and cinema created by European Jews in the United States.",
+            "id": "GERMAN/JEWISH/LITTRANS 279"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
+            "id": "HEBR-MOD 201",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-BIB 324",
+            "target": "HEBR-BIB/JEWISH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "What is humor? Why and when do people tell jokes? And what do we make of the fact that a certain form of humor has come to be labeled \"Jewish\"? Examine the notion of \"Jewish humor\" by reading a variety of texts (jokes, short stories, films, websites, conceptual art, and cultural kitsch). Begin by considering theoretical explorations of humor and \"Jewish humor.\" Then trace techniques of Jewish humor from eastern Europe to central Europe to North America, paying specific attention to Jewish American humor. Themes to be examined include: in-group vs. out-group humor; humor and ethnicity; performance and \"Jewface\"; Jewish-Christian difference; humor and the Holocaust; gender and ethnicity; the notion of self-hatred; American popular culture; and the relationship between humor, repetition, and innovation. The general goal is to answer the question: Is there such a thing as \"Jewish humor\"? (Hint: The answer may be \"no.\")",
+            "id": "ENGL/JEWISH 370"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 202",
+            "target": "HEBR-MOD/JEWISH 301"
+        }
+    },
+    {
+        "data": {
+            "id": "HEBR-BIB",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate topics in Jewish Studies drawn from the social sciences.",
+            "id": "JEWISH 433",
             "parent": "JEWISH"
         }
     },
     {
         "data": {
-            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
-            "id": "HEBR-BIB 323",
-            "parent": "HEBR-BIB"
+            "description": "Explores the development of Jewish law from antiquity to modernity, with a focus on legal questions related to business practices and ethics. Consider issues ranging from ethical practices in agriculture to how to run a modern multi billion-dollar kosher industry; from the ethics of Jews celebrating Thanksgiving to regulations governing the preparation, consumption, and sale of coffee.",
+            "id": "JEWISH/LEGALST/RELIGST 203"
         }
     },
     {
         "data": {
-            "description": "How do Jews fit into the modern world? While the \"Jewish Question\" initially referred to debates about Jewish emancipation (the struggle for equal citizenship and social integration that started with the French Revolution), it later served to describe modern Jewish political and social thought about the identity, place, and role of the Jews in the modern world. Beginning in the late 19th century, as cultural assimilation, economic impoverishment in eastern Europe, and rising antisemitism sowed doubts about the viability of emancipation and traditionalism alike, Jewish thinkers proposed new answers to the Jewish question. Learn about some of the major answers they debated, including revolutionary universalistic utopias (socialism and Communism), various forms of Jewish nationalism, hyphenated identities, cultural pluralism, and cosmopolitanism. Work to contextualize these ideas historically while also considering whether and how they remain relevant to the present.",
-            "id": "ILS/JEWISH/SOC 423"
+            "description": "Introduction to the text, development, history, and social context of the Hebrew Bible/Old Testament. Covers the Torah (Pentateuch), Neviim (Former and Latter Prophets), and Ketuvim (Writings), and provides a brief introduction to early Jewish literature (Pseudepigrapha/Apocrypha). Discusses various methods of analysis and theories of composition. Addresses major theological claims made of the text by Jewish and Christian communities. Explores contextualized interpretations in the ancient and modern day.",
+            "id": "CLASSICS/JEWISH/LITTRANS/RELIGST 227"
         }
     },
     {
         "data": {
-            "description": "Advanced topics in Jewish literature.",
-            "id": "JEWISH 630",
+            "source": "CLASSICS/JEWISH/LITTRANS/RELIGST 227",
+            "target": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
+        }
+    },
+    {
+        "data": {
+            "description": "The history of the Jews in selected parts of the world since the 17th century. Particular attention will be paid to the fact that this is the history of a minority group whose life unfolds in relationship to a larger society.",
+            "id": "HISTORY/JEWISH 220"
+        }
+    },
+    {
+        "data": {
+            "description": "An examination of current problems, methods, and trends in archaeological research in the lands of the Bible.",
+            "id": "CLASSICS/JEWISH 451"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of European Yiddish fiction, poetry, folklore, and cinema, with a focus on works of the 19th and 20th centuries.",
+            "id": "GERMAN/JEWISH/LITTRANS 269"
+        }
+    },
+    {
+        "data": {
+            "description": "Elementary topics in Jewish history.",
+            "id": "JEWISH 231",
             "parent": "JEWISH"
         }
     },
     {
         "data": {
-            "description": "Explores the ways in which Holocaust history, memory and education are mutually entangled, politically charged and morally complex. Using primarily American sites of memory, critically analyze a variety of representations of the Shoah--in literature, films, memoirs, monuments, museums and classrooms.",
-            "id": "CURRIC/EDPOL/HISTORY/JEWISH 515"
+            "description": "Takes up the question: What is the \"Sabbath\"? What does it mean \"to rest\"? Offers a broad, comparative introduction to the history of the Sabbath, from the Bible to the present day. Readings encompass a range of textual sources from the Jewish and Christian traditions. Topics include the major theological, ritual, and cultural practices that have developed around the Sabbath. Discuss contemporary political iterations of the Sabbath in modern, secular contexts.",
+            "id": "JEWISH/RELIGST 322"
         }
     },
     {
@@ -66,56 +125,26 @@
     },
     {
         "data": {
-            "description": "Major writers, trends and themes in Israeli fiction from pre-State period to present.",
-            "id": "JEWISH/LITTRANS 367"
+            "description": "An exploration of Jewish literature in English and in Anglophone contexts.",
+            "id": "ENGL/JEWISH 539"
         }
     },
     {
         "data": {
-            "source": "GNS/JEWISH 105",
-            "target": "GNS/JEWISH 106"
+            "description": "Explores the interplay between Jews and U. S. popular culture, covering such subjects as early 20th century vaudeville, the \"golden age\" of Hollywood, rhythm and blues music, television, and stand-up comedy.",
+            "id": "HISTORY/JEWISH 213"
         }
     },
     {
         "data": {
-            "source": "CLASSICS/JEWISH/LITTRANS/RELIGST 227",
-            "target": "CLASSICS/HEBR-BIB/JEWISH/LITTRANS/RELIGST 332"
+            "description": "An introduction to the study of the Bible as literature and of biblical reception in the medium of film, from early Hollywood to the present day. Explores the way in which the Bible (including both Hebrew and Greek Testaments), one of the foundational literary corpora of American society, has been interpreted, reinterpreted, and misinterpreted through the medium of film over the past century. We will begin each segment of the course by reading portions of the biblical text that have experienced significant interpretation, in order to understand the literary text that has been received in film.  How beholden are filmmakers to the interpretations of communities that view these texts as authoritative, and where are they free to depart from their sources? Is it possible to \"translate\" biblical narratives into film without losing something in the translation? These questions will focus our study on ways the literature has been interpreted in this new medium.",
+            "id": "CLASSICS/JEWISH/RELIGST 323"
         }
     },
     {
         "data": {
-            "description": "Investigates German-Jewish culture since the 18th century, concentrating on toleration, emancipation, acculturation, assimilation, anti-Semitism, and Bildung.",
-            "id": "GERMAN/JEWISH 510"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 302"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 103",
-            "target": "HEBR-BIB 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Surveys American Jews from the eighteenth century until after WW II, examining political behavior (radicalism, liberalism, and nationalism), class formation, social mobility, culture, inter-ethnic group relations, religion, and problems in community building.",
-            "id": "HISTORY/JEWISH 219"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the literature of the Classical Rabbinic or Talmudic period of Judaism (2nd to 7th centuries CE). Historical and intellectual background; the interrelation of liturgy, legal and non-legal literature.",
-            "id": "JEWISH/LITTRANS/RELIGST 328"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 104",
-            "target": "HEBR-BIB 323"
+            "description": "Explores the range of relationships between DNA and American Jewish life. It begins with the \"prehistory\" of the relationship between Jewishness and genetic science, from Biblical genealogies to early twentieth century racial science. It then turns to America in the second half of the twentieth century, when the discovery of the double helix and the atrocities of Auschwitz reinvigorated and reshaped American Jewish relationships to DNA.",
+            "id": "JEWISH/RELIGST 340"
         }
     },
     {
@@ -127,8 +156,188 @@
     },
     {
         "data": {
+            "description": "Takes a comparative look at the multiple intersections between Jewish history and histories of racism. Covers relevant case studies ranging from the Bible to the present, in order to analyze the long, global trajectory that has shaped issues of race and racial inequality in the United States and beyond. Topics include the so-called \"curse of Ham\"; the role of \"the Jew\" in medieval Christian theology; the demonization of Jews and Muslims during the Crusades; the interaction between Jews, European colonialism, and transatlantic slavery; nineteenth-century debates about \"Semites\"; the racialization of Jews during the Holocaust; the role of race and racism in the development of Zionism and the history of the Palestinian Nakba; debates about Black-Jewish relations in the United States; the question of Jews and whiteness; as well as historical encounters between Jews and Native Americans.",
+            "id": "JEWISH 225",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop skills in critical reading, logical thinking, use of evidence, and use of library resources. Emphasis on writing in the conventions used in Jewish Studies.",
+            "id": "JEWISH 236",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in Jewish philosophy and the arts.",
+            "id": "JEWISH 632",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 201",
+            "target": "HEBR-MOD 202"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate topics in Jewish history.",
+            "id": "JEWISH 431",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
+            "id": "HEBR-MOD 102",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
+            "id": "HEBR-MOD 202",
+            "parent": "HEBR-MOD"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
+            "id": "HEBR-BIB 323",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "An exploration of the literary and historical aspects of the text of 1-2 Samuel + 1 Kings 1-2; the history and archaeology of Jerusalem during the tenth century B.C.E.; and the varieties of ways in which the figure of King David has been received in subsequent religious and secular literature, visual art, music, television, and cinema.",
+            "id": "CLASSICS/JEWISH/RELIGST 335"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD/JEWISH 301",
+            "target": "HEBR-MOD/JEWISH 302"
+        }
+    },
+    {
+        "data": {
+            "description": "References to the Holocaust abound in contemporary political debates and in our popular culture. But most people know very little about the history of the Holocaust, despite the mountains of superb historical scholarship that experts in the field have produced over decades of dedicated research. Utilize correspondence, diaries, or other firsthand accounts of Holocaust victims, together with study of the larger events around them, to reconstruct the experiences of ordinary families swept up in the Nazi genocide.",
+            "id": "HISTORY/JEWISH 310"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of archaeology and its relationship to understanding the biblical world.",
+            "id": "CLASSICS/JEWISH 241"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces Jewish studies as an interdisciplinary field and examines Jewish history, culture, and thought through the major questions that guide the field, including: What is Jewish practice? What is a Jewish text? What is diaspora? What is antisemitism? And, who are the Jews? Explores a variety of responses offered by scholars, writers, theologians, and artists. Develop the ability to think transhistorically, bringing together biblical, medieval, modern, and contemporary perspectives. Anchor inquiries into the field of Jewish studies through the completion of a substantial research project.",
+            "id": "JEWISH 350",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Major writers, trends and themes in Israeli fiction from pre-State period to present.",
+            "id": "JEWISH/LITTRANS 367"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the ways in which Holocaust history, memory and education are mutually entangled, politically charged and morally complex. Using primarily American sites of memory, critically analyze a variety of representations of the Shoah--in literature, films, memoirs, monuments, museums and classrooms.",
+            "id": "CURRIC/EDPOL/HISTORY/JEWISH 515"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+            "id": "JEWISH 681",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Elementary topics in Jewish literature.",
+            "id": "JEWISH 230",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
             "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 401"
+            "id": "HEBR-MOD/JEWISH 402"
+        }
+    },
+    {
+        "data": {
+            "source": "HEBR-MOD 102",
+            "target": "HEBR-MOD 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Rabbinic literature frames the fundamental attitudes for how Judaism relates to food. Examine the history of food in rabbinic Judaism. In addition, theories from the field of food studies will be applied to rabbinic texts.",
+            "id": "JEWISH/RELIGST 278"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected moral and philosophical issues raised by the Holocaust such as when and whom to rescue; includes issues arising after the annihilation such as forgiveness and reconciliation.",
+            "id": "JEWISH/PHILOS 442"
+        }
+    },
+    {
+        "data": {
+            "description": "A critical review of major theories of anti-Semitism and a history of modern anti-Semitism.",
+            "id": "HISTORY/JEWISH 518"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the literature of the Classical Rabbinic or Talmudic period of Judaism (2nd to 7th centuries CE). Historical and intellectual background; the interrelation of liturgy, legal and non-legal literature.",
+            "id": "JEWISH/LITTRANS/RELIGST 328"
+        }
+    },
+    {
+        "data": {
+            "description": "Elementary topics in Jewish philosophy and the arts.",
+            "id": "JEWISH 232",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Investigates German-Jewish culture since the 18th century, concentrating on toleration, emancipation, acculturation, assimilation, anti-Semitism, and Bildung.",
+            "id": "GERMAN/JEWISH 510"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context. Includes tasks designed to facilitate Yiddish-related research.",
+            "id": "GNS/JEWISH 405"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in Jewish literature.",
+            "id": "JEWISH 630",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "source": "GNS/JEWISH 105",
+            "target": "GNS/JEWISH 106"
         }
     },
     {
@@ -136,6 +345,37 @@
             "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
             "id": "JEWISH 691",
             "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
+            "id": "HEBR-BIB 324",
+            "parent": "HEBR-BIB"
+        }
+    },
+    {
+        "data": {
+            "description": "Jewish literature from 350 BCE to 150 CE. The Greek and Hebrew sources include stories, religious poetry, wisdom books and apocalyptic texts. Readings (in translation) from the Apocrypha, Pseudepigrapha, and the Dead Sea Scrolls in their historical, cultural and literary setting.",
+            "id": "CLASSICS/JEWISH/RELIGST 346"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected works from different periods and genres. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 302"
+        }
+    },
+    {
+        "data": {
+            "id": "HEBR-MOD",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Critical reading of selected texts from the Latter Prophets and the Writings.",
+            "id": "HEBR-BIB/JEWISH 514"
         }
     },
     {
@@ -153,140 +393,15 @@
     },
     {
         "data": {
-            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context.",
-            "id": "GNS/JEWISH 106"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB/JEWISH 513",
-            "target": "HEBR-BIB/JEWISH 514"
-        }
-    },
-    {
-        "data": {
-            "id": "HEBR-BIB",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical reading of selected texts from the Latter Prophets and the Writings.",
-            "id": "HEBR-BIB/JEWISH 514"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings in Hebrew literature. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 402"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces Jewish studies as an interdisciplinary field and examines Jewish history, culture, and thought through the major questions that guide the field, including: What is Jewish practice? What is a Jewish text? What is diaspora? What is antisemitism? And, who are the Jews? Explores a variety of responses offered by scholars, writers, theologians, and artists. Develop the ability to think transhistorically, bringing together biblical, medieval, modern, and contemporary perspectives. Anchor inquiries into the field of Jewish studies through the completion of a substantial research project.",
-            "id": "JEWISH 350",
+            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
+            "id": "JEWISH 682",
             "parent": "JEWISH"
         }
     },
     {
         "data": {
-            "description": "Elementary topics in Jewish literature.",
-            "id": "JEWISH 230",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate topics in Jewish literature.",
-            "id": "JEWISH 430",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of American Yiddish poetry, fiction, theater, and cinema created by European Jews in the United States.",
-            "id": "GERMAN/JEWISH/LITTRANS 279"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the text, development, history, and social context of the Hebrew Bible/Old Testament. Covers the Torah (Pentateuch), Neviim (Former and Latter Prophets), and Ketuvim (Writings), and provides a brief introduction to early Jewish literature (Pseudepigrapha/Apocrypha). Discusses various methods of analysis and theories of composition. Addresses major theological claims made of the text by Jewish and Christian communities. Explores contextualized interpretations in the ancient and modern day.",
-            "id": "CLASSICS/JEWISH/LITTRANS/RELIGST 227"
-        }
-    },
-    {
-        "data": {
-            "description": "An exploration of the literary and historical aspects of the text of 1-2 Samuel + 1 Kings 1-2; the history and archaeology of Jerusalem during the tenth century B.C.E.; and the varieties of ways in which the figure of King David has been received in subsequent religious and secular literature, visual art, music, television, and cinema.",
-            "id": "CLASSICS/JEWISH/RELIGST 335"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context. Includes tasks designed to facilitate Yiddish-related research.",
-            "id": "GNS/JEWISH 405"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 202",
-            "parent": "HEBR-MOD"
-        }
-    },
-    {
-        "data": {
-            "description": "Jewish literature from 350 BCE to 150 CE. The Greek and Hebrew sources include stories, religious poetry, wisdom books and apocalyptic texts. Readings (in translation) from the Apocrypha, Pseudepigrapha, and the Dead Sea Scrolls in their historical, cultural and literary setting.",
-            "id": "CLASSICS/JEWISH/RELIGST 346"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected works from different periods and genres. Taught in Hebrew.",
-            "id": "HEBR-MOD/JEWISH 301"
-        }
-    },
-    {
-        "data": {
-            "description": "What is humor? Why and when do people tell jokes? And what do we make of the fact that a certain form of humor has come to be labeled \"Jewish\"? Examine the notion of \"Jewish humor\" by reading a variety of texts (jokes, short stories, films, websites, conceptual art, and cultural kitsch). Begin by considering theoretical explorations of humor and \"Jewish humor.\" Then trace techniques of Jewish humor from eastern Europe to central Europe to North America, paying specific attention to Jewish American humor. Themes to be examined include: in-group vs. out-group humor; humor and ethnicity; performance and \"Jewface\"; Jewish-Christian difference; humor and the Holocaust; gender and ethnicity; the notion of self-hatred; American popular culture; and the relationship between humor, repetition, and innovation. The general goal is to answer the question: Is there such a thing as \"Jewish humor\"? (Hint: The answer may be \"no.\")",
-            "id": "ENGL/JEWISH 370"
-        }
-    },
-    {
-        "data": {
-            "description": "The history of the Jews in selected parts of the world since the 17th century. Particular attention will be paid to the fact that this is the history of a minority group whose life unfolds in relationship to a larger society.",
-            "id": "HISTORY/JEWISH 220"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in Jewish history.",
-            "id": "JEWISH 631",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 202",
-            "target": "HEBR-MOD/JEWISH 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Pre-modern Jewish society's breakdown, immigration, the challenges of integration and exclusion, and the establishment of new communities will serve as a backdrop for the analysis and comparison of Jewish literary texts written in Hebrew, Yiddish, German, Russian, and English.",
-            "id": "JEWISH/LITTRANS 318"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in Jewish philosophy and the arts.",
-            "id": "JEWISH 632",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of grammar, introduction to reading narrative texts in Biblical Hebrew.",
-            "id": "HEBR-BIB 324",
+            "description": "Introduction to the language of the Hebrew Bible (Biblical Hebrew). Serves as basis for later forms of Classical Hebrew.",
+            "id": "HEBR-BIB 104",
             "parent": "HEBR-BIB"
         }
     },
@@ -299,90 +414,14 @@
     },
     {
         "data": {
-            "description": "Takes up the question: What is the \"Sabbath\"? What does it mean \"to rest\"? Offers a broad, comparative introduction to the history of the Sabbath, from the Bible to the present day. Readings encompass a range of textual sources from the Jewish and Christian traditions. Topics include the major theological, ritual, and cultural practices that have developed around the Sabbath. Discuss contemporary political iterations of the Sabbath in modern, secular contexts.",
-            "id": "JEWISH/RELIGST 322"
+            "description": "Surveys American Jews from the eighteenth century until after WW II, examining political behavior (radicalism, liberalism, and nationalism), class formation, social mobility, culture, inter-ethnic group relations, religion, and problems in community building.",
+            "id": "HISTORY/JEWISH 219"
         }
     },
     {
         "data": {
-            "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
-            "id": "JEWISH 692",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the range of relationships between DNA and American Jewish life. It begins with the \"prehistory\" of the relationship between Jewishness and genetic science, from Biblical genealogies to early twentieth century racial science. It then turns to America in the second half of the twentieth century, when the discovery of the double helix and the atrocities of Auschwitz reinvigorated and reshaped American Jewish relationships to DNA.",
-            "id": "JEWISH/RELIGST 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Jerusalem, the Holy City for Judaism, Christianity, and Islam, has become the center of religious, political, and national contention. Explores the sources of the conflict and its development over the centuries, with the aim of illuminating the complex situation of the region and its implications for the world.",
-            "id": "JEWISH 356",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the study of the Bible as literature and of biblical reception in the medium of film, from early Hollywood to the present day. Explores the way in which the Bible (including both Hebrew and Greek Testaments), one of the foundational literary corpora of American society, has been interpreted, reinterpreted, and misinterpreted through the medium of film over the past century. We will begin each segment of the course by reading portions of the biblical text that have experienced significant interpretation, in order to understand the literary text that has been received in film.  How beholden are filmmakers to the interpretations of communities that view these texts as authoritative, and where are they free to depart from their sources? Is it possible to \"translate\" biblical narratives into film without losing something in the translation? These questions will focus our study on ways the literature has been interpreted in this new medium.",
-            "id": "CLASSICS/JEWISH/RELIGST 323"
-        }
-    },
-    {
-        "data": {
-            "description": "Elementary topics in Jewish history.",
-            "id": "JEWISH 231",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD 102",
-            "target": "HEBR-MOD 201"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Readings from modern Hebrew texts, intermediate grammar and syntax, development of oral proficiency, emphasis on class discussions.",
-            "id": "HEBR-MOD 201",
-            "parent": "HEBR-MOD"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of European Yiddish fiction, poetry, folklore, and cinema, with a focus on works of the 19th and 20th centuries.",
-            "id": "GERMAN/JEWISH/LITTRANS 269"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of archaeology and its relationship to understanding the biblical world.",
-            "id": "CLASSICS/JEWISH 241"
-        }
-    },
-    {
-        "data": {
-            "description": "An exploration of Jewish literature in English and in Anglophone contexts.",
-            "id": "ENGL/JEWISH 539"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context.",
-            "id": "GNS/JEWISH 105"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD/JEWISH 401",
-            "target": "HEBR-MOD/JEWISH 402"
+            "description": "How do Jews fit into the modern world? While the \"Jewish Question\" initially referred to debates about Jewish emancipation (the struggle for equal citizenship and social integration that started with the French Revolution), it later served to describe modern Jewish political and social thought about the identity, place, and role of the Jews in the modern world. Beginning in the late 19th century, as cultural assimilation, economic impoverishment in eastern Europe, and rising antisemitism sowed doubts about the viability of emancipation and traditionalism alike, Jewish thinkers proposed new answers to the Jewish question. Learn about some of the major answers they debated, including revolutionary universalistic utopias (socialism and Communism), various forms of Jewish nationalism, hyphenated identities, cultural pluralism, and cosmopolitanism. Work to contextualize these ideas historically while also considering whether and how they remain relevant to the present.",
+            "id": "ILS/JEWISH/SOC 423"
         }
     },
     {
@@ -393,15 +432,8 @@
     },
     {
         "data": {
-            "description": "Explores the historical relationship between Muslims and Jews in a variety of contexts from the seventh century to the present. Surveys literary and cultural exchanges against the background of shifting political and social conditions across the Middle East, Europe, and the United States. Considers also the parallel legacies of anti-Semitism, Orientalism, and Islamophobia. Major themes include comparative religion, secularization, migration, and colonialism, as well as the politics of history and cultural memory. Introduces readings in English translation of medieval and modern texts originally written across languages, and especially in Hebrew and Arabic.",
-            "id": "AFRICAN/JEWISH/MEDIEVAL/RELIGST 462"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate topics in Jewish history.",
-            "id": "JEWISH 431",
-            "parent": "JEWISH"
+            "source": "HEBR-MOD/JEWISH 401",
+            "target": "HEBR-MOD/JEWISH 402"
         }
     },
     {
@@ -412,64 +444,20 @@
     },
     {
         "data": {
-            "description": "Introduction to the language of the Hebrew Bible (Biblical Hebrew). Serves as basis for later forms of Classical Hebrew.",
-            "id": "HEBR-BIB 104",
-            "parent": "HEBR-BIB"
+            "source": "HEBR-BIB/JEWISH 513",
+            "target": "HEBR-BIB/JEWISH 514"
         }
     },
     {
         "data": {
-            "description": "Basic communication skills; speaking, reading, writing modern Hebrew; elements of grammar and syntax.",
-            "id": "HEBR-MOD 102",
-            "parent": "HEBR-MOD"
+            "description": "Critical reading of selected texts from the Minor Prophets and the Writings.",
+            "id": "HEBR-BIB/JEWISH 513"
         }
     },
     {
         "data": {
-            "source": "HEBR-MOD 201",
-            "target": "HEBR-MOD 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines the issues currently facing Israeli society and the ongoing debates in Israeli politics. Provides historical background and analytical understanding of contemporary Israeli politics. Attention will be paid to political history, institutions, economic development, coalition formation, ethnic politics, and religious-secular divisions as they are manifested in Israeli politics.",
-            "id": "JEWISH/POLISCI 341"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of major philosophers and philosophical currents within Judaism from antiquity through the seventeenth century.",
-            "id": "JEWISH/PHILOS/RELIGST 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Rabbinic literature frames the fundamental attitudes for how Judaism relates to food. Examine the history of food in rabbinic Judaism. In addition, theories from the field of food studies will be applied to rabbinic texts.",
-            "id": "JEWISH/RELIGST 278"
-        }
-    },
-    {
-        "data": {
-            "description": "A critical review of major theories of anti-Semitism and a history of modern anti-Semitism.",
-            "id": "HISTORY/JEWISH 518"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-BIB 324",
-            "target": "HEBR-BIB/JEWISH 513"
-        }
-    },
-    {
-        "data": {
-            "description": "An examination of current problems, methods, and trends in archaeological research in the lands of the Bible.",
-            "id": "CLASSICS/JEWISH 451"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
-            "id": "JEWISH 682",
+            "description": "Individual mentored study for seniors completing theses, as arranged with a faculty member.",
+            "id": "JEWISH 692",
             "parent": "JEWISH"
         }
     },
@@ -482,20 +470,40 @@
     },
     {
         "data": {
+            "source": "HEBR-BIB 104",
+            "target": "HEBR-BIB 323"
+        }
+    },
+    {
+        "data": {
             "description": "The construction of Jewish American identity within American life.",
             "id": "ENGL/JEWISH 593"
         }
     },
     {
         "data": {
-            "description": "References to the Holocaust abound in contemporary political debates and in our popular culture. But most people know very little about the history of the Holocaust, despite the mountains of superb historical scholarship that experts in the field have produced over decades of dedicated research. Utilize correspondence, diaries, or other firsthand accounts of Holocaust victims, together with study of the larger events around them, to reconstruct the experiences of ordinary families swept up in the Nazi genocide.",
-            "id": "HISTORY/JEWISH 310"
+            "description": "Examines the issues currently facing Israeli society and the ongoing debates in Israeli politics. Provides historical background and analytical understanding of contemporary Israeli politics. Attention will be paid to political history, institutions, economic development, coalition formation, ethnic politics, and religious-secular divisions as they are manifested in Israeli politics.",
+            "id": "JEWISH/POLISCI 341"
         }
     },
     {
         "data": {
-            "description": "Selected moral and philosophical issues raised by the Holocaust such as when and whom to rescue; includes issues arising after the annihilation such as forgiveness and reconciliation.",
-            "id": "JEWISH/PHILOS 442"
+            "description": "Jerusalem, the Holy City for Judaism, Christianity, and Islam, has become the center of religious, political, and national contention. Explores the sources of the conflict and its development over the centuries, with the aim of illuminating the complex situation of the region and its implications for the world.",
+            "id": "JEWISH 356",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate topics in Jewish literature.",
+            "id": "JEWISH 430",
+            "parent": "JEWISH"
+        }
+    },
+    {
+        "data": {
+            "description": "Readings in Hebrew literature. Taught in Hebrew.",
+            "id": "HEBR-MOD/JEWISH 401"
         }
     },
     {
@@ -506,47 +514,39 @@
     },
     {
         "data": {
-            "description": "Critical reading of selected texts from the Minor Prophets and the Writings.",
-            "id": "HEBR-BIB/JEWISH 513"
+            "source": "HEBR-BIB 103",
+            "target": "HEBR-BIB 104"
         }
     },
     {
         "data": {
-            "description": "Individual mentored study for seniors completing theses for Honors in the Major as arranged with a faculty member.",
-            "id": "JEWISH 681",
+            "description": "General introduction to Judaism covering the biblical, classical rabbinic, medieval, and modern periods.",
+            "id": "JEWISH/RELIGST 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in Jewish history.",
+            "id": "JEWISH 631",
             "parent": "JEWISH"
         }
     },
     {
         "data": {
-            "description": "Explores the development of Jewish law from antiquity to modernity, with a focus on legal questions related to business practices and ethics. Consider issues ranging from ethical practices in agriculture to how to run a modern multi billion-dollar kosher industry; from the ethics of Jews celebrating Thanksgiving to regulations governing the preparation, consumption, and sale of coffee.",
-            "id": "JEWISH/LEGALST/RELIGST 203"
+            "description": "Introduction to the Yiddish language through speaking, listening, reading, and writing. Emphasis on communication with attention to cultural and historical context.",
+            "id": "GNS/JEWISH 106"
         }
     },
     {
         "data": {
-            "description": "Develop skills in critical reading, logical thinking, use of evidence, and use of library resources. Emphasis on writing in the conventions used in Jewish Studies.",
-            "id": "JEWISH 236",
-            "parent": "JEWISH"
+            "description": "A survey of major philosophers and philosophical currents within Judaism from antiquity through the seventeenth century.",
+            "id": "JEWISH/PHILOS/RELIGST 435"
         }
     },
     {
         "data": {
-            "description": "Intermediate topics in Jewish Studies drawn from the social sciences.",
-            "id": "JEWISH 433",
-            "parent": "JEWISH"
-        }
-    },
-    {
-        "data": {
-            "source": "HEBR-MOD/JEWISH 301",
-            "target": "HEBR-MOD/JEWISH 302"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the interplay between Jews and U. S. popular culture, covering such subjects as early 20th century vaudeville, the \"golden age\" of Hollywood, rhythm and blues music, television, and stand-up comedy.",
-            "id": "HISTORY/JEWISH 213"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     }
 ]

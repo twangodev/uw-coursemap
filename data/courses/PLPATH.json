@@ -1,101 +1,6 @@
 [
     {
         "course_reference": {
-            "course_number": 332,
-            "subjects": [
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "FUNGI",
-        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 930,
-            "subjects": [
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "SEMINAR-MYCOLOGY",
-        "description": "Topics, recent advances  literature in the area of Mycology.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 315,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANT MICROBIOMES",
-        "description": "Explore plant associated microbial communities (the plant microbiome), methods used to study them, and how we can use them to improve plant and ecosystem health in the face of challenges to agricultural and natural systems. Examples will be drawn from annual crop, grassland, and forested ecosystems. Use current molecular, bioinformatic, and statistical approaches to characterize rhizosphere microbiomes from samples collected as part of on-going research projects.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0381) and (STAT\u00a0301or371), or Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 499,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY IN ORGANIC AGRICULTURE",
-        "description": "Provide students research and/or hands-on experiences within the organic sector in order to gain scientific knowledge and/or an in-depth understanding of the research and science of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health. Declared in the Certificate in Organic Agriculture",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 801,
             "subjects": [
                 "PLPATH"
@@ -117,6 +22,382 @@
     },
     {
         "course_reference": {
+            "course_number": 367,
+            "subjects": [
+                "PLPATH",
+                "AAE",
+                "AGRONOMY",
+                "HORT"
+            ]
+        },
+        "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
+        "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 103,
+                    "subjects": [
+                        "AGRONOMY",
+                        "ENTOM",
+                        "AGROECOL",
+                        "C&ESOC",
+                        "ENVIRST"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ENVIR\u00a0ST/\u200bAGROECOL/\u200bAGRONOMY/\u200bC&E\u00a0SOC/\u200bENTOM\u00a0\u00a0103,AGRONOMY\u00a0100,HORT\u00a0120,BOTANY/\u200bPL\u00a0PATH\u00a0\u00a0123,SOC/\u200bC&E\u00a0SOC\u00a0\u00a0222, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 505,
+            "subjects": [
+                "PLPATH",
+                "ENTOM",
+                "BOTANY"
+            ]
+        },
+        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
+        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "SPECIAL PROBLEMS",
+        "description": "Individual advanced work in an area of Plant Pathology under the direct guidance of a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 622,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "PLANT-BACTERIAL INTERACTIONS",
+        "description": "Physiology, genetics, taxonomy, and ecology of bacterial pathogens, epiphytes, and symbionts of plants.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "MICROBIO\u00a0303and (GENETICS\u00a0466,468,BIOCHEM\u00a0501, or508) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 517,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "PLANT DISEASE RESISTANCE",
+        "description": "Host resistance in plant disease control.  Conceptual and applied aspects of resistance: how it works, why it sometimes fails, and the traditional and modern techniques used for evaluating host resistance and incorporating resistance factors into new plant varieties.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "PLPATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PL\u00a0PATH\u00a0300,GENETICS\u00a0466,468,AGRONOMY/\u200bHORT\u00a0\u00a0338,501, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 499,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY IN ORGANIC AGRICULTURE",
+        "description": "Provide students research and/or hands-on experiences within the organic sector in order to gain scientific knowledge and/or an in-depth understanding of the research and science of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health. Declared in the Certificate in Organic Agriculture",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 682,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 606,
+            "subjects": [
+                "SOILSCI",
+                "ENTOM",
+                "PLPATH",
+                "F&WECOL"
+            ]
+        },
+        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
+        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 154,
+            "subjects": [
+                "PLPATH",
+                "ZOOLOGY"
+            ]
+        },
+        "course_title": "TINY EARTH: ANTIBIOTIC DISCOVERY RESEARCH",
+        "description": "Learn basic methodology in scientific research and discovery, including laboratory techniques, quantitative reasoning, scientific communication, and collaboration. Gain hands-on laboratory experience working with microbes to test original hypotheses concerning the discovery of potential antibiotic compounds while addressing the world's antibiotic resistance crisis by contributing data to the global \"Tiny Earth\" network of researchers to advance potential drug development. Tiny Earth seeks to encourage students to pursue careers in science through real-world, applied research experiences and aims to address a worldwide health threat of the diminishing supply of effective antibiotics by \"student-sourcing antibiotic discovery.\" Concurrent enrollment inBIOLOGY/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0152is required for permission to enroll.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 400,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "STUDY ABROAD IN PLANT PATHOLOGY",
+        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 261,
+            "subjects": [
+                "PLPATH",
+                "HORT"
+            ]
+        },
+        "course_title": "SUSTAINABLE TURFGRASS USE AND MANAGEMENT",
+        "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 375,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "SPECIAL TOPICS",
+        "description": "Subjects of current interest to undergrads.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 289,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "HONORS INDEPENDENT STUDY",
+        "description": "Research work for Honors students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 800,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "INQUIRY-BASED BIOLOGY TEACHING",
+        "description": "Develop competence and confidence as teachers. Cover fundamentals of learning theory and practical strategies for teaching biology. Practice lecturing, manage classroom dynamics, and teach laboratory sections (optional).",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 563,
+            "subjects": [
+                "PLPATH",
+                "BOTANY"
+            ]
+        },
+        "course_title": "PHYLOGENETIC ANALYSIS OF MOLECULAR DATA",
+        "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 558,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "BIOLOGY OF PLANT PATHOGENS",
+        "description": "Explores biology of plant pathogenic fungi, oomycetes, nematodes, bacteria, and viruses, with emphasis on identifying: 1) key traits of each pathogen class, and 2) common strategies used by these microbes. Inquiry-driven laboratory will investigate diverse interactions between plants and their pathogens.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "PLPATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PL\u00a0PATH\u00a0300or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 315,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "PLANT MICROBIOMES",
+        "description": "Explore plant associated microbial communities (the plant microbiome), methods used to study them, and how we can use them to improve plant and ecosystem health in the face of challenges to agricultural and natural systems. Examples will be drawn from annual crop, grassland, and forested ecosystems. Use current molecular, bioinformatic, and statistical approaches to characterize rhizosphere microbiomes from samples collected as part of on-going research projects.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0381) and (STAT\u00a0301or371), or Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 681,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "SENIOR HONORS THESIS",
+        "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 559,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "DISEASES OF ECONOMIC PLANTS",
+        "description": "Symptoms, epidemiology and control of diseases of crop plants; emphasis on disease diagnosis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 300,
+                    "subjects": [
+                        "PLPATH"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(PL\u00a0PATH\u00a0300and332), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 923,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Seminar series on topics related to plant pathology",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 590,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "CAPSTONE IN PLANT PATHOLOGY",
+        "description": "Synthesizing research-based capstone experience in Plant Pathology. Develop problem-solving skills, be exposed to multidisciplinary approaches, develop teamwork and interpersonal skills, develop information resources, consider societal, economic, ethical, scientific and professional aspects of the field, and prepare and present written and/or oral reports.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 323,
             "subjects": [
                 "SOILSCI",
@@ -128,60 +409,98 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 116,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 384,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
                     "course_number": 152,
                     "subjects": [
-                        "BOTANY",
                         "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
             "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, orZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102, orBOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0384) and (CHEM\u00a0104,109, or116), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 655,
+            "subjects": [
+                "PLPATH",
+                "GENETICS",
+                "BOTANY",
+                "MM&I"
+            ]
+        },
+        "course_title": "BIOLOGY AND GENETICS OF FUNGI",
+        "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 930,
+            "subjects": [
+                "PLPATH",
+                "BOTANY"
+            ]
+        },
+        "course_title": "SEMINAR-MYCOLOGY",
+        "description": "Topics, recent advances  literature in the area of Mycology.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 299,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "INDEPENDENT STUDY",
+        "description": "Research work for students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 300,
+            "subjects": [
+                "PLPATH"
+            ]
+        },
+        "course_title": "INTRODUCTION TO PLANT PATHOLOGY",
+        "description": "Economic importance, symptoms, causes, and methods of control of representative plant diseases.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 152,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0381) or graduate/professional standing"
         }
     },
     {
@@ -214,23 +533,25 @@
     },
     {
         "course_reference": {
-            "course_number": 558,
+            "course_number": 332,
             "subjects": [
-                "PLPATH"
+                "PLPATH",
+                "BOTANY"
             ]
         },
-        "course_title": "BIOLOGY OF PLANT PATHOGENS",
-        "description": "Explores biology of plant pathogenic fungi, oomycetes, nematodes, bacteria, and viruses, with emphasis on identifying: 1) key traits of each pathogen class, and 2) common strategies used by these microbes. Inquiry-driven laboratory will investigate diverse interactions between plants and their pathogens.",
+        "course_title": "FUNGI",
+        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 300,
+                    "course_number": 130,
                     "subjects": [
-                        "PLPATH"
+                        "BIOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
-            "prerequisites_text": "PL\u00a0PATH\u00a0300or graduate/professional standing"
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
         }
     },
     {
@@ -249,13 +570,36 @@
     },
     {
         "course_reference": {
-            "course_number": 517,
+            "course_number": 333,
+            "subjects": [
+                "PLPATH",
+                "BOTANY"
+            ]
+        },
+        "course_title": "BIOLOGY OF THE FUNGI",
+        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 602,
             "subjects": [
                 "PLPATH"
             ]
         },
-        "course_title": "PLANT DISEASE RESISTANCE",
-        "description": "Host resistance in plant disease control.  Conceptual and applied aspects of resistance: how it works, why it sometimes fails, and the traditional and modern techniques used for evaluating host resistance and incorporating resistance factors into new plant varieties.",
+        "course_title": "ECOLOGY, EPIDEMIOLOGY AND CONTROL OF PLANT DISEASES",
+        "description": "Environmental factors in the development and spread of diseases, pathogen variability, genetics of disease resistance, and principles of disease control.",
         "prerequisites": {
             "course_references": [
                 {
@@ -265,15 +609,15 @@
                     ]
                 }
             ],
-            "prerequisites_text": "PL\u00a0PATH\u00a0300,GENETICS\u00a0466,468,AGRONOMY/\u200bHORT\u00a0\u00a0338,501, or graduate/professional standing"
+            "prerequisites_text": "PL\u00a0PATH\u00a0300, (MATH\u00a0217or221), and (STAT\u00a0301,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571), or graduate/professional standing"
         }
     },
     {
         "course_reference": {
             "course_number": 123,
             "subjects": [
-                "BOTANY",
-                "PLPATH"
+                "PLPATH",
+                "BOTANY"
             ]
         },
         "course_title": "PLANTS, PARASITES, AND PEOPLE",
@@ -285,151 +629,25 @@
     },
     {
         "course_reference": {
-            "course_number": 655,
+            "course_number": 640,
             "subjects": [
-                "MM&I",
-                "BOTANY",
                 "PLPATH",
-                "GENETICS"
+                "ONCOLOGY",
+                "MM&I"
             ]
         },
-        "course_title": "BIOLOGY AND GENETICS OF FUNGI",
-        "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 559,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "DISEASES OF ECONOMIC PLANTS",
-        "description": "Symptoms, epidemiology and control of diseases of crop plants; emphasis on disease diagnosis.",
+        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
+        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 300,
+                    "course_number": 467,
                     "subjects": [
-                        "PLPATH"
+                        "GENETICS"
                     ]
                 }
             ],
-            "prerequisites_text": "(PL\u00a0PATH\u00a0300and332), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 367,
-            "subjects": [
-                "AAE",
-                "AGRONOMY",
-                "PLPATH",
-                "HORT"
-            ]
-        },
-        "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
-        "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 222,
-                    "subjects": [
-                        "SOC",
-                        "C&ESOC"
-                    ]
-                },
-                {
-                    "course_number": 100,
-                    "subjects": [
-                        "AGRONOMY"
-                    ]
-                },
-                {
-                    "course_number": 103,
-                    "subjects": [
-                        "C&ESOC",
-                        "ENTOM",
-                        "AGRONOMY",
-                        "AGROECOL",
-                        "ENVIRST"
-                    ]
-                },
-                {
-                    "course_number": 123,
-                    "subjects": [
-                        "BOTANY",
-                        "PLPATH"
-                    ]
-                },
-                {
-                    "course_number": 120,
-                    "subjects": [
-                        "HORT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ENVIR\u00a0ST/\u200bAGROECOL/\u200bAGRONOMY/\u200bC&E\u00a0SOC/\u200bENTOM\u00a0\u00a0103,AGRONOMY\u00a0100,HORT\u00a0120,BOTANY/\u200bPL\u00a0PATH\u00a0\u00a0123,SOC/\u200bC&E\u00a0SOC\u00a0\u00a0222, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 800,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "INQUIRY-BASED BIOLOGY TEACHING",
-        "description": "Develop competence and confidence as teachers. Cover fundamentals of learning theory and practical strategies for teaching biology. Practice lecturing, manage classroom dynamics, and teach laboratory sections (optional).",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 154,
-            "subjects": [
-                "ZOOLOGY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "TINY EARTH: ANTIBIOTIC DISCOVERY RESEARCH",
-        "description": "Learn basic methodology in scientific research and discovery, including laboratory techniques, quantitative reasoning, scientific communication, and collaboration. Gain hands-on laboratory experience working with microbes to test original hypotheses concerning the discovery of potential antibiotic compounds while addressing the world's antibiotic resistance crisis by contributing data to the global \"Tiny Earth\" network of researchers to advance potential drug development. Tiny Earth seeks to encourage students to pursue careers in science through real-world, applied research experiences and aims to address a worldwide health threat of the diminishing supply of effective antibiotics by \"student-sourcing antibiotic discovery.\" Concurrent enrollment inBIOLOGY/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0152is required for permission to enroll.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 299,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "INDEPENDENT STUDY",
-        "description": "Research work for students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 681,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
         }
     },
     {
@@ -457,410 +675,6 @@
     },
     {
         "course_reference": {
-            "course_number": 923,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "SEMINAR",
-        "description": "Seminar series on topics related to plant pathology",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 505,
-            "subjects": [
-                "ENTOM",
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANT-MICROBE INTERACTIONS: MOLECULAR AND ECOLOGICAL ASPECTS",
-        "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 468,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0303,GENETICS\u00a0466,468,BIOCHEM\u00a0501,508, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 563,
-            "subjects": [
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "PHYLOGENETIC ANALYSIS OF MOLECULAR DATA",
-        "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 240,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 301,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 371,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 324,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101, orBIOCORE\u00a0381) and (STAT\u00a0240,301,324, or371) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 602,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "ECOLOGY, EPIDEMIOLOGY AND CONTROL OF PLANT DISEASES",
-        "description": "Environmental factors in the development and spread of diseases, pathogen variability, genetics of disease resistance, and principles of disease control.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 300,
-                    "subjects": [
-                        "PLPATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PL\u00a0PATH\u00a0300, (MATH\u00a0217or221), and (STAT\u00a0301,371, orF&W\u00a0ECOL/\u200bSTAT\u00a0\u00a0571), or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "MM&I",
-                "ONCOLOGY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
-        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "INTRODUCTION TO PLANT PATHOLOGY",
-        "description": "Economic importance, symptoms, causes, and methods of control of representative plant diseases.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 152,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152,BOTANY/\u200bBIOLOGY\u00a0\u00a0130, orBIOCORE\u00a0381) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 590,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "CAPSTONE IN PLANT PATHOLOGY",
-        "description": "Synthesizing research-based capstone experience in Plant Pathology. Develop problem-solving skills, be exposed to multidisciplinary approaches, develop teamwork and interpersonal skills, develop information resources, consider societal, economic, ethical, scientific and professional aspects of the field, and prepare and present written and/or oral reports.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "SPECIAL PROBLEMS",
-        "description": "Individual advanced work in an area of Plant Pathology under the direct guidance of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 375,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "SPECIAL TOPICS",
-        "description": "Subjects of current interest to undergrads.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 333,
-            "subjects": [
-                "BOTANY",
-                "PLPATH"
-            ]
-        },
-        "course_title": "BIOLOGY OF THE FUNGI",
-        "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 381,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BIOCORE\u00a0381, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 622,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "PLANT-BACTERIAL INTERACTIONS",
-        "description": "Physiology, genetics, taxonomy, and ecology of bacterial pathogens, epiphytes, and symbionts of plants.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "MICROBIO\u00a0303and (GENETICS\u00a0466,468,BIOCHEM\u00a0501, or508) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 606,
-            "subjects": [
-                "ENTOM",
-                "SOILSCI",
-                "F&WECOL",
-                "PLPATH"
-            ]
-        },
-        "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
-        "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 261,
-            "subjects": [
-                "PLPATH",
-                "HORT"
-            ]
-        },
-        "course_title": "SUSTAINABLE TURFGRASS USE AND MANAGEMENT",
-        "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 289,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "HONORS INDEPENDENT STUDY",
-        "description": "Research work for Honors students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 399,
             "subjects": [
                 "PLPATH"
@@ -868,34 +682,6 @@
         },
         "course_title": "COORDINATIVE INTERNSHIP/COOPERATIVE EDUCATION",
         "description": "An internship under guidance of a faculty or instructional academic staff member in Plant Pathology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 400,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "STUDY ABROAD IN PLANT PATHOLOGY",
-        "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 682,
-            "subjects": [
-                "PLPATH"
-            ]
-        },
-        "course_title": "SENIOR HONORS THESIS",
-        "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"

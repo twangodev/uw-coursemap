@@ -8,20 +8,13 @@
     },
     {
         "data": {
-            "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
-            "id": "OPHTHALM 910",
-            "parent": "OPHTHALM"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "OPHTHALM 911"
-        }
-    },
-    {
-        "data": {
             "id": "OPHTHALM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
             "type": "compound"
         }
     },
@@ -34,8 +27,15 @@
     },
     {
         "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
+            "source": "MEDSC-M 813",
+            "target": "OPHTHALM 911"
+        }
+    },
+    {
+        "data": {
+            "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
+            "id": "OPHTHALM 750",
+            "parent": "OPHTHALM"
         }
     },
     {
@@ -54,8 +54,8 @@
     },
     {
         "data": {
-            "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
-            "id": "OPHTHALM 750",
+            "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
+            "id": "OPHTHALM 910",
             "parent": "OPHTHALM"
         }
     }

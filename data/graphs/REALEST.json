@@ -1,65 +1,8 @@
 [
     {
         "data": {
-            "source": "ECON 301",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
             "source": "AAE/ECON/REALEST/URBRPL 306",
-            "target": "INTLBUS/REALEST 430"
-        }
-    },
-    {
-        "data": {
-            "id": "REALEST",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of real estate valuation. Property analysis, market analysis, legal and political analysis, and highest and best use analysis; in-depth exposure to the three approaches to valuation; sales comparison, income, and cost; application to main commercial property types; the role of valuation in real estate investment.",
-            "id": "REALEST 415",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 410",
-            "target": "REALEST 640"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 410",
-            "target": "REALEST 411"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to real estate private equity investment focused on the analysis, terms, return metrics, and structures used to make real estate private equity investment decisions.",
-            "id": "REALEST 550",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 841",
-            "target": "REALEST 842"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 410",
-            "target": "REALEST 415"
+            "target": "REALEST 410"
         }
     },
     {
@@ -70,8 +13,83 @@
     },
     {
         "data": {
-            "description": "Thorough discussion of how public real estate investment products such as Mortgage-Backed Securities (MBS) and Real Estate Investment Trusts (REIT) are structured and how investors price them. Exploration of key strategic considerations for institutional investors in their real estate investments. Analysis of the equity side of real estate, review of mortgage math, analysis of MBS and real estate equity investments by looking at specific REITs.",
-            "id": "REALEST 640",
+            "source": "REALEST 415",
+            "target": "REALEST 530"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "ECON 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+            "id": "REALEST 765",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 410",
+            "target": "REALEST 611"
+        }
+    },
+    {
+        "data": {
+            "id": "REALEST",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of spatial relationships in the urban economy, including urban land, labor and housing markets; urban transport; city governance and finance; and regional models. Historical and applied focus. Interdisciplinary approach emphasizing economics, geography, and planning.",
+            "id": "REALEST/URBRPL 720"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
+            "id": "AAE/REALEST/URBRPL 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Real-world capstone experience of the real estate investment process from project conception to asset disposition with particular focus on analysis and presentation. Provides exposure to best known methods and practices that private equity and development firms use to conduct market research, project selection, financial feasibility, regulatory review, design considerations, construction management, debt financing, equity placements, equity waterfalls, property management, asset management and disposition. Develop an interdisciplinary understanding of the many facets of the acquisition and development process in the U.S. and have an insightful understanding of the risks and rewards along each step of the process.",
+            "id": "REALEST 661",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 410",
+            "target": "REALEST 415"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "AAE/REALEST/URBRPL 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
+            "id": "INTLBUS/REALEST 430"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of theoretical and empirical research on real estate and urban economics, with a focus on asset liquidity and place-based policies.",
+            "id": "REALEST 875",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on investment processes, guidelines, governance, underwriting, company valuation, sector analysis and portfolio analysis.  Allows selected students to function as portfolio managers by investing real money (endowment to the real estate program) in listed real estate companies, primarily real estate investment trusts (REITs).",
+            "id": "REALEST 841",
             "parent": "REALEST"
         }
     },
@@ -83,15 +101,8 @@
     },
     {
         "data": {
-            "description": "Institutional background of real property; economics of urbanization, supply and demand; building industry, real estate credit, cyclical fluctuation, rents and prices, real estate market analysis; city growth, structure and planning, land use control, urban redevelopment and real estate investment analysis.",
-            "id": "REALEST 706",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "REALEST 365",
+            "description": "Focuses heavily on building the investment pipeline, analyzing and underwriting new real estate private placement investments, understanding the governance structures, and benchmarking Fund investment returns to industry standards. Investments opportunities that meet investment criteria expectations will be presented to an external Investment Committee of the Wisconsin Real Estate Alumni Association.",
+            "id": "REALEST 852",
             "parent": "REALEST"
         }
     },
@@ -104,9 +115,94 @@
     },
     {
         "data": {
-            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 311",
-            "parent": "ECON"
+            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
+            "id": "AAE 101",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of undergraduate students.",
+            "id": "REALEST 399",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Analyzes current issues in real estate law with a focus on the acquisition, leasing, financing, and development of real estate projects.  Includes a big picture view of these topics as well as analyzing them in the specific context of various development deals underway across the United States.",
+            "id": "REALEST 425",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced principles of real estate law related to ownership rights, negotiations, brokering, transfers, condominium law, financing, income tax law, real estate property taxation, bankruptcy law, construction and development contracts, and residential and commercial leases, and an overview of international legal systems.",
+            "id": "REALEST 712",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to real estate modeling. Building a real estate model for acquisition and development transactions for residential and commercial real estate using Excel.  How to source market data, draw assumptions from market data, input assumptions, make decisions using reports, perform sensitivity analysis on model inputs, and explain terminology used in residential and commercial real estate.",
+            "id": "REALEST 411",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 111",
+            "target": "ECON 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work to complete dissertation requirement of Ph.D. program.",
+            "id": "REALEST 990",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamentals of real estate finance and investment. Qualitative and quantitative characteristics of commercial real estate. Developing and analyzing commercial property cash flow projections. Introduction to three approaches to valuation with emphasis on investing in commercial real estate. In-depth exposure to debt and equity investor returns.",
+            "id": "REALEST 410",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON/REALEST/URBRPL 420",
+            "target": "REALEST 425"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 550",
+            "target": "REALEST 851"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include highest and best use and most probable use analysis, statistical methods for developing adjustment factors and comparable selection for the market comparison approach, discounted cash flow analysis and income capitalization, and cost approach methods. Issues in appraisal ethics and federal requirements for appraisal practice.",
+            "id": "REALEST 715",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 710",
+            "target": "REALEST 770"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 710",
+            "target": "REALEST 750"
         }
     },
     {
@@ -117,8 +213,201 @@
     },
     {
         "data": {
-            "description": "Individual work suited to the needs of undergraduate students.",
-            "id": "REALEST 399",
+            "description": "Introduction to various techniques to analyze commercial real estate value and investment risks. Analysis of real property through an understanding of the legal, physical, and economic characteristics of a site and building. Analyze real estate markets to forecast future rental income and vacancies. Develop an operating pro forma and basic investment model, forecast future cash flows, and learn to estimate the market value of commercial properties.",
+            "id": "REALEST 702",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Evaluating the role of financing and leverage in real estate investment analysis; identifying alternative types of financing; valuation of financial structure; sources of equity financing for real estate; mortgage securitization and the operation of secondary mortgage markets.",
+            "id": "REALEST 710",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 411",
+            "target": "REALEST 412"
+        }
+    },
+    {
+        "data": {
+            "description": "Analyze current issues in real estate law with respect to the acquisition, leasing, financing, and development of real estate projects.  Explore topics in the context of specific development projects across the US.",
+            "id": "REALEST 760",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Institutional background of real property; economics of urbanization, supply and demand; building industry, real estate credit, cyclical fluctuation, rents and prices, real estate market analysis; city growth, structure and planning, land use control, urban redevelopment and real estate investment analysis.",
+            "id": "REALEST 706",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Understanding and applying both investment and real estate concepts to the Real Estate Investment Trust (REIT) market.  Emphasis is on applying investment and real estate concepts to a specific REIT.",
+            "id": "REALEST 540",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "REALEST 365",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 301",
+            "target": "REALEST 706"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of theoretical and empirical research on real estate, with a focus on real estate finance. The topics covered are intended to expose some of the major contributions in real estate research as well as a consideration of the current trends and methodological advances in recent papers.",
+            "id": "REALEST 870",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 410",
+            "target": "REALEST 411"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE/ECON/REALEST/URBRPL 306",
+            "target": "INTLBUS/REALEST 430"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the survey of institutional context, economics of urbanization, historical pattern and structure of city growth, and public policy issues regarding urban environment and business management. Decision-making processes for the manufacture, marketing, management, and financing of real estate space.",
+            "id": "REALEST 701",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 311",
+            "target": "ECON 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the real estate private equity organization through constructing investment criteria statements, vetting investment opportunities, implementing investment processes, and presenting the opportunities to the WREAA Fund Investment Committee.",
+            "id": "REALEST 851",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of Ph.D. students may be arranged both during regular sessions and during the intersession periods.",
+            "id": "REALEST 999",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore cutting-edge research on urban economics and real estate being conducted across different universities. Invited speakers will describe current or past research, identify challenges involved in their work, and highlight research conceptualization, approaches, methods, and/or data analysis, to better understand how to execute a research project.",
+            "id": "REALEST 978",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 851",
+            "target": "REALEST 852"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to real estate modeling using ARGUS. ARGUS will be used to build a real estate model for acquisition transactions for office and retail mall properties. In addition, learn how to input assumptions, make decisions using reports, perform sensitivity analysis on model inputs and explain terminology used in Office and Retail real estate.",
+            "id": "REALEST 412",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "An additional experiential learning in the areas of investment processes, guidelines, governance, underwriting, and portfolio analysis. Selected students will function as portfolio managers by investing real money (endowment to the real estate program) in listed real estate companies, primarily real estate investment trusts (REITs).",
+            "id": "REALEST 842",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of real estate valuation. Property analysis, market analysis, legal and political analysis, and highest and best use analysis; in-depth exposure to the three approaches to valuation; sales comparison, income, and cost; application to main commercial property types; the role of valuation in real estate investment.",
+            "id": "REALEST 415",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the study of the allocation of scarce resources across space. Uses economic methods to analyze urban real  estate. Topics covered include the determinants of real estate values, the location decisions  of households and firms, land use, urban growth and agglomeration, real estate pricing, cycles, development, housing market and policies, and sustainable development.",
+            "id": "ECON/REALEST/URBRPL 420"
+        }
+    },
+    {
+        "data": {
+            "description": "Intended for students who have an interest in Green and Sustainable aspects of housing and commercial property development and operation, the re-use and/or rehabilitation of existing structures, redevelopment of historic buildings into housing or commercial space and related special topics such as financing sources, tax issues, financial structuring, legal issues and energy cost management.",
+            "id": "REALEST 651",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
+            "id": "ECON 311",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "REALEST 410",
+            "target": "REALEST 640"
+        }
+    },
+    {
+        "data": {
+            "description": "A capstone focused on comprehensively underwriting commercial real estate. Investment analysis will be performed for a variety of real estate property types from the perspective of various real estate professionals, such as the property/asset manager, finance professional, leasing broker, acquisitions specialist, portfolio manager, and investment legal/risk team.  The investment analysis will emphasize the importance of value-creation through capital investment and effective income and expense management.",
+            "id": "REALEST 530",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE/ECON/REALEST/URBRPL 306"
+        }
+    },
+    {
+        "data": {
+            "description": "A capstone focused on advanced topics in commercial real estate finance. The course is broken into three parts: 1) Financial Derivatives, 2) Risk Management, and 3) Structured Finance. Lectures will address relevant topic areas and develop methodological skills. Industry professionals will provide real world markets perspective. case studies will be used to reinforce material presented in class.",
+            "id": "REALEST 770",
+            "parent": "REALEST"
+        }
+    },
+    {
+        "data": {
+            "id": "AAE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "A capstone course. In-depth exposure to the world of the residential builder/developer/subdivider and the necessary tools of analysis--market analysis, zoning/environmental and other entitlements, site planning and design, infrastructure/construction cost analysis, financing, feasibility analysis, deal structuring, renovation/rehabilitation, special needs housing.",
+            "id": "REALEST 611",
             "parent": "REALEST"
         }
     },
@@ -137,135 +426,26 @@
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "AAE 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the real estate private equity organization through constructing investment criteria statements, vetting investment opportunities, implementing investment processes, and presenting the opportunities to the WREAA Fund Investment Committee.",
-            "id": "REALEST 851",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include highest and best use and most probable use analysis, statistical methods for developing adjustment factors and comparable selection for the market comparison approach, discounted cash flow analysis and income capitalization, and cost approach methods. Issues in appraisal ethics and federal requirements for appraisal practice.",
-            "id": "REALEST 715",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore cutting-edge research on urban economics and real estate being conducted across different universities. Invited speakers will describe current or past research, identify challenges involved in their work, and highlight research conceptualization, approaches, methods, and/or data analysis, to better understand how to execute a research project.",
-            "id": "REALEST 978",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamentals of real estate finance and investment. Qualitative and quantitative characteristics of commercial real estate. Developing and analyzing commercial property cash flow projections. Introduction to three approaches to valuation with emphasis on investing in commercial real estate. In-depth exposure to debt and equity investor returns.",
-            "id": "REALEST 410",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Intended for students who have an interest in Green and Sustainable aspects of housing and commercial property development and operation, the re-use and/or rehabilitation of existing structures, redevelopment of historic buildings into housing or commercial space and related special topics such as financing sources, tax issues, financial structuring, legal issues and energy cost management.",
-            "id": "REALEST 651",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "A capstone focused on comprehensively underwriting commercial real estate. Investment analysis will be performed for a variety of real estate property types from the perspective of various real estate professionals, such as the property/asset manager, finance professional, leasing broker, acquisitions specialist, portfolio manager, and investment legal/risk team.  The investment analysis will emphasize the importance of value-creation through capital investment and effective income and expense management.",
-            "id": "REALEST 530",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "id": "ECON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work to complete dissertation requirement of Ph.D. program.",
-            "id": "REALEST 990",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of Ph.D. students may be arranged both during regular sessions and during the intersession periods.",
-            "id": "REALEST 999",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the survey of institutional context, economics of urbanization, historical pattern and structure of city growth, and public policy issues regarding urban environment and business management. Decision-making processes for the manufacture, marketing, management, and financing of real estate space.",
-            "id": "REALEST 701",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced principles of real estate law related to ownership rights, negotiations, brokering, transfers, condominium law, financing, income tax law, real estate property taxation, bankruptcy law, construction and development contracts, and residential and commercial leases, and an overview of international legal systems.",
-            "id": "REALEST 712",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 410",
-            "target": "REALEST 661"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 540",
-            "target": "REALEST 841"
-        }
-    },
-    {
-        "data": {
-            "description": "An additional experiential learning in the areas of investment processes, guidelines, governance, underwriting, and portfolio analysis. Selected students will function as portfolio managers by investing real money (endowment to the real estate program) in listed real estate companies, primarily real estate investment trusts (REITs).",
-            "id": "REALEST 842",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 410",
-            "target": "REALEST 611"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-            "id": "REALEST 765",
-            "parent": "REALEST"
+            "source": "ECON 101",
+            "target": "ECON 111"
         }
     },
     {
         "data": {
             "source": "ECON 301",
-            "target": "REALEST 706"
+            "target": "REALEST/URBRPL 720"
         }
     },
     {
         "data": {
-            "description": "Introduction to various techniques to analyze commercial real estate value and investment risks. Analysis of real property through an understanding of the legal, physical, and economic characteristics of a site and building. Analyze real estate markets to forecast future rental income and vacancies. Develop an operating pro forma and basic investment model, forecast future cash flows, and learn to estimate the market value of commercial properties.",
-            "id": "REALEST 702",
-            "parent": "REALEST"
+            "source": "REALEST 841",
+            "target": "REALEST 842"
         }
     },
     {
         "data": {
-            "description": "Provides an overview of theoretical and empirical research on real estate and urban economics, with a focus on asset liquidity and place-based policies.",
-            "id": "REALEST 875",
+            "description": "Introduction to static property income proforma and dynamic property discounted cash flow analysis. Applied learning from active real estate private equity offering memoranda. Analyze capital investments across the real estate risk spectrum from low-risk core income-producing properties to value-add opportunities to high-risk development and redevelopment investments.",
+            "id": "REALEST 703",
             "parent": "REALEST"
         }
     },
@@ -278,200 +458,22 @@
     },
     {
         "data": {
-            "id": "AAE",
-            "type": "compound"
+            "source": "REALEST 410",
+            "target": "REALEST 661"
         }
     },
     {
         "data": {
-            "description": "Analyzes current issues in real estate law with a focus on the acquisition, leasing, financing, and development of real estate projects.  Includes a big picture view of these topics as well as analyzing them in the specific context of various development deals underway across the United States.",
-            "id": "REALEST 425",
+            "description": "Thorough discussion of how public real estate investment products such as Mortgage-Backed Securities (MBS) and Real Estate Investment Trusts (REIT) are structured and how investors price them. Exploration of key strategic considerations for institutional investors in their real estate investments. Analysis of the equity side of real estate, review of mortgage math, analysis of MBS and real estate equity investments by looking at specific REITs.",
+            "id": "REALEST 640",
             "parent": "REALEST"
         }
     },
     {
         "data": {
-            "description": "Real-world capstone experience of the real estate investment process from project conception to asset disposition with particular focus on analysis and presentation. Provides exposure to best known methods and practices that private equity and development firms use to conduct market research, project selection, financial feasibility, regulatory review, design considerations, construction management, debt financing, equity placements, equity waterfalls, property management, asset management and disposition. Develop an interdisciplinary understanding of the many facets of the acquisition and development process in the U.S. and have an insightful understanding of the risks and rewards along each step of the process.",
-            "id": "REALEST 661",
+            "description": "Introduction to real estate private equity investment focused on the analysis, terms, return metrics, and structures used to make real estate private equity investment decisions.",
+            "id": "REALEST 550",
             "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Analyze current issues in real estate law with respect to the acquisition, leasing, financing, and development of real estate projects.  Explore topics in the context of specific development projects across the US.",
-            "id": "REALEST 760",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to static property income proforma and dynamic property discounted cash flow analysis. Applied learning from active real estate private equity offering memoranda. Analyze capital investments across the real estate risk spectrum from low-risk core income-producing properties to value-add opportunities to high-risk development and redevelopment investments.",
-            "id": "REALEST 703",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of spatial relationships in the urban economy, including urban land, labor and housing markets; urban transport; city governance and finance; and regional models. Historical and applied focus. Interdisciplinary approach emphasizing economics, geography, and planning.",
-            "id": "REALEST/URBRPL 720"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON/REALEST/URBRPL 420",
-            "target": "REALEST 425"
-        }
-    },
-    {
-        "data": {
-            "description": "A capstone focused on advanced topics in commercial real estate finance. The course is broken into three parts: 1) Financial Derivatives, 2) Risk Management, and 3) Structured Finance. Lectures will address relevant topic areas and develop methodological skills. Industry professionals will provide real world markets perspective. case studies will be used to reinforce material presented in class.",
-            "id": "REALEST 770",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of theoretical and empirical research on real estate, with a focus on real estate finance. The topics covered are intended to expose some of the major contributions in real estate research as well as a consideration of the current trends and methodological advances in recent papers.",
-            "id": "REALEST 870",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to real estate modeling using ARGUS. ARGUS will be used to build a real estate model for acquisition transactions for office and retail mall properties. In addition, learn how to input assumptions, make decisions using reports, perform sensitivity analysis on model inputs and explain terminology used in Office and Retail real estate.",
-            "id": "REALEST 412",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
-            "id": "INTLBUS/REALEST 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
-            "id": "AAE 101",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 710",
-            "target": "REALEST 770"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on investment processes, guidelines, governance, underwriting, company valuation, sector analysis and portfolio analysis.  Allows selected students to function as portfolio managers by investing real money (endowment to the real estate program) in listed real estate companies, primarily real estate investment trusts (REITs).",
-            "id": "REALEST 841",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 411",
-            "target": "REALEST 412"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Understanding and applying both investment and real estate concepts to the Real Estate Investment Trust (REIT) market.  Emphasis is on applying investment and real estate concepts to a specific REIT.",
-            "id": "REALEST 540",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the study of the allocation of scarce resources across space. Uses economic methods to analyze urban real  estate. Topics covered include the determinants of real estate values, the location decisions  of households and firms, land use, urban growth and agglomeration, real estate pricing, cycles, development, housing market and policies, and sustainable development.",
-            "id": "ECON/REALEST/URBRPL 420"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 710",
-            "target": "REALEST 750"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE/ECON/REALEST/URBRPL 306",
-            "target": "REALEST 410"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON/REALEST/URBRPL 420"
-        }
-    },
-    {
-        "data": {
-            "description": "Evaluating the role of financing and leverage in real estate investment analysis; identifying alternative types of financing; valuation of financial structure; sources of equity financing for real estate; mortgage securitization and the operation of secondary mortgage markets.",
-            "id": "REALEST 710",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "REALEST/URBRPL 720"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 415",
-            "target": "REALEST 530"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic theory (location and growth) applicable to community economic development; the role of private and public sector in local economic development, and techniques for economic analysis of community.",
-            "id": "AAE/REALEST/URBRPL 520"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 550",
-            "target": "REALEST 851"
-        }
-    },
-    {
-        "data": {
-            "description": "A capstone course. In-depth exposure to the world of the residential builder/developer/subdivider and the necessary tools of analysis--market analysis, zoning/environmental and other entitlements, site planning and design, infrastructure/construction cost analysis, financing, feasibility analysis, deal structuring, renovation/rehabilitation, special needs housing.",
-            "id": "REALEST 611",
-            "parent": "REALEST"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
         }
     },
     {
@@ -483,28 +485,14 @@
     },
     {
         "data": {
-            "description": "Introduction to real estate modeling. Building a real estate model for acquisition and development transactions for residential and commercial real estate using Excel.  How to source market data, draw assumptions from market data, input assumptions, make decisions using reports, perform sensitivity analysis on model inputs, and explain terminology used in residential and commercial real estate.",
-            "id": "REALEST 411",
-            "parent": "REALEST"
+            "source": "REALEST 540",
+            "target": "REALEST 841"
         }
     },
     {
         "data": {
-            "source": "ECON 301",
-            "target": "AAE/REALEST/URBRPL 520"
-        }
-    },
-    {
-        "data": {
-            "source": "REALEST 851",
-            "target": "REALEST 852"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses heavily on building the investment pipeline, analyzing and underwriting new real estate private placement investments, understanding the governance structures, and benchmarking Fund investment returns to industry standards. Investments opportunities that meet investment criteria expectations will be presented to an external Investment Committee of the Wisconsin Real Estate Alumni Association.",
-            "id": "REALEST 852",
-            "parent": "REALEST"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     }
 ]

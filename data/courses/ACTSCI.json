@@ -1,23 +1,16 @@
 [
     {
         "course_reference": {
-            "course_number": 654,
+            "course_number": 765,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
-        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
@@ -34,8 +27,8 @@
                 {
                     "course_number": 309,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 }
             ],
@@ -44,16 +37,37 @@
     },
     {
         "course_reference": {
-            "course_number": 365,
+            "course_number": 399,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
+        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 650,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "FUNDAMENTALS OF LONG-TERM ACTUARIAL MODELING",
+        "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
         }
     },
     {
@@ -79,23 +93,23 @@
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 654,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ACTUARIAL SCIENCE METHODS II",
-        "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
+        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
+                    "course_number": 333,
                     "subjects": [
-                        "ACTSCI"
+                        "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -107,27 +121,6 @@
         },
         "course_title": "HEALTH ANALYTICS",
         "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 657,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "RISK ANALYTICS",
-        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
         "prerequisites": {
             "course_references": [
                 {
@@ -163,16 +156,23 @@
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 653,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
+        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+            "course_references": [
+                {
+                    "course_number": 652,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
         }
     },
     {
@@ -198,62 +198,6 @@
     },
     {
         "course_reference": {
-            "course_number": 653,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
-        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 652,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 650,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF LONG-TERM ACTUARIAL MODELING",
-        "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
-        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 652,
             "subjects": [
                 "ACTSCI"
@@ -266,12 +210,68 @@
                 {
                     "course_number": 310,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 }
             ],
             "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 365,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 657,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "RISK ANALYTICS",
+        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ACTUARIAL SCIENCE METHODS II",
+        "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
         }
     }
 ]

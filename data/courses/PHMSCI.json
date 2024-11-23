@@ -1,6 +1,158 @@
 [
     {
         "course_reference": {
+            "course_number": 766,
+            "subjects": [
+                "CHEM",
+                "PHMSCI"
+            ]
+        },
+        "course_title": "MOLECULAR RECOGNITION",
+        "description": "Origin, nature, classification, and description of intermolecular forces. The hydrophobic effect. Molecular complexes, binding constants, and their measurements. General principles of self-assembly, molecular recognition, complex formation, host design. Supramolecular systems and their dynamics. Micelles, bilayers, vesicles, biological membranes.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 541,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHARMACEUTICAL CALCULATIONS, DISPENSING AND COMPOUNDING",
+        "description": "Introductory laboratory course in compounding and dispensing of pharmaceutical dosage forms, including sterile products. Includes practice in interpretation of prescription orders, pharmaceutical calculations, compounding procedures, physical manipulation of drugs and dosage form components, and product packaging and labeling.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 420,
+                    "subjects": [
+                        "PHMSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHM\u00a0SCI\u00a0420"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 625,
+            "subjects": [
+                "ONCOLOGY",
+                "PHMSCI",
+                "M&ENVTOX",
+                "POPHLTH",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "TOXICOLOGY I",
+        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 752,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "GXP (GOOD PRACTICE): WORKING IN A REGULATED ENVIRONMENT",
+        "description": "The pharmaceutical and biopharmaceutical industries have strict documentation and production requirements.  Prepares the learner to work in a regulated environment. Explains roles and responsibilities across multiple disciplines and proper documentation practices. Prepares learner for protocol, report creation and audit responses.  Discusses specifications, guidances and root-cause analysis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 531,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "MEDICINAL CHEMISTRY I",
+        "description": "Basic concepts in the chemistry of small molecule medicinal products. Structure activity of cholinergic, adrenergic, serotonergic and dopaminergic agents, antidepressant, antianxiety drugs, opioids, and antihistamines. Overview of drug metabolism and the clinical effects of metabolic drug interactions and genetic variability in drug metabolism genes.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 432,
+                    "subjects": [
+                        "PHMSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHM\u00a0SCI\u00a0432"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 773,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "MOLECULAR SOLIDS",
+        "description": "Science and technology of molecular solid materials with applications in medicine, food, energetic materials, and organic electronics.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 768,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHARMACOKINETICS",
+        "description": "Quantitative aspects of drug absorption, distribution, metabolism, and excretion. Philosophy and applications of pharmacokinetic modeling and its use in clinical practice.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 420,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHYSICOCHEMICAL PRINCIPLES OF DRUG FORMULATION AND DELIVERY",
+        "description": "Applications of physicochemical principles to pharmaceutical systems.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Doctor of Pharmacy program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 310,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "DRUGS AND THEIR ACTIONS",
+        "description": "Introduces students to the biological effects of drugs on human health. Emphasis on how drugs, especially those used in diseases of major human health significance, act in the body. Drugs that are abused also will be covered. This course is not intended for medical, nursing, pharmacy, and physician assistant students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Not open to students declared in the Nursing, Physician Assistant, or Doctor of Pharmacy programs"
+        }
+    },
+    {
+        "course_reference": {
             "course_number": 521,
             "subjects": [
                 "PHMSCI"
@@ -22,13 +174,196 @@
     },
     {
         "course_reference": {
-            "course_number": 773,
+            "course_number": 754,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "MOLECULAR SOLIDS",
-        "description": "Science and technology of molecular solid materials with applications in medicine, food, energetic materials, and organic electronics.",
+        "course_title": "LIFECYCLE MANAGEMENT OF PHARMACEUTICAL PRODUCTS",
+        "description": "Explores the process of bringing pharmaceutical products to market, particularly as it applies to the scaling up, manufacturing, and maintenance phases that come after FDA approval of a product is obtained. Identifies various factors that impact the life cycle management of pharmaceutical products from development to sustained large-scale distribution, such as: target product profile (TPP), chemistry, manufacturing and controls (CMC), active pharmaceutical ingredient (API) supply chain considerations, raw materials shortages, demand planning/forecasting, and post-approval regulatory considerations.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 751,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO REGULATORY PRACTICE",
+        "description": "Identifies and examines the key regulatory agencies and practices that govern the highly regulated and diverse pharmaceutical industry. Highlights current and emerging FDA and ICH regulations and guidance documents to successfully navigate meeting with the agencies and to submit required documentation for successful product development.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 931,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHARMACEUTICAL SCIENCES SEMINAR",
+        "description": "Weekly series that provides exposure to a diverse array of research topics. Students enroll in one of three sections, corresponding to their research core (Drug Action, Drug Discovery, or Drug Delivery).\u00a0Students in their 2nd year and beyond present their research progress or review literature. The course includes talks from nationally and internationally recognized scientists from academia and industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 542,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PARENTERAL THERAPY AND NUTRITION",
+        "description": "An introduction to parenteral therapy and nutrition focusing on the fundamental properties, calculations involved and the methods to prepare safe and reliable injectable medications for patients.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 541,
+                    "subjects": [
+                        "PHMSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHM\u00a0SCI\u00a0541and concurrent registration inPHM\u00a0SCI\u00a0540"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 254,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "TINY EARTH GENOMICS - RESEARCHING UNCULTURED ANTIBIOTIC-PRODUCING MICROBES",
+        "description": "Collaborate on a research project from the conception of research questions through data analysis and the effective communication of results. Explore the biosynthesis of antibiotics and other small molecules by uncultured bacteria through the analysis of culture-independent DNA sequencing (metagenomics) data, learning about bioinformatics and genomics along the way. Make new discoveries of microbial species and biochemical pathways.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "MICROBIO"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,MICROBIO\u00a0101,303, orBIOCORE\u00a0381"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 750,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "THE DRUG DEVELOPMENT PROCESS",
+        "description": "Overview of the drug development process from target identification, development, preclinical studies, clinical trials to post approval monitoring.  Small and Large molecules (biologics) will be covered along with a basic coverage of regulatory authorities.  Brief history of drug development as well as case studies that offer insights into the development and approval process. Comprehensive overview of the process of drug development, some of the decision-making logic, the vocabulary, and the ability to communicate within the industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 786,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "NATURAL PRODUCT SYNTHESIS, BIOSYNTHESIS AND DRUG DISCOVERY",
+        "description": "Synthesis and biosynthesis of natural products in drug discovery. Topics include: natural products in drug discovery; biosynthetic pathways and synthetic strategies for major natural product classes; and basic bioorganic chemistry and enzyme mechanisms in biosynthesis.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "CHEM\u00a0345andBIOCHEM\u00a0508"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 756,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO DATA ANALYSES IN DRUG DEVELOPMENT",
+        "description": "Provides a high-level overview of how data analysis techniques augment the drug discovery and development process. Focuses on project-based skills-building through the application of industry-standard software and use of public databases. Explores best practices for data processing and management to ensure experimental reproducibility. Develops troubleshooting skills through critical evaluation of data analysis results and root cause analysis.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 691,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "SENIOR THESIS",
+        "description": "Individual study for seniors completing theses as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 679,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHARMACOLOGY AND TOXICOLOGY SEMINAR",
+        "description": "Senior student presentations of independent research or of published papers on a specific topic approved by the course coordinator. Faculty-led seminars on selected topics regarding responsible conduct of research. The course also provides a venue for career talks by Pharmacology and Toxicology alumni and guests working in a variety of professional settings - research, industry (pharmaceutical;  biotech; contract research; consumer products; etc.), a variety of healthcare professions, and law.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in the Pharmacology and Toxicology undergraduate program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 522,
+            "subjects": [
+                "PHMSCI",
+                "PHMCOL-M"
+            ]
+        },
+        "course_title": "PHARMACOLOGY II",
+        "description": "Pharmacological actions of important drugs, including hematopoietic, thrombolytic, antihyperlipidemic, immunopharmacologic, anticancer, anti-inflammatory, diuretic, antihypertensive, antianginal, and anti-arrhythmic agents, and agents used to treat congestive heart failure.",
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 521,
+                    "subjects": [
+                        "PHMSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "PHM\u00a0SCI\u00a0521"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 775,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "POLYMERIC DRUG DELIVERY",
+        "description": "Introduces synthetic and biological polymers applied for drug targeting and controlled drug release, focusing on injectable drugs, including biologics.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Graduate/professional standing"
@@ -57,16 +392,24 @@
     },
     {
         "course_reference": {
-            "course_number": 490,
+            "course_number": 430,
             "subjects": [
+                "BME",
                 "PHMSCI"
             ]
         },
-        "course_title": "SELECTED TOPICS IN PHARMACEUTICAL SCIENCES",
-        "description": "Specialized subject matter of current interest to undergraduate and professional students.",
+        "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
+        "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 153,
+                    "subjects": [
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383) and (CHEM\u00a0341or343)"
         }
     },
     {
@@ -85,55 +428,13 @@
     },
     {
         "course_reference": {
-            "course_number": 310,
+            "course_number": 753,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "DRUGS AND THEIR ACTIONS",
-        "description": "Introduces students to the biological effects of drugs on human health. Emphasis on how drugs, especially those used in diseases of major human health significance, act in the body. Drugs that are abused also will be covered. This course is not intended for medical, nursing, pharmacy, and physician assistant students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Not open to students declared in the Nursing, Physician Assistant, or Doctor of Pharmacy programs"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 932,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACEUTICAL SCIENCES SEMINAR",
-        "description": "Weekly series that provides exposure to a diverse array of research topics. Students enroll in one of three sections, corresponding to their research core (Drug Action, Drug Discovery, or Drug Delivery).\u00a0Students in their 2nd-year and beyond present their research progress or review literature. The course includes talks from nationally and internationally recognized scientists from academia and industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 759,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "CURRENT TRENDS IN DRUG DISCOVERY AND DEVELOPMENT",
-        "description": "Provides the experience and skill to find, read and critically analyze scientific and regulatory literature in the field of drug discovery and development.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Psychoactive Pharmaceutical Investigation"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 751,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO REGULATORY PRACTICE",
-        "description": "Identifies and examines the key regulatory agencies and practices that govern the highly regulated and diverse pharmaceutical industry. Highlights current and emerging FDA and ICH regulations and guidance documents to successfully navigate meeting with the agencies and to submit required documentation for successful product development.",
+        "course_title": "PHARMACEUTICAL ECONOMICS AND PROJECT MANAGEMENT",
+        "description": "Provides an introduction to key terminology and lays a foundation of the critical body of knowledge project team members must master in a contemporary drug development enterprise. The latest project management theory is integrated with practical techniques and tools so that course participants learn to properly manage and schedule quality, budget, and progress objectives. Provides an overview of the economic structures, management and policy issues that drive and challenge the pharmaceutical and biotechnology industries.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
@@ -141,156 +442,31 @@
     },
     {
         "course_reference": {
-            "course_number": 420,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHYSICOCHEMICAL PRINCIPLES OF DRUG FORMULATION AND DELIVERY",
-        "description": "Applications of physicochemical principles to pharmaceutical systems.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in Doctor of Pharmacy program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 522,
+            "course_number": 626,
             "subjects": [
                 "PHMSCI",
-                "PHMCOL-M"
+                "M&ENVTOX",
+                "POPHLTH",
+                "PHMCOL-M",
+                "PATH"
             ]
         },
-        "course_title": "PHARMACOLOGY II",
-        "description": "Pharmacological actions of important drugs, including hematopoietic, thrombolytic, antihyperlipidemic, immunopharmacologic, anticancer, anti-inflammatory, diuretic, antihypertensive, antianginal, and anti-arrhythmic agents, and agents used to treat congestive heart failure.",
+        "course_title": "TOXICOLOGY II",
+        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 521,
+                    "course_number": 625,
                     "subjects": [
-                        "PHMSCI"
+                        "ONCOLOGY",
+                        "PHMSCI",
+                        "M&ENVTOX",
+                        "POPHLTH",
+                        "PHMCOL-M"
                     ]
                 }
             ],
-            "prerequisites_text": "PHM\u00a0SCI\u00a0521"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 493,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "SELECTED TOPICS IN PHARMACEUTICAL SCIENCES",
-        "description": "Specialized subject matter of current interest to graduate students.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 756,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO DATA ANALYSES IN DRUG DEVELOPMENT",
-        "description": "Provides a high-level overview of how data analysis techniques augment the drug discovery and development process. Focuses on project-based skills-building through the application of industry-standard software and use of public databases. Explores best practices for data processing and management to ensure experimental reproducibility. Develops troubleshooting skills through critical evaluation of data analysis results and root cause analysis.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 757,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "SURVEY OF THE NEUROACTIVE DRUG DEVELOPMENT PROCESS",
-        "description": "Survey of the drug development process from target identification, development, preclinical studies, clinical trials to post-approval monitoring, particularly as applicable to neuroactive drugs. Differences between small and large molecules (biologics) will be covered, along with a basic coverage of regulatory authorities. A brief history of drug development will be provided, along with coverage of special topics related to stages of the drug development process. Broad survey-style overview of the phases in the drug development process, regulatory considerations, relevant vocabulary, and the ability to communicate within the industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Psychoactive Pharmaceutical Investigation"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 430,
-            "subjects": [
-                "PHMSCI",
-                "BME"
-            ]
-        },
-        "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
-        "description": "Addresses the range of materials currently being utilized for various biomedical applications, the biological systems governing biomaterial applications, analytical techniques pertinent to biomaterial evaluation, and selected major medical applications in which biomaterials play an important role.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 153,
-                    "subjects": [
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 341,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 343,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 102,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0383) and (CHEM\u00a0341or343)"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 755,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "LABORATORY AND INSTRUMENTATION METHODS",
-        "description": "Teaches the theory and application of many common laboratory techniques and instruments used in drug discovery and development.  Includes a laboratory component to teach safety and basic techniques necessary for working in a lab. Instruction begins with basic techniques and builds upon these techniques to instruct in proper sample preparation and handling for analysis using a variety of analytical instrumentation.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the MS Pharmaceutical Sciences: Applied Drug Development"
+            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
         }
     },
     {
@@ -323,34 +499,6 @@
     },
     {
         "course_reference": {
-            "course_number": 760,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "SUMMATIVE RESEARCH INTERNSHIP",
-        "description": "Summation of core coursework to a real-world project and/or internship experience. Synthesis of knowledge, skills and abilities to demonstrate aptitude for careers in respective industries.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing for graduate and students under the supervision of a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 699,
             "subjects": [
                 "PHMSCI"
@@ -365,16 +513,30 @@
     },
     {
         "course_reference": {
-            "course_number": 752,
+            "course_number": 780,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "GXP (GOOD PRACTICE): WORKING IN A REGULATED ENVIRONMENT",
-        "description": "The pharmaceutical and biopharmaceutical industries have strict documentation and production requirements.  Prepares the learner to work in a regulated environment. Explains roles and responsibilities across multiple disciplines and proper documentation practices. Prepares learner for protocol, report creation and audit responses.  Discusses specifications, guidances and root-cause analysis.",
+        "course_title": "PRINCIPLES OF PHARMACEUTICAL SCIENCES",
+        "description": "Introductory-level graduate course providing overview of the drug development process, involving drug discovery, drug action, and drug delivery. Exposes students to cutting-edge research and the chemistry, biology, physical chemistry, and engineering that underpin pharmaceutical sciences research.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 490,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "SELECTED TOPICS IN PHARMACEUTICAL SCIENCES",
+        "description": "Specialized subject matter of current interest to undergraduate and professional students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -400,158 +562,6 @@
     },
     {
         "course_reference": {
-            "course_number": 761,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "INTRODUCTION TO PHARMACOLOGY",
-        "description": "Introduction to basic concepts of drug delivery and action, methods used to study drug action. Includes a brief survey of drugs acting on the cardiovascular system, the central nervous system and other drug targets.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 931,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACEUTICAL SCIENCES SEMINAR",
-        "description": "Weekly series that provides exposure to a diverse array of research topics. Students enroll in one of three sections, corresponding to their research core (Drug Action, Drug Discovery, or Drug Delivery).\u00a0Students in their 2nd year and beyond present their research progress or review literature. The course includes talks from nationally and internationally recognized scientists from academia and industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 768,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACOKINETICS",
-        "description": "Quantitative aspects of drug absorption, distribution, metabolism, and excretion. Philosophy and applications of pharmacokinetic modeling and its use in clinical practice.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "ONCOLOGY",
-                "PHMSCI",
-                "M&ENVTOX",
-                "POPHLTH",
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "TOXICOLOGY I",
-        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 754,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "LIFECYCLE MANAGEMENT OF PHARMACEUTICAL PRODUCTS",
-        "description": "Explores the process of bringing pharmaceutical products to market, particularly as it applies to the scaling up, manufacturing, and maintenance phases that come after FDA approval of a product is obtained. Identifies various factors that impact the life cycle management of pharmaceutical products from development to sustained large-scale distribution, such as: target product profile (TPP), chemistry, manufacturing and controls (CMC), active pharmaceutical ingredient (API) supply chain considerations, raw materials shortages, demand planning/forecasting, and post-approval regulatory considerations.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 750,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "THE DRUG DEVELOPMENT PROCESS",
-        "description": "Overview of the drug development process from target identification, development, preclinical studies, clinical trials to post approval monitoring.  Small and Large molecules (biologics) will be covered along with a basic coverage of regulatory authorities.  Brief history of drug development as well as case studies that offer insights into the development and approval process. Comprehensive overview of the process of drug development, some of the decision-making logic, the vocabulary, and the ability to communicate within the industry.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 541,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACEUTICAL CALCULATIONS, DISPENSING AND COMPOUNDING",
-        "description": "Introductory laboratory course in compounding and dispensing of pharmaceutical dosage forms, including sterile products. Includes practice in interpretation of prescription orders, pharmaceutical calculations, compounding procedures, physical manipulation of drugs and dosage form components, and product packaging and labeling.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 420,
-                    "subjects": [
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHM\u00a0SCI\u00a0420"
-        }
-    },
-    {
-        "course_reference": {
             "course_number": 558,
             "subjects": [
                 "PHMSCI"
@@ -566,28 +576,13 @@
     },
     {
         "course_reference": {
-            "course_number": 766,
-            "subjects": [
-                "CHEM",
-                "PHMSCI"
-            ]
-        },
-        "course_title": "MOLECULAR RECOGNITION",
-        "description": "Origin, nature, classification, and description of intermolecular forces. The hydrophobic effect. Molecular complexes, binding constants, and their measurements. General principles of self-assembly, molecular recognition, complex formation, host design. Supramolecular systems and their dynamics. Micelles, bilayers, vesicles, biological membranes.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 999,
+            "course_number": 990,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "ADVANCED INDEPENDENT STUDY",
-        "description": "Directed study projects for graduate students as arranged with a faculty member.",
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing for graduate and students under the supervision of a faculty member.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -595,157 +590,16 @@
     },
     {
         "course_reference": {
-            "course_number": 762,
+            "course_number": 755,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "THE DRUG DEVELOPMENT PROCESS I",
-        "description": "Overview of the drug development process from discovery to approval.\u00a0Process of drug development from target identification to investigational new drug (IND) submission including tenets of rational drug design, preclinical CMC activities, and preclinical pharmacology, pharmacokinetic, and toxicology studies.\u00a0Small and large molecules (biologics/biotherapeutics) will be covered.\u00a0Brief history of drug development and various case studies offering insights into preclinical drug development.",
+        "course_title": "LABORATORY AND INSTRUMENTATION METHODS",
+        "description": "Teaches the theory and application of many common laboratory techniques and instruments used in drug discovery and development.  Includes a laboratory component to teach safety and basic techniques necessary for working in a lab. Instruction begins with basic techniques and builds upon these techniques to instruct in proper sample preparation and handling for analysis using a variety of analytical instrumentation.",
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Declared in Pharmaceutical Sciences: Applied Drug Development MS or Capstone Certificate in Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 753,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACEUTICAL ECONOMICS AND PROJECT MANAGEMENT",
-        "description": "Provides an introduction to key terminology and lays a foundation of the critical body of knowledge project team members must master in a contemporary drug development enterprise. The latest project management theory is integrated with practical techniques and tools so that course participants learn to properly manage and schedule quality, budget, and progress objectives. Provides an overview of the economic structures, management and policy issues that drive and challenge the pharmaceutical and biotechnology industries.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Applied Drug Development"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 626,
-            "subjects": [
-                "PATH",
-                "PHMSCI",
-                "M&ENVTOX",
-                "POPHLTH",
-                "PHMCOL-M"
-            ]
-        },
-        "course_title": "TOXICOLOGY II",
-        "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 625,
-                    "subjects": [
-                        "ONCOLOGY",
-                        "PHMSCI",
-                        "M&ENVTOX",
-                        "POPHLTH",
-                        "PHMCOL-M"
-                    ]
-                }
-            ],
-            "prerequisites_text": "POP\u00a0HLTH/\u200bM&ENVTOX/\u200bONCOLOGY/\u200bPHM\u00a0SCI/\u200bPHMCOL-M\u00a0\u00a0625"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 691,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "SENIOR THESIS",
-        "description": "Individual study for seniors completing theses as arranged with a faculty member.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 780,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PRINCIPLES OF PHARMACEUTICAL SCIENCES",
-        "description": "Introductory-level graduate course providing overview of the drug development process, involving drug discovery, drug action, and drug delivery. Exposes students to cutting-edge research and the chemistry, biology, physical chemistry, and engineering that underpin pharmaceutical sciences research.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 254,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "TINY EARTH GENOMICS - RESEARCHING UNCULTURED ANTIBIOTIC-PRODUCING MICROBES",
-        "description": "Collaborate on a research project from the conception of research questions through data analysis and the effective communication of results. Explore the biosynthesis of antibiotics and other small molecules by uncultured bacteria through the analysis of culture-independent DNA sequencing (metagenomics) data, learning about bioinformatics and genomics along the way. Make new discoveries of microbial species and biochemical pathways.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "MICROBIO"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,MICROBIO\u00a0101,303, orBIOCORE\u00a0381"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 679,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "PHARMACOLOGY AND TOXICOLOGY SEMINAR",
-        "description": "Senior student presentations of independent research or of published papers on a specific topic approved by the course coordinator. Faculty-led seminars on selected topics regarding responsible conduct of research. The course also provides a venue for career talks by Pharmacology and Toxicology alumni and guests working in a variety of professional settings - research, industry (pharmaceutical;  biotech; contract research; consumer products; etc.), a variety of healthcare professions, and law.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Declared in the Pharmacology and Toxicology undergraduate program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 775,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "POLYMERIC DRUG DELIVERY",
-        "description": "Introduces synthetic and biological polymers applied for drug targeting and controlled drug release, focusing on injectable drugs, including biologics.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 786,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "NATURAL PRODUCT SYNTHESIS, BIOSYNTHESIS AND DRUG DISCOVERY",
-        "description": "Synthesis and biosynthesis of natural products in drug discovery. Topics include: natural products in drug discovery; biosynthetic pathways and synthetic strategies for major natural product classes; and basic bioorganic chemistry and enzyme mechanisms in biosynthesis.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "CHEM\u00a0345andBIOCHEM\u00a0508"
+            "prerequisites_text": "Declared in the MS Pharmaceutical Sciences: Applied Drug Development"
         }
     },
     {
@@ -772,23 +626,114 @@
     },
     {
         "course_reference": {
-            "course_number": 542,
+            "course_number": 760,
             "subjects": [
                 "PHMSCI"
             ]
         },
-        "course_title": "PARENTERAL THERAPY AND NUTRITION",
-        "description": "An introduction to parenteral therapy and nutrition focusing on the fundamental properties, calculations involved and the methods to prepare safe and reliable injectable medications for patients.",
+        "course_title": "SUMMATIVE RESEARCH INTERNSHIP",
+        "description": "Summation of core coursework to a real-world project and/or internship experience. Synthesis of knowledge, skills and abilities to demonstrate aptitude for careers in respective industries.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 541,
-                    "subjects": [
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHM\u00a0SCI\u00a0541and concurrent registration inPHM\u00a0SCI\u00a0540"
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 759,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "CURRENT TRENDS IN DRUG DISCOVERY AND DEVELOPMENT",
+        "description": "Provides the experience and skill to find, read and critically analyze scientific and regulatory literature in the field of drug discovery and development.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences or Capstone Certificate in Psychoactive Pharmaceutical Investigation"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 999,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "ADVANCED INDEPENDENT STUDY",
+        "description": "Directed study projects for graduate students as arranged with a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 761,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "INTRODUCTION TO PHARMACOLOGY",
+        "description": "Introduction to basic concepts of drug delivery and action, methods used to study drug action. Includes a brief survey of drugs acting on the cardiovascular system, the central nervous system and other drug targets.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 762,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "THE DRUG DEVELOPMENT PROCESS I",
+        "description": "Overview of the drug development process from discovery to approval.\u00a0Process of drug development from target identification to investigational new drug (IND) submission including tenets of rational drug design, preclinical CMC activities, and preclinical pharmacology, pharmacokinetic, and toxicology studies.\u00a0Small and large molecules (biologics/biotherapeutics) will be covered.\u00a0Brief history of drug development and various case studies offering insights into preclinical drug development.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in Pharmaceutical Sciences: Applied Drug Development MS or Capstone Certificate in Applied Drug Development"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 493,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "SELECTED TOPICS IN PHARMACEUTICAL SCIENCES",
+        "description": "Specialized subject matter of current interest to graduate students.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 932,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "PHARMACEUTICAL SCIENCES SEMINAR",
+        "description": "Weekly series that provides exposure to a diverse array of research topics. Students enroll in one of three sections, corresponding to their research core (Drug Action, Drug Discovery, or Drug Delivery).\u00a0Students in their 2nd-year and beyond present their research progress or review literature. The course includes talks from nationally and internationally recognized scientists from academia and industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 757,
+            "subjects": [
+                "PHMSCI"
+            ]
+        },
+        "course_title": "SURVEY OF THE NEUROACTIVE DRUG DEVELOPMENT PROCESS",
+        "description": "Survey of the drug development process from target identification, development, preclinical studies, clinical trials to post-approval monitoring, particularly as applicable to neuroactive drugs. Differences between small and large molecules (biologics) will be covered, along with a basic coverage of regulatory authorities. A brief history of drug development will be provided, along with coverage of special topics related to stages of the drug development process. Broad survey-style overview of the phases in the drug development process, regulatory considerations, relevant vocabulary, and the ability to communicate within the industry.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Declared in MS Pharmaceutical Sciences: Psychoactive Pharmaceutical Investigation"
         }
     },
     {
@@ -803,27 +748,6 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Declared in the Doctor of Pharmacy program with second year standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 531,
-            "subjects": [
-                "PHMSCI"
-            ]
-        },
-        "course_title": "MEDICINAL CHEMISTRY I",
-        "description": "Basic concepts in the chemistry of small molecule medicinal products. Structure activity of cholinergic, adrenergic, serotonergic and dopaminergic agents, antidepressant, antianxiety drugs, opioids, and antihistamines. Overview of drug metabolism and the clinical effects of metabolic drug interactions and genetic variability in drug metabolism genes.",
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 432,
-                    "subjects": [
-                        "PHMSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PHM\u00a0SCI\u00a0432"
         }
     }
 ]

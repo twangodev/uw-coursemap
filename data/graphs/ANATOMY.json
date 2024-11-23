@@ -1,9 +1,14 @@
 [
     {
         "data": {
-            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
-            "id": "ANAT&PHY 337",
-            "parent": "ANAT&PHY"
+            "source": "ANAT&PHY 338",
+            "target": "ANATOMY 329"
+        }
+    },
+    {
+        "data": {
+            "id": "ANATOMY",
+            "type": "compound"
         }
     },
     {
@@ -21,15 +26,9 @@
     },
     {
         "data": {
-            "description": "Laboratory with dissection of human cadaver specimens and study of prosections.",
-            "id": "ANATOMY 329",
-            "parent": "ANATOMY"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 338",
-            "target": "ANATOMY 329"
+            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
+            "id": "ANAT&PHY 337",
+            "parent": "ANAT&PHY"
         }
     },
     {
@@ -40,8 +39,9 @@
     },
     {
         "data": {
-            "id": "ANATOMY",
-            "type": "compound"
+            "description": "Laboratory with dissection of human cadaver specimens and study of prosections.",
+            "id": "ANATOMY 329",
+            "parent": "ANATOMY"
         }
     },
     {

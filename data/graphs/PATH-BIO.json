@@ -1,58 +1,39 @@
 [
     {
         "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
             "description": "HIV kills three million people per year, more than any other infectious disease. We will learn about the transmission, immunology, virology, vaccinology and societal impact of this virus. Six of the world's leading HIV scientists will give guest lectures.",
             "id": "PATH/PATH-BIO 210"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
-            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
-            "id": "MM&I/PATH-BIO 750"
-        }
-    },
-    {
-        "data": {
-            "description": "Morphological manifestations of disease in animals. Diseases and disease processes will be discussed by organ system, stressing important diseases in domestic animals.",
-            "id": "PATH-BIO 560",
+            "description": "Explore the new frontier of evolutionary and ecological solutions to public health challenges through analyses and discussions. Evolution is often viewed as a purely historical topic disconnected from modern practical concerns. This view is incomplete: evolution plays a key role in many areas of modern life and underlies many public health challenges like drug resistance in bacteria and cancer, vaccine development, circadian medicine, and the 'spill-over' of pathogens from wildlife to humans (and vice versa). These issues, however, are intricately connected to social drivers like the use of antibiotics to treat viruses or as growth promoters in livestock. More evolutionary-guided solutions to understanding and addressing these challenges are critical for a sustainable and healthy future.",
+            "id": "PATH-BIO 307",
             "parent": "PATH-BIO"
         }
     },
     {
         "data": {
-            "description": "Emphasis on the pathogenesis of bacterial and fungal diseases of animals. Become familiar with the methods used to identify representative bacterial and fungal pathogens.",
-            "id": "PATH-BIO 517",
-            "parent": "PATH-BIO"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Active Learning experience highlighting problem solving and critical thinking that horizontally and vertically integrates material from other veterinary medicine courses by using exercises constructed in the context of clinical cases or scenaria.",
-            "id": "PATH-BIO 526",
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic veterinary parasitology with emphasis on biology, diagnosis, pathophysiology, treatment and management of parasitic infections of veterinary importance.",
+            "id": "PATH-BIO 514",
             "parent": "PATH-BIO"
         }
     },
@@ -65,8 +46,95 @@
     },
     {
         "data": {
+            "description": "Projects in the laboratory and/or through library work in specific subject area under the direct guidance of faculty member.",
+            "id": "PATH-BIO 699",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
             "description": "Active Learning experience highlighting problem solving and critical thinking that horizontally and vertically integrates material from other veterinary medicine courses by using exercises constructed in the context of clinical cases or scenaria.",
             "id": "PATH-BIO 525",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides experience with necropsy procedures in all animal species and in developing interpretive skills by participating in the School of Veterinary Medicine/Veterinary Medical Teaching Hospital diagnostic anatomic pathology service under the guidance of the faculty.",
+            "id": "PATH-BIO 660",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "PATH-BIO 920",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "General mechanisms of disease at the cellular, tissue, organ, and organismal levels. Cell injury and cell death, neoplasia, inflammation, circulation, and genetics.",
+            "id": "PATH-BIO 559",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "MM&I/PATH-BIO 528"
+        }
+    },
+    {
+        "data": {
+            "id": "PATH-BIO",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
+            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
+        }
+    },
+    {
+        "data": {
+            "description": "Current concepts in basic and clinical immunology with special emphasis on domesticated species and aspects of immunology.",
+            "id": "PATH-BIO 510",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "PATH-BIO 990",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 102",
+            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
+        }
+    },
+    {
+        "data": {
+            "description": "Offers opportunities for faculty coordinated experience in the veterinary medical profession outside School of Veterinary Medicine.",
+            "id": "PATH-BIO 775",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Role and regulatory obligations of the veterinary profession in preventing zoonoses, understanding the need for judicious use of antibiotics, and promoting the safety of food of animal origin.",
+            "id": "PATH-BIO 515",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics vary.",
+            "id": "PATH-BIO 675",
             "parent": "PATH-BIO"
         }
     },
@@ -79,121 +147,14 @@
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual research and study in pathobiological sciences for completing an honors thesis as arranged with a faculty member.",
-            "id": "PATH-BIO 681",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to basic concepts in virology and covers biology and pathogenesis of viral diseases of animals with an emphasis on viruses important to veterinary medicine.",
-            "id": "PATH-BIO 513",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Projects in the laboratory and/or through library work in specific subject area under the direct guidance of faculty member.",
-            "id": "PATH-BIO 699",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "PATH-BIO 920",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "id": "PATH-BIO",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides experience with necropsy procedures in all animal species and in developing interpretive skills by participating in the School of Veterinary Medicine/Veterinary Medical Teaching Hospital diagnostic anatomic pathology service under the guidance of the faculty.",
-            "id": "PATH-BIO 660",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Offers opportunities for faculty coordinated experience in the veterinary medical profession outside School of Veterinary Medicine.",
-            "id": "PATH-BIO 775",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "PATH-BIO 799",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "General mechanisms of disease at the cellular, tissue, organ, and organismal levels. Cell injury and cell death, neoplasia, inflammation, circulation, and genetics.",
-            "id": "PATH-BIO 559",
-            "parent": "PATH-BIO"
+            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
+            "id": "MM&I/PATH-BIO 750"
         }
     },
     {
@@ -205,63 +166,15 @@
     },
     {
         "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOCORE 381"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
             "description": "",
-            "id": "PATH-BIO 990",
+            "id": "PATH-BIO 299",
             "parent": "PATH-BIO"
         }
     },
     {
         "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides instruction in principles and concepts of research ethics through presentations and discussion of case studies. Topics pertinent to development of a successful career in research are also included.",
-            "id": "COMPBIO/PATH-BIO 812"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Role and regulatory obligations of the veterinary profession in preventing zoonoses, understanding the need for judicious use of antibiotics, and promoting the safety of food of animal origin.",
-            "id": "PATH-BIO 515",
+            "description": "Emphasis on the pathogenesis of bacterial and fungal diseases of animals. Become familiar with the methods used to identify representative bacterial and fungal pathogens.",
+            "id": "PATH-BIO 517",
             "parent": "PATH-BIO"
         }
     },
@@ -274,99 +187,8 @@
     },
     {
         "data": {
-            "description": "Addresses the science, ethics, history, and communication strategies associated with the use of animals in research. Seeks to identify and employ common ground among those with different perspectives to enable students to make good decisions about this contentious topic.",
-            "id": "MEDHIST/PATH-BIO 370"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "PATH-BIO 299",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Morphological manifestations of disease in animals. Diseases and disease processes will be discussed by organ system, stressing important diseases in domestic animals.",
-            "id": "PATH-BIO 561",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual research and study in pathobiological sciences for completing an honors thesis as arranged with a faculty member.",
-            "id": "PATH-BIO 682",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore the new frontier of evolutionary and ecological solutions to public health challenges through analyses and discussions. Evolution is often viewed as a purely historical topic disconnected from modern practical concerns. This view is incomplete: evolution plays a key role in many areas of modern life and underlies many public health challenges like drug resistance in bacteria and cancer, vaccine development, circadian medicine, and the 'spill-over' of pathogens from wildlife to humans (and vice versa). These issues, however, are intricately connected to social drivers like the use of antibiotics to treat viruses or as growth promoters in livestock. More evolutionary-guided solutions to understanding and addressing these challenges are critical for a sustainable and healthy future.",
-            "id": "PATH-BIO 307",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
             "source": "BIOCORE 381",
             "target": "PATH-BIO 307"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic veterinary parasitology with emphasis on biology, diagnosis, pathophysiology, treatment and management of parasitic infections of veterinary importance.",
-            "id": "PATH-BIO 514",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Current concepts in basic and clinical immunology with special emphasis on domesticated species and aspects of immunology.",
-            "id": "PATH-BIO 510",
-            "parent": "PATH-BIO"
-        }
-    },
-    {
-        "data": {
-            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
-            "id": "MM&I/PATH-BIO 528"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
         }
     },
     {
@@ -378,39 +200,93 @@
     },
     {
         "data": {
-            "description": "Topics vary.",
-            "id": "PATH-BIO 675",
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
+            "id": "MM&I/PATH-BIO 528"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides instruction in principles and concepts of research ethics through presentations and discussion of case studies. Topics pertinent to development of a successful career in research are also included.",
+            "id": "COMPBIO/PATH-BIO 812"
+        }
+    },
+    {
+        "data": {
+            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "PATH-BIO 799",
             "parent": "PATH-BIO"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MM&I/PATH-BIO 528"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
             "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Morphological manifestations of disease in animals. Diseases and disease processes will be discussed by organ system, stressing important diseases in domestic animals.",
+            "id": "PATH-BIO 561",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Morphological manifestations of disease in animals. Diseases and disease processes will be discussed by organ system, stressing important diseases in domestic animals.",
+            "id": "PATH-BIO 560",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses the science, ethics, history, and communication strategies associated with the use of animals in research. Seeks to identify and employ common ground among those with different perspectives to enable students to make good decisions about this contentious topic.",
+            "id": "MEDHIST/PATH-BIO 370"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual research and study in pathobiological sciences for completing an honors thesis as arranged with a faculty member.",
+            "id": "PATH-BIO 682",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Active Learning experience highlighting problem solving and critical thinking that horizontally and vertically integrates material from other veterinary medicine courses by using exercises constructed in the context of clinical cases or scenaria.",
+            "id": "PATH-BIO 526",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual research and study in pathobiological sciences for completing an honors thesis as arranged with a faculty member.",
+            "id": "PATH-BIO 681",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic concepts in virology and covers biology and pathogenesis of viral diseases of animals with an emphasis on viruses important to veterinary medicine.",
+            "id": "PATH-BIO 513",
+            "parent": "PATH-BIO"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     }
 ]

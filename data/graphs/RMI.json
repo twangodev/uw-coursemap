@@ -1,41 +1,15 @@
 [
     {
         "data": {
-            "source": "ECON 301",
-            "target": "ECON 311"
+            "source": "ECON 111",
+            "target": "ECON 101"
         }
     },
     {
         "data": {
-            "source": "RMI 300",
-            "target": "RMI 615"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 311",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 102"
+            "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
+            "id": "RMI 820",
+            "parent": "RMI"
         }
     },
     {
@@ -47,9 +21,8 @@
     },
     {
         "data": {
-            "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
-            "id": "RMI 820",
-            "parent": "RMI"
+            "source": "RMI 300",
+            "target": "RMI 610"
         }
     },
     {
@@ -68,25 +41,6 @@
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Doctoral seminar in actuarial science, risk management and insurance, with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
-            "id": "RMI 930",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
             "description": "Individual work to complete dissertation requirement of Ph.D. program.",
             "id": "RMI 990",
             "parent": "RMI"
@@ -94,14 +48,52 @@
     },
     {
         "data": {
-            "source": "ECON 301",
-            "target": "ECON 310"
+            "description": "Focuses on reinsurance, a key component to the successful implementation of the insurance mechanism. Provides exposure to the types and uses of reinsurance, its specific regulatory requirements, how it affects and is affected by primary insurance, and general market mechanisms.",
+            "id": "RMI 637",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "description": "Consideration of the structure, use, benefits, and limitations of corporate insurance products. Fundamental to the material is the economic underpinning of the insurance contract structure. The major commercial property and liability insurance products will be analyzed in detail with the purpose of illustrating these economic principles and applying them to specific organizational situations.",
-            "id": "RMI 645",
+            "description": "Legal implications for business managers of selected areas of the law including negligence, contract, intellectual property, officer/director liability, financing the business enterprise, and employment and trade regulation; introduction to the legal process, including alternative dispute resolution systems.",
+            "id": "GENBUS/RMI 701"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 310",
+            "target": "ECON/RMI 530"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 655"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 700",
+            "target": "RMI 645"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
+            "id": "ECON 310",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 635",
+            "target": "RMI 636"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop insight into the principles of risk management, including institutions engaged in identifying, assessing, preventing, mitigating, and transferring risk. Specific focus is given to how the digitization of data, technology, and analytics are creating a new risk landscape, and how conventional risk management approaches can adapt to meet these emerging business needs.",
+            "id": "RMI 705",
             "parent": "RMI"
         }
     },
@@ -114,53 +106,6 @@
     },
     {
         "data": {
-            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
-            "id": "ECON 310",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of graduate students may be arranged.",
-            "id": "RMI 799",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 700"
-        }
-    },
-    {
-        "data": {
-            "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
-            "id": "RMI 670",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
-            "id": "RMI 610",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "RMI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
-            "id": "RMI 660",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
             "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
             "id": "RMI 765",
             "parent": "RMI"
@@ -168,14 +113,23 @@
     },
     {
         "data": {
-            "source": "RMI 700",
-            "target": "RMI 705"
+            "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
+            "id": "RMI 700",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "id": "RMI",
-            "type": "compound"
+            "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
+            "id": "RMI 650",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
+            "id": "RMI 660",
+            "parent": "RMI"
         }
     },
     {
@@ -193,41 +147,21 @@
     },
     {
         "data": {
-            "source": "RMI 300",
-            "target": "RMI 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive overview of insurer financial statement analysis and captive insurance. Examine the construction of insurer financial statements, including premiums, expenses, and losses. Financial statement analysis focusing on the statutory statement with differences from GAAP highlighted. Assess captive insurance, covering its structures, feasibility studies, and financial performance measurement.",
-            "id": "RMI 636",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop insight into the principles of risk management, including institutions engaged in identifying, assessing, preventing, mitigating, and transferring risk. Specific focus is given to how the digitization of data, technology, and analytics are creating a new risk landscape, and how conventional risk management approaches can adapt to meet these emerging business needs.",
-            "id": "RMI 705",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on reinsurance, a key component to the successful implementation of the insurance mechanism. Provides exposure to the types and uses of reinsurance, its specific regulatory requirements, how it affects and is affected by primary insurance, and general market mechanisms.",
-            "id": "RMI 637",
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "RMI 365",
             "parent": "RMI"
         }
     },
     {
         "data": {
             "source": "RMI 300",
-            "target": "RMI 655"
+            "target": "RMI 615"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 700",
+            "target": "RMI 705"
         }
     },
     {
@@ -239,92 +173,8 @@
     },
     {
         "data": {
-            "source": "RMI 300",
-            "target": "RMI 635"
-        }
-    },
-    {
-        "data": {
-            "description": "Legal implications for business managers of selected areas of the law including negligence, contract, intellectual property, officer/director liability, financing the business enterprise, and employment and trade regulation; introduction to the legal process, including alternative dispute resolution systems.",
-            "id": "GENBUS/RMI 701"
-        }
-    },
-    {
-        "data": {
-            "description": "Doctoral seminar in actuarial science, risk management and insurance with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
-            "id": "RMI 920",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 610"
-        }
-    },
-    {
-        "data": {
             "description": "The purpose of risk management is to minimize the adverse consequences of variability. Topics include the general philosophy of risk management, environmental factors affecting risk, options to manage risk, and decision processes to select among those options.",
             "id": "RMI 710",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 310",
-            "target": "ECON/RMI 530"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 700",
-            "target": "RMI 645"
-        }
-    },
-    {
-        "data": {
-            "id": "ECON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "RMI 365",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
-            "id": "RMI 700",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 301",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
-            "id": "RMI 650",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
-            "id": "RMI 655",
             "parent": "RMI"
         }
     },
@@ -336,15 +186,68 @@
     },
     {
         "data": {
-            "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
-            "id": "RMI 399",
+            "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
+            "id": "RMI 999",
             "parent": "RMI"
         }
     },
     {
         "data": {
-            "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
-            "id": "RMI 999",
+            "source": "ECON 102",
+            "target": "ECON 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
+            "id": "RMI 615",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 111"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive overview of insurer financial statement analysis and captive insurance. Examine the construction of insurer financial statements, including premiums, expenses, and losses. Financial statement analysis focusing on the statutory statement with differences from GAAP highlighted. Assess captive insurance, covering its structures, feasibility studies, and financial performance measurement.",
+            "id": "RMI 636",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Consideration of the structure, use, benefits, and limitations of corporate insurance products. Fundamental to the material is the economic underpinning of the insurance contract structure. The major commercial property and liability insurance products will be analyzed in detail with the purpose of illustrating these economic principles and applying them to specific organizational situations.",
+            "id": "RMI 645",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
+            "id": "RMI 670",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 700"
+        }
+    },
+    {
+        "data": {
+            "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
+            "id": "RMI 655",
             "parent": "RMI"
         }
     },
@@ -356,26 +259,91 @@
     },
     {
         "data": {
+            "id": "RMI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "RMI 300"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 620"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
+            "id": "RMI 399",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
             "source": "RMI 700",
             "target": "RMI 637"
         }
     },
     {
         "data": {
+            "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
+            "id": "RMI 610",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "source": "ECON 101",
-            "target": "ECON 111"
+            "target": "ECON 102"
         }
     },
     {
         "data": {
-            "source": "RMI 635",
-            "target": "RMI 636"
+            "description": "Doctoral seminar in actuarial science, risk management and insurance with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
+            "id": "RMI 920",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
-            "id": "RMI 615",
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 635"
+        }
+    },
+    {
+        "data": {
+            "description": "Doctoral seminar in actuarial science, risk management and insurance, with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
+            "id": "RMI 930",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of graduate students may be arranged.",
+            "id": "RMI 799",
             "parent": "RMI"
         }
     }

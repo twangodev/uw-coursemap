@@ -1,13 +1,13 @@
 [
     {
         "course_reference": {
-            "course_number": 990,
+            "course_number": 675,
             "subjects": [
                 "ONCOLOGY"
             ]
         },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+        "course_title": "ADVANCED OR SPECIAL TOPICS IN CANCER RESEARCH",
+        "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -15,30 +15,26 @@
     },
     {
         "course_reference": {
-            "course_number": 901,
+            "course_number": 545,
             "subjects": [
+                "MICROBIO",
                 "ONCOLOGY"
             ]
         },
-        "course_title": "SEMINAR",
-        "description": "Critical review of selected topics in cancer research.",
+        "course_title": "TOPICS IN BIOTECHNOLOGY",
+        "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
         "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "SPECIAL RESEARCH PROBLEMS",
-        "description": "Directed study projects as arranged with instructor.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY",
+                        "BOTANY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
         }
     },
     {
@@ -55,41 +51,13 @@
                 {
                     "course_number": 151,
                     "subjects": [
-                        "BOTANY",
                         "BIOLOGY",
-                        "ZOOLOGY"
+                        "ZOOLOGY",
+                        "BOTANY"
                     ]
                 }
             ],
             "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 675,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "ADVANCED OR SPECIAL TOPICS IN CANCER RESEARCH",
-        "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 715,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "ETHICS IN SCIENCE",
-        "description": "A review and discussion of the fundamentals of ethical issues in science.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -108,41 +76,13 @@
     },
     {
         "course_reference": {
-            "course_number": 735,
+            "course_number": 778,
             "subjects": [
                 "ONCOLOGY"
             ]
         },
-        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
-        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 745,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
-        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "READINGS IN CANCER BIOLOGY",
-        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
+        "course_title": "BIOINFORMATICS FOR BIOLOGISTS",
+        "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -164,42 +104,6 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
                     "course_number": 485,
                     "subjects": [
                         "BIOCORE"
@@ -211,13 +115,13 @@
     },
     {
         "course_reference": {
-            "course_number": 778,
+            "course_number": 725,
             "subjects": [
                 "ONCOLOGY"
             ]
         },
-        "course_title": "BIOINFORMATICS FOR BIOLOGISTS",
-        "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
+        "course_title": "READINGS IN CANCER BIOLOGY",
+        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -225,67 +129,67 @@
     },
     {
         "course_reference": {
-            "course_number": 545,
+            "course_number": 715,
             "subjects": [
-                "ONCOLOGY",
-                "MICROBIO"
+                "ONCOLOGY"
             ]
         },
-        "course_title": "TOPICS IN BIOTECHNOLOGY",
-        "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
+        "course_title": "ETHICS IN SCIENCE",
+        "description": "A review and discussion of the fundamentals of ethical issues in science.",
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BOTANY",
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 109,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 699,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "SPECIAL RESEARCH PROBLEMS",
+        "description": "Directed study projects as arranged with instructor.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Critical review of selected topics in cancer research.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
         "course_reference": {
             "course_number": 640,
             "subjects": [
-                "MM&I",
+                "PLPATH",
                 "ONCOLOGY",
-                "PLPATH"
+                "MM&I"
             ]
         },
         "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
@@ -293,31 +197,27 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
                     "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
                     "subjects": [
                         "GENETICS"
                     ]
                 }
             ],
             "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 745,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
+        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -339,6 +239,20 @@
                 }
             ],
             "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 735,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
+        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

@@ -1,58 +1,26 @@
 [
     {
         "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 202",
-            "target": "NEURODPT/NTP 610"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
             "source": "PSYCH/ZOOLOGY 523",
-            "target": "NEURODPT/ZOOLOGY 616"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 454",
-            "target": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "id": "PSYCH",
-            "type": "compound"
+            "target": "NEURODPT/NTP 610"
         }
     },
     {
@@ -64,90 +32,26 @@
     },
     {
         "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
-            "id": "NEURODPT/NTP 640"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: advanced cardiovascular physiology, advanced respiratory physiology, advanced endocrinology, membrane transport physiology and neurobiology.",
-            "id": "NEURODPT 675",
-            "parent": "NEURODPT"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 202",
-            "target": "PSYCH 454"
+            "id": "NEURODPT",
+            "type": "compound"
         }
     },
     {
         "data": {
             "source": "PSYCH/ZOOLOGY 523",
-            "target": "NEURODPT/NTP 610"
+            "target": "NEURODPT/ZOOLOGY 616"
         }
     },
     {
         "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
+            "description": "Independent experimental modules exploring neurophysiology and behavior will be completed in groups.  Learn techniques and develop investigations into three separate areas of neurobiology.",
+            "id": "NEURODPT/ZOOLOGY 616"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
-            "id": "ANAT&PHY 435",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
+            "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
+            "id": "NEURODPT/NTP 629"
         }
     },
     {
@@ -159,283 +63,8 @@
     },
     {
         "data": {
-            "source": "PHYSICS 104",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
-            "id": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
             "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
             "id": "NEURODPT/NTP 610"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent experimental modules exploring neurophysiology and behavior will be completed in groups.  Learn techniques and develop investigations into three separate areas of neurobiology.",
-            "id": "NEURODPT/ZOOLOGY 616"
-        }
-    },
-    {
-        "data": {
-            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
-            "id": "PSYCH 202",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
-            "id": "NEURODPT/NTP 629"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
-            "id": "ANAT&PHY 335",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH/ZOOLOGY 523",
-            "target": "PSYCH 454"
-        }
-    },
-    {
-        "data": {
-            "source": "NEURODPT/NTP/PSYCH 611",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Biological basis of human and animal behaviors, including perception, action, cognition, social interaction and disease. Weekly themes from \"Cracking the Neural Code\" to \"Love and War\". Learn, develop and use neural mechanisms to explain and (attempt to) predict what they and others think and do in all facets of life.",
-            "id": "PSYCH 454",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "NEURODPT/PSYCH/ZOOLOGY 674"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 335",
-            "target": "ANAT&PHY 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
-            "id": "NEURODPT/PSYCH/ZOOLOGY 674"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH/ZOOLOGY 523",
-            "target": "NEURODPT/NTP 629"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "NEURODPT/NTP 640"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "NEURODPT 747"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
-            "id": "PHYSICS 104",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 454",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
-            "id": "NEURODPT/NTP/ZOOLOGY 765"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ANAT&PHY 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of the basic science principles of sensory and motor systems in the central and peripheral nervous system, with clinicians providing complementary presentations on their relevant experiences in the clinic. Topics include Somatosensory pathways in spinal cord, brainstem and cerebrum, Motor neurons in spinal cord and brainstem and the descending systems that control them, Blood Supply of the CNS and affiliated vascular syndromes, Cerebellum, Basal Ganglia and associated pathways, Eye Movement control, Vestibular, Auditory, and Visual systems and organization of Cerebral Cortex.",
-            "id": "NEURODPT 747",
-            "parent": "NEURODPT"
-        }
-    },
-    {
-        "data": {
-            "source": "NEURODPT/NTP 610",
-            "target": "NEURODPT/NTP/PSYCH 611"
         }
     },
     {
@@ -446,8 +75,26 @@
     },
     {
         "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
+            "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
+            "id": "NEURODPT/PSYCH/ZOOLOGY 674"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "NEURODPT 747"
+        }
+    },
+    {
+        "data": {
+            "source": "NEURODPT/NTP/PSYCH 611",
+            "target": "NEURODPT/NTP 640"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "NEURODPT/NTP 629"
         }
     },
     {
@@ -459,33 +106,70 @@
     },
     {
         "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
+            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+            "id": "NEURODPT/NTP 640"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
+            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+            "id": "NEURODPT/NTP/ZOOLOGY 765"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "NEURODPT/PSYCH/ZOOLOGY 674"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "PSYCH/ZOOLOGY 523"
         }
     },
     {
         "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
+            "description": "Overview of the basic science principles of sensory and motor systems in the central and peripheral nervous system, with clinicians providing complementary presentations on their relevant experiences in the clinic. Topics include Somatosensory pathways in spinal cord, brainstem and cerebrum, Motor neurons in spinal cord and brainstem and the descending systems that control them, Blood Supply of the CNS and affiliated vascular syndromes, Cerebellum, Basal Ganglia and associated pathways, Eye Movement control, Vestibular, Auditory, and Visual systems and organization of Cerebral Cortex.",
+            "id": "NEURODPT 747",
+            "parent": "NEURODPT"
         }
     },
     {
         "data": {
-            "id": "NEURODPT",
+            "description": "Topics include: advanced cardiovascular physiology, advanced respiratory physiology, advanced endocrinology, membrane transport physiology and neurobiology.",
+            "id": "NEURODPT 675",
+            "parent": "NEURODPT"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "NEURODPT/NTP 610",
+            "target": "NEURODPT/NTP/PSYCH 611"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
+            "id": "PSYCH/ZOOLOGY 523"
         }
     }
 ]
