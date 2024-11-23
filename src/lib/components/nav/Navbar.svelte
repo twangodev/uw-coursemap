@@ -6,8 +6,8 @@
     import {buttonVariants} from "$lib/components/ui/button";
     import Search from "$lib/components/Search.svelte";
     import MobileNav from "$lib/components/nav/MobileNav.svelte";
-    import {Github} from "lucide-svelte";
     import ModeToggle from "$lib/components/ModeToggle.svelte";
+    import {Github} from "lucide-svelte";
 </script>
 
 <header
