@@ -4,6 +4,8 @@
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
+    import {Button} from "$lib/components/ui/button";
+    import {LucideFullscreen, LucideMinus, LucidePlus} from "lucide-svelte";
 
     export let url: string
     export let styleUrl: string
@@ -12,7 +14,26 @@
         [parent: string]: string;
     };
 
+    let isFullscreen = false;
     let cy: cytoscape.Core;
+
+    const toggleFullscreen = () => {
+        if (!isFullscreen) {
+            let element = document.getElementById('cy-container');
+            element?.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+        isFullscreen = !isFullscreen;
+    };
+
+    const zoomIn = () => {
+        cy.zoom(cy.zoom() + 0.1);
+    };
+
+    const zoomOut = () => {
+        cy.zoom(cy.zoom() - 0.1);
+    };
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -137,14 +158,14 @@
             uniformNodeDimensions: true, // Specifies whether the node dimensions should be uniform
             packComponents: true, // Pack connected components - usually for graphs with multiple components
             nodeRepulsion: 40000, // Node repulsion (non overlapping) multiplier
-            idealEdgeLength: 50, // Ideal edge (non nested) length
-            edgeElasticity: 0.45, // Divisor to compute edge forces
+            idealEdgeLength: 60, // Ideal edge (non nested) length
+            edgeElasticity: 0.002, // Divisor to compute edge forces
             nestingFactor: 1, // Nesting factor (multiplier) to compute ideal edge length for nested edges
-            gravity: 1000,
+            gravity: 1,
             gravityRangeCompound: 1,
-            gravityCompound: 100,
+            gravityCompound: 0.1,
             gravityRange: 1.5,
-            initialEnergyOnIncremental: 1,
+            initialEnergyOnIncremental: 0.1,
             randomize: true, // Whether to randomize the initial positions of nodes
             // fixedNodeConstraint: [
             //     {
@@ -249,4 +270,20 @@
     })
 
 </script>
-<div id="cy" class="flex-grow"></div>
+<div class="relative flex-grow" id="cy-container">
+    <div id="cy" class="w-full h-full"></div>
+    <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
+        <Button size="sm" variant="outline" class="h-8 w-8 px-0" on:click={zoomIn}>
+            <LucidePlus class="h-5 w-5"/>
+        </Button>
+
+        <!-- Zoom Out Button -->
+        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" on:click={zoomOut}>
+            <LucideMinus class="h-5 w-5"/>
+        </Button>
+
+        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" on:click={toggleFullscreen}>
+            <LucideFullscreen class="h-5 w-5"/>
+        </Button>
+    </div>
+</div>
