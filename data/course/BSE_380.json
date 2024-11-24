@@ -7,22 +7,90 @@
     },
     "course_title": "INTRODUCTORY DATA SCIENCE FOR THE AGRICULTURAL AND LIFE SCIENCES",
     "description": "Agricultural and life scientists need to creatively apply physical, chemical, and biological principles to address technical, business, and environmental challenges. Many of these challenges involve numerical analyses, including the interpretation of large datasets. The fundamentals of computer coding using numerical software will be taught, using real-world data science challenges from the agricultural and life sciences.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2021": {
+                "a": 12,
+                "ab": 6,
+                "b": 3,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 23,
+                "unsatisfactory": 0
+            },
+            "Fall 2022": {
+                "a": 15,
+                "ab": 2,
+                "b": 3,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 21,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 28,
+                "ab": 6,
+                "b": 5,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 45,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 55,
+            "ab": 14,
+            "b": 11,
+            "bc": 2,
+            "c": 1,
+            "credit": 0,
+            "d": 0,
+            "f": 4,
+            "incomplete": 2,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 89,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 211,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 115,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 221,
                 "subjects": [
                     "MATH"
                 ]
@@ -33,7 +101,25 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 103,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 114,
                 "subjects": [
                     "MATH"
                 ]
@@ -57,27 +143,9 @@
                 ]
             },
             {
-                "course_number": 114,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 115,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
                 "course_number": 221,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "CHEM"
                 ]
             }
         ],

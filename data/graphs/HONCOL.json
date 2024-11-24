@@ -1,14 +1,15 @@
 [
     {
         "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 323"
         }
     },
     {
@@ -20,781 +21,20 @@
     },
     {
         "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Human Oncology faculty.  Each student's research project is individualized to meet student research goals within context of  faculty research needs.",
-            "id": "HONCOL 910",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "id": "HONCOL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
-            "id": "PHYSICS 322",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
             "source": "MEDSC-M 813",
             "target": "HONCOL 911"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 813",
-            "target": "HONCOL 912"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to atomic, solid state, and nuclear physics.",
-            "id": "PHYSICS 205",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
-            "id": "MEDSC-M 813",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "HONCOL 911"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "HONCOL 912"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "PHYSICS 448"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0448. Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 449",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Tutorial lab/library research and study. Opportunity for learning in depth without a thesis requirement.",
-            "id": "HONCOL 699",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 448"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Radiation therapy has been used in treatment of cancer and other diseases for over 100 years. Gain a comprehensive overview of how modern technology allows us to precisely target the tumor while maintaining the function of normal tissues (i.e. the physics and biology underlying the use of radiation therapy). Develop a strong foundational knowledge of basic oncology principles, begin to understand the biology and physics underlying radiation oncology treatments, interpret dose/volume histograms and normal-tissue complication probabilities, understand the role of modern imaging in the workup, treatment, and follow-up of cancer patients, and be able to discuss the major financial issues associated with various treatment modalities. It is anticipated that students will incorporate these concepts, knowledge, experiences, and evidence in their future clinical practice.",
-            "id": "HONCOL 912",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
             "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 449",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Oncology-focused topics including staging, prognosis, and treatment approaches to different cancers. Different radiation modalities, treatment machines, and treatment planning. Opportunity to see patients in clinic and observe procedures (brachytherapy), under direct supervision by residents and attending physicians.",
-            "id": "HONCOL 922",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "HONCOL 911"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 682",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 692",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 323",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn to value the contributions of oral presentations in developing your career, in convincing audiences of the results of your research, or gaining approval of your proposed research.",
-            "id": "HONCOL 750",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 448",
-            "target": "PHYSICS 449"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 691",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 448",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 448"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 681",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
         }
     },
     {
         "data": {
             "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
             "id": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "HONCOL 912"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "HONCOL/MEDPHYS 410"
         }
     },
     {
@@ -806,32 +46,222 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
             "id": "ZOOLOGY",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MATH 213",
-            "target": "MATH 221"
+            "description": "Independent research under the direct supervision of Human Oncology faculty.  Each student's research project is individualized to meet student research goals within context of  faculty research needs.",
+            "id": "HONCOL 910",
+            "parent": "HONCOL"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 208",
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 691",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
+            "id": "PHYSICS 322",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn to value the contributions of oral presentations in developing your career, in convincing audiences of the results of your research, or gaining approval of your proposed research.",
+            "id": "HONCOL 750",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Radiation therapy has been used in treatment of cancer and other diseases for over 100 years. Gain a comprehensive overview of how modern technology allows us to precisely target the tumor while maintaining the function of normal tissues (i.e. the physics and biology underlying the use of radiation therapy). Develop a strong foundational knowledge of basic oncology principles, begin to understand the biology and physics underlying radiation oncology treatments, interpret dose/volume histograms and normal-tissue complication probabilities, understand the role of modern imaging in the workup, treatment, and follow-up of cancer patients, and be able to discuss the major financial issues associated with various treatment modalities. It is anticipated that students will incorporate these concepts, knowledge, experiences, and evidence in their future clinical practice.",
+            "id": "HONCOL 912",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
+            "id": "MEDSC-M 813",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "HONCOL 912"
+        }
+    },
+    {
+        "data": {
+            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
             "target": "PHYSICS 322"
         }
     },
     {
         "data": {
-            "source": "MATH 234",
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ZOOLOGY 153",
+            "target": "HONCOL/MEDPHYS 410"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "ZOOLOGY 153"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 692",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 682",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Oncology-focused topics including staging, prognosis, and treatment approaches to different cancers. Different radiation modalities, treatment machines, and treatment planning. Opportunity to see patients in clinic and observe procedures (brachytherapy), under direct supervision by residents and attending physicians.",
+            "id": "HONCOL 922",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "id": "HONCOL",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 681",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 323",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
             "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Tutorial lab/library research and study. Opportunity for learning in depth without a thesis requirement.",
+            "id": "HONCOL 699",
+            "parent": "HONCOL"
         }
     },
     {
@@ -843,15 +273,14 @@
     },
     {
         "data": {
-            "source": "MATH 217",
-            "target": "MATH 222"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     }
 ]

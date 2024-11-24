@@ -2,30 +2,155 @@
     "course_reference": {
         "course_number": 471,
         "subjects": [
-            "STAT",
-            "COMPSCI"
+            "COMPSCI",
+            "STAT"
         ]
     },
     "course_title": "INTRODUCTION TO COMPUTATIONAL STATISTICS",
     "description": "Classical statistical procedures arise where closed-form mathematical expressions are available for various inference summaries (e.g. linear regression; analysis of variance). A major emphasis of modern statistics is the development of inference principles in cases where both more complex data structures are involved and where more elaborate computations are required. Topics from numerical linear algebra, optimization, Monte Carlo (including Markov chain Monte Carlo), and graph theory are developed, especially as they relate to statistical inference (e.g., bootstrapping, permutation, Bayesian inference, EM algorithm, multivariate analysis).",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2010": {
+                "a": 9,
+                "ab": 2,
+                "b": 8,
+                "bc": 1,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 22,
+                "unsatisfactory": 0
+            },
+            "Fall 2020": {
+                "a": 5,
+                "ab": 1,
+                "b": 2,
+                "bc": 4,
+                "c": 3,
+                "credit": 0,
+                "d": 2,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 19,
+                "unsatisfactory": 0
+            },
+            "Spring 2014": {
+                "a": 10,
+                "ab": 11,
+                "b": 4,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Spring 2018": {
+                "a": 22,
+                "ab": 5,
+                "b": 1,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 29,
+                "unsatisfactory": 0
+            },
+            "Spring 2019": {
+                "a": 12,
+                "ab": 20,
+                "b": 16,
+                "bc": 6,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 58,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 24,
+                "ab": 2,
+                "b": 2,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 29,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 82,
+            "ab": 41,
+            "b": 33,
+            "bc": 14,
+            "c": 7,
+            "credit": 0,
+            "d": 3,
+            "f": 2,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 2,
+            "total": 184,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 310,
                 "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 333,
-                "subjects": [
+                    "MATH",
                     "STAT"
                 ]
             }
@@ -35,10 +160,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 310,
+                "course_number": 333,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "STAT"
                 ]
             },
             {
@@ -48,8 +172,9 @@
                 ]
             },
             {
-                "course_number": 333,
+                "course_number": 310,
                 "subjects": [
+                    "MATH",
                     "STAT"
                 ]
             }

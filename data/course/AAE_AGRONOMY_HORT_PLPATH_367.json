@@ -2,37 +2,104 @@
     "course_reference": {
         "course_number": 367,
         "subjects": [
-            "AAE",
             "AGRONOMY",
+            "HORT",
             "PLPATH",
-            "HORT"
+            "AAE"
         ]
     },
     "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
     "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2022": {
+                "a": 12,
+                "ab": 6,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 2,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 21,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 5,
+                "ab": 1,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 6,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 11,
+                "ab": 4,
+                "b": 1,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 17,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 28,
+            "ab": 11,
+            "b": 2,
+            "bc": 1,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 2,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 44,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 103,
                 "subjects": [
-                    "ENTOM",
-                    "C&ESOC",
                     "AGRONOMY",
+                    "AGROECOL",
                     "ENVIRST",
-                    "AGROECOL"
-                ]
-            },
-            {
-                "course_number": 100,
-                "subjects": [
-                    "AGRONOMY"
-                ]
-            },
-            {
-                "course_number": 123,
-                "subjects": [
-                    "BOTANY",
-                    "PLPATH"
+                    "C&ESOC",
+                    "ENTOM"
                 ]
             }
         ],
@@ -41,32 +108,32 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 103,
-                "subjects": [
-                    "ENTOM",
-                    "C&ESOC",
-                    "AGRONOMY",
-                    "ENVIRST",
-                    "AGROECOL"
-                ]
-            },
-            {
                 "course_number": 222,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 103,
                 "subjects": [
-                    "AGRONOMY"
+                    "AGRONOMY",
+                    "AGROECOL",
+                    "ENVIRST",
+                    "C&ESOC",
+                    "ENTOM"
                 ]
             },
             {
                 "course_number": 120,
                 "subjects": [
                     "HORT"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "AGRONOMY"
                 ]
             },
             {

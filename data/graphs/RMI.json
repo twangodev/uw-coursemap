@@ -1,33 +1,15 @@
 [
     {
         "data": {
-            "source": "ECON 102",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to financial management of firms and investment decision making; both theory and practice are emphasized. Topics covered include the financial environment and securities markets, financial statements and analysis, working capital management and capital budgeting, cost of capital, dividend policy, asset valuation, investments, decision making under uncertainty and selected topics such as mergers, options, futures.",
-            "id": "FINANCE 700",
-            "parent": "FINANCE"
-        }
-    },
-    {
-        "data": {
             "source": "ECON 101",
-            "target": "ECON/FINANCE 300"
+            "target": "ECON 111"
         }
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON/RMI 530"
+            "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
+            "id": "RMI 700",
+            "parent": "RMI"
         }
     },
     {
@@ -39,28 +21,101 @@
     },
     {
         "data": {
+            "description": "Legal implications for business managers of selected areas of the law including negligence, contract, intellectual property, officer/director liability, financing the business enterprise, and employment and trade regulation; introduction to the legal process, including alternative dispute resolution systems.",
+            "id": "GENBUS/RMI 701"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 635"
+        }
+    },
+    {
+        "data": {
             "source": "RMI 700",
-            "target": "RMI 636"
+            "target": "RMI 705"
         }
     },
     {
         "data": {
-            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
-            "id": "AAE 101",
-            "parent": "AAE"
+            "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
+            "id": "RMI 660",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "RMI 700",
-            "target": "RMI 637"
+            "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
+            "id": "RMI 820",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
-            "id": "ECON 310",
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "RMI 365",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
+            "id": "RMI 670",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 655"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
+            "id": "RMI 399",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work to complete dissertation requirement of Ph.D. program.",
+            "id": "RMI 990",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
+            "id": "RMI 610",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
             "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Nongovernmental schemes for treating the risks of superannuation of members of a group; property, liability, legal expense, life and health coverages available to groups; organizational characteristics, benefit structure and pricing of risk transfer schemes for groups; characteristics and funding of various types of pension plans; effects of ERISA.",
+            "id": "RMI 620",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 700",
+            "target": "RMI 640"
         }
     },
     {
@@ -78,324 +133,8 @@
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "RMI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "id": "ECON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 301",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 660"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 306",
-            "target": "RMI 660"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Legal implications for business managers of selected areas of the law including negligence, contract, intellectual property, officer/director liability, financing the business enterprise, and employment and trade regulation; introduction to the legal process, including alternative dispute resolution systems.",
-            "id": "GENBUS/RMI 701"
-        }
-    },
-    {
-        "data": {
-            "id": "FINANCE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 700"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Build fundamental skills and processes to develop a strong foundation in business analysis utilizing Excel. Learn the fundamentals of data construction, manipulation, summarization, analysis and presentation.",
-            "id": "GENBUS 106",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied learning in risk management and insurance.",
-            "id": "RMI 875",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-            "id": "RMI 765",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "ECON/RMI 530"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 635"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 620"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "RMI 365",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "The purpose of risk management is to minimize the adverse consequences of variability. Topics include the general philosophy of risk management, environmental factors affecting risk, options to manage risk, and decision processes to select among those options.",
-            "id": "RMI 710",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 700",
-            "target": "RMI 635"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop insight into the principles of risk management, including institutions engaged in identifying, assessing, preventing, mitigating, and transferring risk. Specific focus is given to how the digitization of data, technology, and analytics are creating a new risk landscape, and how conventional risk management approaches can adapt to meet these emerging business needs.",
-            "id": "RMI 705",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "id": "RMI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "FINANCE 700",
-            "target": "RMI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON/FINANCE 300",
-            "target": "RMI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE/ECON/REALEST/URBRPL 306",
-            "target": "RMI 610"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "GENBUS 306"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of data collection and analysis methods for risk management decisions. Analysis of qualitative and quantitative data to support transfer, retention, and loss control decisions, including loss trending, and evaluation of regulatory controls.",
-            "id": "RMI 820",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive overview of insurer financial statement analysis and captive insurance. Examine the construction of insurer financial statements, including premiums, expenses, and losses. Financial statement analysis focusing on the statutory statement with differences from GAAP highlighted. Assess captive insurance, covering its structures, feasibility studies, and financial performance measurement.",
-            "id": "RMI 636",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
             "source": "RMI 635",
             "target": "RMI 636"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
-            "id": "RMI 999",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
-            "id": "RMI 615",
-            "parent": "RMI"
         }
     },
     {
@@ -407,78 +146,9 @@
     },
     {
         "data": {
-            "description": "Learning to effectively navigate uncertainty is a key issue for all areas of business and especially for those engaged in explicit risk-management activities.  The skills for success in these environments include knowing how to formulate the right questions to ask, how to identify the information that is valuable for answering those questions, understanding how to process incoming information to distinguish signal from noise, and how to use that information to put structure to uncertain environments so that one can take good calculated risks.  This collective set of skills are at the heart of \"decision analysis\", which is a structured rational approach to making decisions under uncertainty.",
-            "id": "RMI 660",
+            "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
+            "id": "RMI 650",
             "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "id": "AAE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work to complete dissertation requirement of Ph.D. program.",
-            "id": "RMI 990",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of undergraduate students may be arranged with a faculty member.",
-            "id": "RMI 399",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "id": "GENBUS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 311",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 700",
-            "target": "RMI 705"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 705"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
         }
     },
     {
@@ -490,22 +160,8 @@
     },
     {
         "data": {
-            "description": "The assessment, control, financing and management of risks deriving from pressures on and damages to the environment, workers and local/foreign communities. Risks include liability and directors and officers law suits, boycotts, regulations and competitors' actions.",
-            "id": "RMI 650",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Comprehensive analysis of loss control and transfer techniques (including insurance), risk management concepts, loss adjustment and underwriting problems, and profitability/regulatory issues concerning the insurance industry. Current topics: large-scale catastrophes (hurricanes and earthquakes), solvency, insurance coverages for property exposures, and loss control.",
-            "id": "RMI 610",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 102"
+            "source": "ECON 101",
+            "target": "RMI 300"
         }
     },
     {
@@ -517,56 +173,23 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "description": "Comprehensive overview of insurer financial statement analysis and captive insurance. Examine the construction of insurer financial statements, including premiums, expenses, and losses. Financial statement analysis focusing on the statutory statement with differences from GAAP highlighted. Assess captive insurance, covering its structures, feasibility studies, and financial performance measurement.",
+            "id": "RMI 636",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "ACCTIS 100",
-            "target": "ACCTIS 300"
+            "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
+            "id": "RMI 655",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "MATH 112",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "source": "ACCTIS 100",
-            "target": "ECON/FINANCE 300"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 637"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 700",
-            "target": "RMI 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
-            "id": "AAE/ECON/REALEST/URBRPL 306"
+            "description": "Doctoral seminar in actuarial science, risk management and insurance with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
+            "id": "RMI 920",
+            "parent": "RMI"
         }
     },
     {
@@ -579,84 +202,27 @@
     {
         "data": {
             "source": "RMI 300",
-            "target": "RMI 636"
+            "target": "RMI 700"
         }
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines how captive insurance works, the different structures of captives, and advantages and disadvantages of their use in various settings. In addition, the captive feasibility process, as well as techniques for measuring financial performance, will be covered.",
-            "id": "RMI 635",
+            "description": "Develop insight into the principles of risk management, including institutions engaged in identifying, assessing, preventing, mitigating, and transferring risk. Specific focus is given to how the digitization of data, technology, and analytics are creating a new risk landscape, and how conventional risk management approaches can adapt to meet these emerging business needs.",
+            "id": "RMI 705",
             "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "RMI 300",
-            "target": "RMI 610"
+            "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
+            "id": "ECON 310",
+            "parent": "ECON"
         }
     },
     {
         "data": {
             "source": "ECON 101",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of quantitative intuition through practical applications and use of analysis tools. Specifically, emphasis will be on how to manage, summarize, explore, and visualize databases. The essentials of probability will be introduced and applied to decision problems where there is uncertainty. Emphasis on hypothesis testing and regression analysis and include an introduction to simulation methods. Throughout, attention will be paid to effective communication of data analysis. The use of business cases will connect the course material to both real world settings and recent advances in data analysis, including big data and data mining.",
-            "id": "GENBUS 306",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "GENBUS 704",
-            "target": "RMI 660"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Defines cyber risk and studies prominent case examples to become familiar with the many challenges it poses. Includes an in-depth look at the current state of data privacy law both in the US and globally.   Establishes a framework and some basic methods to quantify cyber risk. Explores current cyber risk management options in the market including the implementation of internal risk controls as well as options in the burgeoning market for cyber insurance.",
-            "id": "RMI 670",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines both financial and managerial accounting for business decisions. Emphasizes preparation and interpretation of financial statements, analysis of financial information, determination of costs for products and services, and use of accounting information for planning and control of business operations.",
-            "id": "ACCTIS 300",
-            "parent": "ACCTIS"
-        }
-    },
-    {
-        "data": {
-            "description": "Doctoral seminar in actuarial science, risk management and insurance with emphasis on developing an appreciation of existing literature and appropriate skills to conduct own scholarly work in the field.",
-            "id": "RMI 920",
-            "parent": "RMI"
+            "target": "ECON 102"
         }
     },
     {
@@ -667,106 +233,15 @@
     },
     {
         "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
+            "source": "ECON 102",
             "target": "ECON 310"
         }
     },
     {
         "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "ACCTIS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and techniques in corporate finance and investments. Topics include the financial environment, securities markets, financial markets, financial statements and analysis, working capital management, capital budgeting, cost of capital, dividend policy, asset valuation, investments, decision-making under uncertainty, mergers, options, and futures.",
-            "id": "ECON/FINANCE 300"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "RMI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of advanced risk management tools and markets for financing loss costs. Topics include: insurance, self-insurance, retrospective premium plans, risk retention and purchasing groups, reinsurance, insurance subsidiaries (captives), and other policyholder-owned facilities.",
-            "id": "RMI 655",
+            "description": "Applied learning in risk management and insurance.",
+            "id": "RMI 875",
             "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Nature of risk, principal techniques of risk management, including insurance markets, and the bases for decision-making in managing risk effectively.",
-            "id": "RMI 700",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of statistical inference and data analytics tools. Review of relevant foundations of statistics, machine learning and probability theory. Emphasis on applying the resulting concepts to canonical business examples, using both Excel and R.",
-            "id": "GENBUS 704",
-            "parent": "GENBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers risks related to health and aging, rationales for social insurance programs to protect against these risks, and costs and benefits of these programs.  Broad topics include health insurance, disability insurance, and Social Security and pension policy.",
-            "id": "ECON/RMI 530"
-        }
-    },
-    {
-        "data": {
-            "description": "Nongovernmental schemes for treating the risks of superannuation of members of a group; property, liability, legal expense, life and health coverages available to groups; organizational characteristics, benefit structure and pricing of risk transfer schemes for groups; characteristics and funding of various types of pension plans; effects of ERISA.",
-            "id": "RMI 620",
-            "parent": "RMI"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 615"
-        }
-    },
-    {
-        "data": {
-            "source": "RMI 300",
-            "target": "RMI 645"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
         }
     },
     {
@@ -778,26 +253,54 @@
     },
     {
         "data": {
-            "source": "ACCTIS 300",
-            "target": "ECON/FINANCE 300"
+            "description": "Examines how captive insurance works, the different structures of captives, and advantages and disadvantages of their use in various settings. In addition, the captive feasibility process, as well as techniques for measuring financial performance, will be covered.",
+            "id": "RMI 635",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 213"
+            "description": "The purpose of risk management is to minimize the adverse consequences of variability. Topics include the general philosophy of risk management, environmental factors affecting risk, options to manage risk, and decision processes to select among those options.",
+            "id": "RMI 710",
+            "parent": "RMI"
         }
     },
     {
         "data": {
-            "source": "MATH 213",
-            "target": "MATH 221"
+            "description": "Covers risks related to health and aging, rationales for social insurance programs to protect against these risks, and costs and benefits of these programs.  Broad topics include health insurance, disability insurance, and Social Security and pension policy.",
+            "id": "ECON/RMI 530"
         }
     },
     {
         "data": {
-            "source": "GENBUS 106",
-            "target": "GENBUS 306"
+            "source": "ECON 111",
+            "target": "ECON 101"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 700",
+            "target": "RMI 637"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+            "id": "RMI 765",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 660"
+        }
+    },
+    {
+        "data": {
+            "description": "Comprehensive analysis of economic services, benefits, rates and rating theory, loss adjustment problems, legal theory factors, risk management concepts, loss prevention and transfer techniques and government regulation of public liability insurance. Topics include: medical malpractice, no-fault auto insurance, professional liability, workers' compensation, products liability and pollution liability.",
+            "id": "RMI 615",
+            "parent": "RMI"
         }
     },
     {
@@ -809,15 +312,39 @@
     },
     {
         "data": {
-            "description": "Examines generally accepted accounting principles for measurement and reporting of financial information in a balance sheet, income statement, and statement of cash flows; introduction to analysis and interpretation of financial accounting data for decision-making purposes.",
-            "id": "ACCTIS 100",
-            "parent": "ACCTIS"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "ACCTIS 300",
-            "target": "ACCTIS 100"
+            "id": "RMI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 610"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 620"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of Ph.D. students may be arranged.",
+            "id": "RMI 999",
+            "parent": "RMI"
+        }
+    },
+    {
+        "data": {
+            "source": "RMI 300",
+            "target": "RMI 615"
         }
     }
 ]

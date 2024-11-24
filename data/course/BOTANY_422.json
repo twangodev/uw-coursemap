@@ -7,28 +7,188 @@
     },
     "course_title": "PLANT GEOGRAPHY",
     "description": "Biogeography of plants. Relationship to climate and geology; paleobiogeography, historical biogeography and island biogeography; history and distribution of floras of North America and Wisconsin.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2007": {
+                "a": 12,
+                "ab": 5,
+                "b": 10,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Spring 2009": {
+                "a": 16,
+                "ab": 7,
+                "b": 6,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 33,
+                "unsatisfactory": 0
+            },
+            "Spring 2011": {
+                "a": 19,
+                "ab": 4,
+                "b": 11,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 41,
+                "unsatisfactory": 0
+            },
+            "Spring 2013": {
+                "a": 22,
+                "ab": 9,
+                "b": 7,
+                "bc": 2,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 42,
+                "unsatisfactory": 0
+            },
+            "Spring 2015": {
+                "a": 26,
+                "ab": 8,
+                "b": 11,
+                "bc": 0,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 47,
+                "unsatisfactory": 0
+            },
+            "Spring 2017": {
+                "a": 15,
+                "ab": 7,
+                "b": 9,
+                "bc": 1,
+                "c": 3,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 36,
+                "unsatisfactory": 0
+            },
+            "Spring 2019": {
+                "a": 7,
+                "ab": 3,
+                "b": 5,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 17,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 23,
+                "ab": 5,
+                "b": 8,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 3,
+                "total": 43,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 140,
+            "ab": 48,
+            "b": 67,
+            "bc": 9,
+            "c": 8,
+            "credit": 0,
+            "d": 0,
+            "f": 4,
+            "incomplete": 3,
+            "no_credit": 0,
+            "no_work": 2,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 5,
+            "total": 286,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
                     "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "GEOG",
-                    "ENVIRST"
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -37,16 +197,30 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 120,
+                "course_number": 381,
                 "subjects": [
-                    "GEOG",
-                    "ENVIRST"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
                     "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY"
                 ]
             },
@@ -58,24 +232,10 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 120,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "GEOG",
+                    "ENVIRST"
                 ]
             }
         ],

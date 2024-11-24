@@ -8,22 +8,95 @@
     },
     "course_title": "THE PHYSICS OF MEDICAL IMAGING WITH IONIZING RADIATION",
     "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2022": {
+                "a": 11,
+                "ab": 8,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 20,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 14,
+                "ab": 8,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 24,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 11,
+                "ab": 5,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 17,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 36,
+            "ab": 21,
+            "b": 3,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 61,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
-            {
-                "course_number": 573,
-                "subjects": [
-                    "MEDPHYS",
-                    "BME"
-                ]
-            },
             {
                 "course_number": 501,
                 "subjects": [
                     "MEDPHYS",
-                    "PHYSICS",
+                    "HONCOL",
                     "BME",
-                    "HONCOL"
+                    "PHYSICS"
                 ]
             }
         ],
@@ -32,19 +105,19 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 501,
+                "subjects": [
+                    "MEDPHYS",
+                    "HONCOL",
+                    "BME",
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 573,
                 "subjects": [
                     "MEDPHYS",
                     "BME"
-                ]
-            },
-            {
-                "course_number": 501,
-                "subjects": [
-                    "MEDPHYS",
-                    "PHYSICS",
-                    "BME",
-                    "HONCOL"
                 ]
             }
         ],

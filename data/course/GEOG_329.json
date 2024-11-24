@@ -7,6 +7,124 @@
     },
     "course_title": "LANDFORMS AND LANDSCAPES OF NORTH AMERICA",
     "description": "Regional variation of landforms and physical landscapes in North America; processes and forms that give character to physiographic regions.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2011": {
+                "a": 11,
+                "ab": 3,
+                "b": 11,
+                "bc": 3,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 32,
+                "unsatisfactory": 0
+            },
+            "Fall 2014": {
+                "a": 9,
+                "ab": 3,
+                "b": 8,
+                "bc": 3,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Fall 2016": {
+                "a": 4,
+                "ab": 3,
+                "b": 4,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 14,
+                "unsatisfactory": 0
+            },
+            "Spring 2007": {
+                "a": 11,
+                "ab": 11,
+                "b": 11,
+                "bc": 7,
+                "c": 4,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 45,
+                "unsatisfactory": 0
+            },
+            "Spring 2009": {
+                "a": 12,
+                "ab": 4,
+                "b": 12,
+                "bc": 3,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 32,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 47,
+            "ab": 24,
+            "b": 46,
+            "bc": 16,
+            "c": 8,
+            "credit": 0,
+            "d": 0,
+            "f": 2,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 7,
+            "total": 150,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -15,19 +133,6 @@
                     "GEOSCI",
                     "GEOG"
                 ]
-            },
-            {
-                "course_number": 127,
-                "subjects": [
-                    "GEOG",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 100,
-                "subjects": [
-                    "GEOSCI"
-                ]
             }
         ],
         "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
@@ -35,10 +140,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 120,
+                "course_number": 106,
                 "subjects": [
-                    "GEOG",
+                    "GEOSCI",
                     "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "GEOSCI"
                 ]
             },
             {
@@ -61,9 +172,10 @@
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 120,
                 "subjects": [
-                    "GEOSCI"
+                    "GEOG",
+                    "ENVIRST"
                 ]
             },
             {
@@ -71,13 +183,6 @@
                 "subjects": [
                     "GEOSCI",
                     "GEOG"
-                ]
-            },
-            {
-                "course_number": 106,
-                "subjects": [
-                    "GEOSCI",
-                    "ENVIRST"
                 ]
             }
         ],

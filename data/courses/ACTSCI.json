@@ -1,14 +1,86 @@
 [
     {
         "course_reference": {
-            "course_number": 640,
+            "course_number": 657,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
-        "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+        "course_title": "RISK ANALYTICS",
+        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2023": {
+                    "a": 8,
+                    "ab": 9,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 6,
+                    "ab": 8,
+                    "b": 7,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 14,
+                "ab": 17,
+                "b": 10,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 43,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
             "course_references": [
                 {
                     "course_number": 340,
@@ -23,10 +95,1846 @@
                     ]
                 },
                 {
-                    "course_number": 310,
+                    "course_number": 640,
                     "subjects": [
-                        "STAT",
-                        "MATH"
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 656,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 301,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ACTUARIAL SCIENCE METHODS II",
+        "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2007": {
+                    "a": 12,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 30,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 31,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 48,
+                    "ab": 5,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 54,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 31,
+                    "ab": 3,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 57,
+                    "ab": 2,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 60,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 58,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 65,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 62,
+                    "ab": 6,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 74,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 51,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 55,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 56,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 53,
+                    "ab": 6,
+                    "b": 1,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 52,
+                    "ab": 6,
+                    "b": 7,
+                    "bc": 2,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 69,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 60,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 60,
+                    "ab": 0,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 62,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 72,
+                    "ab": 3,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 80,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 78,
+                    "ab": 6,
+                    "b": 1,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 88,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 61,
+                    "ab": 9,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 71,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 82,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 83,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 78,
+                    "ab": 4,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 77,
+                    "ab": 5,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 87,
+                    "ab": 5,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 93,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 81,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 85,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 79,
+                    "ab": 3,
+                    "b": 7,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 91,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 66,
+                    "ab": 6,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 76,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 54,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 5,
+                    "total": 67,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 48,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 48,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 1494,
+                "ab": 89,
+                "b": 49,
+                "bc": 16,
+                "c": 14,
+                "credit": 48,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 6,
+                "total": 1717,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 654,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
+        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2010": {
+                    "a": 12,
+                    "ab": 3,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 4,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 15,
+                    "ab": 10,
+                    "b": 10,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 10,
+                    "ab": 16,
+                    "b": 6,
+                    "bc": 8,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 7,
+                    "ab": 8,
+                    "b": 6,
+                    "bc": 7,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 10,
+                    "ab": 9,
+                    "b": 1,
+                    "bc": 4,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 14,
+                    "bc": 7,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 5,
+                    "ab": 15,
+                    "b": 10,
+                    "bc": 9,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 40,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 5,
+                    "ab": 6,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 6,
+                    "ab": 7,
+                    "b": 6,
+                    "bc": 6,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 15,
+                    "ab": 14,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 4,
+                    "ab": 8,
+                    "b": 6,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 7,
+                    "ab": 3,
+                    "b": 10,
+                    "bc": 3,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 13,
+                    "ab": 8,
+                    "b": 9,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 11,
+                    "ab": 2,
+                    "b": 22,
+                    "bc": 4,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 8,
+                    "ab": 22,
+                    "b": 8,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 39,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 12,
+                    "ab": 18,
+                    "b": 24,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 12,
+                    "ab": 18,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 39,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 7,
+                    "ab": 4,
+                    "b": 18,
+                    "bc": 5,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 37,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 4,
+                    "ab": 9,
+                    "b": 11,
+                    "bc": 3,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 12,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 8,
+                    "ab": 7,
+                    "b": 6,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 8,
+                    "ab": 6,
+                    "b": 7,
+                    "bc": 7,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 14,
+                    "ab": 11,
+                    "b": 6,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 26,
+                    "ab": 14,
+                    "b": 11,
+                    "bc": 7,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 2,
+                    "ab": 7,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 12,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 19,
+                    "ab": 9,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 6,
+                    "ab": 6,
+                    "b": 12,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 271,
+                "ab": 251,
+                "b": 241,
+                "bc": 104,
+                "c": 34,
+                "credit": 0,
+                "d": 5,
+                "f": 6,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 2,
+                "not_reported": 1,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 12,
+                "total": 929,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 656,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2019": {
+                    "a": 3,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 4,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 9,
+                "ab": 0,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 4,
+                "total": 14,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 365,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2012": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 26,
+                    "ab": 6,
+                    "b": 6,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 14,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 11,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 13,
+                    "ab": 4,
+                    "b": 5,
+                    "bc": 6,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 12,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 171,
+                "ab": 12,
+                "b": 17,
+                "bc": 8,
+                "c": 7,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 1,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 217,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
+        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 1,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 1,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 1,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 1,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
+        "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+        "madgrades_data": null,
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
                     ]
                 }
             ],
@@ -35,8 +1943,15 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 312,
+                    "course_number": 340,
                     "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
                         "STAT"
                     ]
                 },
@@ -47,10 +1962,9 @@
                     ]
                 },
                 {
-                    "course_number": 310,
+                    "course_number": 312,
                     "subjects": [
-                        "STAT",
-                        "MATH"
+                        "STAT"
                     ]
                 },
                 {
@@ -64,431 +1978,9 @@
                     "subjects": [
                         "ECON"
                     ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
                 }
             ],
             "prerequisites_text": "(GEN\u00a0BUS\u00a0317,ECON\u00a0410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,333, or340), graduate/professional standing, or declared in Capstone Certificate in Actuarial Science"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
-        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 365,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 652,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF SHORT-TERM ACTUARIAL MODELING",
-        "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 317,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 317,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 654,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
-        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "HEALTH ANALYTICS",
-        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 653,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
-        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 652,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 652,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 300,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "PROBABILITY FOR ACTUARIES",
-        "description": "Develop a knowledge of fundamental mathematical tools for quantitatively assessing risk. Emphasize the applications of these tools to problems encountered in actuarial science.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 765,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 650,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "FUNDAMENTALS OF LONG-TERM ACTUARIAL MODELING",
-        "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 431,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 331,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 303,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 309,
-                    "subjects": [
-                        "STAT",
-                        "MATH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
         }
     },
     {
@@ -500,6 +1992,428 @@
         },
         "course_title": "ADVANCED LONG-TERM ACTUARIAL MODELING",
         "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2014": {
+                    "a": 6,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 12,
+                    "ab": 8,
+                    "b": 7,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 9,
+                    "bc": 1,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 9,
+                    "ab": 13,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 14,
+                    "ab": 7,
+                    "b": 5,
+                    "bc": 6,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 40,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 13,
+                    "ab": 8,
+                    "b": 18,
+                    "bc": 8,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 53,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 11,
+                    "ab": 7,
+                    "b": 17,
+                    "bc": 7,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 46,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 12,
+                    "ab": 34,
+                    "b": 27,
+                    "bc": 7,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 82,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 28,
+                    "ab": 10,
+                    "b": 40,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 81,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 29,
+                    "ab": 27,
+                    "b": 26,
+                    "bc": 4,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 96,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 21,
+                    "ab": 19,
+                    "b": 13,
+                    "bc": 6,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 65,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 17,
+                    "ab": 16,
+                    "b": 12,
+                    "bc": 7,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 60,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 18,
+                    "ab": 16,
+                    "b": 22,
+                    "bc": 7,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 68,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 10,
+                    "ab": 10,
+                    "b": 8,
+                    "bc": 6,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 11,
+                    "ab": 8,
+                    "b": 8,
+                    "bc": 5,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 11,
+                    "ab": 7,
+                    "b": 2,
+                    "bc": 2,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 9,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 7,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 6,
+                    "ab": 5,
+                    "b": 3,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 6,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 259,
+                "ab": 217,
+                "b": 242,
+                "bc": 88,
+                "c": 60,
+                "credit": 0,
+                "d": 11,
+                "f": 6,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 2,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 15,
+                "total": 901,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [
                 {
@@ -525,54 +2439,573 @@
     },
     {
         "course_reference": {
-            "course_number": 657,
+            "course_number": 650,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "RISK ANALYTICS",
-        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+        "course_title": "FUNDAMENTALS OF LONG-TERM ACTUARIAL MODELING",
+        "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 8,
+                    "ab": 8,
+                    "b": 9,
+                    "bc": 10,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 42,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 20,
+                    "ab": 6,
+                    "b": 25,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 14,
+                    "ab": 20,
+                    "b": 13,
+                    "bc": 11,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 64,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 19,
+                    "ab": 18,
+                    "b": 13,
+                    "bc": 5,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 64,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 28,
+                    "ab": 25,
+                    "b": 24,
+                    "bc": 9,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 5,
+                    "f": 1,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 96,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 28,
+                    "ab": 24,
+                    "b": 20,
+                    "bc": 14,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 5,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 96,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 32,
+                    "ab": 36,
+                    "b": 23,
+                    "bc": 10,
+                    "c": 10,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 2,
+                    "incomplete": 2,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 118,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 22,
+                    "ab": 23,
+                    "b": 18,
+                    "bc": 10,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 82,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 18,
+                    "ab": 15,
+                    "b": 22,
+                    "bc": 7,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 3,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 75,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 16,
+                    "ab": 20,
+                    "b": 29,
+                    "bc": 11,
+                    "c": 11,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 3,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 92,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 10,
+                    "ab": 6,
+                    "b": 5,
+                    "bc": 2,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 29,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 16,
+                    "ab": 15,
+                    "b": 28,
+                    "bc": 17,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 87,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 25,
+                    "ab": 26,
+                    "b": 24,
+                    "bc": 19,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 4,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 104,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 21,
+                    "ab": 22,
+                    "b": 13,
+                    "bc": 8,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 6,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 76,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 21,
+                    "ab": 11,
+                    "b": 15,
+                    "bc": 7,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 21,
+                    "ab": 18,
+                    "b": 20,
+                    "bc": 9,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 4,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 76,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 11,
+                    "ab": 19,
+                    "b": 7,
+                    "bc": 11,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 4,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 56,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 13,
+                    "ab": 11,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 6,
+                    "ab": 5,
+                    "b": 8,
+                    "bc": 7,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 12,
+                    "ab": 3,
+                    "b": 8,
+                    "bc": 8,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 3,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 39,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 7,
+                    "ab": 0,
+                    "b": 4,
+                    "bc": 5,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 7,
+                    "ab": 4,
+                    "b": 7,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 9,
+                    "ab": 8,
+                    "b": 4,
+                    "bc": 1,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 30,
+                    "unsatisfactory": 1
+                },
+                "Spring 2022": {
+                    "a": 5,
+                    "ab": 6,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 10,
+                    "ab": 10,
+                    "b": 9,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 2,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 45,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 15,
+                    "ab": 0,
+                    "b": 9,
+                    "bc": 5,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 37,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 414,
+                "ab": 359,
+                "b": 369,
+                "bc": 202,
+                "c": 126,
+                "credit": 0,
+                "d": 55,
+                "f": 26,
+                "incomplete": 7,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 8,
+                "total": 1567,
+                "unsatisfactory": 1
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 640,
+                    "course_number": 303,
                     "subjects": [
                         "ACTSCI"
                     ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
                     "course_number": 340,
                     "subjects": [
                         "STAT"
                     ]
                 },
                 {
-                    "course_number": 656,
+                    "course_number": 309,
                     "subjects": [
-                        "GENBUS"
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 331,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 303,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 431,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
                     ]
                 },
                 {
@@ -582,7 +3015,820 @@
                     ]
                 }
             ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0303and (MATH\u00a0331,STAT/\u200bMATH\u00a0\u00a0309,431,STAT\u00a0333, or340), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 655,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "HEALTH ANALYTICS",
+        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2017": {
+                    "a": 11,
+                    "ab": 2,
+                    "b": 5,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 9,
+                    "ab": 8,
+                    "b": 5,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 8,
+                    "ab": 9,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 5,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 4,
+                    "ab": 4,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 7,
+                    "ab": 9,
+                    "b": 2,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 55,
+                "ab": 40,
+                "b": 34,
+                "bc": 11,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 6,
+                "total": 153,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
             "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 656,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 652,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "FUNDAMENTALS OF SHORT-TERM ACTUARIAL MODELING",
+        "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 12,
+                    "ab": 13,
+                    "b": 13,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 44,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 11,
+                    "ab": 13,
+                    "b": 20,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 45,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 15,
+                    "ab": 9,
+                    "b": 18,
+                    "bc": 6,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 51,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 9,
+                    "ab": 23,
+                    "b": 33,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 70,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 18,
+                    "ab": 20,
+                    "b": 23,
+                    "bc": 5,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 67,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 21,
+                    "ab": 18,
+                    "b": 30,
+                    "bc": 5,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 2,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 77,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 20,
+                    "ab": 35,
+                    "b": 29,
+                    "bc": 17,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 5,
+                    "f": 2,
+                    "incomplete": 2,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 119,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 24,
+                    "ab": 19,
+                    "b": 12,
+                    "bc": 23,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 85,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 9,
+                    "ab": 20,
+                    "b": 27,
+                    "bc": 15,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 75,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 28,
+                    "ab": 26,
+                    "b": 14,
+                    "bc": 10,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 23,
+                    "ab": 42,
+                    "b": 63,
+                    "bc": 3,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 140,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 24,
+                    "ab": 26,
+                    "b": 34,
+                    "bc": 6,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 100,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 21,
+                    "ab": 12,
+                    "b": 18,
+                    "bc": 5,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 3,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 69,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 19,
+                    "ab": 15,
+                    "b": 21,
+                    "bc": 14,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 78,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 19,
+                    "ab": 8,
+                    "b": 29,
+                    "bc": 5,
+                    "c": 10,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 75,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 12,
+                    "ab": 5,
+                    "b": 12,
+                    "bc": 8,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 18,
+                    "ab": 11,
+                    "b": 12,
+                    "bc": 6,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 54,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 14,
+                    "ab": 9,
+                    "b": 8,
+                    "bc": 2,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 40,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 3,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 13,
+                    "ab": 3,
+                    "b": 4,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 5,
+                    "ab": 7,
+                    "b": 6,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 7,
+                    "ab": 2,
+                    "b": 8,
+                    "bc": 1,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 8,
+                    "ab": 5,
+                    "b": 10,
+                    "bc": 6,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 8,
+                    "ab": 5,
+                    "b": 10,
+                    "bc": 4,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 8,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 5,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 10,
+                    "ab": 2,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 7,
+                    "ab": 6,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 13,
+                    "ab": 2,
+                    "b": 8,
+                    "bc": 6,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 399,
+                "ab": 365,
+                "b": 480,
+                "bc": 166,
+                "c": 98,
+                "credit": 0,
+                "d": 23,
+                "f": 21,
+                "incomplete": 7,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 8,
+                "total": 1567,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 317,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0333,340, or concurrent enrollment), declared in undergraduate Business Exchange program, or Capstone Certificate in Actuarial Science"
         }
     },
     {
@@ -594,16 +3840,11 @@
         },
         "course_title": "THEORY OF INTEREST",
         "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
+        "madgrades_data": null,
         "optimized_prerequisites": {
             "course_references": [
                 {
                     "course_number": 213,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 222,
                     "subjects": [
                         "MATH"
                     ]
@@ -614,13 +3855,13 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 213,
+                    "course_number": 222,
                     "subjects": [
                         "MATH"
                     ]
                 },
                 {
-                    "course_number": 222,
+                    "course_number": 213,
                     "subjects": [
                         "MATH"
                     ]
@@ -631,34 +3872,1253 @@
     },
     {
         "course_reference": {
-            "course_number": 301,
+            "course_number": 300,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ACTUARIAL SCIENCE METHODS II",
-        "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+        "course_title": "PROBABILITY FOR ACTUARIES",
+        "description": "Develop a knowledge of fundamental mathematical tools for quantitatively assessing risk. Emphasize the applications of these tools to problems encountered in actuarial science.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 48,
+                    "ab": 1,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 52,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 36,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 1,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 32,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 1,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 50,
+                    "ab": 1,
+                    "b": 1,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 54,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 72,
+                    "ab": 4,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 76,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 54,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 58,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 44,
+                    "ab": 4,
+                    "b": 1,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 53,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 45,
+                    "ab": 9,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 79,
+                    "ab": 4,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 56,
+                    "ab": 6,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 70,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 79,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 23,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 9,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 1,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 1,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 2,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 2,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 2,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 49,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 50,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 26,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 29,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 32,
+                    "ab": 1,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 45,
+                    "ab": 2,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 52,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 48,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 54,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 44,
+                    "ab": 0,
+                    "b": 5,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 50,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 30,
+                    "ab": 1,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 53,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 58,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 61,
+                    "ab": 5,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 66,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 61,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 66,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 46,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 50,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 32,
+                    "ab": 8,
+                    "b": 8,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 50,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 40,
+                    "ab": 4,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 46,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 37,
+                    "ab": 4,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 42,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 42,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 42,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 3,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 1,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 4,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 1222,
+                "ab": 77,
+                "b": 43,
+                "bc": 13,
+                "c": 2,
+                "credit": 46,
+                "d": 0,
+                "f": 1,
+                "incomplete": 1,
+                "no_credit": 4,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 2,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 1414,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
+                    "course_number": 309,
                     "subjects": [
-                        "ACTSCI"
+                        "MATH",
+                        "STAT"
                     ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 303,
+                    "course_number": 331,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 309,
+                    "subjects": [
+                        "MATH",
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 653,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
+        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2016": {
+                    "a": 5,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 3,
+                    "ab": 3,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 7,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 10,
+                    "ab": 5,
+                    "b": 8,
+                    "bc": 3,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 10,
+                    "ab": 3,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 7,
+                    "ab": 5,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 6,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 6,
+                    "ab": 5,
+                    "b": 8,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 13,
+                    "ab": 6,
+                    "b": 10,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 9,
+                    "ab": 11,
+                    "b": 10,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 13,
+                    "ab": 6,
+                    "b": 10,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 15,
+                    "ab": 6,
+                    "b": 13,
+                    "bc": 1,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 10,
+                    "ab": 4,
+                    "b": 18,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 12,
+                    "ab": 7,
+                    "b": 11,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 18,
+                    "ab": 19,
+                    "b": 15,
+                    "bc": 5,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 61,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 11,
+                    "ab": 8,
+                    "b": 15,
+                    "bc": 4,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 11,
+                    "ab": 13,
+                    "b": 9,
+                    "bc": 10,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 44,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 8,
+                    "ab": 19,
+                    "b": 18,
+                    "bc": 6,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 51,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 27,
+                    "ab": 36,
+                    "b": 15,
+                    "bc": 16,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 102,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 21,
+                    "ab": 16,
+                    "b": 25,
+                    "bc": 9,
+                    "c": 10,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 14,
+                    "ab": 28,
+                    "b": 7,
+                    "bc": 6,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 61,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 21,
+                    "ab": 9,
+                    "b": 15,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 17,
+                    "total": 65,
+                    "unsatisfactory": 1
+                },
+                "Spring 2022": {
+                    "a": 10,
+                    "ab": 10,
+                    "b": 8,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 5,
+                    "ab": 0,
+                    "b": 4,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 4,
+                    "ab": 5,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 276,
+                "ab": 236,
+                "b": 252,
+                "bc": 99,
+                "c": 48,
+                "credit": 0,
+                "d": 15,
+                "f": 8,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 21,
+                "total": 958,
+                "unsatisfactory": 1
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 652,
                     "subjects": [
                         "ACTSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0303or concurrent enrollment), declared in Capstone Certificate in Actuarial Science, or declared in undergraduate Business Exchange program. Not open to graduate students."
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 652,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
         }
     }
 ]

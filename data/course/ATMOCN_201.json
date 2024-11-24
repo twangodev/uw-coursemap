@@ -7,25 +7,55 @@
     },
     "course_title": "EXPLORATIONS OF ATMOSPHERIC AND OCEANIC SCIENCES",
     "description": "Exploration of a field within atmospheric and oceanic sciences. Exposure to scientific principles, current findings, and career routes as it applies to topics such as meteorology, weather systems and weather forecasting, climate and climate change, atmospheric satellite remote sensing, oceanography, and professional careers in the discipline.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2024": {
+                "a": 4,
+                "ab": 7,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 11,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 4,
+            "ab": 7,
+            "b": 0,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 11,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 105,
                 "subjects": [
-                    "GEOSCI",
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 100,
-                "subjects": [
-                    "ATMOCN"
+                    "ATMOCN",
+                    "GEOSCI"
                 ]
             }
         ],
@@ -34,36 +64,15 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 100,
+                "subjects": [
+                    "ATMOCN"
+                ]
+            },
+            {
                 "course_number": 140,
                 "subjects": [
                     "GEOSCI",
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 141,
-                "subjects": [
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "ENVIRST",
-                    "GEOSCI",
-                    "ATMOCN"
-                ]
-            },
-            {
-                "course_number": 171,
-                "subjects": [
-                    "ENVIRST",
                     "ATMOCN"
                 ]
             },
@@ -75,7 +84,7 @@
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 101,
                 "subjects": [
                     "ATMOCN"
                 ]
@@ -84,6 +93,27 @@
                 "course_number": 105,
                 "subjects": [
                     "GEOSCI",
+                    "ATMOCN"
+                ]
+            },
+            {
+                "course_number": 171,
+                "subjects": [
+                    "ATMOCN",
+                    "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "GEOSCI",
+                    "ATMOCN",
+                    "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 141,
+                "subjects": [
                     "ATMOCN"
                 ]
             }

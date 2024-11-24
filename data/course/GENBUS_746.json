@@ -7,22 +7,71 @@
     },
     "course_title": "ADVANCED SQL & DATA WAREHOUSING",
     "description": "Provides an opportunity to construct advanced SQL statements (including joins, common table expressions, window functions, etc.) and build cloud data warehouses in a variety of software vendor platforms.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2023": {
+                "a": 81,
+                "ab": 0,
+                "b": 2,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 84,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 94,
+                "ab": 2,
+                "b": 2,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 100,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 175,
+            "ab": 2,
+            "b": 4,
+            "bc": 3,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 184,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 882,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 883,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 760,
                 "subjects": [
                     "GENBUS"
                 ]
@@ -33,7 +82,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 883,
+                "course_number": 882,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 760,
                 "subjects": [
                     "GENBUS"
                 ]
@@ -45,13 +100,7 @@
                 ]
             },
             {
-                "course_number": 882,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 760,
+                "course_number": 883,
                 "subjects": [
                     "GENBUS"
                 ]

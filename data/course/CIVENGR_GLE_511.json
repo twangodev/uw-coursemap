@@ -2,31 +2,98 @@
     "course_reference": {
         "course_number": 511,
         "subjects": [
-            "CIVENGR",
-            "GLE"
+            "GLE",
+            "CIVENGR"
         ]
     },
     "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
     "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2020": {
+                "a": 8,
+                "ab": 2,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 11,
+                "unsatisfactory": 0
+            },
+            "Spring 2022": {
+                "a": 6,
+                "ab": 1,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 9,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 5,
+                "ab": 3,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 8,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 19,
+            "ab": 6,
+            "b": 1,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 2,
+            "total": 28,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 310,
                 "subjects": [
                     "CIVENGR"
-                ]
-            },
-            {
-                "course_number": 291,
-                "subjects": [
-                    "CIVENGR",
-                    "GLE"
-                ]
-            },
-            {
-                "course_number": 363,
-                "subjects": [
-                    "ME"
                 ]
             }
         ],
@@ -35,22 +102,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 310,
-                "subjects": [
-                    "CIVENGR"
-                ]
-            },
-            {
                 "course_number": 220,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 291,
-                "subjects": [
-                    "CIVENGR",
-                    "GLE"
                 ]
             },
             {
@@ -60,9 +114,22 @@
                 ]
             },
             {
+                "course_number": 310,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
                 "course_number": 203,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 291,
+                "subjects": [
+                    "GLE",
+                    "CIVENGR"
                 ]
             }
         ],

@@ -2,34 +2,62 @@
     "course_reference": {
         "course_number": 640,
         "subjects": [
-            "NTP",
-            "NEURODPT"
+            "NEURODPT",
+            "NTP"
         ]
     },
     "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
     "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2024": {
+                "a": 7,
+                "ab": 1,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 8,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 7,
+            "ab": 1,
+            "b": 0,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 8,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 611,
                 "subjects": [
-                    "PSYCH",
+                    "NEURODPT",
                     "NTP",
-                    "NEURODPT"
-                ]
-            },
-            {
-                "course_number": 523,
-                "subjects": [
-                    "ZOOLOGY",
                     "PSYCH"
-                ]
-            },
-            {
-                "course_number": 610,
-                "subjects": [
-                    "NTP",
-                    "NEURODPT"
                 ]
             }
         ],
@@ -38,49 +66,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 202,
+                "course_number": 610,
                 "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 104,
-                "subjects": [
-                    "PHYSICS"
+                    "NEURODPT",
+                    "NTP"
                 ]
             },
             {
                 "course_number": 523,
                 "subjects": [
-                    "ZOOLOGY",
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 208,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 610,
-                "subjects": [
-                    "NTP",
-                    "NEURODPT"
-                ]
-            },
-            {
-                "course_number": 611,
-                "subjects": [
                     "PSYCH",
-                    "NTP",
-                    "NEURODPT"
-                ]
-            },
-            {
-                "course_number": 248,
-                "subjects": [
-                    "PHYSICS"
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -93,6 +89,38 @@
                 "course_number": 454,
                 "subjects": [
                     "PSYCH"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 611,
+                "subjects": [
+                    "NEURODPT",
+                    "NTP",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 248,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 104,
+                "subjects": [
+                    "PHYSICS"
                 ]
             }
         ],

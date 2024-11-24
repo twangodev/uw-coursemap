@@ -1,8 +1,122 @@
 [
     {
         "data": {
+            "source": "AAE 101",
+            "target": "AAE/ECON/INTLBUS 462"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 203",
+            "target": "FRENCH 204"
+        }
+    },
+    {
+        "data": {
+            "description": "Enhance writing and speaking proficiency through cultural readings on France and  the francophone world. Review of grammar and focus on more complex grammatical structures.",
+            "id": "FRENCH 228",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "ECON 111"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
+            "id": "AAE 101",
+            "parent": "AAE"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
+            "id": "INTLBUS 765",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
             "description": "Analysis of international real estate and related transaction issues, especially in foreign countries which are visited as part of the course; survey of land use patterns and regulations, ownership rights, types of leases, transfer procedures, mortgage system, tax matters, currency risks, and geographical diversification issues.",
             "id": "INTLBUS/REALEST 430"
+        }
+    },
+    {
+        "data": {
+            "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
+            "id": "INTLBUS 200",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of undergraduate students may be arranged both during regular sessions and the intersession periods.",
+            "id": "INTLBUS 399",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE/ECON/REALEST/URBRPL 306",
+            "target": "INTLBUS/REALEST 430"
+        }
+    },
+    {
+        "data": {
+            "source": "MARKETNG 300",
+            "target": "INTLBUS/MARKETNG 420"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 228",
+            "target": "FRENCH/INTLBUS 313"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 311",
+            "target": "SPANISH 226"
+        }
+    },
+    {
+        "data": {
+            "id": "SPANISH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
+            "id": "INTLBUS 799",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
+            "id": "FINANCE/INTLBUS 445"
+        }
+    },
+    {
+        "data": {
+            "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
+            "id": "INTLBUS/SPANISH 329"
+        }
+    },
+    {
+        "data": {
+            "source": "ACCTIS 100",
+            "target": "ECON/FINANCE 300"
+        }
+    },
+    {
+        "data": {
+            "description": "Concepts and techniques in corporate finance and investments. Topics include the financial environment, securities markets, financial markets, financial statements and analysis, working capital management, capital budgeting, cost of capital, dividend policy, asset valuation, investments, decision-making under uncertainty, mergers, options, and futures.",
+            "id": "ECON/FINANCE 300"
         }
     },
     {
@@ -10,6 +124,170 @@
             "description": "Introduction to financial management of firms and investment decision making; both theory and practice are emphasized. Topics covered include the financial environment and securities markets, financial statements and analysis, working capital management and capital budgeting, cost of capital, dividend policy, asset valuation, investments, decision making under uncertainty and selected topics such as mergers, options, futures.",
             "id": "FINANCE 700",
             "parent": "FINANCE"
+        }
+    },
+    {
+        "data": {
+            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
+            "id": "ECON 111",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Structure of foreign trading; commercial facilities available to exporters and importers; application of economic analysis in marketing decisions; contemporary trends in international economy affecting foreign trade policies and practices.",
+            "id": "INTLBUS/MARKETNG 420"
+        }
+    },
+    {
+        "data": {
+            "id": "ECON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "SPANISH 311",
+            "target": "INTLBUS/SPANISH 329"
+        }
+    },
+    {
+        "data": {
+            "description": "Intensive practice in reading, writing, and grammar.",
+            "id": "SPANISH 226",
+            "parent": "SPANISH"
+        }
+    },
+    {
+        "data": {
+            "source": "FINANCE 700",
+            "target": "FINANCE/INTLBUS 745"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
+            "id": "FINANCE/INTLBUS 745"
+        }
+    },
+    {
+        "data": {
+            "id": "MARKETNG",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines both financial and managerial accounting for business decisions. Emphasizes preparation and interpretation of financial statements, analysis of financial information, determination of costs for products and services, and use of accounting information for planning and control of business operations.",
+            "id": "ACCTIS 300",
+            "parent": "ACCTIS"
+        }
+    },
+    {
+        "data": {
+            "description": "Oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
+            "id": "FRENCH 203",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "source": "ACCTIS 300",
+            "target": "ACCTIS 100"
+        }
+    },
+    {
+        "data": {
+            "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
+            "id": "INTLBUS 767",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "AAE 101",
+            "target": "AAE/ECON/REALEST/URBRPL 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on the strategic management required in global business. Topics include environmental analysis, global strategy, and subsidiary control. The aim of the course is to develop special skills that are required to manage international firms.",
+            "id": "INTLBUS/MHR 403"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON 101",
+            "target": "INTLBUS 200"
+        }
+    },
+    {
+        "data": {
+            "description": "Study and analysis of the culture and sociology of professional environments in the French and Francophone worlds, including government, international organizations, NGO's and business. Students develop communication skills through interactive teaching methods in multimedia labs.",
+            "id": "FRENCH/INTLBUS 313"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH/INTLBUS 313",
+            "target": "FRENCH/INTLBUS 314"
+        }
+    },
+    {
+        "data": {
+            "description": "Cultural study of contemporary Francophone Africa, focusing on issues in government, organizations and enterprise. Exploration of cultural and professional relations between Francophone Africa and France, the European Union, and the United States.",
+            "id": "FRENCH/INTLBUS 314"
+        }
+    },
+    {
+        "data": {
+            "source": "FRENCH 102",
+            "target": "FRENCH 203"
+        }
+    },
+    {
+        "data": {
+            "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INTLBUS 365",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
+            "id": "AAE/ECON/REALEST/URBRPL 306"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
+            "id": "FRENCH 204",
+            "parent": "FRENCH"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
+            "id": "ECON 101",
+            "parent": "ECON"
+        }
+    },
+    {
+        "data": {
+            "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
+            "id": "GENBUS/INTLBUS 320"
+        }
+    },
+    {
+        "data": {
+            "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
+            "id": "AAE/ECON/INTLBUS 462"
+        }
+    },
+    {
+        "data": {
+            "id": "INTLBUS",
+            "type": "compound"
         }
     },
     {
@@ -22,139 +300,53 @@
     {
         "data": {
             "source": "ECON 101",
-            "target": "ECON/FINANCE 300"
+            "target": "MARKETNG 300"
         }
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "ECON 102"
+            "id": "ACCTIS",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Spanish lexicon and linguistic style for management, banking, accounting, capital investment, personnel and office systems, production of goods and services, marketing, finance, and import/export; includes translation and interpretive activities.",
-            "id": "INTLBUS/SPANISH 329"
+            "description": "Planning and controlling the elements of the marketing program; marketing organization, product and service, packaging, pricing, promotion and physical distribution.",
+            "id": "MARKETNG 300",
+            "parent": "MARKETNG"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
+            "description": "Focuses on the acquisition of knowledge and the development of skills over a broad range of issues related to global management.  The overall goal is to improve global competence by discussing: why organizations \"go global;\" global business venture options; the impact of foreign business activities on host countries; how to conduct a \"CAGE\" analysis; how to identify and mitigate global risks; issues related to CSR and corruption for foreign business activity; the role of labor codes; ways to manage a global work force; the role of \"global cadres;\" and the roles and management of expatriates.  Country/region knowledge explored will encompass Asia, Africa, South America, and Europe.",
+            "id": "INTLBUS 766",
+            "parent": "INTLBUS"
+        }
+    },
+    {
+        "data": {
+            "source": "ECON/FINANCE 300",
             "target": "FINANCE/INTLBUS 445"
         }
     },
     {
         "data": {
-            "description": "Oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
-            "id": "FRENCH 203",
+            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
+            "id": "FRENCH 101",
             "parent": "FRENCH"
         }
     },
     {
         "data": {
             "source": "ECON 111",
-            "target": "AAE/ECON/INTLBUS 462"
+            "target": "ECON 101"
         }
     },
     {
         "data": {
-            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
-            "id": "AAE 101",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 311",
-            "target": "SPANISH 226"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 103",
-            "target": "SPANISH 203"
-        }
-    },
-    {
-        "data": {
-            "id": "SPANISH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 311",
-            "target": "INTLBUS/SPANISH 329"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 203",
-            "target": "SPANISH 204"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 102",
-            "target": "SPANISH 203"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "INTLBUS 200"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of graduate students may be arranged both during regular sessions and the intersession periods.",
-            "id": "INTLBUS 799",
+            "description": "Engage in activities that aim to translate and integrate the study abroad experience. Build international business and global competencies while connecting with others engaged in an immersion experience.",
+            "id": "INTLBUS 450",
             "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "ECON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Technology, privatization, deregulation and other government policies, and growth of a mass culture are among the factors that drive global business today. Introduction to the key concepts necessary to understand the functioning of global markets and the inherent issues managers face in planning and executing international business strategies for products, services and investments.",
-            "id": "INTLBUS 200",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "AAE/ECON/INTLBUS 462"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "ECON 102"
         }
     },
     {
@@ -165,292 +357,8 @@
     },
     {
         "data": {
-            "source": "MATH 213",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MARKETNG 300",
-            "target": "INTLBUS/MARKETNG 420"
-        }
-    },
-    {
-        "data": {
-            "description": "Study and analysis of the culture and sociology of professional environments in the French and Francophone worlds, including government, international organizations, NGO's and business. Students develop communication skills through interactive teaching methods in multimedia labs.",
-            "id": "FRENCH/INTLBUS 313"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced oral practice and conversation, grammar review, reading, vocabulary expansion, creative writing and study of French and Francophone cultures.",
-            "id": "FRENCH 204",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "description": "Develops awareness and knowledge of cultural influences on business. Focuses on various attitudes toward work, time, material possession, business, and the relationship of these attitudes to different social, religious, philosophical, and educational backgrounds of business people from cultures around the world.",
-            "id": "GENBUS/INTLBUS 320"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work suited to the needs of undergraduate students may be arranged both during regular sessions and the intersession periods.",
-            "id": "INTLBUS 399",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
             "id": "FINANCE",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "INTLBUS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofSPANISH\u00a0101. All basic language skills: listening comprehension, speaking, reading, and writing.",
-            "id": "SPANISH 102",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Enhance writing and speaking proficiency through cultural readings on France and  the francophone world. Review of grammar and focus on more complex grammatical structures.",
-            "id": "FRENCH 228",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE/ECON/REALEST/URBRPL 306",
-            "target": "INTLBUS/REALEST 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Visit host countries to improve global competence by discussing and experiencing key issues for US organizations doing business in the host countries.  A key component will be the integration, in a global context, of the knowledge and skills from the MBA coursework in marketing, finance, international business, operations, economics, accounting, strategy, and leadership.  The techniques learned and practiced can be used in the future to competently research and understand global business issues for any part of the world.",
-            "id": "INTLBUS 767",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "A course for the exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INTLBUS 365",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory of business finance as applied to the operations of multinational firms; financial analysis and control of foreign investment decisions; working capital management; multinational credit institutions and capital markets; special accounting problems and trends in international monetary affairs.",
-            "id": "FINANCE/INTLBUS 745"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced language practice, including intensive writing and work in pertinent areas of grammar and stylistics.",
-            "id": "SPANISH 311",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Cultural study of contemporary Francophone Africa, focusing on issues in government, organizations and enterprise. Exploration of cultural and professional relations between Francophone Africa and France, the European Union, and the United States.",
-            "id": "FRENCH/INTLBUS 314"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON/INTLBUS 462"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 101",
-            "target": "SPANISH 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of advanced subject areas possibly to be introduced into the business curriculum.",
-            "id": "INTLBUS 765",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 102",
-            "target": "SPANISH 103"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "MARKETNG 300"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 226",
-            "target": "SPANISH 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "SPANISH 204",
-            "target": "SPANISH 226"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "INTLBUS 200"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 311",
-            "target": "FRENCH/INTLBUS 313"
-        }
-    },
-    {
-        "data": {
-            "description": "Macroeconomic measurement and models of aggregate demand and supply; fiscal and monetary policy for unemployment, inflation, and growth.",
-            "id": "ECON 102",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
-            "id": "FINANCE/INTLBUS 445"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 311",
-            "target": "FRENCH/INTLBUS 314"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn to write essays on a variety of topics, using different registers of French, and work to correct pronunciation and improve conversation skills. Taught in French.",
-            "id": "FRENCH 311",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
         }
     },
     {
@@ -461,77 +369,9 @@
     },
     {
         "data": {
-            "description": "Accelerated introduction to Spanish language practice through writing, reading, speaking and listening. Course equivalent toSPANISH\u00a0101and102.",
-            "id": "SPANISH 103",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "description": "A historico-institutional analysis of development problems in the principal Latin American countries, with attention to differentiation of national growth patterns and alternative development strategies.",
-            "id": "AAE/ECON/INTLBUS 462"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 102",
-            "target": "FRENCH 203"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 228",
-            "target": "FRENCH 311"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "MARKETNG 300"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 228",
-            "target": "FRENCH/INTLBUS 313"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the strategic management required in global business. Topics include environmental analysis, global strategy, and subsidiary control. The aim of the course is to develop special skills that are required to manage international firms.",
-            "id": "INTLBUS/MHR 403"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "INTLBUS 200"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "All basic language skills: listening comprehension, speaking, reading, and writing. Requires no previous knowledge of Spanish.",
-            "id": "SPANISH 101",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate-level language review, Hispanic readings, culture, and patterns of conversation.",
-            "id": "SPANISH 203",
-            "parent": "SPANISH"
+            "description": "Examines generally accepted accounting principles for measurement and reporting of financial information in a balance sheet, income statement, and statement of cash flows; introduction to analysis and interpretation of financial accounting data for decision-making purposes.",
+            "id": "ACCTIS 100",
+            "parent": "ACCTIS"
         }
     },
     {
@@ -548,249 +388,27 @@
     },
     {
         "data": {
-            "source": "ECON 111",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MATH 112",
-            "target": "MATH 211"
+            "source": "SPANISH 226",
+            "target": "SPANISH 311"
         }
     },
     {
         "data": {
-            "source": "FINANCE 700",
-            "target": "FINANCE/INTLBUS 745"
-        }
-    },
-    {
-        "data": {
-            "source": "ACCTIS 100",
-            "target": "ECON/FINANCE 300"
-        }
-    },
-    {
-        "data": {
-            "id": "MARKETNG",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the acquisition of knowledge and the development of skills over a broad range of issues related to global management.  The overall goal is to improve global competence by discussing: why organizations \"go global;\" global business venture options; the impact of foreign business activities on host countries; how to conduct a \"CAGE\" analysis; how to identify and mitigate global risks; issues related to CSR and corruption for foreign business activity; the role of labor codes; ways to manage a global work force; the role of \"global cadres;\" and the roles and management of expatriates.  Country/region knowledge explored will encompass Asia, Africa, South America, and Europe.",
-            "id": "INTLBUS 766",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory overview focused on the key aspects of the real estate process: developing real estate, permitting real estate, buying and selling real estate, understanding the economics of real estate, financing real estate, valuing real estate, leasing real estate, and managing real estate.",
-            "id": "AAE/ECON/REALEST/URBRPL 306"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH/INTLBUS 313",
-            "target": "FRENCH/INTLBUS 314"
-        }
-    },
-    {
-        "data": {
-            "description": "Intensive practice in reading, writing, and grammar.",
-            "id": "SPANISH 226",
+            "description": "Advanced language practice, including intensive writing and work in pertinent areas of grammar and stylistics.",
+            "id": "SPANISH 311",
             "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "MARKETNG 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Planning and controlling the elements of the marketing program; marketing organization, product and service, packaging, pricing, promotion and physical distribution.",
-            "id": "MARKETNG 300",
-            "parent": "MARKETNG"
-        }
-    },
-    {
-        "data": {
-            "description": "Engage in activities that aim to translate and integrate the study abroad experience. Build international business and global competencies while connecting with others engaged in an immersion experience.",
-            "id": "INTLBUS 450",
-            "parent": "INTLBUS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines both financial and managerial accounting for business decisions. Emphasizes preparation and interpretation of financial statements, analysis of financial information, determination of costs for products and services, and use of accounting information for planning and control of business operations.",
-            "id": "ACCTIS 300",
-            "parent": "ACCTIS"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate-level language review, extensive Hispanic readings and culture, intensive written and oral activities.",
-            "id": "SPANISH 204",
-            "parent": "SPANISH"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Structure of foreign trading; commercial facilities available to exporters and importers; application of economic analysis in marketing decisions; contemporary trends in international economy affecting foreign trade policies and practices.",
-            "id": "INTLBUS/MARKETNG 420"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "ACCTIS",
-            "type": "compound"
         }
     },
     {
         "data": {
             "source": "FRENCH 204",
             "target": "FRENCH 228"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and techniques in corporate finance and investments. Topics include the financial environment, securities markets, financial markets, financial statements and analysis, working capital management, capital budgeting, cost of capital, dividend policy, asset valuation, investments, decision-making under uncertainty, mergers, options, and futures.",
-            "id": "ECON/FINANCE 300"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "FINANCE/INTLBUS 445"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON/FINANCE 300",
-            "target": "FINANCE/INTLBUS 445"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral practice and conversation, grammar, reading, vocabulary building, and study of French and Francophone cultures.",
-            "id": "FRENCH 101",
-            "parent": "FRENCH"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 203",
-            "target": "FRENCH 204"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "ACCTIS 300",
-            "target": "ECON/FINANCE 300"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "FRENCH 228",
-            "target": "FRENCH/INTLBUS 314"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines generally accepted accounting principles for measurement and reporting of financial information in a balance sheet, income statement, and statement of cash flows; introduction to analysis and interpretation of financial accounting data for decision-making purposes.",
-            "id": "ACCTIS 100",
-            "parent": "ACCTIS"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "ACCTIS 300",
-            "target": "ACCTIS 100"
         }
     }
 ]

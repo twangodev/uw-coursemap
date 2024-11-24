@@ -1,14 +1,74 @@
 [
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 109"
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
+            "description": "Clinically relevant methods of scientific thought, inquiry and analysis via the presentation of specific research topics. Emerging concepts in developmental genetics and embryonic stem (ES) cell biology are used as a means of introducing the participants to the critical importance of identifying the \"right\" question, selecting the \"best\" tools to answer the question, using the appropriate logic to interpret experimental results and finally, constructing appropriate conclusions.  Application of the literature of mouse genetics and laboratory research to biomedical health decisions. Strong emphasis on the tools used in the research literature and to 'get your hands dirty' learning the basics of the laboratory techniques involved.",
+            "id": "CRB 810",
+            "parent": "CRB"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "One-on-one learning experience allowing undergraduates to work with a faculty adviser to develop research projects and skills.",
+            "id": "CRB 699",
+            "parent": "CRB"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines various special topics in stem cell and regenerative medicine research.",
+            "id": "CRB 625",
+            "parent": "CRB"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "CRB 810"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Research and Thesis.",
+            "id": "CRB 990",
+            "parent": "CRB"
+        }
+    },
+    {
+        "data": {
+            "description": "Goal is to identify a global biotechnology problem, find a technical solution, and analyze all aspects from a business, regulatory, and scientific perspective.",
+            "id": "CRB 846",
+            "parent": "CRB"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -26,77 +86,8 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 810",
-            "target": "CRB 810"
-        }
-    },
-    {
-        "data": {
-            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
-            "id": "CHEM 116",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the early drug discovery process, including target identification and validation, generation of diverse chemical libraries, assay development and high throughput screening, lead optimization by compound profiling, and drug targeting and delivery.",
-            "id": "CRB 830",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "CRB 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers a broad range of topics in animal development, with an emphasis on molecular mechanisms. Focuses on common themes, with the goal of understanding and analyzing current research in developmental biology and genetics.",
-            "id": "CRB/GENETICS 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
             "parent": "MEDSC-M"
         }
     },
@@ -109,115 +100,9 @@
     },
     {
         "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "CRB 860"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "CRB 860"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "CRB 650"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Goal is to identify a global biotechnology problem, find a technical solution, and analyze all aspects from a business, regulatory, and scientific perspective.",
-            "id": "CRB 846",
+            "description": "Presents contemporary issues in the business of biotechnology where students apply concepts critical to the success of modern biotechnology firms. Topics focus on modern problem-solving, including issues relating to leadership and management, product development and negotiation and licensing.",
+            "id": "CRB 841",
             "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on state-of-the-art topics of global importance in biotechnology. Skills and knowledge from previous courses are integrated and applied to achieve a new level of synthesis and depth of understanding about important programs in biotechnology today. Deepen technical understanding of novel technologies and broaden awareness of ethical and regulatory issues in biotechnology globally. Increase awareness of opportunities for intellectual collaboration and entrepreneurship.",
-            "id": "CRB 844",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "CRB 850"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 468",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
         }
     },
     {
@@ -229,6 +114,12 @@
     },
     {
         "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "description": "Presents important core concepts, including intellectual property, patent law, trademarks, copyrights, trade secrets, licensing and patent litigation, all specific to the field of biotechnology. Covers the types of intellectual property and how they fit together to protect a product or service. Covers the fundamentals of licensing and technology transfer and the important role of patent examines. Explores the unique aspects of early-stage intellectual property, including market dynamics, pricing and valuation.",
             "id": "CRB 800",
             "parent": "CRB"
@@ -236,79 +127,61 @@
     },
     {
         "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents contemporary issues in the business of biotechnology where students apply concepts critical to the success of modern biotechnology firms. Topics focus on modern problem-solving, including issues relating to leadership and management, product development and negotiation and licensing.",
-            "id": "CRB 841",
+            "description": "Exposure to business principles as applied to the operation of biotechnology companies and serve as a foundation for the more advanced business curriculum. Lays the groundwork to fully appreciate the challenges inherent in translating scientific discoveries into a successful business.",
+            "id": "CRB 802",
             "parent": "CRB"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 383",
-            "target": "ZOOLOGY 570"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BME/CRB 670"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "CRB 630"
+            "description": "Covers topics and concepts in the drug discovery process, with emphasis on laboratory assays and methods used in primary, secondary, and in vitro ADMETox (Absorption, Distribution, Metabolism, Excretion, Toxicity) drug screening. In addition, students build communication and critical thinking skills while working on team projects and analyzing scientific results.",
+            "id": "CRB 834",
+            "parent": "CRB"
         }
     },
     {
         "data": {
             "source": "CHEM 104",
-            "target": "CHEM 341"
+            "target": "CHEM 343"
         }
     },
     {
         "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
+            "id": "BIOCHEM 507",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "source": "ZOOLOGY 570",
-            "target": "CRB 640"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines various special topics in stem cell and regenerative medicine research.",
-            "id": "CRB 625",
+            "description": "Addresses issues related to the development and manufacture of products for human health, including medical devices and human therapeutics. Topics include regulatory affairs, quality control and validation, clinical and nonclinical studies.",
+            "id": "CRB 820",
             "parent": "CRB"
         }
     },
@@ -321,73 +194,47 @@
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 466"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "CHEM 116",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "CRB 675"
-        }
-    },
-    {
-        "data": {
-            "description": "An introductory survey course of the political, legal, and ethical issues that have driven the development of the biotechnology industry. Special emphasis is given to FDA regulation of new drugs, devices, and biologics, and to federal regulation and ethics of human subjects research. Come away with an enhanced ability to understand how regulation and politics interact with business and finance to influence the formation and growth of biotechnology companies. Introduction to the ethical issues that help shape public policy regarding applications of biotechnology.",
-            "id": "CRB 804",
+            "description": "Focuses on state-of-the-art topics of global importance in biotechnology. Skills and knowledge from previous courses are integrated and applied to achieve a new level of synthesis and depth of understanding about important programs in biotechnology today. Deepen technical understanding of novel technologies and broaden awareness of ethical and regulatory issues in biotechnology globally. Increase awareness of opportunities for intellectual collaboration and entrepreneurship.",
+            "id": "CRB 844",
             "parent": "CRB"
         }
     },
     {
         "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
+            "source": "CHEM 343",
+            "target": "CHEM 345"
         }
     },
     {
         "data": {
-            "description": "Gain in-depth knowledge of the fundamentals of stem cell and regenerative biology. This knowledge forms the basis for novel translational research and both diagnostic and therapeutic options. Topics to be covered include the origins of embryonic stem cells (ESCs) and induced pluripotent stem cells (iPSCs) and how they are being used for both research and for clinical applications. Read, discuss, and present cutting-edge literature on how iPSCs are being used to model a variety of human diseases and how stem cell therapies are being used to treat autoimmune disorders such as Lupus Erythematosus, Multiple Sclerosis, and Crohn's disease. Participate in the Stem Cell and Regenerative Medicine Center weekly seminar, and hear from top UW researchers about how they are using stem cells to develop therapies for bone and vascular repair.",
-            "id": "CRB 850",
+            "description": "The molecular and cellular development of the heart and of its regenerative potential. This knowledge forms the basis for novel translational research and both diagnostic and therapeutic options. Topics to be covered include the genetics underlying normal heart development as well as cardiac tissue specification and differentiation with a focus on molecular signals, associated signal transduction pathways, and transcriptional regulation. Read, discuss, and present cutting-edge literature on the genetic contributions to congenital heart defects and adult heart disease and on cardiac stem cells and the regenerative capacity of the heart. Participate in Adult and Pediatric Cardiology Grand Rounds, the Madison Perinatology Conference, learn about cutting-edge molecular diagnostics for fetal, pediatric and adult cardiac disease, and learn when and how to perform an adult echocardiogram.",
+            "id": "CRB 860",
             "parent": "CRB"
         }
     },
     {
         "data": {
-            "description": "Research and Thesis.",
-            "id": "CRB 990",
-            "parent": "CRB"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "CRB 650"
         }
     },
     {
         "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers topics and concepts in the drug discovery process, with emphasis on laboratory assays and methods used in primary, secondary, and in vitro ADMETox (Absorption, Distribution, Metabolism, Excretion, Toxicity) drug screening. In addition, students build communication and critical thinking skills while working on team projects and analyzing scientific results.",
-            "id": "CRB 834",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 570"
+            "source": "MEDSC-M 810",
+            "target": "CRB 860"
         }
     },
     {
@@ -400,7 +247,7 @@
     {
         "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "target": "CRB 675"
         }
     },
     {
@@ -411,147 +258,20 @@
     },
     {
         "data": {
-            "id": "MATH",
-            "type": "compound"
+            "source": "BIOCORE 383",
+            "target": "CRB 640"
         }
     },
     {
         "data": {
-            "source": "CHEM 343",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ZOOLOGY 570"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "CRB 675"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 116"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "The molecular and cellular development of the heart and of its regenerative potential. This knowledge forms the basis for novel translational research and both diagnostic and therapeutic options. Topics to be covered include the genetics underlying normal heart development as well as cardiac tissue specification and differentiation with a focus on molecular signals, associated signal transduction pathways, and transcriptional regulation. Read, discuss, and present cutting-edge literature on the genetic contributions to congenital heart defects and adult heart disease and on cardiac stem cells and the regenerative capacity of the heart. Participate in Adult and Pediatric Cardiology Grand Rounds, the Madison Perinatology Conference, learn about cutting-edge molecular diagnostics for fetal, pediatric and adult cardiac disease, and learn when and how to perform an adult echocardiogram.",
-            "id": "CRB 860",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Exposure to business principles as applied to the operation of biotechnology companies and serve as a foundation for the more advanced business curriculum. Lays the groundwork to fully appreciate the challenges inherent in translating scientific discoveries into a successful business.",
-            "id": "CRB 802",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 109"
+            "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
+            "id": "BME/CRB 670"
         }
     },
     {
         "data": {
             "description": "An intensive workshop that will teach biotechniques, biotechnology product development, and biotechnology applications interfaced with analytical, communication and teaching skills. Simulates the corporate and academic biotechnology setting.",
             "id": "CRB 803",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "description": "Landmark discoveries, as well as current knowledge and controversies in human health, with an emphasis on cancer biology.",
-            "id": "CRB/MEDICINE 701"
-        }
-    },
-    {
-        "data": {
-            "id": "GENETICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Clinically relevant methods of scientific thought, inquiry and analysis via the presentation of specific research topics. Emerging concepts in developmental genetics and embryonic stem (ES) cell biology are used as a means of introducing the participants to the critical importance of identifying the \"right\" question, selecting the \"best\" tools to answer the question, using the appropriate logic to interpret experimental results and finally, constructing appropriate conclusions.  Application of the literature of mouse genetics and laboratory research to biomedical health decisions. Strong emphasis on the tools used in the research literature and to 'get your hands dirty' learning the basics of the laboratory techniques involved.",
-            "id": "CRB 810",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of regenerative medicine and stem cell research within social, ethical and political contexts.",
-            "id": "CRB/MEDHIST 615"
-        }
-    },
-    {
-        "data": {
-            "description": "Examine how companies gain and sustain competitive advantages.",
-            "id": "CRB 842",
             "parent": "CRB"
         }
     },
@@ -564,185 +284,59 @@
     },
     {
         "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
+            "description": "Covers a broad range of topics in animal development, with an emphasis on molecular mechanisms. Focuses on common themes, with the goal of understanding and analyzing current research in developmental biology and genetics.",
+            "id": "CRB/GENETICS 710"
         }
     },
     {
         "data": {
-            "description": "Provides a foundation to understand fundamental biological, mechanistic, and experimental concepts in the field of stem cell and regenerative biology.",
-            "id": "CRB 640",
+            "description": "Examine how companies gain and sustain competitive advantages.",
+            "id": "CRB 842",
             "parent": "CRB"
         }
     },
     {
         "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
-            "id": "GENETICS 467",
-            "parent": "GENETICS"
+            "description": "Landmark discoveries, as well as current knowledge and controversies in human health, with an emphasis on cancer biology.",
+            "id": "CRB/MEDICINE 701"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 813",
-            "target": "CRB 810"
+            "description": "Study of regenerative medicine and stem cell research within social, ethical and political contexts.",
+            "id": "CRB/MEDHIST 615"
         }
     },
     {
         "data": {
-            "description": "Presents diverse topics in contemporary heart biology to facilitate understanding of biological, mechanistic, and experimental concepts of cardiac physiology, disease, and regeneration. Learn cellular and molecular mechanisms underlying heart physiology, function, disease and regenerative ability in various model systems. Includes thinking critically about methodology, experimental design and interpretation, and how conclusions are reached in heart biology through cutting-edge literature.",
-            "id": "BME/CRB 670"
+            "source": "CHEM 104",
+            "target": "CHEM 109"
         }
     },
     {
         "data": {
-            "source": "BIOCHEM 501",
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "BME/CRB 670"
         }
     },
     {
         "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "CRB 850"
+            "description": "An introductory survey course of the political, legal, and ethical issues that have driven the development of the biotechnology industry. Special emphasis is given to FDA regulation of new drugs, devices, and biologics, and to federal regulation and ethics of human subjects research. Come away with an enhanced ability to understand how regulation and politics interact with business and finance to influence the formation and growth of biotechnology companies. Introduction to the ethical issues that help shape public policy regarding applications of biotechnology.",
+            "id": "CRB 804",
+            "parent": "CRB"
         }
     },
     {
         "data": {
             "id": "MEDSC-M",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "CRB 650"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "CRB 640"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses issues related to the development and manufacture of products for human health, including medical devices and human therapeutics. Topics include regulatory affairs, quality control and validation, clinical and nonclinical studies.",
-            "id": "CRB 820",
-            "parent": "CRB"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "CRB 675"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "CRB 630"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "CHEM 104"
         }
     },
     {
@@ -754,90 +348,67 @@
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "Provides an overview of the early drug discovery process, including target identification and validation, generation of diverse chemical libraries, assay development and high throughput screening, lead optimization by compound profiling, and drug targeting and delivery.",
+            "id": "CRB 830",
+            "parent": "CRB"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
+            "description": "Provides a foundation to understand fundamental biological, mechanistic, and experimental concepts in the field of stem cell and regenerative biology.",
+            "id": "CRB 640",
+            "parent": "CRB"
         }
     },
     {
         "data": {
-            "description": "Comprehensive course on modern aspects of cell biology.",
-            "id": "ZOOLOGY 570",
-            "parent": "ZOOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
-            "id": "GENETICS 468",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "CRB 860"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
+            "id": "CROSSLISTED",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 468"
-        }
-    },
-    {
-        "data": {
-            "description": "One-on-one learning experience allowing undergraduates to work with a faculty adviser to develop research projects and skills.",
-            "id": "CRB 699",
+            "description": "Gain in-depth knowledge of the fundamentals of stem cell and regenerative biology. This knowledge forms the basis for novel translational research and both diagnostic and therapeutic options. Topics to be covered include the origins of embryonic stem cells (ESCs) and induced pluripotent stem cells (iPSCs) and how they are being used for both research and for clinical applications. Read, discuss, and present cutting-edge literature on how iPSCs are being used to model a variety of human diseases and how stem cell therapies are being used to treat autoimmune disorders such as Lupus Erythematosus, Multiple Sclerosis, and Crohn's disease. Participate in the Stem Cell and Regenerative Medicine Center weekly seminar, and hear from top UW researchers about how they are using stem cells to develop therapies for bone and vascular repair.",
+            "id": "CRB 850",
             "parent": "CRB"
         }
     },
     {
         "data": {
             "source": "CHEM 109",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "CRB 810"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
             "target": "CHEM 104"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
+            "source": "BIOCHEM 507",
+            "target": "CRB 630"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     }
 ]

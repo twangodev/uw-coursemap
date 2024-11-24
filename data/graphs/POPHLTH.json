@@ -1,70 +1,170 @@
 [
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH 798",
-            "target": "POPHLTH 805"
-        }
-    },
-    {
-        "data": {
-            "description": "Each module will adopt an in-depth focus on a biostatistical method of particular relevance to epidemiology such as measurement error, missing data, intermediate variables, complex study designs, meta-analysis, splines, propensity scores, causal inference, spatial statistics and resampling. One or more modules will be offered every spring semester.",
-            "id": "BMI/POPHLTH 652"
-        }
-    },
-    {
-        "data": {
-            "description": "In-depth focus on current areas of epidemiologic investigation. Each semester one or more modules (e.g., cardiovascular, cancer, infectious diseases, women's health, international, etc.) will be offered.",
-            "id": "POPHLTH 904",
+            "description": "Covers current knowledge on cancer occurrence and control in human populations. Design and analysis approaches appropriate for cancer epidemiology will also be discussed. Familiarity with basic biological and epidemiologic concepts is desirable.",
+            "id": "POPHLTH 750",
             "parent": "POPHLTH"
         }
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "ECON 102"
+            "source": "POPHLTH/SOC 797",
+            "target": "POPHLTH 798"
         }
     },
     {
         "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/POPHLTH 552"
+            "source": "POPHLTH/SOC 797",
+            "target": "ISYE/POPHLTH 875"
         }
     },
     {
         "data": {
-            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
-            "id": "CHEM 116",
-            "parent": "CHEM"
+            "source": "PUBAFFR 880",
+            "target": "ECON/POPHLTH/PUBAFFR 548"
         }
     },
     {
         "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "BMI/POPHLTH 552",
+            "target": "BMI/POPHLTH 652"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "description": "Variable content course.",
+            "id": "POPHLTH 650",
+            "parent": "POPHLTH"
         }
     },
     {
         "data": {
-            "description": "Introduction to the role of physicians working in various fields of general preventive medicine and public health. Engage with preventive medicine faculty and residents to learn foundational knowledge and skills central to the discipline. Opportunity to select a health issue in Wisconsin and work on a short term project to describe, analyze or address the issue.",
-            "id": "POPHLTH 917",
+            "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
+            "id": "NUTRSCI/POPHLTH 621"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of interdisciplinary clinical research questions including strategies for assessing the evidence and methodology for conducting various types of literature reviews. Emphasizes an interdisciplinary perspective.",
+            "id": "MEDICINE/NURSING/POPHLTH 705"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
+            "id": "OBS&GYN/POPHLTH 807"
+        }
+    },
+    {
+        "data": {
+            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
+            "id": "BIOCORE 383",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the relationship between globalization and health and provides an understanding of: (a) indicators and determinants of health and health disparities across populations, from less to more developed countries; (b) the application of epidemiology to evaluate population health, identify global public health priorities, monitor progress toward public health goals, and develop and evaluate interventions to improve global health and reduce health disparities; and (c) some practical and ethical considerations in global health research. Exposure to the \"One Health\" perspective and to research and clinical work of University of Wisconsin-Madison faculty members working in the field of global health epidemiology, and is designed to identify ways that epidemiology can contribute to improvements in global health.",
+            "id": "POPHLTH 810",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Apply and extend methodologic knowledge learned in prior courses in the Population Health Sciences epidemiology methods sequence to selected key activities of a practicing epidemiologic researcher, including: study implementation; scientific writing and presentation; manuscript and grant peer-reviewing; measurement validation, simulation studies and sensitivity analyses; and, commonly-used epidemiology field instruments and methods.",
+            "id": "POPHLTH 806",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
+            "id": "POPHLTH/SOC 797"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to multiple determinants of health including medical care, socioeconomic status, the physical environment and individual behavior, and their interactions. Also covered will be the definition and measurement of population health, economic concepts in population health, and ethical and managerial issues in population health improvement.",
+            "id": "POPHLTH 795",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Skepticism and conspiracism can be barriers to successful implementation of public health and medical interventions such as vaccination, fluoridation of water, and HIV treatment. Conversations between people with opposing viewpoints, whether face-to- face or via social media, often devolve to disparagement and dismissal. Awareness of or experience with such exchanges causes us to avoid tackling such \"hot button\" topics with friends, colleagues, and members of our communities. While it is all too easy to believe people who adopt conspiracy theories to be members of the fringe, research has shown that medical conspiracy theories are widely known, broadly endorsed, and highly predictive of many common health behaviors. Prepares health professionals to educate communities about important public health and medical interventions.",
+            "id": "POPHLTH 721",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "The main emphasis is the design and interpretation of epidemiologic studies. Includes hands-on experience in the evaluation of epidemiologic evidence, the analysis of epidemiologic data, and the discussion of strategies aimed to improve study validity and efficiency.",
+            "id": "POPHLTH 798",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Impact of environmental problems on human health; biological hazards to human health from air and water pollution; radiation; pesticides; noise; problems related to food, occupation and environment of the work place; accidents. Physical and chemical factors involved.",
+            "id": "ENVIRST/POPHLTH 471"
+        }
+    },
+    {
+        "data": {
+            "description": "Seeks to review the conceptualization of translational and outcomes research in health and health care settings; to illustrate basic concepts and methods in research as applied to current issues in health and health care settings; and to understand the diverse perspectives that can be used to inform translational and outcomes research in different organizations, including those based within communities.",
+            "id": "POPHLTH 709",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of substance use health services research topics, study designs, data sources, and sufficient knowledge of one substantive topic to support the development of a research proposal.",
+            "id": "POPHLTH 890",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Research supervised by individual faculty members.",
+            "id": "POPHLTH 990",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+            "id": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "POPHLTH 798",
+            "target": "POPHLTH 806"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the field of \"Population Health Science\" - the multidisciplinary study of why populations are healthy (or not) and how our limited resources can be allocated across the multiple determinants of health to improve population health.",
+            "id": "POPHLTH 752",
             "parent": "POPHLTH"
         }
     },
@@ -77,181 +177,14 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "PUBAFFR 880",
-            "target": "AAE/ENVIRST/POPHLTH/PUBAFFR 881"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "PUBAFFR",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PUBAFFR 818",
-            "target": "AAE/ENVIRST/POPHLTH/PUBAFFR 881"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on the use of viewpoints and design/analytical tools to render possible the estimation of causal effects in epidemiologic studies. Students learn about the rationale and use of study designs/analytic tools that build upon but are substantially different from the most common approaches used in epidemiologic research (experimental studies, case-control studies, and cohort studies).",
-            "id": "POPHLTH 805",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "MEDICINE/NURSING/POPHLTH 705"
-        }
-    },
-    {
-        "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
             "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to economic ways of thinking about a wide range of problems and issues. Topics include consumption, production, prices, markets, finance, trade, pollution, growth, farms, taxes, and development.",
-            "id": "AAE 101",
-            "parent": "AAE"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
-            "id": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the relationship between globalization and health and provides an understanding of: (a) indicators and determinants of health and health disparities across populations, from less to more developed countries; (b) the application of epidemiology to evaluate population health, identify global public health priorities, monitor progress toward public health goals, and develop and evaluate interventions to improve global health and reduce health disparities; and (c) some practical and ethical considerations in global health research. Exposure to the \"One Health\" perspective and to research and clinical work of University of Wisconsin-Madison faculty members working in the field of global health epidemiology, and is designed to identify ways that epidemiology can contribute to improvements in global health.",
-            "id": "POPHLTH 810",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE/POPHLTH 875",
+            "source": "PUBAFFR 880",
             "target": "AAE/ENVIRST/POPHLTH/PUBAFFR 881"
-        }
-    },
-    {
-        "data": {
-            "description": "Toxicologic, controlled and epidemiologic studies on major air pollutants. Overview of study methods, lung physiology and pathology; air pollution sources, types, meteorology, sampling methods, controls and regulations.",
-            "id": "ENVIRST/POPHLTH 502"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 485",
-            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "POPHLTH 917"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "An interdisciplinary course designed to prepare students for specific global health field experiences.",
-            "id": "POPHLTH 640",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH 798",
-            "target": "POPHLTH 806"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentations by graduate students, professors, public health professionals and experts designed to cover the depth and breadth of research in the field of population health.",
-            "id": "POPHLTH 820",
-            "parent": "POPHLTH"
         }
     },
     {
@@ -263,45 +196,8 @@
     },
     {
         "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "ECON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Contemporary theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 301",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "AAE 101",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Provide tools to identify and address real-world global environmental health issues, stemming from climate change, habitat destruction leading to disease spillover events, food insecurity, and urban design.",
-            "id": "ENVIRST/POPHLTH 739"
-        }
-    },
-    {
-        "data": {
-            "description": "Skepticism and conspiracism can be barriers to successful implementation of public health and medical interventions such as vaccination, fluoridation of water, and HIV treatment. Conversations between people with opposing viewpoints, whether face-to- face or via social media, often devolve to disparagement and dismissal. Awareness of or experience with such exchanges causes us to avoid tackling such \"hot button\" topics with friends, colleagues, and members of our communities. While it is all too easy to believe people who adopt conspiracy theories to be members of the fringe, research has shown that medical conspiracy theories are widely known, broadly endorsed, and highly predictive of many common health behaviors. Prepares health professionals to educate communities about important public health and medical interventions.",
-            "id": "POPHLTH 721",
+            "description": "Learn applied techniques for community health assessment and surveillance. Population health data (including census, natality, mortality, hospital discharge, behavioral risk factor) are retrieved for analysis and interpretation.",
+            "id": "POPHLTH 784",
             "parent": "POPHLTH"
         }
     },
@@ -314,39 +210,14 @@
     },
     {
         "data": {
-            "description": "Recommendations for and surveillance of physical activity in the U.S., and associations with health and disease at the population level. Emphasis on measurement techniques, study design and research considerations.",
-            "id": "KINES/POPHLTH 791"
+            "source": "POPHLTH/SOC 797",
+            "target": "MEDICINE/NURSING/POPHLTH 705"
         }
     },
     {
         "data": {
-            "source": "MATH 171",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn applied techniques for community health assessment and surveillance. Population health data (including census, natality, mortality, hospital discharge, behavioral risk factor) are retrieved for analysis and interpretation.",
-            "id": "POPHLTH 784",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
-            "id": "GENETICS/MDGENET/POPHLTH 636"
+            "source": "BIOCORE 381",
+            "target": "BIOCORE 383"
         }
     },
     {
@@ -357,398 +228,20 @@
     },
     {
         "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Use of the SAS programming language for the management and analysis of biomedical data.",
-            "id": "BMI/POPHLTH 451"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
-            "target": "BIOCORE 485"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "POPHLTH 917"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-            "id": "BMI/POPHLTH 551"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of interdisciplinary clinical research questions including strategies for assessing the evidence and methodology for conducting various types of literature reviews. Emphasizes an interdisciplinary perspective.",
-            "id": "MEDICINE/NURSING/POPHLTH 705"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to multiple determinants of health including medical care, socioeconomic status, the physical environment and individual behavior, and their interactions. Also covered will be the definition and measurement of population health, economic concepts in population health, and ethical and managerial issues in population health improvement.",
-            "id": "POPHLTH 795",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces basic methods to studying the epidemiology of infectious diseases and reviews infectious diseases of major public health importance. Covers the basics of microbiology, immunology, and laboratory-based methods and the principles of disease surveillance, outbreak investigation, mathematical models of disease transmission, and prevention strategies. The etiology, epidemiology, prevention, and treatment of ancient, modern, and emerging infectious diseases will be examined.",
-            "id": "POPHLTH 801",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "PUBAFFR 880",
-            "target": "ECON/POPHLTH/PUBAFFR 548"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "POPHLTH 805"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview and synthesis of research utilizing social network analysis in relation to health, drawing on studies by sociologists, economists, computer scientists, physicians and health services researchers. Enables students to understand how social network data are collected and processed; how to calculate appropriate network measures; how to apply statistical modeling of social network effects on health behavior. Surveys social network studies related to substance use, smoking, contraception, AIDS, obesity and many other health conditions. Also looks at the social networks of health organizations in relation to patient outcomes. Prior coursework in data analysis and statistical methods is recommended.",
-            "id": "POPHLTH 819",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 116",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a comprehensive understanding of health outcome measures, including generic health status measures, disease-specific measures, and consumer reports of the quality of care.",
-            "id": "POPHLTH 876",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the physiology, biology and biochemistry of selected disease processes deemed to be important in population health sciences by virtue of their clinical significance including incidence, mortality and morbidity.",
-            "id": "POPHLTH 794",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 102",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
             "description": "Major problems in international health from 1750 to the present. Focus on disease epidemiology and ecology; political economy of health; migration; quarantine; race, ethnicity, and health care; international health research; cross-cultural healing; mental and maternal health; growth of international health organizations.",
             "id": "HISTSCI/MEDHIST/POPHLTH 553"
         }
     },
     {
         "data": {
-            "source": "ECON 101",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Impact of environmental problems on human health; biological hazards to human health from air and water pollution; radiation; pesticides; noise; problems related to food, occupation and environment of the work place; accidents. Physical and chemical factors involved.",
-            "id": "ENVIRST/POPHLTH 471"
-        }
-    },
-    {
-        "data": {
-            "id": "POPHLTH",
+            "id": "PUBAFFR",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the current knowledge and research in reproductive and perinatal epidemiology. Through reading of the primary and secondary literature, examine issues related to topics such as fertility, preconception health, and perinatal outcomes including maternal morbidity and mortality, pregnancy loss, and infant outcomes. Current evidence-based strategies designed to improve reproductive and perinatal outcomes are reviewed. Long-term health implications of pregnancy and infant health are considered.",
-            "id": "OBS&GYN/POPHLTH 807"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "POPHLTH 917"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "BMI/POPHLTH 652"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "POPHLTH 806"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "POPHLTH 918"
-        }
-    },
-    {
-        "data": {
-            "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
-            "id": "BMI/POPHLTH 651"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrated treatment of macroeconomics and microeconomics (seeECON\u00a0101andECON\u00a0102). Accelerated approach to economics training, especially for Economics: Math Emphasis majors.",
-            "id": "ECON 111",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Seeks to review the conceptualization of translational and outcomes research in health and health care settings; to illustrate basic concepts and methods in research as applied to current issues in health and health care settings; and to understand the diverse perspectives that can be used to inform translational and outcomes research in different organizations, including those based within communities.",
-            "id": "POPHLTH 709",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 116"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "POPHLTH 847"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
-            "id": "BMI/POPHLTH 694"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses a variety of global health topics through study of a specific country. Consider health data, health systems, historical and cultural information, and concepts of cultural competence and cultural humility.",
-            "id": "POPHLTH 644",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Variable content course.",
-            "id": "POPHLTH 650",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
-            "id": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
-        }
-    },
-    {
-        "data": {
-            "description": "Macroeconomic measurement and models of aggregate demand and supply; fiscal and monetary policy for unemployment, inflation, and growth.",
-            "id": "ECON 102",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Current research developments in physical activity epidemiology.",
-            "id": "KINES/POPHLTH 955"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "id": "AAE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "A mathematical approach to the theory of consumption, production, pricing and resource allocation.",
-            "id": "ECON 311",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
-            "id": "AAE/ENVIRST/POPHLTH/PUBAFFR 881"
-        }
-    },
-    {
-        "data": {
-            "source": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625",
-            "target": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the field of \"Population Health Science\" - the multidisciplinary study of why populations are healthy (or not) and how our limited resources can be allocated across the multiple determinants of health to improve population health.",
-            "id": "POPHLTH 752",
+            "description": "Provides an overview of current topics in health and mental health economics. The main objectives of this seminar is to acquaint students with important current topics, literature, and scholarship in this field.",
+            "id": "POPHLTH 845",
             "parent": "POPHLTH"
         }
     },
@@ -760,40 +253,60 @@
     },
     {
         "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
+            "description": "Focuses on the use of viewpoints and design/analytical tools to render possible the estimation of causal effects in epidemiologic studies. Students learn about the rationale and use of study designs/analytic tools that build upon but are substantially different from the most common approaches used in epidemiologic research (experimental studies, case-control studies, and cohort studies).",
+            "id": "POPHLTH 805",
+            "parent": "POPHLTH"
         }
     },
     {
         "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
+            "description": "Introduction to the role of physicians working in various fields of general preventive medicine and public health. Engage with preventive medicine faculty and residents to learn foundational knowledge and skills central to the discipline. Opportunity to select a health issue in Wisconsin and work on a short term project to describe, analyze or address the issue.",
+            "id": "POPHLTH 917",
+            "parent": "POPHLTH"
         }
     },
     {
         "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "OBS&GYN/POPHLTH 807"
+            "description": "Unique opportunity to gain insight into the role of environmental toxins while honing skills to advocate for patients and vulnerable populations. Learn to take environmental histories and understand how environmental medicine is applied in the clinical setting and community. Use the socio-ecological model to frame advocacy. Gain practical experience through online didactic lectures, reading materials, class discussion, reflections and a class presentation",
+            "id": "POPHLTH 918",
+            "parent": "POPHLTH"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 810",
-            "target": "POPHLTH 918"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "ECON 301",
-            "target": "ECON/POPHLTH/PUBAFFR 548"
+            "description": "This course will provide an introduction to genetic epidemiology. Topics will include a general overview of genetics and Mendelian and complex inheritance, as well as various elements of study design, including participant ascertainment; phenotype definition; biologic sample selection; genotyping, sequencing, and quality control; measurement of covariates, and choice of analytic methods. We will briefly discuss some of the original study designs and then focus on current study designs for the remainder of the class. Additional emerging topics will be briefly touched upon. Students will complete short homework assignments to enforce concepts learned during lectures, discuss journal articles, and prepare a very short grant application for the mid-term project. In the final weeks of class, students will work together to analyze data from a real genetic study, prepare tables, interpret the findings, and present their project to their peers.",
+            "id": "ANSCI/GENETICS/POPHLTH 849"
         }
     },
     {
         "data": {
-            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
-            "id": "BIOCORE 485",
-            "parent": "BIOCORE"
+            "description": "Provides an overview and synthesis of research utilizing social network analysis in relation to health, drawing on studies by sociologists, economists, computer scientists, physicians and health services researchers. Enables students to understand how social network data are collected and processed; how to calculate appropriate network measures; how to apply statistical modeling of social network effects on health behavior. Surveys social network studies related to substance use, smoking, contraception, AIDS, obesity and many other health conditions. Also looks at the social networks of health organizations in relation to patient outcomes. Prior coursework in data analysis and statistical methods is recommended.",
+            "id": "POPHLTH 819",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 552",
+            "target": "BMI/POPHLTH 651"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of the SAS programming language for the management and analysis of biomedical data.",
+            "id": "BMI/POPHLTH 451"
+        }
+    },
+    {
+        "data": {
+            "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
+            "id": "BMI/POPHLTH 651"
         }
     },
     {
@@ -805,6 +318,185 @@
     },
     {
         "data": {
+            "source": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625",
+            "target": "M&ENVTOX/PATH/PHMCOL-M/PHMSCI/POPHLTH 626"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of various types of public health emergencies and disasters including the organizations and disciplines that prepare and respond to natural and unnatural emergencies. Gain an understanding of how public health officials, public health practitioners, state and local health department staff, health care personnel and emergency responders plan for and respond to public health emergencies. The role of the physician will specifically be explored.",
+            "id": "POPHLTH 729",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
+            "id": "BMI/POPHLTH 552"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "POPHLTH 918"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
+            "id": "BMI/POPHLTH 694"
+        }
+    },
+    {
+        "data": {
+            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
+            "id": "MEDSC-M 811",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "POPHLTH 917"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
+            "id": "ECON/POPHLTH/PUBAFFR 548"
+        }
+    },
+    {
+        "data": {
+            "id": "POPHLTH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "To gain additional information on specific research problems or advanced training in the areas covered by department staff.",
+            "id": "POPHLTH 699",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed as an independent study with four modules: International Health System Performance; Health Systems in the Context of Global Health Needs; Health Systems in High Income Countries; and the Politics of Health System Development and Reform.",
+            "id": "POPHLTH 915",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents the welfare economics underpinnings for evaluating the social benefits and costs of government activities. Issues such as uncertainty, the social discount rate, and welfare weights will be discussed; case studies from the environmental, social policy, and agricultural areas will be studied.",
+            "id": "AAE/ENVIRST/POPHLTH/PUBAFFR 881"
+        }
+    },
+    {
+        "data": {
+            "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
+            "id": "ISYE/POPHLTH 703"
+        }
+    },
+    {
+        "data": {
+            "description": "In-depth focus on current areas of epidemiologic investigation. Each semester one or more modules (e.g., cardiovascular, cancer, infectious diseases, women's health, international, etc.) will be offered.",
+            "id": "POPHLTH 904",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Presentations by graduate students, professors, public health professionals and experts designed to cover the depth and breadth of research in the field of population health.",
+            "id": "POPHLTH 820",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "The main emphasis is the discussion of the population distribution, health impact, risk factors, treatment, and prevention of cardiovascular diseases.",
+            "id": "POPHLTH 847",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses a variety of global health topics through study of a specific country. Consider health data, health systems, historical and cultural information, and concepts of cultural competence and cultural humility.",
+            "id": "POPHLTH 644",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "source": "POPHLTH/SOC 797",
+            "target": "POPHLTH 805"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/POPHLTH 552"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 383",
+            "target": "BIOCORE 485"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of the AIDS pandemic in the United States and worldwide. Topics covered include a review of the epidemiology of AIDS, the natural history of HIV disease, strategies to prevent and treat HIV, and local and global health impact with a focus on historically significant milestones as well as promising current and future research.",
+            "id": "POPHLTH 713",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces basic methods to studying the epidemiology of infectious diseases and reviews infectious diseases of major public health importance. Covers the basics of microbiology, immunology, and laboratory-based methods and the principles of disease surveillance, outbreak investigation, mathematical models of disease transmission, and prevention strategies. The etiology, epidemiology, prevention, and treatment of ancient, modern, and emerging infectious diseases will be examined.",
+            "id": "POPHLTH 801",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "source": "POPHLTH/SOC 797",
+            "target": "POPHLTH 847"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "POPHLTH/SOC 797",
+            "target": "OBS&GYN/POPHLTH 807"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+            "id": "BMI/POPHLTH 551"
+        }
+    },
+    {
+        "data": {
+            "description": "Study the physiology of and consider how plants and animals interact with their environments to survive, obtain nutrients, exchange gases, and reproduce, also how the complex systems of neural and endocrine regulation in animals and hormonal and environmental regulation in plants allow cells and organs to communicate.",
+            "id": "BIOCORE 485",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
             "description": "The tools and techniques used in the economic approach to policy analysis. Emphasis is on applying these methodological tools to evaluating existing public policies and policy alternatives, as well as providing a deeper understanding of how the economy operates.",
             "id": "PUBAFFR 880",
             "parent": "PUBAFFR"
@@ -812,8 +504,106 @@
     },
     {
         "data": {
-            "description": "Unique opportunity to gain insight into the role of environmental toxins while honing skills to advocate for patients and vulnerable populations. Learn to take environmental histories and understand how environmental medicine is applied in the clinical setting and community. Use the socio-ecological model to frame advocacy. Gain practical experience through online didactic lectures, reading materials, class discussion, reflections and a class presentation",
-            "id": "POPHLTH 918",
+            "description": "Designed to prepare undergraduate and graduate nursing students for leadership in global health (GH) by examining their GH goals in a framework that integrates knowledge from nursing with contemporary GH knowledge. Directed toward improving health of the global population as a whole, the framework addresses health trends, practice frameworks, the ecological model, ethics, nursing leadership roles, concepts of partnership and evidence-based practice.",
+            "id": "NURSING/POPHLTH 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a comprehensive understanding of health outcome measures, including generic health status measures, disease-specific measures, and consumer reports of the quality of care.",
+            "id": "POPHLTH 876",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Each module will adopt an in-depth focus on a biostatistical method of particular relevance to epidemiology such as measurement error, missing data, intermediate variables, complex study designs, meta-analysis, splines, propensity scores, causal inference, spatial statistics and resampling. One or more modules will be offered every spring semester.",
+            "id": "BMI/POPHLTH 652"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+            "id": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "description": "Toxicologic, controlled and epidemiologic studies on major air pollutants. Overview of study methods, lung physiology and pathology; air pollution sources, types, meteorology, sampling methods, controls and regulations.",
+            "id": "ENVIRST/POPHLTH 502"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
+            "id": "ISYE/POPHLTH 875"
+        }
+    },
+    {
+        "data": {
+            "description": "Health economics issues including demand, supply and pricing, market structure, medical malpractice, technological change, value of life, role of insurance, and other aspects of uncertainty.",
+            "id": "ECON/POPHLTH 848"
+        }
+    },
+    {
+        "data": {
+            "description": "Provide tools to identify and address real-world global environmental health issues, stemming from climate change, habitat destruction leading to disease spillover events, food insecurity, and urban design.",
+            "id": "ENVIRST/POPHLTH 739"
+        }
+    },
+    {
+        "data": {
+            "description": "Current research developments in physical activity epidemiology.",
+            "id": "KINES/POPHLTH 955"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the physiology, biology and biochemistry of selected disease processes deemed to be important in population health sciences by virtue of their clinical significance including incidence, mortality and morbidity.",
+            "id": "POPHLTH 794",
+            "parent": "POPHLTH"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
+            "id": "M&ENVTOX/POPHLTH 789"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 485",
+            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
+        }
+    },
+    {
+        "data": {
+            "description": "Recommendations for and surveillance of physical activity in the U.S., and associations with health and disease at the population level. Emphasis on measurement techniques, study design and research considerations.",
+            "id": "KINES/POPHLTH 791"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an introduction to public health genomics through a review of fundamental principles of genetics, the use of genetic information in clinical and research settings, and its implications for disease management and prevention, and health promotion.  Explores policies that guide public health and discusses current ethical, legal, and social implications of these policies.",
+            "id": "GENETICS/MDGENET/POPHLTH 636"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses and analyzes differences in health status and methods of organizing and providing health services in countries with varying levels of development and types of socio-political systems. Develops an understanding of the various avenues of international cooperation in health.",
+            "id": "POPHLTH 718",
             "parent": "POPHLTH"
         }
     },
@@ -826,419 +616,16 @@
     },
     {
         "data": {
-            "description": "Addresses and analyzes differences in health status and methods of organizing and providing health services in countries with varying levels of development and types of socio-political systems. Develops an understanding of the various avenues of international cooperation in health.",
-            "id": "POPHLTH 718",
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "An interdisciplinary course designed to prepare students for specific global health field experiences.",
+            "id": "POPHLTH 640",
             "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 542",
-            "target": "MEDICINE/NURSING/POPHLTH 705"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the AIDS pandemic in the United States and worldwide. Topics covered include a review of the epidemiology of AIDS, the natural history of HIV disease, strategies to prevent and treat HIV, and local and global health impact with a focus on historically significant milestones as well as promising current and future research.",
-            "id": "POPHLTH 713",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "This course will provide an introduction to genetic epidemiology. Topics will include a general overview of genetics and Mendelian and complex inheritance, as well as various elements of study design, including participant ascertainment; phenotype definition; biologic sample selection; genotyping, sequencing, and quality control; measurement of covariates, and choice of analytic methods. We will briefly discuss some of the original study designs and then focus on current study designs for the remainder of the class. Additional emerging topics will be briefly touched upon. Students will complete short homework assignments to enforce concepts learned during lectures, discuss journal articles, and prepare a very short grant application for the mid-term project. In the final weeks of class, students will work together to analyze data from a real genetic study, prepare tables, interpret the findings, and present their project to their peers.",
-            "id": "ANSCI/GENETICS/POPHLTH 849"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the field of environmental health, using a systems thinking approach. Systems thinking recognizes that environmental health problem solving is complex and that solutions in one area may have positive or negative impacts on other areas. An introduction to the history of environmental health within the field of public health from the local to the federal and global level. Introduces multiple disciplines, methods and approaches to numerous environmental health topics. Includes introduction to methods and tools necessary for assessing human health risks from a variety of environmental hazards and exposures found in air, land, and water with a focus on physical and chemical risks. Additional details regarding specific hazard, exposure and health outcome data and their relationship to environmental health risk assessment, environmental health decision-making and management form a public health practice perspective will be discussed.",
-            "id": "M&ENVTOX/POPHLTH 789"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed as an independent study with four modules: International Health System Performance; Health Systems in the Context of Global Health Needs; Health Systems in High Income Countries; and the Politics of Health System Development and Reform.",
-            "id": "POPHLTH 915",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 102"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
-            "id": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "The main emphasis is the discussion of the population distribution, health impact, risk factors, treatment, and prevention of cardiovascular diseases.",
-            "id": "POPHLTH 847",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "BMI/POPHLTH 651"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of various types of public health emergencies and disasters including the organizations and disciplines that prepare and respond to natural and unnatural emergencies. Gain an understanding of how public health officials, public health practitioners, state and local health department staff, health care personnel and emergency responders plan for and respond to public health emergencies. The role of the physician will specifically be explored.",
-            "id": "POPHLTH 729",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers current knowledge on cancer occurrence and control in human populations. Design and analysis approaches appropriate for cancer epidemiology will also be discussed. Familiarity with basic biological and epidemiologic concepts is desirable.",
-            "id": "POPHLTH 750",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "The main emphasis is the design and interpretation of epidemiologic studies. Includes hands-on experience in the evaluation of epidemiologic evidence, the analysis of epidemiologic data, and the discussion of strategies aimed to improve study validity and efficiency.",
-            "id": "POPHLTH 798",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "POPHLTH 918"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of current topics in health and mental health economics. The main objectives of this seminar is to acquaint students with important current topics, literature, and scholarship in this field.",
-            "id": "POPHLTH 845",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 111",
-            "target": "ECON 101"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "ECON 111"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed to prepare undergraduate and graduate nursing students for leadership in global health (GH) by examining their GH goals in a framework that integrates knowledge from nursing with contemporary GH knowledge. Directed toward improving health of the global population as a whole, the framework addresses health trends, practice frameworks, the ecological model, ethics, nursing leadership roles, concepts of partnership and evidence-based practice.",
-            "id": "NURSING/POPHLTH 525"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 101",
-            "target": "ECON 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Implementation, oversight, and management of quality-oriented activities in health care settings. Overview of current and historical activities, approaches, and issues confronting health care related to quality assessment, assurance, and improvement.",
-            "id": "ISYE/POPHLTH 703"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
-            "id": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "To gain additional information on specific research problems or advanced training in the areas covered by department staff.",
-            "id": "POPHLTH 699",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
-            "id": "ECON/POPHLTH/PUBAFFR 548"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 301",
-            "target": "ECON 311"
-        }
-    },
-    {
-        "data": {
-            "source": "ECON 311",
-            "target": "ECON/POPHLTH/PUBAFFR 548"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Research supervised by individual faculty members.",
-            "id": "POPHLTH 990",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Design, implementation and interpretation of epidemiologic studies; emphasis on methodologic problems in the measurement of disease frequency, natural history and risk factors.",
-            "id": "POPHLTH/SOC 797"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of substance use health services research topics, study designs, data sources, and sufficient knowledge of one substantive topic to support the development of a research proposal.",
-            "id": "POPHLTH 890",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Health economics issues including demand, supply and pricing, market structure, medical malpractice, technological change, value of life, role of insurance, and other aspects of uncertainty.",
-            "id": "ECON/POPHLTH 848"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic ideas and tools of cost effectiveness analysis as applied in evaluating medical technologies. Addresses special problems and methods in assessing diagnostic technologies, including ROC analysis, and in measuring health for technology assessment. Uses \"classical\" and current journal literature.",
-            "id": "ISYE/POPHLTH 875"
-        }
-    },
-    {
-        "data": {
-            "source": "POPHLTH/SOC 797",
-            "target": "POPHLTH 798"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-            "id": "M&ENVTOX/ONCOLOGY/PHMCOL-M/PHMSCI/POPHLTH 625"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the statistical methods used in public policy. Covers the basics of probability, statistics, and quantitative methods in public policy analysis. Stresses interpretation and presentation of data as well as theory.",
-            "id": "PUBAFFR 818",
-            "parent": "PUBAFFR"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
-            "id": "NUTRSCI/POPHLTH 621"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Apply and extend methodologic knowledge learned in prior courses in the Population Health Sciences epidemiology methods sequence to selected key activities of a practicing epidemiologic researcher, including: study implementation; scientific writing and presentation; manuscript and grant peer-reviewing; measurement validation, simulation studies and sensitivity analyses; and, commonly-used epidemiology field instruments and methods.",
-            "id": "POPHLTH 806",
-            "parent": "POPHLTH"
-        }
-    },
-    {
-        "data": {
-            "description": "Economic problems of individuals, firms and industries with emphasis on value, price, and distribution of income.",
-            "id": "ECON 101",
-            "parent": "ECON"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
         }
     }
 ]

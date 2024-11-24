@@ -7,29 +7,73 @@
     },
     "course_title": "USING R FOR SOIL AND ENVIRONMENTAL SCIENCES",
     "description": "Data science techniques are increasingly important in soil and environmental science, improving the efficiency and repeatability of data analysis and enhancing fundamental understanding of soil and environmental issues. Various R packages will be introduced and used to analyze and process soil and environmental data collected using a variety of in situ, ground-based, and remote sensing platforms. R software will be applied to detailed case studies covering soil and environmental data processing, manipulation, and modeling.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2023": {
+                "a": 11,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 11,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 14,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 15,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 25,
+            "ab": 0,
+            "b": 0,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 1,
+            "total": 26,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 371,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 240,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 372,
-                "subjects": [
-                    "LANDARC",
-                    "GLE",
-                    "GEOG",
-                    "ENVIRST",
-                    "GEOSCI",
-                    "F&WECOL"
                 ]
             }
         ],
@@ -38,7 +82,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 301,
+                "course_number": 240,
                 "subjects": [
                     "STAT"
                 ]
@@ -46,9 +90,20 @@
             {
                 "course_number": 377,
                 "subjects": [
-                    "CIVENGR",
                     "GEOG",
-                    "ENVIRST"
+                    "ENVIRST",
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "GEOSCI",
+                    "F&WECOL",
+                    "GEOG",
+                    "ENVIRST",
+                    "LANDARC",
+                    "GLE"
                 ]
             },
             {
@@ -58,14 +113,9 @@
                 ]
             },
             {
-                "course_number": 372,
+                "course_number": 324,
                 "subjects": [
-                    "LANDARC",
-                    "GLE",
-                    "GEOG",
-                    "ENVIRST",
-                    "GEOSCI",
-                    "F&WECOL"
+                    "STAT"
                 ]
             },
             {
@@ -76,7 +126,7 @@
                 ]
             },
             {
-                "course_number": 324,
+                "course_number": 301,
                 "subjects": [
                     "STAT"
                 ]
@@ -88,20 +138,14 @@
                 ]
             },
             {
-                "course_number": 240,
+                "course_number": 372,
                 "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 371,
-                "subjects": [
-                    "LANDARC",
-                    "GLE",
+                    "GEOSCI",
+                    "F&WECOL",
                     "GEOG",
                     "ENVIRST",
-                    "GEOSCI",
-                    "F&WECOL"
+                    "LANDARC",
+                    "GLE"
                 ]
             }
         ],

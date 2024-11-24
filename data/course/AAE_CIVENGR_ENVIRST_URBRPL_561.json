@@ -2,32 +2,81 @@
     "course_reference": {
         "course_number": 561,
         "subjects": [
-            "URBRPL",
-            "CIVENGR",
+            "ENVIRST",
             "AAE",
-            "ENVIRST"
+            "CIVENGR",
+            "URBRPL"
         ]
     },
     "course_title": "ENERGY MARKETS",
     "description": "Energy resources are an essential element of the world's business, political, technical and environmental landscape. Analytic tools provided by the discipline of economics expands our understanding of this critical issue. Energy supply markets reviewed include both fossil fuels and renewable resources. Energy demand sectors include residential, commercial, industrial and transportation. Electricity represents an intermediate energy market. The interactions among these markets participants indicate how scarce resources are allocated among competing needs in the world economy.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2016": {
+                "a": 18,
+                "ab": 7,
+                "b": 7,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 2,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 34,
+                "unsatisfactory": 0
+            },
+            "Fall 2017": {
+                "a": 22,
+                "ab": 4,
+                "b": 8,
+                "bc": 0,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 36,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 40,
+            "ab": 11,
+            "b": 15,
+            "bc": 0,
+            "c": 2,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 2,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 70,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
                     "AAE"
-                ]
-            },
-            {
-                "course_number": 111,
-                "subjects": [
-                    "ECON"
                 ]
             }
         ],
@@ -36,6 +85,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
                 "course_number": 101,
                 "subjects": [
                     "ECON"
@@ -45,12 +100,6 @@
                 "course_number": 101,
                 "subjects": [
                     "AAE"
-                ]
-            },
-            {
-                "course_number": 111,
-                "subjects": [
-                    "ECON"
                 ]
             }
         ],

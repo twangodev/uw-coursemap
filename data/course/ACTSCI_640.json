@@ -7,25 +7,13 @@
     },
     "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
     "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 340,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 333,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "STAT",
-                    "MATH"
                 ]
             }
         ],
@@ -34,8 +22,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 312,
+                "course_number": 340,
                 "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "MATH",
                     "STAT"
                 ]
             },
@@ -46,10 +41,9 @@
                 ]
             },
             {
-                "course_number": 310,
+                "course_number": 312,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "STAT"
                 ]
             },
             {
@@ -62,12 +56,6 @@
                 "course_number": 410,
                 "subjects": [
                     "ECON"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
                 ]
             }
         ],

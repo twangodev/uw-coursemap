@@ -7,24 +7,111 @@
     },
     "course_title": "BIOINFORMATICS FOR MICROBIOLOGISTS",
     "description": "Provides a practical and fundamental introduction to sequence-based analysis focused on microbial systems. Emphasis on gaining a basic understanding of the principles of both classical and newer algorithms useful for bioinformatic analysis. Topics include: BLAST; RNA-seq analysis; transcriptional binding prediction; genome sequence assembly, analysis and annotation; and comparative genomics. Note that this course requires that each student have access to a laptop that runs a linux/unix Operating System such as a Mac or a ChromeBook. PC Laptops running a VM are also acceptable. No prior knowledge of computational biology is required.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2019": {
+                "a": 35,
+                "ab": 3,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 40,
+                "unsatisfactory": 0
+            },
+            "Spring 2022": {
+                "a": 46,
+                "ab": 4,
+                "b": 2,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 54,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 44,
+                "ab": 3,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 48,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 46,
+                "ab": 2,
+                "b": 0,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 50,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 171,
+            "ab": 12,
+            "b": 4,
+            "bc": 2,
+            "c": 1,
+            "credit": 0,
+            "d": 0,
+            "f": 1,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 1,
+            "total": 192,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 303,
                 "subjects": [
                     "MICROBIO"
-                ]
-            },
-            {
-                "course_number": 467,
-                "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 501,
-                "subjects": [
-                    "BIOCHEM"
                 ]
             }
         ],
@@ -33,13 +120,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 467,
+                "course_number": 501,
                 "subjects": [
-                    "GENETICS"
+                    "BIOCHEM"
                 ]
             },
             {
-                "course_number": 466,
+                "course_number": 467,
                 "subjects": [
                     "GENETICS"
                 ]
@@ -51,9 +138,9 @@
                 ]
             },
             {
-                "course_number": 501,
+                "course_number": 466,
                 "subjects": [
-                    "BIOCHEM"
+                    "GENETICS"
                 ]
             }
         ],

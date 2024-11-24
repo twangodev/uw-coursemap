@@ -7,6 +7,124 @@
     },
     "course_title": "FUNDAMENTALS OF HUMAN PHYSIOLOGY",
     "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2019": {
+                "a": 41,
+                "ab": 13,
+                "b": 24,
+                "bc": 11,
+                "c": 13,
+                "credit": 0,
+                "d": 12,
+                "f": 4,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 2,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 122,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 47,
+                "ab": 14,
+                "b": 29,
+                "bc": 6,
+                "c": 9,
+                "credit": 0,
+                "d": 7,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 20,
+                "total": 136,
+                "unsatisfactory": 3
+            },
+            "Spring 2022": {
+                "a": 31,
+                "ab": 20,
+                "b": 29,
+                "bc": 14,
+                "c": 20,
+                "credit": 0,
+                "d": 9,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 127,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 38,
+                "ab": 9,
+                "b": 18,
+                "bc": 7,
+                "c": 15,
+                "credit": 0,
+                "d": 3,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 94,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 44,
+                "ab": 10,
+                "b": 18,
+                "bc": 4,
+                "c": 10,
+                "credit": 0,
+                "d": 7,
+                "f": 3,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 96,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 201,
+            "ab": 66,
+            "b": 118,
+            "bc": 42,
+            "c": 67,
+            "credit": 0,
+            "d": 38,
+            "f": 15,
+            "incomplete": 3,
+            "no_credit": 0,
+            "no_work": 2,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 20,
+            "total": 575,
+            "unsatisfactory": 3
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -16,19 +134,6 @@
                     "BOTANY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 153,
-                "subjects": [
-                    "ZOOLOGY"
-                ]
             }
         ],
         "prerequisites_text": "Junior standing, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,ZOOLOGY\u00a0153, orBIOCORE\u00a0381), (CHEM\u00a0103,108,109, or115) and (PHYSICS\u00a0103,201, or207) or graduate/professional standing"
@@ -36,15 +141,34 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 103,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 115,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 381,
                 "subjects": [
-                    "CHEM"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -55,19 +179,27 @@
                 ]
             },
             {
-                "course_number": 153,
+                "course_number": 151,
                 "subjects": [
+                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 207,
+                "course_number": 103,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 103,
+                "course_number": 201,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 207,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -79,36 +211,9 @@
                 ]
             },
             {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 201,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 103,
+                "course_number": 109,
                 "subjects": [
                     "CHEM"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

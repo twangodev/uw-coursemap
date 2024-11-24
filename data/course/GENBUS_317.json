@@ -7,26 +7,55 @@
     },
     "course_title": "MATHEMATICAL FOUNDATIONS OF BUSINESS ANALYTICS",
     "description": "Statistical inference and analyses based on models will be introduced and applied in a business context using a calculus-based focus. Topics covered include point estimation, confidence intervals, hypothesis testing, regression models, and time series models. Various methods for fitting a model to data will be explored, and uncertainty about parameter estimates will be quantified so decision makers have information about the quality of the estimates. Regression and time series models are commonly used in business analytics applications and will be used to analyze business data and make inferences and predictions.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2024": {
+                "a": 7,
+                "ab": 5,
+                "b": 5,
+                "bc": 1,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 19,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 7,
+            "ab": 5,
+            "b": 5,
+            "bc": 1,
+            "c": 1,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 19,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 431,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 309,
                 "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 331,
-                "subjects": [
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             }
         ],
@@ -35,23 +64,23 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 431,
+                "course_number": 331,
                 "subjects": [
-                    "STAT",
                     "MATH"
                 ]
             },
             {
                 "course_number": 309,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             },
             {
-                "course_number": 331,
+                "course_number": 431,
                 "subjects": [
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             }
         ],

@@ -8,24 +8,73 @@
     },
     "course_title": "INTRODUCTION TO COMPUTING",
     "description": "Provides a broad overview of computing at an introductory level, including topics such as security, robotics, and artificial intelligence. Increases understanding of how computers work and how algorithms solve problems. Design and implement creative applications in an introductory coding environment. Provides a broad overview of computing and algorithms without an emphasis on programming.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2023": {
+                "a": 98,
+                "ab": 8,
+                "b": 5,
+                "bc": 4,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 119,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 58,
+                "ab": 13,
+                "b": 5,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 1,
+                "f": 3,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 82,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 156,
+            "ab": 21,
+            "b": 10,
+            "bc": 6,
+            "c": 2,
+            "credit": 0,
+            "d": 1,
+            "f": 5,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 201,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 300,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 320,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 118,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],
@@ -46,6 +95,12 @@
                 ]
             },
             {
+                "course_number": 320,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
                 "course_number": 300,
                 "subjects": [
                     "COMPSCI"
@@ -55,12 +110,6 @@
                 "course_number": 96,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 320,
-                "subjects": [
-                    "COMPSCI"
                 ]
             }
         ],

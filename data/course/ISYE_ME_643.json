@@ -8,27 +8,187 @@
     },
     "course_title": "PERFORMANCE ANALYSIS OF MANUFACTURING SYSTEMS",
     "description": "Examines the state of the art in the use of stochastic network theory to develop performance models of modern manufacturing systems.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2010": {
+                "a": 9,
+                "ab": 12,
+                "b": 6,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 31,
+                "unsatisfactory": 0
+            },
+            "Fall 2013": {
+                "a": 5,
+                "ab": 4,
+                "b": 4,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 13,
+                "unsatisfactory": 0
+            },
+            "Fall 2014": {
+                "a": 5,
+                "ab": 6,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 13,
+                "unsatisfactory": 0
+            },
+            "Fall 2015": {
+                "a": 13,
+                "ab": 4,
+                "b": 3,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 22,
+                "unsatisfactory": 0
+            },
+            "Spring 2007": {
+                "a": 8,
+                "ab": 1,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 12,
+                "unsatisfactory": 0
+            },
+            "Spring 2009": {
+                "a": 14,
+                "ab": 8,
+                "b": 5,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 3,
+                "total": 30,
+                "unsatisfactory": 0
+            },
+            "Spring 2017": {
+                "a": 0,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 0,
+                "unsatisfactory": 0
+            },
+            "Spring 2018": {
+                "a": 6,
+                "ab": 3,
+                "b": 3,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 12,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 60,
+            "ab": 38,
+            "b": 25,
+            "bc": 2,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 1,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 7,
+            "total": 133,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 624,
                 "subjects": [
                     "ISYE"
-                ]
-            },
-            {
-                "course_number": 632,
-                "subjects": [
-                    "STAT",
-                    "MATH",
-                    "OTM",
-                    "ISYE"
-                ]
-            },
-            {
-                "course_number": 400,
-                "subjects": [
-                    "COMPSCI"
                 ]
             }
         ],
@@ -37,8 +197,11 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 624,
+                "course_number": 632,
                 "subjects": [
+                    "MATH",
+                    "STAT",
+                    "OTM",
                     "ISYE"
                 ]
             },
@@ -49,11 +212,8 @@
                 ]
             },
             {
-                "course_number": 632,
+                "course_number": 624,
                 "subjects": [
-                    "STAT",
-                    "MATH",
-                    "OTM",
                     "ISYE"
                 ]
             },

@@ -8,25 +8,187 @@
     },
     "course_title": "TOOLS AND ENVIRONMENTS FOR OPTIMIZATION",
     "description": "Formulation and modeling of applications from computer sciences, operations research, business, science and engineering involving optimization and equilibrium models. Survey and appropriate usage of software tools for solving such problems, including modeling language use, automatic differentiation, subroutine libraries and web-based optimization tools and environments.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2007": {
+                "a": 7,
+                "ab": 10,
+                "b": 6,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 26,
+                "unsatisfactory": 0
+            },
+            "Spring 2008": {
+                "a": 17,
+                "ab": 3,
+                "b": 5,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Spring 2009": {
+                "a": 10,
+                "ab": 7,
+                "b": 3,
+                "bc": 3,
+                "c": 4,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Spring 2010": {
+                "a": 29,
+                "ab": 16,
+                "b": 7,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 53,
+                "unsatisfactory": 0
+            },
+            "Spring 2011": {
+                "a": 31,
+                "ab": 6,
+                "b": 10,
+                "bc": 1,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 51,
+                "unsatisfactory": 0
+            },
+            "Spring 2013": {
+                "a": 25,
+                "ab": 21,
+                "b": 6,
+                "bc": 4,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 60,
+                "unsatisfactory": 0
+            },
+            "Spring 2014": {
+                "a": 15,
+                "ab": 7,
+                "b": 11,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 38,
+                "unsatisfactory": 0
+            },
+            "Spring 2015": {
+                "a": 6,
+                "ab": 14,
+                "b": 5,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 27,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 140,
+            "ab": 84,
+            "b": 53,
+            "bc": 16,
+            "c": 9,
+            "credit": 0,
+            "d": 0,
+            "f": 3,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 3,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 309,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 300,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 200,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "COMPSCI",
-                    "LIS"
                 ]
             }
         ],
@@ -35,13 +197,19 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 375,
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
@@ -53,22 +221,16 @@
                 ]
             },
             {
+                "course_number": 200,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
                     "COMPSCI",
                     "LIS"
-                ]
-            },
-            {
-                "course_number": 320,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 200,
-                "subjects": [
-                    "COMPSCI"
                 ]
             },
             {

@@ -7,22 +7,109 @@
     },
     "course_title": "QUANTITATIVE TOOLS FOR ECONOMICS",
     "description": "The objective of this course is to refine the quantitative skills necessary to succeed in intermediate- and advanced-level economics courses. The principle focus will be on applying the skills acquired in your math courses to the questions, models, and optimization problems that are common in economics. Topics include specific economic applications of algebra, financial mathematics, and calculus.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2021": {
+                "a": 6,
+                "ab": 10,
+                "b": 4,
+                "bc": 3,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 27,
+                "unsatisfactory": 0
+            },
+            "Fall 2022": {
+                "a": 10,
+                "ab": 11,
+                "b": 8,
+                "bc": 5,
+                "c": 3,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 39,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 10,
+                "ab": 7,
+                "b": 5,
+                "bc": 2,
+                "c": 2,
+                "credit": 0,
+                "d": 2,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 30,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 22,
+                "ab": 7,
+                "b": 2,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 33,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 48,
+            "ab": 35,
+            "b": 19,
+            "bc": 12,
+            "c": 7,
+            "credit": 0,
+            "d": 4,
+            "f": 3,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 129,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 111,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 101,
                 "subjects": [
                     "ECON"
                 ]
@@ -33,7 +120,19 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
                 "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 221,
                 "subjects": [
                     "MATH"
                 ]
@@ -45,25 +144,13 @@
                 ]
             },
             {
-                "course_number": 101,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
                 "course_number": 102,
                 "subjects": [
                     "ECON"
                 ]
             },
             {
-                "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 111,
+                "course_number": 101,
                 "subjects": [
                     "ECON"
                 ]

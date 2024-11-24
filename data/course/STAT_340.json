@@ -7,24 +7,168 @@
     },
     "course_title": "DATA SCIENCE MODELING II",
     "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2021": {
+                "a": 50,
+                "ab": 34,
+                "b": 45,
+                "bc": 16,
+                "c": 6,
+                "credit": 0,
+                "d": 7,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 158,
+                "unsatisfactory": 0
+            },
+            "Fall 2022": {
+                "a": 50,
+                "ab": 74,
+                "b": 60,
+                "bc": 37,
+                "c": 24,
+                "credit": 0,
+                "d": 2,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 251,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 93,
+                "ab": 32,
+                "b": 102,
+                "bc": 56,
+                "c": 80,
+                "credit": 0,
+                "d": 12,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 379,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 14,
+                "ab": 6,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 24,
+                "unsatisfactory": 2
+            },
+            "Spring 2022": {
+                "a": 145,
+                "ab": 40,
+                "b": 24,
+                "bc": 4,
+                "c": 7,
+                "credit": 0,
+                "d": 3,
+                "f": 2,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 227,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 82,
+                "ab": 28,
+                "b": 63,
+                "bc": 54,
+                "c": 44,
+                "credit": 0,
+                "d": 4,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 276,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 117,
+                "ab": 35,
+                "b": 135,
+                "bc": 66,
+                "c": 86,
+                "credit": 0,
+                "d": 7,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 448,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 551,
+            "ab": 249,
+            "b": 430,
+            "bc": 233,
+            "c": 247,
+            "credit": 0,
+            "d": 35,
+            "f": 13,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 1,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 1,
+            "total": 1763,
+            "unsatisfactory": 2
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 240,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 211,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 217,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],
@@ -33,25 +177,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 240,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 211,
+                "course_number": 221,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
                 "course_number": 217,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 211,
                 "subjects": [
                     "MATH"
                 ]

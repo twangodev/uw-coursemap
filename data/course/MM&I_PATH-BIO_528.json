@@ -8,6 +8,7 @@
     },
     "course_title": "IMMUNOLOGY",
     "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -17,19 +18,6 @@
                     "BOTANY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
-                ]
             }
         ],
         "prerequisites_text": "(CHEM\u00a0104orCHEM\u00a0109) and (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151orBIOCORE\u00a0383), or graduate/professional standing"
@@ -37,13 +25,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 104,
+                "course_number": 383,
                 "subjects": [
-                    "CHEM"
+                    "BIOCORE"
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 104,
                 "subjects": [
                     "CHEM"
                 ]
@@ -53,12 +41,6 @@
                 "subjects": [
                     "BIOLOGY",
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
                 ]
             },
             {
@@ -67,6 +49,12 @@
                     "BIOLOGY",
                     "BOTANY",
                     "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

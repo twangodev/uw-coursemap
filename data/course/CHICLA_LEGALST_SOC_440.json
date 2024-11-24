@@ -2,13 +2,150 @@
     "course_reference": {
         "course_number": 440,
         "subjects": [
-            "SOC",
             "CHICLA",
+            "SOC",
             "LEGALST"
         ]
     },
     "course_title": "ETHNICITY, RACE, AND JUSTICE",
     "description": "An examination of ethnicity, race, and justice, with a specific emphasis on US Latinos, the largest minority group in the United States.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2019": {
+                "a": 11,
+                "ab": 33,
+                "b": 21,
+                "bc": 11,
+                "c": 3,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 3,
+                "total": 84,
+                "unsatisfactory": 0
+            },
+            "Fall 2020": {
+                "a": 11,
+                "ab": 43,
+                "b": 14,
+                "bc": 6,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 78,
+                "unsatisfactory": 0
+            },
+            "Fall 2021": {
+                "a": 36,
+                "ab": 20,
+                "b": 6,
+                "bc": 3,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 1,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 71,
+                "unsatisfactory": 0
+            },
+            "Fall 2022": {
+                "a": 27,
+                "ab": 24,
+                "b": 11,
+                "bc": 8,
+                "c": 3,
+                "credit": 0,
+                "d": 2,
+                "f": 2,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 78,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 12,
+                "ab": 27,
+                "b": 13,
+                "bc": 9,
+                "c": 8,
+                "credit": 0,
+                "d": 3,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 72,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 14,
+                "ab": 27,
+                "b": 9,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 11,
+                "total": 68,
+                "unsatisfactory": 1
+            }
+        },
+        "cumulative": {
+            "a": 111,
+            "ab": 174,
+            "b": 74,
+            "bc": 40,
+            "c": 19,
+            "credit": 0,
+            "d": 8,
+            "f": 6,
+            "incomplete": 3,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 1,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 14,
+            "total": 451,
+            "unsatisfactory": 1
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -17,20 +154,6 @@
                     "CHICLA",
                     "POLISCI"
                 ]
-            },
-            {
-                "course_number": 245,
-                "subjects": [
-                    "HISTORY",
-                    "CHICLA",
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "CHICLA"
-                ]
             }
         ],
         "prerequisites_text": "C&E\u00a0SOC/\u200bSOC\u00a0\u00a0140,210,211,SOC\u00a0181,FOLKLORE/\u200bAFROAMER/\u200bAMER\u00a0IND/\u200bASIAN\u00a0AM/\u200bCHICLA\u00a0\u00a0102,CHICLA\u00a0201,CHICLA\u00a0210, CHICLA 230,POLI\u00a0SCI/\u200bCHICLA\u00a0\u00a0231,HISTORY/\u200bCHICLA/\u200bGEN&WS\u00a0\u00a0245,LEGAL\u00a0ST/\u200bSOC\u00a0\u00a0131, orPOLI\u00a0SCI/\u200bLEGAL\u00a0ST\u00a0\u00a0217"
@@ -38,15 +161,29 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 210,
+                "course_number": 140,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 181,
                 "subjects": [
+                    "SOC"
+                ]
+            },
+            {
+                "course_number": 201,
+                "subjects": [
+                    "CHICLA"
+                ]
+            },
+            {
+                "course_number": 245,
+                "subjects": [
+                    "GEN&WS",
+                    "HISTORY",
                     "CHICLA"
                 ]
             },
@@ -58,61 +195,47 @@
                 ]
             },
             {
-                "course_number": 231,
-                "subjects": [
-                    "CHICLA",
-                    "POLISCI"
-                ]
-            },
-            {
-                "course_number": 140,
+                "course_number": 131,
                 "subjects": [
                     "SOC",
-                    "C&ESOC"
+                    "LEGALST"
                 ]
             },
             {
-                "course_number": 181,
+                "course_number": 210,
                 "subjects": [
+                    "C&ESOC",
                     "SOC"
                 ]
             },
             {
-                "course_number": 102,
-                "subjects": [
-                    "AFROAMER",
-                    "FOLKLORE",
-                    "CHICLA",
-                    "ASIANAM",
-                    "AMERIND"
-                ]
-            },
-            {
-                "course_number": 201,
+                "course_number": 210,
                 "subjects": [
                     "CHICLA"
                 ]
             },
             {
+                "course_number": 102,
+                "subjects": [
+                    "CHICLA",
+                    "AMERIND",
+                    "AFROAMER",
+                    "ASIANAM",
+                    "FOLKLORE"
+                ]
+            },
+            {
                 "course_number": 211,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             },
             {
-                "course_number": 245,
+                "course_number": 231,
                 "subjects": [
-                    "HISTORY",
                     "CHICLA",
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 131,
-                "subjects": [
-                    "SOC",
-                    "LEGALST"
+                    "POLISCI"
                 ]
             }
         ],

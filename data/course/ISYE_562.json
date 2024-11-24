@@ -7,24 +7,73 @@
     },
     "course_title": "HUMAN FACTORS OF DATA SCIENCE AND MACHINE LEARNING",
     "description": "An examination of the \"human side\" of data science. Issues of bias, fairness, trust, and understandability. Unique characteristics of behavioral data, such as representative sampling, human adaptation, and grouped data. Practical skills in behavioral data analytics with a focus on important conceptual, design, and ethical issues specific to behavioral data. Survey of machine learning techniques including supervised learning, unsupervised learning, reinforcement learning, deep learning, and text analysis. Methods are contextualized through engineering case studies.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2023": {
+                "a": 35,
+                "ab": 10,
+                "b": 5,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 51,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 18,
+                "ab": 6,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 25,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 53,
+            "ab": 16,
+            "b": 5,
+            "bc": 0,
+            "c": 1,
+            "credit": 0,
+            "d": 0,
+            "f": 1,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 76,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 210,
                 "subjects": [
                     "ISYE"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 312,
-                "subjects": [
-                    "STAT"
                 ]
             }
         ],
@@ -33,13 +82,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 331,
-                "subjects": [
-                    "ECE"
-                ]
-            },
-            {
-                "course_number": 312,
+                "course_number": 340,
                 "subjects": [
                     "STAT"
                 ]
@@ -47,8 +90,8 @@
             {
                 "course_number": 310,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             },
             {
@@ -58,9 +101,15 @@
                 ]
             },
             {
-                "course_number": 340,
+                "course_number": 312,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
                 ]
             }
         ],

@@ -2,14 +2,15 @@
     "course_reference": {
         "course_number": 606,
         "subjects": [
-            "F&WECOL",
             "SOILSCI",
             "PLPATH",
+            "F&WECOL",
             "ENTOM"
         ]
     },
     "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
     "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -19,20 +20,6 @@
                     "BOTANY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
             }
         ],
         "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101orBOTANY/\u200bBIOLOGY\u00a0\u00a0130orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or graduate/professional standing"
@@ -40,11 +27,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
                     "BOTANY",
-                    "ZOOLOGY"
+                    "BIOLOGY"
                 ]
             },
             {
@@ -55,10 +41,11 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
                     "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             }
         ],

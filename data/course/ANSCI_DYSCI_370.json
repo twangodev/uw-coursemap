@@ -2,34 +2,20 @@
     "course_reference": {
         "course_number": 370,
         "subjects": [
-            "DYSCI",
-            "ANSCI"
+            "ANSCI",
+            "DYSCI"
         ]
     },
     "course_title": "LIVESTOCK PRODUCTION AND HEALTH IN AGRICULTURAL DEVELOPMENT",
     "description": "Physical, biological and social nature of animal agriculture systems and their improvement in developing countries; analysis of the state of livestock research and development in the developing countries and the world role of U.S. animal agriculture.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 101,
                 "subjects": [
-                    "DYSCI",
-                    "ANSCI"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
+                    "ANSCI",
+                    "DYSCI"
                 ]
             }
         ],
@@ -38,10 +24,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 101,
+                "course_number": 382,
                 "subjects": [
-                    "DYSCI",
-                    "ANSCI"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -49,12 +40,6 @@
                 "subjects": [
                     "BIOLOGY",
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
                 ]
             },
             {
@@ -66,9 +51,10 @@
                 ]
             },
             {
-                "course_number": 381,
+                "course_number": 101,
                 "subjects": [
-                    "BIOCORE"
+                    "ANSCI",
+                    "DYSCI"
                 ]
             }
         ],

@@ -1,40 +1,41 @@
 [
     {
         "data": {
-            "source": "MICROBIO 303",
-            "target": "MICROBIO 101"
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
         }
     },
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Present assigned research papers from journals for critical evaluation. Write critiques of each paper evaluating the paper's introduction, methods, results, and discussion sections.",
-            "id": "MM&I 696",
+            "description": "Pathogenesis, clinical descriptions, and prevention.",
+            "id": "MM&I 704",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "MM&I 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -45,90 +46,14 @@
     },
     {
         "data": {
-            "description": "A quantitative treatment of macroscopic phenomena including thermodynamics, chemical equilibria, solution behavior, electrochemistry, and chemical kinetics.",
-            "id": "CHEM 116",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "GENETICS 467",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MM&I 341"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
-            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "ZOOLOGY 153"
+            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
         }
     },
     {
@@ -139,58 +64,40 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "description": "First semester independent study with the goal to do the preliminary research to write a senior thesis in Medical Microbiology  Immunology.",
+            "id": "MM&I 691",
+            "parent": "MM&I"
         }
     },
     {
         "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
+            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
+            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MM&I/PATH-BIO 528"
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
+            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
+            "id": "MM&I/PATH-BIO 750"
+        }
+    },
+    {
+        "data": {
+            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
+            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
         }
     },
     {
         "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MICROBIO 303"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "MM&I 301",
-            "target": "MM&I 696"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 468",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "MM&I 911"
+            "target": "MM&I 341"
         }
     },
     {
@@ -201,51 +108,8 @@
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "MM&I 902"
-        }
-    },
-    {
-        "data": {
-            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
-            "id": "MM&I/PATH-BIO 528"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 108",
-            "target": "MICROBIO 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Specialized topics of current interest in medical microbiology.",
-            "id": "MM&I 677",
+            "description": "Host-pathogen relationships in microbial diseases.",
+            "id": "MM&I 740",
             "parent": "MM&I"
         }
     },
@@ -258,313 +122,32 @@
     },
     {
         "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
+            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
+            "id": "MM&I/PATH-BIO 528"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MM&I/PATH-BIO 528"
-        }
-    },
-    {
-        "data": {
-            "description": "Identification of analysis and solution of emerging infectious disease problems and the problems of bioterrorism.",
-            "id": "MM&I 554",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MM&I 341"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 108"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 108"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 116",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "MM&I 902"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
-            "id": "BIOCHEM/MM&I 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
-            "id": "MM&I/PATH-BIO 750"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 108"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "ZOOLOGY 153"
-        }
-    },
-    {
-        "data": {
-            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-            "id": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "description": "Pathogenesis, clinical descriptions, and prevention.",
-            "id": "MM&I 704",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO 101",
-            "target": "MM&I 554"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 116"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "MM&I 902"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MICROBIO 303"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
+            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
+            "id": "MEDSC-M 812",
             "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "source": "MATH 171",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "The human microbiome can profoundly influence the balance between health and disease. Advances in next-generation sequencing technology and bioinformatics enabled the detailed study of the trillions of microorganisms living in us and on us and their associations with both healthy and disease conditions. Current state of the art approaches to study the microbiome through examples of human diseases with a known microbiome component. Critically assess the microbiome literature and design clinical studies aiming to include the microbiome as a variable. Bioinformatics tools required to study complex microbial communities by reproducing published datasets from human patients and learn ecological concepts to interpret results in a clinically meaningful way.",
-            "id": "MM&I 902",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "description": "Medically important bacteria, emphasizing the process of pathogenesis and host/parasite interactions, as well as intervention strategies, immunity and genetics as they apply to the pathogens.",
-            "id": "MM&I 301",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO 303",
-            "target": "MM&I 554"
-        }
-    },
-    {
-        "data": {
-            "id": "MM&I",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCHEM/MM&I 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar series led by MMI faculty members.",
-            "id": "MM&I 901",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 383",
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "MM&I/PATH-BIO 528"
         }
     },
     {
         "data": {
-            "description": "Cellular and molecular basis of life. The main themes are the structure and function of cells and organelles, the flow of energy in cells, and the storage, expression, and regulation of genetic information.",
-            "id": "BIOCORE 383",
-            "parent": "BIOCORE"
-        }
-    },
-    {
-        "data": {
-            "id": "GENETICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Second semester independent study with the goal to complete a senior thesis in Medical Microbiology  Immunology.",
-            "id": "MM&I 692",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
             "source": "MEDSC-M 810",
+            "target": "MM&I 902"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
             "target": "MM&I 911"
         }
     },
@@ -577,77 +160,6 @@
     },
     {
         "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of microorganisms and their activities; emphasis on structure, function, ecology, nutrition, physiology, genetics. Survey of applied microbiology--medical, agricultural, food and industrial microbiology. Intended to satisfy any curriculum which requires introductory level microbiology.",
-            "id": "MICROBIO 101",
-            "parent": "MICROBIO"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "MICROBIO 101"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of methods used in quantitative systems biology, with a focus on biochemical systems relevant to the study of host-pathogen interactions, disease and microbial communities.",
-            "id": "MM&I 760",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MM&I 301"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "MICROBIO 303"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
             "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
             "id": "GENETICS 467",
             "parent": "GENETICS"
@@ -655,83 +167,40 @@
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "MM&I 301"
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "description": "First semester independent study with the goal to do the preliminary research to write a senior thesis in Medical Microbiology  Immunology.",
-            "id": "MM&I 691",
+            "description": "Independent research in medical microbiology and immunology for undergraduates under the supervision of MMI faculty. Carry out literature reviews and laboratory bench work on an independent project; participate in laboratory meetings; and produce some written presentation of the work, usually in the form of a poster presentation at a local or national meeting.",
+            "id": "MM&I 699",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "id": "CHEM",
-            "type": "compound"
+            "description": "The human microbiome can profoundly influence the balance between health and disease. Advances in next-generation sequencing technology and bioinformatics enabled the detailed study of the trillions of microorganisms living in us and on us and their associations with both healthy and disease conditions. Current state of the art approaches to study the microbiome through examples of human diseases with a known microbiome component. Critically assess the microbiome literature and design clinical studies aiming to include the microbiome as a variable. Bioinformatics tools required to study complex microbial communities by reproducing published datasets from human patients and learn ecological concepts to interpret results in a clinically meaningful way.",
+            "id": "MM&I 902",
+            "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "BIOCORE 381",
-            "target": "MM&I 341"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
+            "description": "Specialized topics of current interest in medical microbiology.",
+            "id": "MM&I 677",
+            "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in inorganic and organic chemistry. Emphasis is on relevance to biological, environmental and social issues.",
-            "id": "CHEM 108",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
-            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "id": "MICROBIO",
+            "id": "GENETICS",
             "type": "compound"
         }
     },
@@ -744,65 +213,55 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "MM&I 911"
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "BIOCORE 383"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 102",
-            "target": "MM&I 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Host-pathogen relationships in microbial diseases.",
-            "id": "MM&I 740",
+            "description": "Seminar series led by MMI faculty members.",
+            "id": "MM&I 901",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "CHEM 103",
-            "target": "CHEM 104"
+            "id": "MM&I",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Independent research in medical microbiology and immunology for undergraduates under the supervision of MMI faculty. Carry out literature reviews and laboratory bench work on an independent project; participate in laboratory meetings; and produce some written presentation of the work, usually in the form of a poster presentation at a local or national meeting.",
-            "id": "MM&I 699",
+            "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
+            "id": "BIOCHEM/MM&I 575"
+        }
+    },
+    {
+        "data": {
+            "description": "Second semester independent study with the goal to complete a senior thesis in Medical Microbiology  Immunology.",
+            "id": "MM&I 692",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "Medically important bacteria, emphasizing the process of pathogenesis and host/parasite interactions, as well as intervention strategies, immunity and genetics as they apply to the pathogens.",
+            "id": "MM&I 301",
+            "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "description": "Present assigned research papers from journals for critical evaluation. Write critiques of each paper evaluating the paper's introduction, methods, results, and discussion sections.",
+            "id": "MM&I 696",
+            "parent": "MM&I"
         }
     },
     {
@@ -813,8 +272,9 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "description": "Identification of analysis and solution of emerging infectious disease problems and the problems of bioterrorism.",
+            "id": "MM&I 554",
+            "parent": "MM&I"
         }
     },
     {
@@ -825,66 +285,45 @@
     },
     {
         "data": {
-            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
-            "id": "MICROBIO 303",
-            "parent": "MICROBIO"
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
         }
     },
     {
         "data": {
-            "description": "Genetic analysis, population genetics, evolution and quantitative genetics. Includes mutant screens, pathway analysis, mosaic analysis, reverse genetics, genomics, Hardy-Weinberg  linkage equilibrium, inbreeding, genetic drift, natural selection, population structure, inheritance of complex traits, domestication and human evolution.",
-            "id": "GENETICS 468",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOCHEM/MM&I 575"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
+            "id": "MEDSC-M",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 468"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 343"
+            "description": "An overview of methods used in quantitative systems biology, with a focus on biochemical systems relevant to the study of host-pathogen interactions, disease and microbial communities.",
+            "id": "MM&I 760",
+            "parent": "MM&I"
         }
     },
     {
         "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
+            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
+            "id": "MM&I/ONCOLOGY/PLPATH 640"
         }
     },
     {
         "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     }
 ]

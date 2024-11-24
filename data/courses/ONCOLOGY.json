@@ -1,13 +1,242 @@
 [
     {
         "course_reference": {
-            "course_number": 901,
+            "course_number": 625,
+            "subjects": [
+                "ONCOLOGY",
+                "PHMSCI",
+                "PHMCOL-M",
+                "POPHLTH",
+                "M&ENVTOX"
+            ]
+        },
+        "course_title": "TOXICOLOGY I",
+        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+        "madgrades_data": null,
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 404,
+                    "subjects": [
+                        "PATH"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 435,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                },
+                {
+                    "course_number": 485,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 486,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 335,
+                    "subjects": [
+                        "ANAT&PHY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 715,
             "subjects": [
                 "ONCOLOGY"
             ]
         },
-        "course_title": "SEMINAR",
-        "description": "Critical review of selected topics in cancer research.",
+        "course_title": "ETHICS IN SCIENCE",
+        "description": "A review and discussion of the fundamentals of ethical issues in science.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 33,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 30,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 21,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 33,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 30,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 21,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 25,
+                    "total": 25,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 0,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 193,
+                "total": 193,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -19,13 +248,701 @@
     },
     {
         "course_reference": {
-            "course_number": 745,
+            "course_number": 699,
             "subjects": [
                 "ONCOLOGY"
             ]
         },
-        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
-        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
+        "course_title": "SPECIAL RESEARCH PROBLEMS",
+        "description": "Directed study projects as arranged with instructor.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 17,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 17,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -33,6 +950,2095 @@
         "prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 703,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "CARCINOGENESIS AND TUMOR CELL BIOLOGY",
+        "description": "Viral, chemical, and physical factors involved in tumor formation in humans and experimental animals; biology and biochemistry of neoplasia, both in vivo and in vitro.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 18,
+                    "ab": 8,
+                    "b": 6,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 13,
+                    "ab": 5,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 27,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 20,
+                    "ab": 10,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 18,
+                    "ab": 12,
+                    "b": 8,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 3,
+                    "total": 42,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 31,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 17,
+                    "ab": 6,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 29,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 10,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 23,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 18,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 20,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 20,
+                    "ab": 6,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 22,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 20,
+                    "ab": 4,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 26,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 22,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 24,
+                    "ab": 5,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 368,
+                "ab": 74,
+                "b": 43,
+                "bc": 4,
+                "c": 3,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 1,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 11,
+                "total": 505,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 735,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
+        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2016": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 7,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 7,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 7,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 42,
+                "ab": 0,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 43,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 778,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "BIOINFORMATICS FOR BIOLOGISTS",
+        "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2022": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 6,
+                    "ab": 3,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 11,
+                "ab": 6,
+                "b": 4,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 23,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 901,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "SEMINAR",
+        "description": "Critical review of selected topics in cancer research.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2016": {
+                    "a": 14,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 14,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 3,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 9,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 15,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 11,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 21,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 22,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 16,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 15,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 23,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 213,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 14,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 228,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "RESEARCH",
+        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 28,
+                    "total": 28,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 13,
+                    "total": 13,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 17,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 21,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 16,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 20,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 20,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 6,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 8,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 7,
+                    "total": 7,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 9,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 9,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 12,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 27,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 4,
+                    "satisfactory": 9,
+                    "total": 13,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 16,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 7,
+                    "total": 7,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 7,
+                    "satisfactory": 7,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 6,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 4,
+                    "satisfactory": 42,
+                    "total": 46,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 6,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 0,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 12,
+                "other": 0,
+                "passed": 15,
+                "satisfactory": 342,
+                "total": 369,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 401,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "INTRODUCTION TO EXPERIMENTAL ONCOLOGY",
+        "description": "Biological processes associated with and characteristic of neoplasia.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 13,
+                    "ab": 7,
+                    "b": 12,
+                    "bc": 2,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 14,
+                    "ab": 20,
+                    "b": 14,
+                    "bc": 6,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 4,
+                    "total": 61,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 21,
+                    "ab": 11,
+                    "b": 14,
+                    "bc": 5,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 33,
+                    "ab": 1,
+                    "b": 13,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 50,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 13,
+                    "ab": 5,
+                    "b": 13,
+                    "bc": 3,
+                    "c": 9,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 47,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 35,
+                    "ab": 5,
+                    "b": 9,
+                    "bc": 1,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 3,
+                    "total": 56,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 19,
+                    "ab": 6,
+                    "b": 16,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 56,
+                    "unsatisfactory": 1
+                },
+                "Fall 2013": {
+                    "a": 21,
+                    "ab": 13,
+                    "b": 18,
+                    "bc": 6,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 67,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 16,
+                    "ab": 16,
+                    "b": 16,
+                    "bc": 7,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 57,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 19,
+                    "ab": 17,
+                    "b": 3,
+                    "bc": 8,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 52,
+                    "unsatisfactory": 0
+                },
+                "Fall 2016": {
+                    "a": 18,
+                    "ab": 24,
+                    "b": 3,
+                    "bc": 6,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 53,
+                    "unsatisfactory": 0
+                },
+                "Fall 2017": {
+                    "a": 19,
+                    "ab": 22,
+                    "b": 3,
+                    "bc": 11,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "Fall 2018": {
+                    "a": 26,
+                    "ab": 15,
+                    "b": 13,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 57,
+                    "unsatisfactory": 0
+                },
+                "Fall 2019": {
+                    "a": 14,
+                    "ab": 18,
+                    "b": 9,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 47,
+                    "unsatisfactory": 0
+                },
+                "Fall 2020": {
+                    "a": 16,
+                    "ab": 13,
+                    "b": 15,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 46,
+                    "unsatisfactory": 0
+                },
+                "Fall 2021": {
+                    "a": 10,
+                    "ab": 18,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 23,
+                    "ab": 7,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 24,
+                    "ab": 19,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 52,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 354,
+                "ab": 237,
+                "b": 183,
+                "bc": 71,
+                "c": 43,
+                "credit": 0,
+                "d": 7,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 18,
+                "total": 917,
+                "unsatisfactory": 1
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BOTANY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "BIOLOGY",
+                        "ZOOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY",
+                        "ZOOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
         }
     },
     {
@@ -44,6 +3050,849 @@
         },
         "course_title": "ADVANCED OR SPECIAL TOPICS IN CANCER RESEARCH",
         "description": "Examines special topics in cancer research.  Topics and content will vary each semester and by section of the course.",
+        "madgrades_data": {
+            "by_term": {
+                "Fall 2006": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 10,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "Fall 2007": {
+                    "a": 6,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 12,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "Fall 2008": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "Fall 2009": {
+                    "a": 25,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 29,
+                    "unsatisfactory": 0
+                },
+                "Fall 2010": {
+                    "a": 7,
+                    "ab": 3,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "Fall 2011": {
+                    "a": 12,
+                    "ab": 9,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 16,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "Fall 2012": {
+                    "a": 33,
+                    "ab": 3,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "Fall 2013": {
+                    "a": 22,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "Fall 2014": {
+                    "a": 8,
+                    "ab": 8,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "Fall 2015": {
+                    "a": 5,
+                    "ab": 0,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "Fall 2022": {
+                    "a": 7,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Fall 2023": {
+                    "a": 6,
+                    "ab": 1,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 7,
+                    "unsatisfactory": 0
+                },
+                "Spring 2007": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 78,
+                    "total": 78,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 5,
+                    "ab": 10,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 52,
+                    "total": 70,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 31,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 37,
+                    "total": 68,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 23,
+                    "ab": 5,
+                    "b": 18,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 65,
+                    "total": 111,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 4,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 66,
+                    "total": 73,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 57,
+                    "ab": 9,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 26,
+                    "total": 97,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 35,
+                    "ab": 4,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 29,
+                    "total": 72,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 95,
+                    "ab": 8,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 109,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 30,
+                    "ab": 2,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 30,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 34,
+                    "ab": 1,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 36,
+                    "total": 75,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 7,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 7,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 7,
+                    "ab": 3,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 479,
+                "ab": 77,
+                "b": 57,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 458,
+                "total": 1076,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 725,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "READINGS IN CANCER BIOLOGY",
+        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2017": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 4,
+                    "ab": 4,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 2,
+                    "ab": 3,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 8,
+                    "ab": 5,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 1
+                },
+                "Spring 2022": {
+                    "a": 3,
+                    "ab": 1,
+                    "b": 4,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 3,
+                    "ab": 4,
+                    "b": 0,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 5,
+                    "ab": 6,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 30,
+                "ab": 26,
+                "b": 17,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 76,
+                "unsatisfactory": 1
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "Consent of instructor"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 673,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "PURIFICATION AND CHARACTERIZATION OF PROTEIN AND PROTEIN COMPLEXES",
+        "description": "The theory and practice of protein purification. Topics covered include conventional and recent protein fractionation techniques; enzyme assays, handling, and characterization; purification strategy; and overproduction of cloned gene products. The emphasis is on micro and laboratory scale purifications.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2019": {
+                    "a": 4,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 2,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 2,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 6,
+                "ab": 3,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 11,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 511,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                }
+            ],
+            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "ONCOLOGY",
+                "MM&I",
+                "PLPATH"
+            ]
+        },
+        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
+        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
+        "madgrades_data": null,
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 467,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 501,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 467,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                },
+                {
+                    "course_number": 508,
+                    "subjects": [
+                        "BIOCHEM"
+                    ]
+                },
+                {
+                    "course_number": 466,
+                    "subjects": [
+                        "GENETICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 745,
+            "subjects": [
+                "ONCOLOGY"
+            ]
+        },
+        "course_title": "MODELING HUMAN DISEASE IN ANIMALS",
+        "description": "Provides a background in the use of animals in the study of human disease and hands-on exposure to common techniques such as tissue collection and processing, surgeries, imaging, and other manipulations. Lectures by basic scientists and clinicians will provide background about each of the organ systems or diseases and the ethics of animal research. Prior to start of course, completion of online animal safety training. Instructions will be provided after enrollment.",
+        "madgrades_data": null,
         "optimized_prerequisites": {
             "course_references": [],
             "prerequisites_text": "Consent of instructor"
@@ -63,6 +3912,352 @@
         },
         "course_title": "TOPICS IN BIOTECHNOLOGY",
         "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
+        "madgrades_data": {
+            "by_term": {
+                "Spring 2007": {
+                    "a": 46,
+                    "ab": 5,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 59,
+                    "unsatisfactory": 0
+                },
+                "Spring 2008": {
+                    "a": 29,
+                    "ab": 8,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "Spring 2009": {
+                    "a": 27,
+                    "ab": 8,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Spring 2010": {
+                    "a": 37,
+                    "ab": 6,
+                    "b": 1,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 3,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 49,
+                    "unsatisfactory": 0
+                },
+                "Spring 2011": {
+                    "a": 29,
+                    "ab": 4,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 42,
+                    "unsatisfactory": 0
+                },
+                "Spring 2012": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "Spring 2013": {
+                    "a": 25,
+                    "ab": 5,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "Spring 2014": {
+                    "a": 45,
+                    "ab": 5,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 53,
+                    "unsatisfactory": 0
+                },
+                "Spring 2015": {
+                    "a": 27,
+                    "ab": 3,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "Spring 2016": {
+                    "a": 34,
+                    "ab": 3,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "Spring 2017": {
+                    "a": 20,
+                    "ab": 5,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "Spring 2018": {
+                    "a": 24,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "Spring 2019": {
+                    "a": 43,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 44,
+                    "unsatisfactory": 0
+                },
+                "Spring 2020": {
+                    "a": 33,
+                    "ab": 0,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "Spring 2022": {
+                    "a": 82,
+                    "ab": 8,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 97,
+                    "unsatisfactory": 0
+                },
+                "Spring 2023": {
+                    "a": 102,
+                    "ab": 7,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 116,
+                    "unsatisfactory": 0
+                },
+                "Spring 2024": {
+                    "a": 93,
+                    "ab": 5,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 5,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 106,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 696,
+                "ab": 72,
+                "b": 34,
+                "bc": 6,
+                "c": 6,
+                "credit": 0,
+                "d": 3,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 3,
+                "not_reported": 6,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 7,
+                "total": 834,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [
                 {
@@ -72,6 +4267,30 @@
                         "BOTANY",
                         "ZOOLOGY"
                     ]
+                }
+            ],
+            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "CHEM"
+                    ]
+                },
+                {
+                    "course_number": 130,
+                    "subjects": [
+                        "BIOLOGY",
+                        "BOTANY"
+                    ]
                 },
                 {
                     "course_number": 101,
@@ -81,33 +4300,10 @@
                     ]
                 },
                 {
-                    "course_number": 130,
+                    "course_number": 151,
                     "subjects": [
                         "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
+                        "BOTANY",
                         "ZOOLOGY"
                     ]
                 },
@@ -116,412 +4312,9 @@
                     "subjects": [
                         "CHEM"
                     ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
                 }
             ],
             "prerequisites_text": "(ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, orBIOLOGY/\u200bBOTANY\u00a0\u00a0130) and (CHEM\u00a0104or109) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "ONCOLOGY",
-                "MM&I",
-                "PLPATH"
-            ]
-        },
-        "course_title": "GENERAL VIROLOGY-MULTIPLICATION OF VIRUSES",
-        "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 466,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 467,
-                    "subjects": [
-                        "GENETICS"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GENETICS\u00a0466or467) and (BIOCHEM\u00a0501or508) or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 715,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "ETHICS IN SCIENCE",
-        "description": "A review and discussion of the fundamentals of ethical issues in science.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 735,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "CURRENT PROBLEMS IN CANCER BIOLOGY",
-        "description": "Emphasis is on the development of skills in data analysis and interpretation, grant proposal writing, and oral presentation to help prepare students for their Preliminary Exam.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 725,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "READINGS IN CANCER BIOLOGY",
-        "description": "A review and discussion of the current literature on topics related to cancer biology. The emphasis is on the development of skills in data analysis, critical interpretation, and clear writing.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 625,
-            "subjects": [
-                "M&ENVTOX",
-                "PHMCOL-M",
-                "ONCOLOGY",
-                "PHMSCI",
-                "POPHLTH"
-            ]
-        },
-        "course_title": "TOXICOLOGY I",
-        "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 486,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 501,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                },
-                {
-                    "course_number": 404,
-                    "subjects": [
-                        "PATH"
-                    ]
-                },
-                {
-                    "course_number": 485,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 335,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 435,
-                    "subjects": [
-                        "ANAT&PHY"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(BIOCHEM\u00a0501or508) and (ANAT&PHY\u00a0335,435, or (BIOCORE\u00a0485and486)) andPATH\u00a0404; or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 778,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "BIOINFORMATICS FOR BIOLOGISTS",
-        "description": "Become familiar with bioinformatics theory and principles. Provides real-world experience that can be applied to your own work. Provides a foundation of knowledge that can be used to critically evaluate existing bioinformatics tools that can be used in your work, and in the absence of an appropriate tool, identify the analyses that demand the development of novel tools.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 673,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "PURIFICATION AND CHARACTERIZATION OF PROTEIN AND PROTEIN COMPLEXES",
-        "description": "The theory and practice of protein purification. Topics covered include conventional and recent protein fractionation techniques; enzyme assays, handling, and characterization; purification strategy; and overproduction of cloned gene products. The emphasis is on micro and laboratory scale purifications.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 511,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 511,
-                    "subjects": [
-                        "CHEM"
-                    ]
-                },
-                {
-                    "course_number": 508,
-                    "subjects": [
-                        "BIOCHEM"
-                    ]
-                }
-            ],
-            "prerequisites_text": "BIOCHEM\u00a0508,CHEM\u00a0511or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 401,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "INTRODUCTION TO EXPERIMENTAL ONCOLOGY",
-        "description": "Biological processes associated with and characteristic of neoplasia.",
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 101,
-                    "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
-                    ]
-                },
-                {
-                    "course_number": 383,
-                    "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 130,
-                    "subjects": [
-                        "BIOLOGY",
-                        "BOTANY"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,BOTANY/\u200bBIOLOGY\u00a0\u00a0130,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383, or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "RESEARCH",
-        "description": "Independent research and writing for graduate students under the supervision of a faculty member.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 699,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "SPECIAL RESEARCH PROBLEMS",
-        "description": "Directed study projects as arranged with instructor.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 703,
-            "subjects": [
-                "ONCOLOGY"
-            ]
-        },
-        "course_title": "CARCINOGENESIS AND TUMOR CELL BIOLOGY",
-        "description": "Viral, chemical, and physical factors involved in tumor formation in humans and experimental animals; biology and biochemistry of neoplasia, both in vivo and in vitro.",
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
         }
     }
 ]

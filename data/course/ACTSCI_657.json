@@ -7,24 +7,73 @@
     },
     "course_title": "RISK ANALYTICS",
     "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2023": {
+                "a": 8,
+                "ab": 9,
+                "b": 3,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 20,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 6,
+                "ab": 8,
+                "b": 7,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 23,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 14,
+            "ab": 17,
+            "b": 10,
+            "bc": 2,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 43,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 640,
                 "subjects": [
                     "ACTSCI"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 656,
-                "subjects": [
-                    "GENBUS"
                 ]
             }
         ],
@@ -33,27 +82,27 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 640,
-                "subjects": [
-                    "ACTSCI"
-                ]
-            },
-            {
                 "course_number": 340,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 656,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
                 "course_number": 333,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 640,
+                "subjects": [
+                    "ACTSCI"
+                ]
+            },
+            {
+                "course_number": 656,
+                "subjects": [
+                    "GENBUS"
                 ]
             }
         ],

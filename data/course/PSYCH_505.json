@@ -7,6 +7,105 @@
     },
     "course_title": "DEPTH TOPIC IN BIOLOGICAL SCIENCE",
     "description": "Provides an in-depth treatment of a specific topic in psychology and biology.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2019": {
+                "a": 24,
+                "ab": 20,
+                "b": 33,
+                "bc": 7,
+                "c": 8,
+                "credit": 0,
+                "d": 2,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 98,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 30,
+                "ab": 14,
+                "b": 16,
+                "bc": 6,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 70,
+                "unsatisfactory": 0
+            },
+            "Spring 2018": {
+                "a": 20,
+                "ab": 3,
+                "b": 23,
+                "bc": 3,
+                "c": 5,
+                "credit": 0,
+                "d": 2,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 56,
+                "unsatisfactory": 0
+            },
+            "Spring 2019": {
+                "a": 15,
+                "ab": 15,
+                "b": 10,
+                "bc": 8,
+                "c": 7,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 57,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 89,
+            "ab": 52,
+            "b": 82,
+            "bc": 24,
+            "c": 22,
+            "credit": 0,
+            "d": 5,
+            "f": 5,
+            "incomplete": 2,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 281,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -15,20 +114,6 @@
                     "BIOLOGY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 202,
-                "subjects": [
-                    "PSYCH"
-                ]
             }
         ],
         "prerequisites_text": "PSYCH\u00a0202, (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151, or (BIOCORE\u00a0381and382)"
@@ -36,16 +121,22 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
                     "BIOLOGY",
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 202,
-                "subjects": [
-                    "PSYCH"
                 ]
             },
             {
@@ -56,12 +147,6 @@
                 ]
             },
             {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 151,
                 "subjects": [
                     "BIOLOGY",
@@ -70,9 +155,9 @@
                 ]
             },
             {
-                "course_number": 381,
+                "course_number": 202,
                 "subjects": [
-                    "BIOCORE"
+                    "PSYCH"
                 ]
             }
         ],

@@ -7,27 +7,54 @@
     },
     "course_title": "MICROBIOMES OF ANIMAL SYSTEMS",
     "description": "Provides a knowledgebase in both theoretical and applied scientific approaches associated with microbiome sciences in animal production systems. Covers the basic principles of microbiology through applied practical approaches in using cross-species comparisons in companion and agricultural species from classical microbiological techniques to novel next-generation sequence-based approaches.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2024": {
+                "a": 6,
+                "ab": 2,
+                "b": 5,
+                "bc": 5,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 18,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 6,
+            "ab": 2,
+            "b": 5,
+            "bc": 5,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 18,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 102,
                 "subjects": [
                     "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
                     "ZOOLOGY"
                 ]
             }
@@ -37,16 +64,23 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
                     "BIOLOGY",
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
                 ]
             },
             {
@@ -57,9 +91,11 @@
                 ]
             },
             {
-                "course_number": 343,
+                "course_number": 151,
                 "subjects": [
-                    "CHEM"
+                    "BOTANY",
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -69,24 +105,15 @@
                 ]
             },
             {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
                 "course_number": 301,
                 "subjects": [
                     "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 343,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

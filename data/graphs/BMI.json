@@ -1,32 +1,516 @@
 [
     {
         "data": {
-            "source": "MATH 234",
+            "source": "MATH 376",
             "target": "MATH/STAT 431"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 200",
-            "target": "COMPSCI 300"
+            "source": "MATH 415",
+            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 775",
-            "target": "MEDSC-M 810"
+            "source": "MATH/STAT 310",
+            "target": "BMI/STAT 641"
         }
     },
     {
         "data": {
-            "source": "STAT 301",
-            "target": "STAT 333"
+            "source": "BMI/POPHLTH 552",
+            "target": "BMI/POPHLTH 652"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers advanced topics in the areas of biostatistics and biomedical informatics.  Includes reading and discussion of original literature and individual student projects.",
+            "id": "BMI 826",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Course will familiarize students with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
+            "id": "BMI 773",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
+            "id": "BMI 884",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Biomedical Informatics is an interdisciplinary field that combines knowledge of information sciences and medical sciences to optimize the use and application of biomedical data across the spectrum from molecules to individuals to populations. Offers an overview of the field of health informatics by providing students with the fundamental knowledge of the concepts of health informatics and how technology can be used in the delivery of health care.",
+            "id": "BMI/MEDICINE 918"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
+            "id": "BMI/STAT 768"
+        }
+    },
+    {
+        "data": {
+            "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
+            "id": "BMI 881",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
+            "id": "MATH 415",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Algorithms for computational problems in molecular biology. Studies algorithms for problems such as: genome sequencing and mapping, pairwise and multiple sequence alignment, modeling sequence classes and features, phylogenetic tree construction, and gene-expression data analysis.",
+            "id": "BMI/COMPSCI 576"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "BMI/STAT 620"
+        }
+    },
+    {
+        "data": {
+            "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
+            "id": "ISYE/PSYCH 349"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced course covering computational problems in molecular biology. The course will study algorithms for problems such as: modeling sequence classes and features, phylogenetic tree construction, gene-expression data analysis, protein and RNA structure prediction, and whole-genome analysis and comparisons.",
+            "id": "BMI/COMPSCI 776"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "description": "Studies the biological and computational basis of intelligence, by combining methods from cognitive science, artificial intelligence, machine learning, computational biology, and cognitive neuroscience. Requires ability to program.",
+            "id": "BMI/COMPSCI/PSYCH 841"
+        }
+    },
+    {
+        "data": {
+            "description": "The third course in our programming fundamentals sequence. It presumes that students understand and use functional and object-oriented design and abstract data types as needed. This course introduces balanced search trees, graphs, graph traversal algorithms, hash tables and sets, and complexity analysis and about classes of problems that require each data type. Students are required to design and implement using high quality professional code, a medium sized program, that demonstrates knowledge and use of latest language features, tools, and conventions. Additional topics introduced will include as needed for projects: inheritance and polymorphism; anonymous inner classes, lambda functions, performance analysis to discover and optimize critical code blocks. Students learn about industry standards for code development. Students will design and implement a medium size project with a more advanced user-interface design, such as a web or mobile application with a GUI and event- driven implementation; use of version-control software.",
+            "id": "COMPSCI 400",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ISYE 210",
+            "target": "ISYE/PSYCH 349"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
+            "id": "BMI/STAT 642"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI 883",
+            "target": "BMI 884"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "ISYE 210"
+        }
+    },
+    {
+        "data": {
+            "description": "Pre-dissertator Research. Course is open to pre-dissertator students only.",
+            "id": "BMI 899",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
+            "id": "BMI/COMPSCI 767"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
+            "id": "BMI/STAT 641"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ISYE/PSYCH 349",
+            "target": "ISYE 417"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
+            "id": "ISYE 210",
+            "parent": "ISYE"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
+            "id": "BMI/STAT 741"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 610",
+            "target": "BMI/STAT 727"
+        }
+    },
+    {
+        "data": {
+            "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
+            "id": "BMI 883",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 641",
+            "target": "BMI/STAT 643"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+            "id": "STAT 333",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "ISYE 417",
+            "target": "BMI/ISYE 617"
+        }
+    },
+    {
+        "data": {
+            "description": "Dissertator Research. Course is open to dissertators only.",
+            "id": "BMI 990",
+            "parent": "BMI"
         }
     },
     {
         "data": {
             "source": "MATH 375",
-            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
+            "id": "COMPSCI 200",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
+            "id": "BMI/STAT 643"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
+            "id": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 811",
+            "target": "BMI 901"
+        }
+    },
+    {
+        "data": {
+            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
+            "id": "BMI/STAT 541"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 552",
+            "target": "BMI/POPHLTH 651"
+        }
+    },
+    {
+        "data": {
+            "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
+            "id": "BMI/STAT 542"
+        }
+    },
+    {
+        "data": {
+            "description": "Become familiar with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
+            "id": "BMI 901",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of the SAS programming language for the management and analysis of biomedical data.",
+            "id": "BMI/POPHLTH 451"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study to pursue knowledge beyond curriculum.",
+            "id": "BMI 699",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI 881",
+            "target": "BMI 882"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 400",
+            "target": "BMI/COMPSCI 576"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 541",
+            "target": "BMI/STAT 542"
+        }
+    },
+    {
+        "data": {
+            "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
+            "id": "BMI/POPHLTH 651"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn how to conduct research as an interdisciplinary scientist at the interface of biomedical sciences and data science. Consider the diverse career trajectories available to an individual scientist. Gain an overview of problems in the field, approaches and practices in biomedical research, and different examples of approaches and paths taken from conceptualization to implementation of computational/statistical/data science tools to address specific biomedical research problems.",
+            "id": "BMI 800",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the application of industrial engineering methods to the analysis and improvement of health care delivery. Exploration of common problems of decision making and control in health care. Examination of social, regulatory and economic factors unique to health care.",
+            "id": "ISYE 417",
+            "parent": "ISYE"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
+            "id": "BMI/ISYE 617"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
+            "id": "BMI/POPHLTH 552"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 300",
+            "target": "COMPSCI 400"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
+            "id": "BMI/POPHLTH 694"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
+            "id": "MEDSC-M 811",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
+            "id": "BIOCHEM/BME/BMI/CBE/COMPSCI/GENETICS 915"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
+            "id": "BMI/COMPSCI 775"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "id": "ISYE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 541",
+            "target": "BMI/COMPSCI 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/POPHLTH 552"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+            "id": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
+            "id": "BMI/POPHLTH 551"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/POPHLTH 551",
+            "target": "BMI/STAT 541"
+        }
+    },
+    {
+        "data": {
+            "source": "BMI/STAT 542",
+            "target": "BMI 544"
+        }
+    },
+    {
+        "data": {
+            "description": "Practical training and skills required in clinical and healthcare research; design, implementation, and conduct of clinical trials and health services research studies; protocol and informed consent development using protocol templates; regulatory requirements; human subjects research protections considerations; data and safety monitoring plans; data collection strategies and data management; strategies to recruit/retain diverse and equitable study participants; research study agreements; budget development and justification; federal, institutional, and sponsor-defined requirements; establishment of research infrastructures for participant safety and study success; preparation of investigator-INDs/IDEs; and investigator responsibilities.",
+            "id": "BMI 544",
+            "parent": "BMI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
+            "id": "BMI/STAT 620"
         }
     },
     {
@@ -43,410 +527,6 @@
     },
     {
         "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
-            "id": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-            "id": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE 417",
-            "target": "BMI/ISYE 617"
-        }
-    },
-    {
-        "data": {
-            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
-            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Measures of central tendency, variability; probability, sampling distributions; hypothesis testing, confidence intervals; t-tests; Chi-square; regression and correlation (linear) and introduction to analysis of variance (1-way).",
-            "id": "PSYCH 210",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 202",
-            "target": "PSYCH 210"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Data Science programming using Python. In addition to a survey of programming basics (control flow and data structures), web scraping, database queries, and tabular analysis will be introduced. Projects will emphasize analyzing real datasets in a variety of forms and visual communication using plotting tools. Similar toCOMP\u00a0SCI\u00a0220but the pedagogical style of the projects will be adapted to graduate students in fields other than computer science and data science. No previous programming experience required.",
-            "id": "COMPSCI 319",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Methods for analysis of case-control, cross sectional, and cohort studies. Covers epidemiologic study design, measures of association, rates, classical contingency table methods, and logistic and Poisson regression.",
-            "id": "BMI/STAT 642"
-        }
-    },
-    {
-        "data": {
-            "description": "Intended for biomedical researchers interested in the design and analysis of clinical trials. Topics include definition of hypotheses, measures of effectiveness, sample size, randomization, data collection and monitoring, and issues in statistical analysis.",
-            "id": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 310",
-            "target": "BMI/STAT 641"
-        }
-    },
-    {
-        "data": {
-            "description": "Become familiar with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
-            "id": "BMI 901",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Critical evaluation of the scholarly literature is a crucial skill for researchers. Through this course, students will develop this valuable skill by focused reading and discussion of a variety of journal articles of present or historical importance from the biomedical sciences literature, including biostatistics, biomedical informatics, and relevant topics in statistics and computer science.",
-            "id": "BMI 881",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate approach to Data Science programming using Python. Experience with basic tabular analysis in Python is assumed. Learn to implement data structures (e.g., graphs) to efficiently represent datasets. Software-engineering tools such as version control and Python virtual environments will be introduced, with an emphasis on reproducibility of analysis. Tracing and A/B testing will be introduced as techniques for generating meaningful datasets. Introduces basic classification, clustering, optimization, and simulation techniques. Plotting and visual communication will be emphasized throughout the course.",
-            "id": "COMPSCI 320",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 542",
-            "target": "BMI 544"
-        }
-    },
-    {
-        "data": {
-            "id": "ISYE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "ISYE 210"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 641",
-            "target": "BMI/STAT 643"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH 210",
-            "target": "ISYE/PSYCH 349"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and practice of analytic methods for censored survival data, including nonparametric and parametric methods, the proportional hazards regression model, and a review of current topics in survival analysis.",
-            "id": "BMI/STAT 741"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to concepts of health and disease, which vary from patient to patient and through time. View health from a population standpoint, with an introduction to basic public health concepts as well as how physicians may positively impact both individual and population level health. Woven within that framework are introductions to key aspects of professionalism, patient-centered history- taking, and core communication skills.",
-            "id": "MEDSC-M 770",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
-            "id": "BMI/STAT 828"
-        }
-    },
-    {
-        "data": {
-            "description": "Identify the roles of physicians, interdisciplinary providers, health care systems, and communities in screening, treating, and preventing common, chronic conditions. Activities are centered on health promotion, outpatient-based chronic disease management, and community health. Clinical experiences will occur in primary care, behavioral health, and other ambulatory and community-based settings that focus on chronic disease management.",
-            "id": "MEDSC-M 811",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "id": "BMI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
-            "id": "MATH 415",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Use of the SAS programming language for the management and analysis of biomedical data.",
-            "id": "BMI/POPHLTH 451"
-        }
-    },
-    {
-        "data": {
-            "description": "Distributions, measures of central tendency, dispersion and shape, the normal distribution; experiments to compare means, standard errors, confidence intervals; effects of departure from assumption; method of least squares, regression, correlation, assumptions and limitations; basic ideas of experimental design.",
-            "id": "STAT 301",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
-            "id": "COMPSCI 310",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed for population health researcher. Topics include descriptive statistics, elementary probability, probability distributions, one- and two-sample normal inference (point estimation, hypothesis testing, confidence intervals), power and sample size calculations, one- and two-sample binomial inference, underlying assumptions and diagnostic work.",
-            "id": "BMI/POPHLTH 551"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 310",
-            "target": "COMPSCI 300"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
-            "target": "COMPSCI 320"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 415",
-            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
-            "id": "BMI/STAT 877"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces networks as a powerful representation in many real-world domains including biology and biomedicine. Encompasses theory and applications of networks, also referred to as graphs, to study complex systems such as living organisms. Surveys the current literature on computational, graph-theoretic approaches that use network algorithms for biological modeling, analysis, interpretation, and discovery. Enables hands-on experience in network biology by implementing computational projects.",
-            "id": "BMI/COMPSCI 775"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI 883",
-            "target": "BMI 884"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Familiarize students with basic informatics principles and techniques to support clinical research and quality improvement studies from a perspective of data-driven approaches. Content includes information systems for study design; regulatory compliance; use of electronic health records data for research; data collection and acquisition; data security, storage, transfer, processing and analysis.",
-            "id": "BMI 573",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Pre-dissertator Research. Course is open to pre-dissertator students only.",
-            "id": "BMI 899",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 311",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
             "description": "Introduction to Object-Oriented Programming using classes and objects to solve more complex problems. Introduces array-based and linked data structures: including lists, stacks, and queues. Programming assignments require writing and developing multi-class (file) programs using interfaces, generics, and exception handling to solve challenging real world problems. Topics reviewed include reading/writing data and objects from/to files and exception handling, and command line arguments. Topics introduced: object-oriented design; class vs. object; create and define interfaces and iterators; searching and sorting; abstract data types (List,Stack,Queue,PriorityQueue(Heap),Binary Search Tree); generic interfaces (parametric polymorphism); how to design and write test methods and classes; array based vs. linked node implementations; introduction to complexity analysis; recursion.",
             "id": "COMPSCI 300",
             "parent": "COMPSCI"
@@ -454,259 +534,8 @@
     },
     {
         "data": {
-            "source": "STAT 311",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "ISYE 210"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 400",
-            "target": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "description": "Behavior, including its development, motivation, frustrations, emotion, intelligence, learning, forgetting, personality, language, thinking, and social behavior.",
-            "id": "PSYCH 202",
-            "parent": "PSYCH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "BMI/POPHLTH 652"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to basic probability and statistical tools and methods from an industrial application perspective. Random variables and probability distributions; descriptive statistics; point estimates. Perform hypothesis testing, construct confidence intervals, and understand design of experiments in the context of motivating case studies. Regression and correlation analysis. Focus on applying statistical methods and tools to solve engineering problems. Use of Microsoft Excel to interpret and analyze data.",
-            "id": "ISYE 210",
-            "parent": "ISYE"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
-            "id": "BMI 883",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 320"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "ISYE 210"
-        }
-    },
-    {
-        "data": {
-            "description": "Extension of regression analysis to observational data with unequal variance, unequal sampling and propensity weights, clusters and longitudinal measurements, using different variance structures, mixed linear models, generalized linear models and GEE.  Matrix notation will be introduced and underlying mathematical and statistical principles will be explained.  Examples use data sets from ongoing population health research.",
-            "id": "BMI/POPHLTH 651"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 320",
-            "target": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 118",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE/PSYCH 349",
-            "target": "ISYE 417"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
-            "id": "STAT 240",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 319"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "BMI/STAT 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to key concepts, methods, and tools of biomedical and health informatics used in precision medicine and population health, with emphasis on collection, management, and analysis of real-world data.",
-            "id": "BMI/POPHLTH 694"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 319",
-            "target": "MATH 415"
-        }
-    },
-    {
-        "data": {
-            "description": "Participants and outside speakers will discuss current research in computation and informatics in biology and medicine. This seminar is required of all CIBM program trainees.",
-            "id": "BIOCHEM/BME/BMI/CBE/COMPSCI/GENETICS 915"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduce key statistical methods and concepts for analyzing various medical images. Analyze publicly available and student/instructor supplied imaging data using the most up-to-date methods and tools.",
-            "id": "BMI/STAT 768"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 770",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain an understanding of fundamental elements of clinical trials (such as objectives, endpoints, surrogate endpoints, and statistical decisions) and statistical design considerations (such as randomization and blinding). Designs of clinical trials for Phase I, II, and III studies including single-arm, two-arm, and drug combination trials. Introduction to adaptive designs for precision medicine and master protocol designs such as umbrella trials and basket trials.",
-            "id": "BMI/STAT 643"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 610",
-            "target": "BMI/STAT 727"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to core basic science, pathophysiologic, and diagnostic principles requisite for the care and treatment of patients with musculoskeletal, neurologic, and psychiatric presentations and disorders. Basic science concepts include those from the traditional disciplines of cell biology, histology, biochemistry, anatomy, embryology, neuroscience, and behavioral science. Regular integration of these topics with their pathologic and pathophysiologic counterparts. Integration of content related to other competency domains, or \"longitudinal threads\", that include patient care  communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry and public health.",
-            "id": "MEDSC-M 775",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers advanced topics in the areas of biostatistics and biomedical informatics.  Includes reading and discussion of original literature and individual student projects.",
-            "id": "BMI 826",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "A variety of skills that are important for a successful research career are often left to students to develop on their own. This course attempts to fill many of those gaps, including writing and reviewing papers, securing research funding, giving talks, presenting posters, making a personal website, job opportunities in universities and industry, and teaching.",
-            "id": "BMI 884",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
-            "id": "STAT 311",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 301"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
-            "id": "STAT 324",
-            "parent": "STAT"
+            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
         }
     },
     {
@@ -718,158 +547,8 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "BMI 901"
-        }
-    },
-    {
-        "data": {
-            "description": "Practical training and skills required in clinical and healthcare research; design, implementation, and conduct of clinical trials and health services research studies; protocol and informed consent development using protocol templates; regulatory requirements; human subjects research protections considerations; data and safety monitoring plans; data collection strategies and data management; strategies to recruit/retain diverse and equitable study participants; research study agreements; budget development and justification; federal, institutional, and sponsor-defined requirements; establishment of research infrastructures for participant safety and study success; preparation of investigator-INDs/IDEs; and investigator responsibilities.",
-            "id": "BMI 544",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to calculus of functions of several variables; calculus on parameterized curves, derivatives of functions of several variables, multiple integrals, vector calculus.",
-            "id": "MATH 234",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
-            "id": "BMI/STAT 727"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 415"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE 320",
-            "target": "ISYE 417"
-        }
-    },
-    {
-        "data": {
-            "id": "COMPSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of computational techniques that facilitate automated analysis, manipulation, denoising, and improvement of large-scale and high resolution medical images. Design and implementation of methods from computer Vision and Machine Learning to efficiently process such image data to answer biologically and clinically meaningful scientific questions. Students are strongly encouraged to have programming skills and basic proficiency in calculus and linear algebra, such asMATH\u00a0340.",
-            "id": "BMI/COMPSCI 767"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "ISYE 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Biomedical Informatics is an interdisciplinary field that combines knowledge of information sciences and medical sciences to optimize the use and application of biomedical data across the spectrum from molecules to individuals to populations. Offers an overview of the field of health informatics by providing students with the fundamental knowledge of the concepts of health informatics and how technology can be used in the delivery of health care.",
-            "id": "BMI/MEDICINE 918"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Dissertator Research. Course is open to dissertators only.",
-            "id": "BMI 990",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
-            "id": "MATH 319",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 609",
-            "target": "BMI/STAT 643"
-        }
-    },
-    {
-        "data": {
-            "id": "STAT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Course designed for the biomedical researcher. Topics include: descriptive statistics, hypothesis testing, estimation, confidence intervals, t-tests, chi-squared tests, analysis of variance, linear regression, correlation, nonparametric tests, survival analysis and odds ratio. Biomedical applications used for each topic.",
-            "id": "BMI/STAT 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study to pursue knowledge beyond curriculum.",
-            "id": "BMI 699",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 552",
-            "target": "BMI/POPHLTH 651"
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
         }
     },
     {
@@ -881,141 +560,15 @@
     },
     {
         "data": {
-            "description": "Learn how to conduct research as an interdisciplinary scientist at the interface of biomedical sciences and data science. Consider the diverse career trajectories available to an individual scientist. Gain an overview of problems in the field, approaches and practices in biomedical research, and different examples of approaches and paths taken from conceptualization to implementation of computational/statistical/data science tools to address specific biomedical research problems.",
-            "id": "BMI 800",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "id": "PSYCH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
-            "id": "STAT 333",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the application of industrial engineering methods to the analysis and improvement of health care delivery. Exploration of common problems of decision making and control in health care. Examination of social, regulatory and economic factors unique to health care.",
-            "id": "ISYE 417",
-            "parent": "ISYE"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 340",
-            "target": "BMI/STAT 620"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 319",
-            "target": "COMPSCI 320"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
-            "id": "BMI/POPHLTH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced course covering computational problems in molecular biology. The course will study algorithms for problems such as: modeling sequence classes and features, phylogenetic tree construction, gene-expression data analysis, protein and RNA structure prediction, and whole-genome analysis and comparisons.",
-            "id": "BMI/COMPSCI 776"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn the process of incrementally developing small (200-500 lines) programs along with the fundamental Computer Science topics. These topics include: problem abstraction and decomposition, the edit-compile-run cycle, using variables of primitive and more complex data types, conditional and loop-based flow control, basic testing and debugging techniques, how to define and call functions (methods), and IO processing techniques. Also teaches and reinforces good programming practices including the use of a consistent style, and meaningful documentation. Intended for students who have no prior programming experience.",
-            "id": "COMPSCI 200",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of stochastic systems using both analytic methods and computer simulation. Empirical and theoretical models of arrival and service processes. State spaces and state transition probabilities. Simulation of queuing and manufacturing systems. Continuous time Markov analysis of manufacturing systems. Simulation project management, testing and emerging trends.",
-            "id": "ISYE 320",
-            "parent": "ISYE"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "STAT 311"
-        }
-    },
-    {
-        "data": {
-            "description": "Conveys the importance of considering human capabilities and limits in system design and operation. This includes understanding human characteristics from the cognitive, physical, and psychosocial perspectives. Implications of these characteristics are explored through understanding the needs of people, designing to support these needs, and evaluating systems to ensure they serve the intended purpose. Case studies are used to identify the human role in accidents and to identify design improvements. Application domains include consumer product design, human-computer interaction, workplace safety, and complex systems such as healthcare delivery.",
-            "id": "ISYE/PSYCH 349"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the problems of representation and reasoning for large amounts of visual data, including images and videos, medical imaging data, and their associated tags or text descriptions. Introduces deep learning in the context of computer vision. Covers topics on visual recognition using deep models, such as image classification, object detection, human pose estimation, action recognition, 3D understanding, and medical image analysis. Emphasizes the design of vision and learning algorithms and models, as well as their practical implementations. Strongly recommended to have knowledge in computer vision or machine learning [such asCOMP\u00a0SCI\u00a0540] or medical image analysis [such as B M I /COMP\u00a0SCI/\u200bB\u00a0M\u00a0I\u00a0\u00a0567].",
-            "id": "BMI/COMPSCI 771"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 220",
+            "source": "COMPSCI 200",
             "target": "COMPSCI 300"
         }
     },
     {
         "data": {
-            "source": "BMI 881",
-            "target": "BMI 882"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 610",
-            "target": "BMI/STAT 643"
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
         }
     },
     {
@@ -1027,51 +580,51 @@
     },
     {
         "data": {
-            "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
-            "id": "BMI/STAT 620"
+            "id": "BMI",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "ISYE 210",
-            "target": "ISYE 320"
+            "description": "Addresses the problems of representation and reasoning for large amounts of visual data, including images and videos, medical imaging data, and their associated tags or text descriptions. Introduces deep learning in the context of computer vision. Covers topics on visual recognition using deep models, such as image classification, object detection, human pose estimation, action recognition, 3D understanding, and medical image analysis. Emphasizes the design of vision and learning algorithms and models, as well as their practical implementations. Strongly recommended to have knowledge in computer vision or machine learning [such asCOMP\u00a0SCI\u00a0540] or medical image analysis [such as B M I /COMP\u00a0SCI/\u200bB\u00a0M\u00a0I\u00a0\u00a0567].",
+            "id": "BMI/COMPSCI 771"
         }
     },
     {
         "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
+            "source": "MATH 211",
+            "target": "MATH 221"
         }
     },
     {
         "data": {
-            "description": "Statistical issues in the design of clinical trials, basic survival analysis, data collection and sequential monitoring.",
-            "id": "BMI/STAT 641"
+            "description": "Review of statistical convergence modes, M-estimation, and basics of Hilbert space. Introduction of how to derive the nuisance tangent space, its complement, and the corresponding efficient influence function, from the geometric perspective of semiparametric models. Introduction of how to estimate nuisance functions using machine learning methods, and their implementations in R and/or Python. Introduction of a variety of semiparametric models in missing data analysis, causal inference, dimension reduction, precision medicine, semi-supervised learning, transfer learning and domain adaptation.",
+            "id": "BMI/STAT 828"
         }
     },
     {
         "data": {
-            "source": "STAT 324",
-            "target": "ISYE/PSYCH 349"
+            "source": "MATH 376",
+            "target": "MATH 415"
         }
     },
     {
         "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
+            "description": "Familiarize students with basic informatics principles and techniques to support clinical research and quality improvement studies from a perspective of data-driven approaches. Content includes information systems for study design; regulatory compliance; use of electronic health records data for research; data collection and acquisition; data security, storage, transfer, processing and analysis.",
+            "id": "BMI 573",
+            "parent": "BMI"
         }
     },
     {
         "data": {
-            "source": "STAT 371",
-            "target": "STAT 333"
+            "description": "Theory and methods of fundamental statistical models for the analysis of longitudinal data, including repeated measures analysis of variance, linear mixed models, generalized linear mixed models, and generalized estimating equations. Introduction of how to implement these methods in statistical softwares such as in R and/or SAS, within the context of appropriate statistical models and carry out and interpret analyses.",
+            "id": "BMI/STAT 727"
         }
     },
     {
         "data": {
-            "description": "Provides grounding in core concepts of health information systems. Major applications include clinical information systems, language and standards, decision support, image technology and digital libraries. Evaluation of IE tools and perspectives designed to improve the quality, efficiency and effectiveness of health information.",
-            "id": "BMI/ISYE 617"
+            "id": "MEDSC-M",
+            "type": "compound"
         }
     },
     {
@@ -1083,170 +636,8 @@
     },
     {
         "data": {
-            "description": "Review of probability, random variables and vectors and their distributions, moments and inequalities, generating functions, transformations of random variables, sampling and distribution theory, convergence concepts for sequences of random variables, laws of large numbers, central limit and other limit theorems.",
-            "id": "STAT 609",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 811",
-            "target": "BMI 901"
-        }
-    },
-    {
-        "data": {
-            "description": "Algorithms for computational problems in molecular biology. Studies algorithms for problems such as: genome sequencing and mapping, pairwise and multiple sequence alignment, modeling sequence classes and features, phylogenetic tree construction, and gene-expression data analysis.",
-            "id": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/STAT 541",
-            "target": "BMI/STAT 542"
-        }
-    },
-    {
-        "data": {
-            "description": "The third course in our programming fundamentals sequence. It presumes that students understand and use functional and object-oriented design and abstract data types as needed. This course introduces balanced search trees, graphs, graph traversal algorithms, hash tables and sets, and complexity analysis and about classes of problems that require each data type. Students are required to design and implement using high quality professional code, a medium sized program, that demonstrates knowledge and use of latest language features, tools, and conventions. Additional topics introduced will include as needed for projects: inheritance and polymorphism; anonymous inner classes, lambda functions, performance analysis to discover and optimize critical code blocks. Students learn about industry standards for code development. Students will design and implement a medium size project with a more advanced user-interface design, such as a web or mobile application with a GUI and event- driven implementation; use of version-control software.",
-            "id": "COMPSCI 400",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "BMI/COMPSCI 576"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 415"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "source": "BMI/POPHLTH 551",
-            "target": "BMI/COMPSCI 567"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE 210",
-            "target": "ISYE/PSYCH 349"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "ISYE 320"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "COMPSCI 310"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI 300",
-            "target": "COMPSCI 400"
-        }
-    },
-    {
-        "data": {
-            "description": "Studies the biological and computational basis of intelligence, by combining methods from cognitive science, artificial intelligence, machine learning, computational biology, and cognitive neuroscience. Requires ability to program.",
-            "id": "BMI/COMPSCI/PSYCH 841"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Course will familiarize students with basic informatics principles and techniques to support clinical research. Content includes information systems for protocol design; regulatory compliance; approaches for patient recruitment; efficient protocol management; data collection and acquisition; data security, storage, transfer, processing and analysis.",
-            "id": "BMI 773",
-            "parent": "BMI"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 217",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
-            "id": "STAT 340",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "BMI 901"
+            "description": "Statistical and computational methods in statistical genomics for human and experimental populations. Review methods for quality control, experimental design, clustering, network analysis, and other downstream analysis of next-generation sequencing studies along with methods for genome wide association studies.",
+            "id": "BMI/STAT 877"
         }
     }
 ]

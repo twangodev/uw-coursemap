@@ -2,33 +2,63 @@
     "course_reference": {
         "course_number": 524,
         "subjects": [
-            "F&WECOL",
             "SOILSCI",
-            "HORT"
+            "HORT",
+            "F&WECOL"
         ]
     },
     "course_title": "URBAN SOIL AND ENVIRONMENT",
     "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2017": {
+                "a": 0,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 0,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 0,
+            "ab": 0,
+            "b": 0,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 0,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 230,
                 "subjects": [
-                    "ENVIRST",
+                    "SOILSCI",
                     "GEOG",
-                    "SOILSCI"
-                ]
-            },
-            {
-                "course_number": 301,
-                "subjects": [
-                    "SOILSCI"
-                ]
-            },
-            {
-                "course_number": 247,
-                "subjects": [
-                    "PHYSICS"
+                    "ENVIRST"
                 ]
             }
         ],
@@ -37,21 +67,11 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 301,
+                "course_number": 230,
                 "subjects": [
-                    "SOILSCI"
-                ]
-            },
-            {
-                "course_number": 207,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "PHYSICS"
+                    "SOILSCI",
+                    "GEOG",
+                    "ENVIRST"
                 ]
             },
             {
@@ -67,10 +87,20 @@
                 ]
             },
             {
-                "course_number": 230,
+                "course_number": 207,
                 "subjects": [
-                    "ENVIRST",
-                    "GEOG",
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 301,
+                "subjects": [
                     "SOILSCI"
                 ]
             }

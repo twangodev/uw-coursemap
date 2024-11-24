@@ -2,29 +2,113 @@
     "course_reference": {
         "course_number": 541,
         "subjects": [
-            "ZOOLOGY",
-            "GEOSCI"
+            "GEOSCI",
+            "ZOOLOGY"
         ]
     },
     "course_title": "PALEOBIOLOGY",
     "description": "The evolutionary process as interpreted from the fossil record. Topics include: the study of form; tempo and mode of evolution; levels and mechanisms of evolutionary change; extinction in the fossil record; trends and patterns in the history of life; macroevolution.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2006": {
+                "a": 6,
+                "ab": 2,
+                "b": 4,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 16,
+                "unsatisfactory": 0
+            },
+            "Fall 2009": {
+                "a": 6,
+                "ab": 6,
+                "b": 3,
+                "bc": 2,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 19,
+                "unsatisfactory": 0
+            },
+            "Fall 2012": {
+                "a": 14,
+                "ab": 3,
+                "b": 8,
+                "bc": 3,
+                "c": 8,
+                "credit": 0,
+                "d": 3,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 40,
+                "unsatisfactory": 0
+            },
+            "Spring 2016": {
+                "a": 13,
+                "ab": 1,
+                "b": 0,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 16,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 39,
+            "ab": 12,
+            "b": 15,
+            "bc": 8,
+            "c": 10,
+            "credit": 0,
+            "d": 3,
+            "f": 2,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 2,
+            "total": 91,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
             {
                 "course_number": 304,
                 "subjects": [
@@ -37,13 +121,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
                 "course_number": 152,
                 "subjects": [
                     "BIOLOGY",
@@ -55,6 +132,13 @@
                 "course_number": 304,
                 "subjects": [
                     "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],

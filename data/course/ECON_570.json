@@ -7,6 +7,124 @@
     },
     "course_title": "FUNDAMENTALS OF DATA ANALYTICS FOR ECONOMISTS",
     "description": "Introduction to the data that underlies quantitative economic analysis. Learn how to formulate a research question, access economic data sources, conduct preliminary and formal analysis, and report findings in a professional manner.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2023": {
+                "a": 81,
+                "ab": 24,
+                "b": 12,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 117,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 59,
+                "ab": 15,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 78,
+                "unsatisfactory": 0
+            },
+            "Spring 2022": {
+                "a": 62,
+                "ab": 22,
+                "b": 12,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 96,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 60,
+                "ab": 23,
+                "b": 11,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 94,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 64,
+                "ab": 21,
+                "b": 10,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 96,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 326,
+            "ab": 105,
+            "b": 47,
+            "bc": 1,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 2,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 481,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -14,7 +132,12 @@
                 "subjects": [
                     "ECON"
                 ]
-            },
+            }
+        ],
+        "prerequisites_text": "[ECON\u00a0310, (STAT\u00a0240and340), or (STAT\u00a0303and333)], and (ECON\u00a0301or311)"
+    },
+    "prerequisites": {
+        "course_references": [
             {
                 "course_number": 240,
                 "subjects": [
@@ -26,14 +149,9 @@
                 "subjects": [
                     "STAT"
                 ]
-            }
-        ],
-        "prerequisites_text": "[ECON\u00a0310, (STAT\u00a0240and340), or (STAT\u00a0303and333)], and (ECON\u00a0301or311)"
-    },
-    "prerequisites": {
-        "course_references": [
+            },
             {
-                "course_number": 303,
+                "course_number": 340,
                 "subjects": [
                     "STAT"
                 ]
@@ -45,31 +163,19 @@
                 ]
             },
             {
-                "course_number": 310,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 240,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 333,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 311,
                 "subjects": [
                     "ECON"
                 ]
             },
             {
-                "course_number": 340,
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 333,
                 "subjects": [
                     "STAT"
                 ]

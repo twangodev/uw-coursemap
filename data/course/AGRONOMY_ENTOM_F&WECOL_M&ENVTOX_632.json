@@ -2,14 +2,15 @@
     "course_reference": {
         "course_number": 632,
         "subjects": [
+            "AGRONOMY",
             "M&ENVTOX",
             "F&WECOL",
-            "AGRONOMY",
             "ENTOM"
         ]
     },
     "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
     "description": "Introduction to natural and man-made toxins/toxicants, their distribution, transport, and fate in the environment.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -19,20 +20,6 @@
                     "BOTANY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
             }
         ],
         "prerequisites_text": "(CHEM\u00a0341or343) and ((BOTANY/\u200bBIOLOGY\u00a0\u00a0130andZOOLOGY/\u200bBIOLOGY\u00a0\u00a0102) orZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152orBIOCORE\u00a0383); or graduate/professional standing"
@@ -40,11 +27,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
+                "course_number": 383,
                 "subjects": [
-                    "BIOLOGY",
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
                     "BOTANY",
-                    "ZOOLOGY"
+                    "BIOLOGY"
                 ]
             },
             {
@@ -52,18 +44,6 @@
                 "subjects": [
                     "BIOLOGY",
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 343,
-                "subjects": [
-                    "CHEM"
                 ]
             },
             {
@@ -73,10 +53,17 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 152,
                 "subjects": [
                     "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 343,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

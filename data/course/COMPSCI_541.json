@@ -7,24 +7,13 @@
     },
     "course_title": "THEORY & ALGORITHMS FOR DATA SCIENCE",
     "description": "Theoretical methods for data science. Topics include: review of probability background, concentration inequalities, geometry of high dimensional random variables, parametric and non-parametric estimation, selected topics from optimization (optimality conditions; deterministic and stochastic gradient descent), PAC learning, sample complexity and algorithms for linear classification and regression, and property/distribution testing. Uses Python programming language.",
+    "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 220,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 311,
-                "subjects": [
-                    "STAT"
                 ]
             }
         ],
@@ -33,20 +22,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 431,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 331,
+                "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
@@ -58,31 +34,32 @@
                 ]
             },
             {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 220,
                 "subjects": [
                     "COMPSCI"
                 ]
             },
             {
-                "course_number": 311,
+                "course_number": 341,
                 "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
                     "STAT"
                 ]
             },
             {
                 "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 320,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 531,
                 "subjects": [
                     "MATH"
                 ]
@@ -100,22 +77,34 @@
                 ]
             },
             {
+                "course_number": 331,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 531,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 333,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
                 ]
             }
         ],

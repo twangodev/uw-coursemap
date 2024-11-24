@@ -2,12 +2,73 @@
     "course_reference": {
         "course_number": 542,
         "subjects": [
-            "ZOOLOGY",
-            "GEOSCI"
+            "GEOSCI",
+            "ZOOLOGY"
         ]
     },
     "course_title": "INVERTEBRATE PALEONTOLOGY",
     "description": "The evolutionary history, morphology, and ecology of fossil invertebrates. Labs emphasize fossil identification and recognition of basic morphological features.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2011": {
+                "a": 8,
+                "ab": 5,
+                "b": 2,
+                "bc": 2,
+                "c": 5,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 25,
+                "unsatisfactory": 0
+            },
+            "Fall 2014": {
+                "a": 4,
+                "ab": 0,
+                "b": 1,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 7,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 12,
+            "ab": 5,
+            "b": 3,
+            "bc": 2,
+            "c": 6,
+            "credit": 0,
+            "d": 1,
+            "f": 0,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 2,
+            "total": 32,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -16,20 +77,6 @@
                     "BIOLOGY",
                     "ZOOLOGY"
                 ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 110,
-                "subjects": [
-                    "GEOSCI"
-                ]
             }
         ],
         "prerequisites_text": "(GEOSCI\u00a0110or204), (ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101and102),ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0152, (BIOCORE\u00a0381and382), or graduate/professional standing."
@@ -37,11 +84,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
+                "course_number": 382,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -65,21 +116,17 @@
                 ]
             },
             {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 110,
                 "subjects": [
                     "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             }
         ],

@@ -7,24 +7,73 @@
     },
     "course_title": "INTRODUCTION TO MECHATRONICS",
     "description": "Fundamentals of DC and AC circuit analysis and design, stressing tools needed to understand circuits typically used in instrumentation and control of physical systems (sensors/actuators); an introduction to the design of active and passive linear circuits for buffering and filtering signals; an introduction to digital circuits, Boolean logic, programming, especially as needed for computer interface operations in mechanical engineering applications (example: embedded microcontrollers). Laboratory exercises.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2023": {
+                "a": 7,
+                "ab": 9,
+                "b": 4,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 20,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 11,
+                "ab": 20,
+                "b": 9,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 41,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 18,
+            "ab": 29,
+            "b": 13,
+            "bc": 1,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 61,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 340,
                 "subjects": [
                     "ME"
-                ]
-            },
-            {
-                "course_number": 248,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
                 ]
             }
         ],
@@ -33,27 +82,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 208,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 340,
                 "subjects": [
                     "ME"
-                ]
-            },
-            {
-                "course_number": 376,
-                "subjects": [
-                    "MATH"
                 ]
             },
             {
@@ -63,15 +94,33 @@
                 ]
             },
             {
-                "course_number": 248,
+                "course_number": 376,
                 "subjects": [
-                    "PHYSICS"
+                    "MATH"
                 ]
             },
             {
                 "course_number": 319,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 248,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
                 ]
             }
         ],

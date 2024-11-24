@@ -7,24 +7,92 @@
     },
     "course_title": "OPERATIONS ANALYTICS",
     "description": "Focuses on the application of analytical methodologies to problems that arise in the context of a company's operations and supply chains. Touches on all three dimensions of analytics (descriptive, predictive, and prescriptive). Emphasis on data and real industry data collected from the university, alumni, and executive board members when possible. Explore, analyze, and utilize such data in a hands-on way, using a variety of software tools. Significantly driven by a set of case problems as opposed to systematic coverage of methodologies.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2021": {
+                "a": 22,
+                "ab": 28,
+                "b": 6,
+                "bc": 1,
+                "c": 1,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 59,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 24,
+                "ab": 30,
+                "b": 6,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 62,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 30,
+                "ab": 30,
+                "b": 6,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 66,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 76,
+            "ab": 88,
+            "b": 18,
+            "bc": 2,
+            "c": 1,
+            "credit": 0,
+            "d": 1,
+            "f": 1,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 187,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 300,
                 "subjects": [
                     "OTM"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "ECON"
                 ]
             }
         ],
@@ -33,10 +101,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 431,
+                "course_number": 309,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
                 ]
             },
             {
@@ -52,22 +126,16 @@
                 ]
             },
             {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 306,
                 "subjects": [
                     "GENBUS"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
                 ]
             }
         ],

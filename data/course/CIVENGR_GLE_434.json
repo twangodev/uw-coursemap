@@ -2,28 +2,82 @@
     "course_reference": {
         "course_number": 434,
         "subjects": [
-            "CIVENGR",
-            "GLE"
+            "GLE",
+            "CIVENGR"
         ]
     },
     "course_title": "INTRODUCTION TO UNDERGROUND OPENINGS ENGINEERING",
     "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2022": {
+                "a": 9,
+                "ab": 5,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 15,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 5,
+                "ab": 4,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 9,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 14,
+            "ab": 9,
+            "b": 1,
+            "bc": 0,
+            "c": 0,
+            "credit": 0,
+            "d": 0,
+            "f": 0,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 0,
+            "total": 24,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 330,
-                "subjects": [
-                    "CIVENGR",
-                    "GLE"
-                ]
-            },
-            {
                 "course_number": 474,
                 "subjects": [
-                    "CIVENGR",
                     "GEOSCI",
                     "MS&E",
-                    "GLE"
+                    "GLE",
+                    "CIVENGR"
                 ]
             }
         ],
@@ -32,19 +86,19 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 330,
+                "course_number": 474,
                 "subjects": [
-                    "CIVENGR",
-                    "GLE"
+                    "GEOSCI",
+                    "MS&E",
+                    "GLE",
+                    "CIVENGR"
                 ]
             },
             {
-                "course_number": 474,
+                "course_number": 330,
                 "subjects": [
-                    "CIVENGR",
-                    "GEOSCI",
-                    "MS&E",
-                    "GLE"
+                    "GLE",
+                    "CIVENGR"
                 ]
             }
         ],

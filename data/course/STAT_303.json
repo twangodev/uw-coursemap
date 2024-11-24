@@ -7,22 +7,204 @@
     },
     "course_title": "R FOR STATISTICS I",
     "description": "An understanding of the commonly used statistical language R. Topics will include using R to manipulate data and perform exploratory data analysis.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2019": {
+                "a": 123,
+                "ab": 20,
+                "b": 18,
+                "bc": 7,
+                "c": 5,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 174,
+                "unsatisfactory": 0
+            },
+            "Fall 2020": {
+                "a": 45,
+                "ab": 21,
+                "b": 22,
+                "bc": 9,
+                "c": 10,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 109,
+                "unsatisfactory": 1
+            },
+            "Fall 2021": {
+                "a": 70,
+                "ab": 10,
+                "b": 5,
+                "bc": 4,
+                "c": 4,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 93,
+                "unsatisfactory": 0
+            },
+            "Fall 2022": {
+                "a": 58,
+                "ab": 9,
+                "b": 19,
+                "bc": 4,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 97,
+                "unsatisfactory": 0
+            },
+            "Fall 2023": {
+                "a": 102,
+                "ab": 1,
+                "b": 5,
+                "bc": 0,
+                "c": 3,
+                "credit": 0,
+                "d": 2,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 115,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 47,
+                "ab": 13,
+                "b": 12,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 2,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 16,
+                "total": 95,
+                "unsatisfactory": 1
+            },
+            "Spring 2022": {
+                "a": 66,
+                "ab": 11,
+                "b": 23,
+                "bc": 3,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 2,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 5,
+                "total": 111,
+                "unsatisfactory": 0
+            },
+            "Spring 2023": {
+                "a": 86,
+                "ab": 17,
+                "b": 11,
+                "bc": 4,
+                "c": 3,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 121,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 90,
+                "ab": 16,
+                "b": 9,
+                "bc": 1,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 119,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 687,
+            "ab": 118,
+            "b": 124,
+            "bc": 35,
+            "c": 34,
+            "credit": 0,
+            "d": 5,
+            "f": 5,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 24,
+            "total": 1034,
+            "unsatisfactory": 2
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 371,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 324,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 240,
                 "subjects": [
                     "STAT"
                 ]
@@ -33,19 +215,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 301,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 371,
+                "course_number": 240,
                 "subjects": [
                     "STAT"
                 ]
@@ -57,19 +227,51 @@
                 ]
             },
             {
-                "course_number": 312,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 325,
                 "subjects": [
                     "BME"
                 ]
             },
             {
+                "course_number": 310,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
+            {
+                "course_number": 317,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 324,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "ISYE"
+                ]
+            },
+            {
+                "course_number": 301,
                 "subjects": [
                     "STAT"
                 ]
@@ -81,41 +283,21 @@
                 ]
             },
             {
-                "course_number": 317,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 240,
+                "course_number": 312,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "ISYE"
-                ]
-            },
-            {
-                "course_number": 360,
-                "subjects": [
-                    "SOC",
-                    "C&ESOC"
                 ]
             },
             {
                 "course_number": 210,
                 "subjects": [
                     "PSYCH"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "GENBUS"
                 ]
             }
         ],

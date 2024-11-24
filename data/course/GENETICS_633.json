@@ -7,24 +7,187 @@
     },
     "course_title": "POPULATION GENETICS",
     "description": "Population genetics, aimed at preparing students to initiate research in this field. Explore how genetic variation is influenced by mutation and recombination, population size changes and migration, and natural selection for or against new mutations.",
+    "madgrades_data": {
+        "by_term": {
+            "Fall 2014": {
+                "a": 11,
+                "ab": 2,
+                "b": 4,
+                "bc": 2,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 21,
+                "unsatisfactory": 0
+            },
+            "Fall 2015": {
+                "a": 3,
+                "ab": 6,
+                "b": 4,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 14,
+                "unsatisfactory": 0
+            },
+            "Fall 2016": {
+                "a": 7,
+                "ab": 10,
+                "b": 9,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 28,
+                "unsatisfactory": 0
+            },
+            "Fall 2017": {
+                "a": 2,
+                "ab": 4,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 10,
+                "unsatisfactory": 0
+            },
+            "Fall 2018": {
+                "a": 5,
+                "ab": 4,
+                "b": 4,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 14,
+                "unsatisfactory": 0
+            },
+            "Spring 2020": {
+                "a": 5,
+                "ab": 5,
+                "b": 4,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 16,
+                "unsatisfactory": 0
+            },
+            "Spring 2022": {
+                "a": 9,
+                "ab": 12,
+                "b": 4,
+                "bc": 0,
+                "c": 2,
+                "credit": 0,
+                "d": 2,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 29,
+                "unsatisfactory": 0
+            },
+            "Spring 2024": {
+                "a": 8,
+                "ab": 13,
+                "b": 4,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 26,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 50,
+            "ab": 56,
+            "b": 34,
+            "bc": 6,
+            "c": 5,
+            "credit": 0,
+            "d": 3,
+            "f": 0,
+            "incomplete": 1,
+            "no_credit": 0,
+            "no_work": 0,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 3,
+            "total": 158,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 468,
                 "subjects": [
                     "GENETICS"
-                ]
-            },
-            {
-                "course_number": 466,
-                "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],
@@ -33,6 +196,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
                 "course_number": 468,
                 "subjects": [
                     "GENETICS"
@@ -42,12 +211,6 @@
                 "course_number": 466,
                 "subjects": [
                     "GENETICS"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

@@ -8,6 +8,162 @@
     },
     "course_title": "LANDFORMS-TOPICS AND REGIONS",
     "description": "Emphasis on natural and human processes that control the morphology of the land and its waterways.",
+    "madgrades_data": {
+        "by_term": {
+            "Spring 2007": {
+                "a": 8,
+                "ab": 8,
+                "b": 7,
+                "bc": 6,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 35,
+                "unsatisfactory": 0
+            },
+            "Spring 2008": {
+                "a": 6,
+                "ab": 6,
+                "b": 9,
+                "bc": 2,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 31,
+                "unsatisfactory": 0
+            },
+            "Spring 2009": {
+                "a": 5,
+                "ab": 6,
+                "b": 11,
+                "bc": 1,
+                "c": 8,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 33,
+                "unsatisfactory": 0
+            },
+            "Spring 2010": {
+                "a": 11,
+                "ab": 5,
+                "b": 11,
+                "bc": 6,
+                "c": 7,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 41,
+                "unsatisfactory": 0
+            },
+            "Spring 2011": {
+                "a": 12,
+                "ab": 7,
+                "b": 12,
+                "bc": 3,
+                "c": 5,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 2,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 41,
+                "unsatisfactory": 0
+            },
+            "Spring 2014": {
+                "a": 9,
+                "ab": 8,
+                "b": 3,
+                "bc": 4,
+                "c": 2,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 26,
+                "unsatisfactory": 0
+            },
+            "Spring 2016": {
+                "a": 6,
+                "ab": 1,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 8,
+                "unsatisfactory": 0
+            }
+        },
+        "cumulative": {
+            "a": 57,
+            "ab": 41,
+            "b": 54,
+            "bc": 22,
+            "c": 34,
+            "credit": 0,
+            "d": 0,
+            "f": 1,
+            "incomplete": 0,
+            "no_credit": 0,
+            "no_work": 4,
+            "not_reported": 0,
+            "other": 0,
+            "passed": 0,
+            "satisfactory": 2,
+            "total": 215,
+            "unsatisfactory": 0
+        }
+    },
     "optimized_prerequisites": {
         "course_references": [
             {
@@ -16,19 +172,6 @@
                     "GEOSCI",
                     "GEOG"
                 ]
-            },
-            {
-                "course_number": 100,
-                "subjects": [
-                    "GEOSCI"
-                ]
-            },
-            {
-                "course_number": 127,
-                "subjects": [
-                    "GEOG",
-                    "ENVIRST"
-                ]
             }
         ],
         "prerequisites_text": "GEOSCI/\u200bENVIR\u00a0ST\u00a0\u00a0106,GEOSCI\u00a0100,109,204,ENVIR\u00a0ST/\u200bGEOG\u00a0\u00a0120,127,GEOSCI/\u200bGEOG\u00a0\u00a0320, or graduate/professional standing"
@@ -36,10 +179,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 120,
+                "course_number": 106,
                 "subjects": [
-                    "GEOG",
+                    "GEOSCI",
                     "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "GEOSCI"
                 ]
             },
             {
@@ -62,9 +211,10 @@
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 120,
                 "subjects": [
-                    "GEOSCI"
+                    "GEOG",
+                    "ENVIRST"
                 ]
             },
             {
@@ -72,13 +222,6 @@
                 "subjects": [
                     "GEOSCI",
                     "GEOG"
-                ]
-            },
-            {
-                "course_number": 106,
-                "subjects": [
-                    "GEOSCI",
-                    "ENVIRST"
                 ]
             }
         ],
