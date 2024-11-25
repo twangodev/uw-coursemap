@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup, ResultSet
 from course import Course
 from timer import get_ms
 
+sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
 def get_course_blocks(url: str, logger: Logger) -> (str, ResultSet):
     time_start = time.time()
@@ -34,7 +35,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks):
             continue
         course_ref_course[course.course_reference] = course
 
-def get_course_urls(sitemap_url: str, logger: Logger) -> list[str]:
+def get_course_urls(logger: Logger) -> list[str]:
     logger.info("Fetching and parsing the sitemap...")
 
     response = requests.get(sitemap_url)

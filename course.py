@@ -1,9 +1,9 @@
 import re
+from logging import Logger
 
-from frozendict import frozendict
+import requests
 
 from json_serializable import JsonSerializable
-
 
 def remove_extra_spaces(text: str):
     return re.sub(r"\s+", " ", text).strip()
@@ -96,12 +96,13 @@ class Course(JsonSerializable):
                 return False
             return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None):
+    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None, madgrades_data):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
         self.prerequisites = prerequisites
         self.optimized_prerequisites = optimized_prerequisites
+        self.madgrades_data = madgrades_data
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -109,12 +110,17 @@ class Course(JsonSerializable):
         if json_data["optimized_prerequisites"]:
             optimized_prerequisites = Course.Prerequisites.from_json(json_data["optimized_prerequisites"])
 
+        madgrades_data = None
+        if json_data["madgrades_data"]:
+            madgrades_data = MadgradesData.from_json(json_data["madgrades_data"])
+
         return Course(
             course_reference=Course.Reference.from_json(json_data["course_reference"]),
             course_title=json_data["course_title"],
             description=json_data["description"],
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
-            optimized_prerequisites=optimized_prerequisites
+            optimized_prerequisites=optimized_prerequisites,
+            madgrades_data=madgrades_data,
         )
 
     def to_dict(self):
@@ -124,6 +130,7 @@ class Course(JsonSerializable):
             "description": self.description,
             "prerequisites": self.prerequisites.to_dict(),
             "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
+            "madgrades_data": self.madgrades_data.to_dict() if self.madgrades_data else None,
         }
 
     @classmethod
@@ -146,7 +153,7 @@ class Course(JsonSerializable):
 
         cb_extras = block.find("div", class_="cb-extras")
         if not cb_extras:
-            return Course(course_reference, course_title, description, )
+            return Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None)
 
         requisites_data = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:")).find_next(
             "span", class_="cbextra-data")
@@ -160,7 +167,7 @@ class Course(JsonSerializable):
         requisites_courses.discard(course_reference)  # Remove self-reference
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
-        return Course(course_reference, course_title, description, course_prerequisite, None)
+        return Course(course_reference, course_title, description, course_prerequisite, None, None)
 
     def determine_parent(self):
         parent = None
@@ -193,3 +200,130 @@ class Course(JsonSerializable):
 
     def __repr__(self):
         return self.get_identifier()
+
+
+
+class GradeData(JsonSerializable):
+
+    def __init__(self, total, a, ab, b, bc, c, d, f, satisfactory, unsatisfactory, credit, no_credit, passed, incomplete, no_work, not_reported, other):
+        self.total = total
+        self.a = a
+        self.ab = ab
+        self.b = b
+        self.bc = bc
+        self.c = c
+        self.d = d
+        self.f = f
+        self.satisfactory = satisfactory
+        self.unsatisfactory = unsatisfactory
+        self.credit = credit
+        self.no_credit = no_credit
+        self.passed = passed
+        self.incomplete = incomplete
+        self.no_work = no_work
+        self.not_reported = not_reported
+        self.other = other
+
+    @classmethod
+    def from_madgrades(cls, json_data) -> "GradeData":
+        return GradeData(
+            total=json_data["total"],
+            a=json_data["aCount"],
+            ab=json_data["abCount"],
+            b=json_data["bCount"],
+            bc=json_data["bcCount"],
+            c=json_data["cCount"],
+            d=json_data["dCount"],
+            f=json_data["fCount"],
+            satisfactory=json_data["sCount"],
+            unsatisfactory=json_data["uCount"],
+            credit=json_data["crCount"],
+            no_credit=json_data["nCount"],
+            passed=json_data["pCount"],
+            incomplete=json_data["iCount"],
+            no_work=json_data["nwCount"],
+            not_reported=json_data["nrCount"],
+            other=json_data["otherCount"]
+        )
+
+    @classmethod
+    def from_json(cls, json_data) -> "JsonSerializable":
+        return GradeData(
+            total=json_data["total"],
+            a=json_data["a"],
+            ab=json_data["ab"],
+            b=json_data["b"],
+            bc=json_data["bc"],
+            c=json_data["c"],
+            d=json_data["d"],
+            f=json_data["f"],
+            satisfactory=json_data["satisfactory"],
+            unsatisfactory=json_data["unsatisfactory"],
+            credit=json_data["credit"],
+            no_credit=json_data["no_credit"],
+            passed=json_data["passed"],
+            incomplete=json_data["incomplete"],
+            no_work=json_data["no_work"],
+            not_reported=json_data["not_reported"],
+            other=json_data["other"]
+        )
+
+    def to_dict(self):
+        return {
+            "total": self.total,
+            "a": self.a,
+            "ab": self.ab,
+            "b": self.b,
+            "bc": self.bc,
+            "c": self.c,
+            "d": self.d,
+            "f": self.f,
+            "satisfactory": self.satisfactory,
+            "unsatisfactory": self.unsatisfactory,
+            "credit": self.credit,
+            "no_credit": self.no_credit,
+            "passed": self.passed,
+            "incomplete": self.incomplete,
+            "no_work": self.no_work,
+            "not_reported": self.not_reported,
+            "other": self.other
+        }
+
+class MadgradesData(JsonSerializable):
+
+    def __init__(self, cumulative, by_term):
+        self.cumulative = cumulative
+        self.by_term = by_term
+
+    @classmethod
+    def from_json(cls, json_data) -> "MadgradesData":
+        return MadgradesData(
+            cumulative=GradeData.from_json(json_data["cumulative"]),
+            by_term={term: GradeData.from_json(data) for term, data in json_data["by_term"].items()}
+        )
+
+    def to_dict(self):
+        return {
+            "cumulative": self.cumulative.to_dict(),
+            "by_term": {term: data.to_dict() for term, data in self.by_term.items()}
+        }
+
+    @classmethod
+    def from_madgrades(cls, terms, url, madgrades_api_key) -> "MadgradesData":
+        auth_header = {"Authorization": f"Token token={madgrades_api_key}" }
+        response = requests.get(url=url, headers=auth_header)
+        data = response.json()
+
+        cumulative = GradeData.from_madgrades(data["cumulative"])
+        course_offerings = data["courseOfferings"]
+
+        by_term = {}
+
+        for offering in course_offerings:
+            term_code = offering["termCode"]
+            term = terms[term_code]
+            grade_data = GradeData.from_madgrades(offering["cumulative"])
+
+            by_term[term] = grade_data
+
+        return MadgradesData(cumulative=cumulative, by_term=by_term)
