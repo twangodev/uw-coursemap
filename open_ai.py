@@ -103,6 +103,7 @@ def optimize_prerequisites(
         max_runtime: int,
         max_retries: int,
         max_threads: int,
+        stats: dict[str, Any],
         logger: Logger
 ):
     logger.info("Optimizing prerequisites...")
@@ -110,12 +111,6 @@ def optimize_prerequisites(
     # Use ThreadPoolExecutor to handle multiple courses concurrently
     total_courses = len(course_ref_to_course)
     completed_courses = 0
-
-    stats = {
-        "prompt_tokens": 0,
-        "total_tokens": 0,
-        "removed_requisites": 0,
-    }
 
     with ThreadPoolExecutor(max_workers=max_threads) as executor:
         future_to_course = {

@@ -100,7 +100,6 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     for subject, courses in subject_to_courses.items():
         write_file(data_dir, ("courses",), subject, courses, logger)
 
-    write_file(data_dir, tuple(), "courses", identifier_to_course, logger)
     for identifier, course in identifier_to_course.items():
         write_file(data_dir, ("course",), identifier, course, logger)
 

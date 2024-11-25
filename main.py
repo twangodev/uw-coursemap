@@ -1,17 +1,15 @@
 import logging
 import os
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import coloredlogs
 from dotenv import load_dotenv
-from openai import OpenAI
 
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
+from madgrades import add_madgrades_data
 from open_ai import get_openai_client, optimize_prerequisites
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
-sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
 
 # @app.route('/subjects', methods=['GET'])
@@ -94,14 +92,20 @@ def get_logging_level(level_name):
 def main():
     load_dotenv()
 
-    openai_api_key = os.getenv("OPENAI_API_KEY", None)
-    data_dir = os.getenv("DATA_DIRECTORY", None)
+    logging_level = os.getenv("LOGGING_LEVEL", None)
 
+    openai_api_key = os.getenv("OPENAI_API_KEY", None)
     max_prerequisites: str = os.getenv("MAX_PREREQUISITES", None)
 
-    logging_level = os.getenv("LOGGING_LEVEL", None)
-    show_api_key = os.getenv("SHOW_API_KEY", False) == "True"
+    madgrades_api_key: str = os.getenv("MADGRADES_API_KEY", None)
 
+    show_api_keys = os.getenv("SHOW_API_KEY", False) == "True"
+
+    data_dir = os.getenv("DATA_DIRECTORY", None)
+
+    warn_missing_madgrades_api_key = madgrades_api_key is None
+    if warn_missing_madgrades_api_key:
+        raise ValueError("No Madgrades API key set. Please set the MADGRADES_API_KEY environment variable.")
 
     warn_missing_data_dir = data_dir is None
     if warn_missing_data_dir:
@@ -122,10 +126,19 @@ def main():
     if warn_missing_logging_level:
         logger.warning("No logging level set. Defaulting to INFO.")
 
-    open_ai_client = get_openai_client(api_key=openai_api_key, logger=logger, show_api_key=show_api_key)
+    open_ai_client = get_openai_client(api_key=openai_api_key, logger=logger, show_api_key=show_api_keys)
 
-    site_map_urls = get_course_urls(sitemap_url=sitemap_url, logger=logger)
+    stats = {
+        "prompt_tokens": 0,
+        "total_tokens": 0,
+        "removed_requisites": 0,
+        "unknown_madgrades_courses": 0,
+    }
+
+    site_map_urls = get_course_urls(logger=logger)
     subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
+    terms = add_madgrades_data(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, stats=stats, logger=logger)
+
 
     optimize_prerequisites(
         client=open_ai_client,
@@ -135,6 +148,7 @@ def main():
         max_runtime=30,
         max_retries=50,
         max_threads=10,
+        stats=stats,
         logger=logger
     )
 
