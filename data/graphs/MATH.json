@@ -1,162 +1,22 @@
 [
     {
         "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "MATH 699",
+            "description": "Advanced Topics in Geometric Topology.",
+            "id": "MATH 851",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "An introduction to Euclidean or non-Euclidean geometry.",
-            "id": "MATH 461",
+            "source": "MATH 234",
+            "target": "MATH 421"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of compactness and some consequences. Quantifier elimination with examples. The omitting types theorem. Categoricity. Baldwin-Lachlan theory. Strongly minimal and o-minimal theories. Saturated models. Morley's theorem. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
+            "id": "MATH 776",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Classical and/or modern theory of automorphic forms. Representation theory of GL(2).",
-            "id": "MATH 849",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to computational methods that use stochastic algorithms and/or methods that are applied to random or stochastic mathematical problems. The main emphasis will be placed on learning practical tools, while some aspects of theoretical foundations will also be covered (e.g., basic error analysis for numerical solution of stochastic differential equations (SDEs), and basic convergence of Monte Carlo methods). Topics include Monte Carlo methods, Bayesian inference and Bayesian sampling, simulation of Markov chains, numerical analysis for SDEs, data assimilation / state estimation, stochastic optimization methods and random sketching. Applications to science, engineering, finance, data science, and other practical problems also included.",
-            "id": "MATH 717",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 415",
-            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics may include: Lie groups, algebraic groups, Chevalley groups, simple groups and associated geometries, group cohomology, group rings, Hopf algebras, enveloping algebras, quantum groups, infinite-dimensional Lie algebras, Hecke algebras, automorphic forms, Galois representations, zeta and L-functions, abelian varieties.",
-            "id": "MATH 847",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 621"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
-            "id": "MATH/STAT 733"
-        }
-    },
-    {
-        "data": {
-            "description": "The integers, emphasizing general group and ring properties. Permutation groups, symmetry groups, polynomial rings, leading to notions of abstract groups and rings. Congruences, computations, including finite fields and applications. Emphasis on concepts and concrete examples and computations.",
-            "id": "MATH 441",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to arithmetic geometry with emphasis on arithmetic of elliptic curves.",
-            "id": "MATH 844",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Capstone for future middle and high school teachers, drawing connections between higher mathematics and school mathematics.",
-            "id": "CURRIC/MATH 471"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in Algebra.",
-            "id": "MATH 941",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in Analysis.",
-            "id": "MATH 921",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Elementary functions of a complex variable; conformal mapping; complex integrals; the calculus of residues.",
-            "id": "MATH 623",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Prime number theory, prime number theory for arithmetic progressions, additive number theory, density theorems.",
-            "id": "MATH 867",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "MATH 198",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0741. Usually the study of commutative rings and fields. Ring theoretic topics may include: modules over PIDs, Noetherian rings and the Hilbert basis theorem, the Lasker-Noether theorem, the Krull intersection theorem, integrality and the Hilbert Nullstellensatz. Field theoretic topics may include: algebraic extensions, Galois theory, solvability of polynomials and classical constructability problems.",
-            "id": "MATH 742",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
-            "id": "MATH 114",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics will vary and may include spectral theory, nonlinear functional analysis or abstract harmonic analysis.",
-            "id": "MATH 825",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic concepts of logic, sets, partial order and other relations, and functions. Basic concepts of mathematics (definitions, proofs, sets, functions, and relations) with a focus on discrete structures: integers, bits, strings, trees, and graphs.  Propositional logic, Boolean algebra, and predicate logic. Mathematical induction and recursion. Invariants and algorithmic correctness. Recurrences and asymptotic growth analysis. Fundamentals of counting.",
-            "id": "COMPSCI/MATH 240"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to algebraic topology. Emphasis on geometric aspects, including two-dimensional manifolds, the fundamental group, covering spaces, basic simplicial homology theory, the Euler-Poincare formula, and homotopy classes of mappings.",
-            "id": "MATH 552",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 467",
-            "target": "MATH/PHILOS 571"
         }
     },
     {
@@ -168,165 +28,15 @@
     },
     {
         "data": {
-            "source": "MATH 321",
-            "target": "MATH 322"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 551"
-        }
-    },
-    {
-        "data": {
-            "description": "Coding theory. Codes (linear, Hamming, Golay, dual); decoding-encoding; Shannon's theorem; sphere-packing; singleton and Gilbert-Varshamov bounds; weight enumerators; MacWilliams identities; finite fields; other codes (Reed-Muller, cyclic, BCH, Reed-Solomon) and error-correction algorithms.",
-            "id": "ECE/MATH 641"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 623"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "MATH 443"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to proof writing techniques through a study of classical topics in elementary number theory. Topics include the divisibility, basic properties of primes, congruences, Fermat's theorem.",
-            "id": "MATH 467",
+            "description": "Selected topics in applied mathematics, applied analysis or numerical analysis and scientific computing.",
+            "id": "MATH 801",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Introduction to spectral methods (Fourier, Chebyshev, Fast Fourier Transform), finite element methods (Galerkin methods, energy estimates and error analysis), and mesh-free methods (Monte-Carlo, smoothed-particle hydrodynamics) for solving partial differential equations. Applications from science and engineering. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200), undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis (MATH\u00a0322and521) and linear algebra (e.g.MATH\u00a0341or equiv.)",
-            "id": "COMPSCI/MATH 715"
-        }
-    },
-    {
-        "data": {
-            "description": "Linear algebraic foundations of machine learning featuring real-world applications of matrix methods from classification and clustering to denoising and data analysis. Mathematical topics include: linear equations, regression, regularization, the singular value decomposition, and iterative algorithms. Machine learning topics include: the lasso, support vector machines, kernel methods, clustering, dictionary learning, neural networks, and deep learning. Previous exposure to numerical computing (e.g. Matlab, Python, Julia, R) required.",
-            "id": "COMPSCI/ECE/ME 532"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to mathematical research. Instruction in ancillary skills such as literature review, mathematical software use, technical  writing and communication, etc. Requires acceptance to the Madison Experimental Mathematics undergraduate research lab.",
-            "id": "MATH 390",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Martin's Axiom, Suslin and Aronszajn trees, diamond principle, absoluteness and reflection, constructible universe, and one-step forcing constructions. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
-            "id": "MATH 771",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
-            "id": "MATH/STAT 803"
-        }
-    },
-    {
-        "data": {
-            "description": "An historical survey of the main lines of mathematical development.",
-            "id": "HISTSCI/MATH 473"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected from advanced projective geometry, non-Euclidean geometry, Riemannian geometry, distance geometry and the geometry of convex surfaces, geometry of numbers.",
-            "id": "MATH 865",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "MATH 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Differentiable manifolds, vector bundles, implicit function theorem, submersions and immersions, vector fields and flows, foliations and Frobenius theorem, differential forms and exterior calculus, integration and Stokes' theorem, De Rham theory, Riemannian metrics. Familiarity with basic undergraduate analysis coursesMATH\u00a0521and522orMATH\u00a0621) is strongly recommended.",
-            "id": "MATH 761",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the Riemann zeta function and Dirichlet L-functions, and their application to topics such as the distribution of prime numbers and the arithmetic of quadratic fields. Familiarity with elementary number theory [such asMATH\u00a0567] and complex analysis [such asMATH\u00a0623] is strongly recommended.",
-            "id": "MATH 749",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
-            "id": "MATH 415",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for honors math majors writing a thesis in mathematics.",
-            "id": "MATH 682",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 541",
-            "target": "MATH 567"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 519",
-            "target": "MATH 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Usually a study of finite groups and noncommutative rings. Group theoretic topics may include: permutation groups, Lagrange's theorem, Cauchy's theorem and the Sylow theorems, solvable and nilpotent groups. Ring theoretic topics may include: Artinian rings and modules, the Wedderburn theorems, the Hopkins-Levitzki theorem, the Jacobson radical and density theorem. The basic prerequisite for all advanced graduate courses in algebra.  Familiarity with topics in undergraduate algebra (e.g.MATH\u00a0541and542) is strongly recommended.",
-            "id": "MATH 741",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to Fourier analysis in Euclidean spaces and related topics that may include singular and oscillatory integrals and trigonometric series.",
-            "id": "MATH 827",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Real analysis concentrating on measures, integration, and differentiation and including an introduction to Hilbert spaces. Knowledge of undergraduate analysis (e.g. the sequenceMATH\u00a0521and522) is strongly recommended.",
-            "id": "MATH 721",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to algebraic and differential topology. Elements of homotopy theory, fundamental group, covering spaces. Differentiable manifolds, tangent vectors, regular values, transversality, examples of compact Lie groups. Homological algebra, chain complexes, cell complexes, singular and cellular homology, calculations for surfaces, spheres, projective spaces, etc. Familiarity with undergraduate algebra and topologyMATH\u00a0541or551) is strongly recommended.",
-            "id": "MATH 751",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Treats the qualitative behavior of continuous and discrete dynamical systems, including Hamiltonian systems of differential equations. Typical topics include periodic and almost periodic solutions, the fixed point theorem of Poincare and Birkhoff, invariant curves and KAM theory, celestial mechanics, and chaotic behavior.",
-            "id": "MATH 807",
-            "parent": "MATH"
+            "id": "MATH",
+            "type": "compound"
         }
     },
     {
@@ -338,28 +48,21 @@
     },
     {
         "data": {
-            "description": "Intermediate or upper level topics course in mathematics. Topics vary.",
-            "id": "MATH 490",
+            "source": "MATH 340",
+            "target": "MATH 441"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Martin's Axiom, Suslin and Aronszajn trees, diamond principle, absoluteness and reflection, constructible universe, and one-step forcing constructions. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
+            "id": "MATH 771",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 421",
-            "target": "MATH 521"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in Algebraic Topology.",
-            "id": "MATH 853",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/MATH 240",
-            "target": "MATH 467"
         }
     },
     {
@@ -370,119 +73,33 @@
     },
     {
         "data": {
-            "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
-            "id": "MATH/STAT 734"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
-            "id": "MATH 171",
+            "description": "An introduction to Euclidean or non-Euclidean geometry.",
+            "id": "MATH 461",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
+            "source": "MATH/STAT 431",
+            "target": "ISYE/MATH/OTM/STAT 632"
         }
     },
     {
         "data": {
-            "description": "Topological spaces, connectedness, compactness, separation axioms, metric spaces.",
-            "id": "MATH 551",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
-            "id": "COMPSCI/ISYE/MATH 425"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 319"
+            "description": "Basic concepts of logic, sets, partial order and other relations, and functions. Basic concepts of mathematics (definitions, proofs, sets, functions, and relations) with a focus on discrete structures: integers, bits, strings, trees, and graphs.  Propositional logic, Boolean algebra, and predicate logic. Mathematical induction and recursion. Invariants and algorithmic correctness. Recurrences and asymptotic growth analysis. Fundamentals of counting.",
+            "id": "COMPSCI/MATH 240"
         }
     },
     {
         "data": {
             "source": "MATH 521",
-            "target": "MATH 531"
+            "target": "MATH 551"
         }
     },
     {
         "data": {
-            "description": "Inclusion-exclusion principle, permutation statistics, sieve methods, unimodal sequences, posets, lattice theory, Mobius functions, generating functions, bases and transition matrices for symmetric functions, Young tableaux, plane partitions, polytopes, poset homology, Stanley-Reisner rings.",
-            "id": "MATH 740",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "The real numbers, elements of set theory, metric spaces and basic topology, sequences and series, limits, continuity, differentiation, integration, sequences and series of functions, uniform convergence.",
-            "id": "MATH 521",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Intended to provide a rigorous foundation for stochastic modeling of biological systems. The mathematical emphasis is in stochastic analysis and simulation. Biological applications include epidemiological phenomena, biochemical reaction networks and population dynamics.",
-            "id": "MATH 605",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 551",
-            "target": "MATH 552"
-        }
-    },
-    {
-        "data": {
-            "description": "Turing degree and jump, strong reducibilities, arithmetic hierarchy, index sets, simple and (hyper)hypersimple sets, easy forcing arguments in computability theory, finite and infinite injury, Friedberg-Muchnik and Sacks Splitting Theorem, Sacks Jump and Sacks Density Theorems, computable ordinals. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
-            "id": "MATH 773",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Applied topics with emhasis on algebraic constructions and structures. Examples include: algebraic coding theory; codes (algebraic-geometric, convolutional, low-density-parity-check, space-time); curve and lattice based cryptography; watermarking; computer vision (face recognition, multiview geometry).",
-            "id": "ECE/MATH 842"
-        }
-    },
-    {
-        "data": {
-            "description": "The basic theory of functions of one complex variable including Cauchy formula, singularities and residues, meromorphic functions, conformal mappings, harmonic functions, approximation and the nonhomogeneous d-bar equation. Requires knowledge of undergraduate analysis (e.g. the sequenceMATH\u00a0521and522).",
-            "id": "MATH 722",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 522"
-        }
-    },
-    {
-        "data": {
-            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the intermediate level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
-            "id": "MATH 207",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for honors math majors writing a thesis in mathematics.",
-            "id": "MATH 681",
+            "description": "An introduction to proof writing techniques through a study of classical topics in elementary number theory. Topics include the divisibility, basic properties of primes, congruences, Fermat's theorem.",
+            "id": "MATH 467",
             "parent": "MATH"
         }
     },
@@ -494,118 +111,14 @@
     },
     {
         "data": {
-            "description": "Special functions, power series, Fourier series, approximation, contraction principle, characterizations of compactness in metric spaces, applications to differential equations. Differential calculus in normed spaces, including implicit and inverse function theorems. Course is essential for graduate work in mathematics.",
-            "id": "MATH 522",
-            "parent": "MATH"
+            "source": "MATH 467",
+            "target": "MATH/PHILOS 571"
         }
     },
     {
         "data": {
-            "source": "MATH 376",
-            "target": "MATH 561"
-        }
-    },
-    {
-        "data": {
-            "description": "Work on a Master's thesis under the supervision of a faculty member.",
-            "id": "MATH 790",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 340",
-            "target": "COMPSCI/ECE/ME 532"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 112",
-            "target": "MATH 113"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "COMPSCI/MATH 514"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "MATH 331"
-        }
-    },
-    {
-        "data": {
-            "description": "Groups, normal subgroups, Cayley's theorem, rings, ideals, homomorphisms, polynomial rings, abstract vector spaces.",
-            "id": "MATH 541",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 709",
-            "target": "MATH/STAT 710"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Integration in Euclidean spaces, change of variables, multilinear algebra, vector fields and differential forms, manifolds and tangent spaces, integration on manifolds, Stokes theorem. Classical vector analysis. Cauchy integral theorem.",
-            "id": "MATH 621",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
-            "id": "COMPSCI/ISYE/MATH/STAT 525"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate or upper level topics course in mathematics. Topics vary.",
-            "id": "MATH 491",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in Mathematical Logic.",
-            "id": "MATH 975",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical foundations of networks with an emphasis on their applications in modern data science, using tools from algorithmic graph theory and linear algebra. Topics include: basics of graph theory, network statistics, graph traversal algorithms and implementation, matrix methods, community detection, PageRank, simulation of random graph models.",
-            "id": "MATH 444",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in partial differential equations and real analysis.",
-            "id": "MATH 821",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 522",
-            "target": "MATH 629"
+            "source": "MATH 541",
+            "target": "MATH 567"
         }
     },
     {
@@ -617,8 +130,41 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "description": "Topics in Algebraic Topology.",
+            "id": "MATH 853",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 114"
+        }
+    },
+    {
+        "data": {
+            "description": "Treats the qualitative behavior of continuous and discrete dynamical systems, including Hamiltonian systems of differential equations. Typical topics include periodic and almost periodic solutions, the fixed point theorem of Poincare and Birkhoff, invariant curves and KAM theory, celestial mechanics, and chaotic behavior.",
+            "id": "MATH 807",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
+            "id": "MATH/STAT 709"
         }
     },
     {
@@ -636,197 +182,8 @@
     },
     {
         "data": {
-            "description": "Continuation ofMATH\u00a0827. Advanced topics in harmonic analysis.",
-            "id": "MATH 828",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "COMPSCI/ISYE/MATH/STAT 525"
-        }
-    },
-    {
-        "data": {
-            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
-            "id": "COMPSCI/MATH/STAT 475"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 234"
-        }
-    },
-    {
-        "data": {
-            "description": "Develops a habit of mind, competency, and comfort in working with numerical data. Learn to reason and solve quantitative problems from a wide array of authentic contexts and everyday life situations, develop the ability to reason mathematically, and make and evaluate logical arguments supported by quantitative evidence. This course is for students who need to satisfy part A of the Quantitative Reasoning requirement and prepare for QR-B courses, but do not want to continue in the calculus sequence.",
-            "id": "MATH 141",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Polynomial forms, divided differences. Polynomial interpolation. Polynomial approximation: uniform approximation and Chebyshev polynomials, least-squares approximation and orthogonal polynomials. Numerical differentiation and integration. Splines, B-splines and spline approximation. Numerical methods for solving initial and boundary value problems for ordinary differential equations.",
-            "id": "COMPSCI/MATH 514"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ECE/ME 532",
-            "target": "MATH 535"
-        }
-    },
-    {
-        "data": {
-            "description": "Higher homotopy groups, elements of obstruction theory, fibrations, bundle theory, classifying spaces, applications to smooth mainfolds, differential forms, vector bundles, characteristic classes, cobordism, applications and calculations. Basic graduate topology courses (e.g.MATH\u00a0751and752) are strongly recommended.",
-            "id": "MATH 753",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for students writing a thesis in mathematics.",
-            "id": "MATH 691",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "COMPSCI/MATH/STAT 475"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
-            "id": "MATH 443",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
-            "id": "MATH 320",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Lie algebras and matrix groups. Topics: tangent spaces; exponentials; Baker-Campbell-Hausdorff formula; (nilpotent, solvable, semisimple) Lie algebras; Engel's and Lie's theorems; Levi decomposition; Killing form; sl(2)-representations; root systems; Dynkin diagrams; Weyl groups; Cartan and Borel subalgebras; Serre's theorem. Basic graduate algebra courses (e.g.MATH\u00a0541and542orMATH\u00a0741and742) are strongly recommended.",
-            "id": "MATH 747",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "ISYE/MATH/OTM/STAT 632"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 171"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0721. An introduction to further topics in real analysis: Banach spaces, Fourier transforms, elements of distribution theory, and applications.",
-            "id": "MATH 725",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to ergodic theory and dynamics covering fundamental theorems of ergodic theory, classical examples of one and two dimensional dynamics as well as applications to study of group actions.",
-            "id": "MATH 758",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
-            "id": "MATH 113",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in probability and stochastic processes.",
-            "id": "MATH/STAT 833"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0751. Cohomology, Universal Coefficient Theorem, Kunneth Formula, cup and cap products, applications to manifolds, orientability, Poincare Duality. Differential forms, integration and Stokes Theorem, De Rham Theorem. Calculations, further duality theorems, Euler class, Lefschetz Fixed-Point Theorem.",
-            "id": "MATH 752",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces the basic concepts of Set Theory including: Set-theoretical paradoxes and means of avoiding them, sets, relations, functions, orders and well-orders, proof by transfinite induction and definitions by transfinite recursion, cardinal and ordinal numbers and their arithmetic, construction of the real numbers, the axiom of choice and its consequences.",
-            "id": "MATH 570",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Geometry of several complex variables; algebraic groups, abelian varieties; topological aspects of algebraic geometry, including sheaf theory and homology theory; advanced theory of local rings; intersection theory of algebraic varieties.",
-            "id": "MATH 863",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0763.",
-            "id": "MATH 764",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
-            "id": "MATH/STAT 710"
-        }
-    },
-    {
-        "data": {
-            "description": "A rigorous introduction to the theoretical underpinnings of the basic methods and techniques in the modern theory of PDEs. It is aimed at math majors, but will also be useful to some students in the sciences, engineering and economics who feel the need for a deeper understanding of the theory of PDEs. The emphasis is on the exposure to a number of different methods of solution of PDEs and their connection to physical phenomena modeled by the equations. The goals include both learning to solve some basic types of PDEs as well as to understand the motivation behind and inner workings of the techniques involved.",
-            "id": "MATH 619",
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "MATH 298",
             "parent": "MATH"
         }
     },
@@ -839,328 +196,28 @@
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 114"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of compactness and some consequences. Quantifier elimination with examples. The omitting types theorem. Categoricity. Baldwin-Lachlan theory. Strongly minimal and o-minimal theories. Saturated models. Morley's theorem. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
-            "id": "MATH 776",
+            "description": "Continuation ofMATH\u00a0827. Advanced topics in harmonic analysis.",
+            "id": "MATH 828",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
-            "id": "COMPSCI/ISYE/MATH 730"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the representation theory of Lie groups and their combinatorics. Universal enveloping algebras, highest weight modules, induction, restriction, weights, characters, multiplicity formulas, tensor products, Shapovalov forms, filtrations,  Kazhdan-Zetlin patterns, Littelmann paths.",
-            "id": "MATH 843",
+            "description": "Introduction to computational methods that use stochastic algorithms and/or methods that are applied to random or stochastic mathematical problems. The main emphasis will be placed on learning practical tools, while some aspects of theoretical foundations will also be covered (e.g., basic error analysis for numerical solution of stochastic differential equations (SDEs), and basic convergence of Monte Carlo methods). Topics include Monte Carlo methods, Bayesian inference and Bayesian sampling, simulation of Markov chains, numerical analysis for SDEs, data assimilation / state estimation, stochastic optimization methods and random sketching. Applications to science, engineering, finance, data science, and other practical problems also included.",
+            "id": "MATH 717",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 541",
-            "target": "ECE/MATH 641"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "COMPSCI/ECE/MATH 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in Number Theory.",
-            "id": "MATH 967",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Derivation, nature and solution of canonical partial differential equations of applied mathematics. Conservation laws, advection, diffusion. First order PDEs, characteristics, shocks. Traffic flow, eikonal and Hamilton-Jacobi equations. Higher order PDEs: classification, Fourier analysis, well-posedness. Series solutions and integral transforms. Green's functions and distributions. Similarity solutions. Asymptotics of Fourier integrals. Laplace's method, stationary phase. Ship waves. Perturbation methods. Knowledge of undergraduate linear algebra, analysis and complex analysis is strongly recommended.",
-            "id": "MATH 704",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in applied mathematics, applied analysis or numerical analysis and scientific computing.",
-            "id": "MATH 801",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 521",
-            "target": "MATH 627"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in the mathematical foundations of data science",
-            "id": "ECE/MATH/STAT 888"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 461"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
-            "id": "COMPSCI/ISYE/MATH/STAT 726"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on theory and practical skills relevant to teaching mathematics at the graduate or post-secondary level.",
-            "id": "MATH 900",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Development of finite difference methods for hyperbolic, parabolic and elliptic partial differential equations. Analysis of accuracy and stability of difference schemes. Direct and iterative methods for solving linear systems. Introduction to finite volume methods. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200) and some undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis and differential equations (e.g.MATH\u00a0322andMATH\u00a0521) and linear algebra (e.g.MATH\u00a0341).",
-            "id": "COMPSCI/MATH 714"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced Topics in Geometric Topology.",
-            "id": "MATH 851",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 171",
-            "target": "MATH 217"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "COMPSCI/MATH 513"
-        }
-    },
-    {
-        "data": {
-            "description": "Classical theory of partial differential equations, together with an introduction to the modern theory based on functional analysis. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
-            "id": "MATH 719",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
-            "id": "MATH 217",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "MATH 320"
         }
     },
     {
         "data": {
             "source": "MATH/STAT 309",
-            "target": "MATH 605"
+            "target": "MATH/STAT 310"
         }
     },
     {
         "data": {
-            "description": "Advanced introduction to fluid dynamics. Basic concepts; elementary viscous flow; Navier-Stokes equations. Elementary airfoil theory; boundary layers. Vortex motion. Waves. Very viscous flow. Compressible flows. Instabilities, bifurcations, turbulence. Requires working knowledge of multivariate calculus, differential equations and mechanics.",
-            "id": "MATH 705",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebraic combinatorics such as (but not limited to) association schemes, hypergeometric series, classical orthogonal polynomials, codes,  lattices, invariant theory, alternating sign matrices and domino tilings, statistical mechanical models, 6j-symbols, buildings and diagram geometries, matroids.",
-            "id": "MATH 846",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Lebesgue integral and measure, abstract measure and integration, differentiation, spaces of integrable functions.",
-            "id": "MATH 629",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to measure theoretic probability; derivation and transformation of probability distributions; generating functions and characteristic functions; conditional expectation, sufficiency, and unbiased estimation; methods of large sample theory including laws of large numbers and central limit theorems; order statistics.",
-            "id": "MATH/STAT 709"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-            "id": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
-            "id": "COMPSCI/ISYE/MATH 728"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
-            "id": "ISYE/MATH/OTM/STAT 632"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in algebra, trigonometry, differential, integral and multi-variable calculus and analytic geometry will be covered depending on which calculus courseMATH\u00a0228is attached to.MATH\u00a0228must be taken in conjunction with the appropriate WES section ofMATH\u00a0171,217,221,222, or234.",
-            "id": "MATH 228",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Fourier series and integrals, and their applications.",
-            "id": "MATH 627",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Existence, uniqueness, and continuous dependence theorems, linear systems, stability, singular points, and boundary value problems. Qualitative behavior of nonlinear equations, stability, Lyapunov functions, invariant manifolds, bifurcation theory, periodic orbits, and connecting orbits.",
-            "id": "MATH 716",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Will alternate between commutative and noncommutative ring theory. Commutative topics include localization; local rings; dimension theory; Cohen-Macaulay rings. Noncommutative topics include projective modules; injective modules; flat modules; homological and global dimension; Wedderburn and Goldie rings. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended.",
-            "id": "MATH 746",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 341",
-            "target": "MATH 444"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in functional analysis and differential equations.",
-            "id": "MATH 826",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Direct and iterative solution of linear and nonlinear systems and of eigenproblems. LU and symmetric LU factorization. Complexity, stability, and conditioning. Nonlinear systems. Iterative methods for linear systems. QR-factorization and least squares. Eigenproblems: local and global methods.",
-            "id": "COMPSCI/MATH 513"
-        }
-    },
-    {
-        "data": {
-            "description": "Algebraic preliminaries, including local rings; valuation theory, and power series rings; geometry of algebraic varieties with emphasis on curves and surfaces.",
-            "id": "MATH 763",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "Study of the linear algebraic structure underlying discrete equilibrium problems. Boundary value problems for continous equilibria: Sturm-Liouville equations, Laplace's equation, Poisson's equation, and the equations for Stokes flow. Contour integration and conformal mapping. Applications of dynamics leading to initial value problems for ODEs and PDEs. Green's functions for ODEs and introduction to asymptotic methods for ODEs, e.g. WKB analysis. Separation of variables and eigenfunction expansions for linear PDEs. Examples from physics and engineering throughout. Knowledge of undergraduate linear algebra, analysis and complex analysis is strongly recommended.",
-            "id": "MATH 703",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Cryptography is the art and science of transmitting digital information in a secure manner. Provides an introduction to its technical aspects.",
-            "id": "COMPSCI/ECE/MATH 435"
-        }
-    },
-    {
-        "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the metric properties of Riemannian manifolds. The following topics will be covered: Vector bundles and connections, Riemannian metrics, submanifolds and second fundamental form, first variation of arc length, geodesics, Hopf-Rinow theorem, second variation of arc length, Jacobi fields and index lemmas, Bonnet-Meyer theorem, Rauch comparison theorem, spaces of constant curvature, Hodge-de Rham theory. Familiarity with the topics in a differential manifolds course (e.g.MATH\u00a0761) is strongly recommended.",
-            "id": "MATH 765",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "COMPSCI/ISYE/MATH/STAT 726",
-            "target": "COMPSCI/ISYE/MATH 730"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to data-driven dynamical systems, including mathematical theory, methodology, numerical algorithms, applications and the use of a programming language to solve related coding problems. Topics include stochastic toolkits for dynamical systems and data science, linear Gaussian processes, nonlinear stochastic systems, elementary stochastic differential equations, data assimilation, parameter estimation, forecasting and prediction.",
-            "id": "MATH 616",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for students writing a thesis in mathematics.",
-            "id": "MATH 692",
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "MATH 198",
             "parent": "MATH"
         }
     },
@@ -1173,6 +230,24 @@
     },
     {
         "data": {
+            "source": "ISYE/MATH/OTM/STAT 632",
+            "target": "MATH 635"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+            "id": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
+            "id": "COMPSCI/ISYE/MATH 425"
+        }
+    },
+    {
+        "data": {
             "description": "Directed study projects as arranged with a faculty member.",
             "id": "MATH 698",
             "parent": "MATH"
@@ -1180,15 +255,148 @@
     },
     {
         "data": {
-            "description": "Review of linear transformations, duality. Diagonalization of linear transformations.The Cayley Hamilton Theorem. Minimal polynomials. The Jordan canonical form. Exponential function. Inner product spaces, orthonormal bases and Gram-Schmidt orthogonalization. Operators on inner product spaces. Self-adjoint, unitary and positive operators. Spectral theorem. singular value decomposition. Bilinear and quadratic forms. Norms, bounded linear operators, matrix norms. Basic multilinear algebra. This is a second course in linear algebra.",
-            "id": "MATH 540",
+            "description": "An introduction to algebraic and differential topology. Elements of homotopy theory, fundamental group, covering spaces. Differentiable manifolds, tangent vectors, regular values, transversality, examples of compact Lie groups. Homological algebra, chain complexes, cell complexes, singular and cellular homology, calculations for surfaces, spheres, projective spaces, etc. Familiarity with undergraduate algebra and topologyMATH\u00a0541or551) is strongly recommended.",
+            "id": "MATH 751",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Theory of curves and surfaces by differential methods.",
-            "id": "MATH 561",
+            "source": "MATH 222",
+            "target": "MATH 461"
+        }
+    },
+    {
+        "data": {
+            "description": "Geometry of several complex variables; algebraic groups, abelian varieties; topological aspects of algebraic geometry, including sheaf theory and homology theory; advanced theory of local rings; intersection theory of algebraic varieties.",
+            "id": "MATH 863",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for honors math majors writing a thesis in mathematics.",
+            "id": "MATH 682",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Real analysis concentrating on measures, integration, and differentiation and including an introduction to Hilbert spaces. Knowledge of undergraduate analysis (e.g. the sequenceMATH\u00a0521and522) is strongly recommended.",
+            "id": "MATH 721",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Fourier analysis in Euclidean spaces and related topics that may include singular and oscillatory integrals and trigonometric series.",
+            "id": "MATH 827",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to ergodic theory and dynamics covering fundamental theorems of ergodic theory, classical examples of one and two dimensional dynamics as well as applications to study of group actions.",
+            "id": "MATH 758",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for honors math majors writing a thesis in mathematics.",
+            "id": "MATH 681",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with a faculty member.",
+            "id": "MATH 699",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous introduction to ordinary differential equations and dynamical systems. Intended for math majors and advanced (or graduate) students in other disciplines.",
+            "id": "MATH 519",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics may include: Lie groups, algebraic groups, Chevalley groups, simple groups and associated geometries, group cohomology, group rings, Hopf algebras, enveloping algebras, quantum groups, infinite-dimensional Lie algebras, Hecke algebras, automorphic forms, Galois representations, zeta and L-functions, abelian varieties.",
+            "id": "MATH 847",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in functional analysis and differential equations.",
+            "id": "MATH 826",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 321",
+            "target": "MATH 322"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and algorithms for nonlinearly constrained optimization. Relevant geometric concepts, including tangent and normal cones, theorems of the alternative, and separation results. Constraint qualifications. Geometric and algebraic expression of first-order optimality conditions. Second-order optimality conditions. Duality. Nonlinear  programming algorithms: merit functions and filters; interior-point, augmented Lagrangian, and sequential quadratic programming algorithms.",
+            "id": "COMPSCI/ISYE/MATH 730"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 522"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the Riemann zeta function and Dirichlet L-functions, and their application to topics such as the distribution of prime numbers and the arithmetic of quadratic fields. Familiarity with elementary number theory [such asMATH\u00a0567] and complex analysis [such asMATH\u00a0623] is strongly recommended.",
+            "id": "MATH 749",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
+            "id": "MATH 443",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/ISYE/MATH/STAT 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Higher homotopy groups, elements of obstruction theory, fibrations, bundle theory, classifying spaces, applications to smooth mainfolds, differential forms, vector bundles, characteristic classes, cobordism, applications and calculations. Basic graduate topology courses (e.g.MATH\u00a0751and752) are strongly recommended.",
+            "id": "MATH 753",
             "parent": "MATH"
         }
     },
@@ -1200,61 +408,6 @@
     },
     {
         "data": {
-            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
-            "id": "MATH 421",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "A rigorous introduction to the arithmetic of number fields; algebraic integers, geometry of numbers, Dirichlet's Unit Theorem, ideal class groups, first case of Fermat's Last Theorem; prime decompositions, Galois automorphisms. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended.",
-            "id": "MATH 748",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "A course in number theory covering fundamentals and modern applications in topics of recent interest: Modular arithmetic, quadratic reciprocity, arithmetic functions, zeta function, Diophantine equations, transcendental numbers, Roth's theorem, continued fractions, and the circle method. Optional material from probability including random matrix theory.",
-            "id": "MATH 567",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in Topology.",
-            "id": "MATH 951",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: complexes, cohomology, double complexes, spectral sequences; abelian categories, derived categories, derived functors; Tor and Ext, Koszul complexes; group cohomology; sheaf cohomology, hypercohomology. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended",
-            "id": "MATH 750",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
-            "id": "MATH 118",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 320",
-            "target": "MATH 519"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundations of continuous time stochastic processes, semimartingales and the semimartingale integral, Ito's formula, stochastic differential equations, stochastic equations for Markov processes, application in finance, filtering, and control. The course relies on measure theoretic probability theory that can be reviewed at the beginning of the semester.",
-            "id": "MATH 735",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
             "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
             "id": "MATH 96",
             "parent": "MATH"
@@ -1262,157 +415,27 @@
     },
     {
         "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "description": "The theory of differential manifolds such as differential forms and de Rham theorem, cobordism groups, Lie groups, homogeneous spaces, fiber bundles, characteristic classes.",
-            "id": "MATH 856",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Basics of logic and mathematical proofs; propositional logic; first order logic; undecidability.",
-            "id": "MATH/PHILOS 571"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 541",
-            "target": "MATH 542"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics from all areas of mathematical logic.",
-            "id": "MATH 873",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the advanced level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
-            "id": "MATH 407",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 234",
-            "target": "MATH 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
-            "id": "CBE/ECE/MATH 777"
-        }
-    },
-    {
-        "data": {
-            "description": "Random solvers have been playing increasingly crucial roles in the modern computational tasks. The recent breakthroughs in applied and computational linear algebra that incorporate techniques of randomization have proven to be of great importance in modern applied math, computational sciences and data science, such as inverse problems, machine learning and scientific computing. The guiding principle is that one may greatly reduce computational and storage expenses at the cost of a small probability of failure. Systematic study of these modern methods of randomized linear algebra solvers will be provided, presenting mathematical backgrounds, algorithms, and concrete applications. Core theoretical topics include randomized Kaczmarz and its generalization to stochastic gradient descent, randomized singular value decomposition, random sketching, matrix completion, and compressive sensing, and corresponding applications.",
-            "id": "MATH 718",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ISYE/MATH/OTM/STAT 632",
-            "target": "MATH 635"
-        }
-    },
-    {
-        "data": {
             "source": "MATH 320",
-            "target": "MATH 616"
+            "target": "COMPSCI/ECE/MATH 435"
         }
     },
     {
         "data": {
-            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
-            "id": "MATH 340",
+            "source": "MATH 521",
+            "target": "MATH 627"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+            "id": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Topological spaces, connectedness, compactness, separation axioms, metric spaces.",
+            "id": "MATH 551",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
-            "id": "MATH 321",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 467",
-            "target": "MATH 570"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 321"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to local and global class field theory. Theory of local fields; local and global class field theory; complex multiplication, adeles, ideles, idele class characters, Tchebotarev's Density Theorem, CM elliptic curves, construction of class fields of imaginary quadratic fields.",
-            "id": "MATH 845",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Several complex variables. Basic several complex variables or more special topics.",
-            "id": "MATH 823",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "This is an advanced graduate topic course in number theory. Topics will vary. Target audience: Advanced graduate students in number theory, representation theory, and algebraic geometry.",
-            "id": "MATH 848",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
-            "id": "MATH 319",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
-        }
-    },
-    {
-        "data": {
-            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
-            "id": "MATH 322",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 96",
-            "target": "MATH 141"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 415"
         }
     },
     {
@@ -1424,15 +447,81 @@
     },
     {
         "data": {
-            "description": "Reading and research in all areas of Mathematics.",
-            "id": "MATH 990",
+            "source": "MATH 222",
+            "target": "MATH 234"
+        }
+    },
+    {
+        "data": {
+            "description": "Work on a Master's thesis under the supervision of a faculty member.",
+            "id": "MATH 790",
             "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the advanced level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
-            "id": "MATH 607",
+            "description": "Introduces the basic concepts of Set Theory including: Set-theoretical paradoxes and means of avoiding them, sets, relations, functions, orders and well-orders, proof by transfinite induction and definitions by transfinite recursion, cardinal and ordinal numbers and their arithmetic, construction of the real numbers, the axiom of choice and its consequences.",
+            "id": "MATH 570",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in probability and stochastic processes.",
+            "id": "MATH/STAT 833"
+        }
+    },
+    {
+        "data": {
+            "description": "Algebraic preliminaries, including local rings; valuation theory, and power series rings; geometry of algebraic varieties with emphasis on curves and surfaces.",
+            "id": "MATH 763",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0751. Cohomology, Universal Coefficient Theorem, Kunneth Formula, cup and cap products, applications to manifolds, orientability, Poincare Duality. Differential forms, integration and Stokes Theorem, De Rham Theorem. Calculations, further duality theorems, Euler class, Lefschetz Fixed-Point Theorem.",
+            "id": "MATH 752",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Part of a 2-semester sequence withMATH\u00a0217; these two courses together are equivalent toMATH\u00a0114and221.",
+            "id": "MATH 171",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra and differential equations with emphasis on the relationship between the theory of linear algebra and analytical and numerical techniques for solving differential equations. Linear algebra topics include linear systems, matrices and their algebra, vector spaces and linear transformations, eigenvalues and eigenvectors. Topics from differential equations include first order ODE, homogeneous and nonhomogeneous linear systems, and numerical methods.",
+            "id": "MATH 320",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/MATH 240",
+            "target": "MATH 467"
+        }
+    },
+    {
+        "data": {
+            "description": "Classical theory of partial differential equations, together with an introduction to the modern theory based on functional analysis. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
+            "id": "MATH 719",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Cryptography is the art and science of transmitting digital information in a secure manner. Provides an introduction to its technical aspects.",
+            "id": "COMPSCI/ECE/MATH 435"
+        }
+    },
+    {
+        "data": {
+            "description": "Develops a habit of mind, competency, and comfort in working with numerical data. Learn to reason and solve quantitative problems from a wide array of authentic contexts and everyday life situations, develop the ability to reason mathematically, and make and evaluate logical arguments supported by quantitative evidence. This course is for students who need to satisfy part A of the Quantitative Reasoning requirement and prepare for QR-B courses, but do not want to continue in the calculus sequence.",
+            "id": "MATH 141",
             "parent": "MATH"
         }
     },
@@ -1445,15 +534,167 @@
     },
     {
         "data": {
-            "source": "MATH 340",
-            "target": "MATH 441"
+            "source": "COMPSCI/ISYE/MATH/STAT 726",
+            "target": "COMPSCI/ISYE/MATH 730"
         }
     },
     {
         "data": {
-            "description": "Directed study projects as arranged with a faculty member.",
-            "id": "MATH 298",
+            "description": "Topics in algebra, trigonometry, differential, integral and multi-variable calculus and analytic geometry will be covered depending on which calculus courseMATH\u00a0228is attached to.MATH\u00a0228must be taken in conjunction with the appropriate WES section ofMATH\u00a0171,217,221,222, or234.",
+            "id": "MATH 228",
             "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 519",
+            "target": "MATH 619"
+        }
+    },
+    {
+        "data": {
+            "description": "A preparation and introductory math course for students enrolled in the Summer Collegiate Experience program. Includes material from precalculus and calculus and related topics depending on students' results on the math placement exam.",
+            "id": "MATH 118",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in Analysis.",
+            "id": "MATH 921",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0763.",
+            "id": "MATH 764",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate or upper level topics course in mathematics. Topics vary.",
+            "id": "MATH 490",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 531"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 213"
+        }
+    },
+    {
+        "data": {
+            "description": "The integers, emphasizing general group and ring properties. Permutation groups, symmetry groups, polynomial rings, leading to notions of abstract groups and rings. Congruences, computations, including finite fields and applications. Emphasis on concepts and concrete examples and computations.",
+            "id": "MATH 441",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "The basic theory of functions of one complex variable including Cauchy formula, singularities and residues, meromorphic functions, conformal mappings, harmonic functions, approximation and the nonhomogeneous d-bar equation. Requires knowledge of undergraduate analysis (e.g. the sequenceMATH\u00a0521and522).",
+            "id": "MATH 722",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory of curves and surfaces by differential methods.",
+            "id": "MATH 561",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces optimization problems over integers, and surveys the theory behind the algorithms used in state-of-the-art methods for solving such problems. Special attention is given to the polyhedral formulations of these problems, and to their algebraic and geometric properties. Applicability of Integer Optimization is highlighted with applications in combinatorial optimization. Key topics include: formulations, relaxations, polyhedral theory, cutting planes, decomposition, enumeration.  Students are strongly encouraged to have knowledge of Linear Programming  (e.g.,MATH/\u200bCOMP\u00a0SCI/\u200bI\u00a0SY\u00a0E/\u200bSTAT\u00a0\u00a0525), including algorithms, duality and polyhedral theory.",
+            "id": "COMPSCI/ISYE/MATH 728"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 623"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to arithmetic geometry with emphasis on arithmetic of elliptic curves.",
+            "id": "MATH 844",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundations of continuous time stochastic processes, semimartingales and the semimartingale integral, Ito's formula, stochastic differential equations, stochastic equations for Markov processes, application in finance, filtering, and control. The course relies on measure theoretic probability theory that can be reviewed at the beginning of the semester.",
+            "id": "MATH 735",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "A course in number theory covering fundamentals and modern applications in topics of recent interest: Modular arithmetic, quadratic reciprocity, arithmetic functions, zeta function, Diophantine equations, transcendental numbers, Roth's theorem, continued fractions, and the circle method. Optional material from probability including random matrix theory.",
+            "id": "MATH 567",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Intended to provide a rigorous foundation for stochastic modeling of biological systems. The mathematical emphasis is in stochastic analysis and simulation. Biological applications include epidemiological phenomena, biochemical reaction networks and population dynamics.",
+            "id": "MATH 605",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Reading and research in all areas of Mathematics.",
+            "id": "MATH 990",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for students writing a thesis in mathematics.",
+            "id": "MATH 691",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 415",
+            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
         }
     },
     {
@@ -1465,8 +706,414 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "COMPSCI/MATH 240"
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+            "id": "COMPSCI/MATH/STAT 475"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in Number Theory.",
+            "id": "MATH 967",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Lie algebras and matrix groups. Topics: tangent spaces; exponentials; Baker-Campbell-Hausdorff formula; (nilpotent, solvable, semisimple) Lie algebras; Engel's and Lie's theorems; Levi decomposition; Killing form; sl(2)-representations; root systems; Dynkin diagrams; Weyl groups; Cartan and Borel subalgebras; Serre's theorem. Basic graduate algebra courses (e.g.MATH\u00a0541and542orMATH\u00a0741and742) are strongly recommended.",
+            "id": "MATH 747",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers material in first and second semester calculus but it is intended to teach math majors to write and understand proofs in mathematics in general and in calculus in particular.",
+            "id": "MATH 421",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Derivation, nature and solution of canonical partial differential equations of applied mathematics. Conservation laws, advection, diffusion. First order PDEs, characteristics, shocks. Traffic flow, eikonal and Hamilton-Jacobi equations. Higher order PDEs: classification, Fourier analysis, well-posedness. Series solutions and integral transforms. Green's functions and distributions. Similarity solutions. Asymptotics of Fourier integrals. Laplace's method, stationary phase. Ship waves. Perturbation methods. Knowledge of undergraduate linear algebra, analysis and complex analysis is strongly recommended.",
+            "id": "MATH 704",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Turing degree and jump, strong reducibilities, arithmetic hierarchy, index sets, simple and (hyper)hypersimple sets, easy forcing arguments in computability theory, finite and infinite injury, Friedberg-Muchnik and Sacks Splitting Theorem, Sacks Jump and Sacks Density Theorems, computable ordinals. Familiarity with the topics in a basic Foundations course such asMATH\u00a0770is strongly recommended.",
+            "id": "MATH 773",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Several complex variables. Basic several complex variables or more special topics.",
+            "id": "MATH 823",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Capstone for future middle and high school teachers, drawing connections between higher mathematics and school mathematics.",
+            "id": "CURRIC/MATH 471"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to data-driven dynamical systems, including mathematical theory, methodology, numerical algorithms, applications and the use of a programming language to solve related coding problems. Topics include stochastic toolkits for dynamical systems and data science, linear Gaussian processes, nonlinear stochastic systems, elementary stochastic differential equations, data assimilation, parameter estimation, forecasting and prediction.",
+            "id": "MATH 616",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the metric properties of Riemannian manifolds. The following topics will be covered: Vector bundles and connections, Riemannian metrics, submanifolds and second fundamental form, first variation of arc length, geodesics, Hopf-Rinow theorem, second variation of arc length, Jacobi fields and index lemmas, Bonnet-Meyer theorem, Rauch comparison theorem, spaces of constant curvature, Hodge-de Rham theory. Familiarity with the topics in a differential manifolds course (e.g.MATH\u00a0761) is strongly recommended.",
+            "id": "MATH 765",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "A rigorous introduction to the arithmetic of number fields; algebraic integers, geometry of numbers, Dirichlet's Unit Theorem, ideal class groups, first case of Fermat's Last Theorem; prime decompositions, Galois automorphisms. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended.",
+            "id": "MATH 748",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Usually a study of finite groups and noncommutative rings. Group theoretic topics may include: permutation groups, Lagrange's theorem, Cauchy's theorem and the Sylow theorems, solvable and nilpotent groups. Ring theoretic topics may include: Artinian rings and modules, the Wedderburn theorems, the Hopkins-Levitzki theorem, the Jacobson radical and density theorem. The basic prerequisite for all advanced graduate courses in algebra.  Familiarity with topics in undergraduate algebra (e.g.MATH\u00a0541and542) is strongly recommended.",
+            "id": "MATH 741",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Study of the linear algebraic structure underlying discrete equilibrium problems. Boundary value problems for continous equilibria: Sturm-Liouville equations, Laplace's equation, Poisson's equation, and the equations for Stokes flow. Contour integration and conformal mapping. Applications of dynamics leading to initial value problems for ODEs and PDEs. Green's functions for ODEs and introduction to asymptotic methods for ODEs, e.g. WKB analysis. Separation of variables and eigenfunction expansions for linear PDEs. Examples from physics and engineering throughout. Knowledge of undergraduate linear algebra, analysis and complex analysis is strongly recommended.",
+            "id": "MATH 703",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 522",
+            "target": "MATH 629"
+        }
+    },
+    {
+        "data": {
+            "description": "Applied topics with emhasis on algebraic constructions and structures. Examples include: algebraic coding theory; codes (algebraic-geometric, convolutional, low-density-parity-check, space-time); curve and lattice based cryptography; watermarking; computer vision (face recognition, multiview geometry).",
+            "id": "ECE/MATH 842"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 321"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
+            "id": "MATH 321",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include discrete-time Markov chains, Poisson point processes, continuous-time Markov chains, and renewal processes. Applications to queueing, branching, and other models in science, engineering and business.",
+            "id": "ISYE/MATH/OTM/STAT 632"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to linear algebra. Topics include matrix algebra, linear systems of equations, vector spaces, sub-spaces, linear dependence, span, basis, rank of matrices, determinants, linear transformations, coordinate representations, kernel, range, eigenvalues and eigenvectors, diagonalization, inner products and orthogonal vectors, symmetric matrices. Covers linear algebra topics in greater depth and detail thanMATH\u00a0320. Formal techniques in mathematical argument [MATH\u00a0341] not covered.",
+            "id": "MATH 340",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 709",
+            "target": "MATH/STAT 710"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Linear algebraic foundations of machine learning featuring real-world applications of matrix methods from classification and clustering to denoising and data analysis. Mathematical topics include: linear equations, regression, regularization, the singular value decomposition, and iterative algorithms. Machine learning topics include: the lasso, support vector machines, kernel methods, clustering, dictionary learning, neural networks, and deep learning. Previous exposure to numerical computing (e.g. Matlab, Python, Julia, R) required.",
+            "id": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced interdisciplinary introduction to qualitative and geometric methods for dissipative nonlinear dynamical systems. Local bifurcations of ordinary differential equations and maps. Chaotic attractors, horseshoes and detection of chaos.",
+            "id": "CBE/ECE/MATH 777"
+        }
+    },
+    {
+        "data": {
+            "description": "Inclusion-exclusion principle, permutation statistics, sieve methods, unimodal sequences, posets, lattice theory, Mobius functions, generating functions, bases and transition matrices for symmetric functions, Young tableaux, plane partitions, polytopes, poset homology, Stanley-Reisner rings.",
+            "id": "MATH 740",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "MATH 519"
+        }
+    },
+    {
+        "data": {
+            "description": "Lebesgue integral and measure, abstract measure and integration, differentiation, spaces of integrable functions.",
+            "id": "MATH 629",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 171",
+            "target": "MATH 217"
+        }
+    },
+    {
+        "data": {
+            "description": "Polynomial forms, divided differences. Polynomial interpolation. Polynomial approximation: uniform approximation and Chebyshev polynomials, least-squares approximation and orthogonal polynomials. Numerical differentiation and integration. Splines, B-splines and spline approximation. Numerical methods for solving initial and boundary value problems for ordinary differential equations.",
+            "id": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 319"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 541",
+            "target": "MATH 542"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to algebraic topology. Emphasis on geometric aspects, including two-dimensional manifolds, the fundamental group, covering spaces, basic simplicial homology theory, the Euler-Poincare formula, and homotopy classes of mappings.",
+            "id": "MATH 552",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 141"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 561"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced introduction to fluid dynamics. Basic concepts; elementary viscous flow; Navier-Stokes equations. Elementary airfoil theory; boundary layers. Vortex motion. Waves. Very viscous flow. Compressible flows. Instabilities, bifurcations, turbulence. Requires working knowledge of multivariate calculus, differential equations and mechanics.",
+            "id": "MATH 705",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "The real numbers, elements of set theory, metric spaces and basic topology, sequences and series, limits, continuity, differentiation, integration, sequences and series of functions, uniform convergence.",
+            "id": "MATH 521",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Estimation, efficiency, Neyman-Pearson theory of hypothesis testing, confidence regions, decision theory, analysis of variance, and distribution of quadratic forms.",
+            "id": "MATH/STAT 710"
+        }
+    },
+    {
+        "data": {
+            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
+            "id": "MATH 213",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Development of finite difference methods for hyperbolic, parabolic and elliptic partial differential equations. Analysis of accuracy and stability of difference schemes. Direct and iterative methods for solving linear systems. Introduction to finite volume methods. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200) and some undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis and differential equations (e.g.MATH\u00a0322andMATH\u00a0521) and linear algebra (e.g.MATH\u00a0341).",
+            "id": "COMPSCI/MATH 714"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on theory and practical skills relevant to teaching mathematics at the graduate or post-secondary level.",
+            "id": "MATH 900",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 171"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
+            "id": "MATH 113",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Existence, uniqueness, and continuous dependence theorems, linear systems, stability, singular points, and boundary value problems. Qualitative behavior of nonlinear equations, stability, Lyapunov functions, invariant manifolds, bifurcation theory, periodic orbits, and connecting orbits.",
+            "id": "MATH 716",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Elementary functions of a complex variable; conformal mapping; complex integrals; the calculus of residues.",
+            "id": "MATH 623",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the representation theory of Lie groups and their combinatorics. Universal enveloping algebras, highest weight modules, induction, restriction, weights, characters, multiplicity formulas, tensor products, Shapovalov forms, filtrations,  Kazhdan-Zetlin patterns, Littelmann paths.",
+            "id": "MATH 843",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 96",
+            "target": "MATH 112"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics will vary and may include spectral theory, nonlinear functional analysis or abstract harmonic analysis.",
+            "id": "MATH 825",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Differentiable manifolds, vector bundles, implicit function theorem, submersions and immersions, vector fields and flows, foliations and Frobenius theorem, differential forms and exterior calculus, integration and Stokes' theorem, De Rham theory, Riemannian metrics. Familiarity with basic undergraduate analysis coursesMATH\u00a0521and522orMATH\u00a0621) is strongly recommended.",
+            "id": "MATH 761",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical foundations of networks with an emphasis on their applications in modern data science, using tools from algorithmic graph theory and linear algebra. Topics include: basics of graph theory, network statistics, graph traversal algorithms and implementation, matrix methods, community detection, PageRank, simulation of random graph models.",
+            "id": "MATH 444",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected from advanced projective geometry, non-Euclidean geometry, Riemannian geometry, distance geometry and the geometry of convex surfaces, geometry of numbers.",
+            "id": "MATH 865",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "COMPSCI/ECE/ME 532"
+        }
+    },
+    {
+        "data": {
+            "description": "Fourier series and integrals, and their applications.",
+            "id": "MATH 627",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to spectral methods (Fourier, Chebyshev, Fast Fourier Transform), finite element methods (Galerkin methods, energy estimates and error analysis), and mesh-free methods (Monte-Carlo, smoothed-particle hydrodynamics) for solving partial differential equations. Applications from science and engineering. Applications from science and engineering. Students are strongly encouraged to have programming skills (e.g.COMP\u00a0SCI\u00a0200), undergraduate numerical analysis (e.g.MATH/\u200bCOMP\u00a0SCI\u00a0\u00a0514orCOMP\u00a0SCI\u00a0412), analysis (MATH\u00a0322and521) and linear algebra (e.g.MATH\u00a0341or equiv.)",
+            "id": "COMPSCI/MATH 715"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "COMPSCI/MATH 514"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and algorithms for nonlinear optimization, focusing on unconstrained optimization. Line-search and trust-region methods; quasi-Newton methods; conjugate-gradient and limited-memory methods for large-scale problems; derivative-free optimization; algorithms for least-squares problems and nonlinear equations; gradient projection algorithms for bound-constrained problems; and simple penalty methods for nonlinearly constrained optimization. Students are strongly encouraged to have knowledge of linear algebra and familiarity with basic mathematical analysis.",
+            "id": "COMPSCI/ISYE/MATH/STAT 726"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 541",
+            "target": "ECE/MATH 641"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0721. An introduction to further topics in real analysis: Banach spaces, Fourier transforms, elements of distribution theory, and applications.",
+            "id": "MATH 725",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 309",
+            "target": "MATH 605"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in Algebra.",
+            "id": "MATH 941",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to local and global class field theory. Theory of local fields; local and global class field theory; complex multiplication, adeles, ideles, idele class characters, Tchebotarev's Density Theorem, CM elliptic curves, construction of class fields of imaginary quadratic fields.",
+            "id": "MATH 845",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in partial differential equations and real analysis.",
+            "id": "MATH 821",
+            "parent": "MATH"
         }
     },
     {
@@ -1478,8 +1125,361 @@
     },
     {
         "data": {
-            "description": "Provides a rigorous introduction to ordinary differential equations and dynamical systems. Intended for math majors and advanced (or graduate) students in other disciplines.",
-            "id": "MATH 519",
+            "description": "Selected topics in Topology.",
+            "id": "MATH 951",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 320",
+            "target": "MATH 616"
+        }
+    },
+    {
+        "data": {
+            "description": "A rigorous introduction to the theoretical underpinnings of the basic methods and techniques in the modern theory of PDEs. It is aimed at math majors, but will also be useful to some students in the sciences, engineering and economics who feel the need for a deeper understanding of the theory of PDEs. The emphasis is on the exposure to a number of different methods of solution of PDEs and their connection to physical phenomena modeled by the equations. The goals include both learning to solve some basic types of PDEs as well as to understand the motivation behind and inner workings of the techniques involved.",
+            "id": "MATH 619",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in the mathematical foundations of data science",
+            "id": "ECE/MATH/STAT 888"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "The two semester sequenceMATH\u00a0112-MATH\u00a0113covers similar material asMATH\u00a0114, but in a slower pace. Not recommended for students with less than an AB inMATH\u00a096.",
+            "id": "MATH 114",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Integration in Euclidean spaces, change of variables, multilinear algebra, vector fields and differential forms, manifolds and tangent spaces, integration on manifolds, Stokes theorem. Classical vector analysis. Cauchy integral theorem.",
+            "id": "MATH 621",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for students writing a thesis in mathematics.",
+            "id": "MATH 692",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of linear transformations, duality. Diagonalization of linear transformations.The Cayley Hamilton Theorem. Minimal polynomials. The Jordan canonical form. Exponential function. Inner product spaces, orthonormal bases and Gram-Schmidt orthogonalization. Operators on inner product spaces. Self-adjoint, unitary and positive operators. Spectral theorem. singular value decomposition. Bilinear and quadratic forms. Norms, bounded linear operators, matrix norms. Basic multilinear algebra. This is a second course in linear algebra.",
+            "id": "MATH 540",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "This is an advanced graduate topic course in number theory. Topics will vary. Target audience: Advanced graduate students in number theory, representation theory, and algebraic geometry.",
+            "id": "MATH 848",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Summary of matrix algebra required, theory of estimable functions, incomplete blocks, balanced incomplete block designs, partially balanced incomplete block designs.",
+            "id": "MATH/STAT 803"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 467",
+            "target": "MATH 570"
+        }
+    },
+    {
+        "data": {
+            "description": "Sturm-Liouville theory; Fourier series, including mean convergence; boundary value problems for linear second order partial differential equations, including separation of variables and eigenfunction expansions.",
+            "id": "MATH 322",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics from all areas of mathematical logic.",
+            "id": "MATH 873",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Prime number theory, prime number theory for arithmetic progressions, additive number theory, density theorems.",
+            "id": "MATH 867",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the advanced level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
+            "id": "MATH 407",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Groups, normal subgroups, Cayley's theorem, rings, ideals, homomorphisms, polynomial rings, abstract vector spaces.",
+            "id": "MATH 541",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 415"
+        }
+    },
+    {
+        "data": {
+            "description": "Coding theory. Codes (linear, Hamming, Golay, dual); decoding-encoding; Shannon's theorem; sphere-packing; singleton and Gilbert-Varshamov bounds; weight enumerators; MacWilliams identities; finite fields; other codes (Reed-Muller, cyclic, BCH, Reed-Solomon) and error-correction algorithms.",
+            "id": "ECE/MATH 641"
+        }
+    },
+    {
+        "data": {
+            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the advanced level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
+            "id": "MATH 607",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Classical and/or modern theory of automorphic forms. Representation theory of GL(2).",
+            "id": "MATH 849",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to measure theoretic probability and stochastic processes.Topics include foundations, independence, zero-one laws, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, random walks, conditional expectations. Familiarity with basic measure theory (e.g.MATH\u00a0629or721) or concurrent registration inMATH\u00a0721is strongly recommended.",
+            "id": "MATH/STAT 733"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to mathematical research. Instruction in ancillary skills such as literature review, mathematical software use, technical  writing and communication, etc. Requires acceptance to the Madison Experimental Mathematics undergraduate research lab.",
+            "id": "MATH 390",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 113"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: complexes, cohomology, double complexes, spectral sequences; abelian categories, derived categories, derived functors; Tor and Ext, Koszul complexes; group cohomology; sheaf cohomology, hypercohomology. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended",
+            "id": "MATH 750",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of linear differential equations; series solution of linear differential equations; boundary value problems; Laplace transforms; possibly numerical methods and two dimensional autonomous systems.",
+            "id": "MATH 319",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "MATH 444"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
+            "id": "MATH 415",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI/ECE/ME 532",
+            "target": "MATH 535"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 421",
+            "target": "MATH 521"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "MATH 340"
+        }
+    },
+    {
+        "data": {
+            "description": "Possible topics include martingales, weak convergence of measures, introduction to Brownian motion.",
+            "id": "MATH/STAT 734"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 521",
+            "target": "MATH 621"
+        }
+    },
+    {
+        "data": {
+            "description": "Direct and iterative solution of linear and nonlinear systems and of eigenproblems. LU and symmetric LU factorization. Complexity, stability, and conditioning. Nonlinear systems. Iterative methods for linear systems. QR-factorization and least squares. Eigenproblems: local and global methods.",
+            "id": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "COMPSCI/MATH 240"
+        }
+    },
+    {
+        "data": {
+            "description": "The theory of differential manifolds such as differential forms and de Rham theorem, cobordism groups, Lie groups, homogeneous spaces, fiber bundles, characteristic classes.",
+            "id": "MATH 856",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0171. Topics in algebra, trigonometry and precalculus are integrated with elementary differential calculus. Completion ofMATH\u00a0217implies completion ofMATH\u00a0221and114.",
+            "id": "MATH 217",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Special functions, power series, Fourier series, approximation, contraction principle, characterizations of compactness in metric spaces, applications to differential equations. Differential calculus in normed spaces, including implicit and inverse function theorems. Course is essential for graduate work in mathematics.",
+            "id": "MATH 522",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 341",
+            "target": "COMPSCI/MATH 513"
+        }
+    },
+    {
+        "data": {
+            "description": "Random solvers have been playing increasingly crucial roles in the modern computational tasks. The recent breakthroughs in applied and computational linear algebra that incorporate techniques of randomization have proven to be of great importance in modern applied math, computational sciences and data science, such as inverse problems, machine learning and scientific computing. The guiding principle is that one may greatly reduce computational and storage expenses at the cost of a small probability of failure. Systematic study of these modern methods of randomized linear algebra solvers will be provided, presenting mathematical backgrounds, algorithms, and concrete applications. Core theoretical topics include randomized Kaczmarz and its generalization to stochastic gradient descent, randomized singular value decomposition, random sketching, matrix completion, and compressive sensing, and corresponding applications.",
+            "id": "MATH 718",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in Mathematical Logic.",
+            "id": "MATH 975",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 551",
+            "target": "MATH 552"
+        }
+    },
+    {
+        "data": {
+            "description": "Credit is awarded to students who have completed an appropriate math course abroad at the intermediate level having no direct equivalence within the math department offerings. The study abroad course must be pre-approved by the math department.",
+            "id": "MATH 207",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "MATH 331"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "An historical survey of the main lines of mathematical development.",
+            "id": "HISTSCI/MATH 473"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in algebraic combinatorics such as (but not limited to) association schemes, hypergeometric series, classical orthogonal polynomials, codes,  lattices, invariant theory, alternating sign matrices and domino tilings, statistical mechanical models, 6j-symbols, buildings and diagram geometries, matroids.",
+            "id": "MATH 846",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Basics of logic and mathematical proofs; propositional logic; first order logic; undecidability.",
+            "id": "MATH/PHILOS 571"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate or upper level topics course in mathematics. Topics vary.",
+            "id": "MATH 491",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofMATH\u00a0741. Usually the study of commutative rings and fields. Ring theoretic topics may include: modules over PIDs, Noetherian rings and the Hilbert basis theorem, the Lasker-Noether theorem, the Krull intersection theorem, integrality and the Hilbert Nullstellensatz. Field theoretic topics may include: algebraic extensions, Galois theory, solvability of polynomials and classical constructability problems.",
+            "id": "MATH 742",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 340",
+            "target": "MATH 443"
+        }
+    },
+    {
+        "data": {
+            "description": "Will alternate between commutative and noncommutative ring theory. Commutative topics include localization; local rings; dimension theory; Cohen-Macaulay rings. Noncommutative topics include projective modules; injective modules; flat modules; homological and global dimension; Wedderburn and Goldie rings. Basic graduate algebra courses (e.g.MATH\u00a0741and742) are strongly recommended.",
+            "id": "MATH 746",
             "parent": "MATH"
         }
     }

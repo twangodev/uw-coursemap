@@ -1,9 +1,15 @@
 [
     {
         "data": {
-            "description": "A review of English grammar through intensive written and oral practice to promote accurate and appropriate language use for students who have already studied grammar extensively and need to refine the ability to produce acceptable academic English. Not open to auditors",
-            "id": "ESL 115",
+            "description": "Workshop approached to writing students' fields, including dissertations, articles and research reports. Also covers general writing skills, documentation and genre-specific styles. Not open to auditors",
+            "id": "ESL 350",
             "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "id": "ESL",
+            "type": "compound"
         }
     },
     {
@@ -21,25 +27,6 @@
     },
     {
         "data": {
-            "source": "ESL 117",
-            "target": "ESL 118"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques for improvement of the pronunciation of American English for non-native speakers of English. Not open to auditors",
-            "id": "ESL 345",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "id": "ESL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "description": "Focuses on the communication skills, classroom culture, and teaching strategies essential for effective classroom teaching at an American university. Not open to auditors",
             "id": "ESL 370",
             "parent": "ESL"
@@ -47,61 +34,14 @@
     },
     {
         "data": {
-            "source": "ESL 115",
-            "target": "ESL 116"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral communication and presentation skills essential for participation in seminars, conferences, and other academic and professional settings. Not open to auditors",
-            "id": "ESL 344",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "description": "Practice in formal and informal communication skills, including listening comprehension, pronunciation, and conversational and presentation skills useful in an academic setting. Not open to auditors",
-            "id": "ESL 343",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "source": "ESL 118",
-            "target": "ESL 200"
+            "source": "ESL 117",
+            "target": "ESL 118"
         }
     },
     {
         "data": {
             "description": "Improvement of listening, speaking, reading, writing and grammar skills that are essential in an academic setting. Introduction to the expectations for an undergraduate at a U.S. university.",
             "id": "ESL 113",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic elements of academic writing, emphasizing improved fluency and accuracy, paragraph structure, summarizing and paraphrasing, short essays, and a final research project. Not open to auditors.",
-            "id": "ESL 117",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "source": "ESL 116",
-            "target": "ESL 117"
-        }
-    },
-    {
-        "data": {
-            "description": "Listening, speaking, reading, and writing skills for nonnative speakers of English; academically oriented. Not open to auditors",
-            "id": "ESL 110",
-            "parent": "ESL"
-        }
-    },
-    {
-        "data": {
-            "description": "Academic writing, critical reading and argumentation, documentation, and style and organization of research papers; oral communication skills for effective class participation and presentations. Not open to auditors.",
-            "id": "ESL 118",
             "parent": "ESL"
         }
     },
@@ -114,16 +54,28 @@
     },
     {
         "data": {
-            "description": "Workshop approached to writing students' fields, including dissertations, articles and research reports. Also covers general writing skills, documentation and genre-specific styles. Not open to auditors",
-            "id": "ESL 350",
+            "source": "ESL 118",
+            "target": "ESL 200"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques for improvement of the pronunciation of American English for non-native speakers of English. Not open to auditors",
+            "id": "ESL 345",
             "parent": "ESL"
         }
     },
     {
         "data": {
-            "description": "Practice in informal and formal English communication skills essential in academic and professional settings, including formal presentations, discussions, and interviews.",
-            "id": "ESL 200",
+            "description": "Listening, speaking, reading, and writing skills for nonnative speakers of English; academically oriented. Not open to auditors",
+            "id": "ESL 110",
             "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "source": "ESL 116",
+            "target": "ESL 117"
         }
     },
     {
@@ -142,9 +94,57 @@
     },
     {
         "data": {
+            "description": "Oral communication and presentation skills essential for participation in seminars, conferences, and other academic and professional settings. Not open to auditors",
+            "id": "ESL 344",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic elements of academic writing, emphasizing improved fluency and accuracy, paragraph structure, summarizing and paraphrasing, short essays, and a final research project. Not open to auditors.",
+            "id": "ESL 117",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "description": "Practice in formal and informal communication skills, including listening comprehension, pronunciation, and conversational and presentation skills useful in an academic setting. Not open to auditors",
+            "id": "ESL 343",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "description": "Academic writing, critical reading and argumentation, documentation, and style and organization of research papers; oral communication skills for effective class participation and presentations. Not open to auditors.",
+            "id": "ESL 118",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
             "description": "Aspects of research writing, including data presentation, literature review, summarizing, critical summarizing, and discussion. Grammar and editing skills are also emphasized. Not open to auditors",
             "id": "ESL 349",
             "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "description": "Practice in informal and formal English communication skills essential in academic and professional settings, including formal presentations, discussions, and interviews.",
+            "id": "ESL 200",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "description": "A review of English grammar through intensive written and oral practice to promote accurate and appropriate language use for students who have already studied grammar extensively and need to refine the ability to produce acceptable academic English. Not open to auditors",
+            "id": "ESL 115",
+            "parent": "ESL"
+        }
+    },
+    {
+        "data": {
+            "source": "ESL 115",
+            "target": "ESL 116"
         }
     }
 ]

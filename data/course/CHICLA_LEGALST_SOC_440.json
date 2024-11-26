@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 440,
         "subjects": [
-            "CHICLA",
             "SOC",
+            "CHICLA",
             "LEGALST"
         ]
     },
@@ -161,16 +161,26 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 140,
+                "course_number": 210,
                 "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "CHICLA"
                 ]
             },
             {
-                "course_number": 181,
+                "course_number": 211,
                 "subjects": [
-                    "SOC"
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ASIANAM",
+                    "AMERIND",
+                    "CHICLA",
+                    "AFROAMER",
+                    "FOLKLORE"
                 ]
             },
             {
@@ -188,13 +198,6 @@
                 ]
             },
             {
-                "course_number": 217,
-                "subjects": [
-                    "LEGALST",
-                    "POLISCI"
-                ]
-            },
-            {
                 "course_number": 131,
                 "subjects": [
                     "SOC",
@@ -202,32 +205,15 @@
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 140,
                 "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "SOC",
+                    "C&ESOC"
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 181,
                 "subjects": [
-                    "CHICLA"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "CHICLA",
-                    "AMERIND",
-                    "AFROAMER",
-                    "ASIANAM",
-                    "FOLKLORE"
-                ]
-            },
-            {
-                "course_number": 211,
-                "subjects": [
-                    "C&ESOC",
                     "SOC"
                 ]
             },
@@ -236,6 +222,20 @@
                 "subjects": [
                     "CHICLA",
                     "POLISCI"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "LEGALST",
+                    "POLISCI"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "SOC",
+                    "C&ESOC"
                 ]
             }
         ],

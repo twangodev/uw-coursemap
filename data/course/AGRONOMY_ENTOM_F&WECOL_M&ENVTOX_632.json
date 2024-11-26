@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 632,
         "subjects": [
-            "AGRONOMY",
-            "M&ENVTOX",
             "F&WECOL",
-            "ENTOM"
+            "AGRONOMY",
+            "ENTOM",
+            "M&ENVTOX"
         ]
     },
     "course_title": "ECOTOXICOLOGY: THE CHEMICAL PLAYERS",
@@ -16,9 +16,9 @@
             {
                 "course_number": 152,
                 "subjects": [
+                    "ZOOLOGY",
                     "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
+                    "BOTANY"
                 ]
             }
         ],
@@ -27,12 +27,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 130,
                 "subjects": [
                     "BOTANY",
@@ -40,10 +34,11 @@
                 ]
             },
             {
-                "course_number": 102,
+                "course_number": 152,
                 "subjects": [
+                    "ZOOLOGY",
                     "BIOLOGY",
-                    "ZOOLOGY"
+                    "BOTANY"
                 ]
             },
             {
@@ -53,11 +48,16 @@
                 ]
             },
             {
-                "course_number": 152,
+                "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {

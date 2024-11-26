@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 574,
         "subjects": [
-            "ISYE",
-            "NE"
+            "NE",
+            "ISYE"
         ]
     },
     "course_title": "METHODS FOR PROBABILISTIC RISK ANALYSIS OF NUCLEAR POWER PLANTS",
@@ -178,6 +178,13 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 311,
                 "subjects": [
                     "STAT"
@@ -190,17 +197,10 @@
                 ]
             },
             {
-                "course_number": 309,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 431,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

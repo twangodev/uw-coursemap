@@ -3,9 +3,9 @@
         "course_number": 367,
         "subjects": [
             "AGRONOMY",
-            "HORT",
             "PLPATH",
-            "AAE"
+            "AAE",
+            "HORT"
         ]
     },
     "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
@@ -96,8 +96,8 @@
                 "course_number": 103,
                 "subjects": [
                     "AGRONOMY",
-                    "AGROECOL",
                     "ENVIRST",
+                    "AGROECOL",
                     "C&ESOC",
                     "ENTOM"
                 ]
@@ -108,32 +108,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 222,
-                "subjects": [
-                    "C&ESOC",
-                    "SOC"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "AGRONOMY",
-                    "AGROECOL",
-                    "ENVIRST",
-                    "C&ESOC",
-                    "ENTOM"
-                ]
-            },
-            {
                 "course_number": 120,
                 "subjects": [
                     "HORT"
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 222,
                 "subjects": [
-                    "AGRONOMY"
+                    "SOC",
+                    "C&ESOC"
                 ]
             },
             {
@@ -141,6 +125,22 @@
                 "subjects": [
                     "BOTANY",
                     "PLPATH"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "AGRONOMY",
+                    "ENVIRST",
+                    "AGROECOL",
+                    "C&ESOC",
+                    "ENTOM"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "AGRONOMY"
                 ]
             }
         ],

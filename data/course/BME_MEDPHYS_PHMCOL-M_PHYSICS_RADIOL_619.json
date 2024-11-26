@@ -2,11 +2,11 @@
     "course_reference": {
         "course_number": 619,
         "subjects": [
-            "BME",
             "RADIOL",
             "MEDPHYS",
+            "PHYSICS",
             "PHMCOL-M",
-            "PHYSICS"
+            "BME"
         ]
     },
     "course_title": "MICROSCOPY OF LIFE",
@@ -17,8 +17,8 @@
             {
                 "course_number": 265,
                 "subjects": [
-                    "MEDPHYS",
-                    "PHYSICS"
+                    "PHYSICS",
+                    "MEDPHYS"
                 ]
             }
         ],
@@ -27,21 +27,14 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 248,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 265,
+                "course_number": 202,
                 "subjects": [
-                    "MEDPHYS",
                     "PHYSICS"
                 ]
             },
@@ -49,6 +42,13 @@
                 "course_number": 208,
                 "subjects": [
                     "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 265,
+                "subjects": [
+                    "PHYSICS",
+                    "MEDPHYS"
                 ]
             },
             {

@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 343,
         "subjects": [
-            "ECON",
+            "AAE",
             "ENVIRST",
-            "AAE"
+            "ECON"
         ]
     },
     "course_title": "ENVIRONMENTAL ECONOMICS",
@@ -578,6 +578,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "AAE"
+                ]
+            },
+            {
                 "course_number": 111,
                 "subjects": [
                     "ECON"
@@ -587,12 +593,6 @@
                 "course_number": 101,
                 "subjects": [
                     "ECON"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "AAE"
                 ]
             }
         ],

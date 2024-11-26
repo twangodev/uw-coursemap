@@ -1,86 +1,40 @@
 [
     {
         "data": {
-            "id": "CHEM",
+            "id": "AGRONOMY",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Topical oral presentations by guest speakers and graduate students on contemporary concerns and issues involving land and soils.",
-            "id": "SOILSCI 728",
+            "description": "Conforms to the guidelines covered under the Occupational Safety and Health Administration (OSHA) standard 29 CFR part 1910.120 for providing Hazardous Wasted Operations and Emergency Response (HAZWOPER) 40-hour certification, required for workers involved in clean-up operations, voluntary clean-up operations, emergency response operations, and the storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. Beyond satisfying OSHA standards, provides safety training for personnel conducting field sampling operations in proximity of heavy equipment (e.g. excavators, drilling rigs, dump trucks) through guest lectures and videos. Additionally, case studies relating to field safety operations will be examined.",
+            "id": "SOILSCI 330",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "description": "Introduce standard operating procedures and guidance for intrusive and non-intrusive sampling techniques for assessing soil, sediment, surface water, and ground water. Prepare boring logs and install groundwater monitoring well.  Properly prepare samples for preservation and shipment. Prepare and maintain defensible field documentation. Use quality control sampling, data verification and validation, and data quality assessment. Decontaminate drilling and field sampling equipment and manage investigative-derived waste.",
-            "id": "SOILSCI 630",
+            "description": "A overview of the soils of the world and the grand environmental challenges that face humanity. Soils of the USA and Wisconsin included.",
+            "id": "SOILSCI 131",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
-            "id": "GEOG/SOILSCI 525"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
-            "id": "MICROBIO 303",
-            "parent": "MICROBIO"
+            "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
+            "id": "BOTANY/HORT/SOILSCI 626"
         }
     },
     {
         "data": {
-            "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
-            "id": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
-        }
-    },
-    {
-        "data": {
-            "description": "An internship under guidance of a Soil Science faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Soil Science faculty or instructional academic staff member and the internship site supervisor.",
-            "id": "SOILSCI 399",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation of 681.",
-            "id": "SOILSCI 682",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores long and short-term cycles of carbon, nitrogen, phosphorus, sulfur, and metals as well as water and energy cycles between water, the atmosphere, terrestrial vegetation, and soils. Emphasizes the linkage between terrestrial vegetation and soils across global biomes for managed and unmanaged ecosystems. Investigates biogeochemical processes through their biochemical constituents, conceptual models and exploration of isotopic and chemical data. Provides a practical understanding of the interactions between components and fluxes of terrestrial ecosystems and how data is developed and employed.",
-            "id": "F&WECOL/SOILSCI 451"
-        }
-    },
-    {
-        "data": {
-            "description": "Soil represents the largest terrestrial pool of carbon, and our management of soil will play a key role in the future of our planet. Course topics include overviews of basic soil science and climate change science; how climate affects soil formation, soil carbon and soil organic matter; soil carbon dynamics in urban areas, the tropics, and the arctic; how humans\u00a0influence soil carbon stocks around the globe.",
-            "id": "SOILSCI 211",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Data science techniques are increasingly important in soil and environmental science, improving the efficiency and repeatability of data analysis and enhancing fundamental understanding of soil and environmental issues. Various R packages will be introduced and used to analyze and process soil and environmental data collected using a variety of in situ, ground-based, and remote sensing platforms. R software will be applied to detailed case studies covering soil and environmental data processing, manipulation, and modeling.",
-            "id": "SOILSCI 585",
+            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "SOILSCI 799",
             "parent": "SOILSCI"
         }
     },
@@ -92,14 +46,65 @@
     },
     {
         "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
+            "description": "An introduction to natural environmental systems, emphasizing the interconnections between the systems of the solid earth (minerals, rocks, soils), the hydrosphere (water in all its forms), the biosphere, and the atmosphere. Emphasizes connections between basic concepts and specific environmental issues through hands-on case studies, lab projects, and field trips to collect samples and observations for lab projects.",
+            "id": "ENVIRST/GEOG 127"
         }
     },
     {
         "data": {
-            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
-            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 472"
+            "source": "ENVIRST/GEOG 120",
+            "target": "ENVIRST/GEOG 127"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on contemporary issues relevant to soil science.",
+            "id": "SOILSCI 875",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
+            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Soil represents the largest terrestrial pool of carbon, and our management of soil will play a key role in the future of our planet. Course topics include overviews of basic soil science and climate change science; how climate affects soil formation, soil carbon and soil organic matter; soil carbon dynamics in urban areas, the tropics, and the arctic; how humans\u00a0influence soil carbon stocks around the globe.",
+            "id": "SOILSCI 211",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
+            "id": "ENVIRST/LANDARC/SOILSCI 695"
+        }
+    },
+    {
+        "data": {
+            "description": "Design, implementation and use of automated procedures for storage, analysis and display of spatial information. Covers data bases, information manipulation and display techniques, software systems and management issues. Case studies.",
+            "id": "CIVENGR/ENVIRST/GEOG 377"
+        }
+    },
+    {
+        "data": {
+            "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
+            "id": "ENVIRST/GEOG/SOILSCI 230"
         }
     },
     {
@@ -110,192 +115,15 @@
     },
     {
         "data": {
-            "description": "Topical oral presentations by students, faculty, staff, and guest speakers on contemporary concerns and issues designed to increase knowledge and foster understanding of environmental contamination and remediation of soils and groundwater. Includes instruction and practice in public speaking, presentation visuals, resumes, and networking.",
-            "id": "SOILSCI 730",
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Data science techniques are increasingly important in soil and environmental science, improving the efficiency and repeatability of data analysis and enhancing fundamental understanding of soil and environmental issues. Various R packages will be introduced and used to analyze and process soil and environmental data collected using a variety of in situ, ground-based, and remote sensing platforms. R software will be applied to detailed case studies covering soil and environmental data processing, manipulation, and modeling.",
+            "id": "SOILSCI 585",
             "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO 303",
-            "target": "MICROBIO/SOILSCI 425"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOG 120",
-            "target": "GEOG/SOILSCI 526"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research and writing to complete dissertation requirements.",
-            "id": "SOILSCI 990",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "SOILSCI 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Takes an earth systems approach to explore the role of human societies in shaping earth surface processes from local to global scales. We address how alterations to our landscapes and waterways affect biological, physical and chemical interactions among our biosphere, geosphere, hydrosphere and atmosphere. We discuss methods used to distinguish the \"human impact\" from background variability.",
-            "id": "GEOG/SOILSCI 526"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential and beneficial elements, solutions and soil as nutrient sources, rhizosphere chemistry, nutritional physiology, ion uptake and translocation, functions of elements, nutrient interactions, genetics of plant nutrition.",
-            "id": "BOTANY/HORT/SOILSCI 626"
-        }
-    },
-    {
-        "data": {
-            "id": "STAT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for majors completing theses for Soil Science degrees as arranged with a faculty member. Requires consent of supervising instructor.",
-            "id": "SOILSCI 699",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MICROBIO/SOILSCI 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Lectures and discussions about environmental issues. Historical and contemporary environmental impacts of humans on the biosphere. Global futures: population, technology, societal values, resources and prospects for sustainable management.",
-            "id": "ENVIRST/SOILSCI 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "AGRONOMY/ATMOCN/SOILSCI 532"
-        }
-    },
-    {
-        "data": {
-            "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "SOILSCI 299",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "SOILSCI 301",
-            "target": "ENVIRST/GEOG/SOILSCI 230"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Sources, reactions, transport, effects, and fates of chemical species in soils and associated water and air environments. Emphasis on the chemical behavior of elements and compounds and the phenomena affecting natural and anthropogenic materials in soils.",
-            "id": "SOILSCI 321",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "On-site treatment and dispersal of waste water from homes, commercial sources and small communities. Sources, pretreatment units, nutrient removal units, constructed wetlands, surface and soil dispersal systems, recycle and reuse systems, regulations, alternative collection systems.",
-            "id": "BSE/CIVENGR/SOILSCI 372"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO/SOILSCI 523",
-            "target": "CIVENGR/SOILSCI 623"
-        }
-    },
-    {
-        "data": {
-            "description": "Discuss how Planet Earth is an interconnected system dominated by the ever-present exchange of materials and energy that control the fitness and fate of all living organisms. Designed to introduce the interdisciplinary field of Environmental Science by providing a broad overview of the basic concepts used to make sense of the environment. Explore how natural systems work, the services they provide, important environmental challenges facing these systems, and how people are working to address them. Includes professionals in the field as guest speakers to discuss a future in Environmental Sciences.",
-            "id": "SOILSCI 250",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CIVENGR/M&ENVTOX/SOILSCI 631"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for majors completing theses for Soil Science Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
-            "id": "SOILSCI 681",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Transformations of nutrients and contaminants in soils and groundwater by microorganisms: emphasis on enzymatic mechanisms and metabolic pathways. Approaches for analyzing microbial populations and activities including molecular techniques. Applications of microbial activities for bioremediation of contaminated soils and groundwater. Students should have completed one course in either Soil Science or Microbiology to feel comfortable with the course content.",
-            "id": "MICROBIO/SOILSCI 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-            "id": "SOILSCI 400",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "BSE/CIVENGR/SOILSCI 372"
-        }
-    },
-    {
-        "data": {
-            "description": "Interaction of soils with environmental contaminants and the role of soils in pollution control.",
-            "id": "ENVIRST/SOILSCI 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
-            "id": "AGRONOMY/HORT/SOILSCI 326"
-        }
-    },
-    {
-        "data": {
-            "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
-            "id": "HORT/SOILSCI 332"
         }
     },
     {
@@ -307,51 +135,20 @@
     },
     {
         "data": {
-            "source": "ANSCI/DYSCI/FOODSCI/SOILSCI 472",
-            "target": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOG/SOILSCI 230",
-            "target": "F&WECOL/HORT/SOILSCI 524"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Microbial interactions in soils, water, extreme environments and biofilms. Modern methods for studying microbial ecology. role of microbes in nutrient cycles and biogeochemistry. Use of microbes for mitigating manmade environmental problems of industrial, agricultural, and domestic origin.",
-            "id": "MICROBIO/SOILSCI 425"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOG 120",
-            "target": "ENVIRST/GEOG 127"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to natural environmental systems, emphasizing the interconnections between the systems of the solid earth (minerals, rocks, soils), the hydrosphere (water in all its forms), the biosphere, and the atmosphere. Emphasizes connections between basic concepts and specific environmental issues through hands-on case studies, lab projects, and field trips to collect samples and observations for lab projects.",
-            "id": "ENVIRST/GEOG 127"
-        }
-    },
-    {
-        "data": {
             "description": "Many environmental issues related to urbanization are derived from the manipulation of soil. By coupling contemporary literature in urban soils with soil science, students will be able to evaluate environmental issues within the urban environment and provide new ways of remediating their impact.",
             "id": "F&WECOL/HORT/SOILSCI 524"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "id": "MICROBIO",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to how the Earth system works and what makes Earth livable. Gain appreciation for how the atmosphere, oceans, life, and earth's surface interact to shape our local, regional and global landscapes.",
+            "id": "ENVIRST/GEOG 120"
         }
     },
     {
@@ -363,52 +160,28 @@
     },
     {
         "data": {
-            "description": "Characterization of a soil in the field. Monitoring water flow, heat exchange, solute transport and greenhouse gas emission using soil physical models and state-of-the-art soil sensing technologies.",
-            "id": "SOILSCI 327",
+            "description": "Lectures and discussions about environmental issues. Historical and contemporary environmental impacts of humans on the biosphere. Global futures: population, technology, societal values, resources and prospects for sustainable management.",
+            "id": "ENVIRST/SOILSCI 101"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a Soil Science faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Soil Science faculty or instructional academic staff member and the internship site supervisor.",
+            "id": "SOILSCI 399",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "MICROBIO 303"
-        }
-    },
-    {
-        "data": {
-            "id": "AGRONOMY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers how to develop a publishable systematic review for dissertations and professional work. Understand the distinguishing features of systematic review typologies and apply this understanding to selecting and conducting systematic reviews applicable to a variety of research questions in agricultural sciences.",
-            "id": "SOILSCI 710",
+            "description": "Environmental pollution on global, regional, and local scales is one of humanity's most pressing issues, and will remain so for the foreseeable future. Examine the sources and properties of anthropogenic soil pollution including emerging contaminants such as PFAS, nanomaterials, microplastics. Apply the principles of soil science to understand the transport, mobilization, and partitioning of contaminants in soil and, in turn, how these contaminants affect ecosystem and human health. Through industry guest lecturers and case studies discuss methods to solve issues of soil contamination.",
+            "id": "SOILSCI 430",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "source": "CIVENGR/ENVIRST/GEOG 377",
-            "target": "ENVIRST/LANDARC/SOILSCI 695"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOG/SOILSCI 230",
-            "target": "SOILSCI 327"
-        }
-    },
-    {
-        "data": {
-            "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
-            "id": "AGRONOMY/ATMOCN/SOILSCI 532"
+            "description": "Transformations of nutrients and contaminants in soils and groundwater by microorganisms: emphasis on enzymatic mechanisms and metabolic pathways. Approaches for analyzing microbial populations and activities including molecular techniques. Applications of microbial activities for bioremediation of contaminated soils and groundwater. Students should have completed one course in either Soil Science or Microbiology to feel comfortable with the course content.",
+            "id": "MICROBIO/SOILSCI 523"
         }
     },
     {
@@ -420,27 +193,15 @@
     },
     {
         "data": {
-            "description": "A capstone applying independent and team problem solving, critical thinking and oral and written communication skills to issues in soil and environmental sciences.",
-            "id": "SOILSCI 499",
+            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+            "id": "SOILSCI 400",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "SOILSCI 621"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; and the role of women in agriculture and the role of dairy products in a healthy diet.",
-            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
-        }
-    },
-    {
-        "data": {
-            "description": "Soils are fundamental to ecosystem science. A systems approach is used to investigate how soils look and function. Topics investigated include soil structure, biology, water, fertility, and taxonomy as well as the human impact on the soil environment.",
-            "id": "ENVIRST/GEOG/SOILSCI 230"
+            "description": "Nature, sources, distribution, and fate of contaminants in air, water, soil, and food and potential for harmful exposure.",
+            "id": "CIVENGR/M&ENVTOX/SOILSCI 631"
         }
     },
     {
@@ -457,33 +218,94 @@
     },
     {
         "data": {
-            "id": "MICROBIO",
-            "type": "compound"
+            "source": "CHEM 104",
+            "target": "SOILSCI 321"
         }
     },
     {
         "data": {
-            "description": "An in-depth look at plant growth, development, respiration, photosynthesis, mineral nutrition, and water relations. Experimental approaches will be used to demonstrate principles described.",
-            "id": "BOTANY 500",
-            "parent": "BOTANY"
+            "description": "Physical properties of soils. Water retention and transmission in soils. Transport of heat, gas, and solutes. Physical environment of soil organisms and soil-plant-water relations.",
+            "id": "SOILSCI 622",
+            "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
-            "id": "ENVIRST/LANDARC/SOILSCI 695"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
         }
     },
     {
         "data": {
-            "description": "Nature, sources, distribution, and fate of contaminants in air, water, soil, and food and potential for harmful exposure.",
-            "id": "CIVENGR/M&ENVTOX/SOILSCI 631"
+            "source": "STAT 371",
+            "target": "SOILSCI 585"
         }
     },
     {
         "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "AGRONOMY/ATMOCN/SOILSCI 532"
+        }
+    },
+    {
+        "data": {
+            "source": "BOTANY 500",
+            "target": "BOTANY/HORT/SOILSCI 626"
+        }
+    },
+    {
+        "data": {
+            "description": "On-site treatment and dispersal of waste water from homes, commercial sources and small communities. Sources, pretreatment units, nutrient removal units, constructed wetlands, surface and soil dispersal systems, recycle and reuse systems, regulations, alternative collection systems.",
+            "id": "BSE/CIVENGR/SOILSCI 372"
+        }
+    },
+    {
+        "data": {
+            "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
+            "id": "PLPATH/SOILSCI 323"
+        }
+    },
+    {
+        "data": {
+            "description": "Source, environmental fate and transport of major groups of waterborne pathogens, including epidemiology and testing of associated indicator organism. Management and treatment technologies for prevention of pathogen transmission.",
+            "id": "CIVENGR/SOILSCI 623"
+        }
+    },
+    {
+        "data": {
+            "source": "AGRONOMY/HORT/SOILSCI 326",
+            "target": "HORT/SOILSCI 332"
+        }
+    },
+    {
+        "data": {
+            "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
+            "id": "AGRONOMY/HORT/SOILSCI 326"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
+            "id": "MICROBIO 303",
+            "parent": "MICROBIO"
+        }
+    },
+    {
+        "data": {
+            "description": "Plant-environment interactions with particular reference to energy exchanges and water relations. Models are used to provide a quantitative synthesis of information from plant physiology, soil physics, and micrometeorology with some consideration of plant-pest interactions.",
+            "id": "AGRONOMY/ATMOCN/SOILSCI 532"
+        }
+    },
+    {
+        "data": {
+            "source": "ENVIRST/GEOG 127",
+            "target": "ENVIRST/GEOG 120"
         }
     },
     {
@@ -495,69 +317,52 @@
     },
     {
         "data": {
-            "source": "CHEM 103",
-            "target": "SOILSCI 301"
-        }
-    },
-    {
-        "data": {
             "id": "SOILSCI",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "SOILSCI 321"
-        }
-    },
-    {
-        "data": {
-            "description": "Design, implementation and use of automated procedures for storage, analysis and display of spatial information. Covers data bases, information manipulation and display techniques, software systems and management issues. Case studies.",
-            "id": "CIVENGR/ENVIRST/GEOG 377"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics on contemporary issues relevant to soil science.",
-            "id": "SOILSCI 375",
+            "description": "Sources, reactions, transport, effects, and fates of chemical species in soils and associated water and air environments. Emphasis on the chemical behavior of elements and compounds and the phenomena affecting natural and anthropogenic materials in soils.",
+            "id": "SOILSCI 321",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BOTANY 500"
+            "source": "CHEM 115",
+            "target": "SOILSCI 430"
         }
     },
     {
         "data": {
-            "source": "SOILSCI 301",
-            "target": "SOILSCI 302"
+            "source": "ANSCI/DYSCI/FOODSCI/SOILSCI 472",
+            "target": "ANSCI/DYSCI/FOODSCI/SOILSCI 473"
         }
     },
     {
         "data": {
-            "source": "STAT 371",
-            "target": "SOILSCI 585"
+            "source": "ENVIRST/GEOG/SOILSCI 230",
+            "target": "SOILSCI 327"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "F&WECOL/SOILSCI 451"
+            "description": "Characterization of a soil in the field. Monitoring water flow, heat exchange, solute transport and greenhouse gas emission using soil physical models and state-of-the-art soil sensing technologies.",
+            "id": "SOILSCI 327",
+            "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
-            "id": "AGRONOMY/BOTANY/SOILSCI 370"
+            "id": "BOTANY",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Special topics on contemporary issues relevant to soil science.",
-            "id": "SOILSCI 875",
+            "description": "Independent research and writing to complete dissertation requirements.",
+            "id": "SOILSCI 990",
             "parent": "SOILSCI"
         }
     },
@@ -569,44 +374,42 @@
     },
     {
         "data": {
-            "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
-            "id": "PLPATH/SOILSCI 323"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOG 127",
-            "target": "ENVIRST/GEOG 120"
-        }
-    },
-    {
-        "data": {
-            "source": "SOILSCI 301",
-            "target": "AGRONOMY/HORT/SOILSCI 326"
-        }
-    },
-    {
-        "data": {
             "source": "CHEM 104",
-            "target": "ENVIRST/SOILSCI 324"
+            "target": "SOILSCI 621"
         }
     },
     {
         "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
+            "description": "Plant science applied to the growth, production, management, distribution and utilization of field crops.",
+            "id": "AGRONOMY 100",
+            "parent": "AGRONOMY"
         }
     },
     {
         "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers how to develop a publishable systematic review for dissertations and professional work. Understand the distinguishing features of systematic review typologies and apply this understanding to selecting and conducting systematic reviews applicable to a variety of research questions in agricultural sciences.",
+            "id": "SOILSCI 710",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "A capstone applying independent and team problem solving, critical thinking and oral and written communication skills to issues in soil and environmental sciences.",
+            "id": "SOILSCI 499",
+            "parent": "SOILSCI"
         }
     },
     {
@@ -618,53 +421,54 @@
     },
     {
         "data": {
-            "description": "Conforms to the guidelines covered under the Occupational Safety and Health Administration (OSHA) standard 29 CFR part 1910.120 for providing Hazardous Wasted Operations and Emergency Response (HAZWOPER) 40-hour certification, required for workers involved in clean-up operations, voluntary clean-up operations, emergency response operations, and the storage, disposal, or treatment of hazardous substances or uncontrolled hazardous waste sites. Beyond satisfying OSHA standards, provides safety training for personnel conducting field sampling operations in proximity of heavy equipment (e.g. excavators, drilling rigs, dump trucks) through guest lectures and videos. Additionally, case studies relating to field safety operations will be examined.",
-            "id": "SOILSCI 330",
+            "description": "Discuss how Planet Earth is an interconnected system dominated by the ever-present exchange of materials and energy that control the fitness and fate of all living organisms. Designed to introduce the interdisciplinary field of Environmental Science by providing a broad overview of the basic concepts used to make sense of the environment. Explore how natural systems work, the services they provide, important environmental challenges facing these systems, and how people are working to address them. Includes professionals in the field as guest speakers to discuss a future in Environmental Sciences.",
+            "id": "SOILSCI 250",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
+            "description": "Individual study for majors completing theses for Soil Science Honors degrees as arranged with a faculty member. Requires consent of supervising instructor. Enrolled in CALS Honors Program.",
+            "id": "SOILSCI 681",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines issues related to global agriculture and healthy sustainable development. Using a regional approach and focusing on crops and livestock case studies, students will learn the interdependence between US agriculture and agriculture in emerging economies. Some topics covered include population and food, immigration, the environment; crop and livestock agriculture; global trade; sustainability; food security, the role of women in agriculture, and the role of dairy products in a healthy diet.",
+            "id": "ANSCI/DYSCI/FOODSCI/SOILSCI 472"
+        }
+    },
+    {
+        "data": {
+            "description": "Nutrient requirements of turfgrasses; nature of turfgrass response to fertilization; soil and tissue testing methodology and interpretation; irrigation scheduling; irrigation water quality; use of irrigation and fertilizer to minimize environmental impact; writing effective nutrient management plans.",
+            "id": "HORT/SOILSCI 332"
+        }
+    },
+    {
+        "data": {
+            "source": "ENVIRST/GEOG/SOILSCI 230",
+            "target": "F&WECOL/HORT/SOILSCI 524"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for majors completing theses for Soil Science degrees as arranged with a faculty member. Requires consent of supervising instructor.",
+            "id": "SOILSCI 699",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
             "parent": "CHEM"
         }
     },
     {
         "data": {
-            "id": "BOTANY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "AGRONOMY/HORT/SOILSCI 326",
-            "target": "HORT/SOILSCI 332"
-        }
-    },
-    {
-        "data": {
-            "description": "Source, environmental fate and transport of major groups of waterborne pathogens, including epidemiology and testing of associated indicator organism. Management and treatment technologies for prevention of pathogen transmission.",
-            "id": "CIVENGR/SOILSCI 623"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in various areas of soil science.",
-            "id": "SOILSCI 601",
-            "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "A overview of the soils of the world and the grand environmental challenges that face humanity. Soils of the USA and Wisconsin included.",
-            "id": "SOILSCI 131",
+            "description": "Topical oral presentations by guest speakers and graduate students on contemporary concerns and issues involving land and soils.",
+            "id": "SOILSCI 728",
             "parent": "SOILSCI"
         }
     },
@@ -677,21 +481,131 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "CIVENGR/ENVIRST/GEOG 377",
+            "target": "ENVIRST/LANDARC/SOILSCI 695"
         }
     },
     {
         "data": {
-            "description": "Environmental pollution on global, regional, and local scales is one of humanity's most pressing issues, and will remain so for the foreseeable future. Examine the sources and properties of anthropogenic soil pollution including emerging contaminants such as PFAS, nanomaterials, microplastics. Apply the principles of soil science to understand the transport, mobilization, and partitioning of contaminants in soil and, in turn, how these contaminants affect ecosystem and human health. Through industry guest lecturers and case studies discuss methods to solve issues of soil contamination.",
-            "id": "SOILSCI 430",
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "MICROBIO 303"
+        }
+    },
+    {
+        "data": {
+            "source": "MICROBIO 303",
+            "target": "MICROBIO/SOILSCI 425"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "MICROBIO/SOILSCI 523"
+        }
+    },
+    {
+        "data": {
+            "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+            "id": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "BSE/CIVENGR/SOILSCI 372"
+        }
+    },
+    {
+        "data": {
+            "source": "SOILSCI 301",
+            "target": "SOILSCI 302"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation of 681.",
+            "id": "SOILSCI 682",
             "parent": "SOILSCI"
         }
     },
     {
         "data": {
-            "source": "BOTANY 500",
-            "target": "BOTANY/HORT/SOILSCI 626"
+            "description": "Soil development as related to landscape throughout the Quaternary; focusing on the relationship of soils to climate and vegetation, landscape evolution, and time; principles of soil stratigraphy; case histories of soil geomorphic studies; field trips. Students should have completed one course in geomorphology to feel comfortable with the course content.",
+            "id": "GEOG/SOILSCI 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Interaction of soils with environmental contaminants and the role of soils in pollution control.",
+            "id": "ENVIRST/SOILSCI 324"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "F&WECOL/SOILSCI 451"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CIVENGR/M&ENVTOX/SOILSCI 631"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Understand factors driving global, continental, regional, and local distribution of grasslands. Discuss how management affects provision of grassland ecosystem goods and services. Compare and contrast plant community and ecosystem dynamics in native prairie and intensively managed pastures.",
+            "id": "AGRONOMY/BOTANY/SOILSCI 370"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "SOILSCI 301",
+            "target": "AGRONOMY/HORT/SOILSCI 326"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "SOILSCI 301"
+        }
+    },
+    {
+        "data": {
+            "description": "An in-depth look at plant growth, development, respiration, photosynthesis, mineral nutrition, and water relations. Experimental approaches will be used to demonstrate principles described.",
+            "id": "BOTANY 500",
+            "parent": "BOTANY"
+        }
+    },
+    {
+        "data": {
+            "source": "ENVIRST/GEOG 120",
+            "target": "GEOG/SOILSCI 526"
         }
     },
     {
@@ -702,23 +616,15 @@
     },
     {
         "data": {
-            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "SOILSCI 799",
-            "parent": "SOILSCI"
+            "source": "MICROBIO/SOILSCI 523",
+            "target": "CIVENGR/SOILSCI 623"
         }
     },
     {
         "data": {
-            "description": "Physical properties of soils. Water retention and transmission in soils. Transport of heat, gas, and solutes. Physical environment of soil organisms and soil-plant-water relations.",
-            "id": "SOILSCI 622",
+            "description": "Introduce standard operating procedures and guidance for intrusive and non-intrusive sampling techniques for assessing soil, sediment, surface water, and ground water. Prepare boring logs and install groundwater monitoring well.  Properly prepare samples for preservation and shipment. Prepare and maintain defensible field documentation. Use quality control sampling, data verification and validation, and data quality assessment. Decontaminate drilling and field sampling equipment and manage investigative-derived waste.",
+            "id": "SOILSCI 630",
             "parent": "SOILSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Plant science applied to the growth, production, management, distribution and utilization of field crops.",
-            "id": "AGRONOMY 100",
-            "parent": "AGRONOMY"
         }
     },
     {
@@ -730,8 +636,102 @@
     },
     {
         "data": {
-            "description": "Introduction to how the Earth system works and what makes Earth livable. Gain appreciation for how the atmosphere, oceans, life, and earth's surface interact to shape our local, regional and global landscapes.",
-            "id": "ENVIRST/GEOG 120"
+            "source": "CHEM 104",
+            "target": "ENVIRST/SOILSCI 324"
+        }
+    },
+    {
+        "data": {
+            "description": "Topical oral presentations by students, faculty, staff, and guest speakers on contemporary concerns and issues designed to increase knowledge and foster understanding of environmental contamination and remediation of soils and groundwater. Includes instruction and practice in public speaking, presentation visuals, resumes, and networking.",
+            "id": "SOILSCI 730",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Microbial interactions in soils, water, extreme environments and biofilms. Modern methods for studying microbial ecology. role of microbes in nutrient cycles and biogeochemistry. Use of microbes for mitigating manmade environmental problems of industrial, agricultural, and domestic origin.",
+            "id": "MICROBIO/SOILSCI 425"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores long and short-term cycles of carbon, nitrogen, phosphorus, sulfur, and metals as well as water and energy cycles between water, the atmosphere, terrestrial vegetation, and soils. Emphasizes the linkage between terrestrial vegetation and soils across global biomes for managed and unmanaged ecosystems. Investigates biogeochemical processes through their biochemical constituents, conceptual models and exploration of isotopic and chemical data. Provides a practical understanding of the interactions between components and fluxes of terrestrial ecosystems and how data is developed and employed.",
+            "id": "F&WECOL/SOILSCI 451"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BOTANY 500"
+        }
+    },
+    {
+        "data": {
+            "description": "Takes an earth systems approach to explore the role of human societies in shaping earth surface processes from local to global scales. We address how alterations to our landscapes and waterways affect biological, physical and chemical interactions among our biosphere, geosphere, hydrosphere and atmosphere. We discuss methods used to distinguish the \"human impact\" from background variability.",
+            "id": "GEOG/SOILSCI 526"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "description": "Research work under direct guidance of a faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "SOILSCI 299",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on contemporary issues relevant to soil science.",
+            "id": "SOILSCI 375",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in various areas of soil science.",
+            "id": "SOILSCI 601",
+            "parent": "SOILSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "SOILSCI 301",
+            "target": "ENVIRST/GEOG/SOILSCI 230"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     }
 ]

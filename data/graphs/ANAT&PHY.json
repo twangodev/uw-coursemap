@@ -1,9 +1,35 @@
 [
     {
         "data": {
+            "description": "Individual work in the fields of anatomy and/or physiology will offer the opportunity to participate in more in-depth study (advanced level) under the direct guidance of anatomy and/or physiology faculty.",
+            "id": "ANAT&PHY 699",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 435",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
+            "id": "ANAT&PHY 337",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
             "description": "Takes a regional approach to cover the gross anatomy of the human body in four units: introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck. A variety of tools, including interactive software, models, and specimens, will be used.",
             "id": "ANAT&PHY 338",
             "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
         }
     },
     {
@@ -14,8 +40,33 @@
     },
     {
         "data": {
-            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
-            "id": "ANAT&PHY 335",
+            "source": "ANAT&PHY 337",
+            "target": "ANAT&PHY 338"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work in the fields of anatomy and/or physiology offers the opportunity to participate in more in-depth study (beginning to intermediate level) under the direct guidance of anatomy and/or physiology faculty.",
+            "id": "ANAT&PHY 399",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
+            "id": "ANAT&PHY 435",
             "parent": "ANAT&PHY"
         }
     },
@@ -28,66 +79,8 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
-            "id": "ANAT&PHY 435",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
-            "id": "ANAT&PHY 337",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 337",
-            "target": "ANAT&PHY 338"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work in the fields of anatomy and/or physiology offers the opportunity to participate in more in-depth study (beginning to intermediate level) under the direct guidance of anatomy and/or physiology faculty.",
-            "id": "ANAT&PHY 399",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work in the fields of anatomy and/or physiology will offer the opportunity to participate in more in-depth study (advanced level) under the direct guidance of anatomy and/or physiology faculty.",
-            "id": "ANAT&PHY 699",
-            "parent": "ANAT&PHY"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -98,8 +91,15 @@
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
+            "id": "ANAT&PHY 335",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     }
 ]

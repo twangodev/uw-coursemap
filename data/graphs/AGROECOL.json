@@ -1,8 +1,15 @@
 [
     {
         "data": {
-            "description": "Facilitated discussions on agroecology-related scholarship, policies, and practices. May include presentations on current or proposed research.",
-            "id": "AGROECOL 710",
+            "description": "Scholarship on special topics, under the supervision of an agroecology faculty member.",
+            "id": "AGROECOL 699",
+            "parent": "AGROECOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Farms may be analyzed as intentional entities shaped by the contexts in which they must operate. This course explores how these biophysical and social contexts both exert constraints and provide opportunities, leading to the diversity of farms observed.",
+            "id": "AGROECOL 701",
             "parent": "AGROECOL"
         }
     },
@@ -14,28 +21,7 @@
     },
     {
         "data": {
-            "description": "Agroecology systems provide a variety of social, economic, and ecological functions to society, each with a different network of stakeholders. This course explores methods of evaluating these diverse functions and perspectives, with a special focus on participatory approaches.",
-            "id": "AGROECOL 702",
-            "parent": "AGROECOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores in-depth agriculture systems as coupled ecological and social complexities. Examines the components of agricultural systems and analyzes how different ecological and social contexts influence and are influenced by the agricultural system. Explores and analyzes how management decisions (crop breeding, in-crop management, landscape-level, etc.) ramify to influence processes and outcomes at different levels of complexity (e.g., ecosystem, landscape, social well-being, human health, economic) and the socio-ecological tradeoffs that ensue. Develops skills to analyze how the design and implementation of integrated agricultural systems can contribute to solutions for pressing societal challenges such as climate change, biodiversity declines, unsustainable resource use and social inequality.",
-            "id": "AGROECOL 303",
-            "parent": "AGROECOL"
-        }
-    },
-    {
-        "data": {
-            "description": "A stepping stone between the classroom and society. Emphasizes integration of diverse bodies of agroecological knowledge, critical thinking, and engagement with real-world problems and current research. Topics such as: bioproducts, food systems and security, economic vitality of communities, climate change, humans and their environment, biodiversity, resource management and policy, and social equity.",
-            "id": "AGROECOL 503",
-            "parent": "AGROECOL"
-        }
-    },
-    {
-        "data": {
-            "id": "AGROECOL",
+            "id": "CROSSLISTED",
             "type": "compound"
         }
     },
@@ -62,14 +48,27 @@
     },
     {
         "data": {
+            "description": "Explores in-depth agriculture systems as coupled ecological and social complexities. Examines the components of agricultural systems and analyzes how different ecological and social contexts influence and are influenced by the agricultural system. Explores and analyzes how management decisions (crop breeding, in-crop management, landscape-level, etc.) ramify to influence processes and outcomes at different levels of complexity (e.g., ecosystem, landscape, social well-being, human health, economic) and the socio-ecological tradeoffs that ensue. Develops skills to analyze how the design and implementation of integrated agricultural systems can contribute to solutions for pressing societal challenges such as climate change, biodiversity declines, unsustainable resource use and social inequality.",
+            "id": "AGROECOL 303",
+            "parent": "AGROECOL"
+        }
+    },
+    {
+        "data": {
+            "id": "AGROECOL",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "source": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103",
             "target": "AGROECOL 303"
         }
     },
     {
         "data": {
-            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
-            "id": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103"
+            "source": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103",
+            "target": "AGROECOL 503"
         }
     },
     {
@@ -80,15 +79,8 @@
     },
     {
         "data": {
-            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-            "id": "AGROECOL 400",
-            "parent": "AGROECOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Farms may be analyzed as intentional entities shaped by the contexts in which they must operate. This course explores how these biophysical and social contexts both exert constraints and provide opportunities, leading to the diversity of farms observed.",
-            "id": "AGROECOL 701",
+            "description": "This course number provides for opportunities to develop and test possible new courses, or to accommodate visiting scholars who may wish to offer a course.",
+            "id": "AGROECOL 875",
             "parent": "AGROECOL"
         }
     },
@@ -101,27 +93,35 @@
     },
     {
         "data": {
-            "source": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103",
-            "target": "AGROECOL 503"
-        }
-    },
-    {
-        "data": {
-            "description": "Scholarship on special topics, under the supervision of an agroecology faculty member.",
-            "id": "AGROECOL 699",
+            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+            "id": "AGROECOL 400",
             "parent": "AGROECOL"
         }
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "description": "Agroecology systems provide a variety of social, economic, and ecological functions to society, each with a different network of stakeholders. This course explores methods of evaluating these diverse functions and perspectives, with a special focus on participatory approaches.",
+            "id": "AGROECOL 702",
+            "parent": "AGROECOL"
         }
     },
     {
         "data": {
-            "description": "This course number provides for opportunities to develop and test possible new courses, or to accommodate visiting scholars who may wish to offer a course.",
-            "id": "AGROECOL 875",
+            "description": "A stepping stone between the classroom and society. Emphasizes integration of diverse bodies of agroecological knowledge, critical thinking, and engagement with real-world problems and current research. Topics such as: bioproducts, food systems and security, economic vitality of communities, climate change, humans and their environment, biodiversity, resource management and policy, and social equity.",
+            "id": "AGROECOL 503",
+            "parent": "AGROECOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
+            "id": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Facilitated discussions on agroecology-related scholarship, policies, and practices. May include presentations on current or proposed research.",
+            "id": "AGROECOL 710",
             "parent": "AGROECOL"
         }
     }

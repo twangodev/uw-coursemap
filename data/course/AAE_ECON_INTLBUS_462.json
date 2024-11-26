@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 462,
         "subjects": [
-            "ECON",
             "INTLBUS",
-            "AAE"
+            "AAE",
+            "ECON"
         ]
     },
     "course_title": "LATIN AMERICAN ECONOMIC DEVELOPMENT",
@@ -274,6 +274,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "AAE"
+                ]
+            },
+            {
                 "course_number": 111,
                 "subjects": [
                     "ECON"
@@ -283,12 +289,6 @@
                 "course_number": 101,
                 "subjects": [
                     "ECON"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "AAE"
                 ]
             }
         ],

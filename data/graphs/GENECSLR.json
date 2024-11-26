@@ -8,8 +8,26 @@
     },
     {
         "data": {
-            "description": "Comprehensive overview of clinical biochemical genetics through a systematic review of classic and rare inborn errors of metabolism (IEM).  Psychosocial issues are discussed as related to care of patients, and their families, with metabolic disorders.",
-            "id": "GENECSLR 744",
+            "source": "GENECSLR 745",
+            "target": "GENECSLR 990"
+        }
+    },
+    {
+        "data": {
+            "source": "GENECSLR 743",
+            "target": "GENECSLR 748"
+        }
+    },
+    {
+        "data": {
+            "id": "GENECSLR",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Review human development (normal and abnormal) and the influence of genetic disorders and teratogens, common indications for prenatal genetic counseling as well as available prenatal diagnosis and screening techniques. Prepares the genetic counseling student for the prenatal clinical practicum.",
+            "id": "GENECSLR 742",
             "parent": "GENECSLR"
         }
     },
@@ -22,8 +40,40 @@
     },
     {
         "data": {
-            "description": "Provides opportunities to develop skills in interviewing, data collection, case management and counseling through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
-            "id": "GENECSLR 713",
+            "description": "Integrative introduction to the mechanisms of clinical genetic disease at the molecular, individual and population level.",
+            "id": "GENECSLR 721",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "source": "GENECSLR 721",
+            "target": "GENECSLR 740"
+        }
+    },
+    {
+        "data": {
+            "source": "GENECSLR 813",
+            "target": "GENECSLR 814"
+        }
+    },
+    {
+        "data": {
+            "source": "GENECSLR 713",
+            "target": "GENECSLR 714"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in the discipline of genetic counseling. Emphasis will be on advanced practice topics including setting boundaries, delivering life altering news, developing a socially responsible practice, moving from a novice to master counselor, and the job search.",
+            "id": "GENECSLR 748",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced practicum experience consisting of participatory fieldwork experiences in a diversity of clinic specialties and service delivery methods.",
+            "id": "GENECSLR 814",
             "parent": "GENECSLR"
         }
     },
@@ -36,48 +86,20 @@
     },
     {
         "data": {
-            "source": "GENECSLR 741",
-            "target": "GENECSLR 743"
+            "source": "GENECSLR 721",
+            "target": "GENECSLR 731"
         }
     },
     {
         "data": {
-            "description": "Introduction to clinical laboratory genetics with a particular focus on the relevance of human cytogenetics and molecular genetics to the practice of medical genetics. Covers the fundamental principles of human cytogenetic and molecular genetics including human chromosome structure, function, cytogenetic and molecular nomenclature, and current clinical laboratory testing methods relevant to medical genetic professionals. Apply cytogenetic and molecular genetic understanding to clinical scenarios to help diagnosis and manage individuals with genetic disease.",
-            "id": "GENECSLR 740",
-            "parent": "GENECSLR"
+            "source": "GENECSLR 714",
+            "target": "GENECSLR 813"
         }
     },
     {
         "data": {
             "source": "GENECSLR 721",
-            "target": "GENECSLR 740"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced practicum experience consisting of participatory fieldwork experiences in a diversity of clinic specialties and service delivery methods.",
-            "id": "GENECSLR 814",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to a variety of tools and resources commonly used in clinical genetics. Learn to critique these resources and start thinking about developing their own research projects. Emphasizes developing oral presentation skills through a variety of student presentations.",
-            "id": "GENECSLR 739",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 813",
-            "target": "GENECSLR 814"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in clinical communication skills for the genetic counselor. Emphasis on different counseling strategies and approaches including counselor self-reference, facilitating family communication, shared decision-making, crisis counseling and, applying techniques from select counseling models to GC practice (e.g., cognitive behavioral therapy, solution-focused therapy).",
-            "id": "GENECSLR 743",
-            "parent": "GENECSLR"
+            "target": "GENECSLR 724"
         }
     },
     {
@@ -89,14 +111,55 @@
     },
     {
         "data": {
-            "source": "GENECSLR 721",
-            "target": "GENECSLR 731"
+            "description": "Comprehensive overview of clinical biochemical genetics through a systematic review of classic and rare inborn errors of metabolism (IEM).  Psychosocial issues are discussed as related to care of patients, and their families, with metabolic disorders.",
+            "id": "GENECSLR 744",
+            "parent": "GENECSLR"
         }
     },
     {
         "data": {
-            "description": "Research and/or scholarly work (e.g. quality improvement, clinical case reports) supervised by faculty and/or staff member with appropriate content expertise and/or experience in research mentorship.",
-            "id": "GENECSLR 990",
+            "source": "GENECSLR 741",
+            "target": "GENECSLR 743"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to a variety of tools and resources commonly used in clinical genetics. Learn to critique these resources and start thinking about developing their own research projects. Emphasizes developing oral presentation skills through a variety of student presentations.",
+            "id": "GENECSLR 739",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to clinical laboratory genetics with a particular focus on the relevance of human cytogenetics and molecular genetics to the practice of medical genetics. Covers the fundamental principles of human cytogenetic and molecular genetics including human chromosome structure, function, cytogenetic and molecular nomenclature, and current clinical laboratory testing methods relevant to medical genetic professionals. Apply cytogenetic and molecular genetic understanding to clinical scenarios to help diagnosis and manage individuals with genetic disease.",
+            "id": "GENECSLR 740",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides additional opportunities to develop and improve skills in interviewing, data collection, case management and counseling. Develop skills through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
+            "id": "GENECSLR 714",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "source": "GENECSLR 739",
+            "target": "GENECSLR 745"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunities to develop skills in interviewing, data collection, case management and counseling through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
+            "id": "GENECSLR 713",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics in clinical communication skills for the genetic counselor. Emphasis on different counseling strategies and approaches including counselor self-reference, facilitating family communication, shared decision-making, crisis counseling and, applying techniques from select counseling models to GC practice (e.g., cognitive behavioral therapy, solution-focused therapy).",
+            "id": "GENECSLR 743",
             "parent": "GENECSLR"
         }
     },
@@ -109,84 +172,21 @@
     },
     {
         "data": {
-            "source": "GENECSLR 714",
-            "target": "GENECSLR 813"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics in the discipline of genetic counseling. Emphasis will be on advanced practice topics including setting boundaries, delivering life altering news, developing a socially responsible practice, moving from a novice to master counselor, and the job search.",
-            "id": "GENECSLR 748",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 743",
-            "target": "GENECSLR 748"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 721",
-            "target": "GENECSLR 724"
-        }
-    },
-    {
-        "data": {
-            "id": "GENECSLR",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "source": "GENECSLR 721",
             "target": "GENECSLR 742"
         }
     },
     {
         "data": {
-            "description": "Provides additional opportunities to develop and improve skills in interviewing, data collection, case management and counseling. Develop skills through didactic work and observational and experiential clinical activities. Activities include clinic observation according to a structured format, and fieldwork participation.",
-            "id": "GENECSLR 714",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "description": "Integrative introduction to the mechanisms of clinical genetic disease at the molecular, individual and population level.",
-            "id": "GENECSLR 721",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 745",
-            "target": "GENECSLR 990"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 739",
-            "target": "GENECSLR 745"
-        }
-    },
-    {
-        "data": {
-            "description": "Review human development (normal and abnormal) and the influence of genetic disorders and teratogens, common indications for prenatal genetic counseling as well as available prenatal diagnosis and screening techniques. Prepares the genetic counseling student for the prenatal clinical practicum.",
-            "id": "GENECSLR 742",
-            "parent": "GENECSLR"
-        }
-    },
-    {
-        "data": {
-            "source": "GENECSLR 713",
-            "target": "GENECSLR 714"
-        }
-    },
-    {
-        "data": {
             "description": "An advanced course covering clinical genetic concepts including phenotype, genetic mechanisms, approach to diagnosis (medical, clinical and genetic testing protocols), and natural history (including management approaches).",
             "id": "GENECSLR 731",
+            "parent": "GENECSLR"
+        }
+    },
+    {
+        "data": {
+            "description": "Research and/or scholarly work (e.g. quality improvement, clinical case reports) supervised by faculty and/or staff member with appropriate content expertise and/or experience in research mentorship.",
+            "id": "GENECSLR 990",
             "parent": "GENECSLR"
         }
     }

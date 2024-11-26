@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 425,
         "subjects": [
-            "GEN&WS",
             "SOC",
+            "GEN&WS",
             "LEGALST"
         ]
     },
@@ -24,16 +24,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 102,
+                "subjects": [
+                    "GEN&WS"
+                ]
+            },
+            {
                 "course_number": 131,
                 "subjects": [
                     "SOC",
                     "LEGALST"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "GEN&WS"
                 ]
             },
             {
