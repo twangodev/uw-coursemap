@@ -5,89 +5,14 @@ import coloredlogs
 from dotenv import load_dotenv
 
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
+from enrollment import sync_enrollment_terms, build_from_mega_query
+from logging_util import get_logging_level
 from madgrades import add_madgrades_data
 from open_ai import get_openai_client, optimize_prerequisites
+from rmp import get_ratings
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
-
-
-# @app.route('/subjects', methods=['GET'])
-# def get_subjects():
-#     return jsonify(list(subjects_course_map.keys()))
-#
-# @app.route('/graph/<subject>', methods=['GET'])
-# def get_subject_graph(subject):
-#     return jsonify(list(subject_graph_map[subject]))
-#
-# @app.route('/graph/style/<subject>', methods=['GET'])
-# def get_subject_graph_style(subject):
-#     return styles[subject]
-#
-# @app.route('/graphs', methods=['GET'])
-# def get_graphs():
-#     return jsonify(list(graphs))
-#
-# @app.route('/graph/style', methods=['GET'])
-# def get_graph_styles():
-#     return global_style
-#
-#
-#
-# def optimize_course(course, courses, max_retries=3, timeout=30):
-#     retries = 0
-#     while retries < max_retries:
-#         try:
-#             # Optimize prerequisites (ensure the request doesn't exceed timeout)
-#             with ThreadPoolExecutor(max_workers=1) as executor:
-#                 future = executor.submit(course.optimize_prerequisites, courses, stats)
-#                 return future.result(timeout=timeout)
-#         except Exception as e:
-#             retries += 1
-#             print(f"Retry {retries} for course {course.get_identifier()} failed: {e}")
-#             if retries >= max_retries:
-#                 print(f"Optimization for course {course.get_identifier()} failed completely.")
-#                 return None  # Abandon optimization if all retries fail
-#
-# def optimize_prerequisitess(courses, client):
-#     logger.info("Optimizing prerequisites...")
-#
-#     # Use ThreadPoolExecutor to handle multiple courses concurrently
-#     total_courses = len(courses)
-#     completed_courses = 0
-#
-#     with ThreadPoolExecutor(max_workers=100) as executor:
-#         future_to_course = {
-#             executor.submit(optimize_course, course, courses): course
-#             for course in courses.values()
-#         }
-#         for future in as_completed(future_to_course):
-#             course = future_to_course[future]
-#             try:
-#                 future.result()  # This will re-raise any exception from the thread
-#                 completed_courses += 1
-#                 remaining_courses = total_courses - completed_courses
-#                 print(f"Optimization completed for course {course.get_identifier()}. {remaining_courses} courses remaining.")
-#             except Exception as e:
-#                 completed_courses += 1
-#                 remaining_courses = total_courses - completed_courses
-#                 print(f"Optimization failed for course {course.get_identifier()}: {e}. {remaining_courses} courses remaining.")
-#
-#     print(f"Prerequisites optimized. Total tokens used: {stats['total_tokens']}. Removed requisites: {stats['removed_requisites']}")
-#
-
-#
-
-#
-
-def get_logging_level(level_name):
-    if level_name is None:
-        return None
-    try:
-        # Convert level name string to integer level
-        return getattr(logging, level_name.upper())
-    except AttributeError:
-        raise ValueError(f"Invalid logging level: {level_name}")
 
 def main():
     load_dotenv()
@@ -137,8 +62,14 @@ def main():
 
     site_map_urls = get_course_urls(logger=logger)
     subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
-    terms = add_madgrades_data(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, stats=stats, logger=logger)
+    terms = add_madgrades_data(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key,
+                               stats=stats, logger=logger)
 
+    sync_enrollment_terms(terms=terms, logger=logger)
+    latest_term = max(terms.keys())
+
+    instructors = build_from_mega_query(term_code=latest_term, course_ref_to_course=course_ref_to_course, logger=logger)
+    instructor_to_rating = get_ratings(instructors=instructors, logger=logger)
 
     optimize_prerequisites(
         client=open_ai_client,
@@ -179,6 +110,8 @@ def main():
         subject_to_graph=subject_to_graph,
         global_style=global_style,
         subject_to_style=subject_to_style,
+        instructor_to_rating=instructor_to_rating,
+        latest_term=terms[latest_term],
         logger=logger
     )
 
