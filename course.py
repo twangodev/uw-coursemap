@@ -1,8 +1,8 @@
 import re
-from logging import Logger
 
 import requests
 
+from enrollment_data import EnrollmentData
 from json_serializable import JsonSerializable
 
 def remove_extra_spaces(text: str):
@@ -96,13 +96,14 @@ class Course(JsonSerializable):
                 return False
             return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None, madgrades_data):
+    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None, madgrades_data, enrollment_data: EnrollmentData | None):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
         self.prerequisites = prerequisites
         self.optimized_prerequisites = optimized_prerequisites
         self.madgrades_data = madgrades_data
+        self.enrollment_data = enrollment_data
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -121,6 +122,7 @@ class Course(JsonSerializable):
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
             optimized_prerequisites=optimized_prerequisites,
             madgrades_data=madgrades_data,
+            enrollment_data=EnrollmentData.from_json(json_data["enrollment_data"]) if json_data["enrollment_data"] else None
         )
 
     def to_dict(self):
@@ -131,6 +133,7 @@ class Course(JsonSerializable):
             "prerequisites": self.prerequisites.to_dict(),
             "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
             "madgrades_data": self.madgrades_data.to_dict() if self.madgrades_data else None,
+            "enrollment_data": self.enrollment_data.to_dict() if self.enrollment_data else None,
         }
 
     @classmethod
@@ -153,7 +156,7 @@ class Course(JsonSerializable):
 
         cb_extras = block.find("div", class_="cb-extras")
         if not cb_extras:
-            return Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None)
+            return Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None, None)
 
         requisites_data = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:")).find_next(
             "span", class_="cbextra-data")
@@ -167,7 +170,7 @@ class Course(JsonSerializable):
         requisites_courses.discard(course_reference)  # Remove self-reference
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
-        return Course(course_reference, course_title, description, course_prerequisite, None, None)
+        return Course(course_reference, course_title, description, course_prerequisite, None, None, None)
 
     def determine_parent(self):
         parent = None
@@ -200,8 +203,6 @@ class Course(JsonSerializable):
 
     def __repr__(self):
         return self.get_identifier()
-
-
 
 class GradeData(JsonSerializable):
 
