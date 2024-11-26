@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 371,
         "subjects": [
-            "ZOOLOGY",
-            "ENTOM"
+            "ENTOM",
+            "ZOOLOGY"
         ]
     },
     "course_title": "MEDICAL ENTOMOLOGY: BIOLOGY OF VECTOR AND VECTOR-BORNE DISEASES",
     "description": "Explore the biological and molecular adaptations of parasitic arthropods that allow them to feed on vertebrate host and facilitate the transmission of vector-borne pathogens. Examines how anthropogenic activities, behaviors, and effects on climate affect the biology of vectors, the pathogens they transmit, and the emergence of vector-borne epidemics in the world. Emphasis on the molecular and physiological interaction between pathogens, their vector, and the vertebrate host and the fundamentals on how vectors and vector-borne pathogens cause disease in humans. Evaluate real control programs deployed globally for the control of vector-borne diseases.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "ADELA OLIVA CH\u00c1VEZ": "OLIVACHVEZ@WISC.EDU"
+        },
+        "last_taught_term_code": 1194,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -23,30 +37,30 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 153,
                 "subjects": [
                     "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

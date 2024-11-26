@@ -1,176 +1,53 @@
 [
     {
         "data": {
-            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
+            "id": "ECE",
             "type": "compound"
         }
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "description": "Introduction to atomic, solid state, and nuclear physics.",
+            "id": "PHYSICS 205",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Sources, interactions, and detection of ionizing radiation. Biological effects, shielding, standards of radiation protection.",
-            "id": "NE 408",
-            "parent": "NE"
+            "description": "Static and dynamic electromagnetic fields; forces and work in electromechanical systems; magnetic circuits; plane wave propagation; reflection of plane waves; generalized transmission line equations; current and voltage on transmission lines; impedance transformation and matching; Smith charts.",
+            "id": "ECE 320",
+            "parent": "ECE"
         }
     },
     {
         "data": {
-            "description": "The neutron transport equation and its application to the analysis of nuclear reactors. Numerical solution methods, including the multi-group model, one-group equations, energy-averaged constants, discrete ordinates, and Monte Carlo methods. Perturbation theory and variational techniques for practical problems. Knowledge of Nuclear Reactor Theory [such asN\u00a0E\u00a0405] required.",
-            "id": "NE 705",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 220",
-            "target": "ECE 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 351",
-            "target": "NE 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Use of Monte Carlo technique for applications in nuclear engineering and medical physics. Major theory of Monte Carlo neutral particle transport is discussed. Standard Monte Carlo transport software is used for exercises and projects. Major emphasis is on analysis of real-world problems.",
-            "id": "MEDPHYS/NE 506"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "MEDPHYS/NE 569"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Experiments on reactor operation, flux measurement, measurements of reactor parameters, using pool type reactor.",
-            "id": "NE 428",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 323",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 323"
         }
     },
     {
         "data": {
             "source": "ECE/NE/PHYSICS 525",
-            "target": "ECE/NE/PHYSICS 527"
+            "target": "NE 526"
         }
     },
     {
         "data": {
-            "description": "Introduction to the main aspects of fusion power plants and the underlying plasma physics. Key design considerations will be summarized related to fusion fuels, resources, plasma physics, plasma-facing materials, magnets, neutronics, shielding, tritium breeding blankets, structural materials, activation, radiation damage, neutral beams, wave heating  current drive, safety, and environmental concerns. Focus on magnetic confinement fusion and its near-term and longer-term prospects.",
-            "id": "NE 536",
-            "parent": "NE"
+            "description": "Design and performance of power plants for the generation of electric power; fossil, solar, wind, hydro and nuclear fuels, cycle analysis, component design and performance, plant operation, control, economics and environmental impact.",
+            "id": "ME/NE 565"
         }
     },
     {
         "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
             "source": "ECE 320",
             "target": "ECE/NE 528"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic equations and physical parameters of point reactor kinetics without feedback effects; the nuclear reactor as a total system; reactor excursions, Fuchs-Nordheim and Bethe-Tait models; space-time reactor dynamics; synthesis methods.",
-            "id": "NE 555",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Economics of the nuclear fuel cycle. Economic and environmental impact of the nuclear fuel cycle. Impact on design, plant siting and regulation.",
-            "id": "NE 571",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to: atomic, electronic, and defect structures in materials; diffusional, mechanical and electrical properties of materials; and the role of structure and defects in diffusional, mechanical, and electrical properties.",
-            "id": "MS&E 351",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "description": "A survey of the nature of point defects, how these defects are produced, how the defects migrate and cluster, and what effects point defects and defect clusters have on the physical and mechanical properties of metals.",
-            "id": "NE 541",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "NE 424"
-        }
-    },
-    {
-        "data": {
-            "id": "ME",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Experiments on nuclear instrumentation, counting, data analysis.",
-            "id": "NE 427",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of materials (cladding and structural materials) used in advanced reactor systems and the associated degradation. Interactions between the advanced nuclear reactor environment and materials. Surface degradation, corrosion, oxidation, dissolution, vaporization, mass transfer, diffusion, and hands-on examples related to advanced reactors.",
-            "id": "NE 545",
-            "parent": "NE"
         }
     },
     {
@@ -182,28 +59,8 @@
     },
     {
         "data": {
-            "id": "MS&E",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamental concepts of conduction, convection, radiation. Heat-exchanger principles.",
-            "id": "ME 364",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
+            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
+            "id": "PHYSICS 241",
             "parent": "PHYSICS"
         }
     },
@@ -215,102 +72,9 @@
     },
     {
         "data": {
-            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
-            "id": "PHYSICS 322",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of magnetic confinement and heating of plasmas for controlled thermonuclear fusion: magnetic field structures, single particle orbits, equilibrium, stability, collisions, transport, heating, modeling and diagnostics. Discussion of current leading confinement concepts: tokamaks, tandem mirrors, stellarators, reversed field pinches, etc.",
-            "id": "ECE/NE/PHYSICS 527"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents the theoretical and practical information required to understand operation of nuclear reactors. Content includes all subjects which must be known by a person seeking an operating license for the university reactor. Instructors integrate information on similar operations and systems in a nuclear power plant.",
-            "id": "NE 234",
+            "description": "Introduction to the main aspects of fusion power plants and the underlying plasma physics. Key design considerations will be summarized related to fusion fuels, resources, plasma physics, plasma-facing materials, magnets, neutronics, shielding, tritium breeding blankets, structural materials, activation, radiation damage, neutral beams, wave heating  current drive, safety, and environmental concerns. Focus on magnetic confinement fusion and its near-term and longer-term prospects.",
+            "id": "NE 536",
             "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Current topics in plasma physics.",
-            "id": "ECE/NE/PHYSICS 922"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 411",
-            "target": "NE 550"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector calculus application to electrodynamics problems; potential theory; static and dynamic electric and magnetic fields; macroscopic theory of dielectric and magnetic materials; Maxwell's equations; boundary conditions; wave equation; introduction to transmission lines.",
-            "id": "ECE 222",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
-            "id": "MEDPHYS/NE 569"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 364",
-            "target": "ME/NE 520"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 361",
-            "target": "ME/NE 565"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 305",
-            "target": "NE 405"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "MEDPHYS/NE 506"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "The neutronics behavior of fission reactors, primarily from a theoretical, one-speed perspective. Criticality, fission product poisoning, reactivity control, reactor stability and introductory concepts in fuel management, followed by slowing down and one-speed diffusion theory.",
-            "id": "NE 405",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 305",
-            "target": "NE 411"
-        }
-    },
-    {
-        "data": {
-            "description": "Design and performance of power plants for the generation of electric power; fossil, solar, wind, hydro and nuclear fuels, cycle analysis, component design and performance, plant operation, control, economics and environmental impact.",
-            "id": "ME/NE 565"
         }
     },
     {
@@ -321,22 +85,21 @@
     },
     {
         "data": {
-            "description": "Special Topics in Plasma Physics. Knowledge of Plasma Physics [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] required",
-            "id": "NE 903",
+            "description": "Current topics in plasma physics.",
+            "id": "ECE/NE/PHYSICS 922"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of topics in electrodynamics and special relativity; ionization and energy loss during scattering of charged particles; radiation from charged particles including Bremstrahlung, Cerenkov, and Synchrotron radiation; Thomson scattering of electromagnetic waves by charged particles. Knowledge of Dynamics [such asE\u00a0M\u00a0A\u00a0202orPHYSICS\u00a0311] and Electromagnetics [such asPHYSICS\u00a0322] required.",
+            "id": "NE 741",
             "parent": "NE"
         }
     },
     {
         "data": {
-            "description": "The neutronics behavior of fission reactors, both from a theoretical and computational multi-group perspective. Multi-group diffusion theory, finite-difference and nodal methods, core heterogeneous effects, pin power reconstruction, thermal neutron spectra, fine group whole spectrum calculations and coarse group constant generation.",
-            "id": "NE 505",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Two-phase flow and heat transfer in engineering systems. Pool boiling and flow boiling. Phenomenological modeling.",
-            "id": "ME/NE 520"
+            "source": "MS&E 350",
+            "target": "NE 545"
         }
     },
     {
@@ -348,150 +111,14 @@
     },
     {
         "data": {
-            "description": "Reactor heat generation and removal; steady- and unsteady-state conduction in reactor elements; single phase, two-phase, and liquid metal cooling, core thermal design.",
-            "id": "NE 411",
-            "parent": "NE"
+            "description": "Coulomb Collisions, Boltzmann equation, Fokker-Planck methods, dynamical friction, neoclassical diffusion, collision operators radiation processes and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
+            "id": "ECE/NE/PHYSICS 725"
         }
     },
     {
         "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic description of plasmas: collective phenomena and sheaths, collisional processes, single particle motions, fluid models, equilibria, waves, electromagnetic properties, instabilities, and introduction to kinetic theory and nonlinear processes. Examples from fusion, astrophysical and materials processing processing plasmas.",
-            "id": "ECE/NE/PHYSICS 525"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to basic understanding and techniques. Plasma processing of materials for semiconductors, polymers, plasma spray coatings, ion implantation, etching, arcs, extractive metallurgy and welding. Plasma and materials diagnostics.",
-            "id": "ECE/NE 528"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "NE 990",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
-            "id": "ME 361",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 405",
-            "target": "NE 571"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 361",
-            "target": "ME 364"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "ECE/NE/PHYSICS 525"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "MS&E/NE 423"
-        }
-    },
-    {
-        "data": {
-            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
-            "id": "STAT 324",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "NE 545"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 305",
-            "target": "NE 427"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Reactor design projects, reactor hazards, economics.",
-            "id": "NE 412",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 241"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "ME 361"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of nuclear systems for the production of useful power. Emphasis: thermodynamic cycles, reactor types, coupling of reactor and power plant, design synthesis, and plant economics.",
-            "id": "NE 550",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
-            "id": "NE 1",
+            "description": "Special Topics in Reactor Engineering.",
+            "id": "NE 602",
             "parent": "NE"
         }
     },
@@ -503,8 +130,357 @@
     },
     {
         "data": {
-            "description": "Undergraduate research and senior honors thesis in nuclear engineering.",
-            "id": "NE 489",
+            "description": "Sources, interactions, and detection of ionizing radiation. Biological effects, shielding, standards of radiation protection.",
+            "id": "NE 408",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic equations and physical parameters of point reactor kinetics without feedback effects; the nuclear reactor as a total system; reactor excursions, Fuchs-Nordheim and Bethe-Tait models; space-time reactor dynamics; synthesis methods.",
+            "id": "NE 555",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
+            "id": "PHYSICS 322",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents the theoretical and practical information required to understand operation of nuclear reactors. Content includes all subjects which must be known by a person seeking an operating license for the university reactor. Instructors integrate information on similar operations and systems in a nuclear power plant.",
+            "id": "NE 234",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "ME 361"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 350",
+            "target": "MS&E 351"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 322"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 305",
+            "target": "NE 408"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to: atomic, electronic, and defect structures in materials; diffusional, mechanical and electrical properties of materials; and the role of structure and defects in diffusional, mechanical, and electrical properties.",
+            "id": "MS&E 351",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 405",
+            "target": "NE 571"
+        }
+    },
+    {
+        "data": {
+            "description": "Potential theory; static and dynamic electric and magnetic fields; macroscopic theory of dielectric and magnetic materials; Maxwell's equations; boundary conditions; wave equation; introduction to transmission lines.",
+            "id": "ECE 220",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 405",
+            "target": "NE 505"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 305",
+            "target": "NE 405"
+        }
+    },
+    {
+        "data": {
+            "description": "Research by the Ph.D. students prior to becoming dissertators.",
+            "id": "NE 890",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "id": "ME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "PHYSICS 241"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 411",
+            "target": "NE 550"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 405",
+            "target": "NE 555"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 405",
+            "target": "NE 412"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamentals of fuel and cladding behavior in terms of thermal properties, chemical behavior and radiation damage.",
+            "id": "MS&E/NE 423"
+        }
+    },
+    {
+        "data": {
+            "description": "Waves in a cold plasma, wave-plasma interactions, waves in a hot plasma, Landau damping, cyclotron damping, magneto-hydrodynamic equilibria and instabilities, microinstabilities, introduction to nonlinear processes, and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
+            "id": "ECE/NE/PHYSICS 724"
+        }
+    },
+    {
+        "data": {
+            "description": "The basic structures and resulting properties of solid materials, including phase equilibria, meta-stability, mechanical properties, failure, corrosion, and materials selection.",
+            "id": "MS&E 350",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
+            "id": "MEDPHYS/NE 569"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 323",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 205"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "NE 699",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "MEDPHYS/NE 506"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 219",
+            "target": "ECE 220"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 361",
+            "target": "ME/NE 565"
+        }
+    },
+    {
+        "data": {
+            "description": "The neutron transport equation and its application to the analysis of nuclear reactors. Numerical solution methods, including the multi-group model, one-group equations, energy-averaged constants, discrete ordinates, and Monte Carlo methods. Perturbation theory and variational techniques for practical problems. Knowledge of Nuclear Reactor Theory [such asN\u00a0E\u00a0405] required.",
+            "id": "NE 705",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 305",
+            "target": "NE 411"
+        }
+    },
+    {
+        "data": {
+            "description": "MHD equations and validity in hot plasmas; magnetic structure and magnetic flux coordinates; equilibrium in various configurations; stability formulation, energy principle, classification of instabilities; ideal and resistive instability in various configurations, evolution of nonlinear tearing modes; force-free equilibria, helicity, MHD dynamo; experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
+            "id": "ECE/NE/PHYSICS 726"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "MS&E 330"
+        }
+    },
+    {
+        "data": {
+            "id": "NE",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Reactor design projects, reactor hazards, economics.",
+            "id": "NE 412",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "NE 990",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
+            "id": "ME 361",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods for risk and reliability analysis of engineered systems, particularly as applied in the nuclear power industry. Fault trees and event trees, Bayesian data analysis, probabilistic risk management. Some familiarity with nuclear plant safety systems is helpful, but not required.",
+            "id": "ISYE/NE 574"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career.",
+            "id": "NE 1",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE/NE/PHYSICS 525",
+            "target": "ECE/NE/PHYSICS 527"
+        }
+    },
+    {
+        "data": {
+            "description": "The neutronics behavior of fission reactors, primarily from a theoretical, one-speed perspective. Criticality, fission product poisoning, reactivity control, reactor stability and introductory concepts in fuel management, followed by slowing down and one-speed diffusion theory.",
+            "id": "NE 405",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic description of plasmas: collective phenomena and sheaths, collisional processes, single particle motions, fluid models, equilibria, waves, electromagnetic properties, instabilities, and introduction to kinetic theory and nonlinear processes. Examples from fusion, astrophysical and materials processing processing plasmas.",
+            "id": "ECE/NE/PHYSICS 525"
+        }
+    },
+    {
+        "data": {
+            "description": "A survey of the nature of point defects, how these defects are produced, how the defects migrate and cluster, and what effects point defects and defect clusters have on the physical and mechanical properties of metals.",
+            "id": "NE 541",
             "parent": "NE"
         }
     },
@@ -517,76 +493,42 @@
     },
     {
         "data": {
-            "description": "Special Topics in Reactor Engineering.",
-            "id": "NE 602",
+            "description": "Vector calculus application to electrodynamics problems; potential theory; static and dynamic electric and magnetic fields; macroscopic theory of dielectric and magnetic materials; Maxwell's equations; boundary conditions; wave equation; introduction to transmission lines.",
+            "id": "ECE 222",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 351",
+            "target": "NE 541"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamental concepts of conduction, convection, radiation. Heat-exchanger principles.",
+            "id": "ME 364",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 322",
+            "target": "ECE/NE/PHYSICS 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Reactor heat generation and removal; steady- and unsteady-state conduction in reactor elements; single phase, two-phase, and liquid metal cooling, core thermal design.",
+            "id": "NE 411",
             "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "MS&E 330"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 405",
-            "target": "NE 555"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "ISYE/NE 574"
-        }
-    },
-    {
-        "data": {
-            "description": "Methods for risk and reliability analysis of engineered systems, particularly as applied in the nuclear power industry. Fault trees and event trees, Bayesian data analysis, probabilistic risk management. Some familiarity with nuclear plant safety systems is helpful, but not required.",
-            "id": "ISYE/NE 574"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 740",
-            "target": "ECE/NE/PHYSICS 749"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 330",
-            "target": "MS&E/NE 433"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 427",
-            "target": "NE 428"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 305",
-            "target": "NE 536"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamentals of fuel and cladding behavior in terms of thermal properties, chemical behavior and radiation damage.",
-            "id": "MS&E/NE 423"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
         }
     },
     {
@@ -598,186 +540,35 @@
     },
     {
         "data": {
-            "description": "Nuclear fission/fusion, medical applications of radiation, radiation safety. Socio-economic topics including environmental justice, community engagement, nuclear policy. Brief history of and controversies in nuclear engineering. Career paths and ethics in engineering, and introduction to professional communication.",
-            "id": "NE 231",
-            "parent": "NE"
+            "source": "PHYSICS 249",
+            "target": "MEDPHYS/NE 569"
         }
     },
     {
         "data": {
-            "description": "Static and dynamic electromagnetic fields; forces and work in electromechanical systems; magnetic circuits; plane wave propagation; reflection of plane waves; generalized transmission line equations; current and voltage on transmission lines; impedance transformation and matching; Smith charts.",
-            "id": "ECE 320",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "description": "Waves in a cold plasma, wave-plasma interactions, waves in a hot plasma, Landau damping, cyclotron damping, magneto-hydrodynamic equilibria and instabilities, microinstabilities, introduction to nonlinear processes, and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
-            "id": "ECE/NE/PHYSICS 724"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
+            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
+            "id": "PHYSICS 249",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "MS&E 351"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 405",
-            "target": "NE 412"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of nuclei, nuclear structure, radioactivity, nuclear reactions, fission, resonance reactions, moderation of neutrons.",
-            "id": "NE 305",
+            "description": "The neutronics behavior of fission reactors, both from a theoretical and computational multi-group perspective. Multi-group diffusion theory, finite-difference and nodal methods, core heterogeneous effects, pin power reconstruction, thermal neutron spectra, fine group whole spectrum calculations and coarse group constant generation.",
+            "id": "NE 505",
             "parent": "NE"
         }
     },
     {
         "data": {
-            "description": "Coulomb Collisions, Boltzmann equation, Fokker-Planck methods, dynamical friction, neoclassical diffusion, collision operators radiation processes and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
-            "id": "ECE/NE/PHYSICS 725"
-        }
-    },
-    {
-        "data": {
-            "source": "NE 305",
-            "target": "NE 408"
-        }
-    },
-    {
-        "data": {
-            "description": "Thermodynamics and kinetics of metallic corrosion. The common forms of corrosion and corrosion susceptibility tests. Electrochemical measurement of corrosion rates. Corrosion prevention, economic considerations. High temperature oxidation and sulphidation. Corrosion case histories.",
-            "id": "MS&E/NE 433"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 115",
-            "target": "CHEM 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to atomic, solid state, and nuclear physics.",
-            "id": "PHYSICS 205",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "MHD equations and validity in hot plasmas; magnetic structure and magnetic flux coordinates; equilibrium in various configurations; stability formulation, energy principle, classification of instabilities; ideal and resistive instability in various configurations, evolution of nonlinear tearing modes; force-free equilibria, helicity, MHD dynamo; experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
-            "id": "ECE/NE/PHYSICS 726"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a background in the techniques for creating, exciting, and measuring the properties of lab plasmas and using the associated apparatus.",
-            "id": "NE 526",
-            "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-            "id": "STAT 371",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "id": "NE",
+            "id": "MATH",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "NE 405",
-            "target": "NE 505"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of topics in electrodynamics and special relativity; ionization and energy loss during scattering of charged particles; radiation from charged particles including Bremstrahlung, Cerenkov, and Synchrotron radiation; Thomson scattering of electromagnetic waves by charged particles. Knowledge of Dynamics [such asE\u00a0M\u00a0A\u00a0202orPHYSICS\u00a0311] and Electromagnetics [such asPHYSICS\u00a0322] required.",
-            "id": "NE 741",
+            "description": "Overview of materials (cladding and structural materials) used in advanced reactor systems and the associated degradation. Interactions between the advanced nuclear reactor environment and materials. Surface degradation, corrosion, oxidation, dissolution, vaporization, mass transfer, diffusion, and hands-on examples related to advanced reactors.",
+            "id": "NE 545",
             "parent": "NE"
-        }
-    },
-    {
-        "data": {
-            "description": "Issues involved in decision-making regarding technological risks and risk management in areas such as nuclear power, hazardous waste disposal, and pollution control. Risk perception and cognitive biases; risk analysis and decision analysis; political issues in risk management; regulatory mechanisms; and risk communication. Selected case studies.",
-            "id": "C&ESOC/ISYE/NE/SOC 708"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE/NE/PHYSICS 525",
-            "target": "NE 526"
-        }
-    },
-    {
-        "data": {
-            "description": "The basic structures and resulting properties of solid materials, including phase equilibria, meta-stability, mechanical properties, failure, corrosion, and materials selection.",
-            "id": "MS&E 350",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "id": "ECE",
-            "type": "compound"
         }
     },
     {
@@ -789,22 +580,219 @@
     },
     {
         "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
-            "parent": "PHYSICS"
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Potential theory; static and dynamic electric and magnetic fields; macroscopic theory of dielectric and magnetic materials; Maxwell's equations; boundary conditions; wave equation; introduction to transmission lines.",
-            "id": "ECE 220",
-            "parent": "ECE"
+            "description": "Provides a background in the techniques for creating, exciting, and measuring the properties of lab plasmas and using the associated apparatus.",
+            "id": "NE 526",
+            "parent": "NE"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "Thermodynamics and kinetics of metallic corrosion. The common forms of corrosion and corrosion susceptibility tests. Electrochemical measurement of corrosion rates. Corrosion prevention, economic considerations. High temperature oxidation and sulphidation. Corrosion case histories.",
+            "id": "MS&E/NE 433"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 222",
+            "target": "ECE 320"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Experiments on nuclear instrumentation, counting, data analysis.",
+            "id": "NE 427",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Experiments on reactor operation, flux measurement, measurements of reactor parameters, using pool type reactor.",
+            "id": "NE 428",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 364",
+            "target": "ME/NE 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Two-phase flow and heat transfer in engineering systems. Pool boiling and flow boiling. Phenomenological modeling.",
+            "id": "ME/NE 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Issues involved in decision-making regarding technological risks and risk management in areas such as nuclear power, hazardous waste disposal, and pollution control. Risk perception and cognitive biases; risk analysis and decision analysis; political issues in risk management; regulatory mechanisms; and risk communication. Selected case studies.",
+            "id": "C&ESOC/ISYE/NE/SOC 708"
+        }
+    },
+    {
+        "data": {
+            "description": "Economics of the nuclear fuel cycle. Economic and environmental impact of the nuclear fuel cycle. Impact on design, plant siting and regulation.",
+            "id": "NE 571",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of Monte Carlo technique for applications in nuclear engineering and medical physics. Major theory of Monte Carlo neutral particle transport is discussed. Standard Monte Carlo transport software is used for exercises and projects. Major emphasis is on analysis of real-world problems.",
+            "id": "MEDPHYS/NE 506"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 305",
+            "target": "NE 536"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Undergraduate research and senior honors thesis in nuclear engineering.",
+            "id": "NE 489",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of magnetic confinement and heating of plasmas for controlled thermonuclear fusion: magnetic field structures, single particle orbits, equilibrium, stability, collisions, transport, heating, modeling and diagnostics. Discussion of current leading confinement concepts: tokamaks, tandem mirrors, stellarators, reversed field pinches, etc.",
+            "id": "ECE/NE/PHYSICS 527"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 220",
+            "target": "ECE 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 350",
+            "target": "NE 424"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 205",
+            "target": "NE 305"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 324"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 351",
+            "target": "MS&E 350"
+        }
+    },
+    {
+        "data": {
+            "source": "NE 305",
+            "target": "NE 427"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to basic understanding and techniques. Plasma processing of materials for semiconductors, polymers, plasma spray coatings, ion implantation, etching, arcs, extractive metallurgy and welding. Plasma and materials diagnostics.",
+            "id": "ECE/NE 528"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 330",
+            "target": "MS&E/NE 433"
+        }
+    },
+    {
+        "data": {
+            "description": "Special Topics in Plasma Physics. Knowledge of Plasma Physics [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] required",
+            "id": "NE 903",
+            "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "id": "MS&E",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of nuclear systems for the production of useful power. Emphasis: thermodynamic cycles, reactor types, coupling of reactor and power plant, design synthesis, and plant economics.",
+            "id": "NE 550",
+            "parent": "NE"
         }
     },
     {
@@ -816,15 +804,46 @@
     },
     {
         "data": {
-            "description": "Research by the Ph.D. students prior to becoming dissertators.",
-            "id": "NE 890",
-            "parent": "NE"
+            "source": "ECE 740",
+            "target": "ECE/NE/PHYSICS 749"
         }
     },
     {
         "data": {
-            "source": "ECE 222",
-            "target": "ECE 320"
+            "source": "NE 427",
+            "target": "NE 428"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "id": "STAT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 350",
+            "target": "MS&E/NE 423"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 115",
+            "target": "CHEM 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of nuclei, nuclear structure, radioactivity, nuclear reactions, fission, resonance reactions, moderation of neutrons.",
+            "id": "NE 305",
+            "parent": "NE"
         }
     },
     {
@@ -836,40 +855,21 @@
     },
     {
         "data": {
-            "source": "MS&E 351",
-            "target": "MS&E 350"
+            "source": "ME 361",
+            "target": "ME 364"
         }
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "id": "STAT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "NE 305"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 219",
-            "target": "ECE 220"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "NE 699",
+            "description": "Nuclear fission/fusion, medical applications of radiation, radiation safety. Socio-economic topics including environmental justice, community engagement, nuclear policy. Brief history of and controversies in nuclear engineering. Career paths and ethics in engineering, and introduction to professional communication.",
+            "id": "NE 231",
             "parent": "NE"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "ISYE/NE 574"
         }
     }
 ]

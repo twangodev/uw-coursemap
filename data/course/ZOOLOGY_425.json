@@ -7,6 +7,20 @@
     },
     "course_title": "BEHAVIORAL ECOLOGY",
     "description": "Explore how organisms make decisions and how these decisions affect their survival. These decisions are key aspects of an organism's life, e.g. foraging behavior, mating behavior, anti-predator behavior, and habitat selection. Approaches these questions with the perspective that understanding the proximal and ultimate basis of behavior requires understanding the ecological and evolutionary context of behavior.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "John ORROCK": "JORROCK@WISC.EDU"
+        },
+        "last_taught_term_code": 1224,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -225,8 +239,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -235,10 +249,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 101,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
@@ -248,24 +276,10 @@
                 ]
             },
             {
-                "course_number": 152,
+                "course_number": 130,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
                     "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

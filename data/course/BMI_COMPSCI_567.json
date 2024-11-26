@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 567,
         "subjects": [
-            "COMPSCI",
-            "BMI"
+            "BMI",
+            "COMPSCI"
         ]
     },
     "course_title": "MEDICAL IMAGE ANALYSIS",
     "description": "Present introductory medical image processing and analysis techniques. Topics include medical imaging formats, segmentation, registration, image quantification, classification.  Strongly encourage Matlab experience, such asCOMP\u00a0SCI\u00a0310or368-Matlab.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Juan CAICEDO": "JUAN.CAICEDO@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2021": {
@@ -188,8 +202,8 @@
             {
                 "course_number": 541,
                 "subjects": [
-                    "BMI",
-                    "STAT"
+                    "STAT",
+                    "BMI"
                 ]
             }
         ],
@@ -198,15 +212,36 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 571,
                 "subjects": [
-                    "MATH"
+                    "STAT",
+                    "F&WECOL"
                 ]
             },
             {
                 "course_number": 340,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 541,
+                "subjects": [
+                    "STAT",
+                    "BMI"
+                ]
+            },
+            {
+                "course_number": 551,
+                "subjects": [
+                    "POPHLTH",
+                    "BMI"
                 ]
             },
             {
@@ -218,27 +253,6 @@
             {
                 "course_number": 324,
                 "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 571,
-                "subjects": [
-                    "STAT",
-                    "F&WECOL"
-                ]
-            },
-            {
-                "course_number": 551,
-                "subjects": [
-                    "BMI",
-                    "POPHLTH"
-                ]
-            },
-            {
-                "course_number": 541,
-                "subjects": [
-                    "BMI",
                     "STAT"
                 ]
             }

@@ -7,6 +7,20 @@
     },
     "course_title": "ENTERING RESEARCH I",
     "description": "Introduction to skills that support conducting research in chemistry.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            1
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "BRYAN WAKEFIELD": "BHWAKEFIELD@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2012": {
@@ -443,6 +457,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 115,
                 "subjects": [
                     "CHEM"
@@ -450,12 +470,6 @@
             },
             {
                 "course_number": 103,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 109,
                 "subjects": [
                     "CHEM"
                 ]

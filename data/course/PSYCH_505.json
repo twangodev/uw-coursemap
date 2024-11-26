@@ -7,6 +7,20 @@
     },
     "course_title": "DEPTH TOPIC IN BIOLOGICAL SCIENCE",
     "description": "Provides an in-depth treatment of a specific topic in psychology and biology.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Brad POSTLE": "POSTLE@WISC.EDU"
+        },
+        "last_taught_term_code": 1202,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2019": {
@@ -111,8 +125,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -121,24 +135,18 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -148,16 +156,22 @@
                 ]
             },
             {
+                "course_number": 102,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
                 "course_number": 202,
                 "subjects": [
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 102,
+                "course_number": 382,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOCORE"
                 ]
             }
         ],

@@ -7,6 +7,20 @@
     },
     "course_title": "CHEMICAL PROCESS THERMODYNAMICS",
     "description": "Introduction to thermodynamics, energy balances, applications to steady state and unsteady state processes, behavior of pure fluids, chemical reaction equilibria.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Ross SWANEY": "ROSS.SWANEY@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2010": {
@@ -576,9 +590,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 201,
+                "course_number": 240,
                 "subjects": [
-                    "PHYSICS"
+                    "ME"
                 ]
             },
             {
@@ -588,15 +602,27 @@
                 ]
             },
             {
-                "course_number": 240,
+                "course_number": 376,
                 "subjects": [
-                    "ME"
+                    "MATH"
                 ]
             },
             {
-                "course_number": 202,
+                "course_number": 207,
                 "subjects": [
-                    "EMA"
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 201,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 250,
+                "subjects": [
+                    "CBE"
                 ]
             },
             {
@@ -612,21 +638,9 @@
                 ]
             },
             {
-                "course_number": 250,
+                "course_number": 202,
                 "subjects": [
-                    "CBE"
-                ]
-            },
-            {
-                "course_number": 207,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 376,
-                "subjects": [
-                    "MATH"
+                    "EMA"
                 ]
             }
         ],

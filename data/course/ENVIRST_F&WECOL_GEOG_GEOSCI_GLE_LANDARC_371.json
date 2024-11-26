@@ -2,16 +2,31 @@
     "course_reference": {
         "course_number": 371,
         "subjects": [
-            "GLE",
-            "GEOG",
-            "GEOSCI",
             "ENVIRST",
             "LANDARC",
-            "F&WECOL"
+            "GEOSCI",
+            "GLE",
+            "F&WECOL",
+            "GEOG"
         ]
     },
     "course_title": "INTRODUCTION TO ENVIRONMENTAL REMOTE SENSING",
     "description": "Introduction to the Earth as viewed from above, focusing on use of aerial photography and satellite imagery to study the environment. Includes physical processes of electromagnetic radiation, data types and sensing capabilities, methods for interpretation, analysis and mapping, and applications.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "ANNEMARIE SCHNEIDER": "ASCHNEIDER4@WISC.EDU",
+            "Kira Pfoch": "PFOCH@WISC.EDU"
+        },
+        "last_taught_term_code": 1246,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2014": {
@@ -201,13 +216,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 171,
+                "course_number": 114,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 114,
+                "course_number": 171,
                 "subjects": [
                     "MATH"
                 ]

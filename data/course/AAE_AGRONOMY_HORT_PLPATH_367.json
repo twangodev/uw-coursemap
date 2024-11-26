@@ -2,14 +2,31 @@
     "course_reference": {
         "course_number": 367,
         "subjects": [
-            "AGRONOMY",
+            "HORT",
             "PLPATH",
-            "AAE",
-            "HORT"
+            "AGRONOMY",
+            "AAE"
         ]
     },
     "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
     "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "CHUCK NICHOLSON": "CFNICHOLSON@WISC.EDU",
+            "Julie Dawson": "DAWSON@HORT.WISC.EDU",
+            "Tom Bryan": "TBRYAN@WISC.EDU",
+            "William TRACY": "WFTRACY@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2022": {
@@ -95,11 +112,11 @@
             {
                 "course_number": 103,
                 "subjects": [
-                    "AGRONOMY",
+                    "ENTOM",
                     "ENVIRST",
+                    "AGRONOMY",
                     "AGROECOL",
-                    "C&ESOC",
-                    "ENTOM"
+                    "C&ESOC"
                 ]
             }
         ],
@@ -107,6 +124,13 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 123,
+                "subjects": [
+                    "BOTANY",
+                    "PLPATH"
+                ]
+            },
             {
                 "course_number": 120,
                 "subjects": [
@@ -121,26 +145,19 @@
                 ]
             },
             {
-                "course_number": 123,
+                "course_number": 100,
                 "subjects": [
-                    "BOTANY",
-                    "PLPATH"
+                    "AGRONOMY"
                 ]
             },
             {
                 "course_number": 103,
                 "subjects": [
-                    "AGRONOMY",
+                    "ENTOM",
                     "ENVIRST",
+                    "AGRONOMY",
                     "AGROECOL",
-                    "C&ESOC",
-                    "ENTOM"
-                ]
-            },
-            {
-                "course_number": 100,
-                "subjects": [
-                    "AGRONOMY"
+                    "C&ESOC"
                 ]
             }
         ],

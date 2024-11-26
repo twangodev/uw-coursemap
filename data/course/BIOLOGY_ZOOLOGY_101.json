@@ -2,12 +2,28 @@
     "course_reference": {
         "course_number": 101,
         "subjects": [
-            "ZOOLOGY",
-            "BIOLOGY"
+            "BIOLOGY",
+            "ZOOLOGY"
         ]
     },
     "course_title": "ANIMAL BIOLOGY",
     "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Lauren RITERS": "LVRITERS@WISC.EDU",
+            "Robert Johnson": "ROBERT.A.JOHNSON@WISC.EDU",
+            "Sharon THOMA": "SLTHOMA@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -701,8 +717,8 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -712,19 +728,19 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
+                "course_number": 151,
                 "subjects": [
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 152,
                 "subjects": [
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             }
         ],

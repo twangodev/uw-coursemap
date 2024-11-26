@@ -2,13 +2,28 @@
     "course_reference": {
         "course_number": 524,
         "subjects": [
-            "COMPSCI",
             "ISYE",
+            "COMPSCI",
             "ECE"
         ]
     },
     "course_title": "INTRODUCTION TO OPTIMIZATION",
     "description": "Introduction to mathematical optimization from a modeling and solution perspective. Formulation of applications as discrete and continuous optimization problems and equilibrium models. Survey and appropriate usage of basic algorithms, data and software tools, including modeling languages and subroutine libraries.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jeffrey LINDEROTH": "LINDEROTH@WISC.EDU",
+            "Jeremy COULSON": "JEREMY.COULSON@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2016": {
@@ -350,21 +365,15 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 300,
-                "subjects": [
-                    "COMPSCI"
                 ]
             },
             {
@@ -374,13 +383,7 @@
                 ]
             },
             {
-                "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 341,
+                "course_number": 340,
                 "subjects": [
                     "MATH"
                 ]
@@ -392,9 +395,21 @@
                 ]
             },
             {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
                 "course_number": 220,
                 "subjects": [
                     "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

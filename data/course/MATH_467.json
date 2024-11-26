@@ -7,6 +7,20 @@
     },
     "course_title": "INTRODUCTION TO NUMBER THEORY",
     "description": "An introduction to proof writing techniques through a study of classical topics in elementary number theory. Topics include the divisibility, basic properties of primes, congruences, Fermat's theorem.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Shiva CHIDAMBARAM": "CHIDAMBARAM3@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2019": {
@@ -159,6 +173,13 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 240,
+                "subjects": [
+                    "COMPSCI",
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
@@ -171,7 +192,7 @@
                 ]
             },
             {
-                "course_number": 375,
+                "course_number": 234,
                 "subjects": [
                     "MATH"
                 ]
@@ -183,14 +204,7 @@
                 ]
             },
             {
-                "course_number": 240,
-                "subjects": [
-                    "COMPSCI",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 234,
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]

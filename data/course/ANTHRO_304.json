@@ -7,6 +7,20 @@
     },
     "course_title": "HEREDITY, ENVIRONMENT AND HUMAN POPULATIONS",
     "description": "Cultural and ecological factors influencing the composition and structure of human populations; variation and distribution of genes within and between populations; history and evolution of human populations as evidenced by genomes.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "JOHN HAWKS": "JHAWKS@WISC.EDU"
+        },
+        "last_taught_term_code": 1214,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2019": {
@@ -120,40 +134,34 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 382,
+                "course_number": 101,
                 "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 260,
+                "subjects": [
+                    "ENVIRST",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             },
             {
                 "course_number": 360,
                 "subjects": [
-                    "ZOOLOGY",
                     "ENVIRST",
-                    "F&WECOL"
-                ]
-            },
-            {
-                "course_number": 260,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "F&WECOL",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -162,6 +170,12 @@
                     "ZOOLOGY",
                     "BOTANY",
                     "ANTHRO"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {

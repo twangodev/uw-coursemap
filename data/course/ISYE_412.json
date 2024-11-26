@@ -7,6 +7,21 @@
     },
     "course_title": "FUNDAMENTALS OF INDUSTRIAL DATA ANALYTICS",
     "description": "Provides an understanding of the fundamentals of using data analytics to make data-driven decisions. Emphasizes applying techniques to industrial engineering problems. Focuses on formulating and solving real industrial problems with the appropriate modeling strategies and analytics principles for better decision making.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Kaibo LIU": "KLIU8@WISC.EDU",
+            "Ye Kwon Huh": "YHUH8@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2017": {
@@ -310,17 +325,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
+                "course_number": 210,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "ISYE"
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 309,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
@@ -330,27 +344,28 @@
                 ]
             },
             {
-                "course_number": 210,
-                "subjects": [
-                    "ISYE"
-                ]
-            },
-            {
-                "course_number": 324,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 311,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
+                "course_number": 431,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 331,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 324,
+                "subjects": [
+                    "STAT"
                 ]
             }
         ],

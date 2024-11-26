@@ -7,6 +7,20 @@
     },
     "course_title": "COMPARATIVE AND EVOLUTIONARY PHYSIOLOGY",
     "description": "Examines general physiological principles by comparing taxa from diverse evolutionary histories and ecological adaptations. Examples include adaptation to environments differing in salinity, temperature, altitude, pressure, or pollution, and examines how nervous and endocrine systems evolved to support the adaptations.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Scott Hartman": "SAHARTMAN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -282,8 +296,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -292,10 +306,18 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -305,16 +327,8 @@
                 ]
             },
             {
-                "course_number": 101,
+                "course_number": 130,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
                     "BOTANY"
                 ]

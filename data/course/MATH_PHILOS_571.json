@@ -2,12 +2,13 @@
     "course_reference": {
         "course_number": 571,
         "subjects": [
-            "MATH",
-            "PHILOS"
+            "PHILOS",
+            "MATH"
         ]
     },
     "course_title": "MATHEMATICAL LOGIC",
     "description": "Basics of logic and mathematical proofs; propositional logic; first order logic; undecidability.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -292,7 +293,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 521,
                 "subjects": [
                     "MATH"
                 ]
@@ -304,19 +311,7 @@
                 ]
             },
             {
-                "course_number": 421,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 234,
+                "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
@@ -328,13 +323,19 @@
                 ]
             },
             {
-                "course_number": 341,
+                "course_number": 421,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 521,
+                "course_number": 234,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]

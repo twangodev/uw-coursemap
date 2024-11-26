@@ -8,6 +8,18 @@
     },
     {
         "data": {
+            "source": "ANAT&PHY 337",
+            "target": "ANAT&PHY 338"
+        }
+    },
+    {
+        "data": {
+            "id": "ANATOMY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
             "id": "ANAT&PHY 337",
             "parent": "ANAT&PHY"
@@ -18,18 +30,6 @@
             "description": "Takes a regional approach to cover the gross anatomy of the human body in four units: introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck. A variety of tools, including interactive software, models, and specimens, will be used.",
             "id": "ANAT&PHY 338",
             "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 338",
-            "target": "ANATOMY 329"
         }
     },
     {
@@ -48,14 +48,14 @@
     },
     {
         "data": {
-            "id": "ANATOMY",
-            "type": "compound"
+            "source": "ANAT&PHY 338",
+            "target": "ANATOMY 329"
         }
     },
     {
         "data": {
-            "source": "ANAT&PHY 337",
-            "target": "ANAT&PHY 338"
+            "id": "ANAT&PHY",
+            "type": "compound"
         }
     }
 ]

@@ -7,6 +7,21 @@
     },
     "course_title": "STATISTICS: MEASUREMENT IN ECONOMICS",
     "description": "Introduction to analysis of economic data. The techniques of descriptive statistics and statistical inference (hypothesis testing and estimation) as directed toward application in economic research.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": true,
+        "instructors": {
+            "David HANSEN": "DRHANSEN3@WISC.EDU",
+            "Gregory PAC": "GPAC@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,7 +705,25 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 111,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 211,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 221,
                 "subjects": [
                     "MATH"
                 ]
@@ -702,27 +735,9 @@
                 ]
             },
             {
-                "course_number": 111,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
                     "ECON"
-                ]
-            },
-            {
-                "course_number": 217,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],

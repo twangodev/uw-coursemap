@@ -7,6 +7,21 @@
     },
     "course_title": "INTRODUCTION TO THE SCIENCE AND TECHNOLOGY OF FOOD",
     "description": "Introduction to the science and the technology of food manufacture. Covers the basic chemical, physical and microbiological properties of food and manipulation of these properties in the manufacture of food products.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "ARNOLDO LOPEZ-HERNANDEZ": "ALOPEZHERNAN@WISC.EDU",
+            "Yaa Asantewaa Klu": "YKLU@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2008": {
@@ -643,8 +658,8 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -654,37 +669,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 349,
+                "course_number": 151,
                 "subjects": [
-                    "BSE"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 112,
+                "course_number": 217,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -694,16 +696,9 @@
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 112,
                 "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "MATH"
                 ]
             },
             {
@@ -719,9 +714,29 @@
                 ]
             },
             {
-                "course_number": 217,
+                "course_number": 109,
                 "subjects": [
-                    "MATH"
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 349,
+                "subjects": [
+                    "BSE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

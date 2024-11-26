@@ -7,6 +7,20 @@
     },
     "course_title": "ELEMENTARY TOPOLOGY",
     "description": "Topological spaces, connectedness, compactness, separation axioms, metric spaces.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Alex WALDRON": "AWALDRON3@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,7 +704,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 521,
                 "subjects": [
                     "MATH"
                 ]
@@ -702,19 +722,7 @@
                 ]
             },
             {
-                "course_number": 421,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 234,
+                "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
@@ -726,13 +734,19 @@
                 ]
             },
             {
-                "course_number": 341,
+                "course_number": 421,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 521,
+                "course_number": 234,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]

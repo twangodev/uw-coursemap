@@ -7,6 +7,7 @@
     },
     "course_title": "CELL BIOLOGY",
     "description": "Comprehensive course on modern aspects of cell biology.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -377,8 +378,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -387,24 +388,24 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],

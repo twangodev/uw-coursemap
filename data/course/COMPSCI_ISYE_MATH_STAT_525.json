@@ -2,14 +2,28 @@
     "course_reference": {
         "course_number": 525,
         "subjects": [
-            "COMPSCI",
             "STAT",
-            "MATH",
-            "ISYE"
+            "ISYE",
+            "COMPSCI",
+            "MATH"
         ]
     },
     "course_title": "LINEAR OPTIMIZATION",
     "description": "Introduces optimization problems whose constraints are expressed by linear inequalities. Develops geometric and algebraic insights into the structure of the problem, with an emphasis on formal proofs. Presents the theory behind the simplex method, the main algorithm used to solve linear optimization problems. Explores duality theory and theorems of the alternatives.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "CARLA MICHINI": "CARLA.MICHINI@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -693,13 +707,19 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
                 "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
@@ -712,12 +732,6 @@
             },
             {
                 "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]

@@ -7,6 +7,20 @@
     },
     "course_title": "CHEMISTRY IN OUR WORLD",
     "description": "Selected topics in inorganic and organic chemistry. Emphasis is on relevance to biological, environmental and social issues.",
+    "enrollment_data": {
+        "credit_count": [
+            5,
+            5
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Lea GUSTIN": "LSGUSTIN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -462,6 +476,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 104,
                 "subjects": [
                     "CHEM"
@@ -469,12 +489,6 @@
             },
             {
                 "course_number": 115,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 109,
                 "subjects": [
                     "CHEM"
                 ]

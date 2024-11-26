@@ -1,15 +1,21 @@
 [
     {
         "data": {
-            "id": "CROSSLISTED",
+            "id": "COMPSCI",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
-            "id": "COMPSCI 220",
-            "parent": "COMPSCI"
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "INFOSYS 765",
+            "parent": "INFOSYS"
+        }
+    },
+    {
+        "data": {
+            "source": "COMPSCI 220",
+            "target": "INFOSYS 371"
         }
     },
     {
@@ -21,14 +27,27 @@
     },
     {
         "data": {
-            "id": "INFOSYS",
-            "type": "compound"
+            "source": "INFOSYS/ISYE 722",
+            "target": "INFOSYS 724"
         }
     },
     {
         "data": {
-            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
-            "id": "INFOSYS 352",
+            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
+            "id": "INFOSYS/ISYE 722"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to Data Science programming using Python.  No previous programming experience required.  Emphasis on analyzing real datasets in a variety of forms and visual communication.",
+            "id": "COMPSCI 220",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
+            "id": "INFOSYS 724",
             "parent": "INFOSYS"
         }
     },
@@ -48,21 +67,20 @@
     },
     {
         "data": {
-            "source": "INFOSYS/ISYE 722",
-            "target": "INFOSYS 724"
+            "source": "INFOSYS 371",
+            "target": "INFOSYS 424"
         }
     },
     {
         "data": {
-            "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
-            "id": "INFOSYS 322",
-            "parent": "INFOSYS"
+            "id": "INFOSYS",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
-            "id": "INFOSYS 371",
+            "description": "Focus on the economic and technical concepts behind emerging information systems. Industry cases covering platforms, online markets, artificial intelligence, and business analytics. Caters to interests in technology consulting.",
+            "id": "INFOSYS 352",
             "parent": "INFOSYS"
         }
     },
@@ -75,46 +93,28 @@
     },
     {
         "data": {
-            "id": "COMPSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "INFOSYS 371",
-            "target": "INFOSYS 424"
-        }
-    },
-    {
-        "data": {
-            "description": "Use, control and administration of centralized and distributed data bases. Topics include the definition, design, creation, revision, interrogation, update, security and integrity of data bases.",
-            "id": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "INFOSYS 765",
+            "description": "Introduction to database management systems with a focus on relational databases. Covers designing, creating, populating, managing, and retrieving data from databases. SQL will be used with a focus on querying for business applications and intelligence, data retrieval for summary reports, and data visualization. Offers a brief introduction to non-relational databases for business applications.",
+            "id": "INFOSYS 322",
             "parent": "INFOSYS"
         }
     },
     {
         "data": {
-            "source": "COMPSCI 220",
-            "target": "INFOSYS 371"
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus is on developing applications and business information systems on the web using a variety of programming languages and tools. Emphasis on deployment as well as design concepts.",
+            "id": "INFOSYS 371",
+            "parent": "INFOSYS"
         }
     },
     {
         "data": {
             "source": "INFOSYS 371",
             "target": "INFOSYS/ISYE 722"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis of business systems to identify possible need for new or improved computer-based systems and the design of systems to meet those needs.",
-            "id": "INFOSYS 724",
-            "parent": "INFOSYS"
         }
     }
 ]

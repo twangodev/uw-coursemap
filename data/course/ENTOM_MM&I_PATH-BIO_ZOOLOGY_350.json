@@ -2,22 +2,36 @@
     "course_reference": {
         "course_number": 350,
         "subjects": [
-            "ZOOLOGY",
-            "PATH-BIO",
             "ENTOM",
-            "MM&I"
+            "ZOOLOGY",
+            "MM&I",
+            "PATH-BIO"
         ]
     },
     "course_title": "PARASITOLOGY",
     "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Lyric Bartholomay": "LYRIC.BARTHOLOMAY@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -26,18 +40,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -47,16 +53,24 @@
                 ]
             },
             {
-                "course_number": 153,
+                "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
+                    "ZOOLOGY"
                 ]
             }
         ],

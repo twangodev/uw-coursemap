@@ -2,12 +2,13 @@
     "course_reference": {
         "course_number": 623,
         "subjects": [
-            "SOILSCI",
-            "CIVENGR"
+            "CIVENGR",
+            "SOILSCI"
         ]
     },
     "course_title": "MICROBIOLOGY OF WATERBORNE PATHOGENS AND INDICATOR ORGANISMS",
     "description": "Source, environmental fate and transport of major groups of waterborne pathogens, including epidemiology and testing of associated indicator organism. Management and treatment technologies for prevention of pathogen transmission.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2010": {
@@ -112,8 +113,8 @@
             {
                 "course_number": 523,
                 "subjects": [
-                    "SOILSCI",
-                    "MICROBIO"
+                    "MICROBIO",
+                    "SOILSCI"
                 ]
             }
         ],
@@ -122,16 +123,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 322,
+                "course_number": 523,
                 "subjects": [
-                    "CIVENGR"
+                    "MICROBIO",
+                    "SOILSCI"
                 ]
             },
             {
-                "course_number": 523,
+                "course_number": 322,
                 "subjects": [
-                    "SOILSCI",
-                    "MICROBIO"
+                    "CIVENGR"
                 ]
             }
         ],

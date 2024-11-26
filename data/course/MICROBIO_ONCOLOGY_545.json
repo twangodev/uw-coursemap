@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 545,
         "subjects": [
-            "ONCOLOGY",
-            "MICROBIO"
+            "MICROBIO",
+            "ONCOLOGY"
         ]
     },
     "course_title": "TOPICS IN BIOTECHNOLOGY",
     "description": "Seminars on current topics in agricultural, medical, and industrial biotechnology such as: microbiological production of food, drink, biopharmaceuticals; production methods, genetic engineering (vectors, recombination cloning), continuous fermentation; bioconversion processes and production of chemicals from biomass; plant biotechnology; transgenic animals.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            1
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jae-Hyuk Yu": "JYU1@WISC.EDU"
+        },
+        "last_taught_term_code": null,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -359,8 +373,8 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -370,10 +384,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -383,30 +411,16 @@
                 ]
             },
             {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
                 "course_number": 109,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 383,
+                "course_number": 130,
                 "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

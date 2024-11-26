@@ -7,6 +7,7 @@
     },
     "course_title": "GENERAL GENETICS 1",
     "description": "Genetics of eukaryotes and prokaryotes. Includes transmission genetics, probability and hypothesis testing, genetic mapping, molecular genetics, gene expression, and genetic engineering. Illustrative material includes viruses, bacteria, plants, fungi, insects, and humans.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2016": {
@@ -196,10 +197,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -209,30 +224,9 @@
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 115,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 466,
-                "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "CHEM"
                 ]
             },
             {
@@ -244,14 +238,21 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 115,
+                "course_number": 466,
                 "subjects": [
-                    "CHEM"
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

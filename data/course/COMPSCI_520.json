@@ -7,6 +7,20 @@
     },
     "course_title": "INTRODUCTION TO THEORY OF COMPUTING",
     "description": "Basics about the notion, capabilities, and limitations of computation: elements of finite automata and regular languages, computability theory, and computational complexity theory. Additional topics include context-free grammars and languages, and complexity-theoretic cryptography.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "JIN-YI CAI": "JYC@CS.WISC.EDU"
+        },
+        "last_taught_term_code": 1242,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -444,24 +458,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 240,
+                "course_number": 400,
                 "subjects": [
-                    "COMPSCI",
-                    "MATH"
+                    "COMPSCI"
                 ]
             },
             {
                 "course_number": 475,
                 "subjects": [
-                    "COMPSCI",
                     "STAT",
+                    "COMPSCI",
                     "MATH"
                 ]
             },
             {
-                "course_number": 400,
+                "course_number": 240,
                 "subjects": [
-                    "COMPSCI"
+                    "COMPSCI",
+                    "MATH"
                 ]
             }
         ],

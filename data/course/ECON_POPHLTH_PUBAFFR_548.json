@@ -2,13 +2,27 @@
     "course_reference": {
         "course_number": 548,
         "subjects": [
+            "ECON",
             "POPHLTH",
-            "PUBAFFR",
-            "ECON"
+            "PUBAFFR"
         ]
     },
     "course_title": "THE ECONOMICS OF HEALTH CARE",
     "description": "Analysis of the health care industry. Markets for hospitals and physicians' care, markets for health manpower, and the role of health insurance.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "KORINNA HANSEN": "KORINNA.HANSEN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -540,15 +554,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 880,
-                "subjects": [
-                    "PUBAFFR"
-                ]
-            },
-            {
                 "course_number": 301,
                 "subjects": [
                     "ECON"
+                ]
+            },
+            {
+                "course_number": 880,
+                "subjects": [
+                    "PUBAFFR"
                 ]
             },
             {

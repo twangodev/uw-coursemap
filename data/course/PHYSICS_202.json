@@ -7,6 +7,21 @@
     },
     "course_title": "GENERAL PHYSICS",
     "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+    "enrollment_data": {
+        "credit_count": [
+            5,
+            5
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Josh Weber": "JJWEBER3@WISC.EDU",
+            "Peter TIMBIE": "PTTIMBIE@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,13 +705,43 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 201,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 247,
+                "course_number": 221,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 208,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -711,36 +756,6 @@
                 "course_number": 201,
                 "subjects": [
                     "EMA"
-                ]
-            },
-            {
-                "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 207,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 208,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 217,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],

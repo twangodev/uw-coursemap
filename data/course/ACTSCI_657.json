@@ -7,6 +7,20 @@
     },
     "course_title": "RISK ANALYTICS",
     "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Peng Shi": "PSHI@BUS.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2023": {
@@ -82,6 +96,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 333,
                 "subjects": [
                     "STAT"
@@ -91,12 +111,6 @@
                 "course_number": 640,
                 "subjects": [
                     "ACTSCI"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
                 ]
             },
             {

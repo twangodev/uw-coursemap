@@ -7,6 +7,18 @@
     },
     "course_title": "GENERAL CHEMISTRY I",
     "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -709,6 +721,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 114,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 112,
                 "subjects": [
                     "MATH"
@@ -727,9 +745,9 @@
                 ]
             },
             {
-                "course_number": 114,
+                "course_number": 115,
                 "subjects": [
-                    "MATH"
+                    "CHEM"
                 ]
             },
             {
@@ -742,12 +760,6 @@
                 "course_number": 171,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 115,
-                "subjects": [
-                    "CHEM"
                 ]
             }
         ],

@@ -9,6 +9,20 @@
     },
     "course_title": "EVOLUTIONARY BIOLOGY",
     "description": "Evolutionary biology, emphasizing how modern scientists study evolution. Topics include: nature and mechanisms of microevolution, macroevolution, adaptation, speciation; systematics and taxonomy; quantitative genetics and measurement of natural selection; phylogenetic analyses of behavior, physiology, morphology, biochemistry; current controversies in evolution.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jesse WEBER": "JNWEBER2@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2011": {
@@ -588,8 +602,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -598,31 +612,31 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             },
             {

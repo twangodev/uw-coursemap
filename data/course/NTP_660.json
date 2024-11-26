@@ -7,6 +7,20 @@
     },
     "course_title": "NEUROSCIENCE & PUBLIC POLICY SEMINAR",
     "description": "Covers various topics in neuroscience and in the related sciences that demonstrate the interaction between science and public policy.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "BARBARA BENDLIN": "BBB@MEDICINE.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2010": {
@@ -510,9 +524,9 @@
             {
                 "course_number": 611,
                 "subjects": [
+                    "NTP",
                     "NEURODPT",
-                    "PSYCH",
-                    "NTP"
+                    "PSYCH"
                 ]
             }
         ],
@@ -520,12 +534,6 @@
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 485,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
             {
                 "course_number": 523,
                 "subjects": [
@@ -536,9 +544,15 @@
             {
                 "course_number": 611,
                 "subjects": [
+                    "NTP",
                     "NEURODPT",
-                    "PSYCH",
-                    "NTP"
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 485,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

@@ -7,6 +7,20 @@
     },
     "course_title": "SIMULATION AND PROBABILISTIC MODELING",
     "description": "Analysis of stochastic systems using both analytic methods and computer simulation. Empirical and theoretical models of arrival and service processes. State spaces and state transition probabilities. Simulation of queuing and manufacturing systems. Continuous time Markov analysis of manufacturing systems. Simulation project management, testing and emerging trends.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Qiaomin XIE": "QIAOMIN.XIE@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -709,13 +723,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
@@ -728,10 +735,16 @@
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 324,
                 "subjects": [
-                    "MATH",
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
@@ -753,9 +766,16 @@
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 431,
                 "subjects": [
-                    "ISYE"
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 371,
+                "subjects": [
+                    "STAT"
                 ]
             },
             {
@@ -766,21 +786,15 @@
                 ]
             },
             {
-                "course_number": 324,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 371,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 331,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "ISYE"
                 ]
             }
         ],

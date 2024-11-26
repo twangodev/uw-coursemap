@@ -8,6 +8,20 @@
     },
     "course_title": "NUMERICAL LINEAR ALGEBRA",
     "description": "Direct and iterative solution of linear and nonlinear systems and of eigenproblems. LU and symmetric LU factorization. Complexity, stability, and conditioning. Nonlinear systems. Iterative methods for linear systems. QR-factorization and least squares. Eigenproblems: local and global methods.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Amos RON": "AMOS@CS.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -292,15 +306,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 340,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 300,
+                "course_number": 340,
                 "subjects": [
-                    "COMPSCI"
+                    "MATH"
                 ]
             },
             {
@@ -310,21 +324,21 @@
                 ]
             },
             {
-                "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 310,
                 "subjects": [
                     "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

@@ -7,6 +7,23 @@
     },
     "course_title": "SPECIAL TOPICS",
     "description": "Topics of interest focusing on specific subjects or groups of organisms of plants, algae, or fungi.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Carol LEE": "CAROLLEE@WISC.EDU",
+            "Chris MUIR": "CDMUIR@WISC.EDU",
+            "David BAUM": "DBAUM@WISC.EDU",
+            "Kate MCCULLOH": "KMCCULLOH@WISC.EDU"
+        },
+        "last_taught_term_code": 1022,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Occasionally"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -624,8 +641,8 @@
             {
                 "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -635,25 +652,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
-                "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -663,10 +665,25 @@
                 ]
             },
             {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

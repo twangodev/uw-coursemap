@@ -7,6 +7,20 @@
     },
     "course_title": "PLANT PHYSIOLOGY",
     "description": "An in-depth look at plant growth, development, respiration, photosynthesis, mineral nutrition, and water relations. Experimental approaches will be used to demonstrate principles described.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": true,
+        "instructors": {
+            "Cullen Vens": "VENS@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -339,8 +353,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -349,31 +363,31 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

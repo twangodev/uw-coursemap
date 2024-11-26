@@ -1,20 +1,156 @@
 [
     {
         "data": {
+            "description": "MATLAB is a powerful, high-level programming language and integrated development environment (IDE) that is used across a broad variety of scientific disciplines for tasks including data visualization, modeling, and application development. Focus on the active use of MATLAB for developing practical programming and data analysis skills that can be applied across a range of geoscience- relevant problems. Applications will include: data visualization and publishable figure development; automation of data processing; statistical and time-series analysis; image processing and mapping; and optimization. Additional topics may be guided by student interest.",
+            "id": "GEOSCI/GLE 537"
+        }
+    },
+    {
+        "data": {
+            "description": "",
+            "id": "GLE 699",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
+            "id": "EMA 201",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI/GLE 360",
+            "target": "GEOSCI/GLE 431"
+        }
+    },
+    {
+        "data": {
+            "description": "Practical aspects of seepage effects and ground water flow. Stability of natural and man-made slopes under various loading conditions. Design and construction of earth dams and embankments. Flow net and its use; wells; filters; total and effective stress methods of slope analysis; selection of pertinent soil parameters.",
+            "id": "CIVENGR/GLE 530"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "GEOSCI/GLE 537"
+        }
+    },
+    {
+        "data": {
+            "source": "CIVENGR 320",
+            "target": "CIVENGR/GLE 520"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
+            "id": "CIVENGR/GLE 432"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "CIVENGR/ENVIRST/GEOSCI/GLE 444"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses the three paradigms of sustainability (environmental, social, and economic) for strategic environmental initiatives in an engineering setting. Proactive environmental management opportunities, including practices of pollution prevention, industrial ecology, and design for the environment. A systems approach to manufacturing, examining the life cycle of products, incorporating total cost accounting, extended producer responsibility, and design for end-of-life.",
+            "id": "CIVENGR/GLE 421"
+        }
+    },
+    {
+        "data": {
+            "source": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 371",
+            "target": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 372"
+        }
+    },
+    {
+        "data": {
+            "description": "Geotechnical considerations of earthquake engineering and foundation vibrations. Seismic surveying; ground motion during earthquakes; determination of soil properties for ground response analysis; dynamic properties of soils; soil structure interaction effects; soil liquefaction; dynamic analysis of earth dams; settlements resulting from earthquakes, lateral earth pressures during earthquakes; foundation vibrations. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] and Foundations [such as G L E 452 orCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0532] is required.",
+            "id": "CIVENGR/GLE 735"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Minerals, their physical and chemical properties, crystallography, and geologic significance.",
+            "id": "GEOSCI/GLE 360"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
             "description": "Determination and interpretation of soil properties for engineering purposes; physio-chemical properties of soil-water systems, permeability and capillarity, compression characteristics of soils, measurement of soil properties in the triaxial test, properties of frozen soils and permafrost.",
             "id": "CIVENGR/GLE 730"
         }
     },
     {
         "data": {
-            "id": "MATH",
+            "source": "GEOSCI/GLE 360",
+            "target": "GEOSCI/GLE 370"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI/GLE 627",
+            "target": "GEOSCI/GLE 629"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 240",
+            "target": "CIVENGR 310"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
             "type": "compound"
         }
     },
     {
         "data": {
+            "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
+            "id": "CIVENGR/GLE 434"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI 100",
+            "target": "GEOSCI/GLE 627"
+        }
+    },
+    {
+        "data": {
+            "description": "Applications of physiochemical, mineralogical and environmental considerations to the engineering behavior of soils. Soil composition, formation, fabric, pore fluid chemistry and interaction of phases. The particulate nature of soils and the fabric-engineering property (volume change, strength, deformation and conduction) relationships. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
+            "id": "CIVENGR/GLE 733"
+        }
+    },
+    {
+        "data": {
             "source": "CIVENGR/GLE 330",
-            "target": "CIVENGR/GLE 530"
+            "target": "CIVENGR/GLE 430"
+        }
+    },
+    {
+        "data": {
+            "source": "CIVENGR/GLE 330",
+            "target": "CIVENGR/GLE 532"
         }
     },
     {
@@ -25,20 +161,8 @@
     },
     {
         "data": {
-            "description": "MATLAB is a powerful, high-level programming language and integrated development environment (IDE) that is used across a broad variety of scientific disciplines for tasks including data visualization, modeling, and application development. Focus on the active use of MATLAB for developing practical programming and data analysis skills that can be applied across a range of geoscience- relevant problems. Applications will include: data visualization and publishable figure development; automation of data processing; statistical and time-series analysis; image processing and mapping; and optimization. Additional topics may be guided by student interest.",
-            "id": "GEOSCI/GLE 537"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI 202",
-            "target": "GEOSCI/GLE 455"
-        }
-    },
-    {
-        "data": {
-            "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
-            "id": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 372"
+            "description": "Application of geology to problems resulting from the ever more intense use of the earth and its resources.",
+            "id": "ENVIRST/GEOSCI 106"
         }
     },
     {
@@ -50,32 +174,315 @@
     },
     {
         "data": {
-            "source": "CIVENGR/GLE 735",
-            "target": "GLE 479"
+            "description": "The application of geophysical field methods for delineating near-surface features and/or structures as applied to engineering, environmental and exploration problems.",
+            "id": "GEOSCI/GLE 595"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to engineering computations with emphasis on computer tools and computer based measurement, data collection, and processing. Tools will include computer aided design, spreadsheets, other engineering computation tools, and hardware and software for laboratory and spatial measurements.",
+            "id": "CIVENGR/GLE 291"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI 100",
+            "target": "GEOSCI/GLE 360"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "GEOSCI/GLE 350"
+        }
+    },
+    {
+        "data": {
+            "source": "ENVIRST/GEOSCI 106",
+            "target": "GEOSCI 100"
+        }
+    },
+    {
+        "data": {
+            "source": "CIVENGR/GLE 330",
+            "target": "CIVENGR/GLE 432"
+        }
+    },
+    {
+        "data": {
+            "id": "ME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the principles of modeling groundwater flow systems, with emphasis on regional flow system analysis. Conceptual understanding of governing equations, and the use of finite difference techniques to solve such equations are stressed. Develop codes and become introduced to packaged models, including those developed by the U. S. Geological Survey. Knowledge of hydrogeology [such asG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627or629] required.",
+            "id": "GEOSCI/GLE 724"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers Sedimentology and Stratigraphy; emphasizes qualitative and quantitative description and interpretation of sediments and sedimentary deposits.",
+            "id": "GEOSCI/GLE 431"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "CIVENGR/GLE 534"
+        }
+    },
+    {
+        "data": {
+            "description": "Examines intermediate-level concepts in information extraction, data processing and radiative transfer relevant to remote sensing of the environment. Includes transforms, image correction, classification algorithms and change detection, with emphasis on applications for land use planning and natural resource management.",
+            "id": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 372"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the water cycle, its relationship to the environment and human attempts to conserve, control, and utilize water judiciously. Fundamentals of hydrology, hydraulics, coastal engineering and water resources engineering.",
+            "id": "CIVENGR 311",
+            "parent": "CIVENGR"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 113",
+            "target": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 371"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "CIVENGR 311"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "description": "Undergraduate honors research projects supervised by faculty members.",
+            "id": "GLE 489",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Various topics in the field of geological engineering.",
+            "id": "GLE 401",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
+            "id": "MATH 113",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "id": "GEOSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "A practical problem in an area of geological engineering (such as development of a geologic resource or design of a structure in soil and/or rock) is selected, and then the principles and processes of design and analysis are applied to the solution of the problem.",
+            "id": "GLE 479",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics vary.",
+            "id": "GLE 801",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
+            "id": "EMA 303",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to recognition and mapping of geologic structures in the field. Landforms, folds, faults, tectonics, geologic maps, and field instrumentation.",
+            "id": "GEOSCI 202",
+            "parent": "GEOSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Wind Energy Development and Balance-of-Plant Design. Up-front coverage includes the science and mechanics of wind energy including turbine basics, wind resource assessment, energy production, and economic return. Balance-of-plant design aspects include site layout and micro-siting, foundation systems, collector systems and interconnection, site civil and electrical infrastructure, and structural tower analysis. Development includes environmental due diligence and permitting, stakeholder engagement, energy policy and markets, and levelized cost of energy (LCOE).",
+            "id": "CIVENGR/GLE 535"
+        }
+    },
+    {
+        "data": {
+            "description": "Shallow and deep foundations. Analysis and design of footings, mats, piers and piles, and related fill and excavation operations. Consolidation settlement, time rate of settlement, stress distribution, elastic (immediate) settlement, load bearing capacity; methods to reduce settlements and increase shear strength; the selection of a foundation system.",
+            "id": "CIVENGR/GLE 532"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 112",
+            "target": "MATH 113"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "CIVENGR/GLE 291"
         }
     },
     {
         "data": {
             "source": "CIVENGR/GEOSCI/GLE/MS&E 474",
-            "target": "CIVENGR/GLE 434"
+            "target": "GEOSCI/GLE 596"
         }
     },
     {
         "data": {
-            "description": "Methods of geophysics applied to earth structure and plate tectonics. Principles of seismology, gravity, geodesy, magnetism and heat flow.",
-            "id": "GEOSCI/GLE 350"
+            "description": "Engineering principles of unsaturated soils as they apply to geotechnical and geoenvironmental systems. Effect of soil water suction and stress on hydraulic conductivity, shear strength, and compressibility of soils in the context of geoengineering problems of flow and stability. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
+            "id": "CIVENGR/GLE 732"
         }
     },
     {
         "data": {
-            "description": "Mutual interactions between the hydrologic cycle and ecosystems, including hydrologic mechanisms that underlie ecological patterns and processes, movement of water and energy through the soil-plant-atmosphere continuum, application and development of models for simulating ecohydrologic processes, and case studies on ecohydrologic function and ecosystem services of varied environments.",
-            "id": "CIVENGR/GLE 612"
+            "description": "Elasticity and flexure of the earth's lithosphere, heat conduction, mantle convection, earthquake mechanisms, rock rheology, and fluid migration in the earth's crust; integration of geophysical observations, laboratory experiments, and theoretical models.",
+            "id": "GEOSCI/GLE 747"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CIVENGR/GLE 421"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI 202",
+            "target": "GEOSCI/GLE 455"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of soil mechanics and fundamentals of application in engineering practice; soil composition and texture; classification; permeability and seepage; consolidation; settlement; shear strength; lateral earth pressures and retaining structures, shallow and deep foundations, slope stability; subsurface exploration; laboratory characterization of physical and engineering properties of soils.",
+            "id": "CIVENGR/GLE 330"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CIVENGR 320"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "CIVENGR/GEOSCI/GLE/MS&E 474"
         }
     },
     {
         "data": {
             "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
             "id": "CIVENGR/GLE 430"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI 100",
+            "target": "ENVIRST/GEOSCI 106"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
+            "id": "GLE 1",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of applied geophysics, including seismic refraction, seismic reflection, electrical resistivity, gravity, and magnetics methods. Basic physics of each method and modeling techniques and field procedures.",
+            "id": "GEOSCI/GLE 594"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "ME 240"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "EMA 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
+            "id": "MATH 112",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
+            "id": "CIVENGR/GEOSCI/GLE/MS&E 474"
+        }
+    },
+    {
+        "data": {
+            "description": "Under faculty supervision.",
+            "id": "GLE 790",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "description": "Under faculty supervision.",
+            "id": "GLE 990",
+            "parent": "GLE"
+        }
+    },
+    {
+        "data": {
+            "source": "GEOSCI 100",
+            "target": "GEOSCI 202"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
         }
     },
     {
@@ -88,448 +495,7 @@
     {
         "data": {
             "description": "Under faculty supervision.",
-            "id": "GLE 990",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "EMA 201"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI 100",
-            "target": "GEOSCI/GLE 627"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "EMA 303"
-        }
-    },
-    {
-        "data": {
-            "description": "Fluid statics and dynamics, dimensional analysis, flow of an ideal fluid, flow of a real fluid--including laminar and turbulent flow, applications to engineering problems.",
-            "id": "CIVENGR 310",
-            "parent": "CIVENGR"
-        }
-    },
-    {
-        "data": {
-            "id": "ME",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "GLE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR 320",
-            "target": "CIVENGR/GLE 520"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 240",
-            "target": "CIVENGR 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics vary.",
-            "id": "GLE 801",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR/GLE 330",
-            "target": "CIVENGR/GLE 532"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the principles of modeling groundwater flow systems, with emphasis on regional flow system analysis. Conceptual understanding of governing equations, and the use of finite difference techniques to solve such equations are stressed. Develop codes and become introduced to packaged models, including those developed by the U. S. Geological Survey. Knowledge of hydrogeology [such asG\u00a0L\u00a0E/\u200bGEOSCI\u00a0\u00a0627or629] required.",
-            "id": "GEOSCI/GLE 724"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/GEOSCI 106",
-            "target": "GEOSCI 100"
-        }
-    },
-    {
-        "data": {
-            "id": "GEOSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "GEOSCI/GLE 537"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers Sedimentology and Stratigraphy; emphasizes qualitative and quantitative description and interpretation of sediments and sedimentary deposits.",
-            "id": "GEOSCI/GLE 431"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR 311",
-            "target": "CIVENGR/GLE 612"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
-            "id": "MATH 96",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 371",
-            "target": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 372"
-        }
-    },
-    {
-        "data": {
-            "description": "Practical aspects of nondestructive evaluation (NDE) techniques for identifying physical properties and damage within civil and geologic materials and structures. Data analyses and data science for wave propagation, arrival picking, distributed fiber optic sensing, and visualization tools such as augmented/mixed/virtual reality.",
-            "id": "CIVENGR/GLE 534"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR/GLE 330",
-            "target": "CIVENGR/GLE 430"
-        }
-    },
-    {
-        "data": {
-            "description": "Under faculty supervision.",
             "id": "GLE 999",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to theory and approaches commonly used in geotechnical engineering practice for design and analysis of slopes and earth retaining structures.",
-            "id": "CIVENGR/GLE 432"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "CIVENGR/GLE 330"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI 100",
-            "target": "ENVIRST/GEOSCI 106"
-        }
-    },
-    {
-        "data": {
-            "description": "A practical problem in an area of geological engineering (such as development of a geologic resource or design of a structure in soil and/or rock) is selected, and then the principles and processes of design and analysis are applied to the solution of the problem.",
-            "id": "GLE 479",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Experimental rock mechanics, rock mechanics apparatus design, static and dynamic rock friction, rate and state friction, crack phenomena and rock fracture mechanics, earthquake energy budget, elastic/viscoelastic/plastic behavior of rocks, engineering and geological applications. Knowledge of introductory rock mechanics [such as M S  E/GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474] required.",
-            "id": "GEOSCI/GLE 757"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Undergraduate honors research projects supervised by faculty members.",
-            "id": "GLE 489",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR/GLE 330",
-            "target": "CIVENGR/GLE 432"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR/GEOSCI/GLE/MS&E 474",
-            "target": "GEOSCI/GLE 596"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "CIVENGR/GLE 291"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical treatment of the physical principles governing the flow of groundwater; emphasis on well hydraulics and flow system analysis.",
-            "id": "GEOSCI/GLE 627"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI 100",
-            "target": "GEOSCI/GLE 360"
-        }
-    },
-    {
-        "data": {
-            "description": "Rectilinear and curvilinear motion of a particle; force, mass, acceleration; work, potential, and kinetic energy; impulse and momentum; kinematics of rigid bodies; moving coordinate systems with relative motion; general planar rigid body kinematics and kinetics. Applications to linkages, cams and geared systems.",
-            "id": "ME 240",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CIVENGR/GLE 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of elementary functions, such as polynomial, absolute value, radical, rational, exponential, and logarithmic functions. Topics include equations, inequalities, functions, and their graphs. Students will formulate, analyze, solve, and interpret mathematical and real-world problems. Intended to provide the algebra skills required for calculus.",
-            "id": "MATH 112",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Practical aspects of seepage effects and ground water flow. Stability of natural and man-made slopes under various loading conditions. Design and construction of earth dams and embankments. Flow net and its use; wells; filters; total and effective stress methods of slope analysis; selection of pertinent soil parameters.",
-            "id": "CIVENGR/GLE 530"
-        }
-    },
-    {
-        "data": {
-            "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
-            "id": "CIVENGR/ENVIRST/GEOSCI/GLE 444"
-        }
-    },
-    {
-        "data": {
-            "description": "Wind Energy Development and Balance-of-Plant Design. Up-front coverage includes the science and mechanics of wind energy including turbine basics, wind resource assessment, energy production, and economic return. Balance-of-plant design aspects include site layout and micro-siting, foundation systems, collector systems and interconnection, site civil and electrical infrastructure, and structural tower analysis. Development includes environmental due diligence and permitting, stakeholder engagement, energy policy and markets, and levelized cost of energy (LCOE).",
-            "id": "CIVENGR/GLE 535"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "ME 240"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI/GLE 360",
-            "target": "GEOSCI/GLE 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Subsurface stress; rock failure criteria; openings in competent rock; openings in layered rocks; plastic behavior around openings in weak rock; stereographic projections and stereonet; block theory; rock bolts; stabilization methods and design.",
-            "id": "CIVENGR/GLE 434"
-        }
-    },
-    {
-        "data": {
-            "id": "CIVENGR",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics vary.",
-            "id": "GLE 900",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
-            "id": "GLE 1",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
-            "id": "CIVENGR/GLE 511"
-        }
-    },
-    {
-        "data": {
-            "description": "Geotechnical considerations of earthquake engineering and foundation vibrations. Seismic surveying; ground motion during earthquakes; determination of soil properties for ground response analysis; dynamic properties of soils; soil structure interaction effects; soil liquefaction; dynamic analysis of earth dams; settlements resulting from earthquakes, lateral earth pressures during earthquakes; foundation vibrations. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] and Foundations [such as G L E 452 orCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0532] is required.",
-            "id": "CIVENGR/GLE 735"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of soil mechanics and fundamentals of application in engineering practice; soil composition and texture; classification; permeability and seepage; consolidation; settlement; shear strength; lateral earth pressures and retaining structures, shallow and deep foundations, slope stability; subsurface exploration; laboratory characterization of physical and engineering properties of soils.",
-            "id": "CIVENGR/GLE 330"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 202",
-            "target": "GEOSCI/GLE 594"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Application of geology to problems resulting from the ever more intense use of the earth and its resources.",
-            "id": "ENVIRST/GEOSCI 106"
-        }
-    },
-    {
-        "data": {
-            "description": "Stress and strain, torsion, bending of beams, shearing stresses in beams, compound stresses, principal stresses, deflections of beams, statically indeterminate members, columns. For civil engineers.",
-            "id": "EMA 303",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR 310",
-            "target": "CIVENGR/GLE 511"
-        }
-    },
-    {
-        "data": {
-            "description": "Elasticity and flexure of the earth's lithosphere, heat conduction, mantle convection, earthquake mechanisms, rock rheology, and fluid migration in the earth's crust; integration of geophysical observations, laboratory experiments, and theoretical models.",
-            "id": "GEOSCI/GLE 747"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CIVENGR 320"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI/GLE 594",
-            "target": "GEOSCI/GLE 595"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 113",
-            "target": "ENVIRST/F&WECOL/GEOG/GEOSCI/GLE/LANDARC 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to recognition and mapping of geologic structures in the field. Landforms, folds, faults, tectonics, geologic maps, and field instrumentation.",
-            "id": "GEOSCI 202",
-            "parent": "GEOSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "id": "EMA",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers the graphs, properties and geometric significance of trigonometric functions of a real variable. Other topics include trigonometric equations and identities, application, trigonometric form of complex numbers, DeMoivre's theorem, and polar and parametric equations. The course also has a significant number of applications, especially related to other disciplines.",
-            "id": "MATH 113",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "",
-            "id": "GLE 699",
             "parent": "GLE"
         }
     },
@@ -541,125 +507,46 @@
     },
     {
         "data": {
-            "source": "MATH 96",
-            "target": "MATH 112"
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "CIVENGR 311"
+            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+            "id": "PHYSICS 202",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Under faculty supervision.",
-            "id": "GLE 790",
-            "parent": "GLE"
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
         }
     },
     {
         "data": {
-            "description": "Introduction to the water cycle, its relationship to the environment and human attempts to conserve, control, and utilize water judiciously. Fundamentals of hydrology, hydraulics, coastal engineering and water resources engineering.",
-            "id": "CIVENGR 311",
-            "parent": "CIVENGR"
+            "source": "GEOSCI/GLE 594",
+            "target": "GEOSCI/GLE 595"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "CIVENGR/ENVIRST/GEOSCI/GLE 444"
+            "description": "Mutual interactions between the hydrologic cycle and ecosystems, including hydrologic mechanisms that underlie ecological patterns and processes, movement of water and energy through the soil-plant-atmosphere continuum, application and development of models for simulating ecohydrologic processes, and case studies on ecohydrologic function and ecosystem services of varied environments.",
+            "id": "CIVENGR/GLE 612"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "GEOSCI/GLE 350"
+            "source": "CIVENGR/GLE 735",
+            "target": "GLE 479"
         }
     },
     {
         "data": {
-            "description": "Engineering principles of unsaturated soils as they apply to geotechnical and geoenvironmental systems. Effect of soil water suction and stress on hydraulic conductivity, shear strength, and compressibility of soils in the context of geoengineering problems of flow and stability. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
-            "id": "CIVENGR/GLE 732"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses the three paradigms of sustainability (environmental, social, and economic) for strategic environmental initiatives in an engineering setting. Proactive environmental management opportunities, including practices of pollution prevention, industrial ecology, and design for the environment. A systems approach to manufacturing, examining the life cycle of products, incorporating total cost accounting, extended producer responsibility, and design for end-of-life.",
-            "id": "CIVENGR/GLE 421"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "CIVENGR/GEOSCI/GLE/MS&E 474"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI 100",
-            "target": "GEOSCI 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Various topics in the field of geological engineering.",
-            "id": "GLE 401",
-            "parent": "GLE"
-        }
-    },
-    {
-        "data": {
-            "description": "The application of geophysical field methods for delineating near-surface features and/or structures as applied to engineering, environmental and exploration problems.",
-            "id": "GEOSCI/GLE 595"
-        }
-    },
-    {
-        "data": {
-            "description": "Minerals, their physical and chemical properties, crystallography, and geologic significance.",
-            "id": "GEOSCI/GLE 360"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "CIVENGR/GLE 534"
-        }
-    },
-    {
-        "data": {
-            "source": "GEOSCI/GLE 360",
-            "target": "GEOSCI/GLE 370"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
-            "id": "CIVENGR/GEOSCI/GLE/MS&E 474"
-        }
-    },
-    {
-        "data": {
-            "description": "Geotechnical practice for remediation of sites containing contaminated soil and groundwater is discussed. Topics include non-invasive and invasive subsurface exploration techniques, methods to monitor for the presence of contaminants in the saturated and unsaturated zones, and geotechnically-oriented remedial action technologies.",
-            "id": "CIVENGR/GLE 635"
+            "source": "CIVENGR/GLE 330",
+            "target": "CIVENGR/GLE 635"
         }
     },
     {
@@ -670,26 +557,121 @@
     },
     {
         "data": {
-            "source": "GEOSCI/GLE 627",
-            "target": "GEOSCI/GLE 629"
+            "description": "Under faculty supervision.",
+            "id": "GLE 890",
+            "parent": "GLE"
         }
     },
     {
         "data": {
-            "description": "Key scientific concepts related to fossil and renewable energy resources. Apply the fundamentals of thermodynamics and chemical kinetics at solid interfaces to better understand the science behind using fossil and renewable energy resources. Evaluate the impacts of existing and emerging energy technologies on the environment.",
-            "id": "CIVENGR/GLE 520"
+            "description": "Experimental rock mechanics, rock mechanics apparatus design, static and dynamic rock friction, rate and state friction, crack phenomena and rock fracture mechanics, earthquake energy budget, elastic/viscoelastic/plastic behavior of rocks, engineering and geological applications. Knowledge of introductory rock mechanics [such as M S  E/GEOSCI/\u200bCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E/\u200bM\u00a0S\u00a0&\u00a0E\u00a0\u00a0474] required.",
+            "id": "GEOSCI/GLE 757"
         }
     },
     {
         "data": {
-            "description": "Applications of physiochemical, mineralogical and environmental considerations to the engineering behavior of soils. Soil composition, formation, fabric, pore fluid chemistry and interaction of phases. The particulate nature of soils and the fabric-engineering property (volume change, strength, deformation and conduction) relationships. Knowledge of Soil Mechanics [such asCIV\u00a0ENGR/\u200bG\u00a0L\u00a0E\u00a0\u00a0330] is required.",
-            "id": "CIVENGR/GLE 733"
+            "source": "CIVENGR 311",
+            "target": "CIVENGR/GLE 612"
         }
     },
     {
         "data": {
-            "description": "Introduction to engineering computations with emphasis on computer tools and computer based measurement, data collection, and processing. Tools will include computer aided design, spreadsheets, other engineering computation tools, and hardware and software for laboratory and spatial measurements.",
-            "id": "CIVENGR/GLE 291"
+            "source": "CIVENGR/GLE 330",
+            "target": "CIVENGR/GLE 530"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Observation, description, and prediction of deformation of geomechanical systems at depth, and the forces (stress) causing those deformations, relevant for petroleum/geothermal reservoirs and studies of earthquake mechanics. Emphasis on computational exercises using datasets from the petroleum industry and earthquake catalogues, as well as prediction of ground deformation.",
+            "id": "GEOSCI/GLE 596"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the necessary mathematical tools needed to succeed in our algebra course and provides fundamental mathematical skills. Topics include real numbers, linear equations and inequalities, integral and fractional exponents, polynomials and their arithmetic, polynomial equations and equations with fractional exponents, the quadratic formula and completing the square, systems of two linear equations, graphing, and problem solving using algebra and graphs. All students must pass an assessment on basic mathematical skills to complete the course. The course does not count for degree credit.",
+            "id": "MATH 96",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of rock deformation, structures in layered rocks, structural analysis, intrusive structures. Lab: three-dimensional problems involving structural concepts; field trip.",
+            "id": "GEOSCI/GLE 455"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical treatment of the physical principles governing the flow of groundwater; emphasis on well hydraulics and flow system analysis.",
+            "id": "GEOSCI/GLE 627"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "CIVENGR/GLE 330"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical and chemical processes governing the transport of solutes in groundwater; application of hydrogeologic and geochemical theory and practice to the protection of aquifers from contamination.",
+            "id": "GEOSCI/GLE 629"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "CIVENGR/GLE 535"
+        }
+    },
+    {
+        "data": {
+            "description": "Rectilinear and curvilinear motion of a particle; force, mass, acceleration; work, potential, and kinetic energy; impulse and momentum; kinematics of rigid bodies; moving coordinate systems with relative motion; general planar rigid body kinematics and kinetics. Applications to linkages, cams and geared systems.",
+            "id": "ME 240",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods of geophysics applied to earth structure and plate tectonics. Principles of seismology, gravity, geodesy, magnetism and heat flow.",
+            "id": "GEOSCI/GLE 350"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
+            "id": "CIVENGR/GLE 511"
+        }
+    },
+    {
+        "data": {
+            "description": "Practical aspects of nondestructive evaluation (NDE) techniques for identifying physical properties and damage within civil and geologic materials and structures. Data analyses and data science for wave propagation, arrival picking, distributed fiber optic sensing, and visualization tools such as augmented/mixed/virtual reality.",
+            "id": "CIVENGR/GLE 534"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
         }
     },
     {
@@ -702,88 +684,106 @@
     {
         "data": {
             "source": "PHYSICS 201",
-            "target": "CIVENGR/GLE 535"
+            "target": "PHYSICS 207"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
+            "id": "GLE",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "MATH 112",
-            "target": "MATH 113"
+            "source": "CHEM 109",
+            "target": "CHEM 104"
         }
     },
     {
         "data": {
-            "description": "Under faculty supervision.",
-            "id": "GLE 890",
+            "source": "PHYSICS 202",
+            "target": "GEOSCI/GLE 594"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "EMA 303"
+        }
+    },
+    {
+        "data": {
+            "id": "EMA",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics vary.",
+            "id": "GLE 900",
             "parent": "GLE"
         }
     },
     {
         "data": {
-            "description": "Survey of applied geophysics, including seismic refraction, seismic reflection, electrical resistivity, gravity, and magnetics methods. Basic physics of each method and modeling techniques and field procedures.",
-            "id": "GEOSCI/GLE 594"
+            "source": "CIVENGR/GEOSCI/GLE/MS&E 474",
+            "target": "CIVENGR/GLE 434"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "description": "Geotechnical practice for remediation of sites containing contaminated soil and groundwater is discussed. Topics include non-invasive and invasive subsurface exploration techniques, methods to monitor for the presence of contaminants in the saturated and unsaturated zones, and geotechnically-oriented remedial action technologies.",
+            "id": "CIVENGR/GLE 635"
         }
     },
     {
         "data": {
-            "description": "Observation, description, and prediction of deformation of geomechanical systems at depth, and the forces (stress) causing those deformations, relevant for petroleum/geothermal reservoirs and studies of earthquake mechanics. Emphasis on computational exercises using datasets from the petroleum industry and earthquake catalogues, as well as prediction of ground deformation.",
-            "id": "GEOSCI/GLE 596"
+            "source": "CIVENGR 310",
+            "target": "CIVENGR/GLE 511"
         }
     },
     {
         "data": {
-            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
-            "id": "EMA 201",
-            "parent": "EMA"
+            "description": "Fluid statics and dynamics, dimensional analysis, flow of an ideal fluid, flow of a real fluid--including laminar and turbulent flow, applications to engineering problems.",
+            "id": "CIVENGR 310",
+            "parent": "CIVENGR"
         }
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
+            "description": "Global positioning system surveying for field applications. Signals. Coordinate systems. Datums. Cartographic projections. Satellite orbits. Choosing hardware. Strategies for data collection and analysis. Assessing uncertainty. Geocoding satellite images. Integrating data with Geographic Information Systems. Emerging technologies.",
+            "id": "CIVENGR/ENVIRST/GEOSCI/GLE 444"
         }
     },
     {
         "data": {
-            "description": "Shallow and deep foundations. Analysis and design of footings, mats, piers and piles, and related fill and excavation operations. Consolidation settlement, time rate of settlement, stress distribution, elastic (immediate) settlement, load bearing capacity; methods to reduce settlements and increase shear strength; the selection of a foundation system.",
-            "id": "CIVENGR/GLE 532"
+            "id": "CIVENGR",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Principles of rock deformation, structures in layered rocks, structural analysis, intrusive structures. Lab: three-dimensional problems involving structural concepts; field trip.",
-            "id": "GEOSCI/GLE 455"
+            "id": "PHYSICS",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Physical and chemical processes governing the transport of solutes in groundwater; application of hydrogeologic and geochemical theory and practice to the protection of aquifers from contamination.",
-            "id": "GEOSCI/GLE 629"
+            "source": "MATH 96",
+            "target": "MATH 112"
         }
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CIVENGR/GLE 330",
-            "target": "CIVENGR/GLE 635"
+            "description": "Key scientific concepts related to fossil and renewable energy resources. Apply the fundamentals of thermodynamics and chemical kinetics at solid interfaces to better understand the science behind using fossil and renewable energy resources. Evaluate the impacts of existing and emerging energy technologies on the environment.",
+            "id": "CIVENGR/GLE 520"
         }
     }
 ]

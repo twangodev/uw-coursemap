@@ -7,6 +7,20 @@
     },
     "course_title": "ADVANCED SEMINAR IN HISTORY",
     "description": "Development and application of advanced research skills to a specific historical topic. Intensive writing and small group discussion results in a project demonstrating original or creative analysis of primary and secondary sources.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "David MCDONALD": "DMMCDON1@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,15 +704,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 201,
-                "subjects": [
-                    "HISTORY"
-                ]
-            },
-            {
                 "course_number": 211,
                 "subjects": [
                     "HISTSCI"
+                ]
+            },
+            {
+                "course_number": 201,
+                "subjects": [
+                    "HISTORY"
                 ]
             }
         ],

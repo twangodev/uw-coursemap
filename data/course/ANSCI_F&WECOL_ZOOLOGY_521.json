@@ -2,13 +2,25 @@
     "course_reference": {
         "course_number": 521,
         "subjects": [
-            "ZOOLOGY",
             "ANSCI",
+            "ZOOLOGY",
             "F&WECOL"
         ]
     },
     "course_title": "BIRDS OF SOUTHERN WISCONSIN",
     "description": "Outdoor and indoor labs/lectures emphasizing identification of southern Wisconsin birds by sight and vocalization. Two required Saturday field trips in Southern Wisconsin.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -341,8 +353,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -351,24 +363,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -378,10 +376,24 @@
                 ]
             },
             {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

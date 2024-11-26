@@ -8,6 +8,20 @@
     },
     "course_title": "CONTAMINANT HYDROGEOLOGY",
     "description": "Physical and chemical processes governing the transport of solutes in groundwater; application of hydrogeologic and geochemical theory and practice to the protection of aquifers from contamination.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Christopher ZAHASKY": "CZAHASKY@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2007": {
@@ -255,16 +269,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 222,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 627,
                 "subjects": [
                     "GLE",
                     "GEOSCI"
-                ]
-            },
-            {
-                "course_number": 222,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],

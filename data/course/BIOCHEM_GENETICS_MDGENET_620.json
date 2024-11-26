@@ -3,12 +3,27 @@
         "course_number": 620,
         "subjects": [
             "BIOCHEM",
-            "MDGENET",
-            "GENETICS"
+            "GENETICS",
+            "MDGENET"
         ]
     },
     "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
     "description": "Focuses on the basic molecular mechanisms that regulate DNA, RNA, and protein metabolism in eukaryotic organisms.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "David WASSARMAN": "DAWASSARMAN@WISC.EDU",
+            "GAELEN HESS": "GHESS3@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -24,13 +39,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 501,
+                "course_number": 508,
                 "subjects": [
                     "BIOCHEM"
                 ]
             },
             {
-                "course_number": 508,
+                "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
                 ]

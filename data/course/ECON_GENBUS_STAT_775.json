@@ -3,12 +3,26 @@
         "course_number": 775,
         "subjects": [
             "STAT",
-            "GENBUS",
-            "ECON"
+            "ECON",
+            "GENBUS"
         ]
     },
     "course_title": "BAYESIAN STATISTICS",
     "description": "Introduces the theory, methods, and computational procedures needed to perform advanced Bayesian data analyses. Predictive and decision-theoretic motivations including subjective probability, risk, admissibility, and exchangeability; highlights key components of Bayesian analysis (i.e., prior, likelihood, posterior, and predictive distributions) within standard parametric models and advanced hierarchical and multilevel models; demonstrates the iterative process of model specification, implementation, criticism, and revision with applied case studies; implements computational techniques (e.g., Markov chain Monte Carlo, variational inference) in modern probabilistic programming languages.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Sameer DESHPANDE": "SAMEER.DESHPANDE@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Occasionally"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -356,14 +370,20 @@
                 ]
             },
             {
-                "course_number": 709,
+                "course_number": 609,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "STAT"
                 ]
             },
             {
-                "course_number": 609,
+                "course_number": 761,
+                "subjects": [
+                    "COMPSCI",
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 610,
                 "subjects": [
                     "STAT"
                 ]
@@ -381,16 +401,10 @@
                 ]
             },
             {
-                "course_number": 610,
+                "course_number": 709,
                 "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 761,
-                "subjects": [
-                    "COMPSCI",
-                    "ECE"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

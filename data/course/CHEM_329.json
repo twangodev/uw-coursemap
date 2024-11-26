@@ -7,6 +7,21 @@
     },
     "course_title": "FUNDAMENTALS OF ANALYTICAL SCIENCE",
     "description": "Fundamentals of chemical measurement in chemistry, biology, engineering, geology, and the medical sciences. Topics include equilibria of complex systems, spectroscopy, electrochemistry, separations, and quantitative laboratory technique. Covers chemical equilibria in greater depth and with greater mathematical rigor thanCHEM\u00a0327.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jericha Mill": "MILL@WISC.EDU",
+            "SONG JIN": "JIN@CHEM.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,6 +705,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 104,
                 "subjects": [
                     "CHEM"
@@ -697,12 +718,6 @@
             },
             {
                 "course_number": 327,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 109,
                 "subjects": [
                     "CHEM"
                 ]

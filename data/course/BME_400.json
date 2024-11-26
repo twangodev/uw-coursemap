@@ -7,6 +7,7 @@
     },
     "course_title": "CAPSTONE DESIGN COURSE IN BIOMEDICAL ENGINEERING",
     "description": "Applies classroom study and prior design course experiences for senior teams to solve a directed client-based biomedical engineering design project.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -386,13 +387,20 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 301,
+                "course_number": 300,
                 "subjects": [
                     "BME"
                 ]
             },
             {
-                "course_number": 300,
+                "course_number": 430,
+                "subjects": [
+                    "PHMSCI",
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 301,
                 "subjects": [
                     "BME"
                 ]
@@ -406,13 +414,6 @@
             {
                 "course_number": 315,
                 "subjects": [
-                    "BME"
-                ]
-            },
-            {
-                "course_number": 430,
-                "subjects": [
-                    "PHMSCI",
                     "BME"
                 ]
             }

@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 338,
         "subjects": [
-            "AGRONOMY",
-            "HORT"
+            "HORT",
+            "AGRONOMY"
         ]
     },
     "course_title": "PLANT BREEDING AND BIOTECHNOLOGY",
     "description": "Principles of transferring plant genes by sexual, somatic, and molecular methods and the application of gene transfer in plant breeding and genetic engineering to improve crop plants.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Lucia GUTIERREZ": "GUTIERREZCHA@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -368,10 +382,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 467,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "GENETICS"
                 ]
             },
             {
@@ -381,15 +394,16 @@
                 ]
             },
             {
-                "course_number": 467,
-                "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

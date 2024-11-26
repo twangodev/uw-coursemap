@@ -7,6 +7,20 @@
     },
     "course_title": "COMPUTER-AIDED ENGINEERING",
     "description": "Introduction to the fundamentals of Computer Aided Engineering. Topics include mathematical and programmable methods for modeling and design of mechanical shapes and assemblies; shape processing for manufacturing, including NC machining and 3D printing; and computer-aided analysis of structural, thermal and other physical properties.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jason OAKLEY": "JGOAKLEY@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2008": {
@@ -633,7 +647,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 240,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
@@ -645,15 +665,9 @@
                 ]
             },
             {
-                "course_number": 231,
+                "course_number": 320,
                 "subjects": [
-                    "ME"
-                ]
-            },
-            {
-                "course_number": 240,
-                "subjects": [
-                    "ME"
+                    "MATH"
                 ]
             },
             {
@@ -663,7 +677,37 @@
                 ]
             },
             {
+                "course_number": 231,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
+                ]
+            },
+            {
+                "course_number": 220,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
                 "course_number": 300,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 310,
                 "subjects": [
                     "COMPSCI"
                 ]
@@ -678,36 +722,6 @@
                 "course_number": 375,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 303,
-                "subjects": [
-                    "EMA"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "ME"
-                ]
-            },
-            {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 220,
-                "subjects": [
-                    "COMPSCI"
                 ]
             }
         ],

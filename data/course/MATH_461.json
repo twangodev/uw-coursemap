@@ -7,6 +7,20 @@
     },
     "course_title": "COLLEGE GEOMETRY I",
     "description": "An introduction to Euclidean or non-Euclidean geometry.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Cassie WILLIAMS": "CASSIE.WILLIAMS@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -595,6 +609,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 234,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 240,
                 "subjects": [
                     "COMPSCI",
@@ -609,12 +629,6 @@
             },
             {
                 "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 234,
                 "subjects": [
                     "MATH"
                 ]

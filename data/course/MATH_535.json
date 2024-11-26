@@ -7,6 +7,20 @@
     },
     "course_title": "MATHEMATICAL METHODS IN DATA SCIENCE",
     "description": "A rigorous introduction to mathematical concepts important for modern data science.   Topics include: matrix factorizations,  optimization theory and algorithms, probabilistic models, finite Markov chains.  Mathematical techniques are motivated by and illustrated on a range of applied problems from machine learning and statistics.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "SEBASTIEN ROCH": "ROCH@MATH.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2020": {
@@ -198,6 +212,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 341,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 532,
                 "subjects": [
                     "COMPSCI",
@@ -206,14 +226,7 @@
                 ]
             },
             {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 320,
+                "course_number": 322,
                 "subjects": [
                     "MATH"
                 ]
@@ -225,7 +238,38 @@
                 ]
             },
             {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 467,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 577,
+                "subjects": [
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 421,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 531,
                 "subjects": [
                     "MATH"
                 ]
@@ -238,51 +282,21 @@
                 ]
             },
             {
-                "course_number": 577,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 375,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 531,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 311,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 467,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 322,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 331,
                 "subjects": [
                     "ECE"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

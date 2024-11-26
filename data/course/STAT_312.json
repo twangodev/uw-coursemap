@@ -7,6 +7,18 @@
     },
     "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS II",
     "description": "Unbiased estimation, maximum likelihood estimation, confidence intervals, tests of hypotheses, Neyman-Pearson lemma, likelihood ratio test, regression, analysis of variance with applications.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,7 +702,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
                 "subjects": [
                     "STAT",
                     "MATH"
@@ -703,13 +721,7 @@
                 ]
             },
             {
-                "course_number": 311,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 431,
+                "course_number": 309,
                 "subjects": [
                     "STAT",
                     "MATH"

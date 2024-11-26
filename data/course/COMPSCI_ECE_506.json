@@ -8,6 +8,20 @@
     },
     "course_title": "SOFTWARE ENGINEERING",
     "description": "Ideas and techniques for designing, developing, and modifying large software systems. Topics include software engineering processes; requirements and specifications; project team organization and management; software architectures; design patterns; testing and debugging; and cost and quality metrics and estimation. Students will work in large teams on a substantial programming project.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Scott Swanson": "SCOTT.SWANSON@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2015": {
@@ -368,13 +382,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 400,
-                "subjects": [
-                    "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 570,
+                "course_number": 559,
                 "subjects": [
                     "COMPSCI"
                 ]
@@ -386,10 +394,15 @@
                 ]
             },
             {
-                "course_number": 552,
+                "course_number": 537,
                 "subjects": [
-                    "COMPSCI",
-                    "ECE"
+                    "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 400,
+                "subjects": [
+                    "COMPSCI"
                 ]
             },
             {
@@ -399,7 +412,7 @@
                 ]
             },
             {
-                "course_number": 559,
+                "course_number": 570,
                 "subjects": [
                     "COMPSCI"
                 ]
@@ -411,9 +424,10 @@
                 ]
             },
             {
-                "course_number": 537,
+                "course_number": 552,
                 "subjects": [
-                    "COMPSCI"
+                    "COMPSCI",
+                    "ECE"
                 ]
             }
         ],

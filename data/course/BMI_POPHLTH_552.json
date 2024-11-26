@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 552,
         "subjects": [
-            "BMI",
-            "POPHLTH"
+            "POPHLTH",
+            "BMI"
         ]
     },
     "course_title": "REGRESSION METHODS FOR POPULATION HEALTH",
     "description": "Introduction to the primary statistical tools used in epidemiology and health services research; multiple linear regression, logistic regression and survival analysis.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Ron Gangnon": "RONALD@BIOSTAT.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2012": {
@@ -264,8 +278,8 @@
             {
                 "course_number": 551,
                 "subjects": [
-                    "BMI",
-                    "POPHLTH"
+                    "POPHLTH",
+                    "BMI"
                 ]
             }
         ],
@@ -274,17 +288,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 541,
+                "course_number": 551,
                 "subjects": [
-                    "BMI",
-                    "STAT"
+                    "POPHLTH",
+                    "BMI"
                 ]
             },
             {
-                "course_number": 551,
+                "course_number": 541,
                 "subjects": [
-                    "BMI",
-                    "POPHLTH"
+                    "STAT",
+                    "BMI"
                 ]
             }
         ],

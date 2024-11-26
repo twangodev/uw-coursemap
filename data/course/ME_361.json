@@ -7,6 +7,20 @@
     },
     "course_title": "THERMODYNAMICS",
     "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "GREGORY NELLIS": "GFNELLIS@ENGR.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,12 +704,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 103,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
                 "course_number": 109,
                 "subjects": [
                     "CHEM"
@@ -705,6 +713,12 @@
                 "course_number": 201,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

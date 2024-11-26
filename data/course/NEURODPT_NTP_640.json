@@ -2,12 +2,24 @@
     "course_reference": {
         "course_number": 640,
         "subjects": [
-            "NEURODPT",
-            "NTP"
+            "NTP",
+            "NEURODPT"
         ]
     },
     "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
     "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2024": {
@@ -55,9 +67,9 @@
             {
                 "course_number": 611,
                 "subjects": [
+                    "NTP",
                     "NEURODPT",
-                    "PSYCH",
-                    "NTP"
+                    "PSYCH"
                 ]
             }
         ],
@@ -66,28 +78,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 454,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 248,
+                "course_number": 104,
                 "subjects": [
                     "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 610,
-                "subjects": [
-                    "NEURODPT",
-                    "NTP"
                 ]
             },
             {
@@ -99,9 +92,15 @@
             {
                 "course_number": 611,
                 "subjects": [
+                    "NTP",
                     "NEURODPT",
-                    "PSYCH",
-                    "NTP"
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
                 ]
             },
             {
@@ -118,9 +117,22 @@
                 ]
             },
             {
-                "course_number": 104,
+                "course_number": 454,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 248,
                 "subjects": [
                     "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 610,
+                "subjects": [
+                    "NTP",
+                    "NEURODPT"
                 ]
             }
         ],

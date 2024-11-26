@@ -7,6 +7,21 @@
     },
     "course_title": "GENERAL PHYSICS",
     "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+    "enrollment_data": {
+        "credit_count": [
+            5,
+            5
+        ],
+        "ethnics_studies": false,
+        "general_education": true,
+        "instructors": {
+            "Josh Weber": "JJWEBER3@WISC.EDU",
+            "Sridhara DASU": "DASU@HEP.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,13 +705,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 207,
+                "course_number": 221,
                 "subjects": [
-                    "PHYSICS"
+                    "MATH"
                 ]
             },
             {
-                "course_number": 221,
+                "course_number": 217,
                 "subjects": [
                     "MATH"
                 ]
@@ -708,9 +723,9 @@
                 ]
             },
             {
-                "course_number": 217,
+                "course_number": 207,
                 "subjects": [
-                    "MATH"
+                    "PHYSICS"
                 ]
             }
         ],

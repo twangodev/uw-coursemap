@@ -8,6 +8,21 @@
     },
     "course_title": "DATA SCIENCE IN MEDICAL PHYSICS",
     "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "MARTIN WAGNER": "MWAGNER9@WISC.EDU",
+            "Tyler Bradshaw": "TBRADSHAW@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -350,20 +365,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 573,
-                "subjects": [
-                    "MEDPHYS",
-                    "BME"
-                ]
-            },
-            {
                 "course_number": 431,
                 "subjects": [
                     "STAT",
@@ -374,9 +375,23 @@
                 "course_number": 501,
                 "subjects": [
                     "HONCOL",
+                    "MEDPHYS",
                     "PHYSICS",
-                    "BME",
-                    "MEDPHYS"
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 573,
+                "subjects": [
+                    "MEDPHYS",
+                    "BME"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

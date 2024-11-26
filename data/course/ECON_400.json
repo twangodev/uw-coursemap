@@ -7,6 +7,20 @@
     },
     "course_title": "INTRODUCTION TO APPLIED ECONOMETRICS",
     "description": "An introduction to applied econometrics - the statistical methods economists use to evaluate empirical relationships and test economic theory. Emphasis on application of econometrics to real world data using modern statistical software and developing skills needed to understand empirical work in economics.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Christopher MCKELVEY": "CMCKELVEY@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2018": {
@@ -253,20 +267,19 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 240,
+                "course_number": 303,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 309,
                 "subjects": [
                     "STAT",
                     "MATH"
@@ -285,15 +298,10 @@
                 ]
             },
             {
-                "course_number": 310,
+                "course_number": 431,
                 "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 324,
-                "subjects": [
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
@@ -303,7 +311,13 @@
                 ]
             },
             {
-                "course_number": 303,
+                "course_number": 240,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 324,
                 "subjects": [
                     "STAT"
                 ]

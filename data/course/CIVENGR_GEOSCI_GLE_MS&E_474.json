@@ -2,14 +2,28 @@
     "course_reference": {
         "course_number": 474,
         "subjects": [
-            "MS&E",
-            "CIVENGR",
             "GLE",
+            "CIVENGR",
+            "MS&E",
             "GEOSCI"
         ]
     },
     "course_title": "ROCK MECHANICS",
     "description": "Classification of rock masses, stress and strain in rock, linear and non-linear behavior of rock, failure mechanisms, state of stress in rock masses, lab testing, geological and engineering applications.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Hiroki SONE": "HSONE@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -376,12 +390,6 @@
                 ]
             },
             {
-                "course_number": 207,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 247,
                 "subjects": [
                     "PHYSICS"
@@ -391,6 +399,12 @@
                 "course_number": 201,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
                 ]
             }
         ],

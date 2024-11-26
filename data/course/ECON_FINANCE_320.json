@@ -2,12 +2,27 @@
     "course_reference": {
         "course_number": 320,
         "subjects": [
-            "FINANCE",
-            "ECON"
+            "ECON",
+            "FINANCE"
         ]
     },
     "course_title": "INVESTMENT THEORY",
     "description": "Structure and functioning of securities markets; principles of portfolio construction; models of the tradeoff between risk and expected return.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Mark Fedenia": "MFEDENIA@WISC.EDU",
+            "ROBERTO ROBATTO": "ROBATTO@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -701,8 +716,8 @@
             {
                 "course_number": 300,
                 "subjects": [
-                    "FINANCE",
-                    "ECON"
+                    "ECON",
+                    "FINANCE"
                 ]
             }
         ],
@@ -710,6 +725,30 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 213,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 307,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 656,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
             {
                 "course_number": 654,
                 "subjects": [
@@ -723,39 +762,34 @@
                 ]
             },
             {
-                "course_number": 312,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 307,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
                 "course_number": 655,
                 "subjects": [
                     "ACTSCI"
                 ]
             },
             {
+                "course_number": 300,
+                "subjects": [
+                    "ECON",
+                    "FINANCE"
+                ]
+            },
+            {
+                "course_number": 312,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 317,
+                "subjects": [
+                    "GENBUS"
+                ]
+            },
+            {
                 "course_number": 410,
                 "subjects": [
                     "ECON"
-                ]
-            },
-            {
-                "course_number": 222,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 656,
-                "subjects": [
-                    "GENBUS"
                 ]
             },
             {
@@ -766,26 +800,7 @@
                 ]
             },
             {
-                "course_number": 333,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 300,
-                "subjects": [
-                    "FINANCE",
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 317,
-                "subjects": [
-                    "GENBUS"
-                ]
-            },
-            {
-                "course_number": 213,
+                "course_number": 222,
                 "subjects": [
                     "MATH"
                 ]

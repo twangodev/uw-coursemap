@@ -1,52 +1,9 @@
 [
     {
         "data": {
-            "source": "CHEM 341",
-            "target": "BIOCHEM 501"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 332",
-            "target": "NUTRSCI 431"
-        }
-    },
-    {
-        "data": {
-            "description": "Nutrients and their assimilation, function, and interactions that affect metabolism in mammals.  Differences among species will be used to emphasize unique digestive and physiological functions and how these differences affect metabolism of nutrients. Humans will be used in some comparisons. Follows physiological progression of nutrients, starting with an overview of the digestive tract followed by water and builds on specific roles of nutrients and substrates needed to provide basic processes required for maintenance, tissue accretion, and homeostatic regulation of nutrients.",
-            "id": "ANSCI/DYSCI/NUTRSCI 311"
-        }
-    },
-    {
-        "data": {
             "description": "Community nutrition as it applies to clinical nutrition practice: programs, resources and issues supporting clinical nutrition practice in the community.",
             "id": "NUTRSCI 725",
             "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentation of original research results; discussion of recent articles in animal metabolism and nutrition.",
-            "id": "BIOCHEM/NUTRSCI 901"
-        }
-    },
-    {
-        "data": {
-            "description": "The first of two supervised practice experiences in nutrition and dietetics at University of Wisconsin Hospital and Clinics and affiliated sites. Dietetic interns apply their academic training, furthering their competency in: clinical nutrition, food systems management, research, and community experiences.",
-            "id": "NUTRSCI 670",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "BIOCHEM/NUTRSCI 560"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
         }
     },
     {
@@ -58,15 +15,105 @@
     },
     {
         "data": {
-            "description": "Overview of career paths related to human nutrition, a multidisciplinary domain that explores the complex relationship between dietary intake and health, encompassing diverse areas from scientific research, healthcare, education, product development, to policy and intervention.",
-            "id": "NUTRSCI 100",
+            "description": "Current topics in Nutritional Sciences and undergraduate research presentations.",
+            "id": "NUTRSCI 500",
             "parent": "NUTRSCI"
         }
     },
     {
         "data": {
+            "source": "BIOCHEM/NUTRSCI 510",
+            "target": "NUTRSCI 500"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM/NUTRSCI 560"
+        }
+    },
+    {
+        "data": {
+            "description": "Interactively address the knowledge, approach, and professional skills (conceptual, technical, and writing) required to create a successful grant proposal and initiate a career in research. Format is focused on the planning and completion of NIH-style grant proposals. Lectures and workshops will address the development of long term goals, hypotheses, and specific aims, as well as research design and methodology. Basic guidelines and approaches to proposal review and scoring are also covered. Several key components of a grant proposal will be generated using an iterative and peer-supported process.",
+            "id": "NUTRSCI 745",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 335",
+            "target": "KINES/NUTRSCI 525"
+        }
+    },
+    {
+        "data": {
             "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
-            "id": "NUTRSCI 692",
+            "id": "NUTRSCI 682",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "The second of two supervised practice experiences in nutrition and dietetics at University of Wisconsin Hospital and Clinics and affiliated sites. Dietetic interns apply their academic training, furthering their competency in: clinical nutrition, food systems management, research, and community experiences.",
+            "id": "NUTRSCI 671",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Biochemical and physiological basis of the nutritional requirements of humans.",
+            "id": "NUTRSCI 332",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Hunger and poverty in developing countries and the United States. Topics include: nutrition and health, population, food production and availability, and income distribution and employment.",
+            "id": "AAE/AGRONOMY/NUTRSCI 350"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 341"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "Examination of various physiological states and how they affect metabolic pathways. Discussion of a number of special topics related to the unique roles of various tissues and to metabolic pathways in disease states, including adipocyte biology, beta-cell biology, epigenetics, inflammation, and aging related diseases.",
+            "id": "BIOCHEM/NUTRSCI 645"
+        }
+    },
+    {
+        "data": {
+            "description": "Presentation of reports from current journals of nutritional sciences.",
+            "id": "NUTRSCI 600",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "The first of two supervised practice experiences in nutrition and dietetics at University of Wisconsin Hospital and Clinics and affiliated sites. Dietetic interns apply their academic training, furthering their competency in: clinical nutrition, food systems management, research, and community experiences.",
+            "id": "NUTRSCI 670",
             "parent": "NUTRSCI"
         }
     },
@@ -79,8 +126,122 @@
     },
     {
         "data": {
-            "description": "Integration of foundational nutrition and exercise physiology principles with sports nutrition concepts from a clinical perspective. Evaluation of the unique nutritional requirements for athletes/active individuals on body composition, performance, and timing of nutrients and hydration related to pre-activity, during activity, and post-activity recovery. Application of these concepts with clinical conditions requiring specialized sports nutrition approaches such as diabetes, gastrointestinal disorders, eating disorders, micronutrients deficiencies and life cycle populations (youth/adolescent, pregnant and masters' athletes). Analysis of sports nutrition research to utilize evidenced-based practice and recommendations around ergogenic aids/supplements and other sports nutrition topics.",
-            "id": "NUTRSCI 750",
+            "description": "Presents foundational principles and evidenced based recommendations for fueling active bodies and how proper nutrition relates to weight management, muscle development, recovery and performance.  Integrates counseling methods and techniques used for working with active populations through readings, learning activities and expert guest lecturers.  Features reading and interpreting scientific studies related to sports nutrition and interdisciplinary guest speakers representing sport performance and wellness programs.",
+            "id": "NUTRSCI 550",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Highlights the important interaction between nutrition and the human gastrointestinal tract (GI). Includes exploration of various gastrointestinal related disorders and diseases, and covers contemporary issues, current research, and real-life examples applicable to the field of nutrition, and nutrition providers. Includes instruction from content collaborators and GI nutrition experts. Apply the pathophysiology of GI disorders and disease, deconstruct differential diagnoses; and describe current medical management and dietary requirements of an individual and translate this into appropriate medical nutritional therapy.",
+            "id": "NUTRSCI 726",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ANAT&PHY 435"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "NUTRSCI 332"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 431",
+            "target": "NUTRSCI 631"
+        }
+    },
+    {
+        "data": {
+            "description": "Influence of nutrition on growth and development; physiological basis of nutritional requirements throughout the life span, including the relationship of food habits and nutrition to selected chronic diseases; principles of nutritional intervention in community programs.",
+            "id": "NUTRSCI 431",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Micronutrients explores the function of vitamins and essential mineral nutrients from the biochemical and nutritional perspective with emphasis on issues essential for clinical nutrition.",
+            "id": "NUTRSCI 715",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 332",
+            "target": "NUTRSCI 431"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of the principles and processes necessary to evaluate and utilize bioactive food components and dietary supplements in practice, including federal regulations. Current scientific evidence supporting or refuting the biochemical and physiological efficacy of select bioactive food components and dietary supplements will be addressed.",
+            "id": "NUTRSCI 675",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "id": "NUTRSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 332",
+            "target": "NUTRSCI 132"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of the nutrition and dietetics professions: career options; professional development; professional references and resources; credentialing; professional issues.",
+            "id": "NUTRSCI 200",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM/NUTRSCI 510"
+        }
+    },
+    {
+        "data": {
+            "description": "Specialized educational experiences that address a broad range of global health topics through interdisciplinary approaches to health and include participation in applied public health activities or service learning projects with communities and partner organizations.",
+            "id": "INTER-AG/NUTRSCI 421"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "description": "Presentation of original research results; discussion of recent articles in animal metabolism and nutrition.",
+            "id": "BIOCHEM/NUTRSCI 901"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research with assigned instructor. Research projects determined by agreement between instructor and student.",
+            "id": "NUTRSCI 991",
             "parent": "NUTRSCI"
         }
     },
@@ -92,20 +253,163 @@
     },
     {
         "data": {
-            "source": "BIOCHEM 501",
-            "target": "ANSCI/DYSCI/NUTRSCI 311"
+            "description": "Evaluate research and apply management principles in dietetics practice. Enhance leadership and management skills for settings such as hospitals, long-term care facilities, schools, universities, prisons, and other locations where food and nutrition services are administered.",
+            "id": "NUTRSCI 657",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides undergraduate students of all disciplines with an introduction to the field of epidemiology. As the \"detectives of public health,\" epidemiologists investigate the causes of disease, track outbreaks, screen and monitor the health of populations, and design studies to track health over time. Epidemiological research is used to identify groups at-risk for disease, guide public health programs and policies and generate hypotheses about the causes of diseases which can inform further research. Also examines association and causality, study design, and limitations to epidemiological evidence, drawing from real examples, both current and historical.",
+            "id": "NUTRSCI 379",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
+            "id": "ANAT&PHY 335",
+            "parent": "ANAT&PHY"
         }
     },
     {
         "data": {
             "source": "NUTRSCI 631",
-            "target": "NUTRSCI 642"
+            "target": "NUTRSCI 200"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
+            "id": "NUTRSCI 681",
+            "parent": "NUTRSCI"
         }
     },
     {
         "data": {
             "id": "BIOCHEM",
             "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminars on topics in nutritional sciences of interest to Nutritional Sciences dissertators and reports on doctoral student research.",
+            "id": "NUTRSCI 731",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "The foundations and practice of community nutrition and health equity. Factors and resources affecting community nutrition programs and delivery of nutrition and education programs to diverse communities and vulnerable populations.",
+            "id": "NUTRSCI 540",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Varied topics in clinical and human nutrition.",
+            "id": "NUTRSCI 881",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Integration of foundational nutrition and exercise physiology principles with sports nutrition concepts from a clinical perspective. Evaluation of the unique nutritional requirements for athletes/active individuals on body composition, performance, and timing of nutrients and hydration related to pre-activity, during activity, and post-activity recovery. Application of these concepts with clinical conditions requiring specialized sports nutrition approaches such as diabetes, gastrointestinal disorders, eating disorders, micronutrients deficiencies and life cycle populations (youth/adolescent, pregnant and masters' athletes). Analysis of sports nutrition research to utilize evidenced-based practice and recommendations around ergogenic aids/supplements and other sports nutrition topics.",
+            "id": "NUTRSCI 750",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of career paths related to human nutrition, a multidisciplinary domain that explores the complex relationship between dietary intake and health, encompassing diverse areas from scientific research, healthcare, education, product development, to policy and intervention.",
+            "id": "NUTRSCI 100",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study under direct guidance of a Nutritional Science faculty member or instructional academic staff member.",
+            "id": "NUTRSCI 699",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
+            "id": "NUTRSCI/POPHLTH 621"
+        }
+    },
+    {
+        "data": {
+            "description": "Discuss nutrient requirements, composition of ingredients used to meet requirements and the mathematical steps involved in diet formulation with emphasis on research animals and human subjects.",
+            "id": "ANSCI/NUTRSCI 626"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of current challenges and research approaches related to the progress of nutritional sciences in the era of precision nutrition. Topics include limitations of population-based approaches to establishing dietary guidelines, hurdles to developing biomarkers for determining individual nutritional status, the impact of genetics, epigenetics, the microbiome, diet interactions, and other factors on nutritional and metabolic variability among people, and the ways in which precision nutrition can revolutionize how nutrition recommendations are devised and delivered to the public.",
+            "id": "NUTRSCI 618",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry, nutrition, and metabolism of biological systems.",
+            "id": "BIOCHEM 501",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 631",
+            "target": "NUTRSCI 632"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research with assigned instructor. Research projects determined by agreement between instructor and student.",
+            "id": "NUTRSCI 993",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Research work under direct guidance of a Nutritional Sciences faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "NUTRSCI 299",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
+            "id": "NUTRSCI 799",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Nutrition and its relationship to humans and their biological, social, and physical environment; current issues and concerns that affect the nutritional status of various population groups.",
+            "id": "NUTRSCI 132",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Nutrients and their assimilation, function, and interactions that affect metabolism in mammals.  Differences among species will be used to emphasize unique digestive and physiological functions and how these differences affect metabolism of nutrients. Humans will be used in some comparisons. Follows physiological progression of nutrients, starting with an overview of the digestive tract followed by water and builds on specific roles of nutrients and substrates needed to provide basic processes required for maintenance, tissue accretion, and homeostatic regulation of nutrients.",
+            "id": "ANSCI/DYSCI/NUTRSCI 311"
         }
     },
     {
@@ -117,9 +421,145 @@
     },
     {
         "data": {
-            "description": "Seminars on topics in nutritional sciences of interest to Nutritional Sciences dissertators and reports on doctoral student research.",
-            "id": "NUTRSCI 731",
+            "description": "Advanced skills and evolving methods of nutritional assessment. Measurement and interpretation of physical examination and laboratory parameters. Diagnosing malnutrition and nutrient deficiencies, including clinical characteristics used to identify and label the degree of malnutrition.",
+            "id": "NUTRSCI 720",
             "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "BIOCHEM/NUTRSCI 645"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 631",
+            "target": "NUTRSCI 642"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Interpret research relating to nutrition during the aging process. Gain an understanding of acute and chronic conditions in older persons, both in hospital and the community. Examine the impact of aging on organ systems and address the relationship among physiologic aging, nutrition, and disease.",
+            "id": "NUTRSCI 655",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on contemporary issues relevant to graduate students studying health and nutrition.",
+            "id": "NUTRSCI 875",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
+            "id": "CHEM 341",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "NUTRSCI 631",
+            "target": "NUTRSCI 641"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 435",
+            "target": "ANAT&PHY 335"
+        }
+    },
+    {
+        "data": {
+            "description": "Seminar features expert presentations of current research and issue-based applications that represent the breadth of nutritional sciences; topics investigate problems \"from molecules to communities\".",
+            "id": "NUTRSCI 931",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 341",
+            "target": "BIOCHEM 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Enrollment in a UW-Madison resident study abroad program.",
+            "id": "NUTRSCI 400",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics discussed in regard to minerals are: metabolic roles; absorption, excretion, transport and cellular metabolism; nutritional and toxicological standards for humans and animal models; bioavailability; genetic interactions; and research methodologies.",
+            "id": "NUTRSCI 623",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Lectures in nutrition with a substantial background in biochemistry. Emphasis on biochemical and physiological fundamentals of nutrition. Discussion of protein, fat, carbohydrate, energy, minerals and vitamins and their roles and interrelationships in nutrition and metabolism.",
+            "id": "BIOCHEM/NUTRSCI 510"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 501",
+            "target": "ANSCI/DYSCI/NUTRSCI 311"
+        }
+    },
+    {
+        "data": {
+            "description": "The emerging role of the electronic storage, retrieval and dissemination of food and nutrition related data and the effective use of information for problem solving and decision-making for the dietetics professional.",
+            "id": "NUTRSCI 721",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers basic and applied biochemical principles related to human disease. Topics such as: cancer, including cell cycle regulation, oncogenes and tumor suppressors, and cellular metabolism; metabolic disorders, including cardiovascular disease, metabolic syndrome, and diabetes;  biotechnology, including metabolomics, CRISPR-based genetic screens, and experimental models of human disease.",
+            "id": "BIOCHEM/NUTRSCI 560"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides both scientific knowledge and application of nutrition related to exercise, health, and sports.",
+            "id": "KINES/NUTRSCI 525"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of cultural competency and humility as a factor in reducing nutrition-related health disparities, and an opportunity to foster community resilience within the United States. Analysis of how personal cultural perspectives can shape biases and stereotypes that can widen the health disparity gap. Principles of food and culture utilized to compare cultural perspectives of health and well-being, including influences of spirituality and religiosity on food choice and dietary patterns. Includes content collaborators and guest speakers from a variety of communities, and identities.",
+            "id": "NUTRSCI 377",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
+            "id": "ANAT&PHY 435",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced topics surrounding pathology, medical nutrition therapy, and nutrition support in relation to alterations in nutrition and metabolism that accompany disease stated. Research related to therapeutic nutrition.",
+            "id": "NUTRSCI 632",
+            "parent": "NUTRSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles underlying the control of metabolism as it applies to macronutrients. Discusses advanced aspects of metabolic control. Metabolism of protein and amino acids, fat, and carbohydrate. Discusses fuel sensing and metabolism in disease.",
+            "id": "BIOCHEM/NUTRSCI 619"
         }
     },
     {
@@ -137,304 +577,8 @@
     },
     {
         "data": {
-            "description": "Seminar features expert presentations of current research and issue-based applications that represent the breadth of nutritional sciences; topics investigate problems \"from molecules to communities\".",
-            "id": "NUTRSCI 931",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Biochemical and physiological basis of the nutritional requirements of humans.",
-            "id": "NUTRSCI 332",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Instructional orientation to teaching at the higher education level in the agricultural and life sciences, direct teaching experience under faculty supervision, experience in testing and evaluation of students, and the analysis of teaching performance.",
-            "id": "NUTRSCI 799",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 431",
-            "target": "NUTRSCI 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research with assigned instructor. Research projects determined by agreement between instructor and student.",
-            "id": "NUTRSCI 993",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Scientific knowledge of the metabolic functions, metabolism and nutritional requirements for some of the water soluble vitamins and all of the fat soluble vitamins.",
-            "id": "NUTRSCI 627",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ANAT&PHY 435"
-        }
-    },
-    {
-        "data": {
-            "description": "Hunger and poverty in developing countries and the United States. Topics include: nutrition and health, population, food production and availability, and income distribution and employment.",
-            "id": "AAE/AGRONOMY/NUTRSCI 350"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "NUTRSCI 675"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of cultural competency and humility as a factor in reducing nutrition-related health disparities, and an opportunity to foster community resilience within the United States. Analysis of how personal cultural perspectives can shape biases and stereotypes that can widen the health disparity gap. Principles of food and culture utilized to compare cultural perspectives of health and well-being, including influences of spirituality and religiosity on food choice and dietary patterns. Includes content collaborators and guest speakers from a variety of communities, and identities.",
-            "id": "NUTRSCI 377",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides both scientific knowledge and application of nutrition related to exercise, health, and sports.",
-            "id": "KINES/NUTRSCI 525"
-        }
-    },
-    {
-        "data": {
-            "description": "The foundations and practice of community nutrition and health equity. Factors and resources affecting community nutrition programs and delivery of nutrition and education programs to diverse communities and vulnerable populations.",
-            "id": "NUTRSCI 540",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Lectures in nutrition with a substantial background in biochemistry. Emphasis on biochemical and physiological fundamentals of nutrition. Discussion of protein, fat, carbohydrate, energy, minerals and vitamins and their roles and interrelationships in nutrition and metabolism.",
-            "id": "BIOCHEM/NUTRSCI 510"
-        }
-    },
-    {
-        "data": {
-            "description": "Interactively address the knowledge, approach, and professional skills (conceptual, technical, and writing) required to create a successful grant proposal and initiate a career in research. Format is focused on the planning and completion of NIH-style grant proposals. Lectures and workshops will address the development of long term goals, hypotheses, and specific aims, as well as research design and methodology. Basic guidelines and approaches to proposal review and scoring are also covered. Several key components of a grant proposal will be generated using an iterative and peer-supported process.",
-            "id": "NUTRSCI 745",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Micronutrients explores the function of vitamins and essential mineral nutrients from the biochemical and nutritional perspective with emphasis on issues essential for clinical nutrition.",
-            "id": "NUTRSCI 715",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques used to evaluate relationships of diet to health and disease in human populations; integration of knowledge gained with results of animal and clinical studies toward understanding dietary risk or protective factors for disease. Includes advanced diet assessment and basic epidemiologic approaches.",
-            "id": "NUTRSCI/POPHLTH 621"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 332",
-            "target": "NUTRSCI 550"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
-            "id": "NUTRSCI 682",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "The emerging role of the electronic storage, retrieval and dissemination of food and nutrition related data and the effective use of information for problem solving and decision-making for the dietetics professional.",
-            "id": "NUTRSCI 721",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Influence of nutrition on growth and development; physiological basis of nutritional requirements throughout the life span, including the relationship of food habits and nutrition to selected chronic diseases; principles of nutritional intervention in community programs.",
-            "id": "NUTRSCI 431",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
-            "id": "NUTRSCI 691",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Discuss nutrient requirements, composition of ingredients used to meet requirements and the mathematical steps involved in diet formulation with emphasis on research animals and human subjects.",
-            "id": "ANSCI/NUTRSCI 626"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Examination of various physiological states and how they affect metabolic pathways. Discussion of a number of special topics related to the unique roles of various tissues and to metabolic pathways in disease states, including adipocyte biology, beta-cell biology, epigenetics, inflammation, and aging related diseases.",
-            "id": "BIOCHEM/NUTRSCI 645"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced topics surrounding pathology, medical nutrition therapy, and nutrition support in relation to alterations in nutrition and metabolism that accompany disease stated. Research related to therapeutic nutrition.",
-            "id": "NUTRSCI 632",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Evaluate research and apply management principles in dietetics practice. Enhance leadership and management skills for settings such as hospitals, long-term care facilities, schools, universities, prisons, and other locations where food and nutrition services are administered.",
-            "id": "NUTRSCI 657",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "The second of two supervised practice experiences in nutrition and dietetics at University of Wisconsin Hospital and Clinics and affiliated sites. Dietetic interns apply their academic training, furthering their competency in: clinical nutrition, food systems management, research, and community experiences.",
-            "id": "NUTRSCI 671",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics discussed in regard to minerals are: metabolic roles; absorption, excretion, transport and cellular metabolism; nutritional and toxicological standards for humans and animal models; bioavailability; genetic interactions; and research methodologies.",
-            "id": "NUTRSCI 623",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics on contemporary issues relevant to undergraduate students studying health and nutrition.",
-            "id": "NUTRSCI 375",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents foundational principles and evidenced based recommendations for fueling active bodies and how proper nutrition relates to weight management, muscle development, recovery and performance.  Integrates counseling methods and techniques used for working with active populations through readings, learning activities and expert guest lecturers.  Features reading and interpreting scientific studies related to sports nutrition and interdisciplinary guest speakers representing sport performance and wellness programs.",
-            "id": "NUTRSCI 550",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers basic and applied biochemical principles related to human disease. Topics such as: cancer, including cell cycle regulation, oncogenes and tumor suppressors, and cellular metabolism; metabolic disorders, including cardiovascular disease, metabolic syndrome, and diabetes;  biotechnology, including metabolomics, CRISPR-based genetic screens, and experimental models of human disease.",
-            "id": "BIOCHEM/NUTRSCI 560"
-        }
-    },
-    {
-        "data": {
-            "description": "Current topics in Nutritional Sciences and undergraduate research presentations.",
-            "id": "NUTRSCI 500",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Enrollment in a UW-Madison resident study abroad program.",
-            "id": "NUTRSCI 400",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM/NUTRSCI 510",
-            "target": "NUTRSCI 500"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of current challenges and research approaches related to the progress of nutritional sciences in the era of precision nutrition. Topics include limitations of population-based approaches to establishing dietary guidelines, hurdles to developing biomarkers for determining individual nutritional status, the impact of genetics, epigenetics, the microbiome, diet interactions, and other factors on nutritional and metabolic variability among people, and the ways in which precision nutrition can revolutionize how nutrition recommendations are devised and delivered to the public.",
-            "id": "NUTRSCI 618",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "NUTRSCI 332"
-        }
-    },
-    {
-        "data": {
-            "description": "Presentation of reports from current journals of nutritional sciences.",
-            "id": "NUTRSCI 600",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced skills and evolving methods of nutritional assessment. Measurement and interpretation of physical examination and laboratory parameters. Diagnosing malnutrition and nutrient deficiencies, including clinical characteristics used to identify and label the degree of malnutrition.",
-            "id": "NUTRSCI 720",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 631",
-            "target": "NUTRSCI 200"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 431",
-            "target": "NUTRSCI 631"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles underlying the control of metabolism as it applies to macronutrients. Discusses advanced aspects of metabolic control. Metabolism of protein and amino acids, fat, and carbohydrate. Discusses fuel sensing and metabolism in disease.",
-            "id": "BIOCHEM/NUTRSCI 619"
-        }
-    },
-    {
-        "data": {
-            "description": "Highlights the important interaction between nutrition and the human gastrointestinal tract (GI). Includes exploration of various gastrointestinal related disorders and diseases, and covers contemporary issues, current research, and real-life examples applicable to the field of nutrition, and nutrition providers. Includes instruction from content collaborators and GI nutrition experts. Apply the pathophysiology of GI disorders and disease, deconstruct differential diagnoses; and describe current medical management and dietary requirements of an individual and translate this into appropriate medical nutritional therapy.",
-            "id": "NUTRSCI 726",
+            "description": "Pediatric nutritional requirements with emphasis on issues related to evidence-based medical nutrition therapy.",
+            "id": "NUTRSCI 651",
             "parent": "NUTRSCI"
         }
     },
@@ -446,138 +590,21 @@
     },
     {
         "data": {
-            "source": "BIOCHEM 501",
-            "target": "BIOCHEM/NUTRSCI 510"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of the nutrition and dietetics professions: career options; professional development; professional references and resources; credentialing; professional issues.",
-            "id": "NUTRSCI 200",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Core concepts in human physiology from cells to organ-systems via online lectures and active learning activities including laboratory experiments. Topics include homeostasis, membrane transport, cellular physiology, regulation of metabolism, and functions of the nervous, endocrine, muscular, reproductive, cardiovascular, respiratory, renal, and gastrointestinal system.",
-            "id": "ANAT&PHY 335",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
-            "id": "NUTRSCI 681",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 335",
-            "target": "KINES/NUTRSCI 525"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research with assigned instructor. Research projects determined by agreement between instructor and student.",
-            "id": "NUTRSCI 991",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of the principles and processes necessary to evaluate and utilize bioactive food components and dietary supplements in practice, including federal regulations. Current scientific evidence supporting or refuting the biochemical and physiological efficacy of select bioactive food components and dietary supplements will be addressed.",
-            "id": "NUTRSCI 675",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry, nutrition, and metabolism of biological systems.",
-            "id": "BIOCHEM 501",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Specialized educational experiences that address a broad range of global health topics through interdisciplinary approaches to health and include participation in applied public health activities or service learning projects with communities and partner organizations.",
-            "id": "INTER-AG/NUTRSCI 421"
-        }
-    },
-    {
-        "data": {
-            "description": "Research work under direct guidance of a Nutritional Sciences faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "NUTRSCI 299",
-            "parent": "NUTRSCI"
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
         }
     },
     {
         "data": {
             "source": "NUTRSCI 332",
-            "target": "NUTRSCI 132"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides undergraduate students of all disciplines with an introduction to the field of epidemiology. As the \"detectives of public health,\" epidemiologists investigate the causes of disease, track outbreaks, screen and monitor the health of populations, and design studies to track health over time. Epidemiological research is used to identify groups at-risk for disease, guide public health programs and policies and generate hypotheses about the causes of diseases which can inform further research. Also examines association and causality, study design, and limitations to epidemiological evidence, drawing from real examples, both current and historical.",
-            "id": "NUTRSCI 379",
-            "parent": "NUTRSCI"
+            "target": "NUTRSCI 550"
         }
     },
     {
         "data": {
             "description": "Internship under guidance of a Nutritional Sciences faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the Nutritional Sciences faculty or instructional academic staff member and the internship site supervisor.",
             "id": "NUTRSCI 399",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces students to global health concepts through multidisciplinary speakers dedicated to improving health through their unique training.  It targets students with an interest in public health and those who wish to learn how their field impacts their global issues.",
-            "id": "ENTOM/NUTRSCI 203"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 631",
-            "target": "NUTRSCI 641"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
-            "id": "ANAT&PHY 435",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 501",
-            "target": "BIOCHEM/NUTRSCI 645"
-        }
-    },
-    {
-        "data": {
-            "source": "NUTRSCI 631",
-            "target": "NUTRSCI 632"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 341"
-        }
-    },
-    {
-        "data": {
-            "description": "Nutrition and its relationship to humans and their biological, social, and physical environment; current issues and concerns that affect the nutritional status of various population groups.",
-            "id": "NUTRSCI 132",
             "parent": "NUTRSCI"
         }
     },
@@ -590,22 +617,21 @@
     },
     {
         "data": {
-            "description": "Core organic chemistry concepts of structure, reactivity, and synthesis with regards to the functional groups commonly found in commercial and biological substances. Covers a selection of topics fromCHEM\u00a0343and345.",
-            "id": "CHEM 341",
-            "parent": "CHEM"
+            "description": "Introduces students to global health concepts through multidisciplinary speakers dedicated to improving health through their unique training.  It targets students with an interest in public health and those who wish to learn how their field impacts their global issues.",
+            "id": "ENTOM/NUTRSCI 203"
         }
     },
     {
         "data": {
-            "description": "Fundamentals in human macronutrient metabolism and its role in health and disease. Biochemistry and physiology of macronutrient digestion, anabolism, and catabolism. Disorders of energy metabolism (obesity, type 1 and type 2 diabetes, starvation). Metabolic effects of fiber and the microbiota. Body composition and energy assessment. Taught in an online format using lectures, guided readings, and projects.",
-            "id": "NUTRSCI 710",
+            "description": "Clinical problem solving, assessing medical record data, evaluating food intake, planning modified diets, and reviewing medical and research literature related to certain diseases/conditions. Develops critical thinking, teamwork and communication skills needed by the dietetic intern and dietitian.",
+            "id": "NUTRSCI 641",
             "parent": "NUTRSCI"
         }
     },
     {
         "data": {
-            "description": "Pediatric nutritional requirements with emphasis on issues related to evidence-based medical nutrition therapy.",
-            "id": "NUTRSCI 651",
+            "description": "Scientific knowledge of the metabolic functions, metabolism and nutritional requirements for some of the water soluble vitamins and all of the fat soluble vitamins.",
+            "id": "NUTRSCI 627",
             "parent": "NUTRSCI"
         }
     },
@@ -618,22 +644,21 @@
     },
     {
         "data": {
-            "description": "Special topics on contemporary issues relevant to graduate students studying health and nutrition.",
-            "id": "NUTRSCI 875",
+            "source": "NUTRSCI 431",
+            "target": "NUTRSCI 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics on contemporary issues relevant to undergraduate students studying health and nutrition.",
+            "id": "NUTRSCI 375",
             "parent": "NUTRSCI"
         }
     },
     {
         "data": {
-            "description": "Interpret research relating to nutrition during the aging process. Gain an understanding of acute and chronic conditions in older persons, both in hospital and the community. Examine the impact of aging on organ systems and address the relationship among physiologic aging, nutrition, and disease.",
-            "id": "NUTRSCI 655",
-            "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Research work under direct guidance of a Nutritional Sciences faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
-            "id": "NUTRSCI 289",
+            "description": "Fundamentals in human macronutrient metabolism and its role in health and disease. Biochemistry and physiology of macronutrient digestion, anabolism, and catabolism. Disorders of energy metabolism (obesity, type 1 and type 2 diabetes, starvation). Metabolic effects of fiber and the microbiota. Body composition and energy assessment. Taught in an online format using lectures, guided readings, and projects.",
+            "id": "NUTRSCI 710",
             "parent": "NUTRSCI"
         }
     },
@@ -646,54 +671,29 @@
     },
     {
         "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "NUTRSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "Varied topics in clinical and human nutrition.",
-            "id": "NUTRSCI 881",
+            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
+            "id": "NUTRSCI 692",
             "parent": "NUTRSCI"
         }
     },
     {
         "data": {
-            "description": "Directed study under direct guidance of a Nutritional Science faculty member or instructional academic staff member.",
-            "id": "NUTRSCI 699",
+            "description": "Research work under direct guidance of a Nutritional Sciences faculty or instructional academic staff member. Students are responsible for arranging the work and credits with the supervising instructor. Intended for students in the CALS Honors Program.",
+            "id": "NUTRSCI 289",
             "parent": "NUTRSCI"
         }
     },
     {
         "data": {
-            "description": "Clinical problem solving, assessing medical record data, evaluating food intake, planning modified diets, and reviewing medical and research literature related to certain diseases/conditions. Develops critical thinking, teamwork and communication skills needed by the dietetic intern and dietitian.",
-            "id": "NUTRSCI 641",
+            "source": "BIOCHEM 501",
+            "target": "NUTRSCI 675"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study and research for students completing theses under direct guidance of a Nutritional Science faculty or instructional academic staff member.",
+            "id": "NUTRSCI 691",
             "parent": "NUTRSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
         }
     }
 ]

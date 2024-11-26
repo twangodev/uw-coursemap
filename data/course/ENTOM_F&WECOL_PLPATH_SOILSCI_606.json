@@ -2,22 +2,23 @@
     "course_reference": {
         "course_number": 606,
         "subjects": [
-            "SOILSCI",
-            "PLPATH",
             "ENTOM",
-            "F&WECOL"
+            "F&WECOL",
+            "SOILSCI",
+            "PLPATH"
         ]
     },
     "course_title": "COLLOQUIUM IN ENVIRONMENTAL TOXICOLOGY",
     "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+    "enrollment_data": null,
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -27,23 +28,23 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 130,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
                     "BOTANY"
                 ]

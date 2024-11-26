@@ -7,6 +7,20 @@
     },
     "course_title": "STATISTICS FOR SOCIOLOGISTS III",
     "description": "Generalized linear models with selected applications to social science data. Topics: Review of multiple regression; properties of estimators; general linear restrictions; instrumental variables; two-stage least squares; panel data; fixed and random effects; logit, probit, and related models.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "FELIX ELWERT": "ELWERT@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -387,10 +401,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
+                "course_number": 410,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "ECON"
                 ]
             },
             {
@@ -407,9 +420,10 @@
                 ]
             },
             {
-                "course_number": 410,
+                "course_number": 309,
                 "subjects": [
-                    "ECON"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

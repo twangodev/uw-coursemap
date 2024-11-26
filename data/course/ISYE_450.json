@@ -7,6 +7,21 @@
     },
     "course_title": "INDUSTRIAL ENGINEERING DESIGN II",
     "description": "Team-based project experience to address a real-world design challenge posed by an external organization. Collaboration with the project client to design a new system or process, or redesign an existing one, by integrating and applying appropriate Industrial and Systems Engineering knowledge, methodologies and tools for problem definition and analysis; idea generation; solution development, evaluation and justification; and implementation planning and impact assessment.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Sinan Tas": "TAS@WISC.EDU",
+            "Terry Mann": "TMMANN@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2015": {
@@ -367,12 +382,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
-                "subjects": [
-                    "ISYE"
-                ]
-            },
-            {
                 "course_number": 313,
                 "subjects": [
                     "ISYE"
@@ -381,7 +390,13 @@
             {
                 "course_number": 349,
                 "subjects": [
-                    "PSYCH",
+                    "ISYE",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 320,
+                "subjects": [
                     "ISYE"
                 ]
             },

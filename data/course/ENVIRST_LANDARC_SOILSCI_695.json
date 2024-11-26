@@ -2,13 +2,27 @@
     "course_reference": {
         "course_number": 695,
         "subjects": [
-            "SOILSCI",
+            "LANDARC",
             "ENVIRST",
-            "LANDARC"
+            "SOILSCI"
         ]
     },
     "course_title": "APPLICATIONS OF GEOGRAPHIC INFORMATION SYSTEMS IN NATURAL RESOURCES",
     "description": "Course has four components: 1) Detailed review of GIS concepts; 2) Case studies; 3) GIS implementation methods; 4) Laboratory to provide \"hands-on\" GIS experience.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Edward Boswell": "EPBOSWELL@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -322,8 +336,8 @@
             {
                 "course_number": 377,
                 "subjects": [
-                    "CIVENGR",
                     "ENVIRST",
+                    "CIVENGR",
                     "GEOG"
                 ]
             }
@@ -333,17 +347,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 377,
-                "subjects": [
-                    "CIVENGR",
-                    "ENVIRST",
-                    "GEOG"
-                ]
-            },
-            {
                 "course_number": 211,
                 "subjects": [
                     "LANDARC"
+                ]
+            },
+            {
+                "course_number": 377,
+                "subjects": [
+                    "ENVIRST",
+                    "CIVENGR",
+                    "GEOG"
                 ]
             }
         ],

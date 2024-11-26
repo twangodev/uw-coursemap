@@ -3,13 +3,14 @@
         "course_number": 501,
         "subjects": [
             "HONCOL",
+            "MEDPHYS",
             "PHYSICS",
-            "BME",
-            "MEDPHYS"
+            "BME"
         ]
     },
     "course_title": "RADIATION PHYSICS AND DOSIMETRY",
     "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -389,6 +390,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 323,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 449,
                 "subjects": [
                     "PHYSICS"
@@ -398,12 +405,6 @@
                 "course_number": 320,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 323,
-                "subjects": [
-                    "PHYSICS"
                 ]
             }
         ],

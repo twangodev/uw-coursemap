@@ -2,15 +2,16 @@
     "course_reference": {
         "course_number": 625,
         "subjects": [
-            "ONCOLOGY",
+            "PHMCOL-M",
             "PHMSCI",
-            "M&ENVTOX",
             "POPHLTH",
-            "PHMCOL-M"
+            "M&ENVTOX",
+            "ONCOLOGY"
         ]
     },
     "course_title": "TOXICOLOGY I",
     "description": "Basic principles of toxicology and biochemical mechanisms of toxicity in mammalian species and man. Correlation between morphological and functional changes caused by toxicants in different organs of the body.",
+    "enrollment_data": null,
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -26,27 +27,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 404,
-                "subjects": [
-                    "PATH"
-                ]
-            },
-            {
-                "course_number": 335,
-                "subjects": [
-                    "ANAT&PHY"
-                ]
-            },
-            {
                 "course_number": 486,
                 "subjects": [
                     "BIOCORE"
                 ]
             },
             {
-                "course_number": 485,
+                "course_number": 435,
                 "subjects": [
-                    "BIOCORE"
+                    "ANAT&PHY"
                 ]
             },
             {
@@ -56,15 +45,27 @@
                 ]
             },
             {
-                "course_number": 508,
+                "course_number": 485,
                 "subjects": [
-                    "BIOCHEM"
+                    "BIOCORE"
                 ]
             },
             {
-                "course_number": 435,
+                "course_number": 335,
                 "subjects": [
                     "ANAT&PHY"
+                ]
+            },
+            {
+                "course_number": 404,
+                "subjects": [
+                    "PATH"
+                ]
+            },
+            {
+                "course_number": 508,
+                "subjects": [
+                    "BIOCHEM"
                 ]
             }
         ],

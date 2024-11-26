@@ -1,8 +1,70 @@
 [
     {
         "data": {
-            "description": "Critical review of selected topics in biomolecular chemistry.",
-            "id": "BMOLCHEM 901",
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 343",
+            "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 415",
+            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
+            "id": "BMOLCHEM/MICROBIO 668"
+        }
+    },
+    {
+        "data": {
+            "description": "Student-led discussions of RNA-related problems.",
+            "id": "BIOCHEM/BMOLCHEM 913"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 375",
+            "target": "MATH 376"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
+            "id": "BMOLCHEM 720",
             "parent": "BMOLCHEM"
         }
     },
@@ -15,27 +77,21 @@
     },
     {
         "data": {
-            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
-            "id": "BMOLCHEM 699",
+            "source": "BIOCHEM 507",
+            "target": "BMOLCHEM/MICROBIO 668"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
+            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
+        }
+    },
+    {
+        "data": {
+            "description": "Critical review of selected topics in biomolecular chemistry.",
+            "id": "BMOLCHEM 901",
             "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
         }
     },
     {
@@ -47,129 +103,8 @@
     },
     {
         "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH 415"
-        }
-    },
-    {
-        "data": {
-            "id": "BMOLCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
-            "id": "BIOCHEM/BMOLCHEM 701"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Student-led discussions of RNA-related problems.",
-            "id": "BIOCHEM/BMOLCHEM 913"
-        }
-    },
-    {
-        "data": {
-            "description": "Three-dimensional protein structures form the basis for discussions of high resolution microbiology; how particular problems are solved with given protein architectures and chemistries and how themes of protein structure are modified and recycled.",
-            "id": "BMOLCHEM/MICROBIO 668"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 375",
-            "target": "MATH 376"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a rigorous foundation for mathematical modeling of biological systems. Mathematical techniques include dynamical systems and differential equations. Applications to biological pathways, including understanding of bistability within chemical reaction systems, are emphasized.",
-            "id": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
             "id": "BIOCHEM",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
-            "id": "MATH 415",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 415",
-            "target": "BIOCHEM/BMI/BMOLCHEM/MATH 609"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers following areas from historical to modern contexts: biochemistry of post-translational modification of proteins, model organisms, transcriptional switches, chromosome replication, and RNA in biological regulation.",
-            "id": "BMOLCHEM 720",
-            "parent": "BMOLCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BMOLCHEM/MICROBIO 668"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
         }
     },
     {
@@ -181,21 +116,86 @@
     },
     {
         "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH 415"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
             "id": "CHEM",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
+            "description": "Self-directed work under the supervision and guidance of an Instructor and often in conjunction with a day-to-day mentor that is a graduate student or postdoc researcher in the instructor's group. Students normally participate in aspects of ongoing research projects.",
+            "id": "BMOLCHEM 699",
+            "parent": "BMOLCHEM"
         }
     },
     {
         "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
+            "id": "BMOLCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
+            "id": "BIOCHEM 507",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
             "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to nonlinear dynamical systems including stability, bifurcations and chaos. The course will give underlying mathematical ideas, but emphasize applications from many scientific fields.",
+            "id": "MATH 415",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory training in the practical aspects of being a graduate-level scientist and the professional standards and expectations of ethical researchers. Covers a wide variety of professional development topics, including choosing a research laboratory and a thesis mentor, transitioning to self-education, managing stress in graduate school, and the importance of diversity in science. Ethics topics include conflicts of interest, the protection of human subjects, the welfare of laboratory animals and workers, safe laboratory spaces, mentor and mentee responsibilities, collaborative research, peer review, data acquisition and data management practices, research misconduct, responsible authorship and publication, contemporary ethical issues in biomedical research, and the roles of responsible scientists in society. Covers all NIH-recommended topics for Responsible Conduct of Research, thus meeting the requirements for trainees involved in NIH-sponsored research programs.",
+            "id": "BIOCHEM/BMOLCHEM 701"
         }
     },
     {

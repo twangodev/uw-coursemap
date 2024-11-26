@@ -2,12 +2,28 @@
     "course_reference": {
         "course_number": 677,
         "subjects": [
-            "MDGENET",
-            "GENETICS"
+            "GENETICS",
+            "MDGENET"
         ]
     },
     "course_title": "ADVANCED TOPICS IN GENETICS",
     "description": "Contents vary; consideration of subjects not included in the curriculum.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Andre Moura da Costa e Sousa": "ANDRE.SOUSA@WISC.EDU",
+            "Donna WERLING": "DWERLING@WISC.EDU",
+            "TOMAS PROLLA": "TAPROLLA@WISC.EDU"
+        },
+        "last_taught_term_code": 1162,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -596,9 +612,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 468,
+                "course_number": 383,
                 "subjects": [
-                    "GENETICS"
+                    "BIOCORE"
                 ]
             },
             {
@@ -608,9 +624,9 @@
                 ]
             },
             {
-                "course_number": 383,
+                "course_number": 468,
                 "subjects": [
-                    "BIOCORE"
+                    "GENETICS"
                 ]
             }
         ],

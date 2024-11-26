@@ -7,6 +7,20 @@
     },
     "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
     "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "YANG WANG": "YANG.WANG@LAFOLLETTE.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2010": {
@@ -576,6 +590,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 333,
                 "subjects": [
                     "STAT"
@@ -585,12 +605,6 @@
                 "course_number": 640,
                 "subjects": [
                     "ACTSCI"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
                 ]
             },
             {

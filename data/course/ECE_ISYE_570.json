@@ -8,6 +8,20 @@
     },
     "course_title": "ETHICS OF DATA FOR ENGINEERS",
     "description": "Introduction to ethical issues in data engineering and principled solutions. Algorithmic fairness (individual fairness, group fairness, counterfactual fairness), differential privacy and its applications, and robustness.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Kangwook LEE": "KANGWOOK.LEE@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2024": {
@@ -64,37 +78,17 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 331,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 532,
                 "subjects": [
                     "COMPSCI",
                     "ME",
                     "ECE"
-                ]
-            },
-            {
-                "course_number": 309,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 431,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 521,
-                "subjects": [
-                    "ISYE"
-                ]
-            },
-            {
-                "course_number": 331,
-                "subjects": [
-                    "MATH"
                 ]
             },
             {
@@ -106,21 +100,41 @@
                 ]
             },
             {
-                "course_number": 311,
+                "course_number": 521,
                 "subjects": [
-                    "STAT"
+                    "ISYE"
                 ]
             },
             {
-                "course_number": 331,
+                "course_number": 309,
                 "subjects": [
-                    "ECE"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
                 "course_number": 562,
                 "subjects": [
                     "ISYE"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
                 ]
             }
         ],

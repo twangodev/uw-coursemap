@@ -7,6 +7,20 @@
     },
     "course_title": "BEHAVIORAL NEUROSCIENCE",
     "description": "Biological basis of human and animal behaviors, including perception, action, cognition, social interaction and disease. Weekly themes from \"Cracking the Neural Code\" to \"Love and War\". Learn, develop and use neural mechanisms to explain and (attempt to) predict what they and others think and do in all facets of life.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "YURI SAALMANN": "SAALMANN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2014": {
@@ -310,24 +324,18 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -337,16 +345,22 @@
                 ]
             },
             {
+                "course_number": 102,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
                 "course_number": 202,
                 "subjects": [
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 102,
+                "course_number": 382,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOCORE"
                 ]
             }
         ],

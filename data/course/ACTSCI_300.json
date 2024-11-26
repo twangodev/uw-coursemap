@@ -7,6 +7,20 @@
     },
     "course_title": "PROBABILITY FOR ACTUARIES",
     "description": "Develop a knowledge of fundamental mathematical tools for quantitatively assessing risk. Emphasize the applications of these tools to problems encountered in actuarial science.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            1
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Kirk PETER": "KIRK.PETER@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -691,10 +705,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
+                "course_number": 340,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "STAT"
                 ]
             },
             {
@@ -710,9 +723,10 @@
                 ]
             },
             {
-                "course_number": 340,
+                "course_number": 309,
                 "subjects": [
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

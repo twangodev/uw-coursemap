@@ -1,121 +1,34 @@
 [
     {
         "data": {
-            "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
-            "id": "MEDPHYS/PHYSICS 588"
-        }
-    },
-    {
-        "data": {
-            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Interactions among the particles, fields, and radiation of interstellar and intergalactic space. Gamma-ray, x-ray, and cosmic ray production, propagation, and detection. Knowledge of electrodynamics  (such asPHYSICS\u00a0322) strongly encouraged.",
-            "id": "PHYSICS 772",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
+            "id": "ECE",
             "type": "compound"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "ECE/PHYSICS 235"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced-level mentored research project in physics.",
-            "id": "PHYSICS 498",
+            "description": "Introduction to atomic, solid state, and nuclear physics.",
+            "id": "PHYSICS 205",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Experiments in modern physics, with discussion of statistical uncertainties and error analysis.  Propagation of error.  Available labs include gamma-ray spectroscopy, X-ray physics and diffraction, blackbody radiation, and Cavendish measurement of the gravitational constant G.",
-            "id": "PHYSICS 307",
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 323"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 448",
+            "target": "PHYSICS 535"
+        }
+    },
+    {
+        "data": {
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
             "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Elementary aspects of Lagrange theory of fields and field quantization; Bose, Fermi and Pauli operators; interaction of fields; quantum theory of damping and fluctuations; applications to lasers, nonlinear optics, and quantum optics. Knowledge of lasers [such asPHYSICS/\u200bE\u00a0C\u00a0E\u00a0\u00a0546] and graduate-level electromagnetics [such asE\u00a0C\u00a0E\u00a0740orPHYSICS\u00a0721] strongly encouraged.",
-            "id": "ECE/PHYSICS 746"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 307",
-            "target": "PHYSICS 407"
-        }
-    },
-    {
-        "data": {
-            "description": "Structure of elementary particles, quarks and gluons, introduction to calculational techniques of particle interactions (Feynman diagrams), constituent models of electroweak and strong interactions and associated phenomenological techniques. Knowledge of introductory particle physics and quantum mechanics  (such asPHYSICS\u00a0535) strongly encouraged.",
-            "id": "PHYSICS 735",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "description": "Graduate-level mentored research project in physics.",
-            "id": "PHYSICS 799",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 323",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE/NE/PHYSICS 525",
-            "target": "ECE/NE/PHYSICS 527"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 311"
-        }
-    },
-    {
-        "data": {
-            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-            "id": "MEDPHYS/PHYSICS 265"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the physical principles underlying solid-state electronic and photonic devices, including elements of quantum mechanics, crystal structure, semiconductor band theory, carrier statistics, and band diagrams. Offers examples of modern semiconductor structures. Prior experience with MATLAB [such asE\u00a0C\u00a0E\u00a0203] is strongly encouraged but not required.",
-            "id": "ECE/PHYSICS 235"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 709",
-            "target": "PHYSICS 707"
         }
     },
     {
@@ -127,53 +40,8 @@
     },
     {
         "data": {
-            "description": "The nature of sound and sound perception; fundamentals of harmony, musical scales, and musical instruments. Studies of light including lenses, photography, color perception, and color mixing.",
-            "id": "PHYSICS 109",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 205"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Interaction of particles with matter; detector techniques at colliding beam machines, in nuclear and particle physics, astrophysics, and cosmology; experimental strategies in detector design; principles of simulation and Monte Carlo methods, error analysis and statistical techniques in data analysis. Knowledge of introductory particle physics  (such asPHYSICS\u00a0535) strongly encouraged.",
-            "id": "PHYSICS 736",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 108",
-            "target": "ENVIRST/PHYSICS 472"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 531"
-        }
-    },
-    {
-        "data": {
-            "description": "Optical methods in research and technology. Reflection, refraction, absorption, scattering. Imaging. Sources and sensors. Schlieren methods. Interferometry. Instrumental spectroscopy. Fourier optics, image processing, holography. Laser technology, Gaussian beams, nonlinear optics.",
-            "id": "PHYSICS 625",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in theoretical physics.",
-            "id": "PHYSICS 801",
+            "description": "Advanced-level mentored research project in physics.",
+            "id": "PHYSICS 499",
             "parent": "PHYSICS"
         }
     },
@@ -186,190 +54,8 @@
     },
     {
         "data": {
-            "description": "Explores applications of quantum theory to both the hardware and the software that underpin modern quantum information technology. Advanced quantum circuit theory: Clifford group and Gottesman-Knill theorem, Mathematica code. Decoherence: density matrices, probability distributions, T1 and T2. Advanced error correction: master equation, Kraus operators, fault tolerance, quantum tomography. Hardware: Trapped ions, Paul traps, sideband cooling, CZ and MS gates, neutral atoms, superconductors, quantum dots.",
-            "id": "PHYSICS 779",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual research and study for students completing Physics Honors in the Major.",
-            "id": "PHYSICS 682",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Designed to provide those elements of physics, atmospheric sciences, chemistry, biology and geology which are essential to a scientific understanding of global environmental problems. Specific examples of such problems include global warming, stratospheric ozone depletion, acid rain and environmental toxins.",
-            "id": "ENVIRST/PHYSICS 472"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "A detailed introduction to quantum computation and quantum information processing. Basic topics of quantum mechanics that are most relevant to quantum computing, particularly measurement theory. Specialized topics such as entanglement, other measures of quantum correlation and the Bell inequalities. Classical and quantum information theory, classical and quantum complexity theory. Qubits, quantum gates, quantum circuits. Teleportation, quantum dense coding, quantum cryptography. Quantum algorithms: Deustch, Simon, Shor, Grover, and adiabatic algorithms. Basic quantum error correction: 5-qubit, Steane and Shor codes. Completion of one undergraduate course in quantum mechanics recommended, such asPHYSICS\u00a0448or531.",
-            "id": "PHYSICS 709",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Current topics in astrophysics.",
-            "id": "ASTRON/PHYSICS 910"
-        }
-    },
-    {
-        "data": {
-            "description": "Origin and development of classical mechanics; mathematical techniques, especially vector analysis; conservation laws and their relation to symmetry principles; brief introduction to orbit theory and rigid-body dynamics; accelerated coordinate systems; introduction to the generalized-coordinate formalisms of Lagrange and Hamilton.",
-            "id": "PHYSICS 311",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
-            "id": "PHYSICS 208",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics in physics at the advanced undergraduate level.",
-            "id": "PHYSICS 406",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 603"
-        }
-    },
-    {
-        "data": {
-            "description": "General principles of laser operation; laser oscillation conditions; optical resonators; methods of pumping lasers, gas discharge lasers, e-beam pumped lasers, solid state lasers, chemical lasers, and dye lasers; gain measurements with lasers; applications of lasers.",
-            "id": "ECE/PHYSICS 546"
-        }
-    },
-    {
-        "data": {
-            "description": "General considerations of nonlinear wave phenomena; nonlinear hyperbolic waves; nonlinear dispersion; nonlinear geometrical optics; Whitham's variational theory; nonlinear and parametric instabilities; solitary waves; inverse scattering method. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0320orPHYSICS\u00a0321] or mechanics [such asM\u00a0E\u00a0340] encouraged.",
-            "id": "ECE/PHYSICS 848"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Symmetries and symmetry breaking, phase transitions, mean field theory, critical exponents, scaling hypothesis, renormalization group, diagrammatic expansion, epsilon-expansion, exact solution of the 2d Ising model. Boltzman kinetic equation, H-theorem, Fokker-Planck and Langevin equations, Born-Markov master equation, Lindblad superoperators, classical and quantum noise, theory of amplifiers.",
-            "id": "PHYSICS 716",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "General considerations of linear wave phenomena; one dimensional waves; two and three dimensional waves; wave equations with constant coefficients; inhomogenous media; random media. Lagrangian and Hamiltonian formulations; asymptotic methods. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0320orPHYSICS\u00a0321], mechanics [such asM\u00a0E\u00a0340], or vibrations [such asM\u00a0E\u00a0440] strongly encouraged.",
-            "id": "ECE/PHYSICS 748"
-        }
-    },
-    {
-        "data": {
-            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
-            "id": "PHYSICS 322",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of magnetic confinement and heating of plasmas for controlled thermonuclear fusion: magnetic field structures, single particle orbits, equilibrium, stability, collisions, transport, heating, modeling and diagnostics. Discussion of current leading confinement concepts: tokamaks, tandem mirrors, stellarators, reversed field pinches, etc.",
-            "id": "ECE/NE/PHYSICS 527"
-        }
-    },
-    {
-        "data": {
-            "description": "Current topics in plasma physics.",
-            "id": "ECE/NE/PHYSICS 922"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 448",
-            "target": "PHYSICS 535"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual research and study for students completing a thesis.",
-            "id": "PHYSICS 691",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 103",
-            "target": "PHYSICS 106"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 307"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 448",
-            "target": "PHYSICS 545"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 361"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Special topics in physics at the graduate level.",
-            "id": "PHYSICS 805",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of quantum physics; introduction to particles, antiparticles and fundamental interactions; detectors and accelerators; symmetries and conservation laws; electroweak and color interactions of quarks and leptons; unification theories.",
-            "id": "PHYSICS 535",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0448. Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 449",
+            "description": "Oral and written reports to give practice in the presentation of scientific papers.",
+            "id": "PHYSICS 601",
             "parent": "PHYSICS"
         }
     },
@@ -382,27 +68,90 @@
     },
     {
         "data": {
+            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
+            "id": "PHYSICS 241",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
             "source": "PHYSICS 248",
             "target": "PHYSICS 249"
         }
     },
     {
         "data": {
-            "description": "Special topics in physics at the intermediate undergraduate level.",
-            "id": "PHYSICS 206",
-            "parent": "PHYSICS"
+            "description": "General considerations of linear wave phenomena; one dimensional waves; two and three dimensional waves; wave equations with constant coefficients; inhomogenous media; random media. Lagrangian and Hamiltonian formulations; asymptotic methods. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0320orPHYSICS\u00a0321], mechanics [such asM\u00a0E\u00a0340], or vibrations [such asM\u00a0E\u00a0440] strongly encouraged.",
+            "id": "ECE/PHYSICS 748"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 208",
-            "target": "MEDPHYS/PHYSICS 265"
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "description": "Current topics in plasma physics.",
+            "id": "ECE/NE/PHYSICS 922"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 311"
         }
     },
     {
         "data": {
             "description": "Quantum theory of free and interacting fields, formal scattering theory, dispersion theory.",
             "id": "PHYSICS 831",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Coulomb Collisions, Boltzmann equation, Fokker-Planck methods, dynamical friction, neoclassical diffusion, collision operators radiation processes and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
+            "id": "ECE/NE/PHYSICS 725"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamental theory and recent advances in coherent radiation charged particle beam sources (microwave to X-ray wavelengths) including free electron lasers, wiggler/wave-particle dynamics, Cerenkov masers, gyrotrons, coherent gain and efficiency, spontaneous emission, beam sources and quality, related accelerator concepts experimental results and applications.",
+            "id": "ECE/NE/PHYSICS 749"
+        }
+    },
+    {
+        "data": {
+            "description": "Electrostatics, magnetostatics, Green functions, boundary value problems, macroscopic media, Maxwell's equations, the stress tensor and conservation laws, electromagnetic waves, wave propagation, dispersion, waveguides, radiation, multipole expansions, diffraction and scattering, special relativity, covariance of Maxwell's equations, Lienard-Wiechert potentials, radiation by accelerated charges.  Knowledge of electrodynamics  (such asPHYSICS\u00a0322) strongly encouraged.",
+            "id": "PHYSICS 721",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 731",
+            "target": "PHYSICS 779"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 371",
+            "target": "PHYSICS 109"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
+            "id": "PHYSICS 322",
             "parent": "PHYSICS"
         }
     },
@@ -415,123 +164,118 @@
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic description of plasmas: collective phenomena and sheaths, collisional processes, single particle motions, fluid models, equilibria, waves, electromagnetic properties, instabilities, and introduction to kinetic theory and nonlinear processes. Examples from fusion, astrophysical and materials processing processing plasmas.",
-            "id": "ECE/NE/PHYSICS 525"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 115"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "PHYSICS 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
-            "id": "PHYSICS 448",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
-            "id": "CHEM 104",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDPHYS/PHYSICS 265",
-            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
-        }
-    },
-    {
-        "data": {
-            "description": "A detailed introduction to the use of machine learning techniques in physics. Topics will include basics of probability theory and statistics, basics of function fitting and parameter inference, basics of optimization, and machine learning techniques.  A selection of physics topics that are particularly amenable to analysis using machine learning will be discussed. These might include processing collider data, classifying astronomical images, solving the Ising model, parameter estimation from physics data sets, learning physical probability distributions, finding string theory compactifications, and finding symbolic physical laws.",
-            "id": "PHYSICS 361",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
             "source": "ECE/PHYSICS 235",
             "target": "PHYSICS 551"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 322",
-            "target": "ECE/NE/PHYSICS 525"
-        }
-    },
-    {
-        "data": {
-            "description": "A tenth of a second, a single inch, or a slightly different angle can make all the difference in a sporting event.  Application of physical principles to competitive sport, leading to a better understanding of performances in such sports as track and field, cycling, archery, golf, football and basketball.",
-            "id": "PHYSICS 106",
+            "description": "Lattice dynamics; band theory; Fermi surfaces; electrodynamics of metals; optical properties; transport properties. Knowledge of introductory solid state physics (such asPHYSICS\u00a0551) strongly encouraged.",
+            "id": "PHYSICS 751",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "MEDPHYS/PHYSICS 588"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
-            "id": "PHYSICS 201",
+            "description": "Mechanical, thermal, electric, and magnetic properties of solids; band theory; semiconductors; crystal imperfections.",
+            "id": "PHYSICS 551",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 731",
-            "target": "PHYSICS 779"
+            "description": "Symmetries and symmetry breaking, phase transitions, mean field theory, critical exponents, scaling hypothesis, renormalization group, diagrammatic expansion, epsilon-expansion, exact solution of the 2d Ising model. Boltzman kinetic equation, H-theorem, Fokker-Planck and Langevin equations, Born-Markov master equation, Lindblad superoperators, classical and quantum noise, theory of amplifiers.",
+            "id": "PHYSICS 716",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
+            "description": "An introduction to the physical principles underlying solid-state electronic and photonic devices, including elements of quantum mechanics, crystal structure, semiconductor band theory, carrier statistics, and band diagrams. Offers examples of modern semiconductor structures. Prior experience with MATLAB [such asE\u00a0C\u00a0E\u00a0203] is strongly encouraged but not required.",
+            "id": "ECE/PHYSICS 235"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 322"
+        }
+    },
+    {
+        "data": {
+            "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
+            "id": "MEDPHYS/PHYSICS 588"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores applications of quantum theory to both the hardware and the software that underpin modern quantum information technology. Advanced quantum circuit theory: Clifford group and Gottesman-Knill theorem, Mathematica code. Decoherence: density matrices, probability distributions, T1 and T2. Advanced error correction: master equation, Kraus operators, fault tolerance, quantum tomography. Hardware: Trapped ions, Paul traps, sideband cooling, CZ and MS gates, neutral atoms, superconductors, quantum dots.",
+            "id": "PHYSICS 779",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "The nature of sound and sound perception; fundamentals of harmony, musical scales, and musical instruments. Studies of light including lenses, photography, color perception, and color mixing.",
+            "id": "PHYSICS 109",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 321"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Statistical foundations, Liouville's theorem, ensembles, classical and quantum distribution functions, entropy and temperature, connection with thermodynamics, partition functions, quantum gases, non-ideal gases, phase transitions and critical phenomena, non-equilibrium problems, Boltzmann equation and the H-theorem, transport properties, connections with quantum field theory, applications of statistical mechanics to selected problems.",
+            "id": "PHYSICS 715",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 104",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
             "source": "PHYSICS 241",
-            "target": "PHYSICS 448"
+            "target": "PHYSICS 415"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 206"
+            "description": "The twentieth-century physical world picture and its origins. Selected topics in classical physics, relativity, and the quantum theory with emphasis on the meaning of basic concepts and their broader implications, rather than practical applications.",
+            "id": "PHYSICS 107",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "General considerations of nonlinear wave phenomena; nonlinear hyperbolic waves; nonlinear dispersion; nonlinear geometrical optics; Whitham's variational theory; nonlinear and parametric instabilities; solitary waves; inverse scattering method. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0320orPHYSICS\u00a0321] or mechanics [such asM\u00a0E\u00a0340] encouraged.",
+            "id": "ECE/PHYSICS 848"
         }
     },
     {
@@ -542,60 +286,8 @@
     },
     {
         "data": {
-            "description": "Fundamental theory and recent advances in coherent radiation charged particle beam sources (microwave to X-ray wavelengths) including free electron lasers, wiggler/wave-particle dynamics, Cerenkov masers, gyrotrons, coherent gain and efficiency, spontaneous emission, beam sources and quality, related accelerator concepts experimental results and applications.",
-            "id": "ECE/NE/PHYSICS 749"
-        }
-    },
-    {
-        "data": {
-            "description": "Mentored individual research and study for students completing Physics Honors in the Major.",
-            "id": "PHYSICS 681",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 108"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 715",
-            "target": "PHYSICS 716"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Intermediate-level mentored research project in physics.",
-            "id": "PHYSICS 298",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Discussion, practice, and occasional lectures on various aspects of the teaching of physics. Course planning; course materials; lecture, demonstration, and discussion techniques; laboratory; problem solving; examinations, grading, and evaluation. Problems arising in the teaching of physics; levels of difficulty, differences in talents and backgrounds; methods of presentation of various specific topics.",
-            "id": "PHYSICS 603",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
-            "id": "PHYSICS 202",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to physics at the non-calculus level. Principles of mechanics, heat, and waves, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
-            "id": "PHYSICS 103",
+            "description": "Structure of elementary particles, quarks and gluons, introduction to calculational techniques of particle interactions (Feynman diagrams), constituent models of electroweak and strong interactions and associated phenomenological techniques. Knowledge of introductory particle physics and quantum mechanics  (such asPHYSICS\u00a0535) strongly encouraged.",
+            "id": "PHYSICS 735",
             "parent": "PHYSICS"
         }
     },
@@ -608,145 +300,8 @@
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0103. Principles of electricity and magnetism, light, optics, and modern physics, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
-            "id": "PHYSICS 104",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "ECE 740",
-            "target": "ECE/NE/PHYSICS 749"
-        }
-    },
-    {
-        "data": {
-            "description": "Oral and written reports to give practice in the presentation of scientific papers.",
-            "id": "PHYSICS 601",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Lattice dynamics; band theory; Fermi surfaces; electrodynamics of metals; optical properties; transport properties. Knowledge of introductory solid state physics (such asPHYSICS\u00a0551) strongly encouraged.",
-            "id": "PHYSICS 751",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Historical background and experimental basis of quantum mechanics; de Broglie waves, correspondence principle, uncertainty principle, Schrodinger equation, hydrogen atom, electron spin, Pauli principle; applications of wave mechanics.",
-            "id": "PHYSICS 531",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory-level mentored research project in physics.",
-            "id": "PHYSICS 198",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 321"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 325"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 406"
-        }
-    },
-    {
-        "data": {
-            "description": "Research supervised by individual faculty members.",
-            "id": "PHYSICS 990",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 301"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Interaction of electromagnetic radiation with matter, quantization of the electromagnetic field, spontaneous transitions, identical particles and spin, addition of angular momenta, tensor operators, complex atoms, Hartree approximation, molecules, Dirac equation, relativistic effects in atoms.",
-            "id": "PHYSICS 732",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 448",
-            "target": "PHYSICS 449"
-        }
-    },
-    {
-        "data": {
-            "description": "Mechanical, thermal, electric, and magnetic properties of solids; band theory; semiconductors; crystal imperfections.",
-            "id": "PHYSICS 551",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Time harmonic fields and waves in linear media with applications to radiation, guiding and scattering; wave and surface impedance and admittance concepts; duality, uniqueness, image theory, equivalence principle, induction and compensation theorems, reciprocity, Green's functions, wave functions, potential and transform theory. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0420] strongly encouraged.",
-            "id": "ECE 740",
-            "parent": "ECE"
-        }
-    },
-    {
-        "data": {
-            "description": "Nuclear atom; hydrogen atom; Bohr-Sommerfeld model, wave model, electron spin, description of quantum electron spin, description of quantum electrodynamic effects; external fields; many-electron atoms; central field, Pauli principle, multiplets, periodic table, x-ray spectra, vector coupling, systematics of ground states; nuclear effects in atomic spectra; interaction with coherent radiation, optical forces, laser cooling and trapping.",
-            "id": "PHYSICS 545",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "PHYSICS 415"
-        }
-    },
-    {
-        "data": {
-            "description": "Waves in a cold plasma, wave-plasma interactions, waves in a hot plasma, Landau damping, cyclotron damping, magneto-hydrodynamic equilibria and instabilities, microinstabilities, introduction to nonlinear processes, and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
-            "id": "ECE/NE/PHYSICS 724"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced experiments in classical and modern physics. Possible experiments include beta decay, muon lifetime, nuclear magnetic resonance, Stern-Gerlach atomic beam, Mossbauer scattering, velocity of light, Zeeman effect, and Compton scattering. Techniques for the statistical analysis of experimental data and keeping a proper research lab notebook are emphasized. Two (four) credit students will typically perform four (eight) experiments.",
-            "id": "PHYSICS 407",
+            "description": "Advanced-level mentored research project in physics.",
+            "id": "PHYSICS 498",
             "parent": "PHYSICS"
         }
     },
@@ -758,68 +313,80 @@
     },
     {
         "data": {
-            "description": "Direct current circuits, circuit theorems, alternating current circuits, transients, non-sinusoidal sources, Fourier analysis, characteristics of semiconductor devices, typical electronic circuits, feedback, non-linear circuits; digital and logic circuits.",
-            "id": "PHYSICS 321",
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "description": "Waves in a cold plasma, wave-plasma interactions, waves in a hot plasma, Landau damping, cyclotron damping, magneto-hydrodynamic equilibria and instabilities, microinstabilities, introduction to nonlinear processes, and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
+            "id": "ECE/NE/PHYSICS 724"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 531"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to physics at the non-calculus level. Principles of mechanics, heat, and waves, with applications to a number of different fields. Not recommended for students in the physical sciences and engineering.",
+            "id": "PHYSICS 103",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Special and general theories of relativity, relativistic electrodynamics, cosmology, unified field theories.",
-            "id": "PHYSICS 717",
+            "description": "Fundamentals of electronics, electronic elements, basic circuits; combinations of these into measuring instruments.",
+            "id": "PHYSICS 623",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Coulomb Collisions, Boltzmann equation, Fokker-Planck methods, dynamical friction, neoclassical diffusion, collision operators radiation processes and experimental applications. Basic knowledge of plasmas [such asPHYSICS/\u200bE\u00a0C\u00a0E/\u200bN\u00a0E\u00a0\u00a0525] and advanced electromagnetics [such asPHYSICS\u00a0721orE\u00a0C\u00a0E\u00a0740] strongly encouraged.",
-            "id": "ECE/NE/PHYSICS 725"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in inorganic and organic chemistry. Emphasis is on relevance to biological, environmental and social issues.",
-            "id": "CHEM 108",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "The twentieth-century physical world picture and its origins. Selected topics in classical physics, relativity, and the quantum theory with emphasis on the meaning of basic concepts and their broader implications, rather than practical applications.",
-            "id": "PHYSICS 107",
+            "description": "Review of quantum physics; introduction to particles, antiparticles and fundamental interactions; detectors and accelerators; symmetries and conservation laws; electroweak and color interactions of quarks and leptons; unification theories.",
+            "id": "PHYSICS 535",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0831. Quantum theory of free and interacting fields, formal scattering theory, dispersion theory.",
-            "id": "PHYSICS 832",
+            "source": "PHYSICS 323",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Introduction to atomic, solid state, and nuclear physics.",
-            "id": "PHYSICS 205",
+            "source": "CHEM 104",
+            "target": "CHEM 109"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 205"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0207: calculus-based introduction to physics intended for students majoring in biological sciences. Electricity, magnetism, light, and modern physics.",
+            "id": "PHYSICS 208",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 103"
+            "description": "Interactions among the particles, fields, and radiation of interstellar and intergalactic space. Gamma-ray, x-ray, and cosmic ray production, propagation, and detection. Knowledge of electrodynamics  (such asPHYSICS\u00a0322) strongly encouraged.",
+            "id": "PHYSICS 772",
+            "parent": "PHYSICS"
         }
     },
     {
@@ -831,8 +398,21 @@
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 623"
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 625"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 709",
+            "target": "PHYSICS 707"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual research and study for students completing a thesis.",
+            "id": "PHYSICS 692",
+            "parent": "PHYSICS"
         }
     },
     {
@@ -843,22 +423,99 @@
     },
     {
         "data": {
-            "description": "Electrostatics, magnetostatics, Green functions, boundary value problems, macroscopic media, Maxwell's equations, the stress tensor and conservation laws, electromagnetic waves, wave propagation, dispersion, waveguides, radiation, multipole expansions, diffraction and scattering, special relativity, covariance of Maxwell's equations, Lienard-Wiechert potentials, radiation by accelerated charges.  Knowledge of electrodynamics  (such asPHYSICS\u00a0322) strongly encouraged.",
-            "id": "PHYSICS 721",
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "description": "A series of weekly presentations and discussions of current research topics in physics, by scientists directly involved in those studies. Provides undergraduates with access to the topics and excitement of the research frontier in a manner not possible in normal subject courses.",
+            "id": "PHYSICS 301",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Lagrange's equations, Principle of Least Action, orbits and scattering, kinematics of rotation, rigid body dynamics, small oscillations, special relativistic dynamics, Hamiltonian formulation, canonical transformations, Hamilton-Jacobi theory, canonical perturbation theory, chaos, continuum mechanics, introduction to general relativity.",
-            "id": "PHYSICS 711",
+            "source": "PHYSICS 307",
+            "target": "PHYSICS 407"
+        }
+    },
+    {
+        "data": {
+            "description": "Special and general theories of relativity, relativistic electrodynamics, cosmology, unified field theories.",
+            "id": "PHYSICS 717",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Intended for music students who wish to learn about physical basis of sound, sound perception, musical scales, musical instruments, and room acoustics.",
-            "id": "PHYSICS 371",
+            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "A detailed introduction to quantum computation and quantum information processing. Basic topics of quantum mechanics that are most relevant to quantum computing, particularly measurement theory. Specialized topics such as entanglement, other measures of quantum correlation and the Bell inequalities. Classical and quantum information theory, classical and quantum complexity theory. Qubits, quantum gates, quantum circuits. Teleportation, quantum dense coding, quantum cryptography. Quantum algorithms: Deustch, Simon, Shor, Grover, and adiabatic algorithms. Basic quantum error correction: 5-qubit, Steane and Shor codes. Completion of one undergraduate course in quantum mechanics recommended, such asPHYSICS\u00a0448or531.",
+            "id": "PHYSICS 709",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Graduate-level mentored research project in physics.",
+            "id": "PHYSICS 799",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Intermediate-level mentored research project in physics.",
+            "id": "PHYSICS 298",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory-level mentored research project in physics.",
+            "id": "PHYSICS 198",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE/NE/PHYSICS 525",
+            "target": "ECE/NE/PHYSICS 527"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic description of plasmas: collective phenomena and sheaths, collisional processes, single particle motions, fluid models, equilibria, waves, electromagnetic properties, instabilities, and introduction to kinetic theory and nonlinear processes. Examples from fusion, astrophysical and materials processing processing plasmas.",
+            "id": "ECE/NE/PHYSICS 525"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "PHYSICS 406"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced experiments in classical and modern physics. Possible experiments include beta decay, muon lifetime, nuclear magnetic resonance, Stern-Gerlach atomic beam, Mossbauer scattering, velocity of light, Zeeman effect, and Compton scattering. Techniques for the statistical analysis of experimental data and keeping a proper research lab notebook are emphasized. Two (four) credit students will typically perform four (eight) experiments.",
+            "id": "PHYSICS 407",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "A detailed introduction to the use of machine learning techniques in physics. Topics will include basics of probability theory and statistics, basics of function fitting and parameter inference, basics of optimization, and machine learning techniques.  A selection of physics topics that are particularly amenable to analysis using machine learning will be discussed. These might include processing collider data, classifying astronomical images, solving the Ising model, parameter estimation from physics data sets, learning physical probability distributions, finding string theory compactifications, and finding symbolic physical laws.",
+            "id": "PHYSICS 361",
             "parent": "PHYSICS"
         }
     },
@@ -871,79 +528,14 @@
     },
     {
         "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
+            "source": "PHYSICS 322",
+            "target": "ECE/NE/PHYSICS 525"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced-level mentored research project in physics.",
-            "id": "PHYSICS 499",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
-        }
-    },
-    {
-        "data": {
-            "id": "ECE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamentals of electronics, electronic elements, basic circuits; combinations of these into measuring instruments.",
-            "id": "PHYSICS 623",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 371",
-            "target": "PHYSICS 109"
-        }
-    },
-    {
-        "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory-level mentored research project in physics.",
-            "id": "PHYSICS 199",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 109"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to thermodynamics and statistical mechanics from a physics perspective. Thermodynamics, phase equilibrium, kinetic theory of gases, classical and quantum statistical mechanics.",
-            "id": "PHYSICS 415",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Standard model. Application to e+e-, proton-antiproton, pp, and ep colliders. Jets. Weak boson, heavy-quark, and Higgs boson production and decay. Quarkonia. Neutral B meson mixing. Grand unification. Supersymmetry.",
-            "id": "PHYSICS 835",
+            "description": "Continuation ofPHYSICS\u00a0831. Quantum theory of free and interacting fields, formal scattering theory, dispersion theory.",
+            "id": "PHYSICS 832",
             "parent": "PHYSICS"
         }
     },
@@ -955,6 +547,301 @@
     },
     {
         "data": {
+            "description": "Time harmonic fields and waves in linear media with applications to radiation, guiding and scattering; wave and surface impedance and admittance concepts; duality, uniqueness, image theory, equivalence principle, induction and compensation theorems, reciprocity, Green's functions, wave functions, potential and transform theory. Knowledge of electromagnetics [such asE\u00a0C\u00a0E\u00a0420] strongly encouraged.",
+            "id": "ECE 740",
+            "parent": "ECE"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in theoretical physics.",
+            "id": "PHYSICS 801",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Nuclear atom; hydrogen atom; Bohr-Sommerfeld model, wave model, electron spin, description of quantum electron spin, description of quantum electrodynamic effects; external fields; many-electron atoms; central field, Pauli principle, multiplets, periodic table, x-ray spectra, vector coupling, systematics of ground states; nuclear effects in atomic spectra; interaction with coherent radiation, optical forces, laser cooling and trapping.",
+            "id": "PHYSICS 545",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
+            "id": "PHYSICS 249",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual research and study for students completing a thesis.",
+            "id": "PHYSICS 691",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 115"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 108"
+        }
+    },
+    {
+        "data": {
+            "description": "Direct current circuits, circuit theorems, alternating current circuits, transients, non-sinusoidal sources, Fourier analysis, characteristics of semiconductor devices, typical electronic circuits, feedback, non-linear circuits; digital and logic circuits.",
+            "id": "PHYSICS 321",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Current topics in astrophysics.",
+            "id": "ASTRON/PHYSICS 910"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in physics at the advanced undergraduate level.",
+            "id": "PHYSICS 406",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 361"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Mechanics: kinematics, statics, dynamics; energy and momentum.",
+            "id": "PHYSICS 201",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for engineering students. Electricity, magnetism, light, and sound.",
+            "id": "PHYSICS 202",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in inorganic and organic chemistry. Emphasis is on relevance to biological, environmental and social issues.",
+            "id": "CHEM 108",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "ECE/PHYSICS 235"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual research and study for students completing Physics Honors in the Major.",
+            "id": "PHYSICS 681",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
+            "id": "PHYSICS 448",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Optical methods in research and technology. Reflection, refraction, absorption, scattering. Imaging. Sources and sensors. Schlieren methods. Interferometry. Instrumental spectroscopy. Fourier optics, image processing, holography. Laser technology, Gaussian beams, nonlinear optics.",
+            "id": "PHYSICS 625",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to thermodynamics and statistical mechanics from a physics perspective. Thermodynamics, phase equilibrium, kinetic theory of gases, classical and quantum statistical mechanics.",
+            "id": "PHYSICS 415",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Historical background and experimental basis of quantum mechanics; de Broglie waves, correspondence principle, uncertainty principle, Schrodinger equation, hydrogen atom, electron spin, Pauli principle; applications of wave mechanics.",
+            "id": "PHYSICS 531",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Discussion, practice, and occasional lectures on various aspects of the teaching of physics. Course planning; course materials; lecture, demonstration, and discussion techniques; laboratory; problem solving; examinations, grading, and evaluation. Problems arising in the teaching of physics; levels of difficulty, differences in talents and backgrounds; methods of presentation of various specific topics.",
+            "id": "PHYSICS 603",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory-level mentored research project in physics.",
+            "id": "PHYSICS 199",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Elementary aspects of Lagrange theory of fields and field quantization; Bose, Fermi and Pauli operators; interaction of fields; quantum theory of damping and fluctuations; applications to lasers, nonlinear optics, and quantum optics. Knowledge of lasers [such asPHYSICS/\u200bE\u00a0C\u00a0E\u00a0\u00a0546] and graduate-level electromagnetics [such asE\u00a0C\u00a0E\u00a0740orPHYSICS\u00a0721] strongly encouraged.",
+            "id": "ECE/PHYSICS 746"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 206"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 202"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 103",
+            "target": "PHYSICS 106"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0448. Review of atomic and other quantum phenomena and special relativity; introduction to quantum mechanics treating the more advanced topics of atomic physics and applications to molecular, solid state, nuclear, and elementary particle physics and quantum statistics.",
+            "id": "PHYSICS 449",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Experiments in modern physics, with discussion of statistical uncertainties and error analysis.  Propagation of error.  Available labs include gamma-ray spectroscopy, X-ray physics and diffraction, blackbody radiation, and Cavendish measurement of the gravitational constant G.",
+            "id": "PHYSICS 307",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Designed to provide those elements of physics, atmospheric sciences, chemistry, biology and geology which are essential to a scientific understanding of global environmental problems. Specific examples of such problems include global warming, stratospheric ozone depletion, acid rain and environmental toxins.",
+            "id": "ENVIRST/PHYSICS 472"
+        }
+    },
+    {
+        "data": {
+            "description": "Origin and development of classical mechanics; mathematical techniques, especially vector analysis; conservation laws and their relation to symmetry principles; brief introduction to orbit theory and rigid-body dynamics; accelerated coordinate systems; introduction to the generalized-coordinate formalisms of Lagrange and Hamilton.",
+            "id": "PHYSICS 311",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Interaction of particles with matter; detector techniques at colliding beam machines, in nuclear and particle physics, astrophysics, and cosmology; experimental strategies in detector design; principles of simulation and Monte Carlo methods, error analysis and statistical techniques in data analysis. Knowledge of introductory particle physics  (such asPHYSICS\u00a0535) strongly encouraged.",
+            "id": "PHYSICS 736",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of magnetic confinement and heating of plasmas for controlled thermonuclear fusion: magnetic field structures, single particle orbits, equilibrium, stability, collisions, transport, heating, modeling and diagnostics. Discussion of current leading confinement concepts: tokamaks, tandem mirrors, stellarators, reversed field pinches, etc.",
+            "id": "ECE/NE/PHYSICS 527"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "PHYSICS 104"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "MEDPHYS/PHYSICS 588"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 448",
+            "target": "PHYSICS 449"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+            "id": "CHEM 104",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Lagrange's equations, Principle of Least Action, orbits and scattering, kinematics of rotation, rigid body dynamics, small oscillations, special relativistic dynamics, Hamiltonian formulation, canonical transformations, Hamilton-Jacobi theory, canonical perturbation theory, chaos, continuum mechanics, introduction to general relativity.",
+            "id": "PHYSICS 711",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
             "description": "Lectures by staff and visitors.",
             "id": "PHYSICS 900",
             "parent": "PHYSICS"
@@ -962,22 +849,105 @@
     },
     {
         "data": {
-            "description": "Mentored individual research and study for students completing a thesis.",
-            "id": "PHYSICS 692",
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Standard model. Application to e+e-, proton-antiproton, pp, and ep colliders. Jets. Weak boson, heavy-quark, and Higgs boson production and decay. Quarkonia. Neutral B meson mixing. Grand unification. Supersymmetry.",
+            "id": "PHYSICS 835",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Statistical foundations, Liouville's theorem, ensembles, classical and quantum distribution functions, entropy and temperature, connection with thermodynamics, partition functions, quantum gases, non-ideal gases, phase transitions and critical phenomena, non-equilibrium problems, Boltzmann equation and the H-theorem, transport properties, connections with quantum field theory, applications of statistical mechanics to selected problems.",
-            "id": "PHYSICS 715",
+            "description": "Intended for music students who wish to learn about physical basis of sound, sound perception, musical scales, musical instruments, and room acoustics.",
+            "id": "PHYSICS 371",
             "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in physics at the intermediate undergraduate level.",
+            "id": "PHYSICS 206",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 301"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 325"
+        }
+    },
+    {
+        "data": {
+            "description": "Special topics in physics at the graduate level.",
+            "id": "PHYSICS 805",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "ECE 740",
+            "target": "ECE/NE/PHYSICS 749"
         }
     },
     {
         "data": {
             "source": "PHYSICS 322",
-            "target": "PHYSICS 625"
+            "target": "PHYSICS 603"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 448"
+        }
+    },
+    {
+        "data": {
+            "description": "General principles of laser operation; laser oscillation conditions; optical resonators; methods of pumping lasers, gas discharge lasers, e-beam pumped lasers, solid state lasers, chemical lasers, and dye lasers; gain measurements with lasers; applications of lasers.",
+            "id": "ECE/PHYSICS 546"
+        }
+    },
+    {
+        "data": {
+            "description": "Mentored individual research and study for students completing Physics Honors in the Major.",
+            "id": "PHYSICS 682",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 307"
+        }
+    },
+    {
+        "data": {
+            "description": "A tenth of a second, a single inch, or a slightly different angle can make all the difference in a sporting event.  Application of physical principles to competitive sport, leading to a better understanding of performances in such sports as track and field, cycling, archery, golf, football and basketball.",
+            "id": "PHYSICS 106",
+            "parent": "PHYSICS"
         }
     },
     {
@@ -989,22 +959,52 @@
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
+            "description": "Research supervised by individual faculty members.",
+            "id": "PHYSICS 990",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 715",
+            "target": "PHYSICS 716"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 448",
+            "target": "PHYSICS 545"
+        }
+    },
+    {
+        "data": {
+            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+            "id": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 108",
+            "target": "ENVIRST/PHYSICS 472"
+        }
+    },
+    {
+        "data": {
+            "description": "Interaction of electromagnetic radiation with matter, quantization of the electromagnetic field, spontaneous transitions, identical particles and spin, addition of angular momenta, tensor operators, complex atoms, Hartree approximation, molecules, Dirac equation, relativistic effects in atoms.",
+            "id": "PHYSICS 732",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
             "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
-        }
-    },
-    {
-        "data": {
-            "description": "A series of weekly presentations and discussions of current research topics in physics, by scientists directly involved in those studies. Provides undergraduates with access to the topics and excitement of the research frontier in a manner not possible in normal subject courses.",
-            "id": "PHYSICS 301",
-            "parent": "PHYSICS"
+            "target": "PHYSICS 623"
         }
     }
 ]

@@ -7,6 +7,18 @@
     },
     "course_title": "GENERAL CHEMISTRY II",
     "description": "Principles and application of chemical equilibrium, coordination chemistry, oxidation-reduction and electrochemistry, kinetics, nuclear chemistry, introduction to organic chemistry, and chemistry laboratory skills.",
+    "enrollment_data": {
+        "credit_count": [
+            5,
+            5
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,6 +702,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 114,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 112,
                 "subjects": [
                     "MATH"
@@ -697,24 +715,6 @@
             },
             {
                 "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 114,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 109,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 171,
                 "subjects": [
                     "MATH"
                 ]
@@ -729,6 +729,18 @@
                 "course_number": 103,
                 "subjects": [
                     "CHEM"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 171,
+                "subjects": [
+                    "MATH"
                 ]
             }
         ],

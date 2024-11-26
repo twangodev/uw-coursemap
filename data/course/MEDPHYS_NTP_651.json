@@ -2,12 +2,13 @@
     "course_reference": {
         "course_number": 651,
         "subjects": [
-            "MEDPHYS",
-            "NTP"
+            "NTP",
+            "MEDPHYS"
         ]
     },
     "course_title": "METHODS FOR NEUROIMAGING RESEARCH",
     "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2017": {
@@ -178,6 +179,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 208,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 104,
                 "subjects": [
                     "PHYSICS"
@@ -185,12 +192,6 @@
             },
             {
                 "course_number": 202,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 208,
                 "subjects": [
                     "PHYSICS"
                 ]

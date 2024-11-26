@@ -2,13 +2,14 @@
     "course_reference": {
         "course_number": 425,
         "subjects": [
+            "ISYE",
             "COMPSCI",
-            "MATH",
-            "ISYE"
+            "MATH"
         ]
     },
     "course_title": "INTRODUCTION TO COMBINATORIAL OPTIMIZATION",
     "description": "Focuses on optimization problems over discrete structures, such as shortest paths, spanning trees, flows, matchings, and the traveling salesman problem. We will investigate structural properties of these problems, and we will study both exact methods for their solution, and approximation algorithms.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2015": {
@@ -187,7 +188,7 @@
     "optimized_prerequisites": {
         "course_references": [
             {
-                "course_number": 340,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
@@ -198,7 +199,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
@@ -210,13 +217,7 @@
                 ]
             },
             {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]

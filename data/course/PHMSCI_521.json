@@ -7,6 +7,7 @@
     },
     "course_title": "PHARMACOLOGY I",
     "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
+    "enrollment_data": null,
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -22,9 +23,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 404,
+                "course_number": 486,
                 "subjects": [
-                    "PATH"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 435,
+                "subjects": [
+                    "ANAT&PHY"
                 ]
             },
             {
@@ -34,21 +41,15 @@
                 ]
             },
             {
-                "course_number": 486,
+                "course_number": 404,
                 "subjects": [
-                    "BIOCORE"
+                    "PATH"
                 ]
             },
             {
                 "course_number": 508,
                 "subjects": [
                     "BIOCHEM"
-                ]
-            },
-            {
-                "course_number": 435,
-                "subjects": [
-                    "ANAT&PHY"
                 ]
             }
         ],

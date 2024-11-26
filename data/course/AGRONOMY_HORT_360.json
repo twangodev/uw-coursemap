@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 360,
         "subjects": [
-            "AGRONOMY",
-            "HORT"
+            "HORT",
+            "AGRONOMY"
         ]
     },
     "course_title": "GENETICALLY MODIFIED CROPS: SCIENCE, REGULATION & CONTROVERSY",
     "description": "Explores how and why genetically modified (GM) crops are created and their regulation at the federal and state level. Through case studies, students will learn about the impacts of GM crops and critically evaluate arguments both for and against their use. Readings and discussion introduce students to the complex economic, cultural, and political issues surrounding GM crops.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jeffrey Endelman": "ENDELMAN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2017": {
@@ -178,18 +192,30 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 467,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "GENETICS"
                 ]
             },
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -199,22 +225,10 @@
                 ]
             },
             {
-                "course_number": 467,
+                "course_number": 130,
                 "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

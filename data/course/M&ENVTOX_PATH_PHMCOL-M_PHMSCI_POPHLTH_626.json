@@ -2,26 +2,40 @@
     "course_reference": {
         "course_number": 626,
         "subjects": [
-            "PHMSCI",
-            "M&ENVTOX",
-            "POPHLTH",
             "PHMCOL-M",
-            "PATH"
+            "PHMSCI",
+            "POPHLTH",
+            "PATH",
+            "M&ENVTOX"
         ]
     },
     "course_title": "TOXICOLOGY II",
     "description": "Survey of the basic methods and fundamental biochemical mechanisms of toxicity. Toxicity in mammalian organ systems, techniques for evaluating toxicity, as well as mechanisms of species specificity, and environmental interactions (with toxicant examples) are presented.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "ALEXANDER BIRBRAIR": "ABIRBRAIR@DERMATOLOGY.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
             {
                 "course_number": 625,
                 "subjects": [
-                    "ONCOLOGY",
+                    "PHMCOL-M",
                     "PHMSCI",
-                    "M&ENVTOX",
                     "POPHLTH",
-                    "PHMCOL-M"
+                    "M&ENVTOX",
+                    "ONCOLOGY"
                 ]
             }
         ],
@@ -32,11 +46,11 @@
             {
                 "course_number": 625,
                 "subjects": [
-                    "ONCOLOGY",
+                    "PHMCOL-M",
                     "PHMSCI",
-                    "M&ENVTOX",
                     "POPHLTH",
-                    "PHMCOL-M"
+                    "M&ENVTOX",
+                    "ONCOLOGY"
                 ]
             }
         ],

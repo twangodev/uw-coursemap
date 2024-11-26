@@ -2,12 +2,13 @@
     "course_reference": {
         "course_number": 511,
         "subjects": [
-            "GLE",
-            "CIVENGR"
+            "CIVENGR",
+            "GLE"
         ]
     },
     "course_title": "MIXING AND TRANSPORT IN THE ENVIRONMENT",
     "description": "Application of fluid mechanics to understand the mixing and transport of contaminants, pollutants, and other solutes in the environment. Introduction to chemical and biochemical transformation processes as well as boundary interactions at the air-water and sediment-water interfaces. Transport phenomena: diffusive processes, advective processes, turbulent diffusion, and shear flow dispersion. Introduction to both analytical and computational solutions with applications to mixing and transport in rivers, lakes, the atmosphere, and coastal waters.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Spring 2020": {
@@ -102,16 +103,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 291,
+                "course_number": 203,
                 "subjects": [
-                    "GLE",
-                    "CIVENGR"
-                ]
-            },
-            {
-                "course_number": 363,
-                "subjects": [
-                    "ME"
+                    "ECE"
                 ]
             },
             {
@@ -121,15 +115,22 @@
                 ]
             },
             {
+                "course_number": 291,
+                "subjects": [
+                    "CIVENGR",
+                    "GLE"
+                ]
+            },
+            {
                 "course_number": 220,
                 "subjects": [
                     "COMPSCI"
                 ]
             },
             {
-                "course_number": 203,
+                "course_number": 363,
                 "subjects": [
-                    "ECE"
+                    "ME"
                 ]
             }
         ],

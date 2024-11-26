@@ -7,6 +7,20 @@
     },
     "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
     "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Margie ROSENBERG": "MROSENBERG@BUS.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -22,6 +36,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 312,
                 "subjects": [
                     "STAT"
@@ -34,16 +54,9 @@
                 ]
             },
             {
-                "course_number": 310,
+                "course_number": 317,
                 "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 333,
-                "subjects": [
-                    "STAT"
+                    "GENBUS"
                 ]
             },
             {
@@ -53,9 +66,10 @@
                 ]
             },
             {
-                "course_number": 317,
+                "course_number": 310,
                 "subjects": [
-                    "GENBUS"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

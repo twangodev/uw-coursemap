@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 307,
         "subjects": [
-            "ME",
-            "EMA"
+            "EMA",
+            "ME"
         ]
     },
     "course_title": "MECHANICS OF MATERIALS LAB",
     "description": "Data processing, tension/compression tests, creep stress concentrations, fatigue, fracture, composite materials, combined stress, beam flexure, dynamic loads, buckling.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            1
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Randy JACKSON": "RSJACKSON3@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -691,15 +705,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 303,
-                "subjects": [
-                    "EMA"
-                ]
-            },
-            {
                 "course_number": 306,
                 "subjects": [
                     "ME"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "EMA"
                 ]
             }
         ],

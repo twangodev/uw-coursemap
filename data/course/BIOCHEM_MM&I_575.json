@@ -2,12 +2,27 @@
     "course_reference": {
         "course_number": 575,
         "subjects": [
-            "BIOCHEM",
-            "MM&I"
+            "MM&I",
+            "BIOCHEM"
         ]
     },
     "course_title": "BIOLOGY OF VIRUSES",
     "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Andrew MEHLE": "AMEHLE@WISC.EDU",
+            "Paul Friesen": "PFRIESEN@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -368,27 +383,27 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 151,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
                 "course_number": 301,
                 "subjects": [
                     "MM&I"
                 ]
             },
             {
-                "course_number": 382,
+                "course_number": 381,
                 "subjects": [
                     "BIOCORE"
                 ]
             },
             {
-                "course_number": 151,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 381,
+                "course_number": 382,
                 "subjects": [
                     "BIOCORE"
                 ]

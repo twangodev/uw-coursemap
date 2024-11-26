@@ -7,6 +7,22 @@
     },
     "course_title": "INTRODUCTION TO ARTIFICIAL INTELLIGENCE",
     "description": "Principles of knowledge-based search techniques, automatic deduction, knowledge representation using predicate logic, machine learning, probabilistic reasoning. Applications in tasks such as problem solving, data mining, game playing, natural language understanding, computer vision, speech recognition, and robotics.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Blerina GKOTSE": "GKOTSE@WISC.EDU",
+            "Fred SALA": "FREDSALA@CS.WISC.EDU",
+            "Sharon LI": "SHARONLI@CS.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,9 +706,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 300,
+                "course_number": 320,
                 "subjects": [
                     "COMPSCI"
+                ]
+            },
+            {
+                "course_number": 217,
+                "subjects": [
+                    "MATH"
                 ]
             },
             {
@@ -708,15 +730,9 @@
                 ]
             },
             {
-                "course_number": 320,
+                "course_number": 300,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 217,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],

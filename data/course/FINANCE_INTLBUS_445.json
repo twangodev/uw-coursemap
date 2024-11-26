@@ -8,6 +8,20 @@
     },
     "course_title": "MULTINATIONAL BUSINESS FINANCE",
     "description": "Application of financial theory to the operations of multinational firms; survey of the international financial environment; determinants of international portfolio and direct investment capital flows; management of foreign exchange position and hedging strategies; evaluation of foreign investment projects (multinational capital budgeting); international financial structure decisions; multinational credit institutions and capital markets; taxation of international business.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Antonio MELLO": "ANTONIO.MELLO@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2008": {
@@ -663,8 +677,8 @@
             {
                 "course_number": 300,
                 "subjects": [
-                    "FINANCE",
-                    "ECON"
+                    "ECON",
+                    "FINANCE"
                 ]
             }
         ],
@@ -672,13 +686,6 @@
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 300,
-                "subjects": [
-                    "FINANCE",
-                    "ECON"
-                ]
-            },
             {
                 "course_number": 213,
                 "subjects": [
@@ -689,6 +696,13 @@
                 "course_number": 222,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
+                    "ECON",
+                    "FINANCE"
                 ]
             }
         ],

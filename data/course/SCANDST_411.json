@@ -7,6 +7,20 @@
     },
     "course_title": "AREAS IN SCANDINAVIAN LITERATURE",
     "description": "Concentrated study of topics within Scandinavian literature.",
+    "enrollment_data": {
+        "credit_count": [
+            1,
+            1
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Scott Mellor": "SAMELLOR@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2007": {
@@ -652,6 +666,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 261,
+                "subjects": [
+                    "SCANDST"
+                ]
+            },
+            {
                 "course_number": 271,
                 "subjects": [
                     "SCANDST"
@@ -659,12 +679,6 @@
             },
             {
                 "course_number": 251,
-                "subjects": [
-                    "SCANDST"
-                ]
-            },
-            {
-                "course_number": 261,
                 "subjects": [
                     "SCANDST"
                 ]

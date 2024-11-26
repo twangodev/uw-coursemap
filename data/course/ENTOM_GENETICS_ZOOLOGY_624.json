@@ -2,13 +2,27 @@
     "course_reference": {
         "course_number": 624,
         "subjects": [
-            "ZOOLOGY",
             "ENTOM",
+            "ZOOLOGY",
             "GENETICS"
         ]
     },
     "course_title": "MOLECULAR ECOLOGY",
     "description": "Basic principles of molecular ecology. Lecture topics include population genetics, molecular phylogenetics, rates and patterns of evolution, genome evolution, and molecular ecology.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Sean SCHOVILLE": "SEAN.SCHOVILLE@WISC.EDU"
+        },
+        "last_taught_term_code": 1234,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2021": {
@@ -122,13 +136,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 466,
+                "course_number": 467,
                 "subjects": [
                     "GENETICS"
                 ]
             },
             {
-                "course_number": 467,
+                "course_number": 466,
                 "subjects": [
                     "GENETICS"
                 ]

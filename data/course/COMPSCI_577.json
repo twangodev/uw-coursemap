@@ -7,6 +7,21 @@
     },
     "course_title": "INTRODUCTION TO ALGORITHMS",
     "description": "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Dieter van Melkebeek": "DIETER@CS.WISC.EDU",
+            "Marc RENAULT": "MRENAULT@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -691,24 +706,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 240,
+                "course_number": 400,
                 "subjects": [
-                    "COMPSCI",
-                    "MATH"
+                    "COMPSCI"
                 ]
             },
             {
                 "course_number": 475,
                 "subjects": [
-                    "COMPSCI",
                     "STAT",
+                    "COMPSCI",
                     "MATH"
                 ]
             },
             {
-                "course_number": 400,
+                "course_number": 240,
                 "subjects": [
-                    "COMPSCI"
+                    "COMPSCI",
+                    "MATH"
                 ]
             }
         ],

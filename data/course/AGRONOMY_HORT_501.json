@@ -2,12 +2,13 @@
     "course_reference": {
         "course_number": 501,
         "subjects": [
-            "AGRONOMY",
-            "HORT"
+            "HORT",
+            "AGRONOMY"
         ]
     },
     "course_title": "PRINCIPLES OF PLANT BREEDING",
     "description": "Principles involved in breeding and maintaining economic crops; factors affecting the choice of breeding methods; alternative approaches through hybridization and selection.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2020": {
@@ -311,18 +312,23 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 467,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "GENETICS"
                 ]
             },
             {
                 "course_number": 151,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -332,15 +338,10 @@
                 ]
             },
             {
-                "course_number": 467,
+                "course_number": 130,
                 "subjects": [
-                    "GENETICS"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

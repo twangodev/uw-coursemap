@@ -8,6 +8,20 @@
     },
     "course_title": "ENGINEERING ANALYSIS II",
     "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Chris HEGNA": "CCHEGNA@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -24,7 +38,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 320,
+                "course_number": 322,
                 "subjects": [
                     "MATH"
                 ]
@@ -36,16 +50,16 @@
                 ]
             },
             {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 547,
                 "subjects": [
                     "EP",
                     "EMA"
-                ]
-            },
-            {
-                "course_number": 322,
-                "subjects": [
-                    "MATH"
                 ]
             },
             {

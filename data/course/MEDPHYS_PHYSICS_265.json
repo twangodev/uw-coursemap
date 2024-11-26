@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 265,
         "subjects": [
-            "PHYSICS",
-            "MEDPHYS"
+            "MEDPHYS",
+            "PHYSICS"
         ]
     },
     "course_title": "INTRODUCTION TO MEDICAL PHYSICS",
     "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Ronald WAKAI": "RTWAKAI@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -368,25 +382,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 104,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 248,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 202,
+                "course_number": 208,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 208,
+                "course_number": 104,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 202,
                 "subjects": [
                     "PHYSICS"
                 ]

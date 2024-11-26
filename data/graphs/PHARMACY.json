@@ -1,34 +1,23 @@
 [
     {
         "data": {
-            "source": "PHMSCI 432",
-            "target": "PHARMACY 645"
+            "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
+            "id": "PHMSCI 521",
+            "parent": "PHMSCI"
         }
     },
     {
         "data": {
-            "description": "A history of medicinal substances and dangerous drugs in wider context, with a focus on gender, race, class, business, and other analytical categories. \"Medicines\" and \"drugs\" change over time -- and concepts of risk, danger, legality, and even scientific evidence are elastic. Histories of laws, regulations, and key historical actors, as well as specific drug biographies, will be provided.",
-            "id": "PHARMACY 563",
+            "description": "Gain additional understanding of how chemical features can influence the biological activity of a molecule on molecular targets within the central nervous system, how alteration of signaling through these targets occurs and leads to physiologically relevant changes, and how major classes of pharmaceuticals acting on the central nervous system are applied in healthcare settings to improve patient outcomes. Integration between concepts arising at the chemical, molecular, cellular, systems, organism, and societal levels will be explored.",
+            "id": "PHARMACY 771",
             "parent": "PHARMACY"
         }
     },
     {
         "data": {
-            "source": "PHARMACY 126",
-            "target": "PHARMACY 225"
-        }
-    },
-    {
-        "data": {
-            "description": "Build skills in collaboration, problem solving, and reflection to approach complex community-based public health problems contribute to becoming a public leader. Explore the six levels of public health leadership through the practices of current and past public health leaders, case studies, and personal experience.",
-            "id": "NURSING/PHARMACY/PHYASST/PHYTHER/PUBLHLTH 758"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores basic ethical issues associated with biomedical science research, particularly as pertains to the development of drugs and emergent pharmaceutical therapies, such as psychoactive-assisted therapies.",
-            "id": "PHARMACY 801",
-            "parent": "PHARMACY"
+            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
+            "id": "BIOCHEM 508",
+            "parent": "BIOCHEM"
         }
     },
     {
@@ -40,39 +29,46 @@
     },
     {
         "data": {
-            "source": "CHEM 104",
-            "target": "CHEM 343"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
-            "id": "BIOCHEM 507",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "PHARMACY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "description": "Addresses the problems of medication errors and quality in health care, problem resolutions, methods of assessment, and intervention implementation and quality management.",
             "id": "ISYE/PHARMACY 608"
         }
     },
     {
         "data": {
-            "description": "Provides opportunities to integrate and apply introductory concepts and content related to Pharmaceutical Sciences, Social  Administrative Pharmacy, and Pharmacy Practice. Students also develop academic and interpersonal skills helpful for success in current and future courses.",
-            "id": "PHARMACY 125",
+            "source": "CHEM 343",
+            "target": "CHEM 345"
+        }
+    },
+    {
+        "data": {
+            "source": "PHMSCI 521",
+            "target": "PHARMACY 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Facilitates the understanding and application of the principles of pharmaceutical biotechnology and pharmacogenomics. The third, optional, elective credit, open only to Pharm.D. students, will consist of clinical case studies in biotechnology and pharmacogenomics, to apply theory to clinical pharmacy practice.",
+            "id": "PHARMACY 645",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Discusses federal statutes and regulations related to drug manufacturing, drug distribution, and drug use, with an emphasis on drug scheduling and controlled substances. Describes the governmental framework within which pharmaceutical development is regulated and practiced. Covers statues and regulations protecting human subjects' privacy and autonomy in research.",
+            "id": "PHARMACY 612",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "id": "PHMSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an interdivisional foundation for pharmacy students to understand many aspects of pharmacy through a wide variety of activities. Delivers a broad understanding of the pharmacist's public health and patient advocacy role with opportunities to practice basic calculations related to drug formulations in the context of safety, drug stability, and patient care. Fosters development of communication skills with peers and patients and be introduced to patient counseling principles.  Includes active participation in a longitudinal group experience with an assigned senior in the community to apply course content.",
+            "id": "PHARMACY 423",
             "parent": "PHARMACY"
         }
     },
@@ -81,6 +77,18 @@
             "description": "Chemistry of metabolic processes and products of living matter with emphasis on pharmaceutical and medicinal aspects as well as recombinant DNA technology. Laboratory experience with the chemistry of metabolic processes, products of living matter and recombinant DNA.",
             "id": "PHMSCI 432",
             "parent": "PHMSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 109",
+            "target": "CHEM 104"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 508",
+            "target": "PHMSCI 521"
         }
     },
     {
@@ -98,131 +106,8 @@
     },
     {
         "data": {
-            "description": "Provides opportunities for learning about healthcare barriers and facilitators: health disparities; and health outcomes using popular culture movies, and media that portray marginalized communities. Provides opportunities to discuss how their identities influence their view of the movie's theme and how bias may impact care provided in a healthcare setting.",
-            "id": "PHARMACY 451",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "A history of psychedelics in the U.S. and more globally. Read texts that were formative in the development of the history of psychopharmacology, pharmaceuticals, and the \"war on drugs.\" Examine readings that represent different themes, subfields, or areas of research interest within the history of psychedelics (medicine  science). Beyond biomedicine, types of analysis include: consumerism, class, ethnicity, gender, and military history. Histories of laws, regulations, and key historical actors, as well as specific drug biographies, will be provided.",
-            "id": "PHARMACY 564",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Expands upon the learning foundations provided inPHARMACY\u00a0125.  Additional opportunities to develop pre-professional plans, explore unique pharmacy career opportunities and learn about pharmacy student co-curricular and professional development experiences. Prepare students to successfully participate in the pharmacy admissions process.",
-            "id": "PHARMACY 126",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Various topics related to the Pharmacy profession.",
-            "id": "PHARMACY 490",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Discusses federal statutes and regulations related to drug manufacturing, drug distribution, and drug use, with an emphasis on drug scheduling and controlled substances. Describes the governmental framework within which pharmaceutical development is regulated and practiced. Covers statues and regulations protecting human subjects' privacy and autonomy in research.",
-            "id": "PHARMACY 612",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Facilitates the understanding and application of the principles of pharmaceutical genetics, immunology, and biotechnology.",
-            "id": "PHARMACY 434",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Familiarizes graduate students with basic ethical issues associated with biomedical science research, taught via a case study approach.  Content structured to meet NIH and NSF requirements for Responsible Conduct of Research (RCR) training. Students declared in the Pharmacology and Toxicology undergraduate program may enroll via consent of instructor.",
-            "id": "PHARMACY 800",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Biosynthesis of biological molecules, signal transduction mechanisms, chemistry and metabolism of nucleic acids, protein synthesis, and molecular and cellular biology.",
-            "id": "BIOCHEM 508",
-            "parent": "BIOCHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 345",
-            "target": "BIOCHEM 507"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain additional understanding of how chemical features can influence the biological activity of a molecule on molecular targets within the central nervous system, how alteration of signaling through these targets occurs and leads to physiologically relevant changes, and how major classes of pharmaceuticals acting on the central nervous system are applied in healthcare settings to improve patient outcomes. Integration between concepts arising at the chemical, molecular, cellular, systems, organism, and societal levels will be explored.",
-            "id": "PHARMACY 771",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an overview of the history, botany, and legal policies of cannabis and examines cannabinoid pharmacology and the most common therapeutic applications. Assessment of cannabinoid therapy with an emphasis on evaluating the risks and benefits of cannabinoid therapy for these conditions, product and dose regimen selection, monitoring and titration.",
-            "id": "PHARMACY 674",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn about psychiatric disorders and the profound effects of classical psychedelics on neural processes. Assess current hypotheses on their molecular actions and coupling to cellular, network, and behavioral effects, and how they might translate into therapeutic benefit. Explore the intersection of the actions of these agents with current models of the neural basis of perception, cognition, and consciousness.",
-            "id": "PHARMACY 632",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
-            "id": "CHEM 343",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an interdivisional foundation for pharmacy students to understand many aspects of pharmacy through a wide variety of activities. Delivers a broad understanding of the pharmacist's public health and patient advocacy role with opportunities to practice basic calculations related to drug formulations in the context of safety, drug stability, and patient care. Fosters development of communication skills with peers and patients and be introduced to patient counseling principles.  Includes active participation in a longitudinal group experience with an assigned senior in the community to apply course content.",
-            "id": "PHARMACY 423",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "id": "PHMSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore how public health intersects with healthcare delivery in rural settings through direct engagement with rural communities, practitioners, and themes in rural practice. Apply therapeutic knowledge to fulfill unmet community needs, and thereby enhance delivery of healthcare in rural communities. Create a pharmacy-driven service with the goal of enhancing healthcare delivery in a rural area based on a community assessment, exploration of contemporary rural health care trends, and discussion with current rural health practitioners.",
-            "id": "PHARMACY 630",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 109",
-            "target": "CHEM 104"
-        }
-    },
-    {
-        "data": {
-            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
-            "id": "CHEM 109",
-            "parent": "CHEM"
+            "source": "PHMSCI 432",
+            "target": "PHARMACY 645"
         }
     },
     {
@@ -233,74 +118,9 @@
     },
     {
         "data": {
-            "description": "Pharmacological actions of important drugs, including drugs that affect the peripheral and central nervous systems.",
-            "id": "PHMSCI 521",
-            "parent": "PHMSCI"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 507",
-            "target": "BIOCHEM 508"
-        }
-    },
-    {
-        "data": {
-            "description": "Discusses the biological and pharmacological basis of dependence of substances of abuse. Teaches the skills required for best practices in prescribing agents of abuse. Drugs of abuse covered include opioids use for acute and chronic pain, in addition to other abused substances such as cannabinoids, psychedelics, amphetamines and related agents. Students will learn appropriate methods of therapeutic tapering and treatment of withdrawal, as well as the treatment of known and unknown agent overdose. Teaches skills in interpreting and responding to findings of urine drug tests and the prescription drug monitoring database.",
-            "id": "PHARMACY 640",
+            "description": "Various topics related to the Pharmacy profession.",
+            "id": "PHARMACY 490",
             "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "source": "PHMSCI 521",
-            "target": "PHARMACY 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Overview of the science behind therapeutic use of psychedelic drugs such as psilocybin and LSD; basic medicinal chemistry of the tryptamine and phenethylamine psychedelics, as well as the neurochemistry and neuropharmacology of their action. Fundamentals of drug development and FDA approval process; Standards of screening and guiding individuals before and during a therapeutic psychedelic session contrasted with the recreational use of these drugs; Appraisal of current clinical research including an objective analysis of risk/benefit for indications such as depression and addiction. History of traditional, ceremonial use of psychedelics, as well as the relationship between recreational use and attempts to regulate and restrict their use. Role of psychedelics in indigenous cultures, impacts of psychedelic tourism and wild-crafting of plants and animals on indigenous peoples. Contrasts in psychedelic treatments to other therapeutic interventions such as mindfulness and meditation.",
-            "id": "PHARMACY 671",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Facilitates the understanding and application of the principles of pharmaceutical biotechnology and pharmacogenomics. The third, optional, elective credit, open only to Pharm.D. students, will consist of clinical case studies in biotechnology and pharmacogenomics, to apply theory to clinical pharmacy practice.",
-            "id": "PHARMACY 645",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
-            "id": "CHEM 345",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCHEM 508",
-            "target": "PHMSCI 521"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides opportunities to explore pharmacy career paths, develop pre-professional plans, learn about pharmacy student co-curricular and professional development experiences, and prepare to successfully participate in the pharmacy admissions process.",
-            "id": "PHARMACY 225",
-            "parent": "PHARMACY"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 343",
-            "target": "CHEM 345"
         }
     },
     {
@@ -318,14 +138,194 @@
     },
     {
         "data": {
+            "id": "PHARMACY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
             "source": "PHARMACY 770",
             "target": "PHARMACY 771"
         }
     },
     {
         "data": {
+            "description": "Explore how public health intersects with healthcare delivery in rural settings through direct engagement with rural communities, practitioners, and themes in rural practice. Apply therapeutic knowledge to fulfill unmet community needs, and thereby enhance delivery of healthcare in rural communities. Create a pharmacy-driven service with the goal of enhancing healthcare delivery in a rural area based on a community assessment, exploration of contemporary rural health care trends, and discussion with current rural health practitioners.",
+            "id": "PHARMACY 630",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Familiarizes graduate students with basic ethical issues associated with biomedical science research, taught via a case study approach.  Content structured to meet NIH and NSF requirements for Responsible Conduct of Research (RCR) training. Students declared in the Pharmacology and Toxicology undergraduate program may enroll via consent of instructor.",
+            "id": "PHARMACY 800",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores basic ethical issues associated with biomedical science research, particularly as pertains to the development of drugs and emergent pharmaceutical therapies, such as psychoactive-assisted therapies.",
+            "id": "PHARMACY 801",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Accelerated coverage of topics in general chemistry, including introduction to laboratory techniques. Topics include atomic and molecular structure, chemical equilibrium, acid-base chemistry, thermodynamics, kinetics, and electrochemistry.",
+            "id": "CHEM 109",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunities to integrate and apply introductory concepts and content related to Pharmaceutical Sciences, Social  Administrative Pharmacy, and Pharmacy Practice. Students also develop academic and interpersonal skills helpful for success in current and future courses.",
+            "id": "PHARMACY 125",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunities for learning about healthcare barriers and facilitators: health disparities; and health outcomes using popular culture movies, and media that portray marginalized communities. Provides opportunities to discuss how their identities influence their view of the movie's theme and how bias may impact care provided in a healthcare setting.",
+            "id": "PHARMACY 451",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Facilitates the understanding and application of the principles of pharmaceutical genetics, immunology, and biotechnology.",
+            "id": "PHARMACY 434",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Expands upon the learning foundations provided inPHARMACY\u00a0125.  Additional opportunities to develop pre-professional plans, explore unique pharmacy career opportunities and learn about pharmacy student co-curricular and professional development experiences. Prepare students to successfully participate in the pharmacy admissions process.",
+            "id": "PHARMACY 126",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 104",
+            "target": "CHEM 343"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides an overview of the history, botany, and legal policies of cannabis and examines cannabinoid pharmacology and the most common therapeutic applications. Assessment of cannabinoid therapy with an emphasis on evaluating the risks and benefits of cannabinoid therapy for these conditions, product and dose regimen selection, monitoring and titration.",
+            "id": "PHARMACY 674",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Discusses the biological and pharmacological basis of dependence of substances of abuse. Teaches the skills required for best practices in prescribing agents of abuse. Drugs of abuse covered include opioids use for acute and chronic pain, in addition to other abused substances such as cannabinoids, psychedelics, amphetamines and related agents. Students will learn appropriate methods of therapeutic tapering and treatment of withdrawal, as well as the treatment of known and unknown agent overdose. Teaches skills in interpreting and responding to findings of urine drug tests and the prescription drug monitoring database.",
+            "id": "PHARMACY 640",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Chemistry of biological materials, intermediary metabolism and protein structure.",
+            "id": "BIOCHEM 507",
+            "parent": "BIOCHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunities to explore pharmacy career paths, develop pre-professional plans, learn about pharmacy student co-curricular and professional development experiences, and prepare to successfully participate in the pharmacy admissions process.",
+            "id": "PHARMACY 225",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of aromatic systems, benzylic and allylic systems, aryl and vinyl halides, and carbonyl-containing compounds (e.g., ketones, carboxylic acids, esters, acid chlorides, amides). Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes as well as arguing reaction outcomes from spectroscopic evidence.",
+            "id": "CHEM 345",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of molecular structure and bonding applied to predict and explain the reactivity of alkanes, alkenes, alkynes, alkyl halides, alcohols, and thiols. Emphasis placed on rationalizing the stereochemical and regiochemical outcome of chemical processes.",
+            "id": "CHEM 343",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 345",
+            "target": "BIOCHEM 507"
+        }
+    },
+    {
+        "data": {
             "description": "Introduction to pharmacokinetics. Fundamental principles and specific physical models are discussed. Absorption, distribution, metabolism, and excretion are thoroughly described including applications to pharmacotherapy mostly through a one body compartment model. Biopharmaceuticals and small molecule drugs are discussed based on their specific pharmacokinetics. All pharmacokinetics and pharmacodynamics principles and concepts are further described in depth in terms of their clinical applications with an emphasis on the role of the pharmacy professional.",
             "id": "PHARMACY 621",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "A history of medicinal substances and dangerous drugs in wider context, with a focus on gender, race, class, business, and other analytical categories. \"Medicines\" and \"drugs\" change over time -- and concepts of risk, danger, legality, and even scientific evidence are elastic. Histories of laws, regulations, and key historical actors, as well as specific drug biographies, will be provided.",
+            "id": "PHARMACY 563",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "source": "PHARMACY 126",
+            "target": "PHARMACY 225"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCHEM 507",
+            "target": "BIOCHEM 508"
+        }
+    },
+    {
+        "data": {
+            "description": "Overview of the science behind therapeutic use of psychedelic drugs such as psilocybin and LSD; basic medicinal chemistry of the tryptamine and phenethylamine psychedelics, as well as the neurochemistry and neuropharmacology of their action. Fundamentals of drug development and FDA approval process; Standards of screening and guiding individuals before and during a therapeutic psychedelic session contrasted with the recreational use of these drugs; Appraisal of current clinical research including an objective analysis of risk/benefit for indications such as depression and addiction. History of traditional, ceremonial use of psychedelics, as well as the relationship between recreational use and attempts to regulate and restrict their use. Role of psychedelics in indigenous cultures, impacts of psychedelic tourism and wild-crafting of plants and animals on indigenous peoples. Contrasts in psychedelic treatments to other therapeutic interventions such as mindfulness and meditation.",
+            "id": "PHARMACY 671",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Build skills in collaboration, problem solving, and reflection to approach complex community-based public health problems contribute to becoming a public leader. Explore the six levels of public health leadership through the practices of current and past public health leaders, case studies, and personal experience.",
+            "id": "NURSING/PHARMACY/PHYASST/PHYTHER/PUBLHLTH 758"
+        }
+    },
+    {
+        "data": {
+            "description": "A history of psychedelics in the U.S. and more globally. Read texts that were formative in the development of the history of psychopharmacology, pharmaceuticals, and the \"war on drugs.\" Examine readings that represent different themes, subfields, or areas of research interest within the history of psychedelics (medicine  science). Beyond biomedicine, types of analysis include: consumerism, class, ethnicity, gender, and military history. Histories of laws, regulations, and key historical actors, as well as specific drug biographies, will be provided.",
+            "id": "PHARMACY 564",
+            "parent": "PHARMACY"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn about psychiatric disorders and the profound effects of classical psychedelics on neural processes. Assess current hypotheses on their molecular actions and coupling to cellular, network, and behavioral effects, and how they might translate into therapeutic benefit. Explore the intersection of the actions of these agents with current models of the neural basis of perception, cognition, and consciousness.",
+            "id": "PHARMACY 632",
             "parent": "PHARMACY"
         }
     }

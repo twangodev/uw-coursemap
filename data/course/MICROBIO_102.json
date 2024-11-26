@@ -7,6 +7,20 @@
     },
     "course_title": "GENERAL MICROBIOLOGY LABORATORY",
     "description": "Covers techniques and procedures used in general microbiology, including cultivation, enumeration, aseptic techniques, physiology and selected applications.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jon Roll": "JTROLL@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -709,6 +723,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "MICROBIO"
+                ]
+            },
+            {
                 "course_number": 304,
                 "subjects": [
                     "MICROBIO"
@@ -716,12 +736,6 @@
             },
             {
                 "course_number": 303,
-                "subjects": [
-                    "MICROBIO"
-                ]
-            },
-            {
-                "course_number": 101,
                 "subjects": [
                     "MICROBIO"
                 ]

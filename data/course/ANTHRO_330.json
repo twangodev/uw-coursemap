@@ -7,6 +7,20 @@
     },
     "course_title": "TOPICS IN ETHNOLOGY",
     "description": "Content varies. Some representative topics: peoples and cultures of the European part of the USSR, peoples and cultures of Soviet Asia, anthropology of space and time, anthropology and history, pastoralists and pastoral Nomads, American Indian folklore, etc.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "EMIKO OHNUKI-TIERNEY": "EOHNUKIT@WISC.EDU"
+        },
+        "last_taught_term_code": null,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2009": {
@@ -424,6 +438,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 100,
+                "subjects": [
+                    "ANTHRO"
+                ]
+            },
+            {
                 "course_number": 104,
                 "subjects": [
                     "ANTHRO"
@@ -431,12 +451,6 @@
             },
             {
                 "course_number": 300,
-                "subjects": [
-                    "ANTHRO"
-                ]
-            },
-            {
-                "course_number": 100,
                 "subjects": [
                     "ANTHRO"
                 ]

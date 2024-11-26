@@ -2,13 +2,28 @@
     "course_reference": {
         "course_number": 326,
         "subjects": [
+            "HORT",
             "SOILSCI",
-            "AGRONOMY",
-            "HORT"
+            "AGRONOMY"
         ]
     },
     "course_title": "PLANT NUTRITION MANAGEMENT",
     "description": "Functions, requirements and uptake of essential plant nutrients; chemical and microbial processes affecting nutrient availability; diagnosis of plant and soil nutrient status; fertilizers and efficient fertilizer use in different tillage systems.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Gregg Sanford": "GSANFORD@WISC.EDU",
+            "NADIA NOOR": "NNOOR2@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -369,21 +384,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 103,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
                 "course_number": 301,
                 "subjects": [
                     "SOILSCI"
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 230,
                 "subjects": [
-                    "CHEM"
+                    "ENVIRST",
+                    "SOILSCI",
+                    "GEOG"
                 ]
             },
             {
@@ -393,11 +404,15 @@
                 ]
             },
             {
-                "course_number": 230,
+                "course_number": 103,
                 "subjects": [
-                    "SOILSCI",
-                    "ENVIRST",
-                    "GEOG"
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

@@ -7,6 +7,20 @@
     },
     "course_title": "FUNDAMENTALS OF LONG-TERM ACTUARIAL MODELING",
     "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "GORDON ENDERLE": "GENDERLE@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -538,22 +552,21 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 331,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 309,
                 "subjects": [
                     "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 431,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 331,
-                "subjects": [
                     "MATH"
                 ]
             },
@@ -564,9 +577,10 @@
                 ]
             },
             {
-                "course_number": 333,
+                "course_number": 431,
                 "subjects": [
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {

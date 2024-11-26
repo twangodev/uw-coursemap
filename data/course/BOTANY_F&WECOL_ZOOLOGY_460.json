@@ -9,6 +9,21 @@
     },
     "course_title": "GENERAL ECOLOGY",
     "description": "Ecology of individual organisms, populations, communities, ecosystems, landscapes, and the biosphere. The interaction of organisms with each other and their physical environment. These relationships are studied, often in quantitative terms, in both field and laboratory settings.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": true,
+        "instructors": {
+            "Kyle Webert": "WEBERT@WISC.EDU",
+            "Sara HOTCHKISS": "SHOTCHKISS@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -683,8 +698,8 @@
             {
                 "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
+                    "ZOOLOGY",
                     "BOTANY"
                 ]
             }
@@ -694,25 +709,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -722,10 +722,25 @@
                 ]
             },
             {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

@@ -7,6 +7,18 @@
     },
     "course_title": "INTRODUCTION TO THEORY AND METHODS OF MATHEMATICAL STATISTICS I",
     "description": "Elements of probability, important discrete distributions, acceptance sampling by attributes, sample characteristics, probability distributions and population characteristics, the normal distribution, acceptance sampling plans based on sample means and variances, sampling from the normal, the central limit theorem, point and interval estimation.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {},
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -691,9 +703,8 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
+                "course_number": 234,
                 "subjects": [
-                    "STAT",
                     "MATH"
                 ]
             },
@@ -704,15 +715,16 @@
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 309,
                 "subjects": [
                     "STAT",
                     "MATH"
                 ]
             },
             {
-                "course_number": 234,
+                "course_number": 431,
                 "subjects": [
+                    "STAT",
                     "MATH"
                 ]
             }

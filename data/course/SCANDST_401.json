@@ -7,6 +7,22 @@
     },
     "course_title": "CONTEMPORARY SCANDINAVIAN LANGUAGES",
     "description": "Intensive work in spoken and written Danish, Norwegian, and Swedish, based on contemporary readings.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "CLAUS ANDERSEN": "CEANDERSEN2@WISC.EDU",
+            "DEAN KROUK": "KROUK@WISC.EDU",
+            "Scott Mellor": "SAMELLOR@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2023": {
@@ -234,6 +250,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 261,
+                "subjects": [
+                    "SCANDST"
+                ]
+            },
+            {
                 "course_number": 271,
                 "subjects": [
                     "SCANDST"
@@ -241,12 +263,6 @@
             },
             {
                 "course_number": 251,
-                "subjects": [
-                    "SCANDST"
-                ]
-            },
-            {
-                "course_number": 261,
                 "subjects": [
                     "SCANDST"
                 ]

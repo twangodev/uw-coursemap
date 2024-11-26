@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 574,
         "subjects": [
-            "NE",
-            "ISYE"
+            "ISYE",
+            "NE"
         ]
     },
     "course_title": "METHODS FOR PROBABILISTIC RISK ANALYSIS OF NUCLEAR POWER PLANTS",
     "description": "Methods for risk and reliability analysis of engineered systems, particularly as applied in the nuclear power industry. Fault trees and event trees, Bayesian data analysis, probabilistic risk management. Some familiarity with nuclear plant safety systems is helpful, but not required.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Juliana Pacheco Duarte": "PACHECODUARTE@WISC.EDU"
+        },
+        "last_taught_term_code": 1234,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Occasionally"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2008": {
@@ -178,16 +192,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 311,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
@@ -197,7 +211,7 @@
                 ]
             },
             {
-                "course_number": 431,
+                "course_number": 309,
                 "subjects": [
                     "STAT",
                     "MATH"

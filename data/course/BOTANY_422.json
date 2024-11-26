@@ -7,6 +7,7 @@
     },
     "course_title": "PLANT GEOGRAPHY",
     "description": "Biogeography of plants. Relationship to climate and geology; paleobiogeography, historical biogeography and island biogeography; history and distribution of floras of North America and Wisconsin.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -187,8 +188,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -197,10 +198,24 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 151,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
                 ]
             },
             {
@@ -218,24 +233,10 @@
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 130,
                 "subjects": [
-                    "ZOOLOGY",
                     "BIOLOGY",
                     "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

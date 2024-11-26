@@ -7,6 +7,20 @@
     },
     "course_title": "APPLIED LINEAR ALGEBRA",
     "description": "Review of matrix algebra. Simultaneous linear equations, linear dependence and rank, vector space, eigenvalues and eigenvectors, diagonalization, quadratic forms, inner product spaces, norms, canonical forms. Discussion of numerical aspects and applications in the sciences.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Pouria BEHNOUDFAR": "BEHNOUDFAR@WISC.EDU"
+        },
+        "last_taught_term_code": 1242,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -348,7 +362,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
@@ -360,13 +380,7 @@
                 ]
             },
             {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]

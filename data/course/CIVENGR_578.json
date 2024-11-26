@@ -7,6 +7,22 @@
     },
     "course_title": "SENIOR CAPSTONE DESIGN",
     "description": "The application of theoretically and academically acquired knowledge to a civil and environmental engineering problem in as near \"real-world\" as possible.",
+    "enrollment_data": {
+        "credit_count": [
+            4,
+            4
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Derek Hungness": "DEREK.HUNGNESS@WISC.EDU",
+            "Jan Kucher": "JCKUCHER@WISC.EDU",
+            "Kim GONZALEZ": "CKGONZALEZ@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,26 +706,26 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 428,
+                "course_number": 530,
+                "subjects": [
+                    "CIVENGR",
+                    "GLE"
+                ]
+            },
+            {
+                "course_number": 426,
                 "subjects": [
                     "CIVENGR"
                 ]
             },
             {
-                "course_number": 535,
-                "subjects": [
-                    "GLE",
-                    "CIVENGR"
-                ]
-            },
-            {
-                "course_number": 414,
+                "course_number": 574,
                 "subjects": [
                     "CIVENGR"
                 ]
             },
             {
-                "course_number": 522,
+                "course_number": 447,
                 "subjects": [
                     "CIVENGR"
                 ]
@@ -727,13 +743,13 @@
                 ]
             },
             {
-                "course_number": 573,
+                "course_number": 522,
                 "subjects": [
                     "CIVENGR"
                 ]
             },
             {
-                "course_number": 447,
+                "course_number": 573,
                 "subjects": [
                     "CIVENGR"
                 ]
@@ -741,25 +757,12 @@
             {
                 "course_number": 532,
                 "subjects": [
-                    "GLE",
-                    "CIVENGR"
+                    "CIVENGR",
+                    "GLE"
                 ]
             },
             {
-                "course_number": 530,
-                "subjects": [
-                    "GLE",
-                    "CIVENGR"
-                ]
-            },
-            {
-                "course_number": 574,
-                "subjects": [
-                    "CIVENGR"
-                ]
-            },
-            {
-                "course_number": 426,
+                "course_number": 414,
                 "subjects": [
                     "CIVENGR"
                 ]
@@ -768,6 +771,19 @@
                 "course_number": 445,
                 "subjects": [
                     "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 428,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
+                "course_number": 535,
+                "subjects": [
+                    "CIVENGR",
+                    "GLE"
                 ]
             }
         ],

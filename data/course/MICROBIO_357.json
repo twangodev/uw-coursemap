@@ -7,6 +7,20 @@
     },
     "course_title": "GENERAL BIOINFORMATICS FOR MICROBIOLOGISTS",
     "description": "Provides foundational introduction to bioinformatics for microbiologists. Emphasis on the basic understanding of bioinformatics tools, analysis, and databases and their applications (e.g. Sequence alignment, Phylogenetic trees, Genome analyses). Topics include: command line manipulation, sequence alignment, file formats, phylogenetic trees, standard genome and protein databases, interpretation of microbial and viral genomes, and basic scientific computer programming.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Briana BURTON": "BRIANA.BURTON@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2024": {
@@ -63,6 +77,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 507,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
                 "course_number": 303,
                 "subjects": [
                     "MICROBIO"
@@ -70,12 +90,6 @@
             },
             {
                 "course_number": 501,
-                "subjects": [
-                    "BIOCHEM"
-                ]
-            },
-            {
-                "course_number": 507,
                 "subjects": [
                     "BIOCHEM"
                 ]

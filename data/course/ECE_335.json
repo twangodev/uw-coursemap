@@ -7,6 +7,20 @@
     },
     "course_title": "MICROELECTRONIC DEVICES",
     "description": "Characteristics of semiconductors; study of physical mechanisms and circuit modeling of solid state electronic and photonic devices; principles of microelectronic processing and examples of integrated circuits.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Dan BOTEZ": "BOTEZ@ENGR.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -577,12 +591,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 220,
-                "subjects": [
-                    "ECE"
-                ]
-            },
-            {
                 "course_number": 235,
                 "subjects": [
                     "PHYSICS",
@@ -591,6 +599,12 @@
             },
             {
                 "course_number": 222,
+                "subjects": [
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 220,
                 "subjects": [
                     "ECE"
                 ]

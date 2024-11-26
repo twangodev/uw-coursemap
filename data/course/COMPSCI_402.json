@@ -7,6 +7,20 @@
     },
     "course_title": "INTRODUCING COMPUTER SCIENCE TO K-12 STUDENTS",
     "description": "Work in teams to lead Computer Science clubs and workshops for K-12 students at sites in the Madison area. Design and lead activities to help K-12 students learn computational thinking and computer programming.",
+    "enrollment_data": {
+        "credit_count": [
+            2,
+            2
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Peter KIRSCHMANN": "KIRSCHMANN@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2012": {
@@ -472,8 +486,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "COMPSCI",
-                    "LIS"
+                    "LIS",
+                    "COMPSCI"
                 ]
             }
         ],
@@ -482,8 +496,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 300,
+                "course_number": 102,
                 "subjects": [
+                    "LIS",
                     "COMPSCI"
                 ]
             },
@@ -500,16 +515,15 @@
                 ]
             },
             {
-                "course_number": 220,
+                "course_number": 300,
                 "subjects": [
                     "COMPSCI"
                 ]
             },
             {
-                "course_number": 102,
+                "course_number": 220,
                 "subjects": [
-                    "COMPSCI",
-                    "LIS"
+                    "COMPSCI"
                 ]
             }
         ],

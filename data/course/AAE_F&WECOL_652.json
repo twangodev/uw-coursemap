@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 652,
         "subjects": [
-            "AAE",
-            "F&WECOL"
+            "F&WECOL",
+            "AAE"
         ]
     },
     "course_title": "DECISION METHODS FOR NATURAL RESOURCE MANAGERS",
     "description": "Applications of quantitative methods, including optimization and simulation, to the management of natural resources, especially forests.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Jennifer Raynor": "JENNIFER.RAYNOR@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -23,6 +37,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 114,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 112,
                 "subjects": [
                     "MATH"
@@ -36,12 +56,6 @@
             },
             {
                 "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 114,
                 "subjects": [
                     "MATH"
                 ]

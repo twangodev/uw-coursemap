@@ -7,6 +7,20 @@
     },
     "course_title": "STRUCTURAL ANALYSIS I",
     "description": "Analysis of statically determinate and indeterminate beams, trusses, and rigid frames; deflections by virtual-work, moment-area; influence lines; force methods; structural design loads, introduction to structural design, approximate methods.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Gustavo PARRA-MONTESINOS": "GUSTAVO.PARRA@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -652,22 +666,22 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
                 "course_number": 307,
                 "subjects": [
-                    "ME",
-                    "EMA"
+                    "EMA",
+                    "ME"
                 ]
             },
             {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "ME"
                 ]
             }
         ],

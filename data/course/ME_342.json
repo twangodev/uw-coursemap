@@ -7,6 +7,20 @@
     },
     "course_title": "DESIGN OF MACHINE ELEMENTS",
     "description": "Analysis and design of machine elements and machines; loads, stresses, deflections, material selection, fatigue failure, finite elements; mechanical power transmission components including gearing, bearings, shafting, and frictional devices.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Yunus ALAPAN": "ALAPAN@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring, Summer"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,6 +704,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
                 "course_number": 331,
                 "subjects": [
                     "ME"
@@ -705,12 +725,6 @@
                 "course_number": 303,
                 "subjects": [
                     "EMA"
-                ]
-            },
-            {
-                "course_number": 306,
-                "subjects": [
-                    "ME"
                 ]
             }
         ],

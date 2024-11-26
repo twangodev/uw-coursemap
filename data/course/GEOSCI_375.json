@@ -7,6 +7,20 @@
     },
     "course_title": "PRINCIPLES OF GEOCHEMISTRY",
     "description": "Provides a chemical basis for understanding the origin, evolution, distribution and interactions of chemical elements and isotopes between the lithosphere, hydrosphere, biosphere, and atmosphere in geological and environmental processes.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Annie BAUER": "ANNIE.BAUER@WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2011": {
@@ -216,12 +230,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 104,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
                 "course_number": 360,
                 "subjects": [
                     "GLE",
@@ -229,10 +237,15 @@
                 ]
             },
             {
-                "course_number": 370,
+                "course_number": 104,
                 "subjects": [
-                    "GLE",
-                    "GEOSCI"
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
                 ]
             },
             {
@@ -242,9 +255,10 @@
                 ]
             },
             {
-                "course_number": 115,
+                "course_number": 370,
                 "subjects": [
-                    "CHEM"
+                    "GLE",
+                    "GEOSCI"
                 ]
             }
         ],

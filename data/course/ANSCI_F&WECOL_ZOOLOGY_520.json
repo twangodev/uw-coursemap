@@ -2,13 +2,27 @@
     "course_reference": {
         "course_number": 520,
         "subjects": [
-            "ZOOLOGY",
             "ANSCI",
+            "ZOOLOGY",
             "F&WECOL"
         ]
     },
     "course_title": "ORNITHOLOGY",
     "description": "Introduction to bird biology, ecology, and behavior. Topics include the evolutionary origin of birds and flight, anatomy and physiology, functional morphology, migration, communication, reproductive strategies, ecological adaptations and roles, and biogeographical patterns.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Anna Pidgeon": "APIDGEON@FACSTAFF.WISC.EDU"
+        },
+        "last_taught_term_code": 1244,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Spring 2007": {
@@ -341,8 +355,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -351,24 +365,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 382,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -378,10 +378,24 @@
                 ]
             },
             {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 382,
+                "subjects": [
+                    "BIOCORE"
                 ]
             }
         ],

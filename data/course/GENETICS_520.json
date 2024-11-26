@@ -7,6 +7,20 @@
     },
     "course_title": "NEUROGENETICS",
     "description": "The genetic basis of nervous system development, structure, function, and dysfunction. Will emphasize both current research findings on the genetic basis of specific neurological disorders, as well as genetic methodologies and experimental approaches used in neurobiological research.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Carin LOEWEN": "CLOEWEN@WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2018": {
@@ -216,8 +230,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 454,
+                "course_number": 467,
                 "subjects": [
+                    "GENETICS"
+                ]
+            },
+            {
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
                     "PSYCH"
                 ]
             },
@@ -228,22 +249,15 @@
                 ]
             },
             {
-                "course_number": 467,
+                "course_number": 454,
                 "subjects": [
-                    "GENETICS"
+                    "PSYCH"
                 ]
             },
             {
                 "course_number": 587,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 523,
-                "subjects": [
-                    "ZOOLOGY",
-                    "PSYCH"
                 ]
             }
         ],

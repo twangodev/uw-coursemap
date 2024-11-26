@@ -2,13 +2,14 @@
     "course_reference": {
         "course_number": 340,
         "subjects": [
+            "HORT",
             "BOTANY",
-            "AGRONOMY",
-            "HORT"
+            "AGRONOMY"
         ]
     },
     "course_title": "PLANT CELL CULTURE AND GENETIC ENGINEERING",
     "description": "Presents an overview of the techniques, biology and underlying theory of plant tissue culture, genetic engineering and genome editing. Overviews of research and commercial applications, and issues/challenges in the area of plant biotechnology are also covered.",
+    "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
             "Fall 2021": {
@@ -189,8 +190,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -199,10 +200,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 130,
+                "course_number": 381,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BOTANY"
                 ]
             },
             {
@@ -212,23 +220,9 @@
                 ]
             },
             {
-                "course_number": 152,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 116,
                 "subjects": [
                     "CHEM"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             },
             {
@@ -240,8 +234,15 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],

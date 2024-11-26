@@ -2,12 +2,26 @@
     "course_reference": {
         "course_number": 620,
         "subjects": [
-            "BMI",
-            "STAT"
+            "STAT",
+            "BMI"
         ]
     },
     "course_title": "STATISTICS IN HUMAN GENETICS",
     "description": "Provides a comprehensive survey of statistical methods in human genetics research. Covered topics include linkage analysis, genome-wide association study, rare variant association analysis, meta-analysis, genome and variant annotation, heritability estimation, multi-trait modeling techniques, multi-omic data integration, and genetic risk prediction.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Qiongshi LU": "QLU@BIOSTAT.WISC.EDU"
+        },
+        "last_taught_term_code": null,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": null,
     "optimized_prerequisites": {
         "course_references": [
@@ -23,13 +37,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 333,
+                "course_number": 340,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 340,
+                "course_number": 333,
                 "subjects": [
                     "STAT"
                 ]

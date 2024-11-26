@@ -8,6 +8,20 @@
     },
     "course_title": "MOLECULAR APPROACHES FOR POTENTIAL CROP IMPROVEMENT",
     "description": "Introduction of basic concepts of plant molecular biology and molecular techniques in current use. Topics include: organization and regulation of plant genes, gene cloning and analysis, transformation systems for plants, and molecular techniques for crop improvement.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "PATRICK KRYSAN": "PJKRYSAN@WISC.EDU"
+        },
+        "last_taught_term_code": 1234,
+        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "typically_offered": "Fall"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -311,6 +325,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 467,
+                "subjects": [
+                    "GENETICS"
+                ]
+            },
+            {
                 "course_number": 466,
                 "subjects": [
                     "GENETICS"
@@ -320,12 +340,6 @@
                 "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
-                ]
-            },
-            {
-                "course_number": 467,
-                "subjects": [
-                    "GENETICS"
                 ]
             }
         ],

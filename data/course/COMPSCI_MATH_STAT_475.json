@@ -2,13 +2,28 @@
     "course_reference": {
         "course_number": 475,
         "subjects": [
-            "COMPSCI",
             "STAT",
+            "COMPSCI",
             "MATH"
         ]
     },
     "course_title": "INTRODUCTION TO COMBINATORICS",
     "description": "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs. Potential applications in the social, biological, and physical sciences. Puzzles. Problem solving.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Betsy STOVALL": "STOVALL@MATH.WISC.EDU",
+            "PAUL TERWILLIGER": "TERWILLI@MATH.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -692,7 +707,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
@@ -704,13 +725,7 @@
                 ]
             },
             {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]

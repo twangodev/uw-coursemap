@@ -7,6 +7,20 @@
     },
     "course_title": "FLUID MECHANICS",
     "description": "Fluid statics and dynamics, dimensional analysis, flow of an ideal fluid, flow of a real fluid--including laminar and turbulent flow, applications to engineering problems.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": false,
+        "instructors": {
+            "Chin WU": "CHINWU@ENGR.WISC.EDU"
+        },
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "typically_offered": "Fall, Spring"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -709,25 +723,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 240,
-                "subjects": [
-                    "ME"
-                ]
-            },
-            {
                 "course_number": 202,
                 "subjects": [
                     "EMA"
                 ]
             },
             {
-                "course_number": 375,
+                "course_number": 234,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 234,
+                "course_number": 240,
+                "subjects": [
+                    "ME"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]

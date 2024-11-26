@@ -7,6 +7,18 @@
     },
     "course_title": "INTRODUCTORY APPLIED STATISTICS FOR THE LIFE SCIENCES",
     "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+    "enrollment_data": {
+        "credit_count": [
+            3,
+            3
+        ],
+        "ethnics_studies": false,
+        "general_education": true,
+        "instructors": {},
+        "last_taught_term_code": 1252,
+        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "typically_offered": "Not Applicable"
+    },
     "madgrades_data": {
         "by_term": {
             "Fall 2006": {
@@ -690,7 +702,19 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 114,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 112,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 113,
                 "subjects": [
                     "MATH"
                 ]
@@ -703,18 +727,6 @@
             },
             {
                 "course_number": 221,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 113,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 114,
                 "subjects": [
                     "MATH"
                 ]
