@@ -6,7 +6,7 @@ from course import Course, MadgradesData
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
 
-def get_madgrades_terms(madgrades_api_key, logger: Logger):
+def get_madgrades_terms(madgrades_api_key, logger: Logger) -> dict[int, str]:
     logger.info("Fetching Madgrades terms...")
     auth_header = {"Authorization": f"Token token={madgrades_api_key}" }
     response = requests.get(url=madgrades_api_endpoint + "terms", headers=auth_header)
