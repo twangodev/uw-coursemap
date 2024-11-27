@@ -17,32 +17,17 @@
         "instructors": {
             "Philip COOK": "PHILIP.MULDER@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "B",
+            "name": "Business",
+            "url": "http://www.bus.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2016": {
-                "a": 29,
-                "ab": 6,
-                "b": 20,
-                "bc": 0,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 57,
-                "unsatisfactory": 0
-            },
-            "Spring 2016": {
+            "1164": {
                 "a": 46,
                 "ab": 8,
                 "b": 28,
@@ -61,7 +46,26 @@
                 "total": 86,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1172": {
+                "a": 29,
+                "ab": 6,
+                "b": 20,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 57,
+                "unsatisfactory": 0
+            },
+            "1184": {
                 "a": 67,
                 "ab": 19,
                 "b": 24,
@@ -80,7 +84,7 @@
                 "total": 115,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 80,
                 "ab": 39,
                 "b": 35,
@@ -99,7 +103,7 @@
                 "total": 166,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 111,
                 "ab": 12,
                 "b": 12,
@@ -118,7 +122,7 @@
                 "total": 140,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 113,
                 "ab": 23,
                 "b": 10,
@@ -137,7 +141,7 @@
                 "total": 149,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 87,
                 "ab": 35,
                 "b": 27,
@@ -156,7 +160,7 @@
                 "total": 154,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 45,
                 "ab": 17,
                 "b": 18,
@@ -210,9 +214,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 704,
+                "course_number": 300,
                 "subjects": [
-                    "GENBUS"
+                    "RMI"
                 ]
             },
             {
@@ -222,9 +226,23 @@
                 ]
             },
             {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 306,
                 "subjects": [
                     "GENBUS"
+                ]
+            },
+            {
+                "course_number": 431,
+                "subjects": [
+                    "MATH",
+                    "STAT"
                 ]
             },
             {
@@ -240,23 +258,9 @@
                 ]
             },
             {
-                "course_number": 309,
+                "course_number": 704,
                 "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 300,
-                "subjects": [
-                    "RMI"
-                ]
-            },
-            {
-                "course_number": 431,
-                "subjects": [
-                    "STAT",
-                    "MATH"
+                    "GENBUS"
                 ]
             }
         ],

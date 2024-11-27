@@ -17,13 +17,17 @@
         "instructors": {
             "Melissa Sheedy": "MELISSA.SHEEDY@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2018": {
+            "1192": {
                 "a": 8,
                 "ab": 0,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 16,
                 "ab": 1,
                 "b": 0,
@@ -61,7 +65,7 @@
                 "total": 17,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 9,
                 "ab": 1,
                 "b": 0,
@@ -80,7 +84,7 @@
                 "total": 11,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 14,
                 "ab": 1,
                 "b": 2,
@@ -134,6 +138,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 204,
+                "subjects": [
+                    "GERMAN"
+                ]
+            },
+            {
                 "course_number": 258,
                 "subjects": [
                     "GERMAN"
@@ -141,12 +151,6 @@
             },
             {
                 "course_number": 262,
-                "subjects": [
-                    "GERMAN"
-                ]
-            },
-            {
-                "course_number": 204,
                 "subjects": [
                     "GERMAN"
                 ]

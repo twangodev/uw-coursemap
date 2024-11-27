@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 430,
         "subjects": [
-            "PHMSCI",
-            "BME"
+            "BME",
+            "PHMSCI"
         ]
     },
     "course_title": "BIOLOGICAL INTERACTIONS WITH MATERIALS",
@@ -19,13 +19,17 @@
             "Randolph ASHTON": "RASHTON2@WISC.EDU",
             "Tracy Puccinelli": "TRACY.PUCCINELLI@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Pharmacy\",\n    \"abbreviation\": \"P\",\n    \"url\": \"http://www.pharmacy.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "P",
+            "name": "Pharmacy",
+            "url": "http://www.pharmacy.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 12,
                 "ab": 15,
                 "b": 12,
@@ -44,7 +48,7 @@
                 "total": 57,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 4,
                 "ab": 11,
                 "b": 30,
@@ -63,7 +67,7 @@
                 "total": 73,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 15,
                 "ab": 22,
                 "b": 15,
@@ -82,7 +86,7 @@
                 "total": 59,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 9,
                 "ab": 35,
                 "b": 27,
@@ -101,7 +105,7 @@
                 "total": 86,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 4,
                 "ab": 36,
                 "b": 27,
@@ -120,7 +124,7 @@
                 "total": 71,
                 "unsatisfactory": 0
             },
-            "Spring 2012": {
+            "1124": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -139,7 +143,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 17,
                 "ab": 54,
                 "b": 35,
@@ -158,7 +162,7 @@
                 "total": 106,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 6,
                 "ab": 36,
                 "b": 62,
@@ -177,7 +181,7 @@
                 "total": 112,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 17,
                 "ab": 60,
                 "b": 27,
@@ -196,7 +200,7 @@
                 "total": 113,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 45,
                 "ab": 42,
                 "b": 23,
@@ -215,7 +219,7 @@
                 "total": 113,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 18,
                 "ab": 41,
                 "b": 43,
@@ -234,7 +238,7 @@
                 "total": 114,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 20,
                 "ab": 30,
                 "b": 29,
@@ -253,7 +257,7 @@
                 "total": 93,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 17,
                 "ab": 26,
                 "b": 48,
@@ -272,7 +276,7 @@
                 "total": 106,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 35,
                 "ab": 35,
                 "b": 15,
@@ -291,7 +295,7 @@
                 "total": 104,
                 "unsatisfactory": 1
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 25,
                 "ab": 47,
                 "b": 38,
@@ -310,7 +314,7 @@
                 "total": 117,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 17,
                 "ab": 41,
                 "b": 42,
@@ -329,7 +333,7 @@
                 "total": 109,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 19,
                 "ab": 55,
                 "b": 45,
@@ -383,36 +387,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
-                "course_number": 383,
+                "course_number": 153,
                 "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 343,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY"
                 ]
             },
@@ -423,9 +406,30 @@
                 ]
             },
             {
-                "course_number": 153,
+                "course_number": 343,
                 "subjects": [
-                    "ZOOLOGY"
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

@@ -15,13 +15,17 @@
         "ethnics_studies": false,
         "general_education": false,
         "instructors": {},
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring, Summer"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2024": {
+            "1244": {
                 "a": 20,
                 "ab": 28,
                 "b": 23,
@@ -75,6 +79,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 101,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
                 "course_number": 111,
                 "subjects": [
                     "ECON"
@@ -84,12 +94,6 @@
                 "course_number": 101,
                 "subjects": [
                     "AAE"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ECON"
                 ]
             }
         ],

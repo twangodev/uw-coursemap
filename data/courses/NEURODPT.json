@@ -1,101 +1,97 @@
 [
     {
         "course_reference": {
-            "course_number": 675,
+            "course_number": 610,
             "subjects": [
+                "NTP",
                 "NEURODPT"
             ]
         },
-        "course_title": "SELECTED TOPICS IN PHYSIOLOGY",
-        "description": "Topics include: advanced cardiovascular physiology, advanced respiratory physiology, advanced endocrinology, membrane transport physiology and neurobiology.",
+        "course_title": "CELLULAR AND MOLECULAR NEUROSCIENCE",
+        "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
         "enrollment_data": null,
-        "madgrades_data": {
-            "by_term": {
-                "Fall 2018": {
-                    "a": 6,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 6,
-                    "unsatisfactory": 0
-                },
-                "Fall 2019": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Spring 2019": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
+        "madgrades_data": null,
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
                 }
-            },
-            "cumulative": {
-                "a": 6,
-                "ab": 0,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 6,
-                "unsatisfactory": 0
-            }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
         },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 523,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ZOOLOGY",
+                "NTP",
+                "NEURODPT"
+            ]
+        },
+        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
+        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "enrollment_data": {
+            "credit_count": [
+                3,
+                3
+            ],
+            "ethnics_studies": false,
+            "general_education": false,
+            "instructors": {
+                "Mary Halloran": "MCHALLORAN@WISC.EDU",
+                "TIMOTHY GOMEZ": "TMGOMEZ@WISC.EDU"
+            },
+            "last_taught_term": "Spring 2023",
+            "school": {
+                "abbreviation": "L",
+                "name": "Letters and Science",
+                "url": "http://www.ls.wisc.edu/"
+            },
+            "typically_offered": "Occasionally"
+        },
+        "madgrades_data": null,
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "None"
+            "prerequisites_text": "Graduate/professional standing"
         }
     },
     {
@@ -145,8 +141,8 @@
         "course_reference": {
             "course_number": 611,
             "subjects": [
-                "NTP",
                 "NEURODPT",
+                "NTP",
                 "PSYCH"
             ]
         },
@@ -163,8 +159,12 @@
                 "TOM YIN": "TCYIN@WISC.EDU",
                 "XIN HUANG": "XHUANG43@WISC.EDU"
             },
-            "last_taught_term_code": 1244,
-            "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+            "last_taught_term": "Spring 2024",
+            "school": {
+                "abbreviation": "L",
+                "name": "Letters and Science",
+                "url": "http://www.ls.wisc.edu/"
+            },
             "typically_offered": "Spring"
         },
         "madgrades_data": null,
@@ -195,21 +195,35 @@
     },
     {
         "course_reference": {
-            "course_number": 674,
+            "course_number": 640,
             "subjects": [
-                "ZOOLOGY",
-                "NEURODPT",
-                "PSYCH"
+                "NTP",
+                "NEURODPT"
             ]
         },
-        "course_title": "BEHAVIORAL NEUROENDOCRINOLOGY SEMINAR",
-        "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
-        "enrollment_data": null,
+        "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
+        "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+        "enrollment_data": {
+            "credit_count": [
+                3,
+                3
+            ],
+            "ethnics_studies": false,
+            "general_education": false,
+            "instructors": {},
+            "last_taught_term": "Spring 2024",
+            "school": {
+                "abbreviation": "M",
+                "name": "Medicine and Public Health",
+                "url": "http://www.med.wisc.edu/"
+            },
+            "typically_offered": "Not Applicable"
+        },
         "madgrades_data": {
             "by_term": {
-                "Fall 2017": {
-                    "a": 8,
-                    "ab": 2,
+                "1244": {
+                    "a": 7,
+                    "ab": 1,
                     "b": 0,
                     "bc": 0,
                     "c": 0,
@@ -223,51 +237,13 @@
                     "other": 0,
                     "passed": 0,
                     "satisfactory": 0,
-                    "total": 10,
-                    "unsatisfactory": 0
-                },
-                "Fall 2019": {
-                    "a": 17,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                },
-                "Fall 2021": {
-                    "a": 9,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 9,
+                    "total": 8,
                     "unsatisfactory": 0
                 }
             },
             "cumulative": {
-                "a": 34,
-                "ab": 2,
+                "a": 7,
+                "ab": 1,
                 "b": 0,
                 "bc": 0,
                 "c": 0,
@@ -281,337 +257,85 @@
                 "other": 0,
                 "passed": 0,
                 "satisfactory": 0,
-                "total": 36,
+                "total": 8,
                 "unsatisfactory": 0
             }
         },
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 101,
+                    "course_number": 611,
                     "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
+                        "NEURODPT",
+                        "NTP",
+                        "PSYCH"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383or graduate/professional standing"
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 383,
+                    "course_number": 523,
                     "subjects": [
-                        "BIOCORE"
-                    ]
-                },
-                {
-                    "course_number": 151,
-                    "subjects": [
-                        "BIOLOGY",
                         "ZOOLOGY",
-                        "BOTANY"
+                        "PSYCH"
                     ]
                 },
                 {
-                    "course_number": 101,
+                    "course_number": 454,
                     "subjects": [
-                        "BIOLOGY",
-                        "ZOOLOGY"
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 610,
+                    "subjects": [
+                        "NTP",
+                        "NEURODPT"
+                    ]
+                },
+                {
+                    "course_number": 104,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 202,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 611,
+                    "subjects": [
+                        "NEURODPT",
+                        "NTP",
+                        "PSYCH"
+                    ]
+                },
+                {
+                    "course_number": 248,
+                    "subjects": [
+                        "PHYSICS"
+                    ]
+                },
+                {
+                    "course_number": 221,
+                    "subjects": [
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 208,
+                    "subjects": [
+                        "PHYSICS"
                     ]
                 }
             ],
-            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383or graduate/professional standing"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 990,
-            "subjects": [
-                "NEURODPT"
-            ]
-        },
-        "course_title": "RESEARCH AND THESIS",
-        "description": "Research supervised by individual faculty members.",
-        "enrollment_data": {
-            "credit_count": [
-                1,
-                9
-            ],
-            "ethnics_studies": false,
-            "general_education": false,
-            "instructors": {
-                "AVTAR ROOPRA": "ASROOPRA@WISC.EDU",
-                "Abbas RIZVI": "AHRIZVI@WISC.EDU",
-                "Andre Moura da Costa e Sousa": "ANDRE.SOUSA@WISC.EDU",
-                "Ari ROSENBERG MAFFIA": "ARI.ROSENBERG@WISC.EDU",
-                "Betsy QUINLAN": "BETSY.QUINLAN@WISC.EDU",
-                "Bill CHIU": "SCHIU1@WISC.EDU",
-                "CYNTHIA CZAJKOWSKI": "CMCZAJKO@WISC.EDU",
-                "Dan UHLRICH": "DAN.UHLRICH@WISC.EDU",
-                "Darcie MOORE": "DLMOORE2@WISC.EDU",
-                "EDWIN CHAPMAN": "CHAPMAN@WISC.EDU",
-                "ERIK DENT": "EWDENT@WISC.EDU",
-                "GAIL ROBERTSON": "GAROBERT@WISC.EDU",
-                "JON LEVINE": "LEVINE@PRIMATE.WISC.EDU",
-                "Jared CREGG": "JCREGG@WISC.EDU",
-                "Luis Populin": "LPOPULIN@WISC.EDU",
-                "MATT JONES": "MATHEWJONES@WISC.EDU",
-                "Mary Halloran": "MCHALLORAN@WISC.EDU",
-                "Meyer JACKSON": "MEYER.JACKSON@WISC.EDU",
-                "RAUNAK SINHA": "RAUNAK.SINHA@WISC.EDU",
-                "ROBERT FETTIPLACE": "FETTIPLACE@WISC.EDU",
-                "ROBERT PEARCE": "RAPEARCE@WISC.EDU",
-                "SU-CHUN ZHANG": "SZHANG4@WISC.EDU",
-                "TIMOTHY GOMEZ": "TMGOMEZ@WISC.EDU",
-                "XIN HUANG": "XHUANG43@WISC.EDU",
-                "XINYU ZHAO": "XINYU.ZHAO@WISC.EDU",
-                "YEVGENYA GRINBLAT": "YGRINBLAT@FACSTAFF.WISC.EDU",
-                "ZHEN HUANG": "Z.HUANG@NEUROLOGY.WISC.EDU"
-            },
-            "last_taught_term_code": 1252,
-            "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
-            "typically_offered": "Occasionally"
-        },
-        "madgrades_data": {
-            "by_term": {
-                "Fall 2018": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 9,
-                    "total": 9,
-                    "unsatisfactory": 0
-                },
-                "Fall 2019": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 11,
-                    "total": 11,
-                    "unsatisfactory": 0
-                },
-                "Fall 2020": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Fall 2021": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Fall 2022": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Fall 2023": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Spring 2019": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Spring 2020": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Spring 2022": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 1,
-                    "satisfactory": 10,
-                    "total": 11,
-                    "unsatisfactory": 0
-                },
-                "Spring 2023": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "Spring 2024": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 0,
-                "ab": 0,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 1,
-                "satisfactory": 30,
-                "total": 31,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
+            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
         }
     },
     {
@@ -659,13 +383,17 @@
                 "YEVGENYA GRINBLAT": "YGRINBLAT@FACSTAFF.WISC.EDU",
                 "ZHEN HUANG": "Z.HUANG@NEUROLOGY.WISC.EDU"
             },
-            "last_taught_term_code": 1252,
-            "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+            "last_taught_term": "2024 Fall",
+            "school": {
+                "abbreviation": "M",
+                "name": "Medicine and Public Health",
+                "url": "http://www.med.wisc.edu/"
+            },
             "typically_offered": "Fall, Spring, Summer"
         },
         "madgrades_data": {
             "by_term": {
-                "Fall 2014": {
+                "1152": {
                     "a": 17,
                     "ab": 0,
                     "b": 0,
@@ -684,178 +412,7 @@
                     "total": 17,
                     "unsatisfactory": 0
                 },
-                "Fall 2015": {
-                    "a": 29,
-                    "ab": 1,
-                    "b": 1,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 1,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 32,
-                    "unsatisfactory": 0
-                },
-                "Fall 2016": {
-                    "a": 21,
-                    "ab": 1,
-                    "b": 3,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 25,
-                    "unsatisfactory": 0
-                },
-                "Fall 2017": {
-                    "a": 27,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 27,
-                    "unsatisfactory": 0
-                },
-                "Fall 2018": {
-                    "a": 17,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                },
-                "Fall 2019": {
-                    "a": 16,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 16,
-                    "unsatisfactory": 0
-                },
-                "Fall 2020": {
-                    "a": 6,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 6,
-                    "unsatisfactory": 0
-                },
-                "Fall 2021": {
-                    "a": 8,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 8,
-                    "unsatisfactory": 0
-                },
-                "Fall 2022": {
-                    "a": 16,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 16,
-                    "unsatisfactory": 0
-                },
-                "Fall 2023": {
-                    "a": 12,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 12,
-                    "unsatisfactory": 0
-                },
-                "Spring 2015": {
+                "1154": {
                     "a": 20,
                     "ab": 1,
                     "b": 0,
@@ -874,7 +431,26 @@
                     "total": 21,
                     "unsatisfactory": 0
                 },
-                "Spring 2016": {
+                "1162": {
+                    "a": 29,
+                    "ab": 1,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "1164": {
                     "a": 22,
                     "ab": 0,
                     "b": 0,
@@ -893,7 +469,26 @@
                     "total": 22,
                     "unsatisfactory": 0
                 },
-                "Spring 2017": {
+                "1172": {
+                    "a": 21,
+                    "ab": 1,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "1174": {
                     "a": 27,
                     "ab": 0,
                     "b": 0,
@@ -912,7 +507,26 @@
                     "total": 27,
                     "unsatisfactory": 0
                 },
-                "Spring 2018": {
+                "1182": {
+                    "a": 27,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "1184": {
                     "a": 18,
                     "ab": 0,
                     "b": 0,
@@ -931,7 +545,26 @@
                     "total": 18,
                     "unsatisfactory": 0
                 },
-                "Spring 2019": {
+                "1192": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "1194": {
                     "a": 19,
                     "ab": 0,
                     "b": 1,
@@ -950,7 +583,26 @@
                     "total": 20,
                     "unsatisfactory": 0
                 },
-                "Spring 2020": {
+                "1202": {
+                    "a": 16,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "1204": {
                     "a": 28,
                     "ab": 0,
                     "b": 0,
@@ -969,7 +621,45 @@
                     "total": 28,
                     "unsatisfactory": 0
                 },
-                "Spring 2022": {
+                "1212": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "1224": {
                     "a": 52,
                     "ab": 0,
                     "b": 0,
@@ -988,7 +678,26 @@
                     "total": 52,
                     "unsatisfactory": 0
                 },
-                "Spring 2023": {
+                "1232": {
+                    "a": 16,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "1234": {
                     "a": 16,
                     "ab": 2,
                     "b": 0,
@@ -1007,7 +716,26 @@
                     "total": 18,
                     "unsatisfactory": 0
                 },
-                "Spring 2024": {
+                "1242": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "1244": {
                     "a": 10,
                     "ab": 0,
                     "b": 1,
@@ -1090,13 +818,13 @@
                     ]
                 },
                 {
-                    "course_number": 335,
+                    "course_number": 435,
                     "subjects": [
                         "ANAT&PHY"
                     ]
                 },
                 {
-                    "course_number": 435,
+                    "course_number": 335,
                     "subjects": [
                         "ANAT&PHY"
                     ]
@@ -1107,38 +835,526 @@
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 674,
             "subjects": [
-                "NTP",
                 "ZOOLOGY",
+                "NEURODPT",
+                "PSYCH"
+            ]
+        },
+        "course_title": "BEHAVIORAL NEUROENDOCRINOLOGY SEMINAR",
+        "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
+        "enrollment_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1182": {
+                    "a": 8,
+                    "ab": 2,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 10,
+                    "unsatisfactory": 0
+                },
+                "1202": {
+                    "a": 17,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 9,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 9,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 34,
+                "ab": 2,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 36,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383or graduate/professional standing"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 151,
+                    "subjects": [
+                        "BOTANY",
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                },
+                {
+                    "course_number": 383,
+                    "subjects": [
+                        "BIOCORE"
+                    ]
+                },
+                {
+                    "course_number": 101,
+                    "subjects": [
+                        "ZOOLOGY",
+                        "BIOLOGY"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ZOOLOGY/\u200bBIOLOGY\u00a0\u00a0101,ZOOLOGY/\u200bBIOLOGY/\u200bBOTANY\u00a0\u00a0151,BIOCORE\u00a0383or graduate/professional standing"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 675,
+            "subjects": [
                 "NEURODPT"
             ]
         },
-        "course_title": "DEVELOPMENTAL NEUROSCIENCE",
-        "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+        "course_title": "SELECTED TOPICS IN PHYSIOLOGY",
+        "description": "Topics include: advanced cardiovascular physiology, advanced respiratory physiology, advanced endocrinology, membrane transport physiology and neurobiology.",
+        "enrollment_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1192": {
+                    "a": 6,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 6,
+                    "unsatisfactory": 0
+                },
+                "1194": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1202": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 6,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 6,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 990,
+            "subjects": [
+                "NEURODPT"
+            ]
+        },
+        "course_title": "RESEARCH AND THESIS",
+        "description": "Research supervised by individual faculty members.",
         "enrollment_data": {
             "credit_count": [
-                3,
-                3
+                1,
+                9
             ],
             "ethnics_studies": false,
             "general_education": false,
             "instructors": {
+                "AVTAR ROOPRA": "ASROOPRA@WISC.EDU",
+                "Abbas RIZVI": "AHRIZVI@WISC.EDU",
+                "Andre Moura da Costa e Sousa": "ANDRE.SOUSA@WISC.EDU",
+                "Ari ROSENBERG MAFFIA": "ARI.ROSENBERG@WISC.EDU",
+                "Betsy QUINLAN": "BETSY.QUINLAN@WISC.EDU",
+                "Bill CHIU": "SCHIU1@WISC.EDU",
+                "CYNTHIA CZAJKOWSKI": "CMCZAJKO@WISC.EDU",
+                "Dan UHLRICH": "DAN.UHLRICH@WISC.EDU",
+                "Darcie MOORE": "DLMOORE2@WISC.EDU",
+                "EDWIN CHAPMAN": "CHAPMAN@WISC.EDU",
+                "ERIK DENT": "EWDENT@WISC.EDU",
+                "GAIL ROBERTSON": "GAROBERT@WISC.EDU",
+                "JON LEVINE": "LEVINE@PRIMATE.WISC.EDU",
+                "Jared CREGG": "JCREGG@WISC.EDU",
+                "Luis Populin": "LPOPULIN@WISC.EDU",
+                "MATT JONES": "MATHEWJONES@WISC.EDU",
                 "Mary Halloran": "MCHALLORAN@WISC.EDU",
-                "TIMOTHY GOMEZ": "TMGOMEZ@WISC.EDU"
+                "Meyer JACKSON": "MEYER.JACKSON@WISC.EDU",
+                "RAUNAK SINHA": "RAUNAK.SINHA@WISC.EDU",
+                "ROBERT FETTIPLACE": "FETTIPLACE@WISC.EDU",
+                "ROBERT PEARCE": "RAPEARCE@WISC.EDU",
+                "SU-CHUN ZHANG": "SZHANG4@WISC.EDU",
+                "TIMOTHY GOMEZ": "TMGOMEZ@WISC.EDU",
+                "XIN HUANG": "XHUANG43@WISC.EDU",
+                "XINYU ZHAO": "XINYU.ZHAO@WISC.EDU",
+                "YEVGENYA GRINBLAT": "YGRINBLAT@FACSTAFF.WISC.EDU",
+                "ZHEN HUANG": "Z.HUANG@NEUROLOGY.WISC.EDU"
             },
-            "last_taught_term_code": 1234,
-            "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+            "last_taught_term": "2024 Fall",
+            "school": {
+                "abbreviation": "M",
+                "name": "Medicine and Public Health",
+                "url": "http://www.med.wisc.edu/"
+            },
             "typically_offered": "Occasionally"
         },
-        "madgrades_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1192": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 9,
+                    "total": 9,
+                    "unsatisfactory": 0
+                },
+                "1194": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1202": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 11,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1212": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 1,
+                    "satisfactory": 10,
+                    "total": 11,
+                    "unsatisfactory": 0
+                },
+                "1232": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1234": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1242": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1244": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 0,
+                "ab": 0,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 1,
+                "satisfactory": 30,
+                "total": 31,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -1160,13 +1376,17 @@
             "instructors": {
                 "Dan UHLRICH": "DAN.UHLRICH@WISC.EDU"
             },
-            "last_taught_term_code": 1244,
-            "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+            "last_taught_term": "Spring 2024",
+            "school": {
+                "abbreviation": "M",
+                "name": "Medicine and Public Health",
+                "url": "http://www.med.wisc.edu/"
+            },
             "typically_offered": "Not Applicable"
         },
         "madgrades_data": {
             "by_term": {
-                "Spring 2020": {
+                "1204": {
                     "a": 0,
                     "ab": 0,
                     "b": 0,
@@ -1185,7 +1405,7 @@
                     "total": 8,
                     "unsatisfactory": 0
                 },
-                "Spring 2022": {
+                "1224": {
                     "a": 0,
                     "ab": 0,
                     "b": 0,
@@ -1204,7 +1424,7 @@
                     "total": 32,
                     "unsatisfactory": 0
                 },
-                "Spring 2023": {
+                "1234": {
                     "a": 0,
                     "ab": 0,
                     "b": 0,
@@ -1223,7 +1443,7 @@
                     "total": 12,
                     "unsatisfactory": 0
                 },
-                "Spring 2024": {
+                "1244": {
                     "a": 0,
                     "ab": 0,
                     "b": 0,
@@ -1277,7 +1497,7 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 810,
+                    "course_number": 813,
                     "subjects": [
                         "MEDSC-M"
                     ]
@@ -1289,215 +1509,19 @@
                     ]
                 },
                 {
-                    "course_number": 812,
+                    "course_number": 810,
                     "subjects": [
                         "MEDSC-M"
                     ]
                 },
                 {
-                    "course_number": 813,
+                    "course_number": 812,
                     "subjects": [
                         "MEDSC-M"
                     ]
                 }
             ],
             "prerequisites_text": "MED\u00a0SC-M\u00a0810,811,812, and813"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 640,
-            "subjects": [
-                "NTP",
-                "NEURODPT"
-            ]
-        },
-        "course_title": "COMPUTATIONAL NEUROSCIENCE: FROM SINGLE CELLS TO WHOLE BRAIN MODELS",
-        "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
-        "enrollment_data": {
-            "credit_count": [
-                3,
-                3
-            ],
-            "ethnics_studies": false,
-            "general_education": false,
-            "instructors": {},
-            "last_taught_term_code": 1244,
-            "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
-            "typically_offered": "Not Applicable"
-        },
-        "madgrades_data": {
-            "by_term": {
-                "Spring 2024": {
-                    "a": 7,
-                    "ab": 1,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 8,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 7,
-                "ab": 1,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 8,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NTP",
-                        "NEURODPT",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 104,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 221,
-                    "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 611,
-                    "subjects": [
-                        "NTP",
-                        "NEURODPT",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 454,
-                    "subjects": [
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 610,
-                    "subjects": [
-                        "NTP",
-                        "NEURODPT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "PSYCH/\u200bZOOLOGY\u00a0\u00a0523,PSYCH\u00a0454,MATH\u00a0221, and (PHYSICS\u00a0104,202,208, or248); or graduate/professional standing andNEURODPT/\u200bNTP\u00a0\u00a0610andPSYCH/\u200bNEURODPT/\u200bNTP\u00a0\u00a0611"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 610,
-            "subjects": [
-                "NTP",
-                "NEURODPT"
-            ]
-        },
-        "course_title": "CELLULAR AND MOLECULAR NEUROSCIENCE",
-        "description": "Study of original papers leading to an understanding of the molecular basis of electrical activity in neurons. Topics include voltage-sensitive currents, molecular biology of neuronal receptorrs, synaptic transmission and sensory transduction.",
-        "enrollment_data": null,
-        "madgrades_data": null,
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 523,
-                    "subjects": [
-                        "ZOOLOGY",
-                        "PSYCH"
-                    ]
-                },
-                {
-                    "course_number": 208,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 202,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                },
-                {
-                    "course_number": 248,
-                    "subjects": [
-                        "PHYSICS"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ZOOLOGY/\u200bPSYCH\u00a0\u00a0523and (PHYSICS\u00a0202,208, or248), or graduate/professional standing"
         }
     }
 ]

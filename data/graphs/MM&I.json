@@ -1,15 +1,8 @@
 [
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "An overview of methods used in quantitative systems biology, with a focus on biochemical systems relevant to the study of host-pathogen interactions, disease and microbial communities.",
-            "id": "MM&I 760",
-            "parent": "MM&I"
+            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
+            "id": "MM&I/PATH-BIO 528"
         }
     },
     {
@@ -21,16 +14,52 @@
     },
     {
         "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
+            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
+            "id": "MM&I/PATH-BIO 750"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
+            "id": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
+            "id": "MEDSC-M 812",
             "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
         }
     },
     {
@@ -42,53 +71,15 @@
     },
     {
         "data": {
-            "description": "Second semester independent study with the goal to complete a senior thesis in Medical Microbiology  Immunology.",
-            "id": "MM&I 692",
-            "parent": "MM&I"
+            "source": "GENETICS 467",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
         }
     },
     {
         "data": {
-            "source": "MEDSC-M 812",
-            "target": "MM&I 911"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Seminar series led by MMI faculty members.",
-            "id": "MM&I 901",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MM&I 341"
-        }
-    },
-    {
-        "data": {
-            "source": "MM&I 301",
-            "target": "BIOCHEM/MM&I 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
-            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
-        }
-    },
-    {
-        "data": {
-            "source": "MM&I 301",
-            "target": "MM&I 554"
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
         }
     },
     {
@@ -99,21 +90,15 @@
     },
     {
         "data": {
-            "description": "Independent research in medical microbiology and immunology for undergraduates under the supervision of MMI faculty. Carry out literature reviews and laboratory bench work on an independent project; participate in laboratory meetings; and produce some written presentation of the work, usually in the form of a poster presentation at a local or national meeting.",
-            "id": "MM&I 699",
+            "description": "Identification of analysis and solution of emerging infectious disease problems and the problems of bioterrorism.",
+            "id": "MM&I 554",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "description": "Pathogenesis, clinical descriptions, and prevention.",
-            "id": "MM&I 704",
+            "description": "The human microbiome can profoundly influence the balance between health and disease. Advances in next-generation sequencing technology and bioinformatics enabled the detailed study of the trillions of microorganisms living in us and on us and their associations with both healthy and disease conditions. Current state of the art approaches to study the microbiome through examples of human diseases with a known microbiome component. Critically assess the microbiome literature and design clinical studies aiming to include the microbiome as a variable. Bioinformatics tools required to study complex microbial communities by reproducing published datasets from human patients and learn ecological concepts to interpret results in a clinically meaningful way.",
+            "id": "MM&I 902",
             "parent": "MM&I"
         }
     },
@@ -125,27 +110,65 @@
     },
     {
         "data": {
-            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
-            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "id": "MM&I",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Identification of analysis and solution of emerging infectious disease problems and the problems of bioterrorism.",
-            "id": "MM&I 554",
+            "description": "Seminar series led by MMI faculty members.",
+            "id": "MM&I 901",
             "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "MM&I 341"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "MM&I/PATH-BIO 528"
+        }
+    },
+    {
+        "data": {
+            "description": "Second semester independent study with the goal to complete a senior thesis in Medical Microbiology  Immunology.",
+            "id": "MM&I 692",
+            "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 810",
+            "target": "MM&I 902"
+        }
+    },
+    {
+        "data": {
+            "description": "Carry out an independent research project that represents novel science in the chosen area under the guidance of an MMI faculty member. Evidence of success is measured by publication of results as first-authored papers in peer-reviewed papers.",
+            "id": "MM&I 990",
+            "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
+            "id": "BIOCHEM/MM&I 575"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOCORE 381",
+            "target": "MM&I 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
+            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
         }
     },
     {
@@ -163,89 +186,23 @@
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "description": "Host-pathogen relationships in microbial diseases.",
-            "id": "MM&I 740",
+            "description": "Medically important bacteria, emphasizing the process of pathogenesis and host/parasite interactions, as well as intervention strategies, immunity and genetics as they apply to the pathogens.",
+            "id": "MM&I 301",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 810",
-            "target": "MM&I 902"
-        }
-    },
-    {
-        "data": {
-            "description": "First semester independent study with the goal to do the preliminary research to write a senior thesis in Medical Microbiology  Immunology.",
-            "id": "MM&I 691",
+            "description": "Pathogenesis, clinical descriptions, and prevention.",
+            "id": "MM&I 704",
             "parent": "MM&I"
         }
     },
     {
         "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-            "id": "MM&I/ONCOLOGY/PLPATH 640"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOCORE 381",
-            "target": "MM&I 301"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Detailed study of the pathogenesis of vertebrate viral disease, stressing viral invasion, dissemination, mechanisms of disease production, immune pathology, persistence, resistance, and transmission.",
-            "id": "MM&I/PATH-BIO 750"
+            "description": "Independent research in medical microbiology and immunology for undergraduates under the supervision of MMI faculty. Carry out literature reviews and laboratory bench work on an independent project; participate in laboratory meetings; and produce some written presentation of the work, usually in the form of a poster presentation at a local or national meeting.",
+            "id": "MM&I 699",
+            "parent": "MM&I"
         }
     },
     {
@@ -257,28 +214,8 @@
     },
     {
         "data": {
-            "description": "Medically important bacteria, emphasizing the process of pathogenesis and host/parasite interactions, as well as intervention strategies, immunity and genetics as they apply to the pathogens.",
-            "id": "MM&I 301",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "description": "Broad coverage of animal virology taught at molecular level. Topics include virus structure, viral replication/lifecycle, aspects of pathogenesis and prevention.",
-            "id": "BIOCHEM/MM&I 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Carry out an independent research project that represents novel science in the chosen area under the guidance of an MMI faculty member. Evidence of success is measured by publication of results as first-authored papers in peer-reviewed papers.",
-            "id": "MM&I 990",
-            "parent": "MM&I"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "source": "MM&I 301",
+            "target": "MM&I 554"
         }
     },
     {
@@ -289,15 +226,34 @@
     },
     {
         "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
         }
     },
     {
         "data": {
-            "description": "The human microbiome can profoundly influence the balance between health and disease. Advances in next-generation sequencing technology and bioinformatics enabled the detailed study of the trillions of microorganisms living in us and on us and their associations with both healthy and disease conditions. Current state of the art approaches to study the microbiome through examples of human diseases with a known microbiome component. Critically assess the microbiome literature and design clinical studies aiming to include the microbiome as a variable. Bioinformatics tools required to study complex microbial communities by reproducing published datasets from human patients and learn ecological concepts to interpret results in a clinically meaningful way.",
-            "id": "MM&I 902",
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of methods used in quantitative systems biology, with a focus on biochemical systems relevant to the study of host-pathogen interactions, disease and microbial communities.",
+            "id": "MM&I 760",
             "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
         }
     },
     {
@@ -309,21 +265,65 @@
     },
     {
         "data": {
-            "description": "Development and functions of immune response in animals; a comprehensive study of experimental humoral and cellular immunity.",
-            "id": "MM&I/PATH-BIO 528"
+            "description": "The biology of water-borne, food-borne, soil-borne and vector-borne parasites of animals including humans. Parasites are explored in the context of transmission, associated disease, diagnosis and treatment options, and environmental, cultural and socioeconomic drivers of disease epidemiology.",
+            "id": "ENTOM/MM&I/PATH-BIO/ZOOLOGY 350"
         }
     },
     {
         "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "MM&I/PATH-BIO 528"
+            "source": "MEDSC-M 812",
+            "target": "MM&I 911"
+        }
+    },
+    {
+        "data": {
+            "description": "Host-pathogen relationships in microbial diseases.",
+            "id": "MM&I 740",
+            "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "source": "MM&I 301",
+            "target": "BIOCHEM/MM&I 575"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
+            "description": "First semester independent study with the goal to do the preliminary research to write a senior thesis in Medical Microbiology  Immunology.",
+            "id": "MM&I 691",
+            "parent": "MM&I"
+        }
+    },
+    {
+        "data": {
+            "id": "MM&I",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
         }
     }
 ]

@@ -10,7 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Fall 2022": {
+            "1232": {
                 "a": 7,
                 "ab": 0,
                 "b": 0,
@@ -29,7 +29,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Fall 2023": {
+            "1242": {
                 "a": 9,
                 "ab": 0,
                 "b": 0,
@@ -74,8 +74,8 @@
             {
                 "course_number": 230,
                 "subjects": [
-                    "ENVIRST",
                     "SOILSCI",
+                    "ENVIRST",
                     "GEOG"
                 ]
             }
@@ -85,17 +85,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 301,
+                "course_number": 230,
                 "subjects": [
-                    "SOILSCI"
+                    "SOILSCI",
+                    "ENVIRST",
+                    "GEOG"
                 ]
             },
             {
-                "course_number": 230,
+                "course_number": 301,
                 "subjects": [
-                    "ENVIRST",
-                    "SOILSCI",
-                    "GEOG"
+                    "SOILSCI"
                 ]
             }
         ],

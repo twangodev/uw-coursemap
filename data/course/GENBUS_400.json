@@ -17,8 +17,12 @@
         "instructors": {
             "Danielle ZINK": "DANIELLE.ZINK@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "B",
+            "name": "Business",
+            "url": "http://www.bus.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -38,12 +42,6 @@
             {
                 "course_number": 300,
                 "subjects": [
-                    "MHR"
-                ]
-            },
-            {
-                "course_number": 300,
-                "subjects": [
                     "MARKETNG"
                 ]
             },
@@ -56,6 +54,12 @@
             {
                 "course_number": 300,
                 "subjects": [
+                    "OTM"
+                ]
+            },
+            {
+                "course_number": 300,
+                "subjects": [
                     "ECON",
                     "FINANCE"
                 ]
@@ -63,7 +67,7 @@
             {
                 "course_number": 300,
                 "subjects": [
-                    "OTM"
+                    "MHR"
                 ]
             }
         ],

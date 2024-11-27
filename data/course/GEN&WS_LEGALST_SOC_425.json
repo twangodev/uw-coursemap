@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 425,
         "subjects": [
-            "SOC",
             "LEGALST",
-            "GEN&WS"
+            "GEN&WS",
+            "SOC"
         ]
     },
     "course_title": "CRIME, GENDER AND JUSTICE",
@@ -19,8 +19,12 @@
         "instructors": {
             "Emma-Claire Lasaine": "ELASAINE@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring"
     },
     "madgrades_data": null,
@@ -38,15 +42,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 102,
+                "course_number": 131,
                 "subjects": [
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "GEN&WS"
+                    "LEGALST",
+                    "SOC"
                 ]
             },
             {
@@ -56,10 +55,15 @@
                 ]
             },
             {
-                "course_number": 131,
+                "course_number": 102,
                 "subjects": [
-                    "SOC",
-                    "LEGALST"
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "GEN&WS"
                 ]
             }
         ],

@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 651,
         "subjects": [
-            "ENVIRST",
-            "ZOOLOGY",
             "BOTANY",
-            "F&WECOL"
+            "F&WECOL",
+            "ZOOLOGY",
+            "ENVIRST"
         ]
     },
     "course_title": "CONSERVATION BIOLOGY",
@@ -20,8 +20,12 @@
         "instructors": {
             "Catherine Woodward": "CWOODWAR@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": null,
@@ -30,9 +34,9 @@
             {
                 "course_number": 460,
                 "subjects": [
-                    "ZOOLOGY",
                     "BOTANY",
-                    "F&WECOL"
+                    "F&WECOL",
+                    "ZOOLOGY"
                 ]
             }
         ],
@@ -43,16 +47,9 @@
             {
                 "course_number": 460,
                 "subjects": [
-                    "ZOOLOGY",
                     "BOTANY",
-                    "F&WECOL"
-                ]
-            },
-            {
-                "course_number": 450,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "F&WECOL",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -60,6 +57,13 @@
                 "subjects": [
                     "BOTANY",
                     "F&WECOL"
+                ]
+            },
+            {
+                "course_number": 450,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY"
                 ]
             }
         ],

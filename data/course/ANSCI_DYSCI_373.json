@@ -18,13 +18,17 @@
         "instructors": {
             "Milo WILTBANK": "WILTBANK@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2015": {
+            "1154": {
                 "a": 17,
                 "ab": 1,
                 "b": 16,
@@ -43,7 +47,7 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 12,
                 "ab": 5,
                 "b": 12,
@@ -62,7 +66,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 14,
                 "ab": 10,
                 "b": 9,
@@ -81,7 +85,7 @@
                 "total": 46,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 23,
                 "ab": 7,
                 "b": 19,
@@ -100,7 +104,7 @@
                 "total": 72,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 17,
                 "ab": 5,
                 "b": 17,
@@ -119,7 +123,7 @@
                 "total": 64,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 17,
                 "ab": 7,
                 "b": 15,
@@ -138,7 +142,7 @@
                 "total": 49,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 13,
                 "ab": 4,
                 "b": 14,
@@ -157,7 +161,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 15,
                 "ab": 1,
                 "b": 14,
@@ -176,7 +180,7 @@
                 "total": 58,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 16,
                 "ab": 5,
                 "b": 12,
@@ -221,8 +225,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -231,31 +235,31 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 383,
                 "subjects": [
                     "BIOCORE"
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BIOLOGY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 371,
         "subjects": [
-            "ENTOM",
-            "ZOOLOGY"
+            "ZOOLOGY",
+            "ENTOM"
         ]
     },
     "course_title": "MEDICAL ENTOMOLOGY: BIOLOGY OF VECTOR AND VECTOR-BORNE DISEASES",
@@ -18,8 +18,12 @@
         "instructors": {
             "ADELA OLIVA CH\u00c1VEZ": "OLIVACHVEZ@WISC.EDU"
         },
-        "last_taught_term_code": 1194,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2019",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": null,
@@ -37,24 +41,24 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 383,
                 "subjects": [
                     "BIOCORE"
                 ]
             },
             {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {

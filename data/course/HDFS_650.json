@@ -17,8 +17,12 @@
         "instructors": {
             "Kristy Burkholder": "KBURKHOLDER@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Human Ecology\",\n    \"abbreviation\": \"H\",\n    \"url\": \"http://www.sohe.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "H",
+            "name": "Human Ecology",
+            "url": "http://www.sohe.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring"
     },
     "madgrades_data": null,
@@ -36,6 +40,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 460,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
                 "course_number": 262,
                 "subjects": [
                     "HDFS"
@@ -45,12 +55,6 @@
                 "course_number": 320,
                 "subjects": [
                     "EDPSYCH"
-                ]
-            },
-            {
-                "course_number": 460,
-                "subjects": [
-                    "PSYCH"
                 ]
             }
         ],

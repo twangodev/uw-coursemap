@@ -17,13 +17,17 @@
         "instructors": {
             "Kenneth CAMERON": "KMCAMERON@WISC.EDU"
         },
-        "last_taught_term_code": 1224,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2022",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2011": {
+            "1114": {
                 "a": 7,
                 "ab": 11,
                 "b": 3,
@@ -42,7 +46,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 12,
                 "ab": 3,
                 "b": 3,
@@ -61,7 +65,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 9,
                 "ab": 6,
                 "b": 2,
@@ -80,7 +84,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 4,
                 "ab": 5,
                 "b": 4,
@@ -99,7 +103,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 7,
                 "ab": 3,
                 "b": 8,
@@ -118,7 +122,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 4,
                 "ab": 5,
                 "b": 3,
@@ -163,8 +167,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -175,16 +179,9 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "BIOLOGY"
                 ]
             },
             {
@@ -194,10 +191,17 @@
                 ]
             },
             {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

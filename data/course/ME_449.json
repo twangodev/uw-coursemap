@@ -17,13 +17,17 @@
         "instructors": {
             "Frank PFEFFERKORN": "FRANK.PFEFFERKORN@WISC.EDU"
         },
-        "last_taught_term_code": 1246,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2015": {
+            "1154": {
                 "a": 10,
                 "ab": 7,
                 "b": 3,
@@ -42,7 +46,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 11,
                 "ab": 6,
                 "b": 5,
@@ -61,7 +65,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 9,
                 "ab": 4,
                 "b": 2,
@@ -80,7 +84,7 @@
                 "total": 16,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 19,
                 "ab": 4,
                 "b": 0,
@@ -99,7 +103,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 20,
                 "ab": 0,
                 "b": 0,
@@ -118,7 +122,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 28,
                 "ab": 0,
                 "b": 0,
@@ -137,7 +141,7 @@
                 "total": 28,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 33,
                 "ab": 0,
                 "b": 1,
@@ -156,7 +160,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 38,
                 "ab": 0,
                 "b": 2,
@@ -210,15 +214,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 311,
-                "subjects": [
-                    "ME"
-                ]
-            },
-            {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "ME"
                 ]
             },
             {
@@ -228,13 +232,13 @@
                 ]
             },
             {
-                "course_number": 313,
+                "course_number": 331,
                 "subjects": [
                     "ME"
                 ]
             },
             {
-                "course_number": 331,
+                "course_number": 313,
                 "subjects": [
                     "ME"
                 ]

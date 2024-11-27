@@ -19,13 +19,17 @@
             "Ivan RAYMENT": "IRAYMENT@WISC.EDU",
             "Paul Friesen": "PFRIESEN@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2020": {
+            "1204": {
                 "a": 11,
                 "ab": 2,
                 "b": 9,
@@ -44,7 +48,7 @@
                 "total": 33,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 15,
                 "ab": 1,
                 "b": 11,
@@ -63,7 +67,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 13,
                 "ab": 6,
                 "b": 13,
@@ -82,7 +86,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 13,
                 "ab": 5,
                 "b": 10,
@@ -136,12 +140,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 109,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
                 "course_number": 116,
                 "subjects": [
                     "CHEM"
@@ -157,6 +155,12 @@
                 "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 109,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

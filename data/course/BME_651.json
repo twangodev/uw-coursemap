@@ -17,13 +17,17 @@
         "instructors": {
             "FILIZ YESILKOY": "FILIZ.YESILKOY@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2024": {
+            "1244": {
                 "a": 9,
                 "ab": 2,
                 "b": 0,
@@ -77,21 +81,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 434,
-                "subjects": [
-                    "ECE"
-                ]
-            },
-            {
                 "course_number": 202,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 208,
+                "course_number": 265,
                 "subjects": [
-                    "PHYSICS"
+                    "PHYSICS",
+                    "MEDPHYS"
                 ]
             },
             {
@@ -101,14 +100,19 @@
                 ]
             },
             {
-                "course_number": 265,
+                "course_number": 320,
                 "subjects": [
-                    "MEDPHYS",
+                    "ECE"
+                ]
+            },
+            {
+                "course_number": 208,
+                "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 320,
+                "course_number": 434,
                 "subjects": [
                     "ECE"
                 ]

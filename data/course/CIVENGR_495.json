@@ -17,13 +17,17 @@
         "instructors": {
             "Bu WANG": "BU.WANG@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2023": {
+            "1234": {
                 "a": 15,
                 "ab": 0,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 15,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 21,
                 "ab": 0,
                 "b": 0,
@@ -97,16 +101,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 325,
+                "subjects": [
+                    "CIVENGR"
+                ]
+            },
+            {
                 "course_number": 395,
                 "subjects": [
                     "CIVENGR",
                     "EMA"
-                ]
-            },
-            {
-                "course_number": 325,
-                "subjects": [
-                    "CIVENGR"
                 ]
             }
         ],

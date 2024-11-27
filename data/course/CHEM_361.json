@@ -17,8 +17,12 @@
         "instructors": {
             "XUHUI HUANG": "XHUANG@CHEM.WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -36,33 +40,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 331,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 340,
+                "course_number": 331,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 115,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "CHEM"
                 ]
             },
             {
@@ -81,6 +67,24 @@
                 "course_number": 375,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
                 ]
             }
         ],

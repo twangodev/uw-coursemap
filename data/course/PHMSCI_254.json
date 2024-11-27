@@ -17,13 +17,17 @@
         "instructors": {
             "Jason KWAN": "JASON.KWAN@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Pharmacy\",\n    \"abbreviation\": \"P\",\n    \"url\": \"http://www.pharmacy.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "P",
+            "name": "Pharmacy",
+            "url": "http://www.pharmacy.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2024": {
+            "1244": {
                 "a": 7,
                 "ab": 0,
                 "b": 0,
@@ -77,18 +81,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 303,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "MICROBIO"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -98,15 +100,17 @@
                 ]
             },
             {
-                "course_number": 303,
+                "course_number": 101,
                 "subjects": [
                     "MICROBIO"
                 ]
             },
             {
-                "course_number": 101,
+                "course_number": 151,
                 "subjects": [
-                    "MICROBIO"
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

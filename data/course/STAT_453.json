@@ -15,13 +15,17 @@
         "ethnics_studies": false,
         "general_education": false,
         "instructors": {},
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2020": {
+            "1204": {
                 "a": 33,
                 "ab": 13,
                 "b": 10,
@@ -40,7 +44,7 @@
                 "total": 63,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 31,
                 "ab": 25,
                 "b": 2,
@@ -59,7 +63,7 @@
                 "total": 61,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 36,
                 "ab": 35,
                 "b": 12,
@@ -113,7 +117,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]
@@ -125,19 +135,13 @@
                 ]
             },
             {
-                "course_number": 320,
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
                 "course_number": 321,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 375,
                 "subjects": [
                     "MATH"
                 ]

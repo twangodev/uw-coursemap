@@ -19,13 +19,17 @@
             "Anne PRINGLE": "APRINGLE2@WISC.EDU",
             "Mehdi KABBAGE": "KABBAGE@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2019": {
+            "1194": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -44,7 +48,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 2,
                 "ab": 1,
                 "b": 0,
@@ -63,7 +67,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 4,
                 "ab": 7,
                 "b": 5,
@@ -82,7 +86,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 6,
                 "ab": 5,
                 "b": 7,
@@ -101,7 +105,7 @@
                 "total": 26,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 18,
                 "ab": 5,
                 "b": 5,
@@ -146,8 +150,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -158,16 +162,9 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "BIOLOGY"
                 ]
             },
             {
@@ -177,10 +174,17 @@
                 ]
             },
             {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

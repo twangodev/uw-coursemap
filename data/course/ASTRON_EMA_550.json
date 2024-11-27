@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 550,
         "subjects": [
-            "EMA",
-            "ASTRON"
+            "ASTRON",
+            "EMA"
         ]
     },
     "course_title": "ASTRODYNAMICS",
@@ -18,13 +18,17 @@
         "instructors": {
             "Mike Sracic": "MWSRACIC@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 12,
                 "ab": 8,
                 "b": 12,
@@ -43,7 +47,7 @@
                 "total": 33,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 11,
                 "ab": 9,
                 "b": 5,
@@ -62,7 +66,7 @@
                 "total": 31,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 24,
                 "ab": 3,
                 "b": 10,
@@ -81,7 +85,7 @@
                 "total": 40,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 9,
                 "ab": 14,
                 "b": 8,
@@ -100,7 +104,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 10,
                 "ab": 9,
                 "b": 8,
@@ -119,7 +123,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 6,
                 "ab": 9,
                 "b": 5,
@@ -138,7 +142,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 12,
                 "ab": 5,
                 "b": 3,
@@ -157,7 +161,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 16,
                 "ab": 4,
                 "b": 14,
@@ -176,7 +180,7 @@
                 "total": 37,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 41,
                 "ab": 1,
                 "b": 0,
@@ -195,7 +199,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 5,
                 "ab": 6,
                 "b": 8,
@@ -214,7 +218,7 @@
                 "total": 40,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 3,
                 "ab": 4,
                 "b": 8,
@@ -233,7 +237,7 @@
                 "total": 40,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 4,
                 "ab": 6,
                 "b": 11,
@@ -252,7 +256,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 8,
                 "ab": 4,
                 "b": 6,
@@ -271,7 +275,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 14,
                 "ab": 6,
                 "b": 2,
@@ -290,7 +294,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 28,
                 "ab": 5,
                 "b": 1,
@@ -309,7 +313,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 14,
                 "ab": 11,
                 "b": 12,
@@ -363,15 +367,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 311,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 240,
                 "subjects": [
                     "ME"
+                ]
+            },
+            {
+                "course_number": 311,
+                "subjects": [
+                    "PHYSICS"
                 ]
             },
             {

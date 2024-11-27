@@ -17,13 +17,17 @@
         "instructors": {
             "ARMANDO IBARRA": "AIBARRA@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2022": {
+            "1224": {
                 "a": 10,
                 "ab": 1,
                 "b": 1,
@@ -42,7 +46,7 @@
                 "total": 16,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 10,
                 "ab": 4,
                 "b": 0,
@@ -96,34 +100,34 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 231,
-                "subjects": [
-                    "POLISCI",
-                    "CHICLA"
-                ]
-            },
-            {
                 "course_number": 102,
                 "subjects": [
-                    "AFROAMER",
-                    "ASIANAM",
                     "CHICLA",
+                    "ASIANAM",
+                    "AFROAMER",
                     "FOLKLORE",
                     "AMERIND"
-                ]
-            },
-            {
-                "course_number": 245,
-                "subjects": [
-                    "CHICLA",
-                    "GEN&WS",
-                    "HISTORY"
                 ]
             },
             {
                 "course_number": 201,
                 "subjects": [
                     "CHICLA"
+                ]
+            },
+            {
+                "course_number": 231,
+                "subjects": [
+                    "CHICLA",
+                    "POLISCI"
+                ]
+            },
+            {
+                "course_number": 245,
+                "subjects": [
+                    "CHICLA",
+                    "HISTORY",
+                    "GEN&WS"
                 ]
             }
         ],

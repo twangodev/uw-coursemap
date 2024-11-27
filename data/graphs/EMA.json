@@ -1,79 +1,45 @@
 [
     {
         "data": {
-            "source": "EMA 303",
-            "target": "CIVENGR/EMA/ME 508"
-        }
-    },
-    {
-        "data": {
             "description": "Directed study projects as arranged with instructor.",
-            "id": "EMA 990",
+            "id": "EMA 790",
             "parent": "EMA"
         }
     },
     {
         "data": {
-            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
-            "id": "EMA 201",
-            "parent": "EMA"
+            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
+            "id": "EMA/EP 476"
         }
     },
     {
         "data": {
-            "source": "MATH 375",
-            "target": "MATH 321"
+            "source": "EMA 542",
+            "target": "EMA 523"
         }
     },
     {
         "data": {
-            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
-            "id": "EMA/EP 471"
+            "source": "EMA/EP 547",
+            "target": "EMA/EP 548"
         }
     },
     {
         "data": {
-            "description": "Dynamical systems theory, advanced rigid body attitude dynamics, Lagrange's equations of motion, conservation laws, quasi-coordinates, Routh's method for ignorable coordinates, Hamilton's equations of motion, dynamic stability, Liapunov stability methods, angular momentum methods for systems of rigid bodies, modeling of rotating elastic systems, Kane's equations of motion, deterministic chaos. Knowledge of advanced three-dimensional dynamics [such asE\u00a0M\u00a0A\u00a0542orPHYSICS\u00a0311] strongly encouraged.",
-            "id": "EMA 742",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "MS&E 352"
+            "source": "PHYSICS 201",
+            "target": "PHYSICS 207"
         }
     },
     {
         "data": {
             "source": "EMA 303",
-            "target": "EMA/ME 570"
+            "target": "EMA 605"
         }
     },
     {
         "data": {
-            "description": "Physical properties and mechanical behavior of polymer, metal, ceramic, cementitious, cellulosic and biological composite systems; micro- and macro-mechanics; lamination and strength analyses; static and transient loading; fabrication; recycling; design; analytical-experimental correlation; applications.",
-            "id": "CIVENGR/EMA/ME 508"
-        }
-    },
-    {
-        "data": {
-            "description": "Data processing, tension/compression tests, creep stress concentrations, fatigue, fracture, composite materials, combined stress, beam flexure, dynamic loads, buckling.",
-            "id": "EMA/ME 307"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinematics and kinetics of plane and three-dimensional motion, Coriolis acceleration, general methods of linear and angular momentum, central force motion, gyrodynamics, generalized coordinates. Lagrange's equations.",
-            "id": "EMA 542",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Students will select specific engineering design projects. These projects will be student team efforts supervised by individual faculty members.",
-            "id": "EMA 569",
-            "parent": "EMA"
+            "source": "EMA 201",
+            "target": "EMA 202"
         }
     },
     {
@@ -84,220 +50,14 @@
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "CHEM 103",
-            "target": "ME 361"
-        }
-    },
-    {
-        "data": {
-            "description": "Analysis and design of load-carrying members, shear center, unsymmetrical bending, curved beams, beams on elastic foundations, energy methods, theories of failure, thick-walled cylinders, stress concentrations, design to prevent failure by excessive elastic deformation, plastic deformation and fracture.",
-            "id": "EMA 506",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 321",
-            "target": "EMA/EP 547"
-        }
-    },
-    {
-        "data": {
-            "id": "CHEM",
+            "id": "MATH",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
-            "id": "EMA/EP 547"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 350",
-            "target": "MS&E 351"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 469",
-            "target": "EMA 569"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 506",
-            "target": "EMA 611"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career. The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
-            "id": "EMA 702",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to: atomic, electronic, and defect structures in materials; diffusional, mechanical and electrical properties of materials; and the role of structure and defects in diffusional, mechanical, and electrical properties.",
-            "id": "MS&E 351",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "description": "Equations of elasticity in curvilinear and rectangular coordinates; two dimensional problems; problems of prismatic bars; variational methods and energy principles; complex variable and numerical methods; thermal stress problems. Knowledge of advanced mechanics of materials [such asE\u00a0M\u00a0A\u00a0506] and vector calculus [such asMATH\u00a0321] strongly encouraged.",
-            "id": "EMA 700",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to the fields of mechanics and aerospace engineering. Fundamental concepts in engineering, including modeling, analysis, design, fabrication and experimental testing. Career paths, engineering ethics, shop safety, and oral and written technical communication.",
-            "id": "EMA 200",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Stress and deflection analysis of structural plates and membranes under mechanical and thermal loads; variational and numerical methods; instability and vibrations; membrane shell theory; cylindrical shells; pressure vessel and piping design applications; ASME Pressure Vessel Code. Knowledge of mechanics of materials [such asM\u00a0E\u00a0444orE\u00a0M\u00a0A\u00a0506] strongly encouraged.",
-            "id": "EMA/ME 706"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EMA 506"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 441",
-            "target": "EMA/MS&E 541"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 352",
-            "target": "MS&E 441"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinematics, force-mass-acceleration relations, work and energy, impulse and momentum, moments of inertia and mass.",
-            "id": "EMA 202",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "id": "ME",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 361",
-            "target": "ME 363"
-        }
-    },
-    {
-        "data": {
-            "id": "COMPSCI",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
-            "id": "EMA 1",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Experimental methods for design and analysis of mechanical components, structures and materials. Electrically and optically recorded stress, strain and deformation data; computer acquisition/reduction/presentation techniques; applications to static and transient events, sensors, transducer design, NDT, fracture and residual stresses.",
-            "id": "EMA/ME 570"
-        }
-    },
-    {
-        "data": {
-            "description": "The basic structures and resulting properties of solid materials, including phase equilibria, meta-stability, mechanical properties, failure, corrosion, and materials selection.",
-            "id": "MS&E 350",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties and tests of materials used in the initial construction or repair of facilities (including buildings, transportation systems, utility systems, and reinforced earth). Introduction to laboratory and field measurement techniques to assess material performance capabilities. Technical report preparation.",
-            "id": "CIVENGR/EMA 395"
-        }
-    },
-    {
-        "data": {
-            "description": "Tensor analysis; analysis of stress, strain and rate of strain; application of Newtonian mechanics to deformable media; mechanical constitutive equations; field equations of fluid mechanics and elasticity. Knowledge of linear algebra [such asMATH\u00a0340] required.",
-            "id": "EMA 710",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Undergraduate research and senior honors thesis in engineering mechanics and astronautics.",
-            "id": "EMA 489",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
-            "id": "COMPSCI 310",
-            "parent": "COMPSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
-            "id": "PHYSICS 207",
-            "parent": "PHYSICS"
         }
     },
     {
         "data": {
             "source": "COMPSCI 310",
             "target": "EMA/EP 476"
-        }
-    },
-    {
-        "data": {
-            "description": "Engineering achievements of the Renaissance period and their relation to modern engineering practice, key principles developed, and errors in understanding of that time. Innovative work of notable figures such as Galileo Galilei and Leonardo da Vinci and their contributions to fundamental mechanics principles of engineering, traced through modern engineering practice and current engineering applications. Introduction to concepts of stress, strain, tension, compression, deflection of beams, flaws, and fracture. Not for engineering majors.",
-            "id": "EMA 103",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Formulation of constitutive equations using embedded base vectors. Viscosity, normal stress differences, stress relaxation, elastic recoil. Polymer rheology; homogeneous strain history. Knowledge of differential equations [such asMATH\u00a0320] strongly encouraged.",
-            "id": "EMA/ME 722"
         }
     },
     {
@@ -309,196 +69,20 @@
     },
     {
         "data": {
-            "id": "EP",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Physical foundations of plasticity as a basis for choices made in the formulation of theories representing plastic deformation and their limitation. Motion of dislocations and formation and growth of deformation twins. Experimental results in the context of plasticity models. Traditional and research topics of plasticity and theories for rate-independent, rate-dependent, single and polycrystal descriptions. Numerical solution of equations and computational plasticity. Knowledge of mechanics of materials [such asE\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306] and continuum mechanics [such as E M A 622] required.",
-            "id": "EMA/ME 703"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "EMA 790",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
-            "id": "ME 361",
-            "parent": "ME"
-        }
-    },
-    {
-        "data": {
-            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
-            "id": "CHEM 103",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "description": "Aircraft longitudinal and lateral static stability. Aircraft equations of motion. Stability derivatives. Longitudinal and lateral dynamic stability of uncontrolled motion. Open-loop aircraft control. Closed-loop aircraft control.",
-            "id": "EMA 523",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
-            "id": "EMA/EP 548"
+            "source": "EMA 303",
+            "target": "CIVENGR/EMA/ME 508"
         }
     },
     {
         "data": {
             "source": "EMA 303",
-            "target": "EMA/ME 307"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "EP 271"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 545",
-            "target": "EMA/ME 540"
-        }
-    },
-    {
-        "data": {
-            "description": "Laws of mechanics and thermodynamics applied to fluids at rest and in motion; potential flow; dimensional analysis; viscous flow; pipe flow; boundary-layer theory; compressible flow.",
-            "id": "ME 363",
-            "parent": "ME"
+            "target": "EMA 405"
         }
     },
     {
         "data": {
             "source": "EMA 303",
             "target": "EMA/EP 615"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the mechanics of fracture of linear and nonlinear materials. Crack stress and deformation fields; stress intensity factors; crack tip plastic zone; fracture toughness testing; energy release rate; J-integral. Criteria for crack growth initiation/stability; application to design.",
-            "id": "EMA 519",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EMA 630"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 202",
-            "target": "EMA 542"
-        }
-    },
-    {
-        "data": {
-            "description": "Linear theory of viscoelasticity; non-aging materials; Boltzmann superposition principle; time-temperature superposition boundary value problems. Applications: vibration damping, relaxation of stress, creep, droop, and sag in structural members, sound absorption, creep buckling, settlement of foundations, tire mechanics, and shock attenuation.",
-            "id": "EMA 630",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "EMA 201"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
-            "id": "EMA/EP 615"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EMA 605"
-        }
-    },
-    {
-        "data": {
-            "description": "Selected topics in such areas as structural mechanics, dynamics, experimental mechanics, vibrations, engineering materials, soil mechanics, engineering analysis, rheology, etc.",
-            "id": "EMA 601",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Emphasis is placed on techniques used to analyze aerospace structures. Variational principles, Hamilton's extended principle, Lagrange's equations, mathematical models for continuous systems, natural modes of vibrations, dynamic response using mode superposition, mode acceleration, residual flexibility, vibration analysis using finite element methods, advanced substructure representations, component mode synthesis, systems with rigid body modes for aeronautical and astronautical systems. Knowledge of vibrations [such asE\u00a0M\u00a0A\u00a0545orM\u00a0E\u00a0440] strongly encouraged.",
-            "id": "EMA 745",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "A first course in finite elements, with theory and applications in stress analysis and in areas related to structural mechanics. Practice in the use and/or development of computer programs.",
-            "id": "EMA 605",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of the mechanics of solid multiphase systems. Role of heterogeneity and anisotropy in determining physical properties including elastic, dielectric and piezoelectric properties. Applications in lightweight structures, ultrastrong materials, materials for protection of the body, and materials for the replacement of human tissues. Materials with fibrous, lamellar, particular, and cellular structures.  Heterogeneous materials of biological origin. Biomimetic and bio-inspired materials.",
-            "id": "EMA/MS&E 541"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual engineering projects under staff supervision.",
-            "id": "EMA 291",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "The design philosophy is presented. Students will be required to apply their knowledge of elementary mechanics, engineering and basic science to arrive at acceptable solutions to a variety of design problems.",
-            "id": "EMA 469",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "COMPSCI 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
-            "id": "MATH 375",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Rocket performance. One dimensional gasdynamics. Thrust chambers, nozzle design criteria. Fundamentals of combustion. Rocket configurations.",
-            "id": "EMA 524",
-            "parent": "EMA"
         }
     },
     {
@@ -510,41 +94,76 @@
     },
     {
         "data": {
-            "source": "EMA 521",
-            "target": "EMA 522"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 207",
-            "target": "PHYSICS 201"
-        }
-    },
-    {
-        "data": {
-            "description": "Review of Euler's equations, torque-free motion, stability of rotation, energy dissipation effects, gyroscopic instruments, gyrodynamics of the Earth, gravity gradient stabilized satellites, spin stabilized satellites, dual spin satellites, tethered satellites, mass movement techniques, space vehicle motion and rocket dynamics.",
-            "id": "EMA 642",
+            "description": "Students will select specific engineering design projects. These projects will be student team efforts supervised by individual faculty members.",
+            "id": "EMA 569",
             "parent": "EMA"
         }
     },
     {
         "data": {
-            "description": "Finite element methods for problems with linear and nonlinear media. Stress analysis, heat transfer, and fluid dynamics. Vibration and transient analysis. Weighted residual methods. Material and geometric nonlinearity. Nonlinear iteration methods. Instructor may also select additional material. Knowledge of finite element theory [such asE\u00a0M\u00a0A\u00a0605] strongly encouraged.",
-            "id": "EMA 705",
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Contemporary topics such as new materials; smart materials/structures/systems; fatigue; fracture; experimental techniques; nondestructive evaluation; transient, micro, three-dimensional, nonlinear, inelastic and environmental effects; manufacturing methods: repair and applications. Knowledge of composite materials [such asE\u00a0M\u00a0A/\u200bCIV\u00a0ENGR/\u200bM\u00a0E\u00a0\u00a0508] strongly encouraged.",
+            "id": "EMA/ME 708"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 363",
+            "target": "EMA 524"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "EMA 890",
             "parent": "EMA"
         }
     },
     {
         "data": {
-            "description": "Prepares students to operate Unmanned Aircraft Systems (UAS) for commercial purposes. Focuses on remote sensing, automation / artificial intelligence, data analytics and business applications / opportunities for UAS. Teaches all applicable subjects and provides hands-on experience necessary to 1) safely, legally and ethically operate UAS for commercial purposes; 2) effectively apply UAS to solve business problems and 3) manage, process and analyze data collected via UAS. Optional Federal Aviation Administration exam for a remote pilot-in-command (RPIC) certification. Group projects involving real-world drone flights to collect data and produce commercially viable products.",
-            "id": "EMA 105",
-            "parent": "EMA"
+            "id": "MS&E",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "General theory of free, forced, and transient vibrations; vibration transmission, isolation, and measurement; normal modes and generalized coordinates; method of matrix equation formulation and solution. The application of theory and methods to the analysis, measurement and design of dynamic systems.",
-            "id": "EMA 545",
+            "description": "Data processing, tension/compression tests, creep stress concentrations, fatigue, fracture, composite materials, combined stress, beam flexure, dynamic loads, buckling.",
+            "id": "EMA/ME 307"
+        }
+    },
+    {
+        "data": {
+            "description": "Methods of higher mathematics; stress on problem solving rather than rigorous proofs; linear algebra, calculus of variations, Green's function.",
+            "id": "EMA/EP 547"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 202",
+            "target": "EMA 545"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 201",
+            "target": "EP 271"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "EMA 469"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of finite elements (FE) for solving practical problems in mechanics. Elementary theory of FE is discussed. A commercial computer program is used for applications. Major emphasis is on behavior of FE, modeling, and evaluation of results for correctness.",
+            "id": "EMA 405",
             "parent": "EMA"
         }
     },
@@ -557,174 +176,9 @@
     },
     {
         "data": {
-            "source": "EMA 303",
-            "target": "CIVENGR/EMA 395"
-        }
-    },
-    {
-        "data": {
-            "description": "Elastic and plastic deformation of real solids. Dislocation theory with applications to metals and alloys. Fracture, fatigue, brittle failure and methods for measuring the mechanical properties of materials.",
-            "id": "MS&E 441",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "EMA 890",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Stochastic methods in turbulent heat and momentum transfer; fully developed turbulence; numerical methods including model applications to boundary layers, reacting flows, mass transfer, and unsteady flows; linear and non-linear stability and transition; emphasis on applications of interest to Mechanical, Aerospace, and Environmental Engineers. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363orCBE\u00a0320] strongly encouraged.",
-            "id": "CIVENGR/EMA/ME 775"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 545",
-            "target": "EMA 610"
-        }
-    },
-    {
-        "data": {
             "description": "Exact solutions and sectorial linearization; free and forced vibration of mechanical systems with nonlinear restoring force; self-excited mechanical vibrations and relaxation vibrations; subharmonic responses; nonlinear vibration of mechanical systems with more than one degree of freedom; nonlinear vibration of bounded continuous media; random excitation and random response, random vibrations of mechanical systems and structures; random vibrations of nonlinear mechanical systems; failure of materials under random vibrations.",
             "id": "EMA 747",
             "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 202",
-            "target": "ASTRON/EMA 550"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 363",
-            "target": "EMA 521"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EMA 469"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
-            "id": "MATH 321",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
-            "id": "CHEM 115",
-            "parent": "CHEM"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 201",
-            "target": "PHYSICS 207"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 303",
-            "target": "EMA 519"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA/EP 547",
-            "target": "EMA/EP 548"
-        }
-    },
-    {
-        "data": {
-            "description": "Theory and use of servo-controlled, electro-hydraulic equipment for research of mechanical properties of engineering materials. Measurement of stress, strain, hysteresis energy, and material properties during deformation and at fracture. Analysis of four significant components of total strain.",
-            "id": "EMA 611",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Solution of engineering problems using commercially-available software tools (spreadsheets, symbolic manipulators, and equation solvers). The emphasis will be on nuclear engineering problems, including radioactive decay, nuclear cross sections, scattering, and criticality.",
-            "id": "EP 271",
-            "parent": "EP"
-        }
-    },
-    {
-        "data": {
-            "description": "The basic factors that determine phase equilibria, structural and transformation characteristics of solids. Principles governing the thermodynamics and kinetics of phase transformations and microstructure evolution. Nucleation and growth processes in precipitation, recrystallization, solidification, oxidation, martensitic, ordering and spinodal reactions. Transformation behavior in polymers, biomaterials and nanomaterials.",
-            "id": "MS&E 352",
-            "parent": "MS&E"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 202",
-            "target": "EMA 545"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 542",
-            "target": "EMA 523"
-        }
-    },
-    {
-        "data": {
-            "source": "EP 271",
-            "target": "EMA/EP 471"
-        }
-    },
-    {
-        "data": {
-            "source": "ME 363",
-            "target": "EMA 524"
-        }
-    },
-    {
-        "data": {
-            "source": "MS&E 351",
-            "target": "MS&E 350"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 201",
-            "target": "EMA 303"
-        }
-    },
-    {
-        "data": {
-            "id": "EMA",
-            "type": "compound"
         }
     },
     {
@@ -736,27 +190,205 @@
     },
     {
         "data": {
-            "description": "Contemporary topics such as new materials; smart materials/structures/systems; fatigue; fracture; experimental techniques; nondestructive evaluation; transient, micro, three-dimensional, nonlinear, inelastic and environmental effects; manufacturing methods: repair and applications. Knowledge of composite materials [such asE\u00a0M\u00a0A/\u200bCIV\u00a0ENGR/\u200bM\u00a0E\u00a0\u00a0508] strongly encouraged.",
-            "id": "EMA/ME 708"
+            "source": "MS&E 351",
+            "target": "MS&E 350"
         }
     },
     {
         "data": {
-            "description": "Use of finite elements (FE) for solving practical problems in mechanics. Elementary theory of FE is discussed. A commercial computer program is used for applications. Major emphasis is on behavior of FE, modeling, and evaluation of results for correctness.",
-            "id": "EMA 405",
+            "description": "Work experience which combines classroom theory with practical knowledge of operations to provide students with a background upon which to base a professional career in industry.",
+            "id": "EMA 1",
             "parent": "EMA"
         }
     },
     {
         "data": {
-            "id": "MS&E",
-            "type": "compound"
+            "description": "Individual engineering projects under staff supervision.",
+            "id": "EMA 291",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical properties and mechanical behavior of polymer, metal, ceramic, cementitious, cellulosic and biological composite systems; micro- and macro-mechanics; lamination and strength analyses; static and transient loading; fabrication; recycling; design; analytical-experimental correlation; applications.",
+            "id": "CIVENGR/EMA/ME 508"
+        }
+    },
+    {
+        "data": {
+            "description": "Application of digital data acquisition to the investigation of mechanical components, structures and systems using time histories, transforms and response functions to characterize free, forced and transient inputs. Introduction to sensors, instrumentation and methods appropriate for dynamic system response.",
+            "id": "EMA/ME 540"
+        }
+    },
+    {
+        "data": {
+            "description": "Selected topics in such areas as structural mechanics, dynamics, experimental mechanics, vibrations, engineering materials, soil mechanics, engineering analysis, rheology, etc.",
+            "id": "EMA 601",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 202",
+            "target": "ASTRON/EMA 550"
+        }
+    },
+    {
+        "data": {
+            "description": "Undergraduate research and senior honors thesis in engineering mechanics and astronautics.",
+            "id": "EMA 489",
+            "parent": "EMA"
         }
     },
     {
         "data": {
             "source": "EMA 303",
-            "target": "EMA 405"
+            "target": "EMA 519"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "EMA 201"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 202",
+            "target": "EMA 542"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
+            "id": "EMA 201",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 361",
+            "target": "ME 363"
+        }
+    },
+    {
+        "data": {
+            "description": "A first course in finite elements, with theory and applications in stress analysis and in areas related to structural mechanics. Practice in the use and/or development of computer programs.",
+            "id": "EMA 605",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "General theory of free, forced, and transient vibrations; vibration transmission, isolation, and measurement; normal modes and generalized coordinates; method of matrix equation formulation and solution. The application of theory and methods to the analysis, measurement and design of dynamic systems.",
+            "id": "EMA 545",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector spaces and linear transformations, differential calculus of scalar and vector fields, determinants, eigenvalues and eigenvectors, multiple integrals, line integrals, and surface integrals. Freshmen students are invited to enroll by the Department of Mathematics.",
+            "id": "MATH 375",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Solution of engineering problems using commercially-available software tools (spreadsheets, symbolic manipulators, and equation solvers). The emphasis will be on nuclear engineering problems, including radioactive decay, nuclear cross sections, scattering, and criticality.",
+            "id": "EP 271",
+            "parent": "EP"
+        }
+    },
+    {
+        "data": {
+            "description": "Prepares students to operate Unmanned Aircraft Systems (UAS) for commercial purposes. Focuses on remote sensing, automation / artificial intelligence, data analytics and business applications / opportunities for UAS. Teaches all applicable subjects and provides hands-on experience necessary to 1) safely, legally and ethically operate UAS for commercial purposes; 2) effectively apply UAS to solve business problems and 3) manage, process and analyze data collected via UAS. Optional Federal Aviation Administration exam for a remote pilot-in-command (RPIC) certification. Group projects involving real-world drone flights to collect data and produce commercially viable products.",
+            "id": "EMA 105",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Experimental methods for design and analysis of mechanical components, structures and materials. Electrically and optically recorded stress, strain and deformation data; computer acquisition/reduction/presentation techniques; applications to static and transient events, sensors, transducer design, NDT, fracture and residual stresses.",
+            "id": "EMA/ME 570"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores a detailed atomic and molecular view of matter and its interactions, with a specific focus on quantum theory, molecular structure, and chemical bonding. Application required for enrollment.",
+            "id": "CHEM 115",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "id": "CHEM",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Equations of elasticity in curvilinear and rectangular coordinates; two dimensional problems; problems of prismatic bars; variational methods and energy principles; complex variable and numerical methods; thermal stress problems. Knowledge of advanced mechanics of materials [such asE\u00a0M\u00a0A\u00a0506] and vector calculus [such asMATH\u00a0321] strongly encouraged.",
+            "id": "EMA 700",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Work experience that combines classroom theory with practical knowledge of operations to provide students with a background on which to develop and enhance a professional career. The work experience is tailored for MS students from within the U.S. as well as eligible international students.",
+            "id": "EMA 702",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Analysis and design of load-carrying members, shear center, unsymmetrical bending, curved beams, beams on elastic foundations, energy methods, theories of failure, thick-walled cylinders, stress concentrations, design to prevent failure by excessive elastic deformation, plastic deformation and fracture.",
+            "id": "EMA 506",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the mechanics of fracture of linear and nonlinear materials. Crack stress and deformation fields; stress intensity factors; crack tip plastic zone; fracture toughness testing; energy release rate; J-integral. Criteria for crack growth initiation/stability; application to design.",
+            "id": "EMA 519",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 506",
+            "target": "EMA 611"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 469",
+            "target": "EMA 569"
+        }
+    },
+    {
+        "data": {
+            "description": "Stress and deflection analysis of structural plates and membranes under mechanical and thermal loads; variational and numerical methods; instability and vibrations; membrane shell theory; cylindrical shells; pressure vessel and piping design applications; ASME Pressure Vessel Code. Knowledge of mechanics of materials [such asM\u00a0E\u00a0444orE\u00a0M\u00a0A\u00a0506] strongly encouraged.",
+            "id": "EMA/ME 706"
         }
     },
     {
@@ -767,14 +399,311 @@
     },
     {
         "data": {
-            "description": "Background for professional numerical computation in Linux environments begins with shell scripting and software archiving. Programming skills in a compiled language are then developed through scientific and engineering examples. Engineering problem-solving skills are reinforced through applications that require numerical solutions to systems of differential and/or integral equations, while motivating progressively more advanced computational methods.",
-            "id": "EMA/EP 476"
+            "description": "An introduction to micro- and nanoscale science and engineering with a focus on the role of mechanics. A variety of micro- and nanoscale phenomena and applications covered, drawing connections to both established and new mechanics approaches.",
+            "id": "EMA/EP 615"
         }
     },
     {
         "data": {
-            "description": "Potential flow theory; stream functions; vortex filaments and sheets. Two- and three-dimensional wing theory. Doublet and panels methods. Propeller theory.",
-            "id": "EMA 521",
+            "description": "Kinematics and kinetics of plane and three-dimensional motion, Coriolis acceleration, general methods of linear and angular momentum, central force motion, gyrodynamics, generalized coordinates. Lagrange's equations.",
+            "id": "EMA 542",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Review of Euler's equations, torque-free motion, stability of rotation, energy dissipation effects, gyroscopic instruments, gyrodynamics of the Earth, gravity gradient stabilized satellites, spin stabilized satellites, dual spin satellites, tethered satellites, mass movement techniques, space vehicle motion and rocket dynamics.",
+            "id": "EMA 642",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Vector analysis: algebra and geometry of vectors, vector differential and integral calculus, theorems of Green, Gauss, and Stokes; complex analysis: analytic functions, complex integrals and residues, Taylor and Laurent series.",
+            "id": "MATH 321",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 350",
+            "target": "MS&E 351"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Rocket performance. One dimensional gasdynamics. Thrust chambers, nozzle design criteria. Fundamentals of combustion. Rocket configurations.",
+            "id": "EMA 524",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Gives students an introduction to computer and analytical skills to use in their subsequent course work and professional development. Discusses several methods of using computers to solve problems, including elementary programming techniques, symbolic manipulation languages, and software packages. Techniques will be illustrated using sample problems drawn from elementary engineering. Emphasis is on introduction of algorithms with the use of specific tools to illustrate the methods.",
+            "id": "COMPSCI 310",
+            "parent": "COMPSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "EP 271",
+            "target": "EMA/EP 471"
+        }
+    },
+    {
+        "data": {
+            "description": "Formulation of constitutive equations using embedded base vectors. Viscosity, normal stress differences, stress relaxation, elastic recoil. Polymer rheology; homogeneous strain history. Knowledge of differential equations [such asMATH\u00a0320] strongly encouraged.",
+            "id": "EMA/ME 722"
+        }
+    },
+    {
+        "data": {
+            "description": "Engineering achievements of the Renaissance period and their relation to modern engineering practice, key principles developed, and errors in understanding of that time. Innovative work of notable figures such as Galileo Galilei and Leonardo da Vinci and their contributions to fundamental mechanics principles of engineering, traced through modern engineering practice and current engineering applications. Introduction to concepts of stress, strain, tension, compression, deflection of beams, flaws, and fracture. Not for engineering majors.",
+            "id": "EMA 103",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Dynamical systems theory, advanced rigid body attitude dynamics, Lagrange's equations of motion, conservation laws, quasi-coordinates, Routh's method for ignorable coordinates, Hamilton's equations of motion, dynamic stability, Liapunov stability methods, angular momentum methods for systems of rigid bodies, modeling of rotating elastic systems, Kane's equations of motion, deterministic chaos. Knowledge of advanced three-dimensional dynamics [such asE\u00a0M\u00a0A\u00a0542orPHYSICS\u00a0311] strongly encouraged.",
+            "id": "EMA 742",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 441",
+            "target": "EMA/MS&E 541"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "EMA 630"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to: atomic, electronic, and defect structures in materials; diffusional, mechanical and electrical properties of materials; and the role of structure and defects in diffusional, mechanical, and electrical properties.",
+            "id": "MS&E 351",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "description": "Kinematics, force-mass-acceleration relations, work and energy, impulse and momentum, moments of inertia and mass.",
+            "id": "EMA 202",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Laws of mechanics and thermodynamics applied to fluids at rest and in motion; potential flow; dimensional analysis; viscous flow; pipe flow; boundary-layer theory; compressible flow.",
+            "id": "ME 363",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "id": "COMPSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "EP",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Aircraft longitudinal and lateral static stability. Aircraft equations of motion. Stability derivatives. Longitudinal and lateral dynamic stability of uncontrolled motion. Open-loop aircraft control. Closed-loop aircraft control.",
+            "id": "EMA 523",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "The design philosophy is presented. Students will be required to apply their knowledge of elementary mechanics, engineering and basic science to arrive at acceptable solutions to a variety of design problems.",
+            "id": "EMA 469",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for students majoring in biological sciences. Mechanics: kinematics, statics, dynamics; energy and momentum. Heat and sound.",
+            "id": "PHYSICS 207",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "ME 363",
+            "target": "EMA 521"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 545",
+            "target": "EMA/ME 540"
+        }
+    },
+    {
+        "data": {
+            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
+            "id": "COMPSCI/ECE/EMA/EP/ME 759"
+        }
+    },
+    {
+        "data": {
+            "description": "The basic factors that determine phase equilibria, structural and transformation characteristics of solids. Principles governing the thermodynamics and kinetics of phase transformations and microstructure evolution. Nucleation and growth processes in precipitation, recrystallization, solidification, oxidation, martensitic, ordering and spinodal reactions. Transformation behavior in polymers, biomaterials and nanomaterials.",
+            "id": "MS&E 352",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 545",
+            "target": "EMA 610"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "EMA 303"
+        }
+    },
+    {
+        "data": {
+            "description": "Function of complex variable, series solution of differential equations, partial differential equations. A year of math beyond calculus",
+            "id": "EMA/EP 548"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 521",
+            "target": "EMA 522"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and use of servo-controlled, electro-hydraulic equipment for research of mechanical properties of engineering materials. Measurement of stress, strain, hysteresis energy, and material properties during deformation and at fracture. Analysis of four significant components of total strain.",
+            "id": "EMA 611",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "EMA/ME 570"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "EMA",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Stochastic methods in turbulent heat and momentum transfer; fully developed turbulence; numerical methods including model applications to boundary layers, reacting flows, mass transfer, and unsteady flows; linear and non-linear stability and transition; emphasis on applications of interest to Mechanical, Aerospace, and Environmental Engineers. Knowledge of fluid mechanics [such asM\u00a0E\u00a0363orCBE\u00a0320] strongly encouraged.",
+            "id": "CIVENGR/EMA/ME 775"
+        }
+    },
+    {
+        "data": {
+            "description": "Emphasis is placed on techniques used to analyze aerospace structures. Variational principles, Hamilton's extended principle, Lagrange's equations, mathematical models for continuous systems, natural modes of vibrations, dynamic response using mode superposition, mode acceleration, residual flexibility, vibration analysis using finite element methods, advanced substructure representations, component mode synthesis, systems with rigid body modes for aeronautical and astronautical systems. Knowledge of vibrations [such asE\u00a0M\u00a0A\u00a0545orM\u00a0E\u00a0440] strongly encouraged.",
+            "id": "EMA 745",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "id": "ME",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 207",
+            "target": "PHYSICS 201"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties and tests of materials used in the initial construction or repair of facilities (including buildings, transportation systems, utility systems, and reinforced earth). Introduction to laboratory and field measurement techniques to assess material performance capabilities. Technical report preparation.",
+            "id": "CIVENGR/EMA 395"
+        }
+    },
+    {
+        "data": {
+            "description": "First and second laws of thermodynamics; thermodynamic properties of gases, vapors, and gas-vapor mixtures; energy-systems analysis including power cycles, refrigeration cycles and air-conditioning processes. Introduction to thermodynamics of reacting mixtures.",
+            "id": "ME 361",
+            "parent": "ME"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "COMPSCI 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Stoichiometry and the mole concept, the behavior of gases, liquids and solids, thermochemistry, electronic structure of atoms and chemical bonding, descriptive chemistry of selected elements and compounds, intermolecular forces, and chemistry laboratory skills.",
+            "id": "CHEM 103",
+            "parent": "CHEM"
+        }
+    },
+    {
+        "data": {
+            "description": "Finite element methods for problems with linear and nonlinear media. Stress analysis, heat transfer, and fluid dynamics. Vibration and transient analysis. Weighted residual methods. Material and geometric nonlinearity. Nonlinear iteration methods. Instructor may also select additional material. Knowledge of finite element theory [such asE\u00a0M\u00a0A\u00a0605] strongly encouraged.",
+            "id": "EMA 705",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "Elastic and plastic deformation of real solids. Dislocation theory with applications to metals and alloys. Fracture, fatigue, brittle failure and methods for measuring the mechanical properties of materials.",
+            "id": "MS&E 441",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 321",
+            "target": "EMA/EP 547"
+        }
+    },
+    {
+        "data": {
+            "description": "Use of computational tools for the solution of problems encountered in engineering physics applications. Topics covered include orbital mechanics, structural vibrations, beam and plate deformations, heat transfer, neutron diffusion, and criticality. Emphasis will be on modeling, choice of appropriate algorithms, and model validation.",
+            "id": "EMA/EP 471"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to the fields of mechanics and aerospace engineering. Fundamental concepts in engineering, including modeling, analysis, design, fabrication and experimental testing. Career paths, engineering ethics, shop safety, and oral and written technical communication.",
+            "id": "EMA 200",
             "parent": "EMA"
         }
     },
@@ -787,8 +716,15 @@
     },
     {
         "data": {
-            "description": "Application of digital data acquisition to the investigation of mechanical components, structures and systems using time histories, transforms and response functions to characterize free, forced and transient inputs. Introduction to sensors, instrumentation and methods appropriate for dynamic system response.",
-            "id": "EMA/ME 540"
+            "description": "Principles of the mechanics of solid multiphase systems. Role of heterogeneity and anisotropy in determining physical properties including elastic, dielectric and piezoelectric properties. Applications in lightweight structures, ultrastrong materials, materials for protection of the body, and materials for the replacement of human tissues. Materials with fibrous, lamellar, particular, and cellular structures.  Heterogeneous materials of biological origin. Biomimetic and bio-inspired materials.",
+            "id": "EMA/MS&E 541"
+        }
+    },
+    {
+        "data": {
+            "description": "Linear theory of viscoelasticity; non-aging materials; Boltzmann superposition principle; time-temperature superposition boundary value problems. Applications: vibration damping, relaxation of stress, creep, droop, and sag in structural members, sound absorption, creep buckling, settlement of foundations, tire mechanics, and shock attenuation.",
+            "id": "EMA 630",
+            "parent": "EMA"
         }
     },
     {
@@ -799,20 +735,84 @@
     },
     {
         "data": {
-            "description": "An overview of hardware and software solutions that enable the use of advanced computing in tackling computationally intensive Engineering problems. Hands-on learning promoted through programming assignments that leverage emerging hardware architectures and use parallel computing programming languages. Students are strongly encourage to have completed COMP SCI 367 orCOMP\u00a0SCI\u00a0400or to have equivalent experience.",
-            "id": "COMPSCI/ECE/EMA/EP/ME 759"
+            "description": "Tensor analysis; analysis of stress, strain and rate of strain; application of Newtonian mechanics to deformable media; mechanical constitutive equations; field equations of fluid mechanics and elasticity. Knowledge of linear algebra [such asMATH\u00a0340] required.",
+            "id": "EMA 710",
+            "parent": "EMA"
         }
     },
     {
         "data": {
-            "id": "PHYSICS",
-            "type": "compound"
+            "source": "MATH 375",
+            "target": "MATH 321"
         }
     },
     {
         "data": {
-            "source": "EMA 201",
-            "target": "EMA 202"
+            "source": "EMA 303",
+            "target": "EMA/ME 307"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Potential flow theory; stream functions; vortex filaments and sheets. Two- and three-dimensional wing theory. Doublet and panels methods. Propeller theory.",
+            "id": "EMA 521",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "EMA 506"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 303",
+            "target": "CIVENGR/EMA 395"
+        }
+    },
+    {
+        "data": {
+            "source": "CHEM 103",
+            "target": "ME 361"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 352",
+            "target": "MS&E 441"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "EMA 990",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "description": "The basic structures and resulting properties of solid materials, including phase equilibria, meta-stability, mechanical properties, failure, corrosion, and materials selection.",
+            "id": "MS&E 350",
+            "parent": "MS&E"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical foundations of plasticity as a basis for choices made in the formulation of theories representing plastic deformation and their limitation. Motion of dislocations and formation and growth of deformation twins. Experimental results in the context of plasticity models. Traditional and research topics of plasticity and theories for rate-independent, rate-dependent, single and polycrystal descriptions. Numerical solution of equations and computational plasticity. Knowledge of mechanics of materials [such asE\u00a0M\u00a0A\u00a0303orM\u00a0E\u00a0306] and continuum mechanics [such as E M A 622] required.",
+            "id": "EMA/ME 703"
+        }
+    },
+    {
+        "data": {
+            "source": "MS&E 350",
+            "target": "MS&E 352"
         }
     }
 ]

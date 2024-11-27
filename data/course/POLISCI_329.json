@@ -10,45 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Fall 2022": {
-                "a": 21,
-                "ab": 5,
-                "b": 2,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 2,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 30,
-                "unsatisfactory": 0
-            },
-            "Fall 2023": {
-                "a": 24,
-                "ab": 10,
-                "b": 2,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 1,
-                "total": 38,
-                "unsatisfactory": 0
-            },
-            "Spring 2018": {
+            "1184": {
                 "a": 8,
                 "ab": 5,
                 "b": 4,
@@ -67,7 +29,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 22,
                 "ab": 6,
                 "b": 1,
@@ -85,6 +47,44 @@
                 "satisfactory": 1,
                 "total": 35,
                 "unsatisfactory": 1
+            },
+            "1232": {
+                "a": 21,
+                "ab": 5,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 2,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 30,
+                "unsatisfactory": 0
+            },
+            "1242": {
+                "a": 24,
+                "ab": 10,
+                "b": 2,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 1,
+                "total": 38,
+                "unsatisfactory": 0
             }
         },
         "cumulative": {
@@ -112,13 +112,13 @@
             {
                 "course_number": 277,
                 "subjects": [
-                    "SOC",
-                    "AFRICAN",
-                    "POLISCI",
-                    "AFROAMER",
+                    "GEOG",
                     "ANTHRO",
+                    "AFROAMER",
                     "HISTORY",
-                    "GEOG"
+                    "SOC",
+                    "POLISCI",
+                    "AFRICAN"
                 ]
             }
         ],
@@ -126,6 +126,12 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 120,
+                "subjects": [
+                    "POLISCI"
+                ]
+            },
             {
                 "course_number": 182,
                 "subjects": [
@@ -135,19 +141,13 @@
             {
                 "course_number": 277,
                 "subjects": [
-                    "SOC",
-                    "AFRICAN",
-                    "POLISCI",
-                    "AFROAMER",
+                    "GEOG",
                     "ANTHRO",
+                    "AFROAMER",
                     "HISTORY",
-                    "GEOG"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "POLISCI"
+                    "SOC",
+                    "POLISCI",
+                    "AFRICAN"
                 ]
             }
         ],

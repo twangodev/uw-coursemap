@@ -17,13 +17,17 @@
         "instructors": {
             "Johanna OOSTERWYK": "JMOOSTER@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 5,
                 "ab": 4,
                 "b": 16,
@@ -42,7 +46,7 @@
                 "total": 46,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 2,
                 "ab": 5,
                 "b": 22,
@@ -61,7 +65,7 @@
                 "total": 41,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 20,
                 "ab": 3,
                 "b": 6,
@@ -80,7 +84,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 27,
                 "ab": 3,
                 "b": 7,
@@ -99,7 +103,7 @@
                 "total": 39,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 13,
                 "ab": 1,
                 "b": 3,
@@ -118,7 +122,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 11,
                 "ab": 5,
                 "b": 8,
@@ -137,7 +141,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 17,
                 "ab": 5,
                 "b": 4,
@@ -156,7 +160,7 @@
                 "total": 28,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 15,
                 "ab": 6,
                 "b": 6,
@@ -175,7 +179,7 @@
                 "total": 29,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 20,
                 "ab": 7,
                 "b": 6,
@@ -194,7 +198,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 14,
                 "ab": 5,
                 "b": 1,
@@ -213,7 +217,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 17,
                 "ab": 3,
                 "b": 1,
@@ -232,7 +236,7 @@
                 "total": 23,
                 "unsatisfactory": 1
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 24,
                 "ab": 10,
                 "b": 7,
@@ -251,7 +255,7 @@
                 "total": 49,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 33,
                 "ab": 5,
                 "b": 4,
@@ -270,7 +274,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 14,
                 "ab": 4,
                 "b": 7,
@@ -324,11 +328,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 152,
+                "course_number": 100,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "AGRONOMY"
                 ]
             },
             {
@@ -338,16 +340,18 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 152,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
-                "course_number": 100,
+                "course_number": 130,
                 "subjects": [
-                    "AGRONOMY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

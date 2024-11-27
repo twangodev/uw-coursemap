@@ -17,13 +17,17 @@
         "instructors": {
             "Alex Hopp": "ASHOPP@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring, Summer"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2008": {
+            "1092": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -42,178 +46,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Fall 2009": {
-                "a": 24,
-                "ab": 8,
-                "b": 7,
-                "bc": 3,
-                "c": 2,
-                "credit": 0,
-                "d": 1,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 45,
-                "unsatisfactory": 0
-            },
-            "Fall 2010": {
-                "a": 9,
-                "ab": 8,
-                "b": 5,
-                "bc": 2,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 25,
-                "unsatisfactory": 0
-            },
-            "Fall 2011": {
-                "a": 21,
-                "ab": 4,
-                "b": 0,
-                "bc": 1,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 28,
-                "unsatisfactory": 0
-            },
-            "Fall 2012": {
-                "a": 33,
-                "ab": 12,
-                "b": 5,
-                "bc": 2,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 53,
-                "unsatisfactory": 0
-            },
-            "Fall 2013": {
-                "a": 36,
-                "ab": 7,
-                "b": 7,
-                "bc": 2,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 2,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 54,
-                "unsatisfactory": 0
-            },
-            "Fall 2014": {
-                "a": 19,
-                "ab": 22,
-                "b": 14,
-                "bc": 0,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 56,
-                "unsatisfactory": 0
-            },
-            "Fall 2015": {
-                "a": 24,
-                "ab": 15,
-                "b": 10,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 51,
-                "unsatisfactory": 0
-            },
-            "Fall 2016": {
-                "a": 23,
-                "ab": 12,
-                "b": 14,
-                "bc": 1,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 51,
-                "unsatisfactory": 0
-            },
-            "Fall 2017": {
-                "a": 33,
-                "ab": 13,
-                "b": 8,
-                "bc": 0,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 55,
-                "unsatisfactory": 0
-            },
-            "Spring 2009": {
+            "1094": {
                 "a": 22,
                 "ab": 10,
                 "b": 1,
@@ -232,7 +65,26 @@
                 "total": 37,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1102": {
+                "a": 24,
+                "ab": 8,
+                "b": 7,
+                "bc": 3,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 45,
+                "unsatisfactory": 0
+            },
+            "1104": {
                 "a": 16,
                 "ab": 7,
                 "b": 11,
@@ -251,7 +103,26 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1112": {
+                "a": 9,
+                "ab": 8,
+                "b": 5,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 25,
+                "unsatisfactory": 0
+            },
+            "1114": {
                 "a": 11,
                 "ab": 8,
                 "b": 11,
@@ -270,7 +141,45 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1122": {
+                "a": 21,
+                "ab": 4,
+                "b": 0,
+                "bc": 1,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 28,
+                "unsatisfactory": 0
+            },
+            "1132": {
+                "a": 33,
+                "ab": 12,
+                "b": 5,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 53,
+                "unsatisfactory": 0
+            },
+            "1134": {
                 "a": 24,
                 "ab": 7,
                 "b": 2,
@@ -289,7 +198,26 @@
                 "total": 33,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1142": {
+                "a": 36,
+                "ab": 7,
+                "b": 7,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 54,
+                "unsatisfactory": 0
+            },
+            "1144": {
                 "a": 12,
                 "ab": 14,
                 "b": 5,
@@ -308,7 +236,26 @@
                 "total": 33,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1152": {
+                "a": 19,
+                "ab": 22,
+                "b": 14,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 56,
+                "unsatisfactory": 0
+            },
+            "1154": {
                 "a": 7,
                 "ab": 15,
                 "b": 12,
@@ -327,7 +274,64 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1162": {
+                "a": 24,
+                "ab": 15,
+                "b": 10,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 51,
+                "unsatisfactory": 0
+            },
+            "1172": {
+                "a": 23,
+                "ab": 12,
+                "b": 14,
+                "bc": 1,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 51,
+                "unsatisfactory": 0
+            },
+            "1182": {
+                "a": 33,
+                "ab": 13,
+                "b": 8,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 55,
+                "unsatisfactory": 0
+            },
+            "1184": {
                 "a": 9,
                 "ab": 5,
                 "b": 2,
@@ -346,7 +350,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 15,
                 "ab": 0,
                 "b": 0,
@@ -365,7 +369,7 @@
                 "total": 16,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 10,
                 "ab": 0,
                 "b": 0,
@@ -384,7 +388,7 @@
                 "total": 10,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 15,
                 "ab": 2,
                 "b": 0,
@@ -403,7 +407,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 13,
                 "ab": 1,
                 "b": 3,
@@ -422,7 +426,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 30,
                 "ab": 2,
                 "b": 3,

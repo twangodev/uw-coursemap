@@ -17,13 +17,17 @@
         "instructors": {
             "Ashley Jordan": "AEJORDAN@WISC.EDU"
         },
-        "last_taught_term_code": 1174,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2017",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2015": {
+            "1154": {
                 "a": 29,
                 "ab": 26,
                 "b": 14,
@@ -42,7 +46,7 @@
                 "total": 89,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 23,
                 "ab": 14,
                 "b": 25,
@@ -96,6 +100,18 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 450,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 449,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
                 "course_number": 456,
                 "subjects": [
                     "PSYCH"
@@ -108,19 +124,7 @@
                 ]
             },
             {
-                "course_number": 449,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
                 "course_number": 460,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 450,
                 "subjects": [
                     "PSYCH"
                 ]

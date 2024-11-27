@@ -18,13 +18,17 @@
             "ANDREW LOKUTA": "AJLOKUTA@WISC.EDU",
             "Eric WALSH": "EMWALSH3@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Education\",\n    \"abbreviation\": \"D\",\n    \"url\": \"http://www.education.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "D",
+            "name": "Education",
+            "url": "http://www.education.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2019": {
+            "1194": {
                 "a": 41,
                 "ab": 13,
                 "b": 24,
@@ -43,7 +47,7 @@
                 "total": 122,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 47,
                 "ab": 14,
                 "b": 29,
@@ -62,7 +66,7 @@
                 "total": 136,
                 "unsatisfactory": 3
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 31,
                 "ab": 20,
                 "b": 29,
@@ -81,7 +85,7 @@
                 "total": 127,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 38,
                 "ab": 9,
                 "b": 18,
@@ -100,7 +104,7 @@
                 "total": 94,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 44,
                 "ab": 10,
                 "b": 18,
@@ -145,9 +149,9 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -156,18 +160,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 153,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "ZOOLOGY"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -177,37 +179,13 @@
                 ]
             },
             {
-                "course_number": 207,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 108,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 201,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 115,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "CHEM"
-                ]
-            },
-            {
-                "course_number": 103,
+                "course_number": 207,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -219,16 +197,42 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 201,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "PHYSICS"
                 ]
             },
             {
-                "course_number": 153,
+                "course_number": 103,
                 "subjects": [
-                    "ZOOLOGY"
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 115,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

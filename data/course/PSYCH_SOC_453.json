@@ -18,13 +18,17 @@
         "instructors": {
             "Morgan JERALD": "MJERALD@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring, Summer"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2018": {
+            "1184": {
                 "a": 97,
                 "ab": 68,
                 "b": 79,
@@ -43,7 +47,7 @@
                 "total": 307,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 74,
                 "ab": 82,
                 "b": 80,
@@ -62,7 +66,7 @@
                 "total": 312,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 122,
                 "ab": 66,
                 "b": 58,
@@ -81,7 +85,7 @@
                 "total": 320,
                 "unsatisfactory": 2
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 69,
                 "ab": 51,
                 "b": 67,
@@ -100,7 +104,7 @@
                 "total": 282,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 76,
                 "ab": 29,
                 "b": 52,
@@ -155,15 +159,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 202,
+                "course_number": 160,
                 "subjects": [
+                    "SOC",
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 160,
+                "course_number": 202,
                 "subjects": [
-                    "SOC",
                     "PSYCH"
                 ]
             }

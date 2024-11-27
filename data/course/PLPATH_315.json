@@ -17,13 +17,17 @@
         "instructors": {
             "RICHARD LANKAU": "LANKAU@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2019": {
+            "1194": {
                 "a": 10,
                 "ab": 1,
                 "b": 1,
@@ -42,7 +46,7 @@
                 "total": 12,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 17,
                 "ab": 2,
                 "b": 2,
@@ -61,7 +65,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 21,
                 "ab": 16,
                 "b": 6,
@@ -80,7 +84,7 @@
                 "total": 47,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 27,
                 "ab": 10,
                 "b": 5,
@@ -99,7 +103,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 18,
                 "ab": 13,
                 "b": 7,
@@ -144,8 +148,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -154,10 +158,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 301,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -169,22 +179,9 @@
             {
                 "course_number": 152,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 301,
-                "subjects": [
-                    "STAT"
+                    "BIOLOGY"
                 ]
             },
             {
@@ -194,10 +191,17 @@
                 ]
             },
             {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

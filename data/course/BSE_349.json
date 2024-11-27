@@ -17,13 +17,17 @@
         "instructors": {
             "Paul STOY": "PCSTOY@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2012": {
+            "1124": {
                 "a": 5,
                 "ab": 7,
                 "b": 14,
@@ -42,7 +46,7 @@
                 "total": 45,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 7,
                 "ab": 18,
                 "b": 19,
@@ -61,7 +65,7 @@
                 "total": 59,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 8,
                 "ab": 10,
                 "b": 14,
@@ -80,7 +84,7 @@
                 "total": 48,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 2,
                 "ab": 6,
                 "b": 17,
@@ -99,7 +103,7 @@
                 "total": 52,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 1,
                 "ab": 6,
                 "b": 19,
@@ -118,7 +122,7 @@
                 "total": 49,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 3,
                 "ab": 2,
                 "b": 38,
@@ -137,7 +141,7 @@
                 "total": 89,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 5,
                 "ab": 17,
                 "b": 23,
@@ -156,7 +160,7 @@
                 "total": 83,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 6,
                 "ab": 12,
                 "b": 24,
@@ -175,7 +179,7 @@
                 "total": 68,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 5,
                 "ab": 15,
                 "b": 13,
@@ -194,7 +198,7 @@
                 "total": 64,
                 "unsatisfactory": 6
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 15,
                 "ab": 13,
                 "b": 3,
@@ -213,7 +217,7 @@
                 "total": 37,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 22,
                 "ab": 5,
                 "b": 6,
@@ -232,7 +236,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 20,
                 "ab": 4,
                 "b": 3,
@@ -286,38 +290,30 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
                 "course_number": 104,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 260,
+                "course_number": 153,
                 "subjects": [
-                    "ENVIRST",
-                    "BOTANY",
                     "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 116,
+                "course_number": 101,
                 "subjects": [
-                    "CHEM"
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -333,10 +329,9 @@
                 ]
             },
             {
-                "course_number": 130,
+                "course_number": 116,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "CHEM"
                 ]
             },
             {
@@ -346,9 +341,18 @@
                 ]
             },
             {
-                "course_number": 153,
+                "course_number": 260,
                 "subjects": [
-                    "ZOOLOGY"
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 130,
+                "subjects": [
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

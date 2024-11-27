@@ -17,8 +17,12 @@
         "instructors": {
             "XIAOPENG LI": "XLI2485@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -44,8 +48,8 @@
             {
                 "course_number": 431,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             },
             {

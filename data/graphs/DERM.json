@@ -1,35 +1,8 @@
 [
     {
         "data": {
-            "description": "Outpatient dermatology experience provides exposure to a typical private practice where patients present with a broad array of problems. Learn to diagnose, treat, and/or appropriately refer common dermatologic conditions and to be aware of cutaneous manifestations of serious and significant systemic disease.",
-            "id": "DERM 954",
-            "parent": "DERM"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "DERM 601"
-        }
-    },
-    {
-        "data": {
-            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
-            "id": "MEDSC-M 773",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
-            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
-            "id": "MEDSC-M 810",
-            "parent": "MEDSC-M"
-        }
-    },
-    {
-        "data": {
             "description": "Experience blends medical and procedural dermatology, dermatopathology and basic science topics. Advance patient care skills through exposure to a broad array of common and complex cutaneous diseases, formulation of basic differential diagnoses and treatment plans, and performance of common diagnostic procedures. Experience via rotations through general adult and pediatric dermatology clinics, as well as specialty clinics. Opportunities may arise for participation in inpatient dermatology consults. All clinical activities will be completed under the direct supervision of attending physicians and residents. Participate in additional educational activities, including faculty lectures, Grand Rounds conference, and reading or on-line assignments. Additional patient care related learning activities may be assigned by instructors (e.g., literature reviews, presentations on specific topics); these are dependent on the individual student, attending physician, and clinical site.",
-            "id": "DERM 953",
+            "id": "DERM 919",
             "parent": "DERM"
         }
     },
@@ -41,34 +14,14 @@
     },
     {
         "data": {
-            "description": "The practice of Dermatology encompasses diseases of the skin, mucosal surfaces, hair and nails. The scientific specialty integrates cellular and molecular biology, immunology, microbiology, and physiology to support patient care decisions. Learn basic science principles of normal and abnormal cutaneous functioning, building on the principles introduced in theMED\u00a0SC-M\u00a0774. These core concepts will be applied though interactions with patients in the clinical setting, building foundational basic science knowledge to diagnose and treat dermatologic diseases.",
-            "id": "DERM 904",
-            "parent": "DERM"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to basic science principles of skin biology and skin diseases (biochemistry, molecular biology, genetics, etc.). Provides a strong base and training to future scientists, physicians, and industrial leaders in skin sciences and skin care, as well as drug and device development.",
-            "id": "DERM 601",
-            "parent": "DERM"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
             "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Offers an interactive platform to critically analyze classic and state-of-the-art research articles in skin biology and skin diseases, as well as the opportunity to present journal articles. Provides a strong base and training for future scientists, physicians, and industrial leaders in skin sciences, skincare, and drug development.",
-            "id": "DERM 602",
+            "description": "Explore the difficulties and opportunities available in improving public health in the specialized field of dermatology. Topics and readings have been developed with public health experts from around the country, and include discussions surrounding skin cancer screening and overdiagnosis, as well as dermatologic challenges in LGBTQ+, skin of color, rural, and inmate communities.",
+            "id": "DERM 955",
             "parent": "DERM"
         }
     },
@@ -80,14 +33,35 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "description": "Offers an interactive platform to critically analyze classic and state-of-the-art research articles in skin biology and skin diseases, as well as the opportunity to present journal articles. Provides a strong base and training for future scientists, physicians, and industrial leaders in skin sciences, skincare, and drug development.",
+            "id": "DERM 602",
+            "parent": "DERM"
+        }
+    },
+    {
+        "data": {
+            "description": "Develop clinical knowledge and skills necessary to care for patients in Pediatrics and Obstetrics and Gynecology, with emphasis on unique skills such as taking care of vulnerable populations as identified in women's and child health and working with caregivers in addition to the patient themselves. Increase knowledge of fundamental science concepts introduced in Human Family Tree during Phase 1 of the curriculum, such as embryology and teratology, genetic testing, and neurodevelopment. Clinical experiences will occur in a range of representative inpatient, outpatient and surgical settings. In structured educational sessions, compare and contrast selected topics in pediatric, obstetric, and gynecologic patient populations, highlighting the relevant physiology, pathophysiology, basic science, and public health topics.",
+            "id": "MEDSC-M 810",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "description": "The practice of Dermatology encompasses diseases of the skin, mucosal surfaces, hair and nails. The scientific specialty integrates cellular and molecular biology, immunology, microbiology, and physiology to support patient care decisions. Learn basic science principles of normal and abnormal cutaneous functioning, building on the principles introduced in theMED\u00a0SC-M\u00a0774. These core concepts will be applied though interactions with patients in the clinical setting, building foundational basic science knowledge to diagnose and treat dermatologic diseases.",
+            "id": "DERM 904",
+            "parent": "DERM"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
         }
     },
     {
@@ -98,27 +72,14 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "DERM 601"
         }
     },
     {
         "data": {
-            "description": "Independent research under the direct supervision of Dermatology faculty.  Each student's research project is individualized to meet student research goals within the context of faculty research needs.",
-            "id": "DERM 910",
-            "parent": "DERM"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 773",
-            "target": "MEDSC-M 810"
-        }
-    },
-    {
-        "data": {
-            "description": "Experience blends medical and procedural dermatology, dermatopathology and basic science topics. Advance patient care skills through exposure to a broad array of common and complex cutaneous diseases, formulation of basic differential diagnoses and treatment plans, and performance of common diagnostic procedures. Experience via rotations through general adult and pediatric dermatology clinics, as well as specialty clinics. Opportunities may arise for participation in inpatient dermatology consults. All clinical activities will be completed under the direct supervision of attending physicians and residents. Participate in additional educational activities, including faculty lectures, Grand Rounds conference, and reading or on-line assignments. Additional patient care related learning activities may be assigned by instructors (e.g., literature reviews, presentations on specific topics); these are dependent on the individual student, attending physician, and clinical site.",
-            "id": "DERM 919",
+            "description": "Outpatient dermatology experience provides exposure to a typical private practice where patients present with a broad array of problems. Learn to diagnose, treat, and/or appropriately refer common dermatologic conditions and to be aware of cutaneous manifestations of serious and significant systemic disease.",
+            "id": "DERM 954",
             "parent": "DERM"
         }
     },
@@ -130,15 +91,54 @@
     },
     {
         "data": {
+            "description": "Introduction to basic science principles of skin biology and skin diseases (biochemistry, molecular biology, genetics, etc.). Provides a strong base and training to future scientists, physicians, and industrial leaders in skin sciences and skin care, as well as drug and device development.",
+            "id": "DERM 601",
+            "parent": "DERM"
+        }
+    },
+    {
+        "data": {
+            "description": "Focuses on molecular, genetic, embryologic, hormonal, anatomical and physiological factors that govern fertility, cell growth, fetal development, and pregnancy as well as the congenital anomalies that can occur when those processes are aberrant. Encompasses the full life-cycle spectrum including childhood growth and development, young adulthood/puberty, issues affecting adolescents and young adults, genetic basis of human disease, reproductive health, menopause, aging, unregulated cell growth (cancer) and end of life issues. Significant content from other competency domains, or \"longitudinal threads\", such as public health, advocacy, ethics, patient care/communication and clinical skills.",
+            "id": "MEDSC-M 773",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
             "source": "MEDSC-M 810",
             "target": "DERM 904"
         }
     },
     {
         "data": {
-            "description": "Explore the difficulties and opportunities available in improving public health in the specialized field of dermatology. Topics and readings have been developed with public health experts from around the country, and include discussions surrounding skin cancer screening and overdiagnosis, as well as dermatologic challenges in LGBTQ+, skin of color, rural, and inmate communities.",
-            "id": "DERM 955",
+            "description": "Independent research under the direct supervision of Dermatology faculty.  Each student's research project is individualized to meet student research goals within the context of faculty research needs.",
+            "id": "DERM 910",
             "parent": "DERM"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Experience blends medical and procedural dermatology, dermatopathology and basic science topics. Advance patient care skills through exposure to a broad array of common and complex cutaneous diseases, formulation of basic differential diagnoses and treatment plans, and performance of common diagnostic procedures. Experience via rotations through general adult and pediatric dermatology clinics, as well as specialty clinics. Opportunities may arise for participation in inpatient dermatology consults. All clinical activities will be completed under the direct supervision of attending physicians and residents. Participate in additional educational activities, including faculty lectures, Grand Rounds conference, and reading or on-line assignments. Additional patient care related learning activities may be assigned by instructors (e.g., literature reviews, presentations on specific topics); these are dependent on the individual student, attending physician, and clinical site.",
+            "id": "DERM 953",
+            "parent": "DERM"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 773",
+            "target": "MEDSC-M 810"
         }
     }
 ]

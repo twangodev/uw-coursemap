@@ -18,13 +18,17 @@
             "Anthony AUGER": "APAUGER@WISC.EDU",
             "Catherine MARLER": "CAMARLER@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2018": {
+            "1184": {
                 "a": 25,
                 "ab": 22,
                 "b": 15,
@@ -43,7 +47,7 @@
                 "total": 70,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 34,
                 "ab": 29,
                 "b": 16,
@@ -62,7 +66,7 @@
                 "total": 98,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 38,
                 "ab": 26,
                 "b": 13,
@@ -81,7 +85,7 @@
                 "total": 96,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 63,
                 "ab": 24,
                 "b": 31,
@@ -100,7 +104,7 @@
                 "total": 152,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 106,
                 "ab": 25,
                 "b": 14,
@@ -119,7 +123,7 @@
                 "total": 159,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 63,
                 "ab": 25,
                 "b": 24,
@@ -173,13 +177,26 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 406,
+                "course_number": 523,
+                "subjects": [
+                    "ZOOLOGY",
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 454,
                 "subjects": [
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 414,
+                "course_number": 450,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 406,
                 "subjects": [
                     "PSYCH"
                 ]
@@ -191,26 +208,13 @@
                 ]
             },
             {
-                "course_number": 523,
-                "subjects": [
-                    "ZOOLOGY",
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 450,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
                 "course_number": 413,
                 "subjects": [
                     "PSYCH"
                 ]
             },
             {
-                "course_number": 454,
+                "course_number": 414,
                 "subjects": [
                     "PSYCH"
                 ]

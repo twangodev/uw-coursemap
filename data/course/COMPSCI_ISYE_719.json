@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 719,
         "subjects": [
-            "ISYE",
-            "COMPSCI"
+            "COMPSCI",
+            "ISYE"
         ]
     },
     "course_title": "STOCHASTIC PROGRAMMING",
@@ -18,13 +18,17 @@
         "instructors": {
             "Jim LUEDTKE": "JRLUEDT1@WISC.EDU"
         },
-        "last_taught_term_code": 1242,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Fall 2023",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2006": {
+            "1072": {
                 "a": 6,
                 "ab": 1,
                 "b": 0,
@@ -43,83 +47,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Fall 2011": {
-                "a": 21,
-                "ab": 7,
-                "b": 3,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 3,
-                "total": 35,
-                "unsatisfactory": 0
-            },
-            "Fall 2016": {
-                "a": 20,
-                "ab": 4,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 2,
-                "total": 26,
-                "unsatisfactory": 0
-            },
-            "Fall 2018": {
-                "a": 11,
-                "ab": 5,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 16,
-                "unsatisfactory": 0
-            },
-            "Fall 2023": {
-                "a": 19,
-                "ab": 0,
-                "b": 2,
-                "bc": 2,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 3,
-                "total": 26,
-                "unsatisfactory": 0
-            },
-            "Spring 2008": {
+            "1084": {
                 "a": 5,
                 "ab": 2,
                 "b": 1,
@@ -138,7 +66,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 16,
                 "ab": 5,
                 "b": 3,
@@ -157,7 +85,26 @@
                 "total": 26,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1122": {
+                "a": 21,
+                "ab": 7,
+                "b": 3,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 3,
+                "total": 35,
+                "unsatisfactory": 0
+            },
+            "1144": {
                 "a": 25,
                 "ab": 0,
                 "b": 0,
@@ -176,7 +123,45 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1172": {
+                "a": 20,
+                "ab": 4,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 26,
+                "unsatisfactory": 0
+            },
+            "1192": {
+                "a": 11,
+                "ab": 5,
+                "b": 0,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 16,
+                "unsatisfactory": 0
+            },
+            "1204": {
                 "a": 8,
                 "ab": 1,
                 "b": 3,
@@ -193,6 +178,25 @@
                 "passed": 0,
                 "satisfactory": 8,
                 "total": 21,
+                "unsatisfactory": 0
+            },
+            "1242": {
+                "a": 19,
+                "ab": 0,
+                "b": 2,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 3,
+                "total": 26,
                 "unsatisfactory": 0
             }
         },

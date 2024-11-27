@@ -18,8 +18,12 @@
         "instructors": {
             "Joseph ANDREWS": "JOSEPH.ANDREWS@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -37,13 +41,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 376,
+                "course_number": 230,
                 "subjects": [
                     "ECE"
                 ]
             },
             {
-                "course_number": 230,
+                "course_number": 376,
                 "subjects": [
                     "ECE"
                 ]

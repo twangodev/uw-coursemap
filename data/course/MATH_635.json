@@ -10,7 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 5,
                 "ab": 6,
                 "b": 3,
@@ -29,7 +29,7 @@
                 "total": 15,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 14,
                 "ab": 3,
                 "b": 1,
@@ -48,7 +48,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 13,
                 "ab": 3,
                 "b": 8,
@@ -67,7 +67,7 @@
                 "total": 28,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 5,
                 "ab": 3,
                 "b": 4,
@@ -86,7 +86,7 @@
                 "total": 15,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 13,
                 "ab": 4,
                 "b": 3,
@@ -105,7 +105,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 15,
                 "ab": 7,
                 "b": 3,
@@ -124,7 +124,7 @@
                 "total": 33,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 15,
                 "ab": 3,
                 "b": 12,
@@ -143,7 +143,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 13,
                 "ab": 1,
                 "b": 4,
@@ -188,10 +188,10 @@
             {
                 "course_number": 632,
                 "subjects": [
-                    "STAT",
-                    "ISYE",
+                    "MATH",
                     "OTM",
-                    "MATH"
+                    "ISYE",
+                    "STAT"
                 ]
             }
         ],
@@ -200,17 +200,17 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 521,
+                "course_number": 632,
                 "subjects": [
-                    "MATH"
+                    "MATH",
+                    "OTM",
+                    "ISYE",
+                    "STAT"
                 ]
             },
             {
-                "course_number": 632,
+                "course_number": 521,
                 "subjects": [
-                    "STAT",
-                    "ISYE",
-                    "OTM",
                     "MATH"
                 ]
             }

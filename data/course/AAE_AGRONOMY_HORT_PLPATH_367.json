@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 367,
         "subjects": [
+            "AGRONOMY",
             "HORT",
             "PLPATH",
-            "AGRONOMY",
             "AAE"
         ]
     },
@@ -23,13 +23,17 @@
             "Tom Bryan": "TBRYAN@WISC.EDU",
             "William TRACY": "WFTRACY@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2022": {
+            "1224": {
                 "a": 12,
                 "ab": 6,
                 "b": 1,
@@ -48,7 +52,7 @@
                 "total": 21,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 5,
                 "ab": 1,
                 "b": 0,
@@ -67,7 +71,7 @@
                 "total": 6,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 11,
                 "ab": 4,
                 "b": 1,
@@ -112,11 +116,11 @@
             {
                 "course_number": 103,
                 "subjects": [
-                    "ENTOM",
-                    "ENVIRST",
+                    "C&ESOC",
                     "AGRONOMY",
+                    "ENTOM",
                     "AGROECOL",
-                    "C&ESOC"
+                    "ENVIRST"
                 ]
             }
         ],
@@ -132,16 +136,19 @@
                 ]
             },
             {
-                "course_number": 120,
+                "course_number": 103,
                 "subjects": [
-                    "HORT"
+                    "C&ESOC",
+                    "AGRONOMY",
+                    "ENTOM",
+                    "AGROECOL",
+                    "ENVIRST"
                 ]
             },
             {
-                "course_number": 222,
+                "course_number": 120,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "HORT"
                 ]
             },
             {
@@ -151,13 +158,10 @@
                 ]
             },
             {
-                "course_number": 103,
+                "course_number": 222,
                 "subjects": [
-                    "ENTOM",
-                    "ENVIRST",
-                    "AGRONOMY",
-                    "AGROECOL",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             }
         ],

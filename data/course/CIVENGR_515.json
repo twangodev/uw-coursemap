@@ -17,32 +17,17 @@
         "instructors": {
             "Paul BLOCK": "PAUL.BLOCK@WISC.EDU"
         },
-        "last_taught_term_code": 1242,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Fall 2023",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Every Other Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2023": {
-                "a": 10,
-                "ab": 0,
-                "b": 1,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 12,
-                "unsatisfactory": 0
-            },
-            "Spring 2018": {
+            "1184": {
                 "a": 7,
                 "ab": 2,
                 "b": 0,
@@ -61,7 +46,7 @@
                 "total": 10,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 6,
                 "ab": 4,
                 "b": 2,
@@ -80,7 +65,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 5,
                 "ab": 1,
                 "b": 0,
@@ -97,6 +82,25 @@
                 "passed": 0,
                 "satisfactory": 0,
                 "total": 6,
+                "unsatisfactory": 0
+            },
+            "1242": {
+                "a": 10,
+                "ab": 0,
+                "b": 1,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 12,
                 "unsatisfactory": 0
             }
         },
@@ -134,12 +138,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 415,
-                "subjects": [
-                    "CIVENGR"
-                ]
-            },
-            {
                 "course_number": 324,
                 "subjects": [
                     "STAT"
@@ -149,6 +147,12 @@
                 "course_number": 311,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 415,
+                "subjects": [
+                    "CIVENGR"
                 ]
             }
         ],

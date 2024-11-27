@@ -1,28 +1,16 @@
 [
     {
         "data": {
-            "description": "Laboratory with dissection of human cadaver specimens and study of prosections.",
-            "id": "ANATOMY 329",
+            "description": "Directed study projects as arranged with instructor.",
+            "id": "ANATOMY 699",
             "parent": "ANATOMY"
         }
     },
     {
         "data": {
-            "source": "ANAT&PHY 337",
-            "target": "ANAT&PHY 338"
-        }
-    },
-    {
-        "data": {
-            "id": "ANATOMY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
-            "id": "ANAT&PHY 337",
-            "parent": "ANAT&PHY"
+            "description": "Laboratory with dissection of human cadaver specimens and study of prosections.",
+            "id": "ANATOMY 329",
+            "parent": "ANATOMY"
         }
     },
     {
@@ -34,9 +22,33 @@
     },
     {
         "data": {
-            "description": "Directed study projects as arranged with instructor.",
-            "id": "ANATOMY 699",
-            "parent": "ANATOMY"
+            "source": "ANAT&PHY 338",
+            "target": "ANATOMY 329"
+        }
+    },
+    {
+        "data": {
+            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
+            "id": "ANAT&PHY 337",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 337",
+            "target": "ANAT&PHY 338"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "ANATOMY",
+            "type": "compound"
         }
     },
     {
@@ -44,18 +56,6 @@
             "description": "Dissection-based gross human anatomy relevant with a physical and occupational therapy focus. Special emphasis is placed on the musculoskeletal and peripheral nervous systems, and living subject and surface anatomy.",
             "id": "ANATOMY 622",
             "parent": "ANATOMY"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 338",
-            "target": "ANATOMY 329"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
         }
     }
 ]

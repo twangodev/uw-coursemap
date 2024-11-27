@@ -17,13 +17,17 @@
         "instructors": {
             "Jennifer Dykema": "JLDYKEMA@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2017": {
+            "1182": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Fall 2018": {
+            "1192": {
                 "a": 2,
                 "ab": 2,
                 "b": 1,
@@ -61,7 +65,7 @@
                 "total": 6,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 13,
                 "ab": 8,
                 "b": 0,
@@ -106,8 +110,8 @@
             {
                 "course_number": 357,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             }
         ],
@@ -116,40 +120,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 360,
+                "course_number": 301,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
-                ]
-            },
-            {
-                "course_number": 357,
-                "subjects": [
-                    "SOC",
-                    "C&ESOC"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "PSYCH"
+                    "STAT"
                 ]
             },
             {
                 "course_number": 310,
                 "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 360,
-                "subjects": [
-                    "GEOG"
-                ]
-            },
-            {
-                "course_number": 301,
-                "subjects": [
+                    "MATH",
                     "STAT"
                 ]
             },
@@ -160,10 +139,35 @@
                 ]
             },
             {
+                "course_number": 360,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
+                "course_number": 360,
+                "subjects": [
+                    "GEOG"
+                ]
+            },
+            {
+                "course_number": 357,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
+            {
                 "course_number": 310,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "ECON"
                 ]
             }
         ],

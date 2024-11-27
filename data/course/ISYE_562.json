@@ -17,13 +17,17 @@
         "instructors": {
             "John LEE": "JDLEE6@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2023": {
+            "1234": {
                 "a": 35,
                 "ab": 10,
                 "b": 5,
@@ -42,7 +46,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 18,
                 "ab": 6,
                 "b": 0,
@@ -96,9 +100,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 312,
+                "course_number": 210,
                 "subjects": [
-                    "STAT"
+                    "ISYE"
                 ]
             },
             {
@@ -110,8 +114,8 @@
             {
                 "course_number": 310,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             },
             {
@@ -121,9 +125,9 @@
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 312,
                 "subjects": [
-                    "ISYE"
+                    "STAT"
                 ]
             }
         ],

@@ -20,13 +20,17 @@
             "Huichuan Lai": "HLAI@WISC.EDU",
             "Tara La Rowe": "TLLAROWE@WISC.EDU"
         },
-        "last_taught_term_code": 1246,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 19,
                 "ab": 10,
                 "b": 19,
@@ -45,7 +49,7 @@
                 "total": 57,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 28,
                 "ab": 14,
                 "b": 31,
@@ -64,7 +68,7 @@
                 "total": 81,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 16,
                 "ab": 14,
                 "b": 37,
@@ -83,7 +87,7 @@
                 "total": 91,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 17,
                 "ab": 14,
                 "b": 30,
@@ -102,7 +106,7 @@
                 "total": 72,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 10,
                 "ab": 28,
                 "b": 16,
@@ -121,7 +125,7 @@
                 "total": 65,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 16,
                 "ab": 18,
                 "b": 20,
@@ -140,7 +144,7 @@
                 "total": 77,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 15,
                 "ab": 30,
                 "b": 27,
@@ -159,7 +163,7 @@
                 "total": 84,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 19,
                 "ab": 17,
                 "b": 30,
@@ -178,7 +182,7 @@
                 "total": 92,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 20,
                 "ab": 21,
                 "b": 27,
@@ -197,7 +201,7 @@
                 "total": 84,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 16,
                 "ab": 23,
                 "b": 30,
@@ -216,7 +220,7 @@
                 "total": 83,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 15,
                 "ab": 14,
                 "b": 23,
@@ -235,7 +239,7 @@
                 "total": 64,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 21,
                 "ab": 12,
                 "b": 20,
@@ -254,7 +258,7 @@
                 "total": 59,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 18,
                 "ab": 11,
                 "b": 12,
@@ -273,7 +277,7 @@
                 "total": 53,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 21,
                 "ab": 6,
                 "b": 12,
@@ -292,7 +296,7 @@
                 "total": 53,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 3,
                 "ab": 12,
                 "b": 25,
@@ -311,7 +315,7 @@
                 "total": 46,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 15,
                 "ab": 11,
                 "b": 9,
@@ -365,15 +369,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 335,
-                "subjects": [
-                    "ANAT&PHY"
-                ]
-            },
-            {
                 "course_number": 332,
                 "subjects": [
                     "NUTRSCI"
+                ]
+            },
+            {
+                "course_number": 335,
+                "subjects": [
+                    "ANAT&PHY"
                 ]
             }
         ],

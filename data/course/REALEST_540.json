@@ -17,13 +17,17 @@
         "instructors": {
             "Timothy Pire": "TPIRE@WISC.EDU"
         },
-        "last_taught_term_code": 1246,
-        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "B",
+            "name": "Business",
+            "url": "http://www.bus.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2022": {
+            "1224": {
                 "a": 8,
                 "ab": 4,
                 "b": 1,
@@ -42,7 +46,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 19,
                 "ab": 6,
                 "b": 0,
@@ -61,7 +65,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 19,
                 "ab": 8,
                 "b": 2,
@@ -115,18 +119,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 700,
-                "subjects": [
-                    "FINANCE"
-                ]
-            },
-            {
-                "course_number": 410,
-                "subjects": [
-                    "REALEST"
-                ]
-            },
-            {
                 "course_number": 300,
                 "subjects": [
                     "ECON",
@@ -137,6 +129,18 @@
                 "course_number": 710,
                 "subjects": [
                     "REALEST"
+                ]
+            },
+            {
+                "course_number": 410,
+                "subjects": [
+                    "REALEST"
+                ]
+            },
+            {
+                "course_number": 700,
+                "subjects": [
+                    "FINANCE"
                 ]
             }
         ],

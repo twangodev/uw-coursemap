@@ -17,13 +17,17 @@
         "instructors": {
             "Amy Wagner": "AMY.WAGNER@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Human Ecology\",\n    \"abbreviation\": \"H\",\n    \"url\": \"http://www.sohe.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "H",
+            "name": "Human Ecology",
+            "url": "http://www.sohe.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2024": {
+            "1244": {
                 "a": 25,
                 "ab": 3,
                 "b": 1,
@@ -77,6 +81,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 460,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
                 "course_number": 262,
                 "subjects": [
                     "HDFS"
@@ -86,12 +96,6 @@
                 "course_number": 320,
                 "subjects": [
                     "EDPSYCH"
-                ]
-            },
-            {
-                "course_number": 460,
-                "subjects": [
-                    "PSYCH"
                 ]
             }
         ],

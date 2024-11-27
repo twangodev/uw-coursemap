@@ -17,13 +17,17 @@
         "instructors": {
             "Timothy Tennyson": "TTENNYSON@WISC.EDU"
         },
-        "last_taught_term_code": 1226,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2020": {
+            "1204": {
                 "a": 31,
                 "ab": 33,
                 "b": 4,
@@ -77,15 +81,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 205,
-                "subjects": [
-                    "ILS"
-                ]
-            },
-            {
                 "course_number": 160,
                 "subjects": [
                     "POLISCI"
+                ]
+            },
+            {
+                "course_number": 205,
+                "subjects": [
+                    "ILS"
                 ]
             }
         ],

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 344,
         "subjects": [
-            "ANSCI",
-            "BSE"
+            "BSE",
+            "ANSCI"
         ]
     },
     "course_title": "DIGITAL TECHNOLOGIES FOR ANIMAL MONITORING",
@@ -18,13 +18,17 @@
         "instructors": {
             "Joao REBOUCAS DOREA": "JOAO.DOREA@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2024": {
+            "1244": {
                 "a": 14,
                 "ab": 0,
                 "b": 0,
@@ -78,12 +82,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 114,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 221,
                 "subjects": [
                     "MATH"
@@ -91,6 +89,12 @@
             },
             {
                 "course_number": 112,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 114,
                 "subjects": [
                     "MATH"
                 ]

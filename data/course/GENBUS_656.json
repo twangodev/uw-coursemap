@@ -17,13 +17,17 @@
         "instructors": {
             "Peng Shi": "PSHI@BUS.WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "B",
+            "name": "Business",
+            "url": "http://www.bus.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2019": {
+            "1202": {
                 "a": 16,
                 "ab": 9,
                 "b": 11,
@@ -42,7 +46,7 @@
                 "total": 39,
                 "unsatisfactory": 0
             },
-            "Fall 2020": {
+            "1212": {
                 "a": 34,
                 "ab": 17,
                 "b": 9,
@@ -61,7 +65,7 @@
                 "total": 65,
                 "unsatisfactory": 0
             },
-            "Fall 2021": {
+            "1222": {
                 "a": 57,
                 "ab": 25,
                 "b": 7,
@@ -80,45 +84,7 @@
                 "total": 90,
                 "unsatisfactory": 0
             },
-            "Fall 2022": {
-                "a": 63,
-                "ab": 45,
-                "b": 10,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 120,
-                "unsatisfactory": 0
-            },
-            "Fall 2023": {
-                "a": 55,
-                "ab": 71,
-                "b": 4,
-                "bc": 4,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 134,
-                "unsatisfactory": 0
-            },
-            "Spring 2022": {
+            "1224": {
                 "a": 11,
                 "ab": 12,
                 "b": 5,
@@ -137,7 +103,26 @@
                 "total": 32,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1232": {
+                "a": 63,
+                "ab": 45,
+                "b": 10,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 120,
+                "unsatisfactory": 0
+            },
+            "1234": {
                 "a": 13,
                 "ab": 14,
                 "b": 4,
@@ -156,7 +141,26 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1242": {
+                "a": 55,
+                "ab": 71,
+                "b": 4,
+                "bc": 4,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 134,
+                "unsatisfactory": 0
+            },
+            "1244": {
                 "a": 15,
                 "ab": 18,
                 "b": 3,
@@ -210,21 +214,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 307,
+                "course_number": 410,
                 "subjects": [
-                    "GENBUS"
+                    "ECON"
                 ]
             },
             {
                 "course_number": 333,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 400,
-                "subjects": [
-                    "ECON"
                 ]
             },
             {
@@ -240,16 +238,22 @@
                 ]
             },
             {
-                "course_number": 410,
+                "course_number": 307,
                 "subjects": [
-                    "ECON"
+                    "GENBUS"
                 ]
             },
             {
                 "course_number": 310,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 400,
+                "subjects": [
+                    "ECON"
                 ]
             }
         ],

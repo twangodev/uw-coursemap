@@ -17,32 +17,17 @@
         "instructors": {
             "Jim REARDON": "REARDON@PHYSICS.WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2023": {
-                "a": 26,
-                "ab": 10,
-                "b": 6,
-                "bc": 4,
-                "c": 2,
-                "credit": 0,
-                "d": 5,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 54,
-                "unsatisfactory": 0
-            },
-            "Spring 2023": {
+            "1234": {
                 "a": 17,
                 "ab": 5,
                 "b": 6,
@@ -61,7 +46,26 @@
                 "total": 36,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1242": {
+                "a": 26,
+                "ab": 10,
+                "b": 6,
+                "bc": 4,
+                "c": 2,
+                "credit": 0,
+                "d": 5,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 54,
+                "unsatisfactory": 0
+            },
+            "1244": {
                 "a": 78,
                 "ab": 20,
                 "b": 10,
@@ -115,12 +119,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 201,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 247,
                 "subjects": [
                     "PHYSICS"
@@ -134,6 +132,12 @@
             },
             {
                 "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 201,
                 "subjects": [
                     "PHYSICS"
                 ]

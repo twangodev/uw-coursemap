@@ -10,7 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Fall 2022": {
+            "1232": {
                 "a": 12,
                 "ab": 1,
                 "b": 0,
@@ -29,7 +29,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Fall 2023": {
+            "1242": {
                 "a": 16,
                 "ab": 1,
                 "b": 0,
@@ -74,8 +74,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -83,21 +83,6 @@
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
             {
                 "course_number": 104,
                 "subjects": [
@@ -111,9 +96,24 @@
                 ]
             },
             {
+                "course_number": 101,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 109,
                 "subjects": [
                     "CHEM"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

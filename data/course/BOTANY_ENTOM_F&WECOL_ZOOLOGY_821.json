@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 821,
         "subjects": [
-            "ENTOM",
-            "ZOOLOGY",
             "BOTANY",
-            "F&WECOL"
+            "F&WECOL",
+            "ZOOLOGY",
+            "ENTOM"
         ]
     },
     "course_title": "FOUNDATIONS OF ECOLOGY",
@@ -20,8 +20,12 @@
         "instructors": {
             "Sean SCHOVILLE": "SEAN.SCHOVILLE@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,

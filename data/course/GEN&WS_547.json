@@ -17,32 +17,17 @@
         "instructors": {
             "Keisha LINDSAY": "KNLINDSAY@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Every Other Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2020": {
-                "a": 13,
-                "ab": 2,
-                "b": 0,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 17,
-                "unsatisfactory": 0
-            },
-            "Spring 2015": {
+            "1154": {
                 "a": 4,
                 "ab": 5,
                 "b": 4,
@@ -61,7 +46,7 @@
                 "total": 15,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 6,
                 "ab": 9,
                 "b": 2,
@@ -80,7 +65,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 8,
                 "ab": 6,
                 "b": 0,
@@ -99,7 +84,26 @@
                 "total": 14,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1212": {
+                "a": 13,
+                "ab": 2,
+                "b": 0,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 17,
+                "unsatisfactory": 0
+            },
+            "1234": {
                 "a": 3,
                 "ab": 1,
                 "b": 1,
@@ -153,7 +157,26 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 441,
+                "course_number": 445,
+                "subjects": [
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 333,
+                "subjects": [
+                    "AFROAMER",
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 446,
+                "subjects": [
+                    "GEN&WS"
+                ]
+            },
+            {
+                "course_number": 546,
                 "subjects": [
                     "GEN&WS"
                 ]
@@ -165,26 +188,7 @@
                 ]
             },
             {
-                "course_number": 445,
-                "subjects": [
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 446,
-                "subjects": [
-                    "GEN&WS"
-                ]
-            },
-            {
-                "course_number": 333,
-                "subjects": [
-                    "GEN&WS",
-                    "AFROAMER"
-                ]
-            },
-            {
-                "course_number": 546,
+                "course_number": 441,
                 "subjects": [
                     "GEN&WS"
                 ]

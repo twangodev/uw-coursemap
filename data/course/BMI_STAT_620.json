@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 620,
         "subjects": [
-            "STAT",
-            "BMI"
+            "BMI",
+            "STAT"
         ]
     },
     "course_title": "STATISTICS IN HUMAN GENETICS",
@@ -18,8 +18,12 @@
         "instructors": {
             "Qiongshi LU": "QLU@BIOSTAT.WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -37,13 +41,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 340,
+                "course_number": 333,
                 "subjects": [
                     "STAT"
                 ]
             },
             {
-                "course_number": 333,
+                "course_number": 340,
                 "subjects": [
                     "STAT"
                 ]

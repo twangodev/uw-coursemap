@@ -17,13 +17,17 @@
         "instructors": {
             "Jiamian HU": "JHU238@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2020": {
+            "1204": {
                 "a": 5,
                 "ab": 1,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 6,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 6,
                 "ab": 2,
                 "b": 0,
@@ -61,7 +65,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -115,27 +119,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 440,
-                "subjects": [
-                    "CBE"
-                ]
-            },
-            {
                 "course_number": 351,
                 "subjects": [
                     "MS&E"
-                ]
-            },
-            {
-                "course_number": 376,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 320,
-                "subjects": [
-                    "MATH"
                 ]
             },
             {
@@ -145,9 +131,27 @@
                 ]
             },
             {
+                "course_number": 320,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 376,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
                 "course_number": 319,
                 "subjects": [
                     "MATH"
+                ]
+            },
+            {
+                "course_number": 440,
+                "subjects": [
+                    "CBE"
                 ]
             }
         ],

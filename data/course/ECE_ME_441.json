@@ -18,8 +18,12 @@
         "instructors": {
             "Mike ZINN": "MZINN@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": null,
@@ -37,18 +41,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
@@ -62,6 +54,18 @@
             },
             {
                 "course_number": 375,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 341,
                 "subjects": [
                     "MATH"
                 ]

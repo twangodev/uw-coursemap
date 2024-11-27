@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 265,
         "subjects": [
-            "MEDPHYS",
-            "PHYSICS"
+            "PHYSICS",
+            "MEDPHYS"
         ]
     },
     "course_title": "INTRODUCTION TO MEDICAL PHYSICS",
@@ -18,13 +18,17 @@
         "instructors": {
             "Ronald WAKAI": "RTWAKAI@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 5,
                 "ab": 1,
                 "b": 11,
@@ -43,7 +47,7 @@
                 "total": 21,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 0,
                 "ab": 3,
                 "b": 5,
@@ -62,7 +66,7 @@
                 "total": 9,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 1,
                 "ab": 5,
                 "b": 4,
@@ -81,7 +85,7 @@
                 "total": 12,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 5,
                 "ab": 2,
                 "b": 1,
@@ -100,7 +104,7 @@
                 "total": 9,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 6,
                 "ab": 8,
                 "b": 8,
@@ -119,7 +123,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2012": {
+            "1124": {
                 "a": 1,
                 "ab": 2,
                 "b": 5,
@@ -138,7 +142,7 @@
                 "total": 9,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 5,
                 "ab": 2,
                 "b": 12,
@@ -157,7 +161,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 5,
                 "ab": 5,
                 "b": 10,
@@ -176,7 +180,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 5,
                 "ab": 2,
                 "b": 8,
@@ -195,7 +199,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 6,
                 "ab": 4,
                 "b": 9,
@@ -214,7 +218,7 @@
                 "total": 24,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 5,
                 "ab": 6,
                 "b": 6,
@@ -233,7 +237,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 5,
                 "ab": 6,
                 "b": 8,
@@ -252,7 +256,7 @@
                 "total": 24,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 4,
                 "ab": 7,
                 "b": 9,
@@ -271,7 +275,7 @@
                 "total": 21,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 4,
                 "ab": 2,
                 "b": 1,
@@ -290,7 +294,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 3,
                 "ab": 3,
                 "b": 4,
@@ -309,7 +313,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 4,
                 "ab": 3,
                 "b": 6,
@@ -328,7 +332,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 4,
                 "ab": 2,
                 "b": 3,
@@ -382,12 +386,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 248,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
                 "course_number": 208,
                 "subjects": [
                     "PHYSICS"
@@ -401,6 +399,12 @@
             },
             {
                 "course_number": 202,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 248,
                 "subjects": [
                     "PHYSICS"
                 ]

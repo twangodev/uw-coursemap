@@ -1,28 +1,8 @@
 [
     {
         "data": {
-            "id": "PLPATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Physiology, genetics, taxonomy, and ecology of bacterial pathogens, epiphytes, and symbionts of plants.",
-            "id": "PLPATH 622",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
-            "id": "PLPATH 681",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
+            "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
+            "id": "PLPATH/SOILSCI 323"
         }
     },
     {
@@ -34,121 +14,21 @@
     },
     {
         "data": {
-            "source": "MICROBIO 303",
-            "target": "PLPATH 622"
-        }
-    },
-    {
-        "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
             "target": "MICROBIO 303"
         }
     },
     {
         "data": {
-            "description": "Synthesizing research-based capstone experience in Plant Pathology. Develop problem-solving skills, be exposed to multidisciplinary approaches, develop teamwork and interpersonal skills, develop information resources, consider societal, economic, ethical, scientific and professional aspects of the field, and prepare and present written and/or oral reports.",
-            "id": "PLPATH 590",
+            "description": "Research work for Honors students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
+            "id": "PLPATH 289",
             "parent": "PLPATH"
         }
     },
     {
         "data": {
-            "source": "PLPATH 300",
-            "target": "PLPATH 602"
-        }
-    },
-    {
-        "data": {
-            "source": "HORT/PLPATH 261",
-            "target": "HORT/PLPATH 262"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "PLPATH/SOILSCI 323"
-        }
-    },
-    {
-        "data": {
-            "source": "PLPATH 300",
-            "target": "PLPATH 559"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores biology of plant pathogenic fungi, oomycetes, nematodes, bacteria, and viruses, with emphasis on identifying: 1) key traits of each pathogen class, and 2) common strategies used by these microbes. Inquiry-driven laboratory will investigate diverse interactions between plants and their pathogens.",
-            "id": "PLPATH 558",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
-            "id": "GENETICS 466",
-            "parent": "GENETICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
-            "id": "BOTANY/PLPATH 123"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "PLPATH 315"
-        }
-    },
-    {
-        "data": {
-            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
-            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
-        }
-    },
-    {
-        "data": {
-            "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
-            "id": "HORT/PLPATH 261"
-        }
-    },
-    {
-        "data": {
-            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
-            "id": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103"
-        }
-    },
-    {
-        "data": {
-            "description": "Symptoms, epidemiology and control of diseases of crop plants; emphasis on disease diagnosis.",
-            "id": "PLPATH 559",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 467",
-            "target": "GENETICS 466"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BOTANY/PLPATH 332"
-        }
-    },
-    {
-        "data": {
-            "source": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103",
-            "target": "AAE/AGRONOMY/HORT/PLPATH 367"
-        }
-    },
-    {
-        "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member in Plant Pathology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
-            "id": "PLPATH 399",
-            "parent": "PLPATH"
+            "id": "PLPATH",
+            "type": "compound"
         }
     },
     {
@@ -159,8 +39,71 @@
     },
     {
         "data": {
-            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
-            "id": "AAE/AGRONOMY/HORT/PLPATH 367"
+            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
+            "id": "PLPATH 400",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Economic importance, symptoms, causes, and methods of control of representative plant diseases.",
+            "id": "PLPATH 300",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
+            "id": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "PLPATH 300"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the interaction between society and plant-associated microbes. Topics include: the Irish potato famine, pesticides in current agriculture, role of economics and consumer preference in crop disease management and the release of genetically engineered organisms.",
+            "id": "BOTANY/PLPATH 123"
+        }
+    },
+    {
+        "data": {
+            "source": "GENETICS 467",
+            "target": "MM&I/ONCOLOGY/PLPATH 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
+            "id": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
+        }
+    },
+    {
+        "data": {
+            "source": "MICROBIO 303",
+            "target": "BOTANY/ENTOM/PLPATH 505"
+        }
+    },
+    {
+        "data": {
+            "description": "Provide students research and/or hands-on experiences within the organic sector in order to gain scientific knowledge and/or an in-depth understanding of the research and science of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health. Declared in the Certificate in Organic Agriculture",
+            "id": "PLPATH 499",
+            "parent": "PLPATH"
         }
     },
     {
@@ -172,8 +115,21 @@
     },
     {
         "data": {
-            "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member",
-            "id": "PLPATH 990",
+            "source": "MICROBIO 303",
+            "target": "PLPATH 622"
+        }
+    },
+    {
+        "data": {
+            "description": "Subjects of current interest to undergrads.",
+            "id": "PLPATH 375",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
+            "id": "PLPATH 682",
             "parent": "PLPATH"
         }
     },
@@ -186,15 +142,27 @@
     },
     {
         "data": {
-            "description": "Provide students research and/or hands-on experiences within the organic sector in order to gain scientific knowledge and/or an in-depth understanding of the research and science of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health. Declared in the Certificate in Organic Agriculture",
-            "id": "PLPATH 499",
+            "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
+            "id": "BOTANY/ENTOM/PLPATH 505"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore plant associated microbial communities (the plant microbiome), methods used to study them, and how we can use them to improve plant and ecosystem health in the face of challenges to agricultural and natural systems. Examples will be drawn from annual crop, grassland, and forested ecosystems. Use current molecular, bioinformatic, and statistical approaches to characterize rhizosphere microbiomes from samples collected as part of on-going research projects.",
+            "id": "PLPATH 315",
             "parent": "PLPATH"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
+        }
+    },
+    {
+        "data": {
+            "source": "PLPATH 300",
+            "target": "PLPATH 559"
         }
     },
     {
@@ -205,22 +173,20 @@
     },
     {
         "data": {
-            "description": "Learn about mentoring and/or instructional materials. Practice mentoring undergraduate researchers with feedback and evaluation and/or develop and evaluate instructional materials.",
-            "id": "PLPATH 801",
-            "parent": "PLPATH"
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BOTANY/PLPATH 332"
         }
     },
     {
         "data": {
-            "source": "GENETICS 467",
-            "target": "MM&I/ONCOLOGY/PLPATH 640"
+            "description": "Learn basic methodology in scientific research and discovery, including laboratory techniques, quantitative reasoning, scientific communication, and collaboration. Gain hands-on laboratory experience working with microbes to test original hypotheses concerning the discovery of potential antibiotic compounds while addressing the world's antibiotic resistance crisis by contributing data to the global \"Tiny Earth\" network of researchers to advance potential drug development. Tiny Earth seeks to encourage students to pursue careers in science through real-world, applied research experiences and aims to address a worldwide health threat of the diminishing supply of effective antibiotics by \"student-sourcing antibiotic discovery.\" Concurrent enrollment inBIOLOGY/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0152is required for permission to enroll.",
+            "id": "PLPATH/ZOOLOGY 154"
         }
     },
     {
         "data": {
-            "description": "Economic importance, symptoms, causes, and methods of control of representative plant diseases.",
-            "id": "PLPATH 300",
-            "parent": "PLPATH"
+            "source": "GENETICS 466",
+            "target": "GENETICS 467"
         }
     },
     {
@@ -238,33 +204,35 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Second semester of individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
-            "id": "PLPATH 682",
+            "description": "Explores biology of plant pathogenic fungi, oomycetes, nematodes, bacteria, and viruses, with emphasis on identifying: 1) key traits of each pathogen class, and 2) common strategies used by these microbes. Inquiry-driven laboratory will investigate diverse interactions between plants and their pathogens.",
+            "id": "PLPATH 558",
             "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "source": "GENETICS 466",
-            "target": "GENETICS 467"
-        }
-    },
-    {
-        "data": {
-            "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
-            "id": "BOTANY/PLPATH 332"
         }
     },
     {
         "data": {
             "description": "Isn't having enough food a basic human right? Exploration of the drivers of food insecurity: barriers to food production (pests, land availability, climate), barriers to food availability (politics, price, biofuels), and a greater need due to population growth. Examination of solutions to food insecurity.",
             "id": "PLPATH 311",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent laboratory research in preparation of a graduate thesis under supervision of a faculty member",
+            "id": "PLPATH 990",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics, recent advances  literature in the area of Mycology.",
+            "id": "BOTANY/PLPATH 930"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn about mentoring and/or instructional materials. Practice mentoring undergraduate researchers with feedback and evaluation and/or develop and evaluate instructional materials.",
+            "id": "PLPATH 801",
             "parent": "PLPATH"
         }
     },
@@ -277,45 +245,39 @@
     },
     {
         "data": {
-            "description": "The structure, multiplication, genetics, pathology and control of animal and plant viruses.",
-            "id": "MM&I/ONCOLOGY/PLPATH 640"
+            "id": "MICROBIO",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "source": "PLPATH 800",
-            "target": "PLPATH 801"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
-            "id": "MICROBIO 303",
-            "parent": "MICROBIO"
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "PLPATH 315"
         }
     },
     {
         "data": {
             "source": "PLPATH 300",
-            "target": "PLPATH 517"
+            "target": "PLPATH 558"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
+            "target": "PLPATH/SOILSCI 323"
+        }
+    },
+    {
+        "data": {
+            "description": "Symptoms, epidemiology and control of diseases of crop plants; emphasis on disease diagnosis.",
+            "id": "PLPATH 559",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY 130",
+            "target": "BOTANY/PLPATH 563"
         }
     },
     {
@@ -327,54 +289,64 @@
     },
     {
         "data": {
-            "description": "Molecular and ecological aspects of the interactions between plants and microorganisms. Explores many of the themes, from genetic to integrative, of modern biology, and illustrates how study of plant-microbe interactions contributes to understanding of fundamental plant science.",
-            "id": "BOTANY/ENTOM/PLPATH 505"
+            "source": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103",
+            "target": "AAE/AGRONOMY/HORT/PLPATH 367"
         }
     },
     {
         "data": {
-            "description": "Seminar series on topics related to plant pathology",
-            "id": "PLPATH 923",
+            "description": "Fungal genetics, genomics, and physiology using plant pathogenic fungi and the genetic models Aspergillus nidulans and Neurospora crassa as model systems to explore the current knowledge of fungal genetics and plant/fungal interactions.",
+            "id": "BOTANY/GENETICS/MM&I/PLPATH 655"
+        }
+    },
+    {
+        "data": {
+            "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
+            "id": "BOTANY/PLPATH 563"
+        }
+    },
+    {
+        "data": {
+            "source": "PLPATH 800",
+            "target": "PLPATH 801"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance. Develop skills in microscopy with live fungal materials.",
+            "id": "BOTANY/PLPATH 332"
+        }
+    },
+    {
+        "data": {
+            "source": "HORT/PLPATH 261",
+            "target": "HORT/PLPATH 262"
+        }
+    },
+    {
+        "data": {
+            "description": "Synthesizing research-based capstone experience in Plant Pathology. Develop problem-solving skills, be exposed to multidisciplinary approaches, develop teamwork and interpersonal skills, develop information resources, consider societal, economic, ethical, scientific and professional aspects of the field, and prepare and present written and/or oral reports.",
+            "id": "PLPATH 590",
             "parent": "PLPATH"
         }
     },
     {
         "data": {
-            "description": "Research work for Honors students under direct guidance of a faculty member in an area of Plant Pathology.  Students are responsible for arranging the work and credits with the supervising instructor.",
-            "id": "PLPATH 289",
-            "parent": "PLPATH"
+            "description": "Basic biology of microorganisms, including structure, function, physiology, genetics, ecology, diversity, and evolution.",
+            "id": "MICROBIO 303",
+            "parent": "MICROBIO"
         }
     },
     {
         "data": {
-            "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
-            "id": "BOTANY/PLPATH 333"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "MICROBIO",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore plant associated microbial communities (the plant microbiome), methods used to study them, and how we can use them to improve plant and ecosystem health in the face of challenges to agricultural and natural systems. Examples will be drawn from annual crop, grassland, and forested ecosystems. Use current molecular, bioinformatic, and statistical approaches to characterize rhizosphere microbiomes from samples collected as part of on-going research projects.",
-            "id": "PLPATH 315",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Subjects of current interest to undergrads.",
-            "id": "PLPATH 375",
-            "parent": "PLPATH"
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
         }
     },
     {
@@ -385,51 +357,39 @@
     },
     {
         "data": {
-            "description": "Topics, recent advances  literature in the area of Mycology.",
-            "id": "BOTANY/PLPATH 930"
+            "description": "Provides an in-depth understanding of the history of organic agriculture, its production, processing, marketing, and social dimensions, and its impact on environmental, community, and human health.",
+            "id": "AAE/AGRONOMY/HORT/PLPATH 367"
         }
     },
     {
         "data": {
-            "description": "Nature, activities and role of organisms inhabiting soil. Effects of soil biota on ecosystem function, response to cultural practices, and impacts on environmental quality, including bioremediation of contaminated soils.",
-            "id": "PLPATH/SOILSCI 323"
+            "description": "Growth, development, variability and dispersal of saprophytic, parasitic, and symbiotic fungi, with a consideration of their ecological and economic significance.",
+            "id": "BOTANY/PLPATH 333"
         }
     },
     {
         "data": {
-            "description": "Learn basic methodology in scientific research and discovery, including laboratory techniques, quantitative reasoning, scientific communication, and collaboration. Gain hands-on laboratory experience working with microbes to test original hypotheses concerning the discovery of potential antibiotic compounds while addressing the world's antibiotic resistance crisis by contributing data to the global \"Tiny Earth\" network of researchers to advance potential drug development. Tiny Earth seeks to encourage students to pursue careers in science through real-world, applied research experiences and aims to address a worldwide health threat of the diminishing supply of effective antibiotics by \"student-sourcing antibiotic discovery.\" Concurrent enrollment inBIOLOGY/\u200bBOTANY/\u200bZOOLOGY\u00a0\u00a0152is required for permission to enroll.",
-            "id": "PLPATH/ZOOLOGY 154"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Current topics in molecular and environmental toxicology and problems related to biologically active substances in the environment. Topics vary each semester. Lectures are by resident and visiting professors and other researchers.",
-            "id": "ENTOM/F&WECOL/PLPATH/SOILSCI 606"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an area equivalency for courses taken on Madison Study Abroad Programs that do not equate to existing UW courses. Current enrollment in a UW-Madison study abroad program",
-            "id": "PLPATH 400",
-            "parent": "PLPATH"
-        }
-    },
-    {
-        "data": {
-            "source": "MICROBIO 303",
-            "target": "BOTANY/ENTOM/PLPATH 505"
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
         }
     },
     {
         "data": {
             "source": "PLPATH 300",
-            "target": "PLPATH 558"
+            "target": "PLPATH 517"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY 130",
-            "target": "BOTANY/PLPATH 563"
+            "description": "Individual study for undergraduate students in an Honors program completing a thesis in the area of Plant Pathology, as arranged with a faculty member.",
+            "id": "PLPATH 681",
+            "parent": "PLPATH"
         }
     },
     {
@@ -441,6 +401,39 @@
     },
     {
         "data": {
+            "description": "Seminar series on topics related to plant pathology",
+            "id": "PLPATH 923",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PLPATH 300",
+            "target": "PLPATH 602"
+        }
+    },
+    {
+        "data": {
+            "description": "Agroecology has blossomed across the world in recent decades as not only a science, but also a practice, and a movement. Employ the multiple disciplines and perspectives that Agroecology affords to analyze our agricultural and food systems wihin a broader context of dynamic social and ecological relationships.",
+            "id": "AGROECOL/AGRONOMY/C&ESOC/ENTOM/ENVIRST 103"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member in Plant Pathology and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor.",
+            "id": "PLPATH 399",
+            "parent": "PLPATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Genetics in eukaryotes and prokaryotes.  Includes transmission genetics, molecular genetics, evolutionary genetics, genetic engineering, and societal issues associated with genetics.  Illustrative material includes bacteria, plants, insects, and vertebrates.",
+            "id": "GENETICS 466",
+            "parent": "GENETICS"
+        }
+    },
+    {
+        "data": {
             "description": "Environmental factors in the development and spread of diseases, pathogen variability, genetics of disease resistance, and principles of disease control.",
             "id": "PLPATH 602",
             "parent": "PLPATH"
@@ -448,20 +441,27 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 152",
-            "target": "PLPATH 300"
+            "description": "Physiology, genetics, taxonomy, and ecology of bacterial pathogens, epiphytes, and symbionts of plants.",
+            "id": "PLPATH 622",
+            "parent": "PLPATH"
         }
     },
     {
         "data": {
-            "description": "Theory and practice of phylogenetic inference from DNA sequence data.",
-            "id": "BOTANY/PLPATH 563"
+            "source": "GENETICS 467",
+            "target": "GENETICS 466"
+        }
+    },
+    {
+        "data": {
+            "description": "Sustainable use and management of turfgrass landscapes in urban and suburban environments, including home lawns, golf courses, and sports fields. Focus is on creating sustainable and attractive turfgrass landscapes through proper species selection, use of slow-release or organic fertilizer practices, and minimizing the use of pesticides and supplemental irrigation.",
+            "id": "HORT/PLPATH 261"
         }
     }
 ]

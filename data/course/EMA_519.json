@@ -17,13 +17,17 @@
         "instructors": {
             "Curt BRONKHORST": "CBRONKHORST@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Engineering\",\n    \"abbreviation\": \"E\",\n    \"url\": \"http://www.engr.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "E",
+            "name": "Engineering",
+            "url": "http://www.engr.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2008": {
+            "1084": {
                 "a": 4,
                 "ab": 5,
                 "b": 5,
@@ -42,7 +46,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 3,
                 "ab": 2,
                 "b": 4,
@@ -61,7 +65,7 @@
                 "total": 13,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 2,
                 "ab": 0,
                 "b": 0,
@@ -80,7 +84,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -99,7 +103,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 4,
                 "ab": 3,
                 "b": 2,
@@ -118,7 +122,7 @@
                 "total": 14,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 3,
                 "ab": 5,
                 "b": 4,
@@ -137,7 +141,7 @@
                 "total": 14,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 7,
                 "ab": 10,
                 "b": 6,
@@ -156,7 +160,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 1,
                 "ab": 1,
                 "b": 3,
@@ -175,7 +179,7 @@
                 "total": 9,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -229,15 +233,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 306,
-                "subjects": [
-                    "ME"
-                ]
-            },
-            {
                 "course_number": 303,
                 "subjects": [
                     "EMA"
+                ]
+            },
+            {
+                "course_number": 306,
+                "subjects": [
+                    "ME"
                 ]
             }
         ],

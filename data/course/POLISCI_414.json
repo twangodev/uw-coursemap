@@ -17,13 +17,17 @@
         "instructors": {
             "David Olson": "DOLSON5@WISC.EDU"
         },
-        "last_taught_term_code": 1242,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Fall 2023",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2014": {
+            "1152": {
                 "a": 14,
                 "ab": 11,
                 "b": 7,
@@ -42,7 +46,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Fall 2015": {
+            "1162": {
                 "a": 22,
                 "ab": 13,
                 "b": 4,
@@ -61,7 +65,7 @@
                 "total": 45,
                 "unsatisfactory": 0
             },
-            "Fall 2016": {
+            "1172": {
                 "a": 21,
                 "ab": 17,
                 "b": 12,
@@ -80,7 +84,7 @@
                 "total": 67,
                 "unsatisfactory": 0
             },
-            "Fall 2020": {
+            "1212": {
                 "a": 47,
                 "ab": 15,
                 "b": 4,
@@ -99,7 +103,7 @@
                 "total": 77,
                 "unsatisfactory": 0
             },
-            "Fall 2021": {
+            "1222": {
                 "a": 30,
                 "ab": 13,
                 "b": 5,
@@ -118,7 +122,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Fall 2022": {
+            "1232": {
                 "a": 29,
                 "ab": 14,
                 "b": 4,
@@ -137,7 +141,7 @@
                 "total": 50,
                 "unsatisfactory": 0
             },
-            "Fall 2023": {
+            "1242": {
                 "a": 36,
                 "ab": 7,
                 "b": 2,
@@ -192,12 +196,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 184,
-                "subjects": [
-                    "POLISCI"
-                ]
-            },
-            {
                 "course_number": 104,
                 "subjects": [
                     "POLISCI"
@@ -207,6 +205,12 @@
                 "course_number": 217,
                 "subjects": [
                     "LEGALST",
+                    "POLISCI"
+                ]
+            },
+            {
+                "course_number": 184,
+                "subjects": [
                     "POLISCI"
                 ]
             }

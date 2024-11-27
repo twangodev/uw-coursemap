@@ -10,7 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Fall 2023": {
+            "1242": {
                 "a": 35,
                 "ab": 12,
                 "b": 3,
@@ -64,10 +64,35 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 210,
+                "subjects": [
+                    "ISYE"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 349,
                 "subjects": [
                     "ISYE",
                     "PSYCH"
+                ]
+            },
+            {
+                "course_number": 331,
+                "subjects": [
+                    "ECE"
                 ]
             },
             {
@@ -80,31 +105,6 @@
                 "course_number": 312,
                 "subjects": [
                     "STAT"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 331,
-                "subjects": [
-                    "ECE"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "ISYE"
                 ]
             }
         ],

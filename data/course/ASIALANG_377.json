@@ -17,8 +17,12 @@
         "instructors": {
             "Takako NAKAKUBO": "TNAKAKUBO@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": null,
@@ -36,6 +40,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 204,
+                "subjects": [
+                    "ASIALANG"
+                ]
+            },
+            {
                 "course_number": 303,
                 "subjects": [
                     "ASIALANG"
@@ -43,12 +53,6 @@
             },
             {
                 "course_number": 358,
-                "subjects": [
-                    "ASIALANG"
-                ]
-            },
-            {
-                "course_number": 204,
                 "subjects": [
                     "ASIALANG"
                 ]

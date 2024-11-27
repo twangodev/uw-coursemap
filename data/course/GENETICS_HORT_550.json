@@ -18,13 +18,17 @@
         "instructors": {
             "PATRICK KRYSAN": "PJKRYSAN@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2006": {
+            "1072": {
                 "a": 6,
                 "ab": 2,
                 "b": 10,
@@ -43,7 +47,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Fall 2007": {
+            "1082": {
                 "a": 4,
                 "ab": 7,
                 "b": 10,
@@ -62,7 +66,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Fall 2008": {
+            "1092": {
                 "a": 5,
                 "ab": 4,
                 "b": 8,
@@ -81,7 +85,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Fall 2009": {
+            "1102": {
                 "a": 3,
                 "ab": 2,
                 "b": 6,
@@ -100,7 +104,7 @@
                 "total": 15,
                 "unsatisfactory": 0
             },
-            "Fall 2011": {
+            "1122": {
                 "a": 2,
                 "ab": 4,
                 "b": 3,
@@ -119,7 +123,7 @@
                 "total": 11,
                 "unsatisfactory": 0
             },
-            "Fall 2012": {
+            "1132": {
                 "a": 5,
                 "ab": 3,
                 "b": 0,
@@ -138,7 +142,7 @@
                 "total": 10,
                 "unsatisfactory": 0
             },
-            "Fall 2013": {
+            "1142": {
                 "a": 4,
                 "ab": 1,
                 "b": 1,
@@ -157,7 +161,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Fall 2014": {
+            "1152": {
                 "a": 8,
                 "ab": 4,
                 "b": 7,
@@ -176,7 +180,7 @@
                 "total": 22,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 7,
                 "ab": 0,
                 "b": 0,
@@ -195,7 +199,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 10,
                 "ab": 0,
                 "b": 0,
@@ -214,7 +218,7 @@
                 "total": 10,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 8,
                 "ab": 0,
                 "b": 0,
@@ -233,7 +237,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 5,
                 "ab": 0,
                 "b": 0,
@@ -252,7 +256,7 @@
                 "total": 6,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 18,
                 "ab": 0,
                 "b": 1,
@@ -271,7 +275,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 15,
                 "ab": 1,
                 "b": 0,
@@ -325,6 +329,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
                 "course_number": 467,
                 "subjects": [
                     "GENETICS"
@@ -334,12 +344,6 @@
                 "course_number": 466,
                 "subjects": [
                     "GENETICS"
-                ]
-            },
-            {
-                "course_number": 501,
-                "subjects": [
-                    "BIOCHEM"
                 ]
             }
         ],

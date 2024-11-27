@@ -17,51 +17,17 @@
         "instructors": {
             "Brad POSTLE": "POSTLE@WISC.EDU"
         },
-        "last_taught_term_code": 1202,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Fall 2019",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring, Summer"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2019": {
-                "a": 24,
-                "ab": 20,
-                "b": 33,
-                "bc": 7,
-                "c": 8,
-                "credit": 0,
-                "d": 2,
-                "f": 4,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 98,
-                "unsatisfactory": 0
-            },
-            "Fall 2023": {
-                "a": 30,
-                "ab": 14,
-                "b": 16,
-                "bc": 6,
-                "c": 2,
-                "credit": 0,
-                "d": 1,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 70,
-                "unsatisfactory": 0
-            },
-            "Spring 2018": {
+            "1184": {
                 "a": 20,
                 "ab": 3,
                 "b": 23,
@@ -80,7 +46,7 @@
                 "total": 56,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 15,
                 "ab": 15,
                 "b": 10,
@@ -97,6 +63,44 @@
                 "passed": 0,
                 "satisfactory": 0,
                 "total": 57,
+                "unsatisfactory": 0
+            },
+            "1202": {
+                "a": 24,
+                "ab": 20,
+                "b": 33,
+                "bc": 7,
+                "c": 8,
+                "credit": 0,
+                "d": 2,
+                "f": 4,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 98,
+                "unsatisfactory": 0
+            },
+            "1242": {
+                "a": 30,
+                "ab": 14,
+                "b": 16,
+                "bc": 6,
+                "c": 2,
+                "credit": 0,
+                "d": 1,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 70,
                 "unsatisfactory": 0
             }
         },
@@ -125,8 +129,8 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -135,31 +139,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
                 ]
             },
             {
@@ -172,6 +161,21 @@
                 "course_number": 382,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 361,
         "subjects": [
-            "SLAVIC",
-            "LITTRANS"
+            "LITTRANS",
+            "SLAVIC"
         ]
     },
     "course_title": "LIVING AT THE END OF TIMES: CONTEMPORARY POLISH LITERATURE AND CULTURE",
@@ -18,13 +18,17 @@
         "instructors": {
             "Lukasz WODZYNSKI": "LUKASZ.WODZYNSKI@WISC.EDU"
         },
-        "last_taught_term_code": 1234,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2023",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2023": {
+            "1234": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -69,8 +73,8 @@
             {
                 "course_number": 215,
                 "subjects": [
-                    "SLAVIC",
-                    "LITTRANS"
+                    "LITTRANS",
+                    "SLAVIC"
                 ]
             }
         ],
@@ -79,16 +83,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 111,
+                "course_number": 215,
                 "subjects": [
+                    "LITTRANS",
                     "SLAVIC"
                 ]
             },
             {
-                "course_number": 215,
+                "course_number": 111,
                 "subjects": [
-                    "SLAVIC",
-                    "LITTRANS"
+                    "SLAVIC"
                 ]
             }
         ],

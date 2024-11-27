@@ -17,13 +17,17 @@
         "instructors": {
             "Thomas BEATTY": "TGBEATTY@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2017": {
+            "1174": {
                 "a": 20,
                 "ab": 0,
                 "b": 0,
@@ -77,12 +81,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 330,
-                "subjects": [
-                    "ASTRON"
-                ]
-            },
-            {
                 "course_number": 335,
                 "subjects": [
                     "ASTRON"
@@ -90,6 +88,12 @@
             },
             {
                 "course_number": 340,
+                "subjects": [
+                    "ASTRON"
+                ]
+            },
+            {
+                "course_number": 330,
                 "subjects": [
                     "ASTRON"
                 ]

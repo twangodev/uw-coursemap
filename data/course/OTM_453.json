@@ -17,13 +17,17 @@
         "instructors": {
             "Greg DECROIX": "GREG.DECROIX@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Business\",\n    \"abbreviation\": \"B\",\n    \"url\": \"http://www.bus.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "B",
+            "name": "Business",
+            "url": "http://www.bus.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2021": {
+            "1222": {
                 "a": 22,
                 "ab": 28,
                 "b": 6,
@@ -42,7 +46,7 @@
                 "total": 59,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 24,
                 "ab": 30,
                 "b": 6,
@@ -61,7 +65,7 @@
                 "total": 62,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 30,
                 "ab": 30,
                 "b": 6,
@@ -121,35 +125,35 @@
                 ]
             },
             {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
                 "course_number": 306,
                 "subjects": [
                     "GENBUS"
                 ]
             },
             {
-                "course_number": 310,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 431,
                 "subjects": [
-                    "STAT",
-                    "MATH"
+                    "MATH",
+                    "STAT"
                 ]
             },
             {
                 "course_number": 300,
                 "subjects": [
                     "OTM"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
                 ]
             }
         ],

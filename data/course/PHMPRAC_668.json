@@ -17,13 +17,17 @@
         "instructors": {
             "Jeffrey FISH": "JFISH@UWHEALTH.ORG"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Pharmacy\",\n    \"abbreviation\": \"P\",\n    \"url\": \"http://www.pharmacy.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "P",
+            "name": "Pharmacy",
+            "url": "http://www.pharmacy.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2018": {
+            "1184": {
                 "a": 12,
                 "ab": 6,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 17,
                 "ab": 2,
                 "b": 1,
@@ -61,7 +65,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 24,
                 "ab": 0,
                 "b": 0,
@@ -80,7 +84,7 @@
                 "total": 24,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 23,
                 "ab": 1,
                 "b": 0,
@@ -99,7 +103,7 @@
                 "total": 24,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 23,
                 "ab": 0,
                 "b": 0,
@@ -118,7 +122,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 22,
                 "ab": 1,
                 "b": 0,
@@ -172,7 +176,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 555,
+                "course_number": 655,
+                "subjects": [
+                    "PHMPRAC"
+                ]
+            },
+            {
+                "course_number": 550,
                 "subjects": [
                     "PHMPRAC"
                 ]
@@ -184,13 +194,7 @@
                 ]
             },
             {
-                "course_number": 655,
-                "subjects": [
-                    "PHMPRAC"
-                ]
-            },
-            {
-                "course_number": 550,
+                "course_number": 555,
                 "subjects": [
                     "PHMPRAC"
                 ]

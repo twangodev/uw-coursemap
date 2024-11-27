@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 350,
         "subjects": [
-            "ENTOM",
-            "ZOOLOGY",
             "MM&I",
-            "PATH-BIO"
+            "ZOOLOGY",
+            "PATH-BIO",
+            "ENTOM"
         ]
     },
     "course_title": "PARASITOLOGY",
@@ -20,8 +20,12 @@
         "instructors": {
             "Lyric Bartholomay": "LYRIC.BARTHOLOMAY@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": null,
@@ -30,8 +34,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -42,7 +46,13 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 153,
+                "subjects": [
                     "ZOOLOGY"
                 ]
             },
@@ -55,22 +65,16 @@
             {
                 "course_number": 152,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BIOLOGY"
                 ]
             },
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 153,
-                "subjects": [
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

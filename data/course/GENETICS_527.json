@@ -17,13 +17,17 @@
         "instructors": {
             "FRANCISCO PELEGRI": "FJPELEGRI@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2019": {
+            "1202": {
                 "a": 32,
                 "ab": 1,
                 "b": 2,
@@ -42,7 +46,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Fall 2020": {
+            "1212": {
                 "a": 50,
                 "ab": 2,
                 "b": 4,
@@ -61,7 +65,7 @@
                 "total": 56,
                 "unsatisfactory": 0
             },
-            "Fall 2021": {
+            "1222": {
                 "a": 34,
                 "ab": 5,
                 "b": 5,
@@ -80,45 +84,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Fall 2022": {
-                "a": 38,
-                "ab": 2,
-                "b": 0,
-                "bc": 0,
-                "c": 1,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 41,
-                "unsatisfactory": 0
-            },
-            "Fall 2023": {
-                "a": 33,
-                "ab": 1,
-                "b": 1,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 35,
-                "unsatisfactory": 0
-            },
-            "Spring 2022": {
+            "1224": {
                 "a": 24,
                 "ab": 2,
                 "b": 1,
@@ -137,7 +103,26 @@
                 "total": 30,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1232": {
+                "a": 38,
+                "ab": 2,
+                "b": 0,
+                "bc": 0,
+                "c": 1,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 41,
+                "unsatisfactory": 0
+            },
+            "1234": {
                 "a": 24,
                 "ab": 5,
                 "b": 0,
@@ -156,7 +141,26 @@
                 "total": 30,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1242": {
+                "a": 33,
+                "ab": 1,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 35,
+                "unsatisfactory": 0
+            },
+            "1244": {
                 "a": 33,
                 "ab": 4,
                 "b": 1,
@@ -210,6 +214,12 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 381,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
                 "course_number": 467,
                 "subjects": [
                     "GENETICS"
@@ -219,12 +229,6 @@
                 "course_number": 466,
                 "subjects": [
                     "GENETICS"
-                ]
-            },
-            {
-                "course_number": 381,
-                "subjects": [
-                    "BIOCORE"
                 ]
             }
         ],

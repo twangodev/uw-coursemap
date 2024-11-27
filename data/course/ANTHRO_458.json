@@ -10,7 +10,7 @@
     "enrollment_data": null,
     "madgrades_data": {
         "by_term": {
-            "Fall 2007": {
+            "1082": {
                 "a": 27,
                 "ab": 16,
                 "b": 12,
@@ -29,7 +29,7 @@
                 "total": 78,
                 "unsatisfactory": 0
             },
-            "Fall 2009": {
+            "1102": {
                 "a": 14,
                 "ab": 23,
                 "b": 20,
@@ -48,7 +48,7 @@
                 "total": 68,
                 "unsatisfactory": 0
             },
-            "Fall 2012": {
+            "1132": {
                 "a": 30,
                 "ab": 13,
                 "b": 20,
@@ -67,7 +67,7 @@
                 "total": 78,
                 "unsatisfactory": 0
             },
-            "Fall 2014": {
+            "1152": {
                 "a": 26,
                 "ab": 23,
                 "b": 16,
@@ -86,7 +86,7 @@
                 "total": 85,
                 "unsatisfactory": 0
             },
-            "Fall 2016": {
+            "1172": {
                 "a": 13,
                 "ab": 18,
                 "b": 20,
@@ -105,7 +105,7 @@
                 "total": 69,
                 "unsatisfactory": 0
             },
-            "Fall 2019": {
+            "1202": {
                 "a": 23,
                 "ab": 13,
                 "b": 16,
@@ -124,7 +124,7 @@
                 "total": 65,
                 "unsatisfactory": 0
             },
-            "Fall 2021": {
+            "1222": {
                 "a": 22,
                 "ab": 5,
                 "b": 10,
@@ -143,7 +143,7 @@
                 "total": 47,
                 "unsatisfactory": 0
             },
-            "Fall 2023": {
+            "1242": {
                 "a": 11,
                 "ab": 8,
                 "b": 10,
@@ -197,10 +197,16 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 450,
+                "subjects": [
+                    "PSYCH"
+                ]
+            },
+            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -210,33 +216,25 @@
                 ]
             },
             {
-                "course_number": 152,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 260,
-                "subjects": [
-                    "ENVIRST",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 450,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
                 "course_number": 360,
                 "subjects": [
-                    "ENVIRST",
+                    "F&WECOL",
                     "ZOOLOGY",
-                    "F&WECOL"
+                    "ENVIRST"
+                ]
+            },
+            {
+                "course_number": 152,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 105,
+                "subjects": [
+                    "ANTHRO"
                 ]
             },
             {
@@ -246,9 +244,11 @@
                 ]
             },
             {
-                "course_number": 105,
+                "course_number": 260,
                 "subjects": [
-                    "ANTHRO"
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "ENVIRST"
                 ]
             }
         ],

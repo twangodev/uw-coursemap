@@ -18,13 +18,17 @@
         "instructors": {
             "Jae-Hyuk Yu": "JYU1@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "M",
+            "name": "Medicine and Public Health",
+            "url": "http://www.med.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 46,
                 "ab": 5,
                 "b": 3,
@@ -43,7 +47,7 @@
                 "total": 59,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 29,
                 "ab": 8,
                 "b": 3,
@@ -62,7 +66,7 @@
                 "total": 43,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 27,
                 "ab": 8,
                 "b": 2,
@@ -81,7 +85,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 37,
                 "ab": 6,
                 "b": 1,
@@ -100,7 +104,7 @@
                 "total": 49,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 29,
                 "ab": 4,
                 "b": 7,
@@ -119,7 +123,7 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Spring 2012": {
+            "1124": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -138,7 +142,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 25,
                 "ab": 5,
                 "b": 0,
@@ -157,7 +161,7 @@
                 "total": 32,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 45,
                 "ab": 5,
                 "b": 3,
@@ -176,7 +180,7 @@
                 "total": 53,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 27,
                 "ab": 3,
                 "b": 0,
@@ -195,7 +199,7 @@
                 "total": 30,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 34,
                 "ab": 3,
                 "b": 1,
@@ -214,7 +218,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 20,
                 "ab": 5,
                 "b": 2,
@@ -233,7 +237,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 24,
                 "ab": 0,
                 "b": 0,
@@ -252,7 +256,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 43,
                 "ab": 0,
                 "b": 0,
@@ -271,7 +275,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 33,
                 "ab": 0,
                 "b": 2,
@@ -290,7 +294,7 @@
                 "total": 35,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 82,
                 "ab": 8,
                 "b": 4,
@@ -309,7 +313,7 @@
                 "total": 97,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 102,
                 "ab": 7,
                 "b": 4,
@@ -328,7 +332,7 @@
                 "total": 116,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 93,
                 "ab": 5,
                 "b": 2,
@@ -373,9 +377,9 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "BIOLOGY",
+                    "BOTANY",
                     "ZOOLOGY",
-                    "BOTANY"
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -384,30 +388,16 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
+                "course_number": 104,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "CHEM"
                 ]
             },
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 383,
-                "subjects": [
-                    "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 104,
-                "subjects": [
-                    "CHEM"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -417,10 +407,24 @@
                 ]
             },
             {
+                "course_number": 383,
+                "subjects": [
+                    "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
                 "course_number": 130,
                 "subjects": [
-                    "BIOLOGY",
-                    "BOTANY"
+                    "BOTANY",
+                    "BIOLOGY"
                 ]
             }
         ],

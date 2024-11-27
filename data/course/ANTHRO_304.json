@@ -17,32 +17,17 @@
         "instructors": {
             "JOHN HAWKS": "JHAWKS@WISC.EDU"
         },
-        "last_taught_term_code": 1214,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall, Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2019": {
-                "a": 55,
-                "ab": 13,
-                "b": 1,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 2,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 2,
-                "total": 73,
-                "unsatisfactory": 0
-            },
-            "Spring 2008": {
+            "1084": {
                 "a": 23,
                 "ab": 25,
                 "b": 13,
@@ -61,7 +46,7 @@
                 "total": 77,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 15,
                 "ab": 30,
                 "b": 1,
@@ -80,7 +65,7 @@
                 "total": 48,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 8,
                 "ab": 21,
                 "b": 10,
@@ -97,6 +82,25 @@
                 "passed": 0,
                 "satisfactory": 4,
                 "total": 47,
+                "unsatisfactory": 0
+            },
+            "1202": {
+                "a": 55,
+                "ab": 13,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 2,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 2,
+                "total": 73,
                 "unsatisfactory": 0
             }
         },
@@ -136,39 +140,29 @@
             {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
-                "course_number": 152,
-                "subjects": [
-                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
-                "course_number": 260,
-                "subjects": [
-                    "ENVIRST",
-                    "ZOOLOGY",
-                    "BOTANY"
+                    "BIOLOGY"
                 ]
             },
             {
                 "course_number": 360,
                 "subjects": [
-                    "ENVIRST",
                     "F&WECOL",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "ENVIRST"
                 ]
             },
             {
-                "course_number": 410,
+                "course_number": 152,
                 "subjects": [
-                    "ZOOLOGY",
                     "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 105,
+                "subjects": [
                     "ANTHRO"
                 ]
             },
@@ -179,9 +173,19 @@
                 ]
             },
             {
-                "course_number": 105,
+                "course_number": 410,
                 "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
                     "ANTHRO"
+                ]
+            },
+            {
+                "course_number": 260,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "ENVIRST"
                 ]
             }
         ],

@@ -8,8 +8,15 @@
     },
     {
         "data": {
-            "description": "In-depth exposure to ambulatory ophthalmology, operative ophthalmology, subspecialty clinics, working under the direct supervision of Ophthalmology faculty, residents, fellows. Complete other patient care related learning activities as assigned by instructors (e.g., literature reviews, presentations on specific topics); these are dependent on the individual student, attending physician, and clinical site. Each student's schedule individualized to meet each location's capacity and student preference.",
-            "id": "OPHTHALM 919",
+            "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
+            "id": "OPHTHALM 910",
+            "parent": "OPHTHALM"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects as arranged with faculty member.",
+            "id": "OPHTHALM 699",
             "parent": "OPHTHALM"
         }
     },
@@ -21,13 +28,6 @@
     },
     {
         "data": {
-            "description": "Independent research under the direct supervision of Ophthalmology faculty.  Each student's research project is individualized to meet student research goals within context of faculty research needs.",
-            "id": "OPHTHALM 910",
-            "parent": "OPHTHALM"
-        }
-    },
-    {
-        "data": {
             "description": "Care of adults and children undergoing an operation or procedure, including perioperative preparation, operative care, and post-operative cares for core clinical conditions in the specialties of anesthesia, neurosurgery, ophthalmology, general surgery, otolaryngology, urology, cardiothoracic surgery, peripheral vascular surgery, orthopedics, plastic and reconstructive surgery, and gynecology, as well as interventional radiology, procedural cardiology and gastroenterology. Basic science concepts include cerebral spinal fluid production and flow, fluids and electrolytes, consciousness, inflammation and wound healing, and cancer biology. Anatomic approach using case discussions, podcasts, curated independent reading, online nationally supported modules, and simulation skills. Longitudinal patient care experience integrating communication, evidence based medicine, health information technology, quality improvement  patient safety, professionalism, scientific inquiry, and public health.",
             "id": "MEDSC-M 813",
             "parent": "MEDSC-M"
@@ -35,15 +35,8 @@
     },
     {
         "data": {
-            "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
-            "id": "OPHTHALM 750",
-            "parent": "OPHTHALM"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects as arranged with faculty member.",
-            "id": "OPHTHALM 699",
+            "description": "In-depth exposure to ambulatory ophthalmology, operative ophthalmology, subspecialty clinics, working under the direct supervision of Ophthalmology faculty, residents, fellows. Complete other patient care related learning activities as assigned by instructors (e.g., literature reviews, presentations on specific topics); these are dependent on the individual student, attending physician, and clinical site. Each student's schedule individualized to meet each location's capacity and student preference.",
+            "id": "OPHTHALM 919",
             "parent": "OPHTHALM"
         }
     },
@@ -57,6 +50,13 @@
         "data": {
             "source": "MEDSC-M 813",
             "target": "OPHTHALM 911"
+        }
+    },
+    {
+        "data": {
+            "description": "An integrated approach to basic aspects of the mammalian visual system from anatomy and molecular/cellular biology to current and future therapeutic treatments of common ocular disorders. Seven general areas being covered include development and anatomy of the eye, physiology of the visual system, immunology and ocular surface diseases, retinal diseases, glaucoma, and translational approaches to vision research.",
+            "id": "OPHTHALM 750",
+            "parent": "OPHTHALM"
         }
     }
 ]

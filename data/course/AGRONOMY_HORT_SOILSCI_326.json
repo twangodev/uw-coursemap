@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 326,
         "subjects": [
-            "HORT",
+            "AGRONOMY",
             "SOILSCI",
-            "AGRONOMY"
+            "HORT"
         ]
     },
     "course_title": "PLANT NUTRITION MANAGEMENT",
@@ -20,13 +20,17 @@
             "Gregg Sanford": "GSANFORD@WISC.EDU",
             "NADIA NOOR": "NNOOR2@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2007": {
+            "1074": {
                 "a": 4,
                 "ab": 0,
                 "b": 4,
@@ -45,7 +49,7 @@
                 "total": 9,
                 "unsatisfactory": 0
             },
-            "Spring 2008": {
+            "1084": {
                 "a": 7,
                 "ab": 1,
                 "b": 2,
@@ -64,7 +68,7 @@
                 "total": 11,
                 "unsatisfactory": 0
             },
-            "Spring 2009": {
+            "1094": {
                 "a": 8,
                 "ab": 2,
                 "b": 5,
@@ -83,7 +87,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 7,
                 "ab": 4,
                 "b": 5,
@@ -102,7 +106,7 @@
                 "total": 17,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 7,
                 "ab": 5,
                 "b": 8,
@@ -121,7 +125,7 @@
                 "total": 24,
                 "unsatisfactory": 0
             },
-            "Spring 2012": {
+            "1124": {
                 "a": 6,
                 "ab": 7,
                 "b": 9,
@@ -140,7 +144,7 @@
                 "total": 30,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 10,
                 "ab": 7,
                 "b": 7,
@@ -159,7 +163,7 @@
                 "total": 26,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 12,
                 "ab": 11,
                 "b": 7,
@@ -178,7 +182,7 @@
                 "total": 39,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 7,
                 "ab": 5,
                 "b": 8,
@@ -197,7 +201,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 7,
                 "ab": 6,
                 "b": 8,
@@ -216,7 +220,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 2,
                 "ab": 3,
                 "b": 2,
@@ -235,7 +239,7 @@
                 "total": 7,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 4,
                 "ab": 5,
                 "b": 2,
@@ -254,7 +258,7 @@
                 "total": 12,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 7,
                 "ab": 5,
                 "b": 6,
@@ -273,7 +277,7 @@
                 "total": 23,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 3,
                 "ab": 4,
                 "b": 7,
@@ -292,7 +296,7 @@
                 "total": 15,
                 "unsatisfactory": 1
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 7,
                 "ab": 1,
                 "b": 7,
@@ -311,7 +315,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 16,
                 "ab": 2,
                 "b": 0,
@@ -330,7 +334,7 @@
                 "total": 18,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 9,
                 "ab": 9,
                 "b": 2,
@@ -384,21 +388,21 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 230,
+                "subjects": [
+                    "SOILSCI",
+                    "ENVIRST",
+                    "GEOG"
+                ]
+            },
+            {
                 "course_number": 301,
                 "subjects": [
                     "SOILSCI"
                 ]
             },
             {
-                "course_number": 230,
-                "subjects": [
-                    "ENVIRST",
-                    "SOILSCI",
-                    "GEOG"
-                ]
-            },
-            {
-                "course_number": 115,
+                "course_number": 109,
                 "subjects": [
                     "CHEM"
                 ]
@@ -410,7 +414,7 @@
                 ]
             },
             {
-                "course_number": 109,
+                "course_number": 115,
                 "subjects": [
                     "CHEM"
                 ]

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 320,
         "subjects": [
-            "GEOSCI",
-            "GEOG"
+            "GEOG",
+            "GEOSCI"
         ]
     },
     "course_title": "GEOMORPHOLOGY",
@@ -18,13 +18,17 @@
         "instructors": {
             "Joseph Mason": "MASON@GEOGRAPHY.WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2006": {
+            "1072": {
                 "a": 13,
                 "ab": 4,
                 "b": 8,
@@ -43,7 +47,7 @@
                 "total": 31,
                 "unsatisfactory": 0
             },
-            "Fall 2007": {
+            "1082": {
                 "a": 7,
                 "ab": 2,
                 "b": 5,
@@ -62,7 +66,7 @@
                 "total": 16,
                 "unsatisfactory": 0
             },
-            "Fall 2008": {
+            "1092": {
                 "a": 7,
                 "ab": 4,
                 "b": 5,
@@ -81,7 +85,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Fall 2010": {
+            "1112": {
                 "a": 9,
                 "ab": 2,
                 "b": 6,
@@ -100,7 +104,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 8,
                 "ab": 9,
                 "b": 1,
@@ -119,7 +123,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 10,
                 "ab": 4,
                 "b": 3,
@@ -138,7 +142,7 @@
                 "total": 21,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 11,
                 "ab": 11,
                 "b": 9,
@@ -157,7 +161,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 8,
                 "ab": 8,
                 "b": 11,
@@ -176,7 +180,7 @@
                 "total": 27,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 5,
                 "ab": 7,
                 "b": 3,
@@ -195,7 +199,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 9,
                 "ab": 6,
                 "b": 3,
@@ -214,7 +218,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 13,
                 "ab": 5,
                 "b": 6,
@@ -233,7 +237,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 4,
                 "ab": 7,
                 "b": 2,
@@ -252,7 +256,7 @@
                 "total": 25,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 2,
                 "ab": 3,
                 "b": 7,
@@ -271,7 +275,7 @@
                 "total": 20,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 8,
                 "ab": 7,
                 "b": 4,
@@ -290,7 +294,7 @@
                 "total": 19,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 6,
                 "ab": 3,
                 "b": 1,
@@ -344,16 +348,28 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 100,
+                "course_number": 106,
+                "subjects": [
+                    "ENVIRST",
+                    "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 204,
                 "subjects": [
                     "GEOSCI"
                 ]
             },
             {
-                "course_number": 120,
+                "course_number": 109,
                 "subjects": [
-                    "ENVIRST",
-                    "GEOG"
+                    "GEOSCI"
+                ]
+            },
+            {
+                "course_number": 100,
+                "subjects": [
+                    "GEOSCI"
                 ]
             },
             {
@@ -364,22 +380,10 @@
                 ]
             },
             {
-                "course_number": 204,
-                "subjects": [
-                    "GEOSCI"
-                ]
-            },
-            {
-                "course_number": 106,
+                "course_number": 120,
                 "subjects": [
                     "ENVIRST",
-                    "GEOSCI"
-                ]
-            },
-            {
-                "course_number": 109,
-                "subjects": [
-                    "GEOSCI"
+                    "GEOG"
                 ]
             }
         ],

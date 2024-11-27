@@ -1,21 +1,21 @@
 [
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
-            "id": "BIOLOGY 691",
-            "parent": "BIOLOGY"
+            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
+            "id": "BIOCORE 381",
+            "parent": "BIOCORE"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 102"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
-            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
-            "id": "BIOLOGY/BOTANY 130"
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
@@ -27,15 +27,20 @@
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
-            "id": "BIOLOGY 682",
-            "parent": "BIOLOGY"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Intermediate special topics on contemporary issues relevant to studying biology.",
-            "id": "BIOLOGY 675",
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory special topics on contemporary issues relevant to studying biology.",
+            "id": "BIOLOGY 375",
             "parent": "BIOLOGY"
         }
     },
@@ -48,14 +53,15 @@
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
+            "id": "BIOLOGY",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "id": "BIOLOGY",
-            "type": "compound"
+            "description": "Intermediate special topics on contemporary issues relevant to studying biology.",
+            "id": "BIOLOGY 675",
+            "parent": "BIOLOGY"
         }
     },
     {
@@ -66,14 +72,72 @@
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
+            "id": "BIOLOGY 681",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
+            "id": "BIOLOGY 399",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
+            "id": "BIOLOGY 691",
+            "parent": "BIOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the basic principles and concepts of the biology of plants. an integrative approach stressing evolutionary sequences and the relationship between structure and function at succeeding levels of organization: molecule, cell, organism, population, community. Correlated lectures, laboratories, and discussions.",
+            "id": "BIOLOGY/BOTANY 130"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
+            "id": "BIOLOGY/ZOOLOGY 102"
+        }
+    },
+    {
+        "data": {
+            "id": "BIOCORE",
+            "type": "compound"
         }
     },
     {
         "data": {
             "source": "BIOCORE 381",
             "target": "BIOLOGY/GENETICS 522"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
+            "id": "BIOLOGY 682",
+            "parent": "BIOLOGY"
         }
     },
     {
@@ -87,70 +151,6 @@
             "description": "Individual study for seniors completing theses as arranged with a faculty member. Open only to students declared in Biology.",
             "id": "BIOLOGY 692",
             "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "General concepts of animal biology at an introductory level emphasizing the evolutionary relationships between animals. Learn about general body plans and strategies used to accomplish the basic tasks of staying alive in major animal groups using preserved and live animals. Study the diversity within each group of animals by integrating the body plans with the lifestyle and ecology of animals. Dissections of earthworm, freshwater mussel, squid, sea star, and rat aid the study of these general principles.",
-            "id": "BIOLOGY/ZOOLOGY 102"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: selected topics in plant physiology, a survey of the five major kingdoms of organisms, speciation and evolutionary theory, and ecology at multiple levels of the biological hierarchy.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "id": "BIOCORE",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "An internship under guidance of a faculty or instructional academic staff member and internship site supervisor. Students are responsible for arranging the work and credits with the faculty or instructional academic staff member and the internship site supervisor. Open only to students declared in Biology.",
-            "id": "BIOLOGY 399",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member for an Honors program. Open only to students declared in Biology.",
-            "id": "BIOLOGY 681",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory special topics on contemporary issues relevant to studying biology.",
-            "id": "BIOLOGY 375",
-            "parent": "BIOLOGY"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 152"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic principles of ecology and interrelations between individuals, populations, communities, ecosystems and their environment; transmission genetics and introduction to population genetics; origin of life, evolutionary mechanisms, ancestral relationships among species, and the diversity of life.",
-            "id": "BIOCORE 381",
-            "parent": "BIOCORE"
         }
     }
 ]

@@ -17,13 +17,17 @@
         "instructors": {
             "David RONIS": "RONIS@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2020": {
+            "1212": {
                 "a": 0,
                 "ab": 0,
                 "b": 0,
@@ -42,7 +46,7 @@
                 "total": 0,
                 "unsatisfactory": 0
             },
-            "Fall 2022": {
+            "1232": {
                 "a": 7,
                 "ab": 1,
                 "b": 0,
@@ -61,7 +65,7 @@
                 "total": 8,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 8,
                 "ab": 1,
                 "b": 1,
@@ -115,13 +119,7 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 705,
-                "subjects": [
-                    "MUSPERF"
-                ]
-            },
-            {
-                "course_number": 144,
+                "course_number": 505,
                 "subjects": [
                     "MUSPERF"
                 ]
@@ -133,7 +131,13 @@
                 ]
             },
             {
-                "course_number": 505,
+                "course_number": 144,
+                "subjects": [
+                    "MUSPERF"
+                ]
+            },
+            {
+                "course_number": 705,
                 "subjects": [
                     "MUSPERF"
                 ]

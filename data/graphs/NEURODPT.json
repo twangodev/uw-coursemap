@@ -1,87 +1,14 @@
 [
     {
         "data": {
-            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
-            "id": "NEURODPT/NTP/ZOOLOGY 765"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
-            "id": "NEURODPT/NTP/PSYCH 611"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 812",
-            "target": "NEURODPT 747"
-        }
-    },
-    {
-        "data": {
-            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
-            "id": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
-            "id": "NEURODPT/PSYCH/ZOOLOGY 674"
-        }
-    },
-    {
-        "data": {
             "description": "Focuses on the cell signaling and the resulting structural changes that occur at neuronal synapses during memory formation. The aim is to understand how the synaptic changes underlying memory occur.",
             "id": "NEURODPT/NTP 629"
         }
     },
     {
         "data": {
-            "source": "PSYCH/ZOOLOGY 523",
-            "target": "NEURODPT/NTP 629"
-        }
-    },
-    {
-        "data": {
-            "source": "PSYCH/ZOOLOGY 523",
-            "target": "NEURODPT/NTP 610"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "NEURODPT/PSYCH/ZOOLOGY 674"
-        }
-    },
-    {
-        "data": {
-            "id": "NEURODPT",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "NEURODPT/NTP 610",
-            "target": "NEURODPT/NTP/PSYCH 611"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "PSYCH/ZOOLOGY 523"
-        }
-    },
-    {
-        "data": {
-            "description": "Research supervised by individual faculty members.",
-            "id": "NEURODPT 990",
-            "parent": "NEURODPT"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
+            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
+            "id": "NEURODPT/NTP 640"
         }
     },
     {
@@ -98,27 +25,27 @@
     },
     {
         "data": {
+            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
+            "id": "MEDSC-M 812",
+            "parent": "MEDSC-M"
+        }
+    },
+    {
+        "data": {
             "source": "PSYCH/ZOOLOGY 523",
             "target": "NEURODPT/ZOOLOGY 616"
         }
     },
     {
         "data": {
-            "description": "Theory and application of methods in computational neuroscience across various levels of organization from single cells to global brain dynamics and cognition. Computational neuroscience is an approach to understanding the development and function of nervous systems in mechanistic terms at many different structural scales. Topics include biophysical properties of neurons and synapses, neural plasticity, sensory systems, neural circuits, whole brain analysis and modeling, and different views on brain function. Includes primers on relevant computational techniques (ICA, information theoretical approaches, dynamical systems) and a computational problem set. Starts with an introduction to MATLAB (used for problem sets).",
-            "id": "NEURODPT/NTP 640"
+            "id": "CROSSLISTED",
+            "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Overview of the basic science principles of sensory and motor systems in the central and peripheral nervous system, with clinicians providing complementary presentations on their relevant experiences in the clinic. Topics include Somatosensory pathways in spinal cord, brainstem and cerebrum, Motor neurons in spinal cord and brainstem and the descending systems that control them, Blood Supply of the CNS and affiliated vascular syndromes, Cerebellum, Basal Ganglia and associated pathways, Eye Movement control, Vestibular, Auditory, and Visual systems and organization of Cerebral Cortex.",
-            "id": "NEURODPT 747",
-            "parent": "NEURODPT"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "NEURODPT/NTP 610"
         }
     },
     {
@@ -129,9 +56,8 @@
     },
     {
         "data": {
-            "description": "Focus on assessing patients with urgent medical conditions, providing acute inpatient care, and transitioning patients to other care settings or home under the care of other professionals. Provide acute care in inpatient and outpatient urgent care settings as well as on the inpatient wards, and develop acute management plans and subsequent transition of care plans. Clinical experiences in acute care settings such as the emergency department and inpatient medicine (both general and subspecialty), psychiatry, and neurology. Builds upon fundamental science concepts introduced in Body in Balance and Mind and Motion, including Ohm's Law, acid-base balance, and volume regulation. Organ system-based approach employing varied modalities. Complete an integrated patient-centered experience by participating in the care of a patient from an urgent admission through inpatient treatment and discharge.",
-            "id": "MEDSC-M 812",
-            "parent": "MEDSC-M"
+            "id": "MEDSC-M",
+            "type": "compound"
         }
     },
     {
@@ -143,8 +69,52 @@
     },
     {
         "data": {
+            "description": "Overview of the basic science principles of sensory and motor systems in the central and peripheral nervous system, with clinicians providing complementary presentations on their relevant experiences in the clinic. Topics include Somatosensory pathways in spinal cord, brainstem and cerebrum, Motor neurons in spinal cord and brainstem and the descending systems that control them, Blood Supply of the CNS and affiliated vascular syndromes, Cerebellum, Basal Ganglia and associated pathways, Eye Movement control, Vestibular, Auditory, and Visual systems and organization of Cerebral Cortex.",
+            "id": "NEURODPT 747",
+            "parent": "NEURODPT"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 812",
+            "target": "NEURODPT 747"
+        }
+    },
+    {
+        "data": {
+            "source": "PSYCH/ZOOLOGY 523",
+            "target": "NEURODPT/NTP 629"
+        }
+    },
+    {
+        "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "target": "PSYCH/ZOOLOGY 523"
+        }
+    },
+    {
+        "data": {
+            "id": "NEURODPT",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Research supervised by individual faculty members.",
+            "id": "NEURODPT 990",
+            "parent": "NEURODPT"
+        }
+    },
+    {
+        "data": {
+            "description": "Behavior results from a complex interplay among hormones, the brain, and environmental factors. Behaviors and their underlying neural substrates have evolved in response to specific environmental conditions, resulting in vast species diversity in behavioral and neuroendocrine solutions to environmental problems. Designed to explore the primary literature on the neuroendocrine underpinnings of behavior spanning from feeding to sex differences in complex social behaviors. A range of taxonomic groups will be discussed, including (but not limited to) mammals, birds, and fish.",
+            "id": "NEURODPT/PSYCH/ZOOLOGY 674"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the anatomy and physiology of the mammalian nervous system. Lectures will cover the neuroanatomy of the major subdivisions of the human brain, the major sensory and motor systems, and higher order functions. Lab/discussion sections will emphasize readings from the primary literature and hands-on dissections.",
+            "id": "NEURODPT/NTP/PSYCH 611"
         }
     },
     {
@@ -162,14 +132,44 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
+            "description": "Analysis of neural development with emphasis on experimental approaches. Combination of lectures and discussions of primary literature. Topics include neural induction, patterning, mechanisms of axon guidance, neural crest cell migration and differentiation, cortical development, and synapse formation and elimination.",
+            "id": "NEURODPT/NTP/ZOOLOGY 765"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "NEURODPT/PSYCH/ZOOLOGY 674"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
         "data": {
             "description": "Independent experimental modules exploring neurophysiology and behavior will be completed in groups.  Learn techniques and develop investigations into three separate areas of neurobiology.",
             "id": "NEURODPT/ZOOLOGY 616"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "NEURODPT/NTP 610",
+            "target": "NEURODPT/NTP/PSYCH 611"
+        }
+    },
+    {
+        "data": {
+            "description": "Basic mechanisms in cellular neurophysiology: electrophysiology and chemistry of nerve signals, mechanisms in integration, simple nervous pathways and their behavioral correlates.",
+            "id": "PSYCH/ZOOLOGY 523"
         }
     }
 ]

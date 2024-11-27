@@ -17,8 +17,12 @@
         "instructors": {
             "SILVIA CAVAGNERO": "CAVAGNERO@CHEM.WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Fall"
     },
     "madgrades_data": null,
@@ -36,13 +40,31 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 247,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
+                "course_number": 561,
+                "subjects": [
+                    "CHEM"
+                ]
+            },
+            {
                 "course_number": 329,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 247,
+                "course_number": 501,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
+            {
+                "course_number": 207,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -54,7 +76,7 @@
                 ]
             },
             {
-                "course_number": 207,
+                "course_number": 201,
                 "subjects": [
                     "PHYSICS"
                 ]
@@ -66,39 +88,21 @@
                 ]
             },
             {
-                "course_number": 201,
-                "subjects": [
-                    "PHYSICS"
-                ]
-            },
-            {
-                "course_number": 501,
-                "subjects": [
-                    "BIOCHEM"
-                ]
-            },
-            {
                 "course_number": 116,
                 "subjects": [
                     "CHEM"
                 ]
             },
             {
-                "course_number": 561,
+                "course_number": 222,
                 "subjects": [
-                    "CHEM"
+                    "MATH"
                 ]
             },
             {
                 "course_number": 507,
                 "subjects": [
                     "BIOCHEM"
-                ]
-            },
-            {
-                "course_number": 222,
-                "subjects": [
-                    "MATH"
                 ]
             }
         ],

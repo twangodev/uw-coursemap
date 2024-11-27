@@ -17,32 +17,17 @@
         "instructors": {
             "Gregory PAC": "GPAC@WISC.EDU"
         },
-        "last_taught_term_code": 1252,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "2024 Fall",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2023": {
-                "a": 18,
-                "ab": 11,
-                "b": 14,
-                "bc": 1,
-                "c": 0,
-                "credit": 0,
-                "d": 1,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 45,
-                "unsatisfactory": 0
-            },
-            "Spring 2022": {
+            "1224": {
                 "a": 19,
                 "ab": 9,
                 "b": 4,
@@ -61,7 +46,7 @@
                 "total": 38,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 26,
                 "ab": 7,
                 "b": 9,
@@ -78,6 +63,25 @@
                 "passed": 0,
                 "satisfactory": 0,
                 "total": 44,
+                "unsatisfactory": 0
+            },
+            "1242": {
+                "a": 18,
+                "ab": 11,
+                "b": 14,
+                "bc": 1,
+                "c": 0,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 45,
                 "unsatisfactory": 0
             }
         },
@@ -115,12 +119,6 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 111,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
                 "course_number": 310,
                 "subjects": [
                     "ECON"
@@ -128,6 +126,12 @@
             },
             {
                 "course_number": 101,
+                "subjects": [
+                    "ECON"
+                ]
+            },
+            {
+                "course_number": 111,
                 "subjects": [
                     "ECON"
                 ]

@@ -17,13 +17,17 @@
         "instructors": {
             "HAROLD CHIANG": "HDCHIANG@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2021": {
+            "1222": {
                 "a": 26,
                 "ab": 5,
                 "b": 6,
@@ -42,26 +46,7 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Fall 2023": {
-                "a": 17,
-                "ab": 4,
-                "b": 7,
-                "bc": 1,
-                "c": 3,
-                "credit": 0,
-                "d": 1,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 1,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 34,
-                "unsatisfactory": 0
-            },
-            "Spring 2022": {
+            "1224": {
                 "a": 33,
                 "ab": 9,
                 "b": 4,
@@ -80,7 +65,7 @@
                 "total": 47,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 47,
                 "ab": 24,
                 "b": 14,
@@ -99,7 +84,26 @@
                 "total": 89,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1242": {
+                "a": 17,
+                "ab": 4,
+                "b": 7,
+                "bc": 1,
+                "c": 3,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 34,
+                "unsatisfactory": 0
+            },
+            "1244": {
                 "a": 54,
                 "ab": 14,
                 "b": 13,
@@ -159,18 +163,6 @@
                 ]
             },
             {
-                "course_number": 303,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 310,
-                "subjects": [
-                    "ECON"
-                ]
-            },
-            {
                 "course_number": 340,
                 "subjects": [
                     "STAT"
@@ -180,6 +172,18 @@
                 "course_number": 240,
                 "subjects": [
                     "STAT"
+                ]
+            },
+            {
+                "course_number": 303,
+                "subjects": [
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
                 ]
             }
         ],

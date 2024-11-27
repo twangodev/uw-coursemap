@@ -17,8 +17,12 @@
         "instructors": {
             "Jelena DIAKONIKOLAS": "JDIAKONIKOLA@WISC.EDU"
         },
-        "last_taught_term_code": null,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": null,
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Not Applicable"
     },
     "madgrades_data": null,
@@ -36,9 +40,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 331,
+                "course_number": 210,
                 "subjects": [
-                    "MATH"
+                    "ISYE"
                 ]
             },
             {
@@ -48,34 +52,15 @@
                 ]
             },
             {
-                "course_number": 341,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
-                "course_number": 340,
-                "subjects": [
-                    "MATH"
-                ]
-            },
-            {
                 "course_number": 320,
                 "subjects": [
                     "MATH"
                 ]
             },
             {
-                "course_number": 200,
+                "course_number": 220,
                 "subjects": [
                     "COMPSCI"
-                ]
-            },
-            {
-                "course_number": 309,
-                "subjects": [
-                    "STAT",
-                    "MATH"
                 ]
             },
             {
@@ -91,15 +76,34 @@
                 ]
             },
             {
-                "course_number": 220,
+                "course_number": 331,
                 "subjects": [
-                    "COMPSCI"
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 309,
+                "subjects": [
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 375,
+                "subjects": [
+                    "MATH"
                 ]
             },
             {
                 "course_number": 431,
                 "subjects": [
-                    "STAT",
+                    "MATH",
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 340,
+                "subjects": [
                     "MATH"
                 ]
             },
@@ -110,15 +114,15 @@
                 ]
             },
             {
-                "course_number": 210,
+                "course_number": 341,
                 "subjects": [
-                    "ISYE"
+                    "MATH"
                 ]
             },
             {
-                "course_number": 375,
+                "course_number": 200,
                 "subjects": [
-                    "MATH"
+                    "COMPSCI"
                 ]
             }
         ],

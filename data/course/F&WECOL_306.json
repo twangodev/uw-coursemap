@@ -17,13 +17,17 @@
         "instructors": {
             "Jim BERKELMAN": "JBERKELMAN@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Agricultural and Life Sciences\",\n    \"abbreviation\": \"A\",\n    \"url\": \"http://www.cals.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "A",
+            "name": "Agricultural and Life Sciences",
+            "url": "http://www.cals.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": {
         "by_term": {
-            "Spring 2009": {
+            "1094": {
                 "a": 6,
                 "ab": 7,
                 "b": 11,
@@ -42,7 +46,7 @@
                 "total": 34,
                 "unsatisfactory": 0
             },
-            "Spring 2010": {
+            "1104": {
                 "a": 12,
                 "ab": 12,
                 "b": 13,
@@ -61,7 +65,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2011": {
+            "1114": {
                 "a": 6,
                 "ab": 11,
                 "b": 20,
@@ -80,7 +84,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2012": {
+            "1124": {
                 "a": 2,
                 "ab": 9,
                 "b": 12,
@@ -99,7 +103,7 @@
                 "total": 42,
                 "unsatisfactory": 0
             },
-            "Spring 2013": {
+            "1134": {
                 "a": 3,
                 "ab": 9,
                 "b": 14,
@@ -118,7 +122,7 @@
                 "total": 46,
                 "unsatisfactory": 0
             },
-            "Spring 2014": {
+            "1144": {
                 "a": 16,
                 "ab": 16,
                 "b": 13,
@@ -137,7 +141,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2015": {
+            "1154": {
                 "a": 5,
                 "ab": 10,
                 "b": 20,
@@ -156,7 +160,7 @@
                 "total": 43,
                 "unsatisfactory": 0
             },
-            "Spring 2016": {
+            "1164": {
                 "a": 12,
                 "ab": 14,
                 "b": 11,
@@ -175,7 +179,7 @@
                 "total": 51,
                 "unsatisfactory": 0
             },
-            "Spring 2017": {
+            "1174": {
                 "a": 10,
                 "ab": 16,
                 "b": 10,
@@ -194,7 +198,7 @@
                 "total": 53,
                 "unsatisfactory": 0
             },
-            "Spring 2018": {
+            "1184": {
                 "a": 13,
                 "ab": 14,
                 "b": 4,
@@ -213,7 +217,7 @@
                 "total": 47,
                 "unsatisfactory": 0
             },
-            "Spring 2019": {
+            "1194": {
                 "a": 18,
                 "ab": 7,
                 "b": 8,
@@ -232,7 +236,7 @@
                 "total": 44,
                 "unsatisfactory": 0
             },
-            "Spring 2020": {
+            "1204": {
                 "a": 24,
                 "ab": 7,
                 "b": 13,
@@ -251,7 +255,7 @@
                 "total": 58,
                 "unsatisfactory": 0
             },
-            "Spring 2022": {
+            "1224": {
                 "a": 19,
                 "ab": 8,
                 "b": 16,
@@ -270,7 +274,7 @@
                 "total": 69,
                 "unsatisfactory": 0
             },
-            "Spring 2023": {
+            "1234": {
                 "a": 20,
                 "ab": 8,
                 "b": 11,
@@ -289,7 +293,7 @@
                 "total": 55,
                 "unsatisfactory": 0
             },
-            "Spring 2024": {
+            "1244": {
                 "a": 24,
                 "ab": 8,
                 "b": 9,
@@ -334,8 +338,8 @@
             {
                 "course_number": 102,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],
@@ -344,18 +348,10 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 151,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY",
-                    "BOTANY"
-                ]
-            },
-            {
                 "course_number": 101,
                 "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             },
             {
@@ -365,16 +361,24 @@
                 ]
             },
             {
-                "course_number": 102,
-                "subjects": [
-                    "BIOLOGY",
-                    "ZOOLOGY"
-                ]
-            },
-            {
                 "course_number": 382,
                 "subjects": [
                     "BIOCORE"
+                ]
+            },
+            {
+                "course_number": 151,
+                "subjects": [
+                    "BOTANY",
+                    "ZOOLOGY",
+                    "BIOLOGY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "ZOOLOGY",
+                    "BIOLOGY"
                 ]
             }
         ],

@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 620,
         "subjects": [
+            "MDGENET",
             "BIOCHEM",
-            "GENETICS",
-            "MDGENET"
+            "GENETICS"
         ]
     },
     "course_title": "EUKARYOTIC MOLECULAR BIOLOGY",
@@ -20,8 +20,12 @@
             "David WASSARMAN": "DAWASSARMAN@WISC.EDU",
             "GAELEN HESS": "GHESS3@WISC.EDU"
         },
-        "last_taught_term_code": 1244,
-        "school": "{\n    \"name\": \"Medicine and Public Health\",\n    \"abbreviation\": \"M\",\n    \"url\": \"http://www.med.wisc.edu/\"\n}",
+        "last_taught_term": "Spring 2024",
+        "school": {
+            "abbreviation": "M",
+            "name": "Medicine and Public Health",
+            "url": "http://www.med.wisc.edu/"
+        },
         "typically_offered": "Spring"
     },
     "madgrades_data": null,
@@ -39,13 +43,13 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 508,
+                "course_number": 501,
                 "subjects": [
                     "BIOCHEM"
                 ]
             },
             {
-                "course_number": 501,
+                "course_number": 508,
                 "subjects": [
                     "BIOCHEM"
                 ]

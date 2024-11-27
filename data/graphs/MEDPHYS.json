@@ -1,28 +1,8 @@
 [
     {
         "data": {
-            "id": "MEDPHYS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
-        }
-    },
-    {
-        "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Presents concepts and principles on the physics of medical radiographic imaging systems, based on the transmission of x-rays.  Emphasis is placed on understanding the operation of imaging equipment and how it is used in clinical applications. Evaluation of imaging systems, optimization of their use and design and the solution of image quality problems is investigated.",
-            "id": "MEDPHYS 581",
-            "parent": "MEDPHYS"
+            "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
+            "id": "HONCOL/MEDPHYS 410"
         }
     },
     {
@@ -33,71 +13,21 @@
     },
     {
         "data": {
-            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
-            "id": "PHYSICS 241",
+            "source": "BME/MEDPHYS 578",
+            "target": "MEDPHYS 666"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
             "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
-            "id": "BME/MEDPHYS 578"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 580",
-            "target": "MEDPHYS 581"
-        }
-    },
-    {
-        "data": {
-            "description": "Physics of clinical, computer-based radiotherapy planning is taught. Topics include dose algorithms, measurement data, commissioning, contouring and volume definition, beam placement, modifiers and apertures and plan evaluation. Forward based and inverse planning (including IMRT optimization) are taught.",
-            "id": "MEDPHYS 772",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
-            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDPHYS/PHYSICS 265",
-            "target": "BME/MEDPHYS 535"
-        }
-    },
-    {
-        "data": {
-            "description": "Multiple professional and scientific groups have identified the underrepresentation and lack of advancement of women in academia as a national workforce problem. Review evolving perspectives of leadership and how unconscious assumptions about the behaviors and traits of men, women, and leaders impede women's advancement. Emphasizes the implications for women in the fields of science, health and engineering and explore the potential impact on the advancement of knowledge and improvements in health. Provides the opportunity to apply evidence-based perspectives using experiential methods.",
-            "id": "MEDPHYS/PEDIAT 705"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 568",
-            "target": "BME/MEDPHYS 710"
-        }
-    },
-    {
-        "data": {
-            "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
-            "id": "BME/MEDPHYS 575"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
+            "source": "PHYSICS 249",
+            "target": "PHYSICS 241"
         }
     },
     {
@@ -109,74 +39,22 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
+            "description": "Provides an introduction to the technical skills required in nuclear medicine physics.  This includes laboratory rotations in basic radiopharmaceutical production and quality control, basic operation and quality control testing on PET and SPECT scanners, time series image analysis of radiotracer studies and nuclear medicine dosimetry and radiation safety training.  Gain a firsthand understanding of the professional duties performed by a nuclear medicine medical physicist.",
+            "id": "MEDPHYS 663",
+            "parent": "MEDPHYS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 241",
-            "target": "MEDPHYS 563"
+            "description": "Uses project-based learning (PBL) as a powerful teaching method to address common challenges and solutions addressed by medical health physicists.  Each semester, students work on a different project that addresses concepts that are important in the current health physics environment.",
+            "id": "MEDPHYS 664",
+            "parent": "MEDPHYS"
         }
     },
     {
         "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "BME/MEDPHYS 566"
-        }
-    },
-    {
-        "data": {
-            "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
-            "id": "BME/CHEM/MEDPHYS 750"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
-            "id": "MEDPHYS/PHYSICS 588"
-        }
-    },
-    {
-        "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
-            "id": "BME/MEDPHYS 580"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
-            "id": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
-            "id": "BME/MEDPHYS 574"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "PHYSICS 241"
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
         }
     },
     {
@@ -187,57 +65,77 @@
     },
     {
         "data": {
-            "source": "BME/MEDPHYS 580",
-            "target": "MEDPHYS 662"
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "BME/MEDPHYS 566"
         }
     },
     {
         "data": {
-            "source": "BME/MEDPHYS 578",
-            "target": "MEDPHYS 666"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "MEDPHYS/NTP 651"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
+            "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
+            "id": "BME/MEDPHYS 567"
         }
     },
     {
         "data": {
             "source": "PHYSICS 208",
-            "target": "MEDPHYS/PHYSICS 265"
+            "target": "BME/MEDPHYS 575"
         }
     },
     {
         "data": {
-            "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
-            "id": "MEDPHYS/NE 569"
+            "source": "ZOOLOGY 153",
+            "target": "HONCOL/MEDPHYS 410"
         }
     },
     {
         "data": {
-            "id": "ZOOLOGY",
+            "source": "BME/MEDPHYS 566",
+            "target": "MEDPHYS 772"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
+            "description": "Cellular, molecular, and radiation biology principles and their common application in medical physics.",
+            "id": "MEDPHYS 510",
+            "parent": "MEDPHYS"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 323",
-            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+            "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
+            "id": "BME/ECE/MEDPHYS 778"
+        }
+    },
+    {
+        "data": {
+            "description": "Metrology, the science of measurement, is a critical component of medical physics. Topics covered: measurement statistics, determination of uncertainty, characteristics of ionization chambers, electrometers and other ionizing radiation measurement devices. Effects of instrumentation on clinical measurements.",
+            "id": "MEDPHYS 679",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides opportunities for graduate students to gain experience using the scientific method to address specific scientific problems. This includes selection of a research topic, performing literature reviews to evaluate peer-reviewed and other publications, developing a research design, identifying possible pitfalls, and performing and reporting on experiments performed. Communication of the research findings within and outside the university is encouraged.",
+            "id": "MEDPHYS 699",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "BME/MEDPHYS 535"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
         }
     },
     {
@@ -250,14 +148,241 @@
     {
         "data": {
             "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "MEDPHYS/PHYSICS 588"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
+            "id": "PHYSICS 249",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces concepts and methodology for measuring acoustic properties of materials and for operating and performing physics tests of state of the art clinical ultrasound scanners.  Set up and operate a laboratory apparatus employing single element ultrasound transducers. This is followed by hands on experiments that challenge students to explain physical and engineering characteristics of clinical scanners, details of operator controls, features of Doppler and color flow modes, and resolution limitations. Practical scanning exercises provide familiarity with selected applications of clinical ultrasound equipment, both for diagnosis and for guiding interventions.  Routine quality assurance tests done by medical physicists are also performed.",
+            "id": "MEDPHYS 666",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers several aspects of state-of-the-art biological and biophysical imaging with an emphasis on instrumentation, beginning with an overview of geometrical optics and optical and fluorescence microscopy. The bulk of the course will focus on advanced imaging techniques including nonlinear optical processes (multi-photon excitation, second harmonic generation, and stimulated Raman processes) and emerging super-resolution methods. Special emphasis will be given to current imaging literature and experimental design. Knowledge of physics-based optics [such asPHYSICS\u00a0202] strongly recommended.",
+            "id": "BME/CHEM/MEDPHYS 750"
+        }
+    },
+    {
+        "data": {
+            "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
+            "id": "BME/MEDPHYS 568"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS 568"
+        }
+    },
+    {
+        "data": {
+            "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
+            "id": "BME/MEDPHYS 566"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides hands on experience using and testing computerized tomography (CT), magnetic resonance imaging (MRI), and digital subtraction angiography (DSA) systems.  Image quality, MRI and radiation safety, accreditation, and regulatory compliance issues with these modalities are also covered.",
+            "id": "MEDPHYS 665",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 322"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "BME/MEDPHYS 567"
+        }
+    },
+    {
+        "data": {
+            "description": "Physics of clinical, computer-based radiotherapy planning is taught. Topics include dose algorithms, measurement data, commissioning, contouring and volume definition, beam placement, modifiers and apertures and plan evaluation. Forward based and inverse planning (including IMRT optimization) are taught.",
+            "id": "MEDPHYS 772",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Physical and biological aspects of the use of ionizing radiation in industrial and academic institutions; physical principles underlying shielding instrumentation, waste disposal; biological effects of low levels of ionizing radiation.",
+            "id": "MEDPHYS/NE 569"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 323"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 566",
+            "target": "MEDPHYS 770"
+        }
+    },
+    {
+        "data": {
+            "description": "Kinetic theory; relativity; experimental origin of quantum theory; atomic structure and spectral lines; topics in solid state, nuclear and particle physics.",
+            "id": "PHYSICS 241",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 578",
+            "target": "MEDPHYS 775"
+        }
+    },
+    {
+        "data": {
+            "description": "Concepts and principles on the physics of medical imaging systems that form images using high energy photons are presented. Such systems are divided into two categories: (1) those based on the transmission of x-rays through the human body, including radiography, mammography, fluoroscopy, and computed tomography (CT), and (2) those based on the emission of gamma rays or annihilation radiation following radioactive decay of an internal radiolabeled molecule, including the gamma camera, single photon emission tomography (SPECT), and positron emission tomography (PET) and PET hybrid imaging systems. Emphasis is placed on understanding how physics, system design, and imaging technique determine image performance metrics such as contrast, signal-to-noise ratio, and spatial resolution. Clinical applications and radiation safety concepts are detailed for the different types of imaging systems.",
+            "id": "BME/MEDPHYS 580"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 568",
+            "target": "BME/MEDPHYS 710"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical and physical foundations of the application of acoustics in diagnostic ultrasound. Derivation of wave equations for mechanical waves in fluids and solids from a continuum mechanics perspective. Diffraction theory and methods for acoustic field calculation (analytic, angular spectrum, simulations). Review of interactions of acoustic waves with biological tissue and methods to measure their acoustic properties. In-depth discussion of methods for structural image formation including ray-line scanning, plane wave compounding, synthetic aperture, coded excitation, and spatial coherent imaging. Introduction to novel functional imaging approach, including ultrafast Doppler, molecular ultrasound, functional ultrasound, and super-resolution imaging. Application of the acquired knowledge to perform a systematic literature review of the state-of-the-art of the field for the solution of a relevant clinical problem.",
+            "id": "MEDPHYS 775",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 249"
+        }
+    },
+    {
+        "data": {
+            "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
+            "id": "BME/MEDPHYS 535"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
             "target": "MEDPHYS/NE 506"
         }
     },
     {
         "data": {
-            "description": "Understand the basic principles of x-ray computed tomography (CT), and how to think when a technical problem arises in CT. Accomplished through a review of the history of CT developments and key components of CT systems, lectures on various CT reconstruction algorithms, image quality, and radiation dose, origin and correction methods of various CT artifacts.",
-            "id": "MEDPHYS 777",
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "In-depth examination of current and newly discovered modalities and/or phenomenons in medical physics. Critical reading of literature, hands-on lab work and exploration of medical issues related to discoveries will be included.",
+            "id": "MEDPHYS 671",
             "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Presents concepts and principles on the physics of medical radiographic imaging systems, based on the transmission of x-rays.  Emphasis is placed on understanding the operation of imaging equipment and how it is used in clinical applications. Evaluation of imaging systems, optimization of their use and design and the solution of image quality problems is investigated.",
+            "id": "MEDPHYS 581",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Covers the physics associated with magnetic resonance imaging and diagnostic ultrasound emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and spectroscopic localization. Ultrasound based topics covered include: propagation of ultrasonic waves in biological tissues, principles of ultrasonic measuring and imaging instrumentation, design and use of currently available tools for performance evaluation of diagnostic instrumentation, and biological effects of ultrasound. Gain an understanding of the technical and scientific details of modern non-ionizing medical magnetic resonance and ultrasound devices and their use in diagnosing disease.",
+            "id": "BME/MEDPHYS 578"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS 578"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
+            "id": "MEDPHYS/NTP 651"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 580",
+            "target": "MEDPHYS 662"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides medical physics graduate students with the opportunity to critically evaluate and report on published research and/or research seminar presentations by speakers, from both within the university and from the larger scientific community.",
+            "id": "MEDPHYS 900",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides graduate students with mentorship to support their development of independent research goals and methods needed to address specific scientific problems that will result in a comprehensive dissertation.",
+            "id": "MEDPHYS 990",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "BME/MEDPHYS 580"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 323",
+            "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
+            "id": "BME/MEDPHYS 573"
         }
     },
     {
@@ -268,14 +393,157 @@
     },
     {
         "data": {
+            "source": "BME/MEDPHYS 580",
+            "target": "MEDPHYS 665"
+        }
+    },
+    {
+        "data": {
+            "description": "Multiple professional and scientific groups have identified the underrepresentation and lack of advancement of women in academia as a national workforce problem. Review evolving perspectives of leadership and how unconscious assumptions about the behaviors and traits of men, women, and leaders impede women's advancement. Emphasizes the implications for women in the fields of science, health and engineering and explore the potential impact on the advancement of knowledge and improvements in health. Provides the opportunity to apply evidence-based perspectives using experiential methods.",
+            "id": "MEDPHYS/PEDIAT 705"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 208"
+        }
+    },
+    {
+        "data": {
+            "description": "Propagation of ultrasonic waves in biological tissues; principles of ultrasonic measuring and imaging instrumentation; design and use of currently available tools for performance evaluation of diagnostic instrumentation; biological effects of ultrasound.",
+            "id": "BME/MEDPHYS 575"
+        }
+    },
+    {
+        "data": {
+            "description": "Addresses the concepts of ethics in the daily practice of medical physics and other scientific disciplines and provide tools for identifying resources. Special emphasis will be placed in how these principles have to be applied to ensure the confidentiality of the patients, the safety of the research subjects (human and animals), differentiation between ethical and legal issues, as well as the understanding of the principles that deal with authorships, intellectual property in the academic- and industry- based environment.",
+            "id": "MEDPHYS 701",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
+            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDPHYS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Survey of state of the art microscopic, cellular and molecular imaging techniques, beginning with subcellular microscopy and finishing with whole animal imaging.",
+            "id": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
+        }
+    },
+    {
+        "data": {
             "source": "BIOLOGY/ZOOLOGY 101",
             "target": "ZOOLOGY 153"
         }
     },
     {
         "data": {
-            "description": "Provides graduate students with mentorship to support their development of independent research goals and methods needed to address specific scientific problems that will result in a comprehensive dissertation.",
-            "id": "MEDPHYS 990",
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
+            "target": "MEDPHYS 679"
+        }
+    },
+    {
+        "data": {
+            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
+            "id": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 249",
+            "target": "MEDPHYS/NE 569"
+        }
+    },
+    {
+        "data": {
+            "description": "The use of radioactive sources for radiotherapy including: materials used, source construction dosimetry theory and practical application, dosimetric systems, localization and reconstruction. Covers low dose rate, high dose rate and permanently placed applications.",
+            "id": "MEDPHYS 770",
+            "parent": "MEDPHYS"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
+            "id": "ZOOLOGY 153",
+            "parent": "ZOOLOGY"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 573",
+            "target": "BME/MEDPHYS 574"
+        }
+    },
+    {
+        "data": {
+            "source": "BME/MEDPHYS 580",
+            "target": "MEDPHYS 581"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "MEDPHYS 563"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/NTP 651"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 208",
+            "target": "MEDPHYS/PHYSICS 265"
+        }
+    },
+    {
+        "data": {
+            "id": "ZOOLOGY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Provides hands on experience using and testing radiographic, fluoroscopic and mammographic x-ray systems.  Imaging requirements, image quality, and radiation dose aspects of each modality are covered, along with practical methods for evaluating the performance of clinical units.",
+            "id": "MEDPHYS 662",
             "parent": "MEDPHYS"
         }
     },
@@ -288,14 +556,9 @@
     },
     {
         "data": {
-            "source": "BME/MEDPHYS 566",
-            "target": "MEDPHYS 772"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
         }
     },
     {
@@ -306,194 +569,8 @@
     },
     {
         "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 568"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "MEDPHYS 679"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 573"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
-        }
-    },
-    {
-        "data": {
-            "description": "Concepts and machine learning techniques for ultrasound beamforming for image formation and reconstruction to image analysis and interpretation will be presented. Key machine learning and deep learning concepts applied to beamforming, compressed sampling, speckle reduction, segmentation, photoacoustics, and elasticity imaging will be evaluated utilizing current peer-reviewed publications.",
-            "id": "BME/ECE/MEDPHYS 778"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 580",
-            "target": "MEDPHYS 665"
-        }
-    },
-    {
-        "data": {
-            "description": "In-depth examination of current and newly discovered modalities and/or phenomenons in medical physics. Critical reading of literature, hands-on lab work and exploration of medical issues related to discoveries will be included.",
-            "id": "MEDPHYS 671",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides an introduction to the technical skills required in nuclear medicine physics.  This includes laboratory rotations in basic radiopharmaceutical production and quality control, basic operation and quality control testing on PET and SPECT scanners, time series image analysis of radiotracer studies and nuclear medicine dosimetry and radiation safety training.  Gain a firsthand understanding of the professional duties performed by a nuclear medicine medical physicist.",
-            "id": "MEDPHYS 663",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides hands on experience using and testing computerized tomography (CT), magnetic resonance imaging (MRI), and digital subtraction angiography (DSA) systems.  Image quality, MRI and radiation safety, accreditation, and regulatory compliance issues with these modalities are also covered.",
-            "id": "MEDPHYS 665",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Addresses the concepts of ethics in the daily practice of medical physics and other scientific disciplines and provide tools for identifying resources. Special emphasis will be placed in how these principles have to be applied to ensure the confidentiality of the patients, the safety of the research subjects (human and animals), differentiation between ethical and legal issues, as well as the understanding of the principles that deal with authorships, intellectual property in the academic- and industry- based environment.",
-            "id": "MEDPHYS 701",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 566",
-            "target": "MEDPHYS 770"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "MEDPHYS/NE 569"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 578"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Explore physical interactions between thermal, electromagnetic and acoustic energies and biological tissues with emphasis on therapeutic medical applications.",
-            "id": "BME/MEDPHYS 535"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 208",
-            "target": "BME/MEDPHYS 575"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Computational imaging includes all imaging methods that produce images as a result of computation on collected signals. Learn the tools to design new computational imaging methods to solve specific imaging problems. Provides an understanding of the physics of light propagation and measurement, and the computational tools to model it, including wave propagation, ray tracing, the radon transform, and linear algebra using matrix and integral operators and the computational tools to reconstruct an image, including linear inverse problems, neural networks, convex optimization, and filtered back-projection. Covers a variety of example computational imaging techniques and their applications including coded apertures, structured illumination, digital holography, computed tomography, imaging through scattering media, compressed sensing, and non-line-of-sight imaging.",
-            "id": "BMI/COMPSCI/ECE/MEDPHYS 722"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "BME/MEDPHYS 580"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses project-based learning (PBL) as a powerful teaching method to address common challenges and solutions addressed by medical health physicists.  Each semester, students work on a different project that addresses concepts that are important in the current health physics environment.",
-            "id": "MEDPHYS 664",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical and physical foundations of the application of acoustics in diagnostic ultrasound. Derivation of wave equations for mechanical waves in fluids and solids from a continuum mechanics perspective. Diffraction theory and methods for acoustic field calculation (analytic, angular spectrum, simulations). Review of interactions of acoustic waves with biological tissue and methods to measure their acoustic properties. In-depth discussion of methods for structural image formation including ray-line scanning, plane wave compounding, synthetic aperture, coded excitation, and spatial coherent imaging. Introduction to novel functional imaging approach, including ultrafast Doppler, molecular ultrasound, functional ultrasound, and super-resolution imaging. Application of the acquired knowledge to perform a systematic literature review of the state-of-the-art of the field for the solution of a relevant clinical problem.",
-            "id": "MEDPHYS 775",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Cellular, molecular, and radiation biology principles and their common application in medical physics.",
-            "id": "MEDPHYS 510",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides hands on experience using and testing radiographic, fluoroscopic and mammographic x-ray systems.  Imaging requirements, image quality, and radiation dose aspects of each modality are covered, along with practical methods for evaluating the performance of clinical units.",
-            "id": "MEDPHYS 662",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 578",
-            "target": "MEDPHYS 775"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides opportunities for graduate students to gain experience using the scientific method to address specific scientific problems. This includes selection of a research topic, performing literature reviews to evaluate peer-reviewed and other publications, developing a research design, identifying possible pitfalls, and performing and reporting on experiments performed. Communication of the research findings within and outside the university is encouraged.",
-            "id": "MEDPHYS 699",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/MEDPHYS 573",
-            "target": "BME/MEDPHYS 574"
-        }
-    },
-    {
-        "data": {
-            "description": "Metrology, the science of measurement, is a critical component of medical physics. Topics covered: measurement statistics, determination of uncertainty, characteristics of ionization chambers, electrometers and other ionizing radiation measurement devices. Effects of instrumentation on clinical measurements.",
-            "id": "MEDPHYS 679",
-            "parent": "MEDPHYS"
+            "source": "MEDPHYS/PHYSICS 265",
+            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
         }
     },
     {
@@ -504,46 +581,14 @@
     },
     {
         "data": {
-            "description": "Introduces concepts and methodology for measuring acoustic properties of materials and for operating and performing physics tests of state of the art clinical ultrasound scanners.  Set up and operate a laboratory apparatus employing single element ultrasound transducers. This is followed by hands on experiments that challenge students to explain physical and engineering characteristics of clinical scanners, details of operator controls, features of Doppler and color flow modes, and resolution limitations. Practical scanning exercises provide familiarity with selected applications of clinical ultrasound equipment, both for diagnosis and for guiding interventions.  Routine quality assurance tests done by medical physicists are also performed.",
-            "id": "MEDPHYS 666",
-            "parent": "MEDPHYS"
+            "description": "Fundamental physics of ionizing radiation production and detection applied to medical science. Topics: scintillator/semiconductor detectors, ionizing radiation detectors, charged and neutral particles for external beam radiotherapy, production of radionuclides with cyclotron and linear accelerators for diagnostic and therapeutic applications, radiochemistry, and X-ray tube physics.",
+            "id": "MEDPHYS/PHYSICS 588"
         }
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "Provides a practical foundation for neuroimaging research studies with statistical image analysis. Specific imaging methods include functional BOLD MRI, structural MRI morphometry, and diffusion tensor imaging. Lectures and associated in-class computer exercises will cover the physics and methods of image acquisition, steps and tools for image analyses, the basis for statistical image analyses and interpretation of the results.",
-            "id": "MEDPHYS/NTP 651"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Mathematical fundamentals required for medical physics and biomedical applications, including signal analysis and mathematical optimization.",
-            "id": "BME/MEDPHYS 573"
-        }
-    },
-    {
-        "data": {
-            "source": "BME/HONCOL/MEDPHYS/PHYSICS 501",
-            "target": "MEDPHYS/PHYSICS 588"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 249",
-            "target": "BME/MEDPHYS 567"
+            "description": "Concepts and principles of statistics and machine learning for medical physics-related research problems. Topics covered include probability and independence, discrete and continuous random variables and statistical distributions, random sampling and central limit theorem, inference for means, variances, proportions, moment generating functions, maximum likelihood, hypothesis testing, ANOVA, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and reproducibility.",
+            "id": "BME/MEDPHYS 574"
         }
     },
     {
@@ -555,78 +600,33 @@
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 208"
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
         }
     },
     {
         "data": {
-            "description": "Provides medical physics graduate students with the opportunity to critically evaluate and report on published research and/or research seminar presentations by speakers, from both within the university and from the larger scientific community.",
-            "id": "MEDPHYS 900",
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "description": "Understand the basic principles of x-ray computed tomography (CT), and how to think when a technical problem arises in CT. Accomplished through a review of the history of CT developments and key components of CT systems, lectures on various CT reconstruction algorithms, image quality, and radiation dose, origin and correction methods of various CT artifacts.",
+            "id": "MEDPHYS 777",
             "parent": "MEDPHYS"
         }
     },
     {
         "data": {
-            "description": "Ionizing radiation use in radiation therapy to cause controlled biological effects in cancer patients. Physics of the interaction of the various radiation modalities with body-equivalent materials, and physical aspects of clinical applications.",
-            "id": "BME/MEDPHYS 566"
-        }
-    },
-    {
-        "data": {
-            "description": "Core course covering the physics associated with magnetic resonance imaging emphasizing techniques employed in medical diagnostic imaging. Major MRI topics include: physics of MR, pulse sequences, hardware, imaging techniques, artifacts, and clinical applications. At the completion of this course, students should have an understanding of the technical and scientific details of modern magnetic resonance imaging and its use in diagnosing disease. Graduate students who have not takenMATH\u00a0222andPHYSICS\u00a0202at UW-Madison must have the equivalent coursework in order to be successful in this course.",
-            "id": "BME/MEDPHYS 568"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDPHYS/PHYSICS 265",
-            "target": "BME/MEDPHYS/PHMCOL-M/PHYSICS/RADIOL 619"
-        }
-    },
-    {
-        "data": {
-            "description": "The use of radioactive sources for radiotherapy including: materials used, source construction dosimetry theory and practical application, dosimetric systems, localization and reconstruction. Covers low dose rate, high dose rate and permanently placed applications.",
-            "id": "MEDPHYS 770",
-            "parent": "MEDPHYS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Physics of x-ray diagnostic procedures and equipment, radiation safety, general imaging considerations; lecture and lab.",
-            "id": "BME/MEDPHYS 567"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "A general interest survey that introduces the principles and applications of medical physics. Topics include biomechanics, energy usage and temperature regulation, pressure, sound and hearing, ultrasound, electricity in the body, optics and the eye, ionizing radiation in diagnosis and therapy, radiobiology, and nuclear medicine.",
-            "id": "MEDPHYS/PHYSICS 265"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
+            "source": "PHYSICS 208",
+            "target": "BME/MEDPHYS 573"
         }
     }
 ]

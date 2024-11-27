@@ -17,13 +17,36 @@
         "instructors": {
             "CHAEYOON LIM": "CHAEYOON.LIM@WISC.EDU"
         },
-        "last_taught_term_code": 1202,
-        "school": "{\n    \"name\": \"Letters and Science\",\n    \"abbreviation\": \"L\",\n    \"url\": \"http://www.ls.wisc.edu/\"\n}",
+        "last_taught_term": "Fall 2019",
+        "school": {
+            "abbreviation": "L",
+            "name": "Letters and Science",
+            "url": "http://www.ls.wisc.edu/"
+        },
         "typically_offered": "Occasionally"
     },
     "madgrades_data": {
         "by_term": {
-            "Fall 2012": {
+            "1104": {
+                "a": 10,
+                "ab": 10,
+                "b": 10,
+                "bc": 6,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 43,
+                "unsatisfactory": 0
+            },
+            "1132": {
                 "a": 8,
                 "ab": 12,
                 "b": 18,
@@ -42,7 +65,7 @@
                 "total": 50,
                 "unsatisfactory": 0
             },
-            "Fall 2013": {
+            "1142": {
                 "a": 9,
                 "ab": 17,
                 "b": 15,
@@ -61,7 +84,7 @@
                 "total": 48,
                 "unsatisfactory": 0
             },
-            "Fall 2019": {
+            "1202": {
                 "a": 11,
                 "ab": 6,
                 "b": 3,
@@ -78,25 +101,6 @@
                 "passed": 0,
                 "satisfactory": 0,
                 "total": 20,
-                "unsatisfactory": 0
-            },
-            "Spring 2010": {
-                "a": 10,
-                "ab": 10,
-                "b": 10,
-                "bc": 6,
-                "c": 6,
-                "credit": 0,
-                "d": 0,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 43,
                 "unsatisfactory": 0
             }
         },
@@ -125,8 +129,8 @@
             {
                 "course_number": 211,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             }
         ],
@@ -135,24 +139,24 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 210,
+                "subjects": [
+                    "C&ESOC",
+                    "SOC"
+                ]
+            },
+            {
                 "course_number": 211,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             },
             {
                 "course_number": 140,
                 "subjects": [
-                    "SOC",
-                    "C&ESOC"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "SOC",
-                    "C&ESOC"
+                    "C&ESOC",
+                    "SOC"
                 ]
             },
             {
