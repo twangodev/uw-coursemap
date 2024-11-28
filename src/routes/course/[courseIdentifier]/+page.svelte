@@ -1,0 +1,216 @@
+<script lang="ts">
+    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import { page } from '$app/stores';
+    import ContentH1 from "$lib/components/content/ContentH1.svelte";
+    import {onMount} from "svelte";
+    import {writable} from "svelte/store";
+    import type {Course} from "$lib/types/course.ts";
+    import {PUBLIC_API_URL} from "$env/static/public";
+    import {courseReferenceToString} from "$lib/types/course.js";
+    import * as Tabs from "$lib/components/ui/tabs";
+    import * as Card from "$lib/components/ui/card";
+    import {
+        BookA,
+        BookOpen,
+        BookPlus, CircleCheckBig,
+        Info,
+        Users
+    } from "lucide-svelte";
+    import {ScrollArea} from "$lib/components/ui/scroll-area";
+    import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
+    import Change from "$lib/components/Change.svelte";
+    import GradeDistribution from "$lib/components/GradeDistribution.svelte";
+
+    $: sanatizedCourseIdentifier = $page.params.courseIdentifier;
+
+    let course = writable<Course | null>(null)
+
+
+    const getLatestTermMadgradesData = (course: Course) => {
+        let allTerms = Object.keys(course.madgrades_data.by_term).sort()
+        let latestTerm = allTerms[allTerms.length - 1]
+        return course.madgrades_data.by_term[latestTerm]
+    }
+
+    const getCumulativeGPA = (course: Course) => {
+        return calculateGradePointAverage(course.madgrades_data.cumulative)
+    }
+
+    const getLatestTermGPA = (course: Course) => {
+        return calculateGradePointAverage(getLatestTermMadgradesData(course))
+    }
+
+    const getPercentChange = (latest: number | null, cumulative: number | null) => {
+        if (cumulative !== null && latest !== null) {
+            return ((latest - cumulative) / cumulative) * 100
+        }
+        return null
+    }
+
+    const calculateColorFromGPA = (gpa: number | null) => {
+        if (gpa === null) {
+            return ""
+        }
+        if (gpa >= 3.5) {
+            return "text-green-600 dark:text-green-400"
+        } else if (gpa >= 3.0) {
+            return "text-amber-600 dark:text-yellow-400"
+        } else if (gpa >= 2.5) {
+            return "text-orange-600 dark:text-orange-400"
+        } else {
+            return "text-red-600 dark:text-red-400"
+        }
+    }
+
+    const getCumulativeCompletionRate = (course: Course) => {
+        return calculateCompletionRate(course.madgrades_data.cumulative)
+    }
+
+    const getLatestCompletionRate = (course: Course) => {
+        return calculateCompletionRate(getLatestTermMadgradesData(course))
+    }
+
+    const getCumulativeARate = (course: Course) => {
+        return calculateARate(course.madgrades_data.cumulative)
+    }
+
+    const getLatestARate = (course: Course) => {
+        return calculateARate(getLatestTermMadgradesData(course))
+    }
+
+    const getCumulativeClassSize = (course: Course) => {
+        let average = 0;
+        for (let term in course.madgrades_data.by_term) {
+            average += course.madgrades_data.by_term[term].total
+        }
+        return average / Object.keys(course.madgrades_data.by_term).length
+    }
+
+    const getLatestClassSize = (course: Course) => {
+        return getLatestTermMadgradesData(course).total
+    }
+
+    onMount(async () => {
+        let courseRes = await fetch(`${PUBLIC_API_URL}/course/${sanatizedCourseIdentifier}.json`)
+        $course = await courseRes.json()
+    })
+</script>
+
+<ContentWrapper>
+    {#if $course}
+        <ContentH1>{$course.course_title}</ContentH1>
+        <div class="text-xl font-bold my-2">
+            {courseReferenceToString($course.course_reference)}
+        </div>
+        <Tabs.Root>
+            <Tabs.List class="my-2">
+                <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+                <Tabs.Trigger value="analytics">Analytics</Tabs.Trigger>
+                <Tabs.Trigger value="instructors">Instructors</Tabs.Trigger>
+                <Tabs.Trigger value="sections">Sections</Tabs.Trigger>
+            </Tabs.List>
+            <div class="grid gap-4 lg:grid-cols-12">
+                <div class="space-y-4 mt-2 lg:col-span-3">
+                    <Card.Root>
+                        <ScrollArea>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-base font-medium">Course Description</Card.Title>
+                                <Info class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <p class="text-sm break-words">{$course.description}</p>
+                            </Card.Content>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-base font-medium">Prerequisties</Card.Title>
+                                <BookOpen class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <p class="text-sm break-words">{$course.prerequisites.prerequisites_text}</p>
+                            </Card.Content>
+                        </ScrollArea>
+
+                    </Card.Root>
+                </div>
+                <Tabs.Content value="overview" class="lg:col-span-9 space-y-4">
+                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                        <Card.Root>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-sm font-medium">Grade Point Average</Card.Title>
+                                <BookPlus class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <div class="text-2xl font-bold {calculateColorFromGPA(getLatestTermGPA($course))}">
+                                    {getLatestTermGPA($course)?.toFixed(2) ?? "Not Reported"}
+                                </div>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>
+                            </Card.Content>
+                        </Card.Root>
+                        <Card.Root>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-sm font-medium">Completion Rate</Card.Title>
+                                <CircleCheckBig class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <div class="text-2xl font-bold">
+                                    {getLatestCompletionRate($course)?.toFixed(2) ?? "Not Reported"}%
+                                </div>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>
+                            </Card.Content>
+                        </Card.Root>
+                        <Card.Root>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-sm font-medium">A Rate</Card.Title>
+                                <BookA class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <div class="text-2xl font-bold">
+                                    {getLatestARate($course)?.toFixed(2) ?? "Not Reported"}%
+                                </div>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>
+                            </Card.Content>
+                        </Card.Root>
+                        <Card.Root>
+                            <Card.Header
+                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+                            >
+                                <Card.Title class="text-sm font-medium">Class Size</Card.Title>
+                                <Users class="text-muted-foreground h-4 w-4" />
+                            </Card.Header>
+                            <Card.Content>
+                                <div class="text-2xl font-bold">
+                                    {getLatestClassSize($course) ?? "Not Reported"}
+                                </div>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize($course), getCumulativeClassSize($course))} comparisonKeyword="Historical"/>
+                            </Card.Content>
+                        </Card.Root>
+                    </div>
+                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+                        <Card.Root class="col-span-4">
+                            <Card.Content class="pt-6">
+                                <GradeDistribution madgradesData={$course.madgrades_data} />
+                            </Card.Content>
+                        </Card.Root>
+                        <Card.Root class="col-span-3">
+                            <Card.Header>
+                                <Card.Title>Top Instructors</Card.Title>
+                                <Card.Description>You made 265 sales this month.</Card.Description>
+                            </Card.Header>
+                            <Card.Content>
+                            </Card.Content>
+                        </Card.Root>
+                    </div>
+                </Tabs.Content>
+            </div>
+        </Tabs.Root>
+    {/if}
+</ContentWrapper>
