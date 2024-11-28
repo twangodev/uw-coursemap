@@ -30,7 +30,7 @@ def sync_enrollment_terms(terms, logger: Logger):
         terms[term_code] = short_description
 
 
-def build_from_mega_query(term_code, course_ref_to_course, logger: Logger):
+def build_from_mega_query(term_code, terms, course_ref_to_course, logger: Logger):
     post_data = {
         "selectedTerm": term_code,
         "queryString": "",
@@ -71,7 +71,7 @@ def build_from_mega_query(term_code, course_ref_to_course, logger: Logger):
             continue
 
         course = course_ref_to_course[course_ref]
-        enrollment_data = EnrollmentData.from_enrollment(hit)
+        enrollment_data = EnrollmentData.from_enrollment(hit, terms)
 
         subject_code = hit["subject"]["subjectCode"]
         course_id = hit["courseId"]

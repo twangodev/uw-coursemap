@@ -74,7 +74,7 @@ def prune_prerequisites(client, model, course: Course, course_ref_to_course, max
         stats=stats
     )
     logger.debug(f"Selected {([c.get_identifier() for c in best])} as the best prerequisite(s) for {course.get_identifier()} out of {len(prerequisites)} options")
-    stats["removed_requisites"] += len(prerequisites) - max_prerequisites
+    stats["removed_prerequisites"] += len(prerequisites) - max_prerequisites
     course.optimized_prerequisites = Course.Prerequisites(
         course_references=[c.course_reference for c in best],
         prerequisites_text=course.prerequisites.prerequisites_text
@@ -128,4 +128,4 @@ def optimize_prerequisites(
             except Exception as e:
                 logger.error(f"Optimization failed {suffix}: {e}")
 
-    logger.info(f"Optimization completed. Prompt Tokens used: {stats['prompt_tokens']}. Total tokens used: {stats['total_tokens']}. Removed requisites: {stats['removed_requisites']}")
+    logger.info(f"Optimization completed. Prompt Tokens used: {stats['prompt_tokens']}. Total tokens used: {stats['total_tokens']}. Removed requisites: {stats['removed_prerequisites']}")

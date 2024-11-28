@@ -1,4 +1,6 @@
+import logging
 import re
+from json import JSONDecodeError
 from logging import Logger
 
 import requests
@@ -147,7 +149,11 @@ def get_rating(name, api_key, logger: Logger):
         headers=auth_header,
         json={"query": graph_ql_query, "variables": produce_query(name)}
     )
-    data = response.json()
+    try:
+        data = response.json()
+    except JSONDecodeError:
+        logger.error(f"Failed to decode JSON response: {response.text}")
+        return None
 
     results = data["data"]["newSearch"]["teachers"]["edges"]
 
@@ -168,16 +174,26 @@ def scrape_api_key():
 
     return graphql_auth
 
-def get_ratings(instructors, logger: Logger):
+def get_ratings(instructors, stats, logger: Logger):
     api_key = scrape_api_key()
 
     ratings = {}
     total = len(instructors)
+    with_ratings = 0
     for i, instructor in enumerate(instructors):
         logger.info(f"Fetching rating for {instructor} ({i * 100 / total:.2f}%).")
         rating = get_rating(instructor, api_key, logger)
-        if rating:
-            ratings[instructor] = rating
 
-    logger.info(f"Found ratings for {len(ratings)} out of {total} instructors ({len(ratings) * 100 / total:.2f}%).")
+        if rating:
+            with_ratings += 1
+
+        ratings[instructor] = rating
+
+    logger.info(f"Found ratings for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
+
+    stats["instructors"] = total
+    stats["instructors_with_ratings"] = with_ratings
+
     return ratings
+
+

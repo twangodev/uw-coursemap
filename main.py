@@ -54,22 +54,31 @@ def main():
     open_ai_client = get_openai_client(api_key=openai_api_key, logger=logger, show_api_key=show_api_keys)
 
     stats = {
+        "subjects": 0,
+        "courses": 0,
+        "original_prerequisites": 0,
+        "unknown_madgrades_courses": 0,
+        "instructors": 0,
+        "instructors_with_ratings": 0,
         "prompt_tokens": 0,
         "total_tokens": 0,
-        "removed_requisites": 0,
-        "unknown_madgrades_courses": 0,
+        "removed_prerequisites": 0,
     }
 
     site_map_urls = get_course_urls(logger=logger)
-    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
-    terms = add_madgrades_data(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key,
-                               stats=stats, logger=logger)
+    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, stats=stats, logger=logger)
+    terms = add_madgrades_data(
+        course_ref_to_course=course_ref_to_course, 
+        madgrades_api_key=madgrades_api_key,
+        stats=stats, 
+        logger=logger
+    )
 
     sync_enrollment_terms(terms=terms, logger=logger)
     latest_term = max(terms.keys())
 
-    instructors = build_from_mega_query(term_code=latest_term, course_ref_to_course=course_ref_to_course, logger=logger)
-    instructor_to_rating = get_ratings(instructors=instructors, logger=logger)
+    instructors = build_from_mega_query(term_code=latest_term, terms=terms, course_ref_to_course=course_ref_to_course, logger=logger)
+    instructor_to_rating = get_ratings(instructors=instructors, stats=stats, logger=logger)
 
     optimize_prerequisites(
         client=open_ai_client,
@@ -111,7 +120,8 @@ def main():
         global_style=global_style,
         subject_to_style=subject_to_style,
         instructor_to_rating=instructor_to_rating,
-        latest_term=terms[latest_term],
+        terms=terms,
+        stats=stats,
         logger=logger
     )
 
