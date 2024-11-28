@@ -5,9 +5,18 @@
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
-    import {LucideFullscreen, LucideMinus, LucidePlus} from "lucide-svelte";
+    import {LucideFullscreen, LucideMail, LucideMinus, LucidePlus} from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
+    import {type Course, courseReferenceToString} from "$lib/types/course.ts";
+    import {writable} from "svelte/store";
+    import {PUBLIC_API_URL} from "$env/static/public";
+    import {Skeleton} from "$lib/components/ui/skeleton";
+    import {Separator} from "$lib/components/ui/separator";
+    import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
+    import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
+    import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
+    import {ScrollArea} from "$lib/components/ui/scroll-area";
 
     export let url: string
     export let styleUrl: string
@@ -41,6 +50,16 @@
     const zoomOut = () => {
         cy.zoom(cy.zoom() - 0.1);
     };
+
+    const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
+
+    let selectedCourse = writable<Course | null>(null);
+    let sheetOpen = writable(false);
+
+    async function fetchCourse(courseId: string) {
+        let response = await fetch(`${PUBLIC_API_URL}/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
+        $selectedCourse = await response.json();
+    }
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -246,12 +265,21 @@
             cy.nodes().removeClass('highlighted-nodes');
             cy.elements().removeClass('faded');
             cy.edges().removeClass('highlighted-edges');
+
             myTip?.destroy();
         });
 
         cy.on('click', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
+                return;
+            }
+
+            if (isDesktop()) {
+                $selectedCourse = null;
+                $sheetOpen = true;
+
+                fetchCourse(targetNode.id()).then(() => {});
                 return;
             }
 
@@ -284,7 +312,6 @@
         }
 
         function highlightPath(node: cytoscape.NodeSingular) {
-
             if (node.data('type') === 'compound') {
                 return;
             }
@@ -334,3 +361,68 @@
         </Button>
     </div>
 </div>
+
+<Root bind:open={$sheetOpen}>
+    <SheetContent class="flex flex-col h-full">
+        <SheetHeader class="sticky">
+            <SheetTitle class="text-2xl">
+                {#if $selectedCourse}
+                    {courseReferenceToString($selectedCourse.course_reference)}
+                {:else}
+                    <Skeleton class="h-6 w-9/12"/>
+                {/if}
+            </SheetTitle>
+        </SheetHeader>
+        <ScrollArea class="flex-1 overflow-y-auto mr-1">
+            <div class="font-semibold">
+                {#if $selectedCourse}
+                    {$selectedCourse.course_title}
+                {:else}
+                    <Skeleton class="h-5 w-6/12"/>
+                {/if}
+            </div>
+            <Separator class="my-1"/>
+            <SheetDescription>
+                {#if $selectedCourse}
+                    {$selectedCourse.description}
+                {:else}
+                    <Skeleton class="h-5 w-6/12"/>
+                {/if}
+            </SheetDescription>
+            {#if $selectedCourse}
+                {#each Object.entries($selectedCourse.enrollment_data.instructors) as [name, email], index}
+                    {#if index === 0}
+                        <div class="font-semibold mt-2">INSTRUCTORS</div>
+                        <Separator class="my-1" />
+                    {/if}
+                    <a
+                            class="flex justify-between space-x-4 p-2 rounded-lg hover:bg-muted transition-colors"
+                            target="_blank"
+                            href="https://TODO.com"
+                    >
+                        <div class="flex">
+                            <Avatar class="flex">
+                                <AvatarFallback>{name[0]}</AvatarFallback>
+                            </Avatar>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-semibold">{name}</h4>
+                                <div class="flex items-center py-1">
+                                    <LucideMail class="mr-2 h-4 w-4 opacity-70" />
+                                    <span class="text-muted-foreground text-xs underline-offset-2">
+                                        {email}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {/each}
+            {/if}
+        </ScrollArea>
+        {#if $selectedCourse}
+            <Button class="sticky bottom-0" href="/course/{courseReferenceToString($selectedCourse.course_reference).replaceAll(' ', '_').replaceAll('/', '_')}" target="_blank">
+                View Course Page
+                <ArrowUpRight class="h-4 w-4"/>
+            </Button>
+        {/if}
+    </SheetContent>
+</Root>

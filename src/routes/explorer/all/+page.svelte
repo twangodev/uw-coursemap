@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import Cytoscape from "$lib/components/Cytoscape.svelte";
+    import Cytoscape from "$lib/components/cytoscape/Cytoscape.svelte";
     import {PUBLIC_API_URL} from "$env/static/public";
 
 </script>
