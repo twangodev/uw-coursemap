@@ -22,7 +22,7 @@ def get_course_blocks(url: str, logger: Logger) -> (str, ResultSet):
     logger.info(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
 
-def add_data(subjects, course_ref_course, full_subject, blocks):
+def add_data(subjects, course_ref_course, full_subject, blocks, stats):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
     full_name = full_subject.group(1).strip()
     abbreviation = full_subject.group(2).replace(" ", "")
@@ -30,7 +30,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks):
     subjects[abbreviation] = full_name
 
     for block in blocks:
-        course = Course.from_block(block)
+        course = Course.from_block(block, stats)
         if not course:
             continue
         course_ref_course[course.course_reference] = course
@@ -57,7 +57,7 @@ def get_course_urls(logger: Logger) -> list[str]:
 
     return site_map_urls
 
-def scrape_all(urls: list[str], logger: Logger):
+def scrape_all(urls: list[str], stats, logger: Logger):
     logger.info("Building course data...")
 
     subject_to_full_subject = dict()
@@ -65,10 +65,14 @@ def scrape_all(urls: list[str], logger: Logger):
 
     for url in urls:
         full_subject, blocks = get_course_blocks(url, logger)
-        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
+        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, stats)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
+
+    stats["subjects"] = len(subject_to_full_subject)
+    stats["courses"] = len(course_ref_to_course)
+
     return subject_to_full_subject, course_ref_to_course
 
 def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:

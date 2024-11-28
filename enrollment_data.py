@@ -40,9 +40,9 @@ class EnrollmentData(JsonSerializable):
         def __eq__(self, other):
             return self.name == other.name and self.abbreviation == other.abbreviation and self.url == other.url
 
-    def __init__(self, school, last_taught_term_code, typically_offered: str, credit_count: tuple[int, int], general_education: bool, ethnics_studies: bool, instructors):
+    def __init__(self, school, last_taught_term, typically_offered: str, credit_count: tuple[int, int], general_education: bool, ethnics_studies: bool, instructors):
         self.school = school
-        self.last_taught_term_code = last_taught_term_code
+        self.last_taught_term = last_taught_term
         self.typically_offered = typically_offered
         self.credit_count = credit_count
         self.general_education = general_education
@@ -53,7 +53,7 @@ class EnrollmentData(JsonSerializable):
     def from_json(cls, data) -> 'EnrollmentData':
         return EnrollmentData(
             school=EnrollmentData.School.from_json(data["school"]),
-            last_taught_term_code=data["last_taught_term_code"],
+            last_taught_term=data["last_taught_term"],
             typically_offered=data["typically_offered"],
             credit_count=(data["credit_count"][0], data["credit_count"][1]),
             general_education=data["general_education"],
@@ -62,10 +62,14 @@ class EnrollmentData(JsonSerializable):
         )
 
     @classmethod
-    def from_enrollment(cls, data) -> 'EnrollmentData':
+    def from_enrollment(cls, data, terms) -> 'EnrollmentData':
+        last_taught_term_code = safe_int(data["lastTaught"])
+        last_taught_term = None
+        if last_taught_term_code and last_taught_term_code in terms:
+            last_taught_term = terms[last_taught_term_code]
         return EnrollmentData(
             school=EnrollmentData.School.from_enrollment(data["subject"]["schoolCollege"]),
-            last_taught_term_code=safe_int(data["lastTaught"]),
+            last_taught_term=last_taught_term,
             typically_offered=data["typicallyOffered"],
             credit_count=(data["minimumCredits"], data["maximumCredits"]),
             general_education=data["generalEd"] is not None,
@@ -75,8 +79,8 @@ class EnrollmentData(JsonSerializable):
 
     def to_dict(self) -> dict:
         return {
-            "school": self.school.to_json(),
-            "last_taught_term_code": self.last_taught_term_code,
+            "school": self.school.to_dict(),
+            "last_taught_term": self.last_taught_term,
             "typically_offered": self.typically_offered,
             "credit_count": [self.credit_count[0], self.credit_count[1]],
             "general_education": self.general_education,

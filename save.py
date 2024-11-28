@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from logging import Logger
 
 from json_serializable import JsonSerializable
+from rmp import RMPData
 
 
 def recursive_sort_data(data):
@@ -92,7 +93,7 @@ def wipe_data(data_dir, logger):
 
     logger.info("Data directory wiped.")
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating, latest_term, logger):
+def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, RMPData], terms, stats, logger):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -111,12 +112,17 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     for subject, style in subject_to_style.items():
         write_file(data_dir, ("styles",), subject, style, logger)
 
-    write_file(data_dir, tuple(), "instructor_ratings", instructor_to_rating, logger)
+    for instructor, rating in instructor_to_rating.items():
+        if rating is None:
+            continue
+        write_file(data_dir, ("instructors",), instructor, rating, logger)
+
+    write_file(data_dir, tuple(), "terms", terms, logger)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
         "updated_on": updated_on,
-        "latest_term": latest_term
     }
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
+    write_file(data_dir, tuple(), "stats", stats, logger)

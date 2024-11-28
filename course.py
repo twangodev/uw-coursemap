@@ -96,7 +96,16 @@ class Course(JsonSerializable):
                 return False
             return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
 
-    def __init__(self, course_reference: Reference, course_title: str, description: str, prerequisites: Prerequisites, optimized_prerequisites: Prerequisites | None, madgrades_data, enrollment_data: EnrollmentData | None):
+    def __init__(
+            self,
+            course_reference: Reference,
+            course_title: str,
+            description: str,
+            prerequisites: Prerequisites,
+            optimized_prerequisites: Prerequisites | None,
+            madgrades_data,
+            enrollment_data: EnrollmentData | None
+    ):
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
@@ -137,7 +146,7 @@ class Course(JsonSerializable):
         }
 
     @classmethod
-    def from_block(cls, block):
+    def from_block(cls, block, stats):
         html_title = block.find("p", class_="courseblocktitle noindent")
 
         if not html_title:
@@ -168,6 +177,8 @@ class Course(JsonSerializable):
             requisites_courses.add(Course.Reference.from_string(title))
 
         requisites_courses.discard(course_reference)  # Remove self-reference
+
+        stats["original_prerequisites"] += len(requisites_courses)
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
         return Course(course_reference, course_title, description, course_prerequisite, None, None, None)
@@ -310,7 +321,7 @@ class MadgradesData(JsonSerializable):
         }
 
     @classmethod
-    def from_madgrades(cls, terms, url, madgrades_api_key) -> "MadgradesData":
+    def from_madgrades(cls, url, madgrades_api_key) -> "MadgradesData":
         auth_header = {"Authorization": f"Token token={madgrades_api_key}" }
         response = requests.get(url=url, headers=auth_header)
         data = response.json()
@@ -322,9 +333,8 @@ class MadgradesData(JsonSerializable):
 
         for offering in course_offerings:
             term_code = offering["termCode"]
-            term = terms[term_code]
             grade_data = GradeData.from_madgrades(offering["cumulative"])
 
-            by_term[term] = grade_data
+            by_term[term_code] = grade_data
 
         return MadgradesData(cumulative=cumulative, by_term=by_term)
