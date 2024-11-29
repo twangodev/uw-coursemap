@@ -19,6 +19,6 @@
 >
     <Blocks class="size-4" />
     <Separator class="mx-2 h-4" orientation="vertical" />
-    <span>Rate My Professor Coming Soon!</span>
+    <span>Introducing Rate My Professor Statistics!</span>
     <ArrowRight class="ml-1 size-4" />
 </a>
