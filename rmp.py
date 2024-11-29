@@ -14,7 +14,7 @@ rmp_graphql_url = "https://www.ratemyprofessors.com/graphql"
 graph_ql_query = """
 query NewSearchTeachersQuery($query: TeacherSearchQuery!) {
 	newSearch {
-		teachers(query: $query, first: 30) {
+		teachers(query: $query, first: 50) {
 			didFallback
 			edges {
 				cursor
