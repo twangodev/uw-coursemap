@@ -17,6 +17,7 @@
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
+    import InstructorPreview from "$lib/components/InstructorPreview.svelte";
 
     export let url: string
     export let styleUrl: string
@@ -395,26 +396,7 @@
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />
                     {/if}
-                    <a
-                            class="flex justify-between space-x-4 p-2 rounded-lg hover:bg-muted transition-colors"
-                            target="_blank"
-                            href="https://TODO.com"
-                    >
-                        <div class="flex">
-                            <Avatar class="flex">
-                                <AvatarFallback>{name[0]}</AvatarFallback>
-                            </Avatar>
-                            <div class="ml-4">
-                                <h4 class="text-sm font-semibold">{name}</h4>
-                                <div class="flex items-center py-1">
-                                    <LucideMail class="mr-2 h-4 w-4 opacity-70" />
-                                    <span class="text-muted-foreground text-xs underline-offset-2">
-                                        {email}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <InstructorPreview {name} {email}/>
                 {/each}
             {/if}
         </ScrollArea>
