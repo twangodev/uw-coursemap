@@ -62,12 +62,12 @@
             ]
         },
         toolbar: {
-            enabled: true
+            enabled: false
         }
     }
 
 </script>
 
 <div class="h-full">
-    <BarChartSimple {data} {options}/>
+    <BarChartSimple {data} {options} class="h-full"/>
 </div>
