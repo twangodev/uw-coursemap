@@ -1,95 +1,13 @@
 [
     {
         "course_reference": {
-            "course_number": 640,
+            "course_number": 303,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
-        "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
-        "enrollment_data": {
-            "credit_count": [
-                4,
-                4
-            ],
-            "ethnics_studies": false,
-            "general_education": false,
-            "instructors": {
-                "Margie ROSENBERG": "MROSENBERG@BUS.WISC.EDU"
-            },
-            "last_taught_term": "2024 Fall",
-            "school": {
-                "abbreviation": "B",
-                "name": "Business",
-                "url": "http://www.bus.wisc.edu/"
-            },
-            "typically_offered": "Not Applicable"
-        },
-        "madgrades_data": null,
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,ECON\u00a0410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,333, or340), graduate/professional standing, or declared in Capstone Certificate in Actuarial Science"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 410,
-                    "subjects": [
-                        "ECON"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 317,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 310,
-                    "subjects": [
-                        "MATH",
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 312,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,ECON\u00a0410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,333, or340), graduate/professional standing, or declared in Capstone Certificate in Actuarial Science"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 651,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "ADVANCED LONG-TERM ACTUARIAL MODELING",
-        "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
+        "course_title": "THEORY OF INTEREST",
+        "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
         "enrollment_data": {
             "credit_count": [
                 3,
@@ -108,1227 +26,34 @@
             },
             "typically_offered": "Spring"
         },
-        "madgrades_data": {
-            "by_term": {
-                "1074": {
-                    "a": 9,
-                    "ab": 13,
-                    "b": 6,
-                    "bc": 1,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 1,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 32,
-                    "unsatisfactory": 0
-                },
-                "1084": {
-                    "a": 14,
-                    "ab": 7,
-                    "b": 5,
-                    "bc": 6,
-                    "c": 7,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 40,
-                    "unsatisfactory": 0
-                },
-                "1094": {
-                    "a": 13,
-                    "ab": 8,
-                    "b": 18,
-                    "bc": 8,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 53,
-                    "unsatisfactory": 0
-                },
-                "1104": {
-                    "a": 11,
-                    "ab": 7,
-                    "b": 17,
-                    "bc": 7,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 46,
-                    "unsatisfactory": 0
-                },
-                "1114": {
-                    "a": 12,
-                    "ab": 34,
-                    "b": 27,
-                    "bc": 7,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 1,
-                    "total": 82,
-                    "unsatisfactory": 0
-                },
-                "1124": {
-                    "a": 28,
-                    "ab": 10,
-                    "b": 40,
-                    "bc": 2,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 81,
-                    "unsatisfactory": 0
-                },
-                "1134": {
-                    "a": 29,
-                    "ab": 27,
-                    "b": 26,
-                    "bc": 4,
-                    "c": 8,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 1,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 96,
-                    "unsatisfactory": 0
-                },
-                "1144": {
-                    "a": 21,
-                    "ab": 19,
-                    "b": 13,
-                    "bc": 6,
-                    "c": 6,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 65,
-                    "unsatisfactory": 0
-                },
-                "1152": {
-                    "a": 6,
-                    "ab": 6,
-                    "b": 3,
-                    "bc": 4,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 19,
-                    "unsatisfactory": 0
-                },
-                "1154": {
-                    "a": 17,
-                    "ab": 16,
-                    "b": 12,
-                    "bc": 7,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 3,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 2,
-                    "total": 60,
-                    "unsatisfactory": 0
-                },
-                "1162": {
-                    "a": 12,
-                    "ab": 8,
-                    "b": 7,
-                    "bc": 4,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 34,
-                    "unsatisfactory": 0
-                },
-                "1164": {
-                    "a": 18,
-                    "ab": 16,
-                    "b": 22,
-                    "bc": 7,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 68,
-                    "unsatisfactory": 0
-                },
-                "1172": {
-                    "a": 5,
-                    "ab": 3,
-                    "b": 9,
-                    "bc": 1,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1174": {
-                    "a": 5,
-                    "ab": 3,
-                    "b": 5,
-                    "bc": 0,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 2,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                },
-                "1184": {
-                    "a": 10,
-                    "ab": 10,
-                    "b": 8,
-                    "bc": 6,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 36,
-                    "unsatisfactory": 0
-                },
-                "1194": {
-                    "a": 11,
-                    "ab": 8,
-                    "b": 8,
-                    "bc": 5,
-                    "c": 5,
-                    "credit": 0,
-                    "d": 2,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 2,
-                    "total": 41,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 11,
-                    "ab": 7,
-                    "b": 2,
-                    "bc": 2,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 9,
-                    "total": 35,
-                    "unsatisfactory": 0
-                },
-                "1224": {
-                    "a": 7,
-                    "ab": 2,
-                    "b": 2,
-                    "bc": 3,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 15,
-                    "unsatisfactory": 0
-                },
-                "1234": {
-                    "a": 6,
-                    "ab": 5,
-                    "b": 3,
-                    "bc": 3,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 1,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 1,
-                    "total": 19,
-                    "unsatisfactory": 0
-                },
-                "1242": {
-                    "a": 8,
-                    "ab": 4,
-                    "b": 5,
-                    "bc": 3,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 23,
-                    "unsatisfactory": 0
-                },
-                "1244": {
-                    "a": 6,
-                    "ab": 4,
-                    "b": 4,
-                    "bc": 2,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 18,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 259,
-                "ab": 217,
-                "b": 242,
-                "bc": 88,
-                "c": 60,
-                "credit": 0,
-                "d": 11,
-                "f": 6,
-                "incomplete": 1,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 2,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 15,
-                "total": 901,
-                "unsatisfactory": 0
-            }
-        },
+        "madgrades_data": null,
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 650,
+                    "course_number": 213,
                     "subjects": [
-                        "ACTSCI"
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
+            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 650,
+                    "course_number": 222,
                     "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 399,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
-        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
-        "enrollment_data": {
-            "credit_count": [
-                1,
-                3
-            ],
-            "ethnics_studies": false,
-            "general_education": false,
-            "instructors": {
-                "Daniel BAUER": "DANIEL.BAUER@WISC.EDU",
-                "Margie ROSENBERG": "MROSENBERG@BUS.WISC.EDU"
-            },
-            "last_taught_term": "Spring 2024",
-            "school": {
-                "abbreviation": "B",
-                "name": "Business",
-                "url": "http://www.bus.wisc.edu/"
-            },
-            "typically_offered": "Not Applicable"
-        },
-        "madgrades_data": {
-            "by_term": {
-                "1212": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "1222": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "1224": {
-                    "a": 1,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 1,
-                    "unsatisfactory": 0
-                },
-                "1232": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "1244": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 1,
-                "ab": 0,
-                "b": 0,
-                "bc": 0,
-                "c": 0,
-                "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 1,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "Consent of instructor"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 654,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
-        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
-        "enrollment_data": {
-            "credit_count": [
-                2,
-                3
-            ],
-            "ethnics_studies": false,
-            "general_education": false,
-            "instructors": {
-                "YANG WANG": "YANG.WANG@LAFOLLETTE.WISC.EDU"
-            },
-            "last_taught_term": "Spring 2024",
-            "school": {
-                "abbreviation": "B",
-                "name": "Business",
-                "url": "http://www.bus.wisc.edu/"
-            },
-            "typically_offered": "Spring"
-        },
-        "madgrades_data": {
-            "by_term": {
-                "1074": {
-                    "a": 13,
-                    "ab": 8,
-                    "b": 9,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 31,
-                    "unsatisfactory": 0
-                },
-                "1084": {
-                    "a": 11,
-                    "ab": 2,
-                    "b": 22,
-                    "bc": 4,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 43,
-                    "unsatisfactory": 0
-                },
-                "1094": {
-                    "a": 8,
-                    "ab": 22,
-                    "b": 8,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 39,
-                    "unsatisfactory": 0
-                },
-                "1104": {
-                    "a": 12,
-                    "ab": 18,
-                    "b": 24,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 55,
-                    "unsatisfactory": 0
-                },
-                "1112": {
-                    "a": 12,
-                    "ab": 3,
-                    "b": 5,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 20,
-                    "unsatisfactory": 0
-                },
-                "1114": {
-                    "a": 12,
-                    "ab": 18,
-                    "b": 7,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 1,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 39,
-                    "unsatisfactory": 0
-                },
-                "1122": {
-                    "a": 5,
-                    "ab": 3,
-                    "b": 4,
-                    "bc": 4,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 16,
-                    "unsatisfactory": 0
-                },
-                "1124": {
-                    "a": 7,
-                    "ab": 4,
-                    "b": 18,
-                    "bc": 5,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 37,
-                    "unsatisfactory": 0
-                },
-                "1132": {
-                    "a": 15,
-                    "ab": 10,
-                    "b": 10,
-                    "bc": 4,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 1,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 43,
-                    "unsatisfactory": 0
-                },
-                "1134": {
-                    "a": 4,
-                    "ab": 9,
-                    "b": 11,
-                    "bc": 3,
-                    "c": 5,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 32,
-                    "unsatisfactory": 0
-                },
-                "1142": {
-                    "a": 10,
-                    "ab": 16,
-                    "b": 6,
-                    "bc": 8,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 41,
-                    "unsatisfactory": 0
-                },
-                "1144": {
-                    "a": 12,
-                    "ab": 4,
-                    "b": 4,
-                    "bc": 8,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 31,
-                    "unsatisfactory": 0
-                },
-                "1152": {
-                    "a": 7,
-                    "ab": 8,
-                    "b": 6,
-                    "bc": 7,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 30,
-                    "unsatisfactory": 0
-                },
-                "1154": {
-                    "a": 8,
-                    "ab": 7,
-                    "b": 6,
-                    "bc": 4,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 26,
-                    "unsatisfactory": 0
-                },
-                "1162": {
-                    "a": 10,
-                    "ab": 9,
-                    "b": 1,
-                    "bc": 4,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 1,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 28,
-                    "unsatisfactory": 0
-                },
-                "1164": {
-                    "a": 8,
-                    "ab": 6,
-                    "b": 7,
-                    "bc": 7,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 31,
-                    "unsatisfactory": 0
-                },
-                "1172": {
-                    "a": 8,
-                    "ab": 4,
-                    "b": 14,
-                    "bc": 7,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 34,
-                    "unsatisfactory": 0
-                },
-                "1174": {
-                    "a": 14,
-                    "ab": 11,
-                    "b": 6,
-                    "bc": 3,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 34,
-                    "unsatisfactory": 0
-                },
-                "1182": {
-                    "a": 5,
-                    "ab": 15,
-                    "b": 10,
-                    "bc": 9,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 40,
-                    "unsatisfactory": 0
-                },
-                "1184": {
-                    "a": 26,
-                    "ab": 14,
-                    "b": 11,
-                    "bc": 7,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 2,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 63,
-                    "unsatisfactory": 0
-                },
-                "1192": {
-                    "a": 5,
-                    "ab": 6,
-                    "b": 9,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1202": {
-                    "a": 6,
-                    "ab": 7,
-                    "b": 6,
-                    "bc": 6,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 1,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 27,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 2,
-                    "ab": 7,
-                    "b": 4,
-                    "bc": 0,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 12,
-                    "total": 27,
-                    "unsatisfactory": 0
-                },
-                "1212": {
-                    "a": 15,
-                    "ab": 14,
-                    "b": 3,
-                    "bc": 2,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 34,
-                    "unsatisfactory": 0
-                },
-                "1222": {
-                    "a": 4,
-                    "ab": 8,
-                    "b": 6,
-                    "bc": 2,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 22,
-                    "unsatisfactory": 0
-                },
-                "1224": {
-                    "a": 19,
-                    "ab": 9,
-                    "b": 2,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 1,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 31,
-                    "unsatisfactory": 0
-                },
-                "1232": {
-                    "a": 7,
-                    "ab": 3,
-                    "b": 10,
-                    "bc": 3,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 26,
-                    "unsatisfactory": 0
-                },
-                "1244": {
-                    "a": 6,
-                    "ab": 6,
-                    "b": 12,
-                    "bc": 3,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 28,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 271,
-                "ab": 251,
-                "b": 241,
-                "bc": 104,
-                "c": 34,
-                "credit": 0,
-                "d": 5,
-                "f": 6,
-                "incomplete": 2,
-                "no_credit": 0,
-                "no_work": 2,
-                "not_reported": 1,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 12,
-                "total": 929,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 333,
+                    "course_number": 213,
                     "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
+                        "MATH"
                     ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
         }
     },
     {
@@ -2032,8 +757,8 @@
                 {
                     "course_number": 309,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 }
             ],
@@ -2042,20 +767,14 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
                     "course_number": 309,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 340,
+                    "course_number": 333,
                     "subjects": [
                         "STAT"
                     ]
@@ -2065,207 +784,6 @@
                     "subjects": [
                         "MATH"
                     ]
-                }
-            ],
-            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 655,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "HEALTH ANALYTICS",
-        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-        "enrollment_data": null,
-        "madgrades_data": {
-            "by_term": {
-                "1174": {
-                    "a": 8,
-                    "ab": 9,
-                    "b": 7,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 25,
-                    "unsatisfactory": 0
-                },
-                "1182": {
-                    "a": 11,
-                    "ab": 2,
-                    "b": 5,
-                    "bc": 1,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1184": {
-                    "a": 8,
-                    "ab": 4,
-                    "b": 3,
-                    "bc": 5,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 4,
-                    "ab": 4,
-                    "b": 9,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 6,
-                    "total": 23,
-                    "unsatisfactory": 0
-                },
-                "1224": {
-                    "a": 7,
-                    "ab": 9,
-                    "b": 2,
-                    "bc": 3,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1234": {
-                    "a": 8,
-                    "ab": 4,
-                    "b": 3,
-                    "bc": 0,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 18,
-                    "unsatisfactory": 0
-                },
-                "1242": {
-                    "a": 9,
-                    "ab": 8,
-                    "b": 5,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 24,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 55,
-                "ab": 40,
-                "b": 34,
-                "bc": 11,
-                "c": 6,
-                "credit": 0,
-                "d": 0,
-                "f": 1,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 6,
-                "total": 153,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
-        },
-        "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 640,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                },
-                {
-                    "course_number": 333,
-                    "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 656,
-                    "subjects": [
-                        "GENBUS"
-                    ]
                 },
                 {
                     "course_number": 340,
@@ -2274,335 +792,27 @@
                     ]
                 }
             ],
-            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+            "prerequisites_text": "(STAT/\u200bMATH\u00a0\u00a0309,MATH\u00a0331,STAT\u00a0333,340, or concurrent enrollment), or declared in undergraduate Business Exchange program. Not open to graduate/professional students."
         }
     },
     {
         "course_reference": {
-            "course_number": 365,
+            "course_number": 654,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "CONTEMPORARY TOPICS",
-        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-        "enrollment_data": null,
-        "madgrades_data": {
-            "by_term": {
-                "1132": {
-                    "a": 17,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                },
-                "1134": {
-                    "a": 14,
-                    "ab": 0,
-                    "b": 1,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 15,
-                    "unsatisfactory": 0
-                },
-                "1142": {
-                    "a": 8,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 8,
-                    "unsatisfactory": 0
-                },
-                "1144": {
-                    "a": 11,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 1,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 12,
-                    "unsatisfactory": 0
-                },
-                "1152": {
-                    "a": 8,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 8,
-                    "unsatisfactory": 0
-                },
-                "1154": {
-                    "a": 12,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 12,
-                    "unsatisfactory": 0
-                },
-                "1162": {
-                    "a": 26,
-                    "ab": 6,
-                    "b": 6,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 38,
-                    "unsatisfactory": 0
-                },
-                "1164": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "1172": {
-                    "a": 0,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 0,
-                    "unsatisfactory": 0
-                },
-                "1194": {
-                    "a": 13,
-                    "ab": 4,
-                    "b": 5,
-                    "bc": 6,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 33,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 19,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 19,
-                    "unsatisfactory": 0
-                },
-                "1224": {
-                    "a": 12,
-                    "ab": 2,
-                    "b": 2,
-                    "bc": 0,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                },
-                "1234": {
-                    "a": 19,
-                    "ab": 0,
-                    "b": 0,
-                    "bc": 0,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 21,
-                    "unsatisfactory": 0
-                },
-                "1242": {
-                    "a": 12,
-                    "ab": 0,
-                    "b": 3,
-                    "bc": 2,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 17,
-                    "unsatisfactory": 0
-                }
-            },
-            "cumulative": {
-                "a": 171,
-                "ab": 12,
-                "b": 17,
-                "bc": 8,
-                "c": 7,
-                "credit": 0,
-                "d": 1,
-                "f": 0,
-                "incomplete": 0,
-                "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 1,
-                "other": 0,
-                "passed": 0,
-                "satisfactory": 0,
-                "total": 217,
-                "unsatisfactory": 0
-            }
-        },
-        "optimized_prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        },
-        "prerequisites": {
-            "course_references": [],
-            "prerequisites_text": "None"
-        }
-    },
-    {
-        "course_reference": {
-            "course_number": 657,
-            "subjects": [
-                "ACTSCI"
-            ]
-        },
-        "course_title": "RISK ANALYTICS",
-        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
+        "course_title": "REGRESSION AND TIME SERIES FOR ACTUARIES",
+        "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
         "enrollment_data": {
             "credit_count": [
-                3,
+                2,
                 3
             ],
             "ethnics_studies": false,
             "general_education": false,
             "instructors": {
-                "Peng Shi": "PSHI@BUS.WISC.EDU"
+                "YANG WANG": "YANG.WANG@LAFOLLETTE.WISC.EDU"
             },
             "last_taught_term": "Spring 2024",
             "school": {
@@ -2610,14 +820,90 @@
                 "name": "Business",
                 "url": "http://www.bus.wisc.edu/"
             },
-            "typically_offered": "Not Applicable"
+            "typically_offered": "Spring"
         },
         "madgrades_data": {
             "by_term": {
-                "1234": {
+                "1074": {
+                    "a": 13,
+                    "ab": 8,
+                    "b": 9,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "1084": {
+                    "a": 11,
+                    "ab": 2,
+                    "b": 22,
+                    "bc": 4,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "1094": {
                     "a": 8,
-                    "ab": 9,
-                    "b": 3,
+                    "ab": 22,
+                    "b": 8,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 39,
+                    "unsatisfactory": 0
+                },
+                "1104": {
+                    "a": 12,
+                    "ab": 18,
+                    "b": 24,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 55,
+                    "unsatisfactory": 0
+                },
+                "1112": {
+                    "a": 12,
+                    "ab": 3,
+                    "b": 5,
                     "bc": 0,
                     "c": 0,
                     "credit": 0,
@@ -2633,10 +919,352 @@
                     "total": 20,
                     "unsatisfactory": 0
                 },
-                "1244": {
-                    "a": 6,
-                    "ab": 8,
+                "1114": {
+                    "a": 12,
+                    "ab": 18,
                     "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 39,
+                    "unsatisfactory": 0
+                },
+                "1122": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 4,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 16,
+                    "unsatisfactory": 0
+                },
+                "1124": {
+                    "a": 7,
+                    "ab": 4,
+                    "b": 18,
+                    "bc": 5,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 37,
+                    "unsatisfactory": 0
+                },
+                "1132": {
+                    "a": 15,
+                    "ab": 10,
+                    "b": 10,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "1134": {
+                    "a": 4,
+                    "ab": 9,
+                    "b": 11,
+                    "bc": 3,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "1142": {
+                    "a": 10,
+                    "ab": 16,
+                    "b": 6,
+                    "bc": 8,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "1144": {
+                    "a": 12,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "1152": {
+                    "a": 7,
+                    "ab": 8,
+                    "b": 6,
+                    "bc": 7,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 30,
+                    "unsatisfactory": 0
+                },
+                "1154": {
+                    "a": 8,
+                    "ab": 7,
+                    "b": 6,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "1162": {
+                    "a": 10,
+                    "ab": 9,
+                    "b": 1,
+                    "bc": 4,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
+                    "unsatisfactory": 0
+                },
+                "1164": {
+                    "a": 8,
+                    "ab": 6,
+                    "b": 7,
+                    "bc": 7,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "1172": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 14,
+                    "bc": 7,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "1174": {
+                    "a": 14,
+                    "ab": 11,
+                    "b": 6,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "1182": {
+                    "a": 5,
+                    "ab": 15,
+                    "b": 10,
+                    "bc": 9,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 40,
+                    "unsatisfactory": 0
+                },
+                "1184": {
+                    "a": 26,
+                    "ab": 14,
+                    "b": 11,
+                    "bc": 7,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 63,
+                    "unsatisfactory": 0
+                },
+                "1192": {
+                    "a": 5,
+                    "ab": 6,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1202": {
+                    "a": 6,
+                    "ab": 7,
+                    "b": 6,
+                    "bc": 6,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 2,
+                    "ab": 7,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 12,
+                    "total": 27,
+                    "unsatisfactory": 0
+                },
+                "1212": {
+                    "a": 15,
+                    "ab": 14,
+                    "b": 3,
                     "bc": 2,
                     "c": 0,
                     "credit": 0,
@@ -2649,36 +1277,112 @@
                     "other": 0,
                     "passed": 0,
                     "satisfactory": 0,
-                    "total": 23,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 4,
+                    "ab": 8,
+                    "b": 6,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 19,
+                    "ab": 9,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 31,
+                    "unsatisfactory": 0
+                },
+                "1232": {
+                    "a": 7,
+                    "ab": 3,
+                    "b": 10,
+                    "bc": 3,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 26,
+                    "unsatisfactory": 0
+                },
+                "1244": {
+                    "a": 6,
+                    "ab": 6,
+                    "b": 12,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 28,
                     "unsatisfactory": 0
                 }
             },
             "cumulative": {
-                "a": 14,
-                "ab": 17,
-                "b": 10,
-                "bc": 2,
-                "c": 0,
+                "a": 271,
+                "ab": 251,
+                "b": 241,
+                "bc": 104,
+                "c": 34,
                 "credit": 0,
-                "d": 0,
-                "f": 0,
-                "incomplete": 0,
+                "d": 5,
+                "f": 6,
+                "incomplete": 2,
                 "no_credit": 0,
-                "no_work": 0,
-                "not_reported": 0,
+                "no_work": 2,
+                "not_reported": 1,
                 "other": 0,
                 "passed": 0,
-                "satisfactory": 0,
-                "total": 43,
+                "satisfactory": 12,
+                "total": 929,
                 "unsatisfactory": 0
             }
         },
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 640,
+                    "course_number": 333,
                     "subjects": [
-                        "ACTSCI"
+                        "STAT"
                     ]
                 }
             ],
@@ -3399,7 +2103,7 @@
     },
     {
         "course_reference": {
-            "course_number": 765,
+            "course_number": 365,
             "subjects": [
                 "ACTSCI"
             ]
@@ -3409,27 +2113,8 @@
         "enrollment_data": null,
         "madgrades_data": {
             "by_term": {
-                "1194": {
-                    "a": 3,
-                    "ab": 0,
-                    "b": 1,
-                    "bc": 0,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 4,
-                    "total": 8,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 6,
+                "1132": {
+                    "a": 17,
                     "ab": 0,
                     "b": 0,
                     "bc": 0,
@@ -3444,14 +2129,416 @@
                     "other": 0,
                     "passed": 0,
                     "satisfactory": 0,
-                    "total": 6,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "1134": {
+                    "a": 14,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "1142": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "1144": {
+                    "a": 11,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "1152": {
+                    "a": 8,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 8,
+                    "unsatisfactory": 0
+                },
+                "1154": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "1162": {
+                    "a": 26,
+                    "ab": 6,
+                    "b": 6,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 38,
+                    "unsatisfactory": 0
+                },
+                "1164": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1172": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1194": {
+                    "a": 13,
+                    "ab": 4,
+                    "b": 5,
+                    "bc": 6,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 12,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 0,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "1234": {
+                    "a": 19,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1242": {
+                    "a": 12,
+                    "ab": 0,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
                     "unsatisfactory": 0
                 }
             },
             "cumulative": {
-                "a": 9,
+                "a": 171,
+                "ab": 12,
+                "b": 17,
+                "bc": 8,
+                "c": 7,
+                "credit": 0,
+                "d": 1,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 1,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 217,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        },
+        "prerequisites": {
+            "course_references": [],
+            "prerequisites_text": "None"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 399,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "READING AND RESEARCH-ACTUARIAL SCIENCE",
+        "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
+        "enrollment_data": {
+            "credit_count": [
+                1,
+                3
+            ],
+            "ethnics_studies": false,
+            "general_education": false,
+            "instructors": {
+                "Daniel BAUER": "DANIEL.BAUER@WISC.EDU",
+                "Margie ROSENBERG": "MROSENBERG@BUS.WISC.EDU"
+            },
+            "last_taught_term": "Spring 2024",
+            "school": {
+                "abbreviation": "B",
+                "name": "Business",
+                "url": "http://www.bus.wisc.edu/"
+            },
+            "typically_offered": "Not Applicable"
+        },
+        "madgrades_data": {
+            "by_term": {
+                "1212": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 1,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 1,
+                    "unsatisfactory": 0
+                },
+                "1232": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                },
+                "1244": {
+                    "a": 0,
+                    "ab": 0,
+                    "b": 0,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 0,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 1,
                 "ab": 0,
-                "b": 1,
+                "b": 0,
                 "bc": 0,
                 "c": 0,
                 "credit": 0,
@@ -3463,18 +2550,18 @@
                 "not_reported": 0,
                 "other": 0,
                 "passed": 0,
-                "satisfactory": 4,
-                "total": 14,
+                "satisfactory": 0,
+                "total": 1,
                 "unsatisfactory": 0
             }
         },
         "optimized_prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+            "prerequisites_text": "Consent of instructor"
         },
         "prerequisites": {
             "course_references": [],
-            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
+            "prerequisites_text": "Consent of instructor"
         }
     },
     {
@@ -4035,15 +3122,9 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 333,
+                    "course_number": 303,
                     "subjects": [
-                        "STAT"
-                    ]
-                },
-                {
-                    "course_number": 340,
-                    "subjects": [
-                        "STAT"
+                        "ACTSCI"
                     ]
                 },
                 {
@@ -4053,23 +3134,29 @@
                     ]
                 },
                 {
-                    "course_number": 309,
+                    "course_number": 340,
                     "subjects": [
-                        "MATH",
                         "STAT"
                     ]
                 },
                 {
                     "course_number": 431,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 },
                 {
-                    "course_number": 303,
+                    "course_number": 309,
                     "subjects": [
-                        "ACTSCI"
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
                     ]
                 }
             ],
@@ -4078,13 +3165,220 @@
     },
     {
         "course_reference": {
-            "course_number": 653,
+            "course_number": 655,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
-        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+        "course_title": "HEALTH ANALYTICS",
+        "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
+        "enrollment_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1174": {
+                    "a": 8,
+                    "ab": 9,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 25,
+                    "unsatisfactory": 0
+                },
+                "1182": {
+                    "a": 11,
+                    "ab": 2,
+                    "b": 5,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1184": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 5,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 4,
+                    "ab": 4,
+                    "b": 9,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 6,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 7,
+                    "ab": 9,
+                    "b": 2,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1234": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 3,
+                    "bc": 0,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                },
+                "1242": {
+                    "a": 9,
+                    "ab": 8,
+                    "b": 5,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 24,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 55,
+                "ab": 40,
+                "b": 34,
+                "bc": 11,
+                "c": 6,
+                "credit": 0,
+                "d": 0,
+                "f": 1,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 6,
+                "total": 153,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 656,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 657,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "RISK ANALYTICS",
+        "description": "Develop a toolbox for modeling, communicating, and managing risk and uncertainty in business applications. Emphasis on the notation of probabilistic forecasting and introduces a predictive modeling framework that integrate modern machine learning methods with distribution-based regression models. Topics include heavy-tailed regression, count data regression, survival data analysis, feature engineering using neural networks and natural language processing, among others.",
         "enrollment_data": {
             "credit_count": [
                 3,
@@ -4093,384 +3387,23 @@
             "ethnics_studies": false,
             "general_education": false,
             "instructors": {
-                "Paul Johnson": "PAUL.JOHNSON@WISC.EDU"
+                "Peng Shi": "PSHI@BUS.WISC.EDU"
             },
-            "last_taught_term": "2024 Fall",
+            "last_taught_term": "Spring 2024",
             "school": {
                 "abbreviation": "B",
                 "name": "Business",
                 "url": "http://www.bus.wisc.edu/"
             },
-            "typically_offered": "Spring"
+            "typically_offered": "Not Applicable"
         },
         "madgrades_data": {
             "by_term": {
-                "1074": {
-                    "a": 13,
-                    "ab": 6,
-                    "b": 10,
-                    "bc": 2,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 1,
-                    "total": 32,
-                    "unsatisfactory": 0
-                },
-                "1084": {
-                    "a": 9,
-                    "ab": 11,
-                    "b": 10,
-                    "bc": 3,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 35,
-                    "unsatisfactory": 0
-                },
-                "1094": {
-                    "a": 13,
-                    "ab": 6,
-                    "b": 10,
-                    "bc": 4,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 35,
-                    "unsatisfactory": 0
-                },
-                "1104": {
-                    "a": 15,
-                    "ab": 6,
-                    "b": 13,
-                    "bc": 1,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 2,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 1,
-                    "total": 41,
-                    "unsatisfactory": 0
-                },
-                "1114": {
-                    "a": 10,
-                    "ab": 4,
-                    "b": 18,
-                    "bc": 8,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 43,
-                    "unsatisfactory": 0
-                },
-                "1124": {
-                    "a": 12,
-                    "ab": 7,
-                    "b": 11,
-                    "bc": 3,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 35,
-                    "unsatisfactory": 0
-                },
-                "1134": {
-                    "a": 18,
-                    "ab": 19,
-                    "b": 15,
-                    "bc": 5,
-                    "c": 3,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 61,
-                    "unsatisfactory": 0
-                },
-                "1144": {
-                    "a": 11,
-                    "ab": 8,
-                    "b": 15,
-                    "bc": 4,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 1,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 2,
-                    "total": 43,
-                    "unsatisfactory": 0
-                },
-                "1154": {
-                    "a": 11,
-                    "ab": 13,
-                    "b": 9,
-                    "bc": 10,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 44,
-                    "unsatisfactory": 0
-                },
-                "1164": {
+                "1234": {
                     "a": 8,
-                    "ab": 19,
-                    "b": 18,
-                    "bc": 6,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 51,
-                    "unsatisfactory": 0
-                },
-                "1172": {
-                    "a": 5,
-                    "ab": 2,
-                    "b": 2,
-                    "bc": 1,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 12,
-                    "unsatisfactory": 0
-                },
-                "1174": {
-                    "a": 27,
-                    "ab": 36,
-                    "b": 15,
-                    "bc": 16,
-                    "c": 5,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 2,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 102,
-                    "unsatisfactory": 0
-                },
-                "1182": {
-                    "a": 3,
-                    "ab": 3,
-                    "b": 6,
-                    "bc": 1,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 15,
-                    "unsatisfactory": 0
-                },
-                "1184": {
-                    "a": 21,
-                    "ab": 16,
-                    "b": 25,
-                    "bc": 9,
-                    "c": 10,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 1,
-                    "incomplete": 1,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 84,
-                    "unsatisfactory": 0
-                },
-                "1192": {
-                    "a": 7,
-                    "ab": 6,
-                    "b": 3,
-                    "bc": 2,
-                    "c": 1,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 19,
-                    "unsatisfactory": 0
-                },
-                "1194": {
-                    "a": 14,
-                    "ab": 28,
-                    "b": 7,
-                    "bc": 6,
-                    "c": 5,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 61,
-                    "unsatisfactory": 0
-                },
-                "1202": {
-                    "a": 10,
-                    "ab": 5,
-                    "b": 8,
-                    "bc": 3,
-                    "c": 4,
-                    "credit": 0,
-                    "d": 2,
-                    "f": 1,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 33,
-                    "unsatisfactory": 0
-                },
-                "1204": {
-                    "a": 21,
                     "ab": 9,
-                    "b": 15,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 17,
-                    "total": 65,
-                    "unsatisfactory": 1
-                },
-                "1212": {
-                    "a": 10,
-                    "ab": 3,
-                    "b": 7,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 2,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 23,
-                    "unsatisfactory": 0
-                },
-                "1222": {
-                    "a": 7,
-                    "ab": 5,
-                    "b": 5,
-                    "bc": 3,
+                    "b": 3,
+                    "bc": 0,
                     "c": 0,
                     "credit": 0,
                     "d": 0,
@@ -4485,14 +3418,14 @@
                     "total": 20,
                     "unsatisfactory": 0
                 },
-                "1224": {
-                    "a": 10,
-                    "ab": 10,
-                    "b": 8,
-                    "bc": 4,
-                    "c": 3,
+                "1244": {
+                    "a": 6,
+                    "ab": 8,
+                    "b": 7,
+                    "bc": 2,
+                    "c": 0,
                     "credit": 0,
-                    "d": 1,
+                    "d": 0,
                     "f": 0,
                     "incomplete": 0,
                     "no_credit": 0,
@@ -4501,13 +3434,188 @@
                     "other": 0,
                     "passed": 0,
                     "satisfactory": 0,
-                    "total": 36,
+                    "total": 23,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 14,
+                "ab": 17,
+                "b": 10,
+                "bc": 2,
+                "c": 0,
+                "credit": 0,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 0,
+                "total": 43,
+                "unsatisfactory": 0
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 640,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 656,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(ACT\u00a0SCI\u00a0640,GEN\u00a0BUS\u00a0656,STAT\u00a0333, or340), or declared in undergraduate Business Exchange program"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 640,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ACTUARIAL STATISTICS FOR RISK MODELING",
+        "description": "Introduction to statistical learning theory and methods for analyzing and modeling risks in actuarial applications. Topics include linear and nonlinear models; diagnostics and assessment of predictive models; variable and model selection; and non-supervised learning techniques.",
+        "enrollment_data": {
+            "credit_count": [
+                4,
+                4
+            ],
+            "ethnics_studies": false,
+            "general_education": false,
+            "instructors": {
+                "Margie ROSENBERG": "MROSENBERG@BUS.WISC.EDU"
+            },
+            "last_taught_term": "2024 Fall",
+            "school": {
+                "abbreviation": "B",
+                "name": "Business",
+                "url": "http://www.bus.wisc.edu/"
+            },
+            "typically_offered": "Not Applicable"
+        },
+        "madgrades_data": null,
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,ECON\u00a0410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,333, or340), graduate/professional standing, or declared in Capstone Certificate in Actuarial Science"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 312,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 340,
+                    "subjects": [
+                        "STAT"
+                    ]
+                },
+                {
+                    "course_number": 310,
+                    "subjects": [
+                        "STAT",
+                        "MATH"
+                    ]
+                },
+                {
+                    "course_number": 317,
+                    "subjects": [
+                        "GENBUS"
+                    ]
+                },
+                {
+                    "course_number": 410,
+                    "subjects": [
+                        "ECON"
+                    ]
+                },
+                {
+                    "course_number": 333,
+                    "subjects": [
+                        "STAT"
+                    ]
+                }
+            ],
+            "prerequisites_text": "(GEN\u00a0BUS\u00a0317,ECON\u00a0410,STAT/\u200bMATH\u00a0\u00a0310,STAT\u00a0312,333, or340), graduate/professional standing, or declared in Capstone Certificate in Actuarial Science"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 765,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "CONTEMPORARY TOPICS",
+        "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+        "enrollment_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1194": {
+                    "a": 3,
+                    "ab": 0,
+                    "b": 1,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 4,
+                    "total": 8,
                     "unsatisfactory": 0
                 },
-                "1232": {
+                "1204": {
                     "a": 6,
-                    "ab": 4,
-                    "b": 4,
+                    "ab": 0,
+                    "b": 0,
                     "bc": 0,
                     "c": 0,
                     "credit": 0,
@@ -4520,108 +3628,37 @@
                     "other": 0,
                     "passed": 0,
                     "satisfactory": 0,
-                    "total": 14,
-                    "unsatisfactory": 0
-                },
-                "1234": {
-                    "a": 5,
-                    "ab": 0,
-                    "b": 4,
-                    "bc": 3,
-                    "c": 2,
-                    "credit": 0,
-                    "d": 0,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 14,
-                    "unsatisfactory": 0
-                },
-                "1242": {
-                    "a": 6,
-                    "ab": 5,
-                    "b": 8,
-                    "bc": 2,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 1,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 22,
-                    "unsatisfactory": 0
-                },
-                "1244": {
-                    "a": 4,
-                    "ab": 5,
-                    "b": 6,
-                    "bc": 1,
-                    "c": 0,
-                    "credit": 0,
-                    "d": 2,
-                    "f": 0,
-                    "incomplete": 0,
-                    "no_credit": 0,
-                    "no_work": 0,
-                    "not_reported": 0,
-                    "other": 0,
-                    "passed": 0,
-                    "satisfactory": 0,
-                    "total": 18,
+                    "total": 6,
                     "unsatisfactory": 0
                 }
             },
             "cumulative": {
-                "a": 276,
-                "ab": 236,
-                "b": 252,
-                "bc": 99,
-                "c": 48,
+                "a": 9,
+                "ab": 0,
+                "b": 1,
+                "bc": 0,
+                "c": 0,
                 "credit": 0,
-                "d": 15,
-                "f": 8,
-                "incomplete": 1,
+                "d": 0,
+                "f": 0,
+                "incomplete": 0,
                 "no_credit": 0,
-                "no_work": 1,
+                "no_work": 0,
                 "not_reported": 0,
                 "other": 0,
                 "passed": 0,
-                "satisfactory": 21,
-                "total": 958,
-                "unsatisfactory": 1
+                "satisfactory": 4,
+                "total": 14,
+                "unsatisfactory": 0
             }
         },
         "optimized_prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 652,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         },
         "prerequisites": {
-            "course_references": [
-                {
-                    "course_number": 652,
-                    "subjects": [
-                        "ACTSCI"
-                    ]
-                }
-            ],
-            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+            "course_references": [],
+            "prerequisites_text": "Graduate/professional standing or declared in graduate Business Exchange program"
         }
     },
     {
@@ -5211,8 +4248,8 @@
                 {
                     "course_number": 310,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "STAT",
+                        "MATH"
                     ]
                 }
             ],
@@ -5221,9 +4258,10 @@
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 317,
+                    "course_number": 310,
                     "subjects": [
-                        "GENBUS"
+                        "STAT",
+                        "MATH"
                     ]
                 },
                 {
@@ -5233,10 +4271,9 @@
                     ]
                 },
                 {
-                    "course_number": 310,
+                    "course_number": 317,
                     "subjects": [
-                        "MATH",
-                        "STAT"
+                        "GENBUS"
                     ]
                 },
                 {
@@ -5251,13 +4288,13 @@
     },
     {
         "course_reference": {
-            "course_number": 303,
+            "course_number": 651,
             "subjects": [
                 "ACTSCI"
             ]
         },
-        "course_title": "THEORY OF INTEREST",
-        "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
+        "course_title": "ADVANCED LONG-TERM ACTUARIAL MODELING",
+        "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
         "enrollment_data": {
             "credit_count": [
                 3,
@@ -5276,34 +4313,997 @@
             },
             "typically_offered": "Spring"
         },
-        "madgrades_data": null,
+        "madgrades_data": {
+            "by_term": {
+                "1074": {
+                    "a": 9,
+                    "ab": 13,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "1084": {
+                    "a": 14,
+                    "ab": 7,
+                    "b": 5,
+                    "bc": 6,
+                    "c": 7,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 40,
+                    "unsatisfactory": 0
+                },
+                "1094": {
+                    "a": 13,
+                    "ab": 8,
+                    "b": 18,
+                    "bc": 8,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 53,
+                    "unsatisfactory": 0
+                },
+                "1104": {
+                    "a": 11,
+                    "ab": 7,
+                    "b": 17,
+                    "bc": 7,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 46,
+                    "unsatisfactory": 0
+                },
+                "1114": {
+                    "a": 12,
+                    "ab": 34,
+                    "b": 27,
+                    "bc": 7,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 82,
+                    "unsatisfactory": 0
+                },
+                "1124": {
+                    "a": 28,
+                    "ab": 10,
+                    "b": 40,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 81,
+                    "unsatisfactory": 0
+                },
+                "1134": {
+                    "a": 29,
+                    "ab": 27,
+                    "b": 26,
+                    "bc": 4,
+                    "c": 8,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 1,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 96,
+                    "unsatisfactory": 0
+                },
+                "1144": {
+                    "a": 21,
+                    "ab": 19,
+                    "b": 13,
+                    "bc": 6,
+                    "c": 6,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 65,
+                    "unsatisfactory": 0
+                },
+                "1152": {
+                    "a": 6,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 4,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "1154": {
+                    "a": 17,
+                    "ab": 16,
+                    "b": 12,
+                    "bc": 7,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 3,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 60,
+                    "unsatisfactory": 0
+                },
+                "1162": {
+                    "a": 12,
+                    "ab": 8,
+                    "b": 7,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 34,
+                    "unsatisfactory": 0
+                },
+                "1164": {
+                    "a": 18,
+                    "ab": 16,
+                    "b": 22,
+                    "bc": 7,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 68,
+                    "unsatisfactory": 0
+                },
+                "1172": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 9,
+                    "bc": 1,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 21,
+                    "unsatisfactory": 0
+                },
+                "1174": {
+                    "a": 5,
+                    "ab": 3,
+                    "b": 5,
+                    "bc": 0,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 17,
+                    "unsatisfactory": 0
+                },
+                "1184": {
+                    "a": 10,
+                    "ab": 10,
+                    "b": 8,
+                    "bc": 6,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "1194": {
+                    "a": 11,
+                    "ab": 8,
+                    "b": 8,
+                    "bc": 5,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 11,
+                    "ab": 7,
+                    "b": 2,
+                    "bc": 2,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 9,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 7,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "1234": {
+                    "a": 6,
+                    "ab": 5,
+                    "b": 3,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "1242": {
+                    "a": 8,
+                    "ab": 4,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "1244": {
+                    "a": 6,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 259,
+                "ab": 217,
+                "b": 242,
+                "bc": 88,
+                "c": 60,
+                "credit": 0,
+                "d": 11,
+                "f": 6,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 0,
+                "not_reported": 2,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 15,
+                "total": 901,
+                "unsatisfactory": 0
+            }
+        },
         "optimized_prerequisites": {
             "course_references": [
                 {
-                    "course_number": 213,
+                    "course_number": 650,
                     "subjects": [
-                        "MATH"
+                        "ACTSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
+            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
         },
         "prerequisites": {
             "course_references": [
                 {
-                    "course_number": 222,
+                    "course_number": 650,
                     "subjects": [
-                        "MATH"
-                    ]
-                },
-                {
-                    "course_number": 213,
-                    "subjects": [
-                        "MATH"
+                        "ACTSCI"
                     ]
                 }
             ],
-            "prerequisites_text": "MATH\u00a0213,222, or declared in the Business Exchange program"
+            "prerequisites_text": "ACT\u00a0SCI\u00a0650"
+        }
+    },
+    {
+        "course_reference": {
+            "course_number": 653,
+            "subjects": [
+                "ACTSCI"
+            ]
+        },
+        "course_title": "ADVANCED SHORT-TERM ACTUARIAL MODELING",
+        "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+        "enrollment_data": {
+            "credit_count": [
+                3,
+                3
+            ],
+            "ethnics_studies": false,
+            "general_education": false,
+            "instructors": {
+                "Paul Johnson": "PAUL.JOHNSON@WISC.EDU"
+            },
+            "last_taught_term": "2024 Fall",
+            "school": {
+                "abbreviation": "B",
+                "name": "Business",
+                "url": "http://www.bus.wisc.edu/"
+            },
+            "typically_offered": "Spring"
+        },
+        "madgrades_data": {
+            "by_term": {
+                "1074": {
+                    "a": 13,
+                    "ab": 6,
+                    "b": 10,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 32,
+                    "unsatisfactory": 0
+                },
+                "1084": {
+                    "a": 9,
+                    "ab": 11,
+                    "b": 10,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "1094": {
+                    "a": 13,
+                    "ab": 6,
+                    "b": 10,
+                    "bc": 4,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "1104": {
+                    "a": 15,
+                    "ab": 6,
+                    "b": 13,
+                    "bc": 1,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 1,
+                    "total": 41,
+                    "unsatisfactory": 0
+                },
+                "1114": {
+                    "a": 10,
+                    "ab": 4,
+                    "b": 18,
+                    "bc": 8,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "1124": {
+                    "a": 12,
+                    "ab": 7,
+                    "b": 11,
+                    "bc": 3,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 35,
+                    "unsatisfactory": 0
+                },
+                "1134": {
+                    "a": 18,
+                    "ab": 19,
+                    "b": 15,
+                    "bc": 5,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 61,
+                    "unsatisfactory": 0
+                },
+                "1144": {
+                    "a": 11,
+                    "ab": 8,
+                    "b": 15,
+                    "bc": 4,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 1,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 2,
+                    "total": 43,
+                    "unsatisfactory": 0
+                },
+                "1154": {
+                    "a": 11,
+                    "ab": 13,
+                    "b": 9,
+                    "bc": 10,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 44,
+                    "unsatisfactory": 0
+                },
+                "1164": {
+                    "a": 8,
+                    "ab": 19,
+                    "b": 18,
+                    "bc": 6,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 51,
+                    "unsatisfactory": 0
+                },
+                "1172": {
+                    "a": 5,
+                    "ab": 2,
+                    "b": 2,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 12,
+                    "unsatisfactory": 0
+                },
+                "1174": {
+                    "a": 27,
+                    "ab": 36,
+                    "b": 15,
+                    "bc": 16,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 102,
+                    "unsatisfactory": 0
+                },
+                "1182": {
+                    "a": 3,
+                    "ab": 3,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 15,
+                    "unsatisfactory": 0
+                },
+                "1184": {
+                    "a": 21,
+                    "ab": 16,
+                    "b": 25,
+                    "bc": 9,
+                    "c": 10,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 1,
+                    "incomplete": 1,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 84,
+                    "unsatisfactory": 0
+                },
+                "1192": {
+                    "a": 7,
+                    "ab": 6,
+                    "b": 3,
+                    "bc": 2,
+                    "c": 1,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 19,
+                    "unsatisfactory": 0
+                },
+                "1194": {
+                    "a": 14,
+                    "ab": 28,
+                    "b": 7,
+                    "bc": 6,
+                    "c": 5,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 61,
+                    "unsatisfactory": 0
+                },
+                "1202": {
+                    "a": 10,
+                    "ab": 5,
+                    "b": 8,
+                    "bc": 3,
+                    "c": 4,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 1,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 33,
+                    "unsatisfactory": 0
+                },
+                "1204": {
+                    "a": 21,
+                    "ab": 9,
+                    "b": 15,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 17,
+                    "total": 65,
+                    "unsatisfactory": 1
+                },
+                "1212": {
+                    "a": 10,
+                    "ab": 3,
+                    "b": 7,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 2,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 23,
+                    "unsatisfactory": 0
+                },
+                "1222": {
+                    "a": 7,
+                    "ab": 5,
+                    "b": 5,
+                    "bc": 3,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 20,
+                    "unsatisfactory": 0
+                },
+                "1224": {
+                    "a": 10,
+                    "ab": 10,
+                    "b": 8,
+                    "bc": 4,
+                    "c": 3,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 36,
+                    "unsatisfactory": 0
+                },
+                "1232": {
+                    "a": 6,
+                    "ab": 4,
+                    "b": 4,
+                    "bc": 0,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "1234": {
+                    "a": 5,
+                    "ab": 0,
+                    "b": 4,
+                    "bc": 3,
+                    "c": 2,
+                    "credit": 0,
+                    "d": 0,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 14,
+                    "unsatisfactory": 0
+                },
+                "1242": {
+                    "a": 6,
+                    "ab": 5,
+                    "b": 8,
+                    "bc": 2,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 1,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 22,
+                    "unsatisfactory": 0
+                },
+                "1244": {
+                    "a": 4,
+                    "ab": 5,
+                    "b": 6,
+                    "bc": 1,
+                    "c": 0,
+                    "credit": 0,
+                    "d": 2,
+                    "f": 0,
+                    "incomplete": 0,
+                    "no_credit": 0,
+                    "no_work": 0,
+                    "not_reported": 0,
+                    "other": 0,
+                    "passed": 0,
+                    "satisfactory": 0,
+                    "total": 18,
+                    "unsatisfactory": 0
+                }
+            },
+            "cumulative": {
+                "a": 276,
+                "ab": 236,
+                "b": 252,
+                "bc": 99,
+                "c": 48,
+                "credit": 0,
+                "d": 15,
+                "f": 8,
+                "incomplete": 1,
+                "no_credit": 0,
+                "no_work": 1,
+                "not_reported": 0,
+                "other": 0,
+                "passed": 0,
+                "satisfactory": 21,
+                "total": 958,
+                "unsatisfactory": 1
+            }
+        },
+        "optimized_prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 652,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
+        },
+        "prerequisites": {
+            "course_references": [
+                {
+                    "course_number": 652,
+                    "subjects": [
+                        "ACTSCI"
+                    ]
+                }
+            ],
+            "prerequisites_text": "ACT\u00a0SCI\u00a0652or declared in undergraduate Business Exchange program"
         }
     }
 ]

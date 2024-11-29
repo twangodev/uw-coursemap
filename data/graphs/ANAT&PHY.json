@@ -14,33 +14,59 @@
     },
     {
         "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "source": "ANAT&PHY 435",
-            "target": "ANAT&PHY 335"
-        }
-    },
-    {
-        "data": {
-            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
-            "id": "ANAT&PHY 337",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
             "source": "ANAT&PHY 337",
             "target": "ANAT&PHY 338"
         }
     },
     {
         "data": {
+            "id": "CROSSLISTED",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn basic physiological concepts, apply them to understand human health and disease, and link them to broader core concepts in biology. Complete a project that applies conceptual understanding of general biology and physiology to investigate and create informational materials for the public about a disease or health promotion strategy. The foundational knowledge covered serves those interested in health sciences majors, as well as non-science students interested in life-long health.",
+            "id": "ANAT&PHY 235",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
             "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
             "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
+            "id": "ANAT&PHY 435",
+            "parent": "ANAT&PHY"
+        }
+    },
+    {
+        "data": {
+            "id": "ANAT&PHY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual work in the fields of anatomy and/or physiology will offer the opportunity to participate in more in-depth study (advanced level) under the direct guidance of anatomy and/or physiology faculty.",
+            "id": "ANAT&PHY 699",
+            "parent": "ANAT&PHY"
         }
     },
     {
@@ -59,40 +85,8 @@
     },
     {
         "data": {
-            "id": "CROSSLISTED",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "description": "Explores the major organ systems including nervous, endocrine, muscular, cardiovascular, renal, and gastrointestinal. The main learning objective is an understanding of the cellular and molecular mechanisms through which homeostasis is integrated and maintained. Not open to students with credit for PHYSIOL 335 or 435 prior to fall 2018 orANAT&PHY\u00a0335",
-            "id": "ANAT&PHY 435",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual work in the fields of anatomy and/or physiology will offer the opportunity to participate in more in-depth study (advanced level) under the direct guidance of anatomy and/or physiology faculty.",
-            "id": "ANAT&PHY 699",
-            "parent": "ANAT&PHY"
-        }
-    },
-    {
-        "data": {
-            "id": "ANAT&PHY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Learn basic physiological concepts, apply them to understand human health and disease, and link them to broader core concepts in biology. Complete a project that applies conceptual understanding of general biology and physiology to investigate and create informational materials for the public about a disease or health promotion strategy. The foundational knowledge covered serves those interested in health sciences majors, as well as non-science students interested in life-long health.",
-            "id": "ANAT&PHY 235",
+            "description": "Uses a regional approach to provide a foundation of knowledge in human anatomy. Units cover an introduction to anatomical systems; back and limbs; thorax, abdomen, and pelvis; and head and neck.",
+            "id": "ANAT&PHY 337",
             "parent": "ANAT&PHY"
         }
     },
@@ -100,6 +94,12 @@
         "data": {
             "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
             "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "ANAT&PHY 435",
+            "target": "ANAT&PHY 335"
         }
     }
 ]

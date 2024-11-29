@@ -1,34 +1,14 @@
 [
     {
         "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
             "source": "PHYSICS 249",
             "target": "PHYSICS 241"
         }
     },
     {
         "data": {
-            "source": "PHYSICS 247",
-            "target": "ASTRON 200"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of normal and peculiar stars as found from an analysis of the radiation they emit; introduction to radiation transfer. Theory of stellar atmospheres, interiors, and evolution.",
-            "id": "ASTRON 310",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Observational techniques for interstellar medium studies, overview of the role of interstellar gas in galaxies, dynamics, energetics, major theories of structure and evolution, introduction to star formations and supernova remnant evolution.",
-            "id": "ASTRON 720",
+            "description": "Physical principles, equilibrium of gaseous spheres, energy transport, energy generation, nucleosynthesis, main sequence red giant and electron degenerate stars. Advanced topics such as origins of stellar variability, binary star evolution, star formation, supernovae explosions, evolution with mass loss.",
+            "id": "ASTRON 715",
             "parent": "ASTRON"
         }
     },
@@ -40,8 +20,28 @@
     },
     {
         "data": {
-            "id": "EMA",
-            "type": "compound"
+            "source": "ASTRON 103",
+            "target": "ASTRON 150"
+        }
+    },
+    {
+        "data": {
+            "description": "Current topics in astrophysics.",
+            "id": "ASTRON/PHYSICS 910"
+        }
+    },
+    {
+        "data": {
+            "description": "Advanced level mentored reading and research for graduate students.",
+            "id": "ASTRON 999",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Multidisciplinary study of how the distribution of elements in the Universe has changed over the last 10-15 billion years by tracing the history of matter from the Big Bang to the present composition of the Earth. Emphasizes connections between astronomy, geology, and chemistry. Readings will draw both on scientific journals and the popular press to allow us to engage the material on multiple levels.",
+            "id": "ASTRON 236",
+            "parent": "ASTRON"
         }
     },
     {
@@ -53,8 +53,306 @@
     },
     {
         "data": {
+            "description": "Extragalactic distance scale; groups and clusters of galaxies; distribution of galaxies and radio sources. Introduction to general relativity, cosmological models, microwave background, early universe, galaxy formation.",
+            "id": "ASTRON 735",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "A basic introduction into astronomical research by undertaking a small observing project with optical and/or radio telescopes. Topics covered are: understanding the astronomical literature, observing and data reduction, writing scientific reports and papers, presenting scientific results, and basics of scientific ethics.",
+            "id": "ASTRON 460",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "ASTRON 335"
+        }
+    },
+    {
+        "data": {
+            "description": "Modern astrophysics involves applying physical principles to understand astronomical phenomena. Includes the solar system, stars, nebulae, galaxies, and cosmology, with emphasis on origins and evolution. Some nighttime observation with telescopes required.",
+            "id": "ASTRON 200",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Distribution of stars, gas, and dust within our Milky Way, and their motions. Nearby galaxies: our Local Group. Optical, radio, and other techniques for observing galaxies. Composition and motions of other galaxies; galaxies with active nuclei; galaxy formation.",
+            "id": "ASTRON 330",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 211",
+            "target": "MATH 221"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 249"
+        }
+    },
+    {
+        "data": {
+            "description": "An examination of the origin and evolution of life in the universe based on our knowledge of astronomy, biology, and geology. Includes discussions on the search for extraterrestrial life and the history of life in our solar system.",
+            "id": "ASTRON/GEOSCI 160"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses for honors in the major as arranged with a faculty member; continuation ofASTRON\u00a0681.",
+            "id": "ASTRON 682",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses for honors in the major as arranged with a faculty member.",
+            "id": "ASTRON 681",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to atomic, solid state, and nuclear physics.",
+            "id": "PHYSICS 205",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Introductory mentored independent study as arranged with faculty.",
+            "id": "ASTRON 199",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "ASTRON 200",
+            "target": "ASTRON 103"
+        }
+    },
+    {
+        "data": {
+            "description": "Thermodynamics, atomic and molecular spectra, ionization and excitation, line and continuum opacities. Synchrotron radiation, Compton scattering, X-ray spectra. Radiative transfer, simple model atmospheres, radiative and convective energy transport.",
+            "id": "ASTRON 700",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Current problems; topic changes.",
+            "id": "ASTRON 620",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "id": "ASTRON",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 201",
+            "target": "EMA 202"
+        }
+    },
+    {
+        "data": {
+            "description": "Some of the greatest mysteries of the cosmos reside in what astrophysicists call \"the dark sector\". This course explores the nature of black holes, dark matter, and dark energy, which show us nature at its most extreme, taking you from the warping of spacetime and the launching of plasma beams around black holes to the acceleration of the cosmos that indicates the presence of some yet unknown form of energy. Learn about the fundamental laws of nature that govern everything from GPS satellites that enable navigation apps on your cell phone to the birth and ultimate fate of the universe.",
+            "id": "ASTRON 170",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "EMA 202",
+            "target": "ASTRON/EMA 550"
+        }
+    },
+    {
+        "data": {
+            "description": "A basic introduction into astronomical observations and data analysis techniques by undertaking observational projects with optical and radio telescopes. Topics covered include observation and data reduction, basic calibration of radio and optical telescopes, basics of data analysis and statistics, presenting scientific results, and basics of scientific ethics. Although specific to observational astrophysics, these methods are applicable to any of the physical sciences disciplines.",
+            "id": "ASTRON 465",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "The development of astronomical knowledge and cosmological views from the earliest times to the present, viewed in their social, philosophical, and technological contexts.",
+            "id": "ASTRON/HISTSCI 206"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of normal and peculiar stars as found from an analysis of the radiation they emit; introduction to radiation transfer. Theory of stellar atmospheres, interiors, and evolution.",
+            "id": "ASTRON 310",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 205",
+            "target": "ASTRON 465"
+        }
+    },
+    {
+        "data": {
+            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
+            "id": "EMA 201",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
             "source": "ASTRON 310",
             "target": "ASTRON 330"
+        }
+    },
+    {
+        "data": {
+            "id": "EMA",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the study of our Universe as a whole. Distribution of matter on the largest scales. Equations for cosmic expansion; making observations in an expanding curved spacetime. Nucleosynthesis and other tests of the Big Bang hypothesis. Gravitational collapse and the growth of structure.",
+            "id": "ASTRON 335",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Humanity is linked to the solar system in countless ways. Our view of the solar system, how planets form, and how planetary systems evolve has fundamentally changed with the discovery of countless exoplanets around other stars. Join us in exploring the modern view of the solar system and its relation to other planetary worlds. Includes the sky and celestial motions; ancient astronomy; the Copernican revolution; gravity, orbits, and interplanetary travel; formation of solar system; survey of sun, planets and moons; asteroids, meteors and comets; origin of life.",
+            "id": "ASTRON 104",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Kinematics, force-mass-acceleration relations, work and energy, impulse and momentum, moments of inertia and mass.",
+            "id": "EMA 202",
+            "parent": "EMA"
+        }
+    },
+    {
+        "data": {
+            "source": "ASTRON 340",
+            "target": "ASTRON 620"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 241",
+            "target": "PHYSICS 205"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
+            "id": "ASTRON 699",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member.",
+            "id": "ASTRON 691",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Individual study for seniors completing theses as arranged with a faculty member; continuation ofASTRON\u00a0691.",
+            "id": "ASTRON 692",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
+            "id": "PHYSICS 249",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "ASTRON 200"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Current problems; topic changes.",
+            "id": "ASTRON 920",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "The cosmos is vast, mysterious, and beautiful. Join us on an exploration of the universe, from the big bang to the birth, life, and death of stars and the warped reality of black holes. Includes lifecycles of stars; supernovae and creation of elements; white dwarfs, pulsars and black holes; the Milky Way and galaxies; distances of stars and galaxies; quasars; expansion of universe; modern big bang cosmology, dark matter, dark energy.",
+            "id": "ASTRON 103",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Properties of solar system objects, solar atmospheric phenomena, physics of planetary atmospheres, results of recent planetary missions, comets, origin of the solar system.",
+            "id": "ASTRON 340",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
         }
     },
     {
@@ -65,8 +363,8 @@
     },
     {
         "data": {
-            "description": "Distribution of stars, gas, and dust within our Milky Way, and their motions. Nearby galaxies: our Local Group. Optical, radio, and other techniques for observing galaxies. Composition and motions of other galaxies; galaxies with active nuclei; galaxy formation.",
-            "id": "ASTRON 330",
+            "description": "Observational techniques for interstellar medium studies, overview of the role of interstellar gas in galaxies, dynamics, energetics, major theories of structure and evolution, introduction to star formations and supernova remnant evolution.",
+            "id": "ASTRON 720",
             "parent": "ASTRON"
         }
     },
@@ -79,33 +377,8 @@
     },
     {
         "data": {
-            "source": "EMA 201",
-            "target": "EMA 202"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to atomic, solid state, and nuclear physics.",
-            "id": "PHYSICS 205",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Current topics in astrophysics.",
-            "id": "ASTRON/PHYSICS 910"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "EMA 202",
-            "target": "ASTRON/EMA 550"
+            "source": "ASTRON 340",
+            "target": "ASTRON 500"
         }
     },
     {
@@ -124,68 +397,8 @@
     },
     {
         "data": {
-            "description": "Multidisciplinary study of how the distribution of elements in the Universe has changed over the last 10-15 billion years by tracing the history of matter from the Big Bang to the present composition of the Earth. Emphasizes connections between astronomy, geology, and chemistry. Readings will draw both on scientific journals and the popular press to allow us to engage the material on multiple levels.",
-            "id": "ASTRON 236",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "ASTRON 335"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 249"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced level mentored reading and research for graduate students.",
-            "id": "ASTRON 990",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "EMA 201"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "ASTRON 310"
-        }
-    },
-    {
-        "data": {
-            "description": "Current problems; topic changes.",
-            "id": "ASTRON 920",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Principles of mechanics, force systems, equilibrium, structures, distributed forces, moments of inertia of areas, and friction.",
-            "id": "EMA 201",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Current problems; topic changes.",
-            "id": "ASTRON 620",
-            "parent": "ASTRON"
+            "id": "MATH",
+            "type": "compound"
         }
     },
     {
@@ -196,163 +409,20 @@
     },
     {
         "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member.",
-            "id": "ASTRON 691",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Properties of solar system objects, solar atmospheric phenomena, physics of planetary atmospheres, results of recent planetary missions, comets, origin of the solar system.",
-            "id": "ASTRON 340",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Our Galaxy contains about 100 billion stars. Most of these stars have planets as diverse and as fascinating as the worlds in our own neighborhood, the solar system. Learn about the study of planets and exoplanets, probing some of the deepest questions science and philosophy grapple with. Explore the ways in which scientists search for and analyze planets orbiting distant stars, both in the classroom and in hands-on laboratory experiences. From moons to super-Jupiters, this course provides an engrossing introduction into the brand new science of exoplanet research.",
-            "id": "ASTRON 140",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses for honors in the major as arranged with a faculty member.",
-            "id": "ASTRON 681",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Kinematics, force-mass-acceleration relations, work and energy, impulse and momentum, moments of inertia and mass.",
-            "id": "EMA 202",
-            "parent": "EMA"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses as arranged with a faculty member; continuation ofASTRON\u00a0691.",
-            "id": "ASTRON 692",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "A basic introduction into astronomical observations and data analysis techniques by undertaking observational projects with optical and radio telescopes. Topics covered include observation and data reduction, basic calibration of radio and optical telescopes, basics of data analysis and statistics, presenting scientific results, and basics of scientific ethics. Although specific to observational astrophysics, these methods are applicable to any of the physical sciences disciplines.",
-            "id": "ASTRON 465",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "A basic introduction into astronomical research by undertaking a small observing project with optical and/or radio telescopes. Topics covered are: understanding the astronomical literature, observing and data reduction, writing scientific reports and papers, presenting scientific results, and basics of scientific ethics.",
-            "id": "ASTRON 460",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Advanced level mentored reading and research for graduate students.",
-            "id": "ASTRON 999",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Continuation ofPHYSICS\u00a0248. Modern physics: introduction to quantum mechanics, topics from nuclear and particle physics, condensed matter physics, and atomic physics. Three lectures and one discussion per week.",
-            "id": "PHYSICS 249",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Some of the greatest mysteries of the cosmos reside in what astrophysicists call \"the dark sector\". This course explores the nature of black holes, dark matter, and dark energy, which show us nature at its most extreme, taking you from the warping of spacetime and the launching of plasma beams around black holes to the acceleration of the cosmos that indicates the presence of some yet unknown form of energy. Learn about the fundamental laws of nature that govern everything from GPS satellites that enable navigation apps on your cell phone to the birth and ultimate fate of the universe.",
-            "id": "ASTRON 170",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "source": "ASTRON 340",
-            "target": "ASTRON 620"
-        }
-    },
-    {
-        "data": {
-            "description": "Thermodynamics, atomic and molecular spectra, ionization and excitation, line and continuum opacities. Synchrotron radiation, Compton scattering, X-ray spectra. Radiative transfer, simple model atmospheres, radiative and convective energy transport.",
-            "id": "ASTRON 700",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "id": "ASTRON",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
             "source": "PHYSICS 241",
-            "target": "PHYSICS 205"
+            "target": "ASTRON 320"
         }
     },
     {
         "data": {
-            "description": "Modern astrophysics involves applying physical principles to understand astronomical phenomena. Includes the solar system, stars, nebulae, galaxies, and cosmology, with emphasis on origins and evolution. Some nighttime observation with telescopes required.",
-            "id": "ASTRON 200",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "An examination of the origin and evolution of life in the universe based on our knowledge of astronomy, biology, and geology. Includes discussions on the search for extraterrestrial life and the history of life in our solar system.",
-            "id": "ASTRON/GEOSCI 160"
-        }
-    },
-    {
-        "data": {
-            "description": "Introductory mentored independent study as arranged with faculty.",
-            "id": "ASTRON 199",
-            "parent": "ASTRON"
+            "source": "MATH 222",
+            "target": "EMA 201"
         }
     },
     {
         "data": {
             "source": "PHYSICS 249",
             "target": "ASTRON 340"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
-        }
-    },
-    {
-        "data": {
-            "description": "The development of astronomical knowledge and cosmological views from the earliest times to the present, viewed in their social, philosophical, and technological contexts.",
-            "id": "ASTRON/HISTSCI 206"
         }
     },
     {
@@ -364,105 +434,22 @@
     },
     {
         "data": {
-            "description": "Physical principles, equilibrium of gaseous spheres, energy transport, energy generation, nucleosynthesis, main sequence red giant and electron degenerate stars. Advanced topics such as origins of stellar variability, binary star evolution, star formation, supernovae explosions, evolution with mass loss.",
-            "id": "ASTRON 715",
+            "description": "Advanced level mentored reading and research for graduate students.",
+            "id": "ASTRON 990",
             "parent": "ASTRON"
         }
     },
     {
         "data": {
-            "description": "An introduction to astrophysics data collection. Students will be familiarized with the concepts, techniques, skills and resources needed to plan, obtain, reduce and interpret observations of astronomical objects.",
-            "id": "ASTRON 500",
-            "parent": "ASTRON"
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "description": "Humanity is linked to the solar system in countless ways. Our view of the solar system, how planets form, and how planetary systems evolve has fundamentally changed with the discovery of countless exoplanets around other stars. Join us in exploring the modern view of the solar system and its relation to other planetary worlds. Includes the sky and celestial motions; ancient astronomy; the Copernican revolution; gravity, orbits, and interplanetary travel; formation of solar system; survey of sun, planets and moons; asteroids, meteors and comets; origin of life.",
-            "id": "ASTRON 104",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Extragalactic distance scale; groups and clusters of galaxies; distribution of galaxies and radio sources. Introduction to general relativity, cosmological models, microwave background, early universe, galaxy formation.",
-            "id": "ASTRON 735",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Individual study for seniors completing theses for honors in the major as arranged with a faculty member; continuation ofASTRON\u00a0681.",
-            "id": "ASTRON 682",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 241",
-            "target": "ASTRON 320"
-        }
-    },
-    {
-        "data": {
-            "source": "ASTRON 103",
-            "target": "ASTRON 150"
-        }
-    },
-    {
-        "data": {
-            "source": "ASTRON 200",
-            "target": "ASTRON 103"
-        }
-    },
-    {
-        "data": {
-            "source": "ASTRON 340",
-            "target": "ASTRON 500"
-        }
-    },
-    {
-        "data": {
-            "description": "The cosmos is vast, mysterious, and beautiful. Join us on an exploration of the universe, from the big bang to the birth, life, and death of stars and the warped reality of black holes. Includes lifecycles of stars; supernovae and creation of elements; white dwarfs, pulsars and black holes; the Milky Way and galaxies; distances of stars and galaxies; quasars; expansion of universe; modern big bang cosmology, dark matter, dark energy.",
-            "id": "ASTRON 103",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 205",
-            "target": "ASTRON 465"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to the study of our Universe as a whole. Distribution of matter on the largest scales. Equations for cosmic expansion; making observations in an expanding curved spacetime. Nucleosynthesis and other tests of the Big Bang hypothesis. Gravitational collapse and the growth of structure.",
-            "id": "ASTRON 335",
-            "parent": "ASTRON"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study projects for juniors and seniors as arranged with a faculty member.",
-            "id": "ASTRON 699",
+            "description": "Our Galaxy contains about 100 billion stars. Most of these stars have planets as diverse and as fascinating as the worlds in our own neighborhood, the solar system. Learn about the study of planets and exoplanets, probing some of the deepest questions science and philosophy grapple with. Explore the ways in which scientists search for and analyze planets orbiting distant stars, both in the classroom and in hands-on laboratory experiences. From moons to super-Jupiters, this course provides an engrossing introduction into the brand new science of exoplanet research.",
+            "id": "ASTRON 140",
             "parent": "ASTRON"
         }
     },
@@ -474,8 +461,21 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 222"
+            "source": "PHYSICS 205",
+            "target": "ASTRON 310"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to astrophysics data collection. Students will be familiarized with the concepts, techniques, skills and resources needed to plan, obtain, reduce and interpret observations of astronomical objects.",
+            "id": "ASTRON 500",
+            "parent": "ASTRON"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
         }
     }
 ]

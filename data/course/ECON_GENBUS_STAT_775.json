@@ -2,9 +2,9 @@
     "course_reference": {
         "course_number": 775,
         "subjects": [
-            "GENBUS",
             "ECON",
-            "STAT"
+            "STAT",
+            "GENBUS"
         ]
     },
     "course_title": "BAYESIAN STATISTICS",
@@ -368,10 +368,15 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 761,
+                "course_number": 609,
                 "subjects": [
-                    "COMPSCI",
-                    "ECE"
+                    "STAT"
+                ]
+            },
+            {
+                "course_number": 709,
+                "subjects": [
+                    "ECON"
                 ]
             },
             {
@@ -381,20 +386,7 @@
                 ]
             },
             {
-                "course_number": 709,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 610,
-                "subjects": [
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 609,
                 "subjects": [
                     "STAT"
                 ]
@@ -406,9 +398,17 @@
                 ]
             },
             {
+                "course_number": 761,
+                "subjects": [
+                    "ECE",
+                    "COMPSCI"
+                ]
+            },
+            {
                 "course_number": 709,
                 "subjects": [
-                    "ECON"
+                    "STAT",
+                    "MATH"
                 ]
             }
         ],

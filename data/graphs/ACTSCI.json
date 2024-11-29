@@ -1,43 +1,15 @@
 [
     {
         "data": {
-            "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
-            "id": "ACTSCI 651",
+            "description": "Develop a knowledge of fundamental mathematical tools for quantitatively assessing risk. Emphasize the applications of these tools to problems encountered in actuarial science.",
+            "id": "ACTSCI 300",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
-            "id": "STAT 324",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
-            "id": "ACTSCI 303",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
-            "id": "ACTSCI 654",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
-            "id": "STAT 371",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 376",
-            "target": "MATH/STAT 431"
+            "source": "MATH/STAT 431",
+            "target": "MATH/STAT 309"
         }
     },
     {
@@ -48,83 +20,42 @@
     },
     {
         "data": {
-            "source": "ACTSCI 650",
-            "target": "ACTSCI 651"
-        }
-    },
-    {
-        "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "ACTSCI 365",
+            "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
+            "id": "ACTSCI 301",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "source": "ACTSCI 640",
-            "target": "ACTSCI 655"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 333",
-            "target": "ACTSCI 654"
-        }
-    },
-    {
-        "data": {
-            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
-            "id": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 324",
-            "target": "STAT 371"
-        }
-    },
-    {
-        "data": {
-            "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
-            "id": "ACTSCI 652",
+            "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
+            "id": "ACTSCI 650",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "source": "STAT 340",
-            "target": "ACTSCI 640"
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "description": "Develop a knowledge of fundamental mathematical tools for quantitatively assessing risk. Emphasize the applications of these tools to problems encountered in actuarial science.",
-            "id": "ACTSCI 300",
-            "parent": "ACTSCI"
+            "description": "Topics in multi-variable calculus and introduction to differential equations.",
+            "id": "MATH 376",
+            "parent": "MATH"
         }
     },
     {
         "data": {
-            "source": "MATH/STAT 310",
-            "target": "ACTSCI 652"
+            "source": "MATH 211",
+            "target": "MATH 221"
         }
     },
     {
         "data": {
-            "source": "STAT 324",
-            "target": "STAT 333"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 303",
-            "target": "ACTSCI 301"
+            "source": "MATH 211",
+            "target": "MATH 213"
         }
     },
     {
@@ -142,15 +73,96 @@
     },
     {
         "data": {
-            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
-            "id": "ACTSCI 765",
+            "source": "ACTSCI 303",
+            "target": "ACTSCI 650"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 640",
+            "target": "ACTSCI 655"
+        }
+    },
+    {
+        "data": {
+            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
+            "id": "MATH/STAT 310"
+        }
+    },
+    {
+        "data": {
+            "description": "Time value of money; interest compounded discretely and continuously; accumulated and present value of payments; loans and sinking funds; annuity and bond valuation; interest rate term structure; duration, immunization and interest rate swaps.",
+            "id": "ACTSCI 303",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "description": "Develop a knowledge of mathematical tools for quantitatively assessing financial risk. Emphasize the applications to problems encountered in actuarial science.",
-            "id": "ACTSCI 301",
+            "id": "ACTSCI",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 324",
+            "target": "STAT 333"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 213",
+            "target": "ACTSCI 303"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
+            "id": "ACTSCI 655",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 340",
+            "target": "ACTSCI 640"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
+            "id": "STAT 240",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
+            "id": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to modern statistical practice in the life sciences, using the R programming language. Topics include: exploratory data analysis, probability and random variables; one-sample testing and confidence intervals, role of assumptions, sample size determination, two-sample inference; basic ideas in experimental design, analysis of variance, linear regression, goodness-of fit; biological applications.",
+            "id": "STAT 371",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 240",
+            "target": "STAT 340"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 303",
+            "target": "ACTSCI 301"
+        }
+    },
+    {
+        "data": {
+            "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
+            "id": "ACTSCI 399",
             "parent": "ACTSCI"
         }
     },
@@ -169,60 +181,9 @@
     },
     {
         "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
+            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
+            "id": "MATH 213",
             "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 240",
-            "target": "STAT 340"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "source": "STAT 371",
-            "target": "STAT 324"
-        }
-    },
-    {
-        "data": {
-            "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
-            "id": "ACTSCI 653",
-            "parent": "ACTSCI"
-        }
-    },
-    {
-        "data": {
-            "description": "Introduces reproducible data management, modeling, analysis, and statistical inference through a practical, hands-on case studies approach. Topics include the use of an integrated statistical computing environment, data wrangling, the R programming language, data graphics and visualization, random variables and concepts of probability including the binomial and normal distributions, data modeling, statistical inference in one- and two- sample settings for proportions and means, simple linear regression, and report generation using R Markdown with applications to a wide variety of data to address open-ended questions.",
-            "id": "STAT 240",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics covered include axioms of probability, random variables, the most important discrete and continuous probability distributions, expectation and variance, moment generating functions, conditional probability and conditional expectations, multivariate distributions, Markov's and Chebyshev's inequalities, laws of large numbers, and the central limit theorem.",
-            "id": "MATH/STAT 431"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 431",
-            "target": "MATH/STAT 309"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 213",
-            "target": "ACTSCI 303"
         }
     },
     {
@@ -233,48 +194,34 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "description": "Probability and combinatorial methods, discrete and continuous, univariate and multivariate distributions, expected values, moments, normal distribution and derived distributions, estimation.",
+            "id": "MATH/STAT 309"
         }
     },
     {
         "data": {
-            "description": "First order differential equations, introduction to multivariable calculus and constrained optimization, infinite sequences and series, methods of approximation, and a brief introduction to probability. Models and applications from business and the social sciences.",
-            "id": "MATH 213",
-            "parent": "MATH"
+            "source": "MATH/STAT 309",
+            "target": "ACTSCI 300"
         }
     },
     {
         "data": {
-            "description": "Advanced problems in the mathematical theory of life contingencies; force of mortality, laws of mortality; premiums and reserves for insurance and annuities based on a single life.",
-            "id": "ACTSCI 650",
+            "description": "Descriptive statistics, probability concepts and distributions, random variables. Hypothesis tests and confidence intervals for one- and two-sample problems. Linear regression, model checking, and inference. Analysis of variance and basic ideas in experimental design. Utilizes the R programming language.",
+            "id": "STAT 324",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Foundation of multiple regression and time series analysis with focus on business. Introduction to skills needed to become critical consumers of reports that are based on regression and time series analysis.",
+            "id": "ACTSCI 654",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
-            "id": "STAT 340",
-            "parent": "STAT"
-        }
-    },
-    {
-        "data": {
-            "source": "ACTSCI 303",
-            "target": "ACTSCI 650"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 213"
-        }
-    },
-    {
-        "data": {
-            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
-            "id": "STAT 333",
-            "parent": "STAT"
+            "source": "MATH 221",
+            "target": "MATH 211"
         }
     },
     {
@@ -286,20 +233,8 @@
     },
     {
         "data": {
-            "source": "ACTSCI 652",
-            "target": "ACTSCI 653"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 211",
-            "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics in multi-variable calculus and introduction to differential equations.",
-            "id": "MATH 376",
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
             "parent": "MATH"
         }
     },
@@ -311,34 +246,99 @@
     },
     {
         "data": {
-            "description": "Introduction to the broad area of health, integrating how researchers from multiple perspectives have investigated various aspects of health, along with the hands-on practice of learning and using statistical tools to analyze these topics.",
-            "id": "ACTSCI 655",
+            "source": "STAT 324",
+            "target": "STAT 371"
+        }
+    },
+    {
+        "data": {
+            "description": "Teaches how to explore, model, and analyze data using R. Topics include basic probability models; the central limit theorem; Monte Carlo simulation; one- and two-sample hypothesis testing; Bayesian inference; linear and logistic regression; ANOVA; the bootstrap; random forests and cross-validation. Features the analysis of real-world data sets and the communication of findings in a clear and reproducible manner within a project setting.",
+            "id": "STAT 340",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH/STAT 310",
+            "target": "ACTSCI 652"
+        }
+    },
+    {
+        "data": {
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "ACTSCI 765",
             "parent": "ACTSCI"
         }
     },
     {
         "data": {
-            "id": "ACTSCI",
+            "id": "MATH",
             "type": "compound"
         }
     },
     {
         "data": {
-            "description": "Mathematical statistical inference aims at providing an understanding of likelihood's central role to statistical inference, using the language of mathematical statistics to analyze statistical procedures, and using the computer as a tool for understanding statistics. Specific topics include: samples and populations, estimation, hypothesis testing, and theoretical properties of statistical inference.",
-            "id": "MATH/STAT 310"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH/STAT 309",
-            "target": "ACTSCI 300"
-        }
-    },
-    {
-        "data": {
-            "description": "Directed study in various areas of actuarial science that provides the opportunity to participate in more in-depth study (intermediate level) under the direct guidance of actuarial science faculty.",
-            "id": "ACTSCI 399",
+            "description": "Exploration of subject areas possibly to be introduced into the business curriculum.",
+            "id": "ACTSCI 365",
             "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 333",
+            "target": "ACTSCI 654"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 650",
+            "target": "ACTSCI 651"
+        }
+    },
+    {
+        "data": {
+            "description": "Joint life probabilities, annuities and insurances; multiple-decrement theory; pension fund mathematics.",
+            "id": "ACTSCI 651",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "description": "Estimation of parameters of probability distributions appropriate for insurance data that are heavy tailed and skewed; assessment of credibility of data for ratemaking.",
+            "id": "ACTSCI 653",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "ACTSCI 652",
+            "target": "ACTSCI 653"
+        }
+    },
+    {
+        "data": {
+            "description": "An introduction to regression with emphasis on the practical aspects. Topics include: straight-line model, role of assumptions, residual analysis, transformations, multiple regression (with some use of matrix notation), multicollinearity, subset selection, and a brief introduction to mixed models.",
+            "id": "STAT 333",
+            "parent": "STAT"
+        }
+    },
+    {
+        "data": {
+            "description": "Definition and selection of probability distributions appropriate for insurance data that are heavily tailed and skewed.",
+            "id": "ACTSCI 652",
+            "parent": "ACTSCI"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 376",
+            "target": "MATH/STAT 431"
+        }
+    },
+    {
+        "data": {
+            "source": "STAT 371",
+            "target": "STAT 324"
         }
     }
 ]

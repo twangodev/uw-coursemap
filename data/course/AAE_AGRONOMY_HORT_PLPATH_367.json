@@ -2,10 +2,10 @@
     "course_reference": {
         "course_number": 367,
         "subjects": [
-            "AGRONOMY",
-            "HORT",
             "PLPATH",
-            "AAE"
+            "AGRONOMY",
+            "AAE",
+            "HORT"
         ]
     },
     "course_title": "INTRODUCTION TO ORGANIC AGRICULTURE: PRODUCTION, MARKETS, AND POLICY",
@@ -116,11 +116,11 @@
             {
                 "course_number": 103,
                 "subjects": [
-                    "C&ESOC",
                     "AGRONOMY",
-                    "ENTOM",
                     "AGROECOL",
-                    "ENVIRST"
+                    "ENVIRST",
+                    "ENTOM",
+                    "C&ESOC"
                 ]
             }
         ],
@@ -128,29 +128,6 @@
     },
     "prerequisites": {
         "course_references": [
-            {
-                "course_number": 123,
-                "subjects": [
-                    "BOTANY",
-                    "PLPATH"
-                ]
-            },
-            {
-                "course_number": 103,
-                "subjects": [
-                    "C&ESOC",
-                    "AGRONOMY",
-                    "ENTOM",
-                    "AGROECOL",
-                    "ENVIRST"
-                ]
-            },
-            {
-                "course_number": 120,
-                "subjects": [
-                    "HORT"
-                ]
-            },
             {
                 "course_number": 100,
                 "subjects": [
@@ -160,8 +137,31 @@
             {
                 "course_number": 222,
                 "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 120,
+                "subjects": [
+                    "HORT"
+                ]
+            },
+            {
+                "course_number": 103,
+                "subjects": [
+                    "AGRONOMY",
+                    "AGROECOL",
+                    "ENVIRST",
+                    "ENTOM",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 123,
+                "subjects": [
+                    "PLPATH",
+                    "BOTANY"
                 ]
             }
         ],

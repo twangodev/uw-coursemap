@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 332,
         "subjects": [
-            "BOTANY",
-            "PLPATH"
+            "PLPATH",
+            "BOTANY"
         ]
     },
     "course_title": "FUNGI",
@@ -379,8 +379,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -389,31 +389,31 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 130,
+                "subjects": [
+                    "BIOLOGY",
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 101,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
+                ]
+            },
+            {
                 "course_number": 151,
                 "subjects": [
-                    "BOTANY",
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             },
             {
                 "course_number": 381,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 101,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
                 ]
             }
         ],

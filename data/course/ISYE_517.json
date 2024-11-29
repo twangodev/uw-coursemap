@@ -264,9 +264,9 @@
             {
                 "course_number": 524,
                 "subjects": [
+                    "ISYE",
                     "ECE",
-                    "COMPSCI",
-                    "ISYE"
+                    "COMPSCI"
                 ]
             }
         ],
@@ -275,9 +275,11 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 323,
+                "course_number": 524,
                 "subjects": [
-                    "ISYE"
+                    "ISYE",
+                    "COMPSCI",
+                    "ECE"
                 ]
             },
             {
@@ -287,25 +289,23 @@
                 ]
             },
             {
-                "course_number": 309,
-                "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
                 "course_number": 431,
                 "subjects": [
-                    "MATH",
-                    "STAT"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
-                "course_number": 524,
+                "course_number": 309,
                 "subjects": [
-                    "COMPSCI",
-                    "ISYE",
-                    "ECE"
+                    "STAT",
+                    "MATH"
+                ]
+            },
+            {
+                "course_number": 323,
+                "subjects": [
+                    "ISYE"
                 ]
             }
         ],

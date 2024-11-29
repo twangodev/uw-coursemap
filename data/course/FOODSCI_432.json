@@ -301,8 +301,8 @@
             {
                 "course_number": 325,
                 "subjects": [
-                    "MICROBIO",
-                    "FOODSCI"
+                    "FOODSCI",
+                    "MICROBIO"
                 ]
             }
         ],
@@ -310,6 +310,13 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 325,
+                "subjects": [
+                    "FOODSCI",
+                    "MICROBIO"
+                ]
+            },
             {
                 "course_number": 440,
                 "subjects": [
@@ -319,13 +326,6 @@
             {
                 "course_number": 410,
                 "subjects": [
-                    "FOODSCI"
-                ]
-            },
-            {
-                "course_number": 325,
-                "subjects": [
-                    "MICROBIO",
                     "FOODSCI"
                 ]
             }

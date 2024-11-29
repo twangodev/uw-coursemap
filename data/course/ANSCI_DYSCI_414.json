@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 414,
         "subjects": [
-            "ANSCI",
-            "DYSCI"
+            "DYSCI",
+            "ANSCI"
         ]
     },
     "course_title": "RUMINANT NUTRITION & METABOLISM",
@@ -360,9 +360,9 @@
             {
                 "course_number": 311,
                 "subjects": [
-                    "ANSCI",
                     "NUTRSCI",
-                    "DYSCI"
+                    "DYSCI",
+                    "ANSCI"
                 ]
             }
         ],
@@ -370,6 +370,12 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 301,
+                "subjects": [
+                    "BIOCHEM"
+                ]
+            },
             {
                 "course_number": 501,
                 "subjects": [
@@ -379,15 +385,9 @@
             {
                 "course_number": 311,
                 "subjects": [
-                    "ANSCI",
+                    "NUTRSCI",
                     "DYSCI",
-                    "NUTRSCI"
-                ]
-            },
-            {
-                "course_number": 301,
-                "subjects": [
-                    "BIOCHEM"
+                    "ANSCI"
                 ]
             }
         ],

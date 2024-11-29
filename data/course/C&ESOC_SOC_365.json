@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 365,
         "subjects": [
-            "C&ESOC",
-            "SOC"
+            "SOC",
+            "C&ESOC"
         ]
     },
     "course_title": "DATA MANAGEMENT FOR SOCIAL SCIENCE RESEARCH",
@@ -377,8 +377,8 @@
             {
                 "course_number": 360,
                 "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "SOC",
+                    "C&ESOC"
                 ]
             }
         ],
@@ -386,6 +386,12 @@
     },
     "prerequisites": {
         "course_references": [
+            {
+                "course_number": 310,
+                "subjects": [
+                    "ECON"
+                ]
+            },
             {
                 "course_number": 301,
                 "subjects": [
@@ -395,21 +401,8 @@
             {
                 "course_number": 310,
                 "subjects": [
-                    "MATH",
-                    "STAT"
-                ]
-            },
-            {
-                "course_number": 210,
-                "subjects": [
-                    "PSYCH"
-                ]
-            },
-            {
-                "course_number": 360,
-                "subjects": [
-                    "C&ESOC",
-                    "SOC"
+                    "STAT",
+                    "MATH"
                 ]
             },
             {
@@ -419,9 +412,16 @@
                 ]
             },
             {
-                "course_number": 310,
+                "course_number": 360,
                 "subjects": [
-                    "ECON"
+                    "SOC",
+                    "C&ESOC"
+                ]
+            },
+            {
+                "course_number": 210,
+                "subjects": [
+                    "PSYCH"
                 ]
             }
         ],

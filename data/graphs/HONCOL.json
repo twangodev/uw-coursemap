@@ -1,110 +1,8 @@
 [
     {
         "data": {
-            "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
-            "id": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
-            "id": "PHYSICS 247",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
-            "id": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
-            "id": "PHYSICS 322",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
-            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 322",
-            "target": "PHYSICS 323"
-        }
-    },
-    {
-        "data": {
             "id": "CROSSLISTED",
             "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "HONCOL",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "source": "ZOOLOGY 153",
-            "target": "HONCOL/MEDPHYS 410"
-        }
-    },
-    {
-        "data": {
-            "id": "MATH",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "ZOOLOGY",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "id": "MEDSC-M",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
-            "id": "MATH 222",
-            "parent": "MATH"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 691",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 681",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "id": "PHYSICS",
-            "type": "compound"
-        }
-    },
-    {
-        "data": {
-            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
-            "id": "MATH 211",
-            "parent": "MATH"
         }
     },
     {
@@ -115,49 +13,20 @@
     },
     {
         "data": {
-            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
-            "id": "MATH 221",
-            "parent": "MATH"
+            "source": "BIOLOGY/ZOOLOGY 101",
+            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
         }
     },
     {
         "data": {
-            "description": "Learn to value the contributions of oral presentations in developing your career, in convincing audiences of the results of your research, or gaining approval of your proposed research.",
-            "id": "HONCOL 750",
-            "parent": "HONCOL"
+            "source": "PHYSICS 248",
+            "target": "PHYSICS 322"
         }
     },
     {
         "data": {
-            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
-            "id": "PHYSICS 248",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
-            "id": "PHYSICS 323",
-            "parent": "PHYSICS"
-        }
-    },
-    {
-        "data": {
-            "description": "Tutorial lab/library research and study. Opportunity for learning in depth without a thesis requirement.",
-            "id": "HONCOL 699",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
-            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 692",
+            "description": "Radiation therapy has been used in treatment of cancer and other diseases for over 100 years. Gain a comprehensive overview of how modern technology allows us to precisely target the tumor while maintaining the function of normal tissues (i.e. the physics and biology underlying the use of radiation therapy). Develop a strong foundational knowledge of basic oncology principles, begin to understand the biology and physics underlying radiation oncology treatments, interpret dose/volume histograms and normal-tissue complication probabilities, understand the role of modern imaging in the workup, treatment, and follow-up of cancer patients, and be able to discuss the major financial issues associated with various treatment modalities. It is anticipated that students will incorporate these concepts, knowledge, experiences, and evidence in their future clinical practice.",
+            "id": "HONCOL 912",
             "parent": "HONCOL"
         }
     },
@@ -170,58 +39,22 @@
     },
     {
         "data": {
-            "source": "MATH 221",
-            "target": "MATH 211"
+            "description": "Electrostatic fields, capacitance, multi-pole expansion, dielectric theory; magnetostatics; electromagnetic induction; magnetic properties of matter; Maxwell's equations and electromagnetic waves; relativity and electromagmetism. Experiments for this course are covered in PHYSICS 308.",
+            "id": "PHYSICS 322",
+            "parent": "PHYSICS"
         }
     },
     {
         "data": {
-            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
-            "target": "BIOLOGY/ZOOLOGY 101"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
-            "id": "HONCOL 682",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "MATH 222",
-            "target": "PHYSICS 247"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 247",
-            "target": "PHYSICS 248"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "HONCOL 912"
+            "description": "Essential concepts of differential and integral calculus; exponential and logarithmic functions; functions of several variables. Primarily for students in prebusiness and some social sciences. Students preparing for advanced study in mathematics, physics, engineering and other sciences (including most biological sciences) should takeMATH\u00a0221.",
+            "id": "MATH 211",
+            "parent": "MATH"
         }
     },
     {
         "data": {
             "source": "MATH 211",
             "target": "MATH 221"
-        }
-    },
-    {
-        "data": {
-            "source": "MEDSC-M 813",
-            "target": "HONCOL 911"
-        }
-    },
-    {
-        "data": {
-            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
-            "id": "ZOOLOGY 153",
-            "parent": "ZOOLOGY"
         }
     },
     {
@@ -233,28 +66,8 @@
     },
     {
         "data": {
-            "description": "Radiation therapy has been used in treatment of cancer and other diseases for over 100 years. Gain a comprehensive overview of how modern technology allows us to precisely target the tumor while maintaining the function of normal tissues (i.e. the physics and biology underlying the use of radiation therapy). Develop a strong foundational knowledge of basic oncology principles, begin to understand the biology and physics underlying radiation oncology treatments, interpret dose/volume histograms and normal-tissue complication probabilities, understand the role of modern imaging in the workup, treatment, and follow-up of cancer patients, and be able to discuss the major financial issues associated with various treatment modalities. It is anticipated that students will incorporate these concepts, knowledge, experiences, and evidence in their future clinical practice.",
-            "id": "HONCOL 912",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "source": "PHYSICS 248",
-            "target": "PHYSICS 322"
-        }
-    },
-    {
-        "data": {
-            "description": "Gain a greater understanding of the basic and translational science that is fueling the ongoing immuno-oncology revolution in cancer care. Explore the tumor-immune microenvironment and modern approaches to cancer immunotherapy. Evaluate pertinent primary literature in this arena and exposure to the technological resources (e.g. flow cytometry, clinical pathology, cell therapeutics infrastructure) that are critical to implementing immunotherapies in the clinic. Tumor board attendance will highlight the clinical reasoning and toxicity management in the clinical use of immunotherapies for cancer treatment.",
-            "id": "HONCOL 911",
-            "parent": "HONCOL"
-        }
-    },
-    {
-        "data": {
-            "description": "Independent research under the direct supervision of Human Oncology faculty.  Each student's research project is individualized to meet student research goals within context of  faculty research needs.",
-            "id": "HONCOL 910",
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 691",
             "parent": "HONCOL"
         }
     },
@@ -267,20 +80,207 @@
     },
     {
         "data": {
-            "source": "BIOLOGY/ZOOLOGY 101",
-            "target": "BIOLOGY/BOTANY/ZOOLOGY 151"
-        }
-    },
-    {
-        "data": {
             "source": "PHYSICS 323",
             "target": "BME/HONCOL/MEDPHYS/PHYSICS 501"
         }
     },
     {
         "data": {
+            "source": "ZOOLOGY 153",
+            "target": "HONCOL/MEDPHYS 410"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics, and selected topics in Animal Physiology. Designed for engineering majors that do not need a lab component.",
+            "id": "ZOOLOGY 153",
+            "parent": "ZOOLOGY"
+        }
+    },
+    {
+        "data": {
+            "description": "Topics include: cell structure and function, cellular metabolism (enzymes, respiration, photosynthesis), information flow (DNA, RNA, protein), principles of genetics and selected topics in Animal Physiology.",
+            "id": "BIOLOGY/BOTANY/ZOOLOGY 151"
+        }
+    },
+    {
+        "data": {
+            "description": "Interactions and energy deposition by ionizing radiation in matter; concepts, quantities and units in radiological physics; principles and methods of radiation dosimetry.",
+            "id": "BME/HONCOL/MEDPHYS/PHYSICS 501"
+        }
+    },
+    {
+        "data": {
+            "id": "MEDSC-M",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Gain a greater understanding of the basic and translational science that is fueling the ongoing immuno-oncology revolution in cancer care. Explore the tumor-immune microenvironment and modern approaches to cancer immunotherapy. Evaluate pertinent primary literature in this arena and exposure to the technological resources (e.g. flow cytometry, clinical pathology, cell therapeutics infrastructure) that are critical to implementing immunotherapies in the clinic. Tumor board attendance will highlight the clinical reasoning and toxicity management in the clinical use of immunotherapies for cancer treatment.",
+            "id": "HONCOL 911",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 247",
+            "target": "PHYSICS 248"
+        }
+    },
+    {
+        "data": {
+            "description": "General biological principles. Topics include: evolution, ecology, animal behavior, cell structure and function, genetics and molecular genetics and the physiology of a variety of organ systems emphasizing function in humans.",
+            "id": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 222",
+            "target": "PHYSICS 247"
+        }
+    },
+    {
+        "data": {
             "source": "MATH 221",
             "target": "MATH 222"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 692",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Techniques of integration, improper integrals, first order ordinary differential equations, sequences and series, Taylor series, vector geometry in two and three dimensions.",
+            "id": "MATH 222",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 681",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Continuation ofPHYSICS\u00a0247. Electromagnetism, circuits, optics, additional topics in modern physics; with computation.",
+            "id": "PHYSICS 248",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "source": "BIOLOGY/BOTANY/ZOOLOGY 151",
+            "target": "BIOLOGY/ZOOLOGY 101"
+        }
+    },
+    {
+        "data": {
+            "source": "MATH 221",
+            "target": "MATH 211"
+        }
+    },
+    {
+        "data": {
+            "description": "Introduction to differential and integral calculus and plane analytic geometry; applications; transcendental functions.",
+            "id": "MATH 221",
+            "parent": "MATH"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "HONCOL 911"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research in the area of human oncology including biology, medical physics, or clinical oncology. A written thesis is required in the final semester.",
+            "id": "HONCOL 682",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "description": "Tutorial lab/library research and study. Opportunity for learning in depth without a thesis requirement.",
+            "id": "HONCOL 699",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "id": "MATH",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "HONCOL",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "PHYSICS",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "id": "ZOOLOGY",
+            "type": "compound"
+        }
+    },
+    {
+        "data": {
+            "description": "Effects of ionizing radiations of living cells and organisms, including physical, chemical, and physiological bases of radiation cytotoxicity, mutagenicity, and carcinogenesis; lecture and lab.",
+            "id": "HONCOL/MEDPHYS 410"
+        }
+    },
+    {
+        "data": {
+            "source": "MEDSC-M 813",
+            "target": "HONCOL 912"
+        }
+    },
+    {
+        "data": {
+            "description": "Calculus-based introduction to physics intended for Physics, AMEP, and Astronomy-Physics majors. Mechanics, waves, thermodynamics and statistical mechanics, topics in modern physics; with computation.  A more mathematically rigorous and in-depth introduction to physics than the other introductory physics sequences.",
+            "id": "PHYSICS 247",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Independent research under the direct supervision of Human Oncology faculty.  Each student's research project is individualized to meet student research goals within context of  faculty research needs.",
+            "id": "HONCOL 910",
+            "parent": "HONCOL"
+        }
+    },
+    {
+        "data": {
+            "source": "PHYSICS 322",
+            "target": "PHYSICS 323"
+        }
+    },
+    {
+        "data": {
+            "description": "Special relativity, electromagnetic momentum, electromagnetic waves: propagation, interference, scattering, reflection and refraction at a dielectric interface, waves in a conductor. Wave packets and group velocity, dispersion. Waveguides and transmission lines. Retarded potentials. Radiation.",
+            "id": "PHYSICS 323",
+            "parent": "PHYSICS"
+        }
+    },
+    {
+        "data": {
+            "description": "Learn to value the contributions of oral presentations in developing your career, in convincing audiences of the results of your research, or gaining approval of your proposed research.",
+            "id": "HONCOL 750",
+            "parent": "HONCOL"
         }
     }
 ]

@@ -3,8 +3,8 @@
         "course_number": 532,
         "subjects": [
             "AGRONOMY",
-            "SOILSCI",
-            "ATMOCN"
+            "ATMOCN",
+            "SOILSCI"
         ]
     },
     "course_title": "ENVIRONMENTAL BIOPHYSICS",
@@ -209,8 +209,8 @@
             {
                 "course_number": 130,
                 "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             }
         ],
@@ -219,15 +219,22 @@
     "prerequisites": {
         "course_references": [
             {
+                "course_number": 207,
+                "subjects": [
+                    "PHYSICS"
+                ]
+            },
+            {
                 "course_number": 247,
                 "subjects": [
                     "PHYSICS"
                 ]
             },
             {
-                "course_number": 207,
+                "course_number": 130,
                 "subjects": [
-                    "PHYSICS"
+                    "BIOLOGY",
+                    "BOTANY"
                 ]
             },
             {
@@ -258,13 +265,6 @@
                 "course_number": 211,
                 "subjects": [
                     "MATH"
-                ]
-            },
-            {
-                "course_number": 130,
-                "subjects": [
-                    "BOTANY",
-                    "BIOLOGY"
                 ]
             }
         ],

@@ -2,8 +2,8 @@
     "course_reference": {
         "course_number": 361,
         "subjects": [
-            "ANSCI",
-            "DYSCI"
+            "DYSCI",
+            "ANSCI"
         ]
     },
     "course_title": "INTRODUCTION TO ANIMAL AND VETERINARY GENETICS",
@@ -378,9 +378,9 @@
             {
                 "course_number": 151,
                 "subjects": [
-                    "BOTANY",
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BIOLOGY"
+                    "BOTANY"
                 ]
             }
         ],
@@ -389,16 +389,25 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 384,
+                "course_number": 101,
                 "subjects": [
-                    "BIOCORE"
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
-                "course_number": 101,
+                "course_number": 151,
                 "subjects": [
+                    "BIOLOGY",
                     "ZOOLOGY",
-                    "BIOLOGY"
+                    "BOTANY"
+                ]
+            },
+            {
+                "course_number": 102,
+                "subjects": [
+                    "BIOLOGY",
+                    "ZOOLOGY"
                 ]
             },
             {
@@ -414,18 +423,9 @@
                 ]
             },
             {
-                "course_number": 151,
+                "course_number": 384,
                 "subjects": [
-                    "BOTANY",
-                    "ZOOLOGY",
-                    "BIOLOGY"
-                ]
-            },
-            {
-                "course_number": 102,
-                "subjects": [
-                    "ZOOLOGY",
-                    "BIOLOGY"
+                    "BIOCORE"
                 ]
             }
         ],

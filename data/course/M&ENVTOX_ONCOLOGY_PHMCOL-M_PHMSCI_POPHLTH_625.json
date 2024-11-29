@@ -2,11 +2,11 @@
     "course_reference": {
         "course_number": 625,
         "subjects": [
-            "ONCOLOGY",
-            "M&ENVTOX",
             "PHMCOL-M",
-            "PHMSCI",
-            "POPHLTH"
+            "POPHLTH",
+            "M&ENVTOX",
+            "ONCOLOGY",
+            "PHMSCI"
         ]
     },
     "course_title": "TOXICOLOGY I",
@@ -27,21 +27,9 @@
     "prerequisites": {
         "course_references": [
             {
-                "course_number": 486,
+                "course_number": 485,
                 "subjects": [
                     "BIOCORE"
-                ]
-            },
-            {
-                "course_number": 435,
-                "subjects": [
-                    "ANAT&PHY"
-                ]
-            },
-            {
-                "course_number": 335,
-                "subjects": [
-                    "ANAT&PHY"
                 ]
             },
             {
@@ -51,9 +39,21 @@
                 ]
             },
             {
-                "course_number": 485,
+                "course_number": 335,
                 "subjects": [
-                    "BIOCORE"
+                    "ANAT&PHY"
+                ]
+            },
+            {
+                "course_number": 404,
+                "subjects": [
+                    "PATH"
+                ]
+            },
+            {
+                "course_number": 435,
+                "subjects": [
+                    "ANAT&PHY"
                 ]
             },
             {
@@ -63,9 +63,9 @@
                 ]
             },
             {
-                "course_number": 404,
+                "course_number": 486,
                 "subjects": [
-                    "PATH"
+                    "BIOCORE"
                 ]
             }
         ],
