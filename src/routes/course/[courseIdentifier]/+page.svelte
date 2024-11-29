@@ -14,17 +14,20 @@
         BookOpen,
         BookPlus, CircleCheckBig,
         Info,
-        Users
+        Users,
+        ArrowUpRight
     } from "lucide-svelte";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/Change.svelte";
     import GradeDistribution from "$lib/components/GradeDistribution.svelte";
+    import InstructorPreview from "$lib/components/InstructorPreview.svelte";
+    import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
 
     $: sanatizedCourseIdentifier = $page.params.courseIdentifier;
 
     let course = writable<Course | null>(null)
-
+    let instructors: FullInstructorInformation[] = []
 
     const getLatestTermMadgradesData = (course: Course) => {
         let allTerms = Object.keys(course.madgrades_data.by_term).sort()
@@ -90,9 +93,39 @@
         return getLatestTermMadgradesData(course).total
     }
 
+    const appendPercent = (value: number | null) => {
+        if (value === null) {
+            return "Not Reported"
+        }
+        return `${value.toFixed(2)}%`
+    }
+
     onMount(async () => {
         let courseRes = await fetch(`${PUBLIC_API_URL}/course/${sanatizedCourseIdentifier}.json`)
-        $course = await courseRes.json()
+        let courseData: Course = await courseRes.json()
+        $course = courseData;
+
+
+        for (let [name, email] of Object.entries(courseData?.enrollment_data.instructors)) {
+            let response = await fetch(`${PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
+            let data: Instructor | null = response.status == 200 ? await response.json() : null
+
+            instructors.push({
+                name: name,
+                email: email,
+                data: data
+            })
+        }
+
+        instructors = instructors.toSorted((a, b) => {
+            if (!a.data?.average_rating) {
+                return 1
+            }
+            if (!b.data?.average_rating) {
+                return -1
+            }
+            return b.data.average_rating - a.data.average_rating
+        })
     })
 </script>
 
@@ -160,7 +193,7 @@
                             </Card.Header>
                             <Card.Content>
                                 <div class="text-2xl font-bold">
-                                    {getLatestCompletionRate($course)?.toFixed(2) ?? "Not Reported"}%
+                                    {appendPercent(getLatestCompletionRate($course))}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>
                             </Card.Content>
@@ -174,7 +207,7 @@
                             </Card.Header>
                             <Card.Content>
                                 <div class="text-2xl font-bold">
-                                    {getLatestARate($course)?.toFixed(2) ?? "Not Reported"}%
+                                    {appendPercent(getLatestARate($course))}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>
                             </Card.Content>
@@ -202,10 +235,22 @@
                         </Card.Root>
                         <Card.Root class="col-span-3">
                             <Card.Header>
-                                <Card.Title>Top Instructors</Card.Title>
-                                <Card.Description>You made 265 sales this month.</Card.Description>
+                                <Card.Title>Instructors</Card.Title>
+                                <Card.Description class="flex">
+                                    Sorted by ratings from
+                                    <a href="https://www.ratemyprofessors.com/"
+                                       class="ml-1 flex items-center font-medium hover:underline underline-offset-4"
+                                       target="_blank"
+                                    >
+                                        Rate My Professors
+                                        <ArrowUpRight class="h-4 w-4 inline"/>
+                                    </a>
+                                </Card.Description>
                             </Card.Header>
                             <Card.Content>
+                                {#each instructors as instructor}
+                                    <InstructorPreview name={instructor.name} email={instructor.email} rating={instructor.data?.average_rating} getRating={true}/>
+                                {/each}
                             </Card.Content>
                         </Card.Root>
                     </div>
