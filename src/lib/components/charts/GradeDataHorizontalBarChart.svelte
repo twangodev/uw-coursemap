@@ -1,14 +1,14 @@
 <script lang="ts">
 
     import type {MadgradesData} from "$lib/types/madgrades.ts";
-    import {BarChartSimple, ScaleTypes} from '@carbon/charts-svelte'
+    import {type BarChartOptions, BarChartSimple, type ChartTabularData, ScaleTypes} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
 
     export let madgradesData: MadgradesData;
     export let term: string | null = null;
 
     let gradeData = term ? madgradesData.by_term[term] : madgradesData.cumulative
-    let data = [
+    let data: ChartTabularData = [
         {
             group: 'A',
             value: gradeData.a
@@ -39,7 +39,7 @@
         }
     ].reverse()
 
-    let options = {
+    let options: BarChartOptions = {
         title: 'Grade Distribution',
         axes: {
             left: {
@@ -63,7 +63,7 @@
         },
         toolbar: {
             enabled: false
-        }
+        },
     }
 
 </script>
