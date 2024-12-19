@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import type {MadgradesData} from "$lib/types/madgrades.ts";
+    import {getTotalOtherGrades, type MadgradesData} from "$lib/types/madgrades.ts";
     import {type BarChartOptions, BarChartSimple, type ChartTabularData, ScaleTypes} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
 
@@ -36,6 +36,10 @@
         {
             group: 'F',
             value: gradeData.f
+        },
+        {
+            group: 'Other',
+            value: getTotalOtherGrades(gradeData),
         }
     ].reverse()
 

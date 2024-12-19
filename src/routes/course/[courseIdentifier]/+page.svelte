@@ -20,9 +20,9 @@
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/Change.svelte";
-    import GradeDistribution from "$lib/components/GradeDistribution.svelte";
     import InstructorPreview from "$lib/components/InstructorPreview.svelte";
     import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
+    import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
 
     $: sanatizedCourseIdentifier = $page.params.courseIdentifier;
 
@@ -230,7 +230,7 @@
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                         <Card.Root class="col-span-4">
                             <Card.Content class="pt-6">
-                                <GradeDistribution madgradesData={$course.madgrades_data} />
+                                <GradeDataHorizontalBarChart madgradesData={$course.madgrades_data} />
                             </Card.Content>
                         </Card.Root>
                         <Card.Root class="col-span-3">

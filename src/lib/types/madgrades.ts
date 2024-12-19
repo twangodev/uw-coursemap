@@ -25,6 +25,18 @@ export type MadgradesData = {
     }
 }
 
+export function getTotalOtherGrades(gradeData: GradeData): number {
+    return gradeData.satisfactory
+        + gradeData.unsatisfactory
+        + gradeData.credit
+        + gradeData.no_credit
+        + gradeData.passed
+        + gradeData.incomplete
+        + gradeData.no_work
+        + gradeData.not_reported
+        + gradeData.other;
+}
+
 export function calculateGradePointAverage(gradeData: GradeData): number | null {
     if (gradeData.total === 0) {
         return null;
