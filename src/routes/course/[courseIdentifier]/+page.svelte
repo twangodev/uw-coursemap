@@ -105,8 +105,7 @@
         let courseData: Course = await courseRes.json()
         $course = courseData;
 
-
-        for (let [name, email] of Object.entries(courseData?.enrollment_data.instructors)) {
+        for (let [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
             let response = await fetch(`${PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
             let data: Instructor | null = response.status == 200 ? await response.json() : null
 
