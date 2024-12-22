@@ -8,7 +8,7 @@
     import {LucideFullscreen, LucideMail, LucideMinus, LucidePlus} from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
-    import {type Course, courseReferenceToString} from "$lib/types/course.ts";
+    import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {writable} from "svelte/store";
     import {PUBLIC_API_URL} from "$env/static/public";
     import {Skeleton} from "$lib/components/ui/skeleton";
@@ -401,7 +401,7 @@
             {/if}
         </ScrollArea>
         {#if $selectedCourse}
-            <Button class="sticky bottom-0" href="/course/{courseReferenceToString($selectedCourse.course_reference).replaceAll(' ', '_').replaceAll('/', '_')}" target="_blank">
+            <Button class="sticky bottom-0" href="/course/{sanitizeCourseToReferenceString($selectedCourse.course_reference)}" target="_blank">
                 View Course Page
                 <ArrowUpRight class="h-4 w-4"/>
             </Button>
