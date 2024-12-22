@@ -391,7 +391,7 @@
                 {/if}
             </SheetDescription>
             {#if $selectedCourse}
-                {#each Object.entries($selectedCourse.enrollment_data.instructors) as [name, email], index}
+                {#each Object.entries($selectedCourse?.enrollment_data?.instructors ?? {}) as [name, email], index}
                     {#if index === 0}
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />
