@@ -144,27 +144,24 @@
             <div class="grid gap-4 lg:grid-cols-12">
                 <div class="space-y-4 mt-2 lg:col-span-3">
                     <Card.Root>
-                        <ScrollArea>
-                            <Card.Header
-                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
-                            >
-                                <Card.Title class="text-base font-medium">Course Description</Card.Title>
-                                <Info class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
-                                <p class="text-sm break-words">{$course.description}</p>
-                            </Card.Content>
-                            <Card.Header
-                                    class="flex flex-row items-center justify-between space-y-0 pb-2"
-                            >
-                                <Card.Title class="text-base font-medium">Prerequisties</Card.Title>
-                                <BookOpen class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
-                                <p class="text-sm break-words">{$course.prerequisites.prerequisites_text}</p>
-                            </Card.Content>
-                        </ScrollArea>
-
+                        <Card.Header
+                                class="flex flex-row items-center justify-between space-y-0 pb-2"
+                        >
+                            <Card.Title class="text-base font-medium">Course Description</Card.Title>
+                            <Info class="text-muted-foreground h-4 w-4" />
+                        </Card.Header>
+                        <Card.Content>
+                            <p class="text-sm break-words">{$course.description}</p>
+                        </Card.Content>
+                        <Card.Header
+                                class="flex flex-row items-center justify-between space-y-0 pb-2"
+                        >
+                            <Card.Title class="text-base font-medium">Prerequisties</Card.Title>
+                            <BookOpen class="text-muted-foreground h-4 w-4" />
+                        </Card.Header>
+                        <Card.Content>
+                            <p class="text-sm break-words">{$course.prerequisites.prerequisites_text}</p>
+                        </Card.Content>
                     </Card.Root>
                 </div>
                 <Tabs.Content value="overview" class="lg:col-span-9 space-y-4">
