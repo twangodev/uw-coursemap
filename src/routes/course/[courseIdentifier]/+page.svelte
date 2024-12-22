@@ -4,7 +4,7 @@
     import ContentH1 from "$lib/components/content/ContentH1.svelte";
     import {onMount} from "svelte";
     import {writable} from "svelte/store";
-    import type {Course} from "$lib/types/course.ts";
+    import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
     import {PUBLIC_API_URL} from "$env/static/public";
     import {courseReferenceToString} from "$lib/types/course.js";
     import * as Tabs from "$lib/components/ui/tabs";
@@ -23,16 +23,17 @@
     import InstructorPreview from "$lib/components/InstructorPreview.svelte";
     import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
+    import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
 
-    $: sanatizedCourseIdentifier = $page.params.courseIdentifier;
+    $: courseIdentifier = $page.params.courseIdentifier;
 
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = []
 
     const getLatestTermMadgradesData = (course: Course) => {
-        let allTerms = Object.keys(course.madgrades_data.by_term).sort()
+        let allTerms = Object.keys(course?.madgrades_data?.by_term ?? {}).sort()
         let latestTerm = allTerms[allTerms.length - 1]
-        return course.madgrades_data.by_term[latestTerm]
+        return course?.madgrades_data?.by_term[latestTerm] ?? null
     }
 
     const getCumulativeGPA = (course: Course) => {
@@ -101,9 +102,8 @@
     }
 
     onMount(async () => {
-        let courseRes = await fetch(`${PUBLIC_API_URL}/course/${sanatizedCourseIdentifier}.json`)
-        let courseData: Course = await courseRes.json()
-        $course = courseData;
+        let courseData = await courseReferenceStringToCourse(courseIdentifier)
+        $course = courseData
 
         for (let [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
             let response = await fetch(`${PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
@@ -227,12 +227,12 @@
                         </Card.Root>
                     </div>
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                        <Card.Root class="col-span-4">
+                        <Card.Root class="lg:col-span-4">
                             <Card.Content class="pt-6">
                                 <GradeDataHorizontalBarChart madgradesData={$course.madgrades_data} />
                             </Card.Content>
                         </Card.Root>
-                        <Card.Root class="col-span-3">
+                        <Card.Root class="lg:col-span-3">
                             <Card.Header>
                                 <Card.Title>Instructors</Card.Title>
                                 <Card.Description class="flex">
@@ -252,6 +252,10 @@
                                 {/each}
                             </Card.Content>
                         </Card.Root>
+                        <div class="md:col-span-2 lg:col-span-7">
+                            <h2 class="text-2xl font-bold my-4">Related Courses</h2>
+                            <CourseCarousel courseReferences={$course.prerequisites.course_references}/>
+                        </div>
                     </div>
                 </Tabs.Content>
             </div>
