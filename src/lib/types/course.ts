@@ -1,6 +1,7 @@
 import type {MadgradesData} from "$lib/types/madgrades.ts";
 import type {EnrollmentData} from "$lib/types/enrollment.ts";
 import {PUBLIC_API_URL} from "$env/static/public";
+import {apiFetch} from "$lib/api.ts";
 
 export type CourseReference = {
     subjects: string[];
@@ -23,7 +24,7 @@ export type Course = {
 }
 
 export async function courseReferenceStringToCourse(sanatizedCourseReferenceString: string): Promise<Course> {
-    let response = await fetch(`${PUBLIC_API_URL}/course/${sanatizedCourseReferenceString}.json`)
+    let response =  await apiFetch(`/course/${sanatizedCourseReferenceString}.json`)
     return await response.json();
 }
 

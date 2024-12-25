@@ -2,11 +2,12 @@
     import {onMount} from "svelte";
     import {PUBLIC_API_URL} from "$env/static/public";
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import {apiFetch} from "$lib/api.ts";
 
     let entries: [string, string][] = [];
 
     onMount(async () => {
-        const response = await fetch(`${PUBLIC_API_URL}/subjects.json`);
+        const response = await apiFetch(`/subjects.json`);
         let majors = await response.json();
 
         entries = Object.entries(majors);

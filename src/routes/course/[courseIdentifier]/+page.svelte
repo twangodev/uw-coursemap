@@ -24,6 +24,10 @@
     import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
+    import GradeDataStackedAreaChart from "$lib/components/charts/ComboGradeDataStackedAreaChart.svelte";
+    import {apiFetch} from "$lib/api.ts";
+    import type {Terms} from "$lib/types/terms.ts";
+    import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
     $: courseIdentifier = $page.params.courseIdentifier;
 
@@ -101,12 +105,17 @@
         return `${value.toFixed(2)}%`
     }
 
+    let terms: Terms
+
     onMount(async () => {
+        let termsData = await apiFetch(`/terms.json`)
+        terms = await termsData.json()
+
         let courseData = await courseReferenceStringToCourse(courseIdentifier)
         $course = courseData
 
         for (let [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
-            let response = await fetch(`${PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
+            let response = await apiFetch(`/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
             let data: Instructor | null = response.status == 200 ? await response.json() : null
 
             instructors.push({
@@ -137,7 +146,7 @@
         <Tabs.Root>
             <Tabs.List class="my-2">
                 <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-                <Tabs.Trigger value="analytics">Analytics</Tabs.Trigger>
+                <Tabs.Trigger value="trends">Trends</Tabs.Trigger>
                 <Tabs.Trigger value="instructors">Instructors</Tabs.Trigger>
                 <Tabs.Trigger value="sections">Sections</Tabs.Trigger>
             </Tabs.List>
@@ -254,6 +263,45 @@
                             <CourseCarousel courseReferences={$course.prerequisites.course_references}/>
                         </div>
                     </div>
+                </Tabs.Content>
+                <Tabs.Content value="trends" class="lg:col-span-9 space-y-4">
+                    <Card.Root>
+                        <Card.Content class="pt-6">
+                            <GradeDataStackedAreaChart madgradesData={$course.madgrades_data} {terms} />
+                        </Card.Content>
+                    </Card.Root>
+                </Tabs.Content>
+                <Tabs.Content value="instructors" class="lg:col-span-9 space-y-4">
+                    <Card.Root>
+                        <Card.Header>
+                            <Card.Title>Instructors</Card.Title>
+                            <Card.Description class="flex">
+                                Sorted by ratings from
+                                <a href="https://www.ratemyprofessors.com/"
+                                   class="ml-1 flex items-center font-medium hover:underline underline-offset-4"
+                                   target="_blank"
+                                >
+                                    Rate My Professors
+                                    <ArrowUpRight class="h-4 w-4 inline"/>
+                                </a>
+                            </Card.Description>
+                        </Card.Header>
+                        <Card.Content>
+                            {#each instructors as instructor}
+                                <InstructorPreview
+                                        name={instructor.name}
+                                        email={instructor.email}
+                                        rating={instructor.data?.average_rating}
+                                        getRating={true}
+                                />
+                            {/each}
+                        </Card.Content>
+                    </Card.Root>
+                    <Card.Root>
+                        <Card.Content>
+                            <InstructorWordCloud instructors={instructors} />
+                        </Card.Content>
+                    </Card.Root>
                 </Tabs.Content>
             </div>
         </Tabs.Root>

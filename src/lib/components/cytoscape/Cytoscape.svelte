@@ -18,6 +18,7 @@
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import InstructorPreview from "$lib/components/InstructorPreview.svelte";
+    import {apiFetch} from "$lib/api.ts";
 
     export let url: string
     export let styleUrl: string
@@ -58,7 +59,7 @@
     let sheetOpen = writable(false);
 
     async function fetchCourse(courseId: string) {
-        let response = await fetch(`${PUBLIC_API_URL}/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
+        let response = await apiFetch(`/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
         $selectedCourse = await response.json();
     }
 
