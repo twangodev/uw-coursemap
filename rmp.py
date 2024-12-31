@@ -46,7 +46,7 @@ query NewSearchTeachersQuery($query: TeacherSearchQuery!) {
 						r5
 						total
 					}
-					ratings(first: 10) {
+					ratings(first: 100) {
 						edges {
 							node {
 								comment
