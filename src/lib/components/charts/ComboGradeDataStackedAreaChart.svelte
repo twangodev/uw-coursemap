@@ -38,8 +38,6 @@
         return data;
     }
 
-    console.log(selectedGroupsWithOther)
-
     let data: ChartTabularData;
     $: data = madgradesDataToChartTabularData(madgradesData);
 
