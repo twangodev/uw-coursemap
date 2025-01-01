@@ -20,7 +20,7 @@
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/Change.svelte";
-    import InstructorPreview from "$lib/components/InstructorPreview.svelte";
+    import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
@@ -148,7 +148,6 @@
                 <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
                 <Tabs.Trigger value="trends">Trends</Tabs.Trigger>
                 <Tabs.Trigger value="instructors">Instructors</Tabs.Trigger>
-                <Tabs.Trigger value="sections">Sections</Tabs.Trigger>
             </Tabs.List>
             <div class="grid gap-4 lg:grid-cols-12">
                 <div class="space-y-4 mt-2 lg:col-span-3">
@@ -254,7 +253,7 @@
                             </Card.Header>
                             <Card.Content>
                                 {#each instructors as instructor}
-                                    <InstructorPreview name={instructor.name} email={instructor.email} rating={instructor.data?.average_rating} getRating={true}/>
+                                    <InstructorPreview {instructor} showRating={true} />
                                 {/each}
                             </Card.Content>
                         </Card.Root>
@@ -289,10 +288,9 @@
                         <Card.Content>
                             {#each instructors as instructor}
                                 <InstructorPreview
-                                        name={instructor.name}
-                                        email={instructor.email}
-                                        rating={instructor.data?.average_rating}
-                                        getRating={true}
+                                    {instructor}
+                                    showRating={true}
+                                    showOtherDetails={true}
                                 />
                             {/each}
                         </Card.Content>
