@@ -62,5 +62,5 @@
 </script>
 
 <div class="h-full">
-    <WordCloudChart {data} {options} />
+    <WordCloudChart {data} {options} class="py-4" />
 </div>
