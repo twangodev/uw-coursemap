@@ -402,7 +402,7 @@
             {/if}
         </ScrollArea>
         {#if $selectedCourse}
-            <Button class="sticky bottom-0" href="/course/{sanitizeCourseToReferenceString($selectedCourse.course_reference)}" target="_blank">
+            <Button class="sticky bottom-0" href="/courses/{sanitizeCourseToReferenceString($selectedCourse.course_reference)}" target="_blank">
                 View Course Page
                 <ArrowUpRight class="h-4 w-4"/>
             </Button>
