@@ -17,7 +17,7 @@
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
-    import InstructorPreview from "$lib/components/InstructorPreview.svelte";
+    import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
 
     export let url: string
@@ -397,7 +397,7 @@
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />
                     {/if}
-                    <InstructorPreview {name} {email}/>
+                    <InstructorPreview instructor={{name: name, email: email, data: null}}/>
                 {/each}
             {/if}
         </ScrollArea>
