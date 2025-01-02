@@ -5,7 +5,6 @@
     import {onMount} from "svelte";
     import {writable} from "svelte/store";
     import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
-    import {PUBLIC_API_URL} from "$env/static/public";
     import {courseReferenceToString} from "$lib/types/course.js";
     import * as Tabs from "$lib/components/ui/tabs";
     import * as Card from "$lib/components/ui/card";
