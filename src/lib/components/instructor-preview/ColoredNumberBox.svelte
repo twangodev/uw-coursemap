@@ -9,9 +9,6 @@
     let scaledAmount = (amount ?? -1) / scale;
     let invertedAmount = invert ? 1 - scaledAmount : scaledAmount;
 
-    console.log(description + scaledAmount)
-    console.log(description + invertedAmount)
-
     function getColorClass(rating: number | undefined) {
         if (!rating || rating < 0 || rating > 1) {
             return "bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-200"; // Unknown or invalid rating
