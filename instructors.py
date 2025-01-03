@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 
 from json_serializable import JsonSerializable
 
+faculty_url = "https://guide.wisc.edu/faculty/"
+
 rmp_url = "https://www.ratemyprofessors.com/"
 rmp_graphql_url = "https://www.ratemyprofessors.com/graphql"
 
@@ -134,6 +136,31 @@ class RMPData(JsonSerializable):
             "ratings": self.ratings
         }
 
+class FullInstructor(JsonSerializable):
+
+    def __init__(self, name, email, rmp_data, position, department, credentials):
+        self.name = name
+        self.email = email
+        self.rmp_data = rmp_data
+        self.position = position
+        self.department = department
+        self.credentials = credentials
+
+    @classmethod
+    def from_json(cls, json_data) -> "FullInstructor":
+        return FullInstructor(
+            name=json_data["name"],
+            email=json_data["email"],
+            rmp_data=RMPData.from_json(json_data["rmp_data"])
+        )
+
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "email": self.email,
+            "rmp_data": self.rmp_data.to_dict()
+        }
+
 def produce_query(instructor_name):
     return {
         "query": {
@@ -174,26 +201,90 @@ def scrape_api_key():
 
     return graphql_auth
 
-def get_ratings(instructors, stats, logger: Logger):
+def get_faculty():
+    response = requests.get(faculty_url)
+
+    soup = BeautifulSoup(response.content, "html.parser")
+    uw_people_lists = soup.find_all("ul", class_="uw-people")
+
+    faculty = {}
+
+    for ul in uw_people_lists:
+        for li in ul.find_all("li"):
+            name = li.find("span", class_="faculty-name").text if li.find("span", class_="faculty-name") else None
+
+            if not name:
+                continue
+
+            details = li.get_text(separator="\n").split("\n")
+            position = details[1] if len(details) > 1 else None
+            department = details[2] if len(details) > 2 else None
+            credentials = details[3] if len(details) > 3 else None
+
+            faculty[name] = (position, department, credentials)
+
+    return faculty
+
+def match_name(student_name, official_names):
+    """
+    Matches a student-provided name to an official name based on last name priority.
+
+    Args:
+        student_name (str): The name given by the student.
+        official_names (set of str): The list of official names.
+
+    Returns:
+        str: The matched official name or None if no match is found.
+    """
+    student_last_name = student_name.split()[-1].upper()
+    matches = [official_name for official_name in official_names if student_last_name in official_name.upper()]
+
+    if len(matches) == 1:
+        return matches[0]
+
+    # If multiple matches, attempt further refinement (e.g., first name matching)
+    student_first_name = student_name.split()[0].upper() if len(student_name.split()) > 1 else ""
+    for match in matches:
+        official_first_name = match.split(',')[1].strip().split()[0].upper() if ',' in match else ""
+        if student_first_name == official_first_name:
+            return match
+
+    return matches[0] if matches else None
+
+def get_ratings(instructors: dict[str, str], stats, logger: Logger):
+    faculty = get_faculty()
+
     api_key = scrape_api_key()
 
-    ratings = {}
+    instructor_data = {}
     total = len(instructors)
     with_ratings = 0
-    for i, instructor in enumerate(instructors):
-        logger.info(f"Fetching rating for {instructor} ({i * 100 / total:.2f}%).")
-        rating = get_rating(instructor, api_key, logger)
+    for i, (name, email) in enumerate(instructors.items()):
+        logger.info(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
+        rating = get_rating(name, api_key, logger)
 
         if rating:
             with_ratings += 1
 
-        ratings[instructor] = rating
+        match = match_name(name, set(faculty.keys()))
 
-    logger.info(f"Found ratings for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
+        position, department, credentials = None, None, None
+        if match:
+            position, department, credentials = faculty[match]
+            logger.debug(f"Matched {name} to {match} ({position}, {department}, {credentials})")
+
+        instructor_data[name] = FullInstructor(
+            name=name,
+            email=email,
+            rmp_data=rating,
+            position=position,
+            department=department,
+            credentials=credentials
+        )
+
+    logger.info(f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
 
     stats["instructors"] = total
     stats["instructors_with_ratings"] = with_ratings
 
-    return ratings
-
-
+    return instructor_data

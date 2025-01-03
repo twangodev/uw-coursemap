@@ -51,7 +51,7 @@ def build_from_mega_query(term_code, terms, course_ref_to_course, logger: Logger
 
     hits = data["hits"]
 
-    all_instructors = set()
+    all_instructors = dict[str, str]()
 
     for hit in hits:
 
@@ -98,7 +98,7 @@ def build_from_mega_query(term_code, terms, course_ref_to_course, logger: Logger
                     email = instructor["email"]
 
                     course_instructors.setdefault(full_name, email)
-                    all_instructors.add(full_name)
+                    all_instructors.setdefault(full_name, email)
 
         enrollment_data.instructors = course_instructors
         logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")

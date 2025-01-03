@@ -9,7 +9,7 @@ from enrollment import sync_enrollment_terms, build_from_mega_query
 from logging_util import get_logging_level
 from madgrades import add_madgrades_data
 from open_ai import get_openai_client, optimize_prerequisites
-from rmp import get_ratings
+from instructors import get_ratings
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
@@ -77,8 +77,8 @@ def main():
     sync_enrollment_terms(terms=terms, logger=logger)
     latest_term = max(terms.keys())
 
-    instructors = build_from_mega_query(term_code=latest_term, terms=terms, course_ref_to_course=course_ref_to_course, logger=logger)
-    instructor_to_rating = get_ratings(instructors=instructors, stats=stats, logger=logger)
+    instructors_email = build_from_mega_query(term_code=latest_term, terms=terms, course_ref_to_course=course_ref_to_course, logger=logger)
+    instructor_to_rating = get_ratings(instructors=instructors_email, stats=stats, logger=logger)
 
     optimize_prerequisites(
         client=open_ai_client,

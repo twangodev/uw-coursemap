@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from logging import Logger
 
 from json_serializable import JsonSerializable
-from rmp import RMPData
+from instructors import RMPData
 
 
 def recursive_sort_data(data):
