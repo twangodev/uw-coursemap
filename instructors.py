@@ -138,27 +138,36 @@ class RMPData(JsonSerializable):
 
 class FullInstructor(JsonSerializable):
 
-    def __init__(self, name, email, rmp_data, position, department, credentials):
+    def __init__(self, name, email, rmp_data, position, department, credentials, official_name):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data
         self.position = position
         self.department = department
         self.credentials = credentials
+        self.official_name = official_name
 
     @classmethod
     def from_json(cls, json_data) -> "FullInstructor":
         return FullInstructor(
             name=json_data["name"],
             email=json_data["email"],
-            rmp_data=RMPData.from_json(json_data["rmp_data"])
+            rmp_data=RMPData.from_json(json_data["rmp_data"]),
+            position=json_data["position"],
+            department=json_data["department"],
+            credentials=json_data["credentials"],
+            official_name=json_data["official_name"]
         )
 
     def to_dict(self):
         return {
             "name": self.name,
             "email": self.email,
-            "rmp_data": self.rmp_data.to_dict()
+            "rmp_data": self.rmp_data.to_dict(),
+            "position": self.position,
+            "department": self.department,
+            "credentials": self.credentials,
+            "official_name": self.official_name
         }
 
 def produce_query(instructor_name):
