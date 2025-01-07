@@ -21,6 +21,7 @@
     import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
     import RatingHorizontalBarChart from "$lib/components/charts/RatingDonutChart.svelte";
     import AttendanceDonutChart from "$lib/components/charts/AttendanceDonutChart.svelte";
+    import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
     async function fetchInstructor(name: string) {
         const response = await apiFetch(`/instructors/${name}.json`)
@@ -248,6 +249,11 @@
                         </CardContent>
                     </Card>
                 </div>
+                <Card>
+                    <CardContent>
+                        <InstructorWordCloud instructors={[$instructor]} />
+                    </CardContent>
+                </Card>
             </div>
         </div>
     {/if}
