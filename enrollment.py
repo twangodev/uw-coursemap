@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 from logging import Logger
 
 import requests
@@ -78,7 +79,12 @@ def build_from_mega_query(term_code, terms, course_ref_to_course, logger: Logger
 
         enrollment_package_url = build_enrollment_package_base_url(term_code, subject_code, course_id)
         response = requests.get(url=enrollment_package_url)
-        data = response.json()
+
+        try:
+            data = response.json()
+        except JSONDecodeError:
+            logger.warning(f"Failed to fetch enrollment data for {course_ref.get_identifier()}")
+            continue
 
         course_instructors = {}
 

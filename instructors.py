@@ -163,7 +163,7 @@ class FullInstructor(JsonSerializable):
         return {
             "name": self.name,
             "email": self.email,
-            "rmp_data": self.rmp_data.to_dict(),
+            "rmp_data": self.rmp_data.to_dict() if self.rmp_data else None,
             "position": self.position,
             "department": self.department,
             "credentials": self.credentials,
@@ -288,7 +288,8 @@ def get_ratings(instructors: dict[str, str], stats, logger: Logger):
             rmp_data=rating,
             position=position,
             department=department,
-            credentials=credentials
+            credentials=credentials,
+            official_name=match
         )
 
     logger.info(f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")

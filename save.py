@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from logging import Logger
 
 from json_serializable import JsonSerializable
-from instructors import RMPData
+from instructors import RMPData, FullInstructor
 
 
 def recursive_sort_data(data):
@@ -93,7 +93,7 @@ def wipe_data(data_dir, logger):
 
     logger.info("Data directory wiped.")
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, RMPData], terms, stats, logger):
+def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, stats, logger):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
