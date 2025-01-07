@@ -10,9 +10,9 @@
     export let showOtherDetails: boolean = false;
 
     let {name, email} = instructor;
-    let averageRating = instructor?.data?.average_rating;
-    let averageDifficulty = instructor?.data?.average_difficulty;
-    let wouldTakeAgain = instructor?.data?.would_take_again_percent;
+    let averageRating = instructor?.rmp_data?.average_rating;
+    let averageDifficulty = instructor?.rmp_data?.average_difficulty;
+    let wouldTakeAgain = instructor?.rmp_data?.would_take_again_percent;
 
 </script>
 

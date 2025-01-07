@@ -30,8 +30,8 @@
 
         // Iterate over instructors and process their comments
         instructors.forEach(instructor => {
-            if (instructor.data && instructor.data.ratings) {
-                instructor.data.ratings.forEach(rating => {
+            if (instructor.rmp_data && instructor.rmp_data.ratings) {
+                instructor.rmp_data.ratings.forEach(rating => {
                     processComment(rating.comment, instructor.name);
                 });
             }

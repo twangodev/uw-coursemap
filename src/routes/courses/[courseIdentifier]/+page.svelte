@@ -115,23 +115,27 @@
 
         for (let [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
             let response = await apiFetch(`/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
-            let data: Instructor | null = response.status == 200 ? await response.json() : null
-
-            instructors.push({
+            let data: FullInstructorInformation  = response.status == 200 ? await response.json() : {
                 name: name,
                 email: email,
-                data: data
-            })
+                credentials: null,
+                department: null,
+                official_name: null,
+                position: null,
+                rmp_data: null,
+            }
+
+            instructors.push(data)
         }
 
         instructors = instructors.toSorted((a, b) => {
-            if (!a.data?.average_rating) {
+            if (!a.rmp_data?.average_rating) {
                 return 1
             }
-            if (!b.data?.average_rating) {
+            if (!b.rmp_data?.average_rating) {
                 return -1
             }
-            return b.data.average_rating - a.data.average_rating
+            return b.rmp_data.average_rating - a.rmp_data.average_rating
         })
     })
 </script>
