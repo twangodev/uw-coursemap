@@ -1,4 +1,4 @@
-type MandatoryAttendance = {
+export type MandatoryAttendance = {
     neither: number,
     no: number,
     total: number,
@@ -51,7 +51,7 @@ type Ratings = {
     quality_rating: number,
 }
 
-type RatingsDistribution = {
+export type RatingsDistribution = {
     r1: number,
     r2: number,
     r3: number,

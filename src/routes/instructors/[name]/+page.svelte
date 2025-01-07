@@ -18,6 +18,9 @@
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import Change from "$lib/components/Change.svelte";
     import {onMount} from "svelte";
+    import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
+    import RatingHorizontalBarChart from "$lib/components/charts/RatingDonutChart.svelte";
+    import AttendanceDonutChart from "$lib/components/charts/AttendanceDonutChart.svelte";
 
     async function fetchInstructor(name: string) {
         const response = await apiFetch(`/instructors/${name}.json`)
@@ -230,6 +233,18 @@
                                 {attendanceRequirement.most}
                             </div>
                             <p class="mt-0.5 text-xs">{(attendanceRequirement.count * 100 / attendanceRequirement.total).toFixed(1)}% of students reported.</p>
+                        </CardContent>
+                    </Card>
+                </div>
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+                    <Card>
+                        <CardContent class="pt-6">
+                            <RatingHorizontalBarChart ratingData={$instructor.rmp_data?.ratings_distribution} />
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent class="pt-6">
+                            <AttendanceDonutChart attendanceData={$instructor.rmp_data?.mandatory_attendance} />
                         </CardContent>
                     </Card>
                 </div>
