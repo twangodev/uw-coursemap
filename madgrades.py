@@ -5,6 +5,7 @@ import requests
 from course import Course, MadgradesData
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
+page_size = 100
 
 def get_madgrades_terms(madgrades_api_key, logger: Logger) -> dict[int, str]:
     logger.info("Fetching Madgrades terms...")
@@ -54,7 +55,7 @@ def build_from_pagination(course_ref_to_course, url, madgrades_api_key, stats, l
 
 def add_madgrades_data(course_ref_to_course, madgrades_api_key, stats, logger: Logger):
     terms = get_madgrades_terms(madgrades_api_key, logger)
-    build_from_pagination(course_ref_to_course, madgrades_api_endpoint + "courses", madgrades_api_key, stats, logger)
+    build_from_pagination(course_ref_to_course, madgrades_api_endpoint + "courses" + "?per_page=" + str(page_size), madgrades_api_key, stats, logger)
 
     logger.info(f"Found {stats['unknown_madgrades_courses']} unknown courses in Madgrades that did not match any courses in the course catalog")
 
