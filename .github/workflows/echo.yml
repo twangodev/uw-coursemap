@@ -1,0 +1,17 @@
+name: Echo Hello on Commit
+
+on:
+  push:
+    branches:
+      - "*" # Triggers on all branches
+
+jobs:
+  echo_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Echo Hello
+        run: echo "hello"
