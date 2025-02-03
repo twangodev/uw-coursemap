@@ -19,6 +19,10 @@
 
 ## About
 
+> [!NOTE]  
+> This project is meant to go live by May 5, 2025 for students for the Fall 2025 and later semesters!
+
+
 This project provides a comprehensive view of course information at the University of Wisconsin-Madison, utilizing a requirement Directed Acyclic Graph (DAG) to visualize course dependencies. The tool also offers historical grade distributions, professor ratings, and insights from Rate My Professor (RMP) comments to help students make informed decisions about their coursework.
 
 > This project won 4th place at [Cheesehacks 2024](https://cheesehacks.webdevuw.com/) and is not affiliated with the University of Wisconsin-Madison.
