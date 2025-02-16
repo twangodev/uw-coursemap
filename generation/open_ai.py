@@ -1,12 +1,11 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from functools import cache
 from logging import Logger
-from typing import List, Any
+from typing import Any
 
 import numpy as np
 from openai import OpenAI
 
-from course import Course
+from generation.course import Course
 
 
 def get_openai_client(api_key: str, logger: Logger, show_api_key: bool):

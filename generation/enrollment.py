@@ -3,7 +3,7 @@ from logging import Logger
 
 import requests
 
-from course import Course
+from generation.course import Course
 from enrollment_data import EnrollmentData
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"

@@ -2,8 +2,8 @@ from logging import Logger
 
 from frozendict import frozendict
 
-from color import generate_random_hex_colors
-from course import Course
+from generation.color import generate_random_hex_colors
+from generation.course import Course
 
 def create_compound(subject):
     return frozendict({

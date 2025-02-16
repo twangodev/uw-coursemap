@@ -3,8 +3,8 @@ import os
 from datetime import datetime, timezone
 from logging import Logger
 
-from json_serializable import JsonSerializable
-from instructors import RMPData, FullInstructor
+from generation.json_serializable import JsonSerializable
+from generation.instructors import FullInstructor
 
 
 def recursive_sort_data(data):

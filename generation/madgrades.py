@@ -2,7 +2,7 @@ from logging import Logger
 
 import requests
 
-from course import Course, MadgradesData
+from generation.course import Course, MadgradesData
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
 page_size = 100

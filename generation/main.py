@@ -4,14 +4,14 @@ import os
 import coloredlogs
 from dotenv import load_dotenv
 
-from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
-from enrollment import sync_enrollment_terms, build_from_mega_query
-from logging_util import get_logging_level
-from madgrades import add_madgrades_data
-from open_ai import get_openai_client, optimize_prerequisites
-from instructors import get_ratings
-from save import write_data
-from webscrape import get_course_urls, scrape_all, build_subject_to_courses
+from generation.cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
+from generation.enrollment import sync_enrollment_terms, build_from_mega_query
+from generation.logging_util import get_logging_level
+from generation.madgrades import add_madgrades_data
+from generation.open_ai import get_openai_client, optimize_prerequisites
+from generation.instructors import get_ratings
+from generation.save import write_data
+from generation.webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 
 def main():
