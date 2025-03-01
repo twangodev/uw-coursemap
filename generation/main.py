@@ -7,12 +7,10 @@ import coloredlogs
 
 from cache import read_cache, read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache
-from course import Course
+from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings
 from madgrades import add_madgrades_data
-from open_ai import optimize_prerequisites, get_openai_client
-from save import write_file
 from webscrape import get_course_urls, scrape_all
 
 

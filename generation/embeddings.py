@@ -1,7 +1,5 @@
 import asyncio
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from logging import Logger
-from typing import Any
 
 import numpy as np
 from openai import OpenAI
