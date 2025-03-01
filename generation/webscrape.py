@@ -4,25 +4,27 @@ from logging import Logger
 
 import requests
 from bs4 import BeautifulSoup, ResultSet
+from requests.adapters import HTTPAdapter
 
 from course import Course
+from request_util import get_prefix, get_global_retry_strategy
 from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
-def get_course_blocks(url: str, logger: Logger) -> (str, ResultSet):
+def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
     time_start = time.time()
-    response = requests.get(url)
+    response = session.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
 
     subject_title = soup.find(class_="page-title").get_text(strip=True)
 
     results = soup.find_all("div", class_="courseblock")
     time_elapsed_ms = get_ms(time_start)
-    logger.info(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
+    logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
 
-def add_data(subjects, course_ref_course, full_subject, blocks, stats):
+def add_data(subjects, course_ref_course, full_subject, blocks):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
     full_name = full_subject.group(1).strip()
     abbreviation = full_subject.group(2).replace(" ", "")
@@ -30,48 +32,53 @@ def add_data(subjects, course_ref_course, full_subject, blocks, stats):
     subjects[abbreviation] = full_name
 
     for block in blocks:
-        course = Course.from_block(block, stats)
+        course = Course.from_block(block)
         if not course:
             continue
         course_ref_course[course.course_reference] = course
 
-def get_course_urls(logger: Logger) -> list[str]:
-    logger.info("Fetching and parsing the sitemap...")
+def get_course_urls(logger: Logger) -> set[str]:
+    logger.info("Fetching and parsing the course sitemap...")
 
     response = requests.get(sitemap_url)
 
     if response.status_code != 200:
         logger.error(f"Failed to fetch sitemap: {response.status_code}")
-        return []
+        return set()
 
     soup = BeautifulSoup(response.content, "xml")
 
     # Step 2: Extract guide-related URLs (only those containing '/guide/')
-    site_map_urls = [
+    sitemap_urls = [
         url.text for url in soup.find_all("loc")
         if re.search(r'/courses/.+', url.text)  # Matches /courses/ followed by any character(s)
     ]
 
-    count = len(site_map_urls)
+    sitemap_urls = set(sitemap_urls)
+
+    count = len(sitemap_urls)
     logger.info(f"Found {count} course URLs in the sitemap")
 
-    return site_map_urls
+    return sitemap_urls
 
-def scrape_all(urls: list[str], stats, logger: Logger):
+def scrape_all(urls: set[str], logger: Logger):
     logger.info("Building course data...")
 
     subject_to_full_subject = dict()
     course_ref_to_course = dict()
 
+    prefix = get_prefix(list(urls)[0])
+
+    session = requests.Session()
+    adapter = HTTPAdapter(pool_connections=10, pool_maxsize=10, max_retries=get_global_retry_strategy())
+    session.mount(prefix, adapter)
+
     for url in urls:
-        full_subject, blocks = get_course_blocks(url, logger)
-        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, stats)
+        full_subject, blocks = get_course_blocks(session, url, logger)
+        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
-
-    stats["subjects"] = len(subject_to_full_subject)
-    stats["courses"] = len(course_ref_to_course)
 
     return subject_to_full_subject, course_ref_to_course
 

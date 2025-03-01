@@ -1,8 +1,10 @@
+import asyncio
 import logging
 import re
 from json import JSONDecodeError
 from logging import Logger
 
+import aiohttp
 import requests
 from bs4 import BeautifulSoup
 
@@ -78,7 +80,9 @@ class RMPData(JsonSerializable):
         self.ratings = ratings
 
     @classmethod
-    def from_json(cls, json_data) -> "RMPData":
+    def from_json(cls, json_data):
+        if not json_data:
+            return None
         return RMPData(
             id=json_data["id"],
             legacy_id=json_data["legacy_id"],
@@ -178,24 +182,26 @@ def produce_query(instructor_name):
         }
     }
 
-def get_rating(name, api_key, logger: Logger):
+async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.ClientSession, attempts: int = 3):
     auth_header = { "Authorization": f"Basic {api_key}" }
-    response = requests.post(
-        url=rmp_graphql_url,
-        headers=auth_header,
-        json={"query": graph_ql_query, "variables": produce_query(name)}
-    )
+    payload = {"query": graph_ql_query, "variables": produce_query(name)}
+
     try:
-        data = response.json()
-    except JSONDecodeError:
-        logger.error(f"Failed to decode JSON response: {response.text}")
+        async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+            data = await response.json()
+    except (aiohttp.ClientError, JSONDecodeError) as e:
+        logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
+        if attempts > 0:
+            logger.info(f"Retrying {attempts} more times for {name}...")
+            await asyncio.sleep(1)
+            return await get_rating(name, api_key, logger, session, attempts - 1)
         return None
 
+    # Parse the results to find a matching teacher
     results = data["data"]["newSearch"]["teachers"]["edges"]
-
-    for result in results:
-        result = result["node"]
-
+    for item in results:
+        result = item["node"]
+        # Simple matching: check if both first and last names appear in the name string
         if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
             return RMPData.from_rmp_data(result)
 
@@ -260,41 +266,47 @@ def match_name(student_name, official_names):
 
     return matches[0] if matches else None
 
-def get_ratings(instructors: dict[str, str], stats, logger: Logger):
-    faculty = get_faculty()
-
+async def get_ratings(instructors: dict[str, str], logger: Logger):
+    faculty = get_faculty()      # Assuming these functions are fast/synchronous.
     api_key = scrape_api_key()
 
     instructor_data = {}
     total = len(instructors)
     with_ratings = 0
-    for i, (name, email) in enumerate(instructors.items()):
-        logger.info(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
-        rating = get_rating(name, api_key, logger)
 
-        if rating:
-            with_ratings += 1
+    logger.info(f"Fetching ratings for {total} instructors...")
 
-        match = match_name(name, set(faculty.keys()))
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        names_emails = list(instructors.items())
+        for i, (name, email) in enumerate(names_emails):
+            logger.debug(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
+            # Create a task to get the rating for each instructor
+            tasks.append(get_rating(name, api_key, logger, session))
 
-        position, department, credentials = None, None, None
-        if match:
-            position, department, credentials = faculty[match]
-            logger.debug(f"Matched {name} to {match} ({position}, {department}, {credentials})")
+        # Run all rating requests concurrently
+        ratings = await asyncio.gather(*tasks)
 
-        instructor_data[name] = FullInstructor(
-            name=name,
-            email=email,
-            rmp_data=rating,
-            position=position,
-            department=department,
-            credentials=credentials,
-            official_name=match
-        )
+        # Process results
+        for (name, email), rating in zip(names_emails, ratings):
+            if rating:
+                with_ratings += 1
+
+            match = match_name(name, set(faculty.keys()))
+            position, department, credentials = None, None, None
+            if match:
+                position, department, credentials = faculty[match]
+                logger.debug(f"Matched {name} to {match} ({position}, {department}, {credentials})")
+
+            instructor_data[name] = FullInstructor(
+                name=name,
+                email=email,
+                rmp_data=rating,
+                position=position,
+                department=department,
+                credentials=credentials,
+                official_name=match
+            )
 
     logger.info(f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
-
-    stats["instructors"] = total
-    stats["instructors_with_ratings"] = with_ratings
-
     return instructor_data

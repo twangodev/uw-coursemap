@@ -1,11 +1,21 @@
 import json
+import json
 import os
 from datetime import datetime, timezone
 from logging import Logger
+from typing import LiteralString
 
-from generation.json_serializable import JsonSerializable
-from generation.instructors import FullInstructor
+from instructors import FullInstructor
+from json_serializable import JsonSerializable
 
+
+def convert_keys_to_str(data):
+    if isinstance(data, dict):
+        return {str(key): convert_keys_to_str(value) for key, value in data.items()}
+    elif isinstance(data, list):
+        return [convert_keys_to_str(item) for item in data]
+    else:
+        return data
 
 def recursive_sort_data(data):
     """
@@ -36,7 +46,7 @@ def format_file_size(size_in_bytes):
     return f"{size:.2f} {units[index]}"
 
 
-def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, logger: Logger):
+def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data, logger: Logger):
     """
     Writes a sorted dictionary or list to a JSON file.
     - directory_tuple: Tuple representing the directory path.
@@ -46,6 +56,10 @@ def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, 
     """
     if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
         raise TypeError("Data must be a dictionary, list, set, tuple, or JsonSerializable object")
+
+    # Convert keys to strings
+    if isinstance(data, dict):
+        data = convert_keys_to_str(data)
 
     # Convert data to a list if it is a set or tuple
     if isinstance(data, (set, tuple)):
@@ -57,7 +71,7 @@ def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, 
     sorted_data = recursive_sort_data(data)
 
     # Create the full directory path
-    directory_path = os.path.join(data_dir, *directory_tuple)
+    directory_path = os.path.join(directory, *directory_tuple)
 
     # Ensure the directory exists
     os.makedirs(directory_path, exist_ok=True)
@@ -76,7 +90,7 @@ def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, 
     file_size = os.path.getsize(file_path)
     readable_size = format_file_size(file_size)
 
-    logger.info(f"Data written to {file_path} ({readable_size})")
+    logger.debug(f"Data written to {file_path} ({readable_size})")
 
 def wipe_data(data_dir, logger):
     """
@@ -93,7 +107,7 @@ def wipe_data(data_dir, logger):
 
     logger.info("Data directory wiped.")
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, stats, logger):
+def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, logger):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -125,4 +139,35 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     }
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
-    write_file(data_dir, tuple(), "stats", stats, logger)
+
+def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...], logger) -> list[str]:
+    """
+    Lists files in a specified directory that match the given file extensions.
+
+    - directory: Base directory.
+    - directory_tuple: Tuple representing the subdirectory path.
+    - extensions: Tuple of file extensions to filter by (e.g., (".json", ".txt")).
+    - logger: Logger instance for logging messages.
+
+    Returns:
+    - List of filenames (as strings) that have one of the specified extensions.
+    """
+    # Create the full directory path
+    directory_path = os.path.join(directory, *directory_tuple)
+
+    if not os.path.isdir(directory_path):
+        logger.error(f"Directory does not exist: {directory_path}")
+        raise NotADirectoryError(f"{directory_path} is not a valid directory")
+
+    # List files that match the given extensions
+    file_list = []
+    for file in os.listdir(directory_path):
+        file_path = os.path.join(directory_path, file)
+        if os.path.isfile(file_path) and file.endswith(extensions):
+            file_list.append(file)
+
+    # Sort the file list for consistency
+    file_list.sort()
+
+    logger.info(f"Found {len(file_list)} file(s) in {directory_path} with extensions: {extensions}")
+    return file_list
