@@ -111,7 +111,7 @@ async def build_from_pagination_async(course_ref_to_course, url, madgrades_api_k
     total_pages = data["totalPages"]
     results = data["results"]
 
-    logger.info(f"Discovered {len(results)} courses in page {current_page}/{total_pages}")
+    logger.debug(f"Discovered {len(results)} courses in page {current_page}/{total_pages}")
 
     tasks = []
     for madgrade_course in results:

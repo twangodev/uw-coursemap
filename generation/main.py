@@ -5,12 +5,14 @@ from logging import Logger
 
 import coloredlogs
 
-from cache import write_cache, read_cache
+from cache import read_cache, read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
+    write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache
 from course import Course
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings
 from madgrades import add_madgrades_data
 from open_ai import optimize_prerequisites, get_openai_client
+from save import write_file
 from webscrape import get_course_urls, scrape_all
 
 
@@ -124,8 +126,6 @@ def optimize(
         logger=logger
     ))
 
-def read_course_ref_to_course_cache(cache_data):
-    return {Course.Reference.from_string(k): Course.from_json(v) for k, v in cache_data.items()}
 
 def read_terms_cache(cache_data):
     return {int(k): v for k, v in cache_data.items()}
@@ -152,19 +152,18 @@ def main():
         logger.info("Fetching course data...")
         subject_to_full_subject, course_ref_to_course = courses(logger=logger)
 
-        write_cache(cache_dir, ("courses",), "subject_to_full_subject", subject_to_full_subject, logger)
-        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject, logger=logger)
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Course data fetched successfully.")
 
     if filter_step(step, "madgrades"):
         logger.info("Fetching madgrades data...")
         if course_ref_to_course is None:
-            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
-            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
         terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, logger=logger)
 
-        write_cache(cache_dir, ("madgrades",), "terms", terms, logger)
-        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        write_terms_cache(cache_dir, terms, logger)
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Madgrades data fetched successfully.")
 
     if filter_step(step,  "instructors"):
@@ -179,8 +178,8 @@ def main():
 
         instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms, logger=logger)
 
-        write_cache(cache_dir, ("instructors",), "instructor_to_rating", instructor_to_rating, logger)
-        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
 
 
@@ -198,7 +197,7 @@ def main():
             logger=logger
         )
 
-        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Course data optimized successfully.")
 
 

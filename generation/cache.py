@@ -1,22 +1,8 @@
 import os
 import json
 
-from save import write_file
-
-
-def write_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, data, logger) -> None:
-    """
-    Writes data to a JSON cache file by reusing the write_file function.
-
-    Parameters:
-        directory (str): Base directory where the cache file will be stored.
-        directory_tuple (tuple[str, ...]): Tuple representing subdirectories.
-        filename (str): Name of the JSON file (without the .json extension).
-        data: Dictionary, list, set, tuple, or JsonSerializable object to be written.
-        logger: Logger instance for logging messages.
-    """
-
-    write_file(directory, directory_tuple, filename, data, logger)
+from course import Course
+from save import write_file, list_files
 
 
 def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, logger):
@@ -48,5 +34,22 @@ def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, 
     with open(file_path, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
 
-    logger.info(f"Cache read from {file_path}")
+    logger.debug(f"Cache read from {file_path}")
     return data
+
+def write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject, logger):
+    write_file(cache_dir, (), "subjects", subject_to_full_subject, logger)
+
+def write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger):
+    write_file(cache_dir, (), "courses", course_ref_to_course, logger)
+
+def write_terms_cache(cache_dir, terms, logger):
+    write_file(cache_dir, (), "terms", terms, logger)
+
+def write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger):
+    write_file(cache_dir, (), "instructors", instructor_to_rating, logger)
+
+
+def read_course_ref_to_course_cache(cache_dir, logger):
+    str_course_ref_to_course = read_cache(cache_dir, (), "courses", logger)
+    return { Course.Reference.from_string(key): Course.from_json(value) for key, value in str_course_ref_to_course.items() }

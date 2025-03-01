@@ -21,7 +21,7 @@ def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
 
     results = soup.find_all("div", class_="courseblock")
     time_elapsed_ms = get_ms(time_start)
-    logger.info(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
+    logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
 
 def add_data(subjects, course_ref_course, full_subject, blocks):
