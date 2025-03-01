@@ -80,7 +80,9 @@ class RMPData(JsonSerializable):
         self.ratings = ratings
 
     @classmethod
-    def from_json(cls, json_data) -> "RMPData":
+    def from_json(cls, json_data):
+        if not json_data:
+            return None
         return RMPData(
             id=json_data["id"],
             legacy_id=json_data["legacy_id"],

@@ -5,13 +5,16 @@ from logging import Logger
 
 import coloredlogs
 
-from cache import read_cache, read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
-    write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache
+from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
+    write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
+    write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache
+from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings
 from madgrades import add_madgrades_data
-from webscrape import get_course_urls, scrape_all
+from save import write_data
+from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 
 def generate_parser():
@@ -47,7 +50,7 @@ def generate_parser():
     )
     parser.add_argument(
         "--step",
-        choices=["force", "courses", "madgrades", "instructors", "optimize", "madgrades", "graph"],
+        choices=["force", "courses", "madgrades", "instructors", "madgrades", "optimize", "graph"],
         help="Strategy for generating course map data.",
         required=True,
     )
@@ -62,6 +65,12 @@ def generate_parser():
         "--verbose",
         action="store_true",
         help="Enable verbose logging (DEBUG level)",
+    )
+    parser.add_argument(
+        "-nb",
+        "--no_build",
+        action="store_true",
+        help="Skips writing the data to the specified directory.",
     )
     return parser
 
@@ -126,6 +135,29 @@ def optimize(
         logger=logger
     ))
 
+def graph(
+        course_ref_to_course,
+        logger
+):
+    subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
+
+    global_graph, subject_to_graph = build_graphs(
+        course_ref_to_course=course_ref_to_course,
+        subject_to_courses=subject_to_courses,
+        logger=logger
+    )
+
+    cleanup_graphs(
+        global_graph=global_graph,
+        subject_to_graph=subject_to_graph,
+        logger=logger
+    )
+
+    subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
+    global_style = generate_style_from_graph(global_graph)
+
+    return global_graph, subject_to_graph, subject_to_style, global_style
+
 def main():
     parser = generate_parser()
     args = parser.parse_args()
@@ -137,13 +169,19 @@ def main():
     step = str(args.step).lower()
     max_prerequisites = int(args.max_prerequisites)
     verbose = bool(args.verbose)
+    no_build = bool(args.no_build)
 
     logger = logging.getLogger(__name__)
     logging_level = logging.DEBUG if verbose else logging.INFO
     logger.setLevel(logging_level)
     coloredlogs.install(level=logging_level, logger=logger)
 
-    subject_to_full_subject, course_ref_to_course, terms, latest_term = None, None, None, None
+    subject_to_full_subject = None
+    course_ref_to_course = None
+    terms = None
+    global_graph, subject_to_graph, global_style, subject_to_style = None, None, None, None
+    instructor_to_rating = None
+
     if filter_step(step, "courses"):
         logger.info("Fetching course data...")
         subject_to_full_subject, course_ref_to_course = courses(logger=logger)
@@ -195,42 +233,56 @@ def main():
         logger.info("Course data optimized successfully.")
 
 
-    # open_ai_client = get_openai_client(
-    #     api_key=openai_api_key,
-    #     logger=logger,
-    #     verbose=verbose
-    # )
-    #
-    #
-    # optimize_prerequisites(
-    #     client=open_ai_client,
-    #     model="text-embedding-3-small",
-    #     course_ref_to_course=course_ref_to_course,
-    #     max_prerequisites=max_prerequisites,
-    #     max_runtime=30,
-    #     max_retries=50,
-    #     max_threads=10,
-    #     stats=stats,
-    #     logger=logger
-    # )
-    #
-    # identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
-    # subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
-    #
-    # global_graph, subject_to_graph = build_graphs(
-    #     course_ref_to_course=course_ref_to_course,
-    #     subject_to_courses=subject_to_courses,
-    #     logger=logger
-    # )
-    #
-    # cleanup_graphs(
-    #     global_graph=global_graph,
-    #     subject_to_graph=subject_to_graph,
-    #     logger=logger
-    # )
-    #
-    # subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
-    # global_style = generate_style_from_graph(global_graph)
+    if filter_step(step, "graph"):
+        logger.info("Building course graph...")
+
+        if course_ref_to_course is None:
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+
+        global_graph, subject_to_graph, subject_to_style, global_style = graph(
+            course_ref_to_course=course_ref_to_course,
+            logger=logger
+        )
+
+        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, logger)
+
+        logger.info("Course graph built successfully.")
+
+    if not no_build:
+
+        if subject_to_full_subject is None:
+            subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir, logger)
+
+        if course_ref_to_course is None:
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+
+        subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course,)
+        identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+
+        if global_graph is None or subject_to_graph is None or global_style is None or subject_to_style is None:
+            global_graph, subject_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
+
+        if instructor_to_rating is None:
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+
+        if terms is None:
+            terms = read_terms_cache(cache_dir, logger)
+
+        write_data(
+            data_dir=data_dir,
+            subject_to_full_subject=subject_to_full_subject,
+            subject_to_courses=subject_to_courses,
+            identifier_to_course=identifier_to_course,
+            global_graph=global_graph,
+            subject_to_graph=subject_to_graph,
+            global_style=global_style,
+            subject_to_style=subject_to_style,
+            instructor_to_rating=instructor_to_rating,
+            terms=terms,
+            logger=logger
+        )
+
+
 
 if __name__ == "__main__":
     main()

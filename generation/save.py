@@ -107,7 +107,7 @@ def wipe_data(data_dir, logger):
 
     logger.info("Data directory wiped.")
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, stats, logger):
+def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, logger):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -139,7 +139,6 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     }
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
-    write_file(data_dir, tuple(), "stats", stats, logger)
 
 def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...], logger) -> list[str]:
     """
