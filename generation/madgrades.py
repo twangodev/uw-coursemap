@@ -88,7 +88,7 @@ async def process_course(session, madgrade_course, course_ref_to_course, madgrad
         return
 
     grades_url = madgrade_course["url"] + "/grades"
-    madgrades_data = await MadgradesData.from_madgrades_async(session, grades_url, madgrades_api_key)
+    madgrades_data = await MadgradesData.from_madgrades_async(session, grades_url, madgrades_api_key, logger, attempts=10)
 
     course = course_ref_to_course[course_ref]
     course.madgrades_data = madgrades_data
