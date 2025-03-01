@@ -10,6 +10,7 @@ from course import Course
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings
 from madgrades import add_madgrades_data
+from open_ai import optimize_prerequisites, get_openai_client
 from webscrape import get_course_urls, scrape_all
 
 
@@ -54,7 +55,7 @@ def generate_parser():
         "--max_prerequisites",
         type=int,
         help="Maximum number of prerequisites to keep for each course.",
-        default=float("inf"),
+        default=3,
     )
     parser.add_argument(
         "-v",
@@ -102,9 +103,26 @@ def instructors(
     return instructor_to_rating, instructors_emails
 
 def optimize(
-
+    course_ref_to_course,
+    max_prerequisites,
+    openai_api_key,
+    verbose,
+    logger,
 ):
-    pass
+    open_ai_client = get_openai_client(
+        api_key=openai_api_key,
+        logger=logger,
+        verbose=verbose
+    )
+    asyncio.run(optimize_prerequisites(
+        client=open_ai_client,
+        model="text-embedding-3-small",
+        course_ref_to_course=course_ref_to_course,
+        max_prerequisites=max_prerequisites,
+        max_retries=50,
+        max_threads=10,
+        logger=logger
+    ))
 
 def read_course_ref_to_course_cache(cache_data):
     return {Course.Reference.from_string(k): Course.from_json(v) for k, v in cache_data.items()}
@@ -121,7 +139,7 @@ def main():
     openai_api_key = str(args.openai_key)
     madgrades_api_key = str(args.madgrades_key)
     step = str(args.step).lower()
-    max_prerequisites = int(args.max_prerequisites) if args.max_prerequisites != float("inf") else float("inf")
+    max_prerequisites = int(args.max_prerequisites)
     verbose = bool(args.verbose)
 
     logger = logging.getLogger(__name__)
@@ -166,6 +184,23 @@ def main():
         logger.info("Instructor data fetched successfully.")
 
 
+    if filter_step(step, "optimize"):
+        logger.info("Optimizing course data...")
+        if course_ref_to_course is None:
+            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
+            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
+
+        optimize(
+            course_ref_to_course=course_ref_to_course,
+            max_prerequisites=max_prerequisites,
+            openai_api_key=openai_api_key,
+            verbose=verbose,
+            logger=logger
+        )
+
+        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        logger.info("Course data optimized successfully.")
+
 
     # open_ai_client = get_openai_client(
     #     api_key=openai_api_key,
@@ -173,8 +208,6 @@ def main():
     #     verbose=verbose
     # )
     #
-    # instructors_email = build_from_mega_query(term_code=latest_term, terms=madgrades, course_ref_to_course=course_ref_to_course, logger=logger)
-    # instructor_to_rating = get_ratings(instructors=instructors_email, stats=stats, logger=logger)
     #
     # optimize_prerequisites(
     #     client=open_ai_client,
@@ -205,9 +238,6 @@ def main():
     #
     # subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
     # global_style = generate_style_from_graph(global_graph)
-
-
-
 
 if __name__ == "__main__":
     main()
