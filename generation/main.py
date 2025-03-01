@@ -7,12 +7,11 @@ import coloredlogs
 
 from cache import write_cache, read_cache
 from course import Course
-from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from enrollment import sync_enrollment_terms, build_from_mega_query
-from madgrades import add_madgrades_data
-from open_ai import get_openai_client, optimize_prerequisites
 from instructors import get_ratings
-from webscrape import get_course_urls, scrape_all, build_subject_to_courses
+from madgrades import add_madgrades_data
+from webscrape import get_course_urls, scrape_all
+
 
 def generate_parser():
     """
@@ -93,10 +92,25 @@ def madgrades(
 
     return terms, latest_term
 
+def instructors(
+        course_ref_to_course,
+        terms,
+        logger
+):
+    instructors_emails = asyncio.run(build_from_mega_query(selected_term=max(terms.keys()), terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
+    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, logger=logger))
+    return instructor_to_rating, instructors_emails
+
 def optimize(
 
 ):
     pass
+
+def read_course_ref_to_course_cache(cache_data):
+    return {Course.Reference.from_string(k): Course.from_json(v) for k, v in cache_data.items()}
+
+def read_terms_cache(cache_data):
+    return {int(k): v for k, v in cache_data.items()}
 
 def main():
     parser = generate_parser()
@@ -115,10 +129,11 @@ def main():
     logger.setLevel(logging_level)
     coloredlogs.install(level=logging_level, logger=logger)
 
-    subject_to_full_subject, course_ref_to_course = None, None
+    subject_to_full_subject, course_ref_to_course, terms, latest_term = None, None, None, None
     if filter_step(step, "courses"):
         logger.info("Fetching course data...")
         subject_to_full_subject, course_ref_to_course = courses(logger=logger)
+
         write_cache(cache_dir, ("courses",), "subject_to_full_subject", subject_to_full_subject, logger)
         write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
         logger.info("Course data fetched successfully.")
@@ -127,11 +142,30 @@ def main():
         logger.info("Fetching madgrades data...")
         if course_ref_to_course is None:
             course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
-            course_ref_to_course = {Course.Reference.from_string(k): Course.from_json(v) for k, v in course_ref_to_course.items()}
+            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
         terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, logger=logger)
+
         write_cache(cache_dir, ("madgrades",), "terms", terms, logger)
         write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
         logger.info("Madgrades data fetched successfully.")
+
+    if filter_step(step,  "instructors"):
+        logger.info("Fetching instructor data...")
+        if course_ref_to_course is None:
+            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
+            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
+
+        if terms is None or latest_term is None:
+            terms = read_cache(cache_dir, ("madgrades",), "terms", logger)
+            terms = read_terms_cache(terms)
+
+        instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms, logger=logger)
+
+        write_cache(cache_dir, ("instructors",), "instructor_to_rating", instructor_to_rating, logger)
+        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        logger.info("Instructor data fetched successfully.")
+
+
 
     # open_ai_client = get_openai_client(
     #     api_key=openai_api_key,
