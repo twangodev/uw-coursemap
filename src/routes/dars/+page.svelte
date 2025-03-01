@@ -4,10 +4,11 @@
     import { Label } from "$lib/components/ui/label/index.ts";
 	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
+    import {apiFetch} from "$lib/api.ts";
 
     async function parseDarsPDF(pdfData: ArrayBuffer) {
         const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
-        let text = "";
+        let text: string = "";
 
         for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
@@ -20,8 +21,8 @@
 
         let output: string;
         if (match) {
-            let extractedTextList: Array<string>;
             let extractedTextListOfCourses: Array<Array<string>>;
+            let extractedTextList: Array<string>;
             
             // Get text from match
             let foundText = match[1].trim();
@@ -48,17 +49,41 @@
             extractedTextListOfCourses = extractedTextListOfCourses.map(list => [list[0].replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2'), list[1]]);
 
             // Debug
-            console.log(extractedTextListOfCourses);
+            console.log(`Courses: ${extractedTextListOfCourses}`);
 
-            output = "Successfully parsed DARS PDF (I think)";
+            //get each course
+            for(const courseInfo of extractedTextListOfCourses){
+                let courseCode = courseInfo[0];
+                
+                //get the course's data
+                let courseData = await getCourse(courseCode);
+
+                console.log(courseData["course_title"])
+            }
         } else {
-            output = "Error parsing DARS PDF, section used not found";
+            console.log("Error parsing DARS PDF, section used not found");
         }
-
-        // Show output
-        console.log(output);
     }
 
+    async function getCourse(courseCode: string){
+        //seperate course info
+        let section = courseCode.split(" ")[0];
+        let number = parseInt(courseCode.split(" ")[1]);
+
+        //get the section data
+        const response = await apiFetch(`/courses/${section}.json`)
+        let subjectCourses = await response.json();
+
+        //get the specific course
+        for(const courseData of subjectCourses){
+            if(courseData["course_reference"]["course_number"] == number){
+                return courseData;
+            }
+        }
+
+        //no course found
+        throw new Error("Could not find course ):");
+    }
 
     async function fileUploaded(event: Event) {
         const target = event.target as HTMLInputElement;
