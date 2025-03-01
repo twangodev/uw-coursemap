@@ -1,11 +1,20 @@
 import json
+import json
 import os
 from datetime import datetime, timezone
 from logging import Logger
 
-from generation.json_serializable import JsonSerializable
-from generation.instructors import FullInstructor
+from instructors import FullInstructor
+from json_serializable import JsonSerializable
 
+
+def convert_keys_to_str(data):
+    if isinstance(data, dict):
+        return {str(key): convert_keys_to_str(value) for key, value in data.items()}
+    elif isinstance(data, list):
+        return [convert_keys_to_str(item) for item in data]
+    else:
+        return data
 
 def recursive_sort_data(data):
     """
@@ -36,7 +45,7 @@ def format_file_size(size_in_bytes):
     return f"{size:.2f} {units[index]}"
 
 
-def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, logger: Logger):
+def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data, logger: Logger):
     """
     Writes a sorted dictionary or list to a JSON file.
     - directory_tuple: Tuple representing the directory path.
@@ -46,6 +55,10 @@ def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, 
     """
     if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
         raise TypeError("Data must be a dictionary, list, set, tuple, or JsonSerializable object")
+
+    # Convert keys to strings
+    if isinstance(data, dict):
+        data = convert_keys_to_str(data)
 
     # Convert data to a list if it is a set or tuple
     if isinstance(data, (set, tuple)):
@@ -57,7 +70,7 @@ def write_file(data_dir, directory_tuple: tuple[str, ...], filename: str, data, 
     sorted_data = recursive_sort_data(data)
 
     # Create the full directory path
-    directory_path = os.path.join(data_dir, *directory_tuple)
+    directory_path = os.path.join(directory, *directory_tuple)
 
     # Ensure the directory exists
     os.makedirs(directory_path, exist_ok=True)

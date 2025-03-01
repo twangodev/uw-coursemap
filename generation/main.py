@@ -1,129 +1,178 @@
+import asyncio
 import logging
-import os
+from argparse import ArgumentParser
+from logging import Logger
 
 import coloredlogs
-from dotenv import load_dotenv
 
-from generation.cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
-from generation.enrollment import sync_enrollment_terms, build_from_mega_query
-from generation.logging_util import get_logging_level
-from generation.madgrades import add_madgrades_data
-from generation.open_ai import get_openai_client, optimize_prerequisites
-from generation.instructors import get_ratings
-from generation.save import write_data
-from generation.webscrape import get_course_urls, scrape_all, build_subject_to_courses
+from cache import write_cache, read_cache
+from course import Course
+from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
+from enrollment import sync_enrollment_terms, build_from_mega_query
+from madgrades import add_madgrades_data
+from open_ai import get_openai_client, optimize_prerequisites
+from instructors import get_ratings
+from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
-
-def main():
-    load_dotenv()
-
-    logging_level = os.getenv("LOGGING_LEVEL", None)
-
-    openai_api_key = os.getenv("OPENAI_API_KEY", None)
-    max_prerequisites: str = os.getenv("MAX_PREREQUISITES", None)
-
-    madgrades_api_key: str = os.getenv("MADGRADES_API_KEY", None)
-
-    show_api_keys = os.getenv("SHOW_API_KEY", False) == "True"
-
-    data_dir = os.getenv("DATA_DIRECTORY", None)
-
-    warn_missing_madgrades_api_key = madgrades_api_key is None
-    if warn_missing_madgrades_api_key:
-        raise ValueError("No Madgrades API key set. Please set the MADGRADES_API_KEY environment variable.")
-
-    warn_missing_data_dir = data_dir is None
-    if warn_missing_data_dir:
-        raise ValueError("No data directory set. Please set the DATA_DIRECTORY environment variable.")
-
-    logger = logging.getLogger(__name__)
-
-    warn_missing_logging_level = logging_level is None
-    logging_level = get_logging_level(level_name=logging_level) or logging.INFO
-    logger.setLevel(logging_level)
-    coloredlogs.install(level=logging_level, logger=logger)
-
-    warn_missing_prerequisites = max_prerequisites is None
-    max_prerequisites: int | float = int(max_prerequisites) if max_prerequisites is not None else float("inf")
-
-    if warn_missing_prerequisites:
-        logger.warning("No maximum prerequisites set. Defaulting to infinity (no optimization).")
-    if warn_missing_logging_level:
-        logger.warning("No logging level set. Defaulting to INFO.")
-
-    open_ai_client = get_openai_client(api_key=openai_api_key, logger=logger, show_api_key=show_api_keys)
-
-    stats = {
-        "subjects": 0,
-        "courses": 0,
-        "original_prerequisites": 0,
-        "unknown_madgrades_courses": 0,
-        "instructors": 0,
-        "instructors_with_ratings": 0,
-        "prompt_tokens": 0,
-        "total_tokens": 0,
-        "removed_prerequisites": 0,
-    }
-
-    site_map_urls = get_course_urls(logger=logger)
-    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, stats=stats, logger=logger)
-    terms = add_madgrades_data(
-        course_ref_to_course=course_ref_to_course, 
-        madgrades_api_key=madgrades_api_key,
-        stats=stats, 
-        logger=logger
+def generate_parser():
+    """
+    Build the argument parser for command line arguments.
+    """
+    parser = ArgumentParser(
+        description="Generates course map data for UW-Madison courses.",
     )
+    parser.add_argument(
+        "data_dir",
+        type=str,
+        help="Directory to save the generated data.",
+        default="data"
+    )
+    parser.add_argument(
+        "-c", "--cache_dir",
+        type=str,
+        help="Directory to save the cached data.",
+        default=".cache"
+    )
+    parser.add_argument(
+        "--openai_key",
+        type=str,
+        help="OpenAI API key for embeddings.",
+        required=True,
+    )
+    parser.add_argument(
+        "--madgrades_key",
+        type=str,
+        help="Madgrades API key for course data.",
+        required=True,
+    )
+    parser.add_argument(
+        "--step",
+        choices=["force", "courses", "madgrades", "instructors", "optimize", "madgrades", "graph"],
+        help="Strategy for generating course map data.",
+        required=True,
+    )
+    parser.add_argument(
+        "--max_prerequisites",
+        type=int,
+        help="Maximum number of prerequisites to keep for each course.",
+        default=float("inf"),
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Enable verbose logging (DEBUG level)",
+    )
+    return parser
+
+def filter_step(step_name, allowed_step):
+    if step_name == "force":
+        return True
+    return step_name == allowed_step
+
+def courses(
+        logger: Logger
+):
+    site_map_urls = get_course_urls(logger=logger)
+    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
+    return subject_to_full_subject, course_ref_to_course
+
+def madgrades(
+        course_ref_to_course,
+        madgrades_api_key,
+        logger: Logger
+):
+    terms = asyncio.run(add_madgrades_data(
+        course_ref_to_course=course_ref_to_course,
+        madgrades_api_key=madgrades_api_key,
+        logger=logger
+    ))
 
     sync_enrollment_terms(terms=terms, logger=logger)
     latest_term = max(terms.keys())
 
-    instructors_email = build_from_mega_query(term_code=latest_term, terms=terms, course_ref_to_course=course_ref_to_course, logger=logger)
-    instructor_to_rating = get_ratings(instructors=instructors_email, stats=stats, logger=logger)
+    return terms, latest_term
 
-    optimize_prerequisites(
-        client=open_ai_client,
-        model="text-embedding-3-small",
-        course_ref_to_course=course_ref_to_course,
-        max_prerequisites=max_prerequisites,
-        max_runtime=30,
-        max_retries=50,
-        max_threads=10,
-        stats=stats,
-        logger=logger
-    )
+def optimize(
 
-    identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
-    subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
+):
+    pass
 
-    global_graph, subject_to_graph = build_graphs(
-        course_ref_to_course=course_ref_to_course,
-        subject_to_courses=subject_to_courses,
-        logger=logger
-    )
+def main():
+    parser = generate_parser()
+    args = parser.parse_args()
 
-    cleanup_graphs(
-        global_graph=global_graph,
-        subject_to_graph=subject_to_graph,
-        logger=logger
-    )
+    data_dir = str(args.data_dir)
+    cache_dir = str(args.cache_dir)
+    openai_api_key = str(args.openai_key)
+    madgrades_api_key = str(args.madgrades_key)
+    step = str(args.step).lower()
+    max_prerequisites = int(args.max_prerequisites) if args.max_prerequisites != float("inf") else float("inf")
+    verbose = bool(args.verbose)
 
-    subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
-    global_style = generate_style_from_graph(global_graph)
+    logger = logging.getLogger(__name__)
+    logging_level = logging.DEBUG if verbose else logging.INFO
+    logger.setLevel(logging_level)
+    coloredlogs.install(level=logging_level, logger=logger)
 
-    write_data(
-        data_dir=data_dir,
-        subject_to_full_subject=subject_to_full_subject,
-        subject_to_courses=subject_to_courses,
-        identifier_to_course=identifier_to_course,
-        global_graph=global_graph,
-        subject_to_graph=subject_to_graph,
-        global_style=global_style,
-        subject_to_style=subject_to_style,
-        instructor_to_rating=instructor_to_rating,
-        terms=terms,
-        stats=stats,
-        logger=logger
-    )
+    subject_to_full_subject, course_ref_to_course = None, None
+    if filter_step(step, "courses"):
+        logger.info("Fetching course data...")
+        subject_to_full_subject, course_ref_to_course = courses(logger=logger)
+        write_cache(cache_dir, ("courses",), "subject_to_full_subject", subject_to_full_subject, logger)
+        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        logger.info("Course data fetched successfully.")
+
+    if filter_step(step, "madgrades"):
+        logger.info("Fetching madgrades data...")
+        if course_ref_to_course is None:
+            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
+            course_ref_to_course = {Course.Reference.from_string(k): Course.from_json(v) for k, v in course_ref_to_course.items()}
+        terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, logger=logger)
+        write_cache(cache_dir, ("madgrades",), "terms", terms, logger)
+        write_cache(cache_dir, ("courses",), "course_ref_to_course", course_ref_to_course, logger)
+        logger.info("Madgrades data fetched successfully.")
+
+    # open_ai_client = get_openai_client(
+    #     api_key=openai_api_key,
+    #     logger=logger,
+    #     verbose=verbose
+    # )
+    #
+    # instructors_email = build_from_mega_query(term_code=latest_term, terms=madgrades, course_ref_to_course=course_ref_to_course, logger=logger)
+    # instructor_to_rating = get_ratings(instructors=instructors_email, stats=stats, logger=logger)
+    #
+    # optimize_prerequisites(
+    #     client=open_ai_client,
+    #     model="text-embedding-3-small",
+    #     course_ref_to_course=course_ref_to_course,
+    #     max_prerequisites=max_prerequisites,
+    #     max_runtime=30,
+    #     max_retries=50,
+    #     max_threads=10,
+    #     stats=stats,
+    #     logger=logger
+    # )
+    #
+    # identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
+    # subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
+    #
+    # global_graph, subject_to_graph = build_graphs(
+    #     course_ref_to_course=course_ref_to_course,
+    #     subject_to_courses=subject_to_courses,
+    #     logger=logger
+    # )
+    #
+    # cleanup_graphs(
+    #     global_graph=global_graph,
+    #     subject_to_graph=subject_to_graph,
+    #     logger=logger
+    # )
+    #
+    # subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
+    # global_style = generate_style_from_graph(global_graph)
+
+
 
 
 if __name__ == "__main__":

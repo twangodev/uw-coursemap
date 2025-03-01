@@ -5,17 +5,16 @@ from typing import Any
 import numpy as np
 from openai import OpenAI
 
-from generation.course import Course
+from course import Course
 
 
-def get_openai_client(api_key: str, logger: Logger, show_api_key: bool):
+def get_openai_client(api_key: str, logger: Logger, verbose: bool):
     """
     Returns an OpenAI client object.
     """
     if api_key is None or api_key == "REPLACE_WITH_OPENAI_API_KEY":
         logger.warning("No OpenAI API key provided.")
         return None
-    logger.info("Creating OpenAI client" + (f" with API key {api_key}" if show_api_key else ""))
     return OpenAI(api_key=api_key)
 
 

@@ -1,5 +1,6 @@
 import re
 
+import aiohttp
 import requests
 
 from enrollment_data import EnrollmentData
@@ -69,6 +70,9 @@ class Course(JsonSerializable):
 
         def __repr__(self):
             return f"CourseReference(subjects={self.subjects}, course_number={self.course_number})"
+
+        def __str__(self):
+            return self.get_identifier()
 
     class Prerequisites(JsonSerializable):
 
@@ -146,7 +150,7 @@ class Course(JsonSerializable):
         }
 
     @classmethod
-    def from_block(cls, block, stats):
+    def from_block(cls, block):
         html_title = block.find("p", class_="courseblocktitle noindent")
 
         if not html_title:
@@ -164,11 +168,15 @@ class Course(JsonSerializable):
         description = block.find("p", class_="courseblockdesc noindent").get_text(strip=True)
 
         cb_extras = block.find("div", class_="cb-extras")
+        basic_course = Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None, None)
         if not cb_extras:
-            return Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None, None)
+            return basic_course
 
-        requisites_data = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:")).find_next(
-            "span", class_="cbextra-data")
+        requisites_header = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:"))
+        if not requisites_header:
+            return basic_course
+
+        requisites_data = requisites_header.find_next("span", class_="cbextra-data")
         requisites_text = requisites_data.get_text(strip=True)
         requisites_links = requisites_data.find_all("a")
         requisites_courses = set()
@@ -177,8 +185,6 @@ class Course(JsonSerializable):
             requisites_courses.add(Course.Reference.from_string(title))
 
         requisites_courses.discard(course_reference)  # Remove self-reference
-
-        stats["original_prerequisites"] += len(requisites_courses)
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
         return Course(course_reference, course_title, description, course_prerequisite, None, None, None)
@@ -321,20 +327,19 @@ class MadgradesData(JsonSerializable):
         }
 
     @classmethod
-    def from_madgrades(cls, url, madgrades_api_key) -> "MadgradesData":
+    async def from_madgrades_async(cls, session, url, madgrades_api_key) -> "MadgradesData":
         auth_header = {"Authorization": f"Token token={madgrades_api_key}" }
-        response = requests.get(url=url, headers=auth_header)
-        data = response.json()
+
+        async with session.get(url, headers=auth_header) as response:
+            data = await response.json()
 
         cumulative = GradeData.from_madgrades(data["cumulative"])
         course_offerings = data["courseOfferings"]
 
         by_term = {}
-
         for offering in course_offerings:
             term_code = offering["termCode"]
             grade_data = GradeData.from_madgrades(offering["cumulative"])
-
             by_term[term_code] = grade_data
 
         return MadgradesData(cumulative=cumulative, by_term=by_term)
