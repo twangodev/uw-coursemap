@@ -103,11 +103,12 @@ def instructors(
     return instructor_to_rating, instructors_emails
 
 def optimize(
-    course_ref_to_course,
-    max_prerequisites,
-    openai_api_key,
-    verbose,
-    logger,
+        cache_dir,
+        course_ref_to_course,
+        max_prerequisites,
+        openai_api_key,
+        verbose,
+        logger,
 ):
     open_ai_client = get_openai_client(
         api_key=openai_api_key,
@@ -115,6 +116,7 @@ def optimize(
         verbose=verbose
     )
     asyncio.run(optimize_prerequisites(
+        cache_dir=cache_dir,
         client=open_ai_client,
         model="text-embedding-3-small",
         course_ref_to_course=course_ref_to_course,
@@ -178,10 +180,10 @@ def main():
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")
         if course_ref_to_course is None:
-            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
-            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         optimize(
+            cache_dir=cache_dir,
             course_ref_to_course=course_ref_to_course,
             max_prerequisites=max_prerequisites,
             openai_api_key=openai_api_key,

@@ -1,8 +1,11 @@
 import os
 import json
+from logging import Logger
+
+import numpy as np
 
 from course import Course
-from save import write_file, list_files
+from save import write_file, format_file_size
 
 
 def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, logger):
@@ -57,3 +60,66 @@ def read_course_ref_to_course_cache(cache_dir, logger):
 def read_terms_cache(cache_dir, logger):
     str_terms = read_cache(cache_dir, (), "terms", logger)
     return { int(term_code): term_name for term_code, term_name in str_terms.items() }
+
+def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding, logger: Logger):
+    """
+    Writes a numpy array (embedding) to an .npy file.
+
+    Parameters:
+        directory (str): Base directory.
+        directory_tuple (tuple[str, ...]): Tuple representing subdirectories.
+        filename (str): Name of the file (without the .npy extension).
+        embedding (np.ndarray): The embedding data to be saved.
+        logger (Logger): Logger instance for logging messages.
+    """
+    # Create the full directory path.
+    directory_path = os.path.join(directory, *directory_tuple)
+    os.makedirs(directory_path, exist_ok=True)
+
+    # Sanitize the filename to remove problematic characters.
+    sanitized_filename = filename.replace("/", "_").replace(" ", "_")
+    file_path = os.path.join(directory_path, f"{sanitized_filename}.npy")
+
+    # Save the embedding using numpy's binary format.
+    np.save(file_path, embedding)
+
+    # Calculate file size and log it.
+    file_size = os.path.getsize(file_path)
+    readable_size = format_file_size(file_size)
+    logger.debug(f"Embedding saved to {file_path} ({readable_size})")
+
+def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, logger: Logger):
+    """
+    Reads a numpy array (embedding) from an .npy file.
+
+    Parameters:
+        directory (str): Base directory where the embedding file is stored.
+        directory_tuple (tuple[str, ...]): Tuple representing subdirectories.
+        filename (str): Name of the file (without the .npy extension).
+        logger (Logger): Logger instance for logging messages.
+
+    Returns:
+        The loaded numpy array, or None if the file does not exist.
+    """
+    # Create the full directory path.
+    directory_path = os.path.join(directory, *directory_tuple)
+
+    # Sanitize the filename.
+    sanitized_filename = filename.replace("/", "_").replace(" ", "_")
+    file_path = os.path.join(directory_path, f"{sanitized_filename}.npy")
+
+    # Check if the file exists.
+    if not os.path.exists(file_path):
+        logger.debug(f"Embedding file {file_path} does not exist.")
+        return None
+
+    # Load and return the numpy array.
+    embedding = np.load(file_path)
+    logger.debug(f"Embedding read from {file_path}")
+    return embedding
+
+def read_embedding_cache(cache_dir, sha256hash: str, logger: Logger):
+    return read_embedding(cache_dir, ("embeddings",), sha256hash, logger)
+
+def write_embedding_cache(cache_dir, sha256hash: str, embedding, logger: Logger):
+    write_embedding(cache_dir, ("embeddings",), sha256hash, embedding, logger)
