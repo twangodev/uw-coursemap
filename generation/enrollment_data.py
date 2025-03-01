@@ -3,7 +3,6 @@ from safe_parse import safe_int
 
 
 class EnrollmentData(JsonSerializable):
-
     class School(JsonSerializable):
 
         def __init__(self, name, abbreviation, url):
@@ -40,7 +39,8 @@ class EnrollmentData(JsonSerializable):
         def __eq__(self, other):
             return self.name == other.name and self.abbreviation == other.abbreviation and self.url == other.url
 
-    def __init__(self, school, last_taught_term, typically_offered: str, credit_count: tuple[int, int], general_education: bool, ethnics_studies: bool, instructors):
+    def __init__(self, school, last_taught_term, typically_offered: str, credit_count: tuple[int, int],
+                 general_education: bool, ethnics_studies: bool, instructors):
         self.school = school
         self.last_taught_term = last_taught_term
         self.typically_offered = typically_offered

@@ -1,6 +1,5 @@
-import os
 import json
-from dis import Instruction
+import os
 from logging import Logger
 
 import numpy as np
@@ -42,17 +41,22 @@ def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, 
     logger.debug(f"Cache read from {file_path}")
     return data
 
+
 def write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject, logger):
     write_file(cache_dir, (), "subjects", subject_to_full_subject, logger)
+
 
 def write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger):
     write_file(cache_dir, (), "courses", course_ref_to_course, logger)
 
+
 def write_terms_cache(cache_dir, terms, logger):
     write_file(cache_dir, (), "terms", terms, logger)
 
+
 def write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger):
     write_file(cache_dir, (), "instructors", instructor_to_rating, logger)
+
 
 def write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, logger):
     write_file(cache_dir, ("graphs",), "global_graph", global_graph, logger)
@@ -64,14 +68,18 @@ def write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, 
 
 def read_course_ref_to_course_cache(cache_dir, logger):
     str_course_ref_to_course = read_cache(cache_dir, (), "courses", logger)
-    return { Course.Reference.from_string(key): Course.from_json(value) for key, value in str_course_ref_to_course.items() }
+    return {Course.Reference.from_string(key): Course.from_json(value) for key, value in
+            str_course_ref_to_course.items()}
+
 
 def read_terms_cache(cache_dir, logger):
     str_terms = read_cache(cache_dir, (), "terms", logger)
-    return { int(term_code): term_name for term_code, term_name in str_terms.items() }
+    return {int(term_code): term_name for term_code, term_name in str_terms.items()}
+
 
 def read_subject_to_full_subject_cache(cache_dir, logger):
     return read_cache(cache_dir, (), "subjects", logger)
+
 
 def read_graphs_cache(cache_dir, logger):
     global_graph = read_cache(cache_dir, ("graphs",), "global_graph", logger)
@@ -82,9 +90,11 @@ def read_graphs_cache(cache_dir, logger):
 
     return global_graph, subject_to_graph, global_style, subject_to_style
 
+
 def read_instructors_to_rating_cache(cache_dir, logger):
     instructors_to_rating = read_cache(cache_dir, (), "instructors", logger)
-    return { name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items() }
+    return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
+
 
 def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding, logger: Logger):
     """
@@ -112,6 +122,7 @@ def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: 
     file_size = os.path.getsize(file_path)
     readable_size = format_file_size(file_size)
     logger.debug(f"Embedding saved to {file_path} ({readable_size})")
+
 
 def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, logger: Logger):
     """
@@ -143,8 +154,10 @@ def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: s
     logger.debug(f"Embedding read from {file_path}")
     return embedding
 
+
 def read_embedding_cache(cache_dir, sha256hash: str, logger: Logger):
     return read_embedding(cache_dir, ("embeddings",), sha256hash, logger)
+
 
 def write_embedding_cache(cache_dir, sha256hash: str, embedding, logger: Logger):
     write_embedding(cache_dir, ("embeddings",), sha256hash, embedding, logger)

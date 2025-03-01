@@ -1,5 +1,4 @@
 import asyncio
-import logging
 import re
 from json import JSONDecodeError
 from logging import Logger
@@ -66,9 +65,11 @@ query NewSearchTeachersQuery($query: TeacherSearchQuery!) {
 }
 """
 
+
 class RMPData(JsonSerializable):
 
-    def __init__(self, id, legacy_id, average_rating, average_difficulty, num_ratings, would_take_again_percent, mandatory_attendance, ratings_distribution, ratings):
+    def __init__(self, id, legacy_id, average_rating, average_difficulty, num_ratings, would_take_again_percent,
+                 mandatory_attendance, ratings_distribution, ratings):
         self.id = id
         self.legacy_id = legacy_id
         self.average_rating = average_rating
@@ -140,6 +141,7 @@ class RMPData(JsonSerializable):
             "ratings": self.ratings
         }
 
+
 class FullInstructor(JsonSerializable):
 
     def __init__(self, name, email, rmp_data, position, department, credentials, official_name):
@@ -174,16 +176,18 @@ class FullInstructor(JsonSerializable):
             "official_name": self.official_name
         }
 
+
 def produce_query(instructor_name):
     return {
         "query": {
             "text": instructor_name,
-            "schoolID": "U2Nob29sLTE4NDE4", # UW-Madison
+            "schoolID": "U2Nob29sLTE4NDE4",  # UW-Madison
         }
     }
 
+
 async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.ClientSession, attempts: int = 3):
-    auth_header = { "Authorization": f"Basic {api_key}" }
+    auth_header = {"Authorization": f"Basic {api_key}"}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
@@ -208,6 +212,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.C
     logger.debug(f"Failed to find rating for {name}")
     return None
 
+
 def scrape_api_key():
     response = requests.get(rmp_url)
 
@@ -215,6 +220,7 @@ def scrape_api_key():
     graphql_auth = match.group(1)
 
     return graphql_auth
+
 
 def get_faculty():
     response = requests.get(faculty_url)
@@ -239,6 +245,7 @@ def get_faculty():
             faculty[name] = (position, department, credentials)
 
     return faculty
+
 
 def match_name(student_name, official_names):
     """
@@ -266,8 +273,9 @@ def match_name(student_name, official_names):
 
     return matches[0] if matches else None
 
+
 async def get_ratings(instructors: dict[str, str], logger: Logger):
-    faculty = get_faculty()      # Assuming these functions are fast/synchronous.
+    faculty = get_faculty()  # Assuming these functions are fast/synchronous.
     api_key = scrape_api_key()
 
     instructor_data = {}
@@ -308,5 +316,6 @@ async def get_ratings(instructors: dict[str, str], logger: Logger):
                 official_name=match
             )
 
-    logger.info(f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
+    logger.info(
+        f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
     return instructor_data

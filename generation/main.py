@@ -74,10 +74,12 @@ def generate_parser():
     )
     return parser
 
+
 def filter_step(step_name, allowed_step):
     if step_name == "force":
         return True
     return step_name == allowed_step
+
 
 def courses(
         logger: Logger
@@ -85,6 +87,7 @@ def courses(
     site_map_urls = get_course_urls(logger=logger)
     subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
     return subject_to_full_subject, course_ref_to_course
+
 
 def madgrades(
         course_ref_to_course,
@@ -102,14 +105,18 @@ def madgrades(
 
     return terms, latest_term
 
+
 def instructors(
         course_ref_to_course,
         terms,
         logger
 ):
-    instructors_emails = asyncio.run(build_from_mega_query(selected_term=max(terms.keys()), terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
+    instructors_emails = asyncio.run(
+        build_from_mega_query(selected_term=max(terms.keys()), terms=terms, course_ref_to_course=course_ref_to_course,
+                              logger=logger))
     instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, logger=logger))
     return instructor_to_rating, instructors_emails
+
 
 def optimize(
         cache_dir,
@@ -135,6 +142,7 @@ def optimize(
         logger=logger
     ))
 
+
 def graph(
         course_ref_to_course,
         logger
@@ -157,6 +165,7 @@ def graph(
     global_style = generate_style_from_graph(global_graph)
 
     return global_graph, subject_to_graph, subject_to_style, global_style
+
 
 def main():
     parser = generate_parser()
@@ -194,13 +203,14 @@ def main():
         logger.info("Fetching madgrades data...")
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-        terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key, logger=logger)
+        terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key,
+                                       logger=logger)
 
         write_terms_cache(cache_dir, terms, logger)
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Madgrades data fetched successfully.")
 
-    if filter_step(step,  "instructors"):
+    if filter_step(step, "instructors"):
         logger.info("Fetching instructor data...")
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
@@ -208,12 +218,12 @@ def main():
         if terms is None:
             terms = read_terms_cache(cache_dir, logger)
 
-        instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms, logger=logger)
+        instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms,
+                                                               logger=logger)
 
         write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
-
 
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")
@@ -231,7 +241,6 @@ def main():
 
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Course data optimized successfully.")
-
 
     if filter_step(step, "graph"):
         logger.info("Building course graph...")
@@ -256,7 +265,7 @@ def main():
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
-        subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course,)
+        subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
         identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
         if global_graph is None or subject_to_graph is None or global_style is None or subject_to_style is None:
@@ -281,7 +290,6 @@ def main():
             terms=terms,
             logger=logger
         )
-
 
 
 if __name__ == "__main__":

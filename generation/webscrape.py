@@ -12,6 +12,7 @@ from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
+
 def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
     time_start = time.time()
     response = session.get(url)
@@ -23,6 +24,7 @@ def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
     time_elapsed_ms = get_ms(time_start)
     logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
     return subject_title, results
+
 
 def add_data(subjects, course_ref_course, full_subject, blocks):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
@@ -36,6 +38,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks):
         if not course:
             continue
         course_ref_course[course.course_reference] = course
+
 
 def get_course_urls(logger: Logger) -> set[str]:
     logger.info("Fetching and parsing the course sitemap...")
@@ -61,6 +64,7 @@ def get_course_urls(logger: Logger) -> set[str]:
 
     return sitemap_urls
 
+
 def scrape_all(urls: set[str], logger: Logger):
     logger.info("Building course data...")
 
@@ -81,6 +85,7 @@ def scrape_all(urls: set[str], logger: Logger):
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
 
     return subject_to_full_subject, course_ref_to_course
+
 
 def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:
     subject_to_courses = dict()

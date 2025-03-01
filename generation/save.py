@@ -1,9 +1,7 @@
 import json
-import json
 import os
 from datetime import datetime, timezone
 from logging import Logger
-from typing import LiteralString
 
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
@@ -17,6 +15,7 @@ def convert_keys_to_str(data):
     else:
         return data
 
+
 def recursive_sort_data(data):
     """
     Recursively sorts dictionaries and lists.
@@ -26,7 +25,8 @@ def recursive_sort_data(data):
     if isinstance(data, dict):
         return {key: recursive_sort_data(data[key]) for key in sorted(data.keys())}
     elif isinstance(data, (list, set, tuple)):
-        return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for item in data]
+        return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for
+                item in data]
     elif isinstance(data, JsonSerializable):
         return recursive_sort_data(json.loads(data.to_json()))
     else:
@@ -92,6 +92,7 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
 
     logger.debug(f"Data written to {file_path} ({readable_size})")
 
+
 def wipe_data(data_dir, logger):
     """
     Wipe all data in the data directory.
@@ -107,7 +108,10 @@ def wipe_data(data_dir, logger):
 
     logger.info("Data directory wiped.")
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph, subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms, logger):
+
+def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph,
+               subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms,
+               logger):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -139,6 +143,7 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     }
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
+
 
 def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...], logger) -> list[str]:
     """

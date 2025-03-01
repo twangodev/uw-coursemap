@@ -12,8 +12,10 @@ terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
 enrollment_package_base_url = "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
 
+
 def build_enrollment_package_base_url(term, subject_code, course_id):
     return f"{enrollment_package_base_url}/{term}/{subject_code}/{course_id}"
+
 
 def sync_enrollment_terms(terms, logger: Logger):
     logger.info("Fetching latest terms...")
@@ -31,6 +33,7 @@ def sync_enrollment_terms(terms, logger: Logger):
         short_description = term["shortDescription"]
         logger.debug(f"Found new term code: {term_code} - {short_description}")
         terms[term_code] = short_description
+
 
 async def build_from_mega_query(selected_term, terms, course_ref_to_course, logger: Logger):
     post_data = {
@@ -70,6 +73,7 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
         logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in the latest term")
         return all_instructors
 
+
 async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session, attempts=10):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
@@ -100,7 +104,8 @@ async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_
         if attempts > 0:
             logger.info(f"Retrying {attempts} more times...")
             await asyncio.sleep(1)
-            return await process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session, attempts - 1)
+            return await process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session,
+                                     attempts - 1)
         return None
 
     course_instructors = {}

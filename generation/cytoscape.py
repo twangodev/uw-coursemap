@@ -5,6 +5,7 @@ from frozendict import frozendict
 from color import generate_random_hex_colors
 from course import Course
 
+
 def create_compound(subject):
     return frozendict({
         "data": frozendict({
@@ -12,6 +13,7 @@ def create_compound(subject):
             "type": "compound",
         }),
     })
+
 
 def create_node(course):
     data = {
@@ -23,8 +25,9 @@ def create_node(course):
     if parent != "CROSSLISTED":
         data["parent"] = parent
 
-    node = {"data": frozendict(data),}
+    node = {"data": frozendict(data), }
     return frozendict(node)
+
 
 def create_edge(target, source):
     return frozendict({
@@ -34,10 +37,13 @@ def create_edge(target, source):
         }),
     })
 
-def generate_style(parent, color):
-    return { parent : color }
 
-def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course], graph_set_1: set[Course], graph_set_2: set[Course]):
+def generate_style(parent, color):
+    return {parent: color}
+
+
+def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course],
+                  graph_set_1: set[Course], graph_set_2: set[Course]):
     if course.get_identifier() in seen:
         return
     seen.add(course.get_identifier())
@@ -59,7 +65,9 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
         graph_set_1.add(graph_data)
         graph_set_2.add(graph_data)
 
-def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]], logger: Logger):
+
+def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]],
+                 logger: Logger):
     logger.info("Building course graphs...")
 
     graph = set()
@@ -73,6 +81,7 @@ def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_t
 
     return graph, subject_to_graph
 
+
 def cleanup_graphs(global_graph, subject_to_graph, logger: Logger):
     count = 0
     if None in global_graph:
@@ -83,6 +92,7 @@ def cleanup_graphs(global_graph, subject_to_graph, logger: Logger):
             count += 1
         subject_to_graph[subject].discard(None)
     logger.info(f"Removed {count} None graphs")
+
 
 def generate_style_from_graph(graph):
     parents = set()
@@ -96,5 +106,6 @@ def generate_style_from_graph(graph):
 
     return [generate_style(parent, color) for parent, color in zip(set(parents), colors)]
 
+
 def generate_styles(subject_to_graph):
-    return { subject: generate_style_from_graph(subject_to_graph[subject]) for subject in subject_to_graph }
+    return {subject: generate_style_from_graph(subject_to_graph[subject]) for subject in subject_to_graph}

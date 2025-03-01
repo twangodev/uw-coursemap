@@ -1,5 +1,6 @@
 import random
 
+
 def generate_random_hex_colors(num):
     colors = []
 

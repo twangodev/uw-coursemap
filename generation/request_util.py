@@ -11,6 +11,7 @@ def get_global_retry_strategy():
         allowed_methods=["GET"]  # Methods to retry on (use allowed_methods instead of deprecated method_whitelist)
     )
 
+
 def get_prefix(url: str) -> str:
     """
     Extracts and returns the prefix (scheme and network location) from a given URL.

@@ -2,14 +2,13 @@ import asyncio
 import re
 from json import JSONDecodeError
 
-import aiohttp
-import requests
-
 from enrollment_data import EnrollmentData
 from json_serializable import JsonSerializable
 
+
 def remove_extra_spaces(text: str):
     return re.sub(r"\s+", " ", text).strip()
+
 
 def cleanup_course_reference_str(course_code: str):
     """Remove special HTML characters and clean up the course code."""
@@ -23,13 +22,14 @@ def cleanup_course_reference_str(course_code: str):
         .strip()
     )
 
+
 class Identifiable:
 
-        def get_identifier(self) -> str:
-            raise NotImplementedError
+    def get_identifier(self) -> str:
+        raise NotImplementedError
+
 
 class Course(JsonSerializable):
-
     class Reference(JsonSerializable, Identifiable):
         def __init__(self, subjects: set[str], course_number: int):
             self.subjects = subjects
@@ -137,7 +137,8 @@ class Course(JsonSerializable):
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
             optimized_prerequisites=optimized_prerequisites,
             madgrades_data=madgrades_data,
-            enrollment_data=EnrollmentData.from_json(json_data["enrollment_data"]) if json_data["enrollment_data"] else None
+            enrollment_data=EnrollmentData.from_json(json_data["enrollment_data"]) if json_data[
+                "enrollment_data"] else None
         )
 
     def to_dict(self):
@@ -170,7 +171,8 @@ class Course(JsonSerializable):
         description = block.find("p", class_="courseblockdesc noindent").get_text(strip=True)
 
         cb_extras = block.find("div", class_="cb-extras")
-        basic_course = Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None, None)
+        basic_course = Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None,
+                              None)
         if not cb_extras:
             return basic_course
 
@@ -223,9 +225,11 @@ class Course(JsonSerializable):
     def __repr__(self):
         return self.get_identifier()
 
+
 class GradeData(JsonSerializable):
 
-    def __init__(self, total, a, ab, b, bc, c, d, f, satisfactory, unsatisfactory, credit, no_credit, passed, incomplete, no_work, not_reported, other):
+    def __init__(self, total, a, ab, b, bc, c, d, f, satisfactory, unsatisfactory, credit, no_credit, passed,
+                 incomplete, no_work, not_reported, other):
         self.total = total
         self.a = a
         self.ab = ab
@@ -309,6 +313,7 @@ class GradeData(JsonSerializable):
             "other": self.other
         }
 
+
 class MadgradesData(JsonSerializable):
 
     def __init__(self, cumulative, by_term):
@@ -330,7 +335,7 @@ class MadgradesData(JsonSerializable):
 
     @classmethod
     async def from_madgrades_async(cls, session, url, madgrades_api_key, logger, attempts=3) -> "MadgradesData":
-        auth_header = {"Authorization": f"Token token={madgrades_api_key}" }
+        auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
 
         try:
             async with session.get(url, headers=auth_header) as response:
