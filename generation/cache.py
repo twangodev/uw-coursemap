@@ -53,3 +53,7 @@ def write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger):
 def read_course_ref_to_course_cache(cache_dir, logger):
     str_course_ref_to_course = read_cache(cache_dir, (), "courses", logger)
     return { Course.Reference.from_string(key): Course.from_json(value) for key, value in str_course_ref_to_course.items() }
+
+def read_terms_cache(cache_dir, logger):
+    str_terms = read_cache(cache_dir, (), "terms", logger)
+    return { int(term_code): term_name for term_code, term_name in str_terms.items() }

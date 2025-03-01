@@ -6,7 +6,7 @@ from logging import Logger
 import coloredlogs
 
 from cache import read_cache, read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
-    write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache
+    write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings
@@ -124,10 +124,6 @@ def optimize(
         logger=logger
     ))
 
-
-def read_terms_cache(cache_data):
-    return {int(k): v for k, v in cache_data.items()}
-
 def main():
     parser = generate_parser()
     args = parser.parse_args()
@@ -167,12 +163,10 @@ def main():
     if filter_step(step,  "instructors"):
         logger.info("Fetching instructor data...")
         if course_ref_to_course is None:
-            course_ref_to_course = read_cache(cache_dir, ("courses",), "course_ref_to_course", logger)
-            course_ref_to_course = read_course_ref_to_course_cache(course_ref_to_course)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
-        if terms is None or latest_term is None:
-            terms = read_cache(cache_dir, ("madgrades",), "terms", logger)
-            terms = read_terms_cache(terms)
+        if terms is None:
+            terms = read_terms_cache(cache_dir, logger)
 
         instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms, logger=logger)
 
