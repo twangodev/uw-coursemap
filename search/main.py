@@ -7,7 +7,7 @@ from elasticsearch import Elasticsearch
 from flask import Flask, request
 
 from data import get_instructors, get_courses, get_subjects
-from es_util import load_courses
+from es_util import load_courses, search_courses
 
 app = Flask(__name__)
 es = Elasticsearch(
@@ -43,37 +43,9 @@ def search():
     data = request.get_json()
     search_term = data.get("query")
 
-    # Build the Elasticsearch query; this example uses a match query on course_title
-    numeric_part = "".join(re.findall(r"\d+", search_term))
-    word_part = "".join(re.findall(r"\D+", search_term))
-
-    es_query = {
-        "query": {
-            "bool": {
-                "must": [],  # `must` ensures course_number is strictly required
-                "should": [
-                    {"match": {"course_title": {"query": word_part, "fuzziness": "AUTO"}}},
-                    {"match": {"course_reference": {"query": search_term, "fuzziness": "AUTO"}}},
-                    {"match": {"subjects": {"query": word_part, "fuzziness": "AUTO"}}},
-                    {"wildcard": {"course_title": f"*{word_part}*"}},
-                    {"wildcard": {"course_reference": f"*{search_term}*"}},
-                    {"wildcard": {"subjects": f"*{word_part}*"}},
-                ],
-                "minimum_should_match": 1  # At least one of these should match
-            }
-        }
+    return {
+        "courses": search_courses(es, search_term)
     }
-
-    # If numeric part exists, add a strict term match for course_number (must match)
-    if numeric_part:
-        es_query["query"]["bool"]["must"].append(
-            {"term": {"course_number": int(numeric_part)}}
-        )
-
-    # Execute the search on the 'courses' index
-    results = es.search(index="courses", body=es_query)
-
-    return dict(results)
 
 def clear_elasticsearch():
     index_name = "courses"

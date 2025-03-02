@@ -70,7 +70,8 @@ def get_courses(data_dir, subjects, logger):
             "course_reference": process_course_reference(course_data["course_reference"]),
             "course_number": course_data["course_reference"]["course_number"],
             "course_title": course_data["course_title"],
-            "subjects": [subjects[shorthand] for shorthand in course_data["course_reference"]["subjects"]],
+            "subjects": course_data["course_reference"]["subjects"],
+            "departments": [subjects[shorthand] for shorthand in course_data["course_reference"]["subjects"]],
         }
         for course_id, course_data in courses.items()
     }
