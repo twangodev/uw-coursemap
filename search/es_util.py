@@ -14,42 +14,60 @@ def load_courses(es, courses):
     ]
 
     helpers.bulk(es, actions)
-
-def search_courses(es: Elasticsearch, search_term):
-
-    # Build the Elasticsearch query; this example uses a match query on course_title
+def search_courses(es: Elasticsearch, search_term: str):
+    # Sanitize input
+    search_term = search_term.strip()
     numeric_part = "".join(re.findall(r"\d+", search_term))
-    word_part = "".join(re.findall(r"\D+", search_term))
+    word_part = "".join(re.findall(r"\D+", search_term)).strip()
+
+    should_queries = []
+
+    if word_part:
+        # Use multi_match to search in multiple fields with boosts
+        should_queries.append({
+            "multi_match": {
+                "query": word_part,
+                "fields": [
+                    "course_title^3",      # Boost course_title
+                    "course_reference^2",  # Moderate boost for course_reference
+                    "subjects",
+                    "departments"
+                ],
+                "fuzziness": "AUTO"
+            }
+        })
+        # Add wildcard queries for partial matching on text fields
+        should_queries.extend([
+            {"wildcard": {"course_title": f"*{word_part}*"}},
+            {"wildcard": {"subjects": f"*{word_part}*"}},
+            {"wildcard": {"departments": f"*{word_part}*"}}
+        ])
+
+    # Always include a query on course_reference with the full search term
+    should_queries.append({
+        "wildcard": {"course_reference": f"*{search_term}*"}
+    })
+
+    bool_query = {
+        "must": [],
+        "should": should_queries,
+        "minimum_should_match": 1
+    }
+
+    # If there's a numeric part, ensure course_number must match exactly
+    if numeric_part:
+        bool_query["must"].append({
+            "term": {"course_number": int(numeric_part)}
+        })
 
     es_query = {
         "query": {
-            "bool": {
-                "must": [],  # `must` ensures course_number is strictly required
-                "should": [
-                    {"match": {"course_title": {"query": word_part, "fuzziness": "AUTO"}}},
-                    {"match": {"course_reference": {"query": search_term, "fuzziness": "AUTO"}}},
-                    {"match": {"subjects": {"query": word_part, "fuzziness": "AUTO"}}},
-                    {"match": {"departments": {"query": word_part, "fuzziness": "AUTO"}}},
-                    {"wildcard": {"course_title": f"*{word_part}*"}},
-                    {"wildcard": {"course_reference": f"*{search_term}*"}},
-                    {"wildcard": {"subjects": f"*{word_part}*"}},
-                    {"wildcard": {"departments": f"*{word_part}*"}},
-                ],
-                "minimum_should_match": 1  # At least one of these should match
-            }
+            "bool": bool_query
         },
         "size": 10
     }
 
-    # If numeric part exists, add a strict term match for course_number (must match)
-    if numeric_part:
-        es_query["query"]["bool"]["must"].append(
-            {"term": {"course_number": int(numeric_part)}}
-        )
-
-    # Execute the search on the 'courses' index
     results = es.search(index="courses", body=es_query)
-
     hits = results.get("hits", {}).get("hits", [])
 
     return [
@@ -62,7 +80,6 @@ def search_courses(es: Elasticsearch, search_term):
         }
         for hit in hits
     ]
-
 def load_instructors(es, instructors):
     actions = [
         {
