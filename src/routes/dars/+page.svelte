@@ -2,13 +2,32 @@
 	import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
     import { Input } from "$lib/components/ui/input/index.ts";
     import { Label } from "$lib/components/ui/label/index.ts";
+    import { Button } from "$lib/components/ui/button/index.js";
 	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
     import {apiFetch} from "$lib/api.ts";
+    import {getData, setData} from "$lib/localStorage.ts";
     import * as Table from "$lib/components/ui/table/index.ts";
-
-    let darsUploaded = false;
+    import { onMount } from 'svelte';
+    
     let coursesFromDars = new Array<any>;
+    
+    //load data
+    onMount(() => {
+        coursesFromDars = getData("coursesFromDars");
+    });
+
+    function saveData(){
+        setData("coursesFromDars", coursesFromDars);
+    }
+
+    function clearCourses(event: Event){
+        //clear
+        coursesFromDars = new Array<any>;
+        saveData();
+
+        console.log("Cleared courses")
+    }
 
     async function parseDarsPDF(pdfData: ArrayBuffer) {
         const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
@@ -60,13 +79,12 @@
                 
                 //get the course's data
                 let courseData = await getCourse(courseCode);
-
+                
+                //add to courses
                 coursesFromDars.push(courseData);
-
-                console.log(courseData["course_title"])
-
+                coursesFromDars = coursesFromDars; //force update
+                saveData();
             }
-            darsUploaded = true;
         } else {
             console.log("Error parsing DARS PDF, section used not found");
         }
@@ -105,17 +123,20 @@
                 }
             };
             
-
             reader.readAsArrayBuffer(file);
         }
     }
 </script>
 
 <ContentWrapper>
-    {#if !darsUploaded}
-        <Label for="dars-upload">Upload DARS PDF:</Label>
-        <Input accept="application/pdf" id="dars-upload" type="file" on:change={fileUploaded}/>
+    {#if coursesFromDars.length > 0}
+        <Label for="dars-upload">Add to courses with DARS PDF:</Label>
     {:else}
+        <Label for="dars-upload">Upload DARS PDF:</Label>
+    {/if}
+    <Input accept="application/pdf" id="dars-upload" type="file" on:change={fileUploaded}/>
+    
+    {#if coursesFromDars.length > 0}
         <Table.Root>
             <Table.Caption>Courses automatically imported from DARS</Table.Caption>
             <Table.Header>
@@ -135,5 +156,8 @@
                 {/each}
             </Table.Body>
         </Table.Root>  
+        <Button variant="destructive" on:click={clearCourses}>Clear Courses</Button>
     {/if}
+
+
 </ContentWrapper>
