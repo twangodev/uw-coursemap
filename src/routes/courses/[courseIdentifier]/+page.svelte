@@ -40,7 +40,7 @@
     }
 
     const getCumulativeGPA = (course: Course) => {
-        return calculateGradePointAverage(course.madgrades_data.cumulative)
+        return calculateGradePointAverage(course?.madgrades_data?.cumulative)
     }
 
     const getLatestTermGPA = (course: Course) => {
@@ -70,7 +70,7 @@
     }
 
     const getCumulativeCompletionRate = (course: Course) => {
-        return calculateCompletionRate(course.madgrades_data.cumulative)
+        return calculateCompletionRate(course.madgrades_data?.cumulative)
     }
 
     const getLatestCompletionRate = (course: Course) => {
@@ -78,7 +78,7 @@
     }
 
     const getCumulativeARate = (course: Course) => {
-        return calculateARate(course.madgrades_data.cumulative)
+        return calculateARate(course.madgrades_data?.cumulative)
     }
 
     const getLatestARate = (course: Course) => {
@@ -87,6 +87,9 @@
 
     const getCumulativeClassSize = (course: Course) => {
         let average = 0;
+        if (!course?.madgrades_data?.by_term) {
+            return 0
+        }
         for (let term in course.madgrades_data.by_term) {
             average += course.madgrades_data.by_term[term].total
         }
@@ -94,7 +97,7 @@
     }
 
     const getLatestClassSize = (course: Course) => {
-        return getLatestTermMadgradesData(course).total
+        return getLatestTermMadgradesData(course)?.total ?? 0
     }
 
     const appendPercent = (value: number | null) => {
@@ -237,7 +240,11 @@
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                         <Card.Root class="lg:col-span-4">
                             <Card.Content class="pt-6">
-                                <GradeDataHorizontalBarChart madgradesData={$course.madgrades_data} />
+                                {#if $course.madgrades_data}
+                                    <GradeDataHorizontalBarChart madgradesData={$course.madgrades_data} />
+                                {:else}
+                                    <p class="text-center">No data available</p>
+                                {/if}
                             </Card.Content>
                         </Card.Root>
                         <Card.Root class="lg:col-span-3">
@@ -269,7 +276,11 @@
                 <Tabs.Content value="trends" class="lg:col-span-9 space-y-4">
                     <Card.Root>
                         <Card.Content class="pt-6">
+                            {#if $course.madgrades_data}
                             <GradeDataStackedAreaChart madgradesData={$course.madgrades_data} {terms} />
+                            {:else }
+                                <p class="text-center">No data available</p>
+                            {/if}
                         </Card.Content>
                     </Card.Root>
                 </Tabs.Content>
