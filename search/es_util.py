@@ -3,6 +3,99 @@ import re
 from elasticsearch import helpers, Elasticsearch
 
 
+def generate_variations(subject_name: str, abbreviation: str):
+    """
+    Generate variations for a subject name. Variations include:
+      - Original subject name
+      - Provided abbreviation
+      - Subject name without punctuation
+      - Acronym (first letters of each word)
+      - A shortened form (first 4 letters of each word)
+      - Lowercase and capitalized versions of each variation
+    """
+    variations = set()
+    subject_name = subject_name.strip()
+    abbreviation = abbreviation.strip()
+
+    # Variation 1: Original subject name
+    variations.add(subject_name)
+
+    # Variation 2: Abbreviation (subject_id)
+    variations.add(abbreviation)
+
+    # Variation 3: Subject name with punctuation removed
+    no_punct = re.sub(r"[^\w\s]", "", subject_name)
+    variations.add(no_punct)
+
+    # Variation 4: Acronym from first letters of each word
+    words = subject_name.split()
+    if words:
+        acronym = "".join(word[0].upper() for word in words)
+        variations.add(acronym)
+
+    # Variation 5: Shortened form: first 4 letters (if available) for each word
+    short_form_words = []
+    for word in words:
+        if len(word) > 4:
+            short_form_words.append(word[:4].upper())
+        else:
+            short_form_words.append(word.upper())
+    short_form = " ".join(short_form_words)
+    variations.add(short_form)
+
+    # Add additional variations: all lowercase and capitalized versions
+    additional = set()
+    for var in variations:
+        additional.add(var.lower())
+        additional.add(var.capitalize())
+    variations.update(additional)
+
+    return list(variations)
+
+def load_subjects(es: Elasticsearch, subjects: dict):
+    """
+    Index subjects into Elasticsearch. The `subjects` parameter is a dictionary
+    where keys are subject abbreviations and values are subject names.
+    This function generates variations for each subject to improve matching.
+    """
+    actions = [
+        {
+            "_index": "subjects",
+            "_id": subject_id,
+            "_source": {
+                "abbreviation": subject_id,
+                "name": subject_data,
+                "variations": generate_variations(subject_data, subject_id)
+            }
+        }
+        for subject_id, subject_data in subjects.items()
+    ]
+
+    helpers.bulk(es, actions)
+
+def search_subjects(es: Elasticsearch, search_term: str):
+    es_query = {
+        "query": {
+            "multi_match": {
+                "query": search_term,
+                "fields": ["name", "abbreviation", "variations"],
+                "fuzziness": "AUTO"
+            }
+        },
+        "size": 5
+    }
+
+    results = es.search(index="subjects", body=es_query)
+    hits = results.get("hits", {}).get("hits", [])
+    return [
+        {
+            "subject_id": hit["_id"],
+            "name": hit["_source"]["name"],
+            "abbreviation": hit["_source"]["abbreviation"],
+        }
+        for hit in hits
+    ]
+
 def load_courses(es, courses):
     actions = [
         {
@@ -14,6 +107,7 @@ def load_courses(es, courses):
     ]
 
     helpers.bulk(es, actions)
+
 def search_courses(es: Elasticsearch, search_term: str):
     # Sanitize input
     search_term = search_term.strip()
@@ -80,6 +174,7 @@ def search_courses(es: Elasticsearch, search_term: str):
         }
         for hit in hits
     ]
+
 def load_instructors(es, instructors):
     actions = [
         {

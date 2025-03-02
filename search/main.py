@@ -6,7 +6,7 @@ from elasticsearch import Elasticsearch
 from flask import Flask, request
 
 from data import get_instructors, get_courses, get_subjects
-from es_util import load_courses, search_courses, load_instructors, search_instructors
+from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
 app = Flask(__name__)
 es = Elasticsearch(
@@ -44,14 +44,17 @@ def search():
 
     return {
         "courses": search_courses(es, search_term),
-        "instructors": search_instructors(es, search_term)
+        "instructors": search_instructors(es, search_term),
+        "subjects": search_subjects(es, search_term),
     }
 
 def clear_elasticsearch():
-    index_name = "courses"
-    if es.indices.exists(index=index_name):
-        es.indices.delete(index=index_name)
-        print(f"Deleted existing index '{index_name}'")
+
+    indexes = ["courses", "instructors", "subjects"]
+
+    for index in indexes:
+        if es.indices.exists(index=index):
+            es.indices.delete(index=index)
 
 if __name__ == "__main__":
 
@@ -69,6 +72,9 @@ if __name__ == "__main__":
     instructors = get_instructors(data_dir, logger)
     courses = get_courses(data_dir, subjects, logger)
 
+    clear_elasticsearch()
+
+    load_subjects(es, subjects)
     load_courses(es, courses)
     load_instructors(es, instructors)
 
