@@ -37,8 +37,8 @@ export function getTotalOtherGrades(gradeData: GradeData): number {
         + gradeData.other;
 }
 
-export function calculateGradePointAverage(gradeData: GradeData): number | null {
-    if (gradeData.total === 0) {
+export function calculateGradePointAverage(gradeData: GradeData | undefined | null): number | null {
+    if (!gradeData || gradeData.total === 0) {
         return null;
     }
     let totalPoints = gradeData.a * 4
@@ -50,8 +50,8 @@ export function calculateGradePointAverage(gradeData: GradeData): number | null 
     return (totalPoints / gradeData.total);
 }
 
-export function calculateCompletionRate(gradeData: GradeData): number | null {
-    if (gradeData.total === 0) {
+export function calculateCompletionRate(gradeData: GradeData | undefined | null): number | null {
+    if (!gradeData || gradeData.total === 0) {
         return null;
     }
     let totalCompletions = gradeData.a
@@ -65,8 +65,8 @@ export function calculateCompletionRate(gradeData: GradeData): number | null {
     return (totalCompletions * 100 / gradeData.total);
 }
 
-export function calculateARate(gradeData: GradeData): number | null {
-    if (gradeData.total === 0) {
+export function calculateARate(gradeData: GradeData | undefined | null): number | null {
+    if (!gradeData || gradeData.total === 0) {
         return null;
     }
     let totalAs = gradeData.a;
