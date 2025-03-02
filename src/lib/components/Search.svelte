@@ -4,10 +4,29 @@
     import {cn} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/CtrlCmd.svelte";
+    import { apiQueryFetch } from "$lib/api";
+    import { writable } from "svelte/store";
+    import CustomInput from "./CustomInput.svelte";
 
     export let wide = false;
 
     let open = false;
+
+    $: searchQuery = "";
+    let suggestions = writable<string[]>([]);
+    $: updateSuggestions(searchQuery);
+
+    async function updateSuggestions(query: string) {
+        if (query.length <= 0) {
+            $suggestions = []; 
+            return
+        }
+        const response = await apiQueryFetch(searchQuery) 
+        console.log(response);
+        const data = await response.json()
+        $suggestions = data.map((item: any) => item[0])
+        console.log($suggestions);
+    }
 
     onMount(() => {
         function handleKeydown(e: KeyboardEvent) {
@@ -41,8 +60,14 @@
     </kbd>
 </Button>
 <Command.Dialog bind:open>
-    <Command.Input placeholder="Search courses, programs..." />
+    <CustomInput placeholder="Search courses, programs..." bind:value={searchQuery} />
     <Command.List>
         <Command.Empty>No results found.</Command.Empty>
+        <Command.Group heading="courses">
+                  
+            {#each $suggestions as suggestion, index }
+                <Command.Item>{suggestion}</Command.Item>
+            {/each}
+        </Command.Group>
     </Command.List>
 </Command.Dialog>
