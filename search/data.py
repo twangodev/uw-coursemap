@@ -68,6 +68,7 @@ def get_courses(data_dir, subjects, logger):
     return {
         course_id: {
             "course_reference": process_course_reference(course_data["course_reference"]),
+            "course_number": course_data["course_reference"]["course_number"],
             "course_title": course_data["course_title"],
             "subjects": [subjects[shorthand] for shorthand in course_data["course_reference"]["subjects"]],
         }
