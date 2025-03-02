@@ -5,7 +5,7 @@ import coloredlogs
 from elasticsearch import Elasticsearch
 from flask import Flask, request
 
-from data import get_instructors, get_courses, get_subjects
+from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
 app = Flask(__name__)
@@ -42,10 +42,12 @@ def search():
     data = request.get_json()
     search_term = data.get("query")
 
+    normalized_search_term = normalize_text(search_term)
+
     return {
-        "courses": search_courses(es, search_term),
-        "instructors": search_instructors(es, search_term),
-        "subjects": search_subjects(es, search_term),
+        "courses": search_courses(es, normalized_search_term),
+        "instructors": search_instructors(es, normalized_search_term),
+        "subjects": search_subjects(es, normalized_search_term),
     }
 
 def clear_elasticsearch():
