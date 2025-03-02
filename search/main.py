@@ -1,5 +1,4 @@
 import logging
-import re
 from argparse import ArgumentParser
 
 import coloredlogs
@@ -7,7 +6,7 @@ from elasticsearch import Elasticsearch
 from flask import Flask, request
 
 from data import get_instructors, get_courses, get_subjects
-from es_util import load_courses, search_courses
+from es_util import load_courses, search_courses, load_instructors, search_instructors
 
 app = Flask(__name__)
 es = Elasticsearch(
@@ -44,7 +43,8 @@ def search():
     search_term = data.get("query")
 
     return {
-        "courses": search_courses(es, search_term)
+        "courses": search_courses(es, search_term),
+        "instructors": search_instructors(es, search_term)
     }
 
 def clear_elasticsearch():
@@ -70,5 +70,6 @@ if __name__ == "__main__":
     courses = get_courses(data_dir, subjects, logger)
 
     load_courses(es, courses)
+    load_instructors(es, instructors)
 
     app.run(debug=True)

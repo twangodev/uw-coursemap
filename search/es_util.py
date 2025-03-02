@@ -63,3 +63,66 @@ def search_courses(es: Elasticsearch, search_term):
         for hit in hits
     ]
 
+def load_instructors(es, instructors):
+    actions = [
+        {
+            "_index": "instructors",
+            "_id": instructor_id,
+            "_source": instructor_data
+        }
+        for instructor_id, instructor_data in instructors.items()
+    ]
+
+    helpers.bulk(es, actions)
+
+def search_instructors(es, search_term):
+    es_query = {
+        "query": {
+            "bool": {
+                "should": [
+                    {
+                        "multi_match": {
+                            "query": search_term,
+                            "fields": [
+                                "name^10",
+                                "official_name^2",
+                                "email",
+                                "position",
+                                "department"
+                            ],
+                            "fuzziness": "AUTO"
+                        }
+                    },
+                    {
+                        "query_string": {
+                            "query": f"*{search_term}*",
+                            "fields": [
+                                "name",
+                                "official_name",
+                                "email",
+                                "position",
+                                "department"
+                            ],
+                            "analyze_wildcard": True
+                        }
+                    }
+                ],
+                "minimum_should_match": 1
+            }
+        },
+        "size": 5
+    }
+
+    results = es.search(index="instructors", body=es_query)
+    hits = results.get("hits", {}).get("hits", [])
+    return [
+        {
+            "instructor_id": hit["_id"],
+            "name": hit["_source"]["name"],
+            "official_name": hit["_source"]["official_name"],
+            "email": hit["_source"]["email"],
+            "position": hit["_source"]["position"],
+            "department": hit["_source"]["department"],
+        }
+        for hit in hits
+    ]

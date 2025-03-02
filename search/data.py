@@ -57,7 +57,16 @@ def get_instructors(data_dir, logger):
     instructors = read_json_directory(instructor_dir)
     logger.info(f"Loaded {len(instructors)} instructors.")
 
-    return instructors
+    return {
+        instructor_id: {
+            "name": instructor_data["name"],
+            "official_name": instructor_data["official_name"],
+            "email": instructor_data["email"],
+            "position": instructor_data["position"],
+            "department": instructor_data["department"],
+        }
+        for instructor_id, instructor_data in instructors.items()
+    }
 
 def get_courses(data_dir, subjects, logger):
     course_dir = os.path.join(data_dir, "course")
