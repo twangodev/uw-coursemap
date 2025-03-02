@@ -5,6 +5,10 @@
 	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
     import {apiFetch} from "$lib/api.ts";
+    import * as Table from "$lib/components/ui/table/index.ts";
+
+    let darsUploaded = false;
+    let coursesFromDars = new Array<any>;
 
     async function parseDarsPDF(pdfData: ArrayBuffer) {
         const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
@@ -19,7 +23,6 @@
         // Get text between "At least {int} Madison credits required" and a lot of "-"s
         const match = text.match(/At least \d+ Madison credits required([\s\S]*?)--------/);
 
-        let output: string;
         if (match) {
             let extractedTextListOfCourses: Array<Array<string>>;
             let extractedTextList: Array<string>;
@@ -58,8 +61,12 @@
                 //get the course's data
                 let courseData = await getCourse(courseCode);
 
+                coursesFromDars.push(courseData);
+
                 console.log(courseData["course_title"])
+
             }
+            darsUploaded = true;
         } else {
             console.log("Error parsing DARS PDF, section used not found");
         }
@@ -105,6 +112,28 @@
 </script>
 
 <ContentWrapper>
-    <Label for="dars-upload">Upload DARS PDF:</Label>
-    <Input accept="application/pdf" id="dars-upload" type="file" on:change={fileUploaded}/>
+    {#if !darsUploaded}
+        <Label for="dars-upload">Upload DARS PDF:</Label>
+        <Input accept="application/pdf" id="dars-upload" type="file" on:change={fileUploaded}/>
+    {:else}
+        <Table.Root>
+            <Table.Caption>Courses automatically imported from DARS</Table.Caption>
+            <Table.Header>
+                <Table.Row>
+                    <Table.Head>Name</Table.Head>
+                    <Table.Head>Subject(s)</Table.Head>
+                    <Table.Head>Number</Table.Head>
+                </Table.Row>
+            </Table.Header>
+            <Table.Body>
+                {#each coursesFromDars as courseData}
+                    <Table.Row>
+                        <Table.Cell>{courseData["course_title"]}</Table.Cell>
+                        <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
+                        <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
+                    </Table.Row>
+                {/each}
+            </Table.Body>
+        </Table.Root>  
+    {/if}
 </ContentWrapper>
