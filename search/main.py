@@ -4,11 +4,13 @@ from argparse import ArgumentParser
 import coloredlogs
 from elasticsearch import Elasticsearch
 from flask import Flask, request
+from flask_cors import CORS
 
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
 app = Flask(__name__)
+cors = CORS(app)
 es = Elasticsearch(
     "https://localhost:9200",
     basic_auth=("elastic", "changeme"),
