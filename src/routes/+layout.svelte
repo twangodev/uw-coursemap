@@ -7,9 +7,9 @@
 </script>
 
 <ModeWatcher/>
-<div class="flex flex-col min-h-screen h-screen">
+<div class="flex flex-col min-h-screen">
     <Navbar/>
-    <main class="flex-grow flex">
+    <main class="flex-grow">
         {@render children()}
     </main>
     <Footer/>

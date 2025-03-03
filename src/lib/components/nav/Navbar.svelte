@@ -7,7 +7,7 @@
     import Search from "$lib/components/Search.svelte";
     import MobileNav from "$lib/components/nav/MobileNav.svelte";
     import ModeToggle from "$lib/components/ModeToggle.svelte";
-    import {Github} from "lucide-svelte";
+    import {Github, GithubIcon} from "lucide-svelte";
 </script>
 
 <header
@@ -32,7 +32,7 @@
 							"h-8 w-8 px-0"
 						)}
                     >
-                        <Github class="h-5 w-5" />
+                        <GithubIcon class="h-5 w-5" />
                         <span class="sr-only">GitHub</span>
                     </div>
                 </a>

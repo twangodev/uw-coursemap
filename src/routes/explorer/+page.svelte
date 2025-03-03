@@ -19,7 +19,7 @@
             UW Course Map is not affiliated by the University of Wisconsin-Madison.
         </p>
         <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
-            <Search wide={true}/>
+            <Search wide={true} fake={true}/>
             <AlertDialog.Root>
                 <AlertDialog.Trigger asChild let:builder>
                     <Button builders={[builder]} variant="outline">Graph All</Button>

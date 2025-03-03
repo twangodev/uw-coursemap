@@ -14,10 +14,10 @@
         type SubjectSearchResponse
     } from "$lib/types/searchResponse.ts";
     import {Book, School, User} from "lucide-svelte";
+    import {searchModalOpen} from "$lib/searchModalStore.ts";
 
     export let wide = false;
-
-    let open = false;
+    export let fake = false;
 
     $: searchQuery = "";
     let courses = writable<CourseSearchResponse[]>([]);
@@ -40,14 +40,16 @@
     }
 
     onMount(() => {
+        if (fake) return;
+
         function handleKeydown(e: KeyboardEvent) {
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
-                open = true;
+                $searchModalOpen = true;
             }
         }
-        document.addEventListener("keydown", handleKeydown);
 
+        document.addEventListener("keydown", handleKeydown);
         return () => {
             document.removeEventListener("keydown", handleKeydown);
         };
@@ -59,8 +61,9 @@
         class={cn(
 		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
 	)}
-        on:click={() => (open = true)}
-        {...$$restProps}
+        on:click={() => {
+            $searchModalOpen = true;
+        }}
 >
     <span class="hidden lg:inline-flex">Search courses, departments... </span>
     <span class="inline-flex lg:hidden">Search...</span>
@@ -70,47 +73,49 @@
         <CtrlCmd />K
     </kbd>
 </Button>
-<Command.Dialog bind:open>
-    <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
-    <Command.List>
-        <Command.Empty>No results found.</Command.Empty>
-        {#if $courses.length > 0}
-            <Command.Group heading="Courses">
-                {#each $courses as suggestion }
-                    <Command.Item>
-                        <Book class="mr-3 h-4 w-4" />
-                        <div>
-                            <p>{suggestion.course_title}</p>
-                            <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
-                        </div>
-                    </Command.Item>
-                {/each}
-            </Command.Group>
-            <Command.Separator />
-        {/if}
-        {#if $subjects.length > 0}
-            <Command.Group heading="Departments">
-                {#each $subjects as suggestion }
-                    <Command.Item>
-                        <School class="mr-3 h-4 w-4" />
-                        <span>{suggestion.name}</span>
-                    </Command.Item>
-                {/each}
-            </Command.Group>
-            <Command.Separator />
-        {/if}
-        {#if $instructors.length > 0}
-            <Command.Group heading="Instructors">
-                {#each $instructors as suggestion }
-                    <Command.Item>
-                        <User class="mr-3 h-4 w-4" />
-                        <div>
-                            <p class="truncate line-clamp-1">{suggestion.name}</p>
-                            <p class="text-xs">{suggestion.position} &#x2022; {suggestion.department}</p>
-                        </div>
-                    </Command.Item>
-                {/each}
-            </Command.Group>
-        {/if}
-    </Command.List>
-</Command.Dialog>
+{#if !fake}
+    <Command.Dialog bind:open={$searchModalOpen}>
+        <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
+        <Command.List>
+            <Command.Empty>No results found.</Command.Empty>
+            {#if $courses.length > 0}
+                <Command.Group heading="Courses">
+                    {#each $courses as suggestion }
+                        <Command.Item>
+                            <Book class="mr-3 h-4 w-4" />
+                            <div>
+                                <p>{suggestion.course_title}</p>
+                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                            </div>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+                <Command.Separator />
+            {/if}
+            {#if $subjects.length > 0}
+                <Command.Group heading="Departments">
+                    {#each $subjects as suggestion }
+                        <Command.Item>
+                            <School class="mr-3 h-4 w-4" />
+                            <span>{suggestion.name}</span>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+                <Command.Separator />
+            {/if}
+            {#if $instructors.length > 0}
+                <Command.Group heading="Instructors">
+                    {#each $instructors as suggestion }
+                        <Command.Item>
+                            <User class="mr-3 h-4 w-4" />
+                            <div>
+                                <p class="truncate line-clamp-1">{suggestion.name}</p>
+                                <p class="text-xs">{suggestion.position} &#x2022; {suggestion.department}</p>
+                            </div>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+            {/if}
+        </Command.List>
+    </Command.Dialog>
+{/if}
