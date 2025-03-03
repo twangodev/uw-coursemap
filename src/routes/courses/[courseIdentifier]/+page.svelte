@@ -149,7 +149,7 @@
         <div class="text-xl font-bold my-2">
             {courseReferenceToString($course.course_reference)}
         </div>
-        <Tabs.Root>
+        <Tabs.Root value="overview">
             <Tabs.List class="my-2">
                 <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
                 <Tabs.Trigger value="trends">Trends</Tabs.Trigger>
