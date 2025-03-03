@@ -4,8 +4,8 @@ export async function apiFetch(path: string): Promise<Response> {
     return await fetch(`${PUBLIC_API_URL}${path}`);
 }
 
-export async function apiQueryFetch(query: string): Promise<Response> {
-    return await fetch(`${PUBLIC_SEARCH_API_URL}/query`, {
+export async function search(query: string): Promise<Response> {
+    return await fetch(`${PUBLIC_SEARCH_API_URL}/search`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
