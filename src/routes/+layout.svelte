@@ -7,10 +7,10 @@
 </script>
 
 <ModeWatcher/>
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-screen h-screen">
     <Navbar/>
-    <main class="flex-grow">
-        {@render children()}
+    <main class="flex-grow flex">
+        {@render children?.()}
     </main>
     <Footer/>
 </div>

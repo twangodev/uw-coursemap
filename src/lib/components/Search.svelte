@@ -28,6 +28,8 @@
     async function updateSuggestions(query: string) {
         if (query.length <= 0) {
             $courses = [];
+            $subjects = [];
+            $instructors = [];
             return
         }
 
@@ -39,30 +41,28 @@
         console.log($courses);
     }
 
-    onMount(() => {
+
+    function handleKeydown(e: KeyboardEvent) {
         if (fake) return;
+        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+            e.preventDefault();
+            searchQuery = "";
 
-        function handleKeydown(e: KeyboardEvent) {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                $searchModalOpen = true;
-            }
+            $searchModalOpen = !$searchModalOpen;
         }
-
-        document.addEventListener("keydown", handleKeydown);
-        return () => {
-            document.removeEventListener("keydown", handleKeydown);
-        };
-    });
+    }
 </script>
+
+<svelte:document onkeydown={handleKeydown} />
 
 <Button
         variant="outline"
         class={cn(
 		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
 	)}
-        on:click={() => {
+        onclick={() => {
             $searchModalOpen = true;
+            searchQuery = "";
         }}
 >
     <span class="hidden lg:inline-flex">Search courses, departments... </span>
@@ -74,10 +74,13 @@
     </kbd>
 </Button>
 {#if !fake}
+
     <Command.Dialog bind:open={$searchModalOpen}>
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         <Command.List>
-            <Command.Empty>No results found.</Command.Empty>
+            {#if $courses.length <= 0 && $subjects.length <= 0 && $instructors.length <= 0}
+            <div class="py-6 text-center text-sm">No results found.</div>
+            {/if}
             {#if $courses.length > 0}
                 <Command.Group heading="Courses">
                     {#each $courses as suggestion }

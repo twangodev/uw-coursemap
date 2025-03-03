@@ -349,16 +349,16 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
-        <Button size="sm" variant="outline" class="h-8 w-8 px-0" on:click={zoomIn}>
+        <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomIn}>
             <LucidePlus class="h-5 w-5"/>
         </Button>
 
         <!-- Zoom Out Button -->
-        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" on:click={zoomOut}>
+        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomOut}>
             <LucideMinus class="h-5 w-5"/>
         </Button>
 
-        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" on:click={toggleFullscreen}>
+        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleFullscreen}>
             <LucideFullscreen class="h-5 w-5"/>
         </Button>
     </div>
