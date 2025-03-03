@@ -137,6 +137,7 @@ def search_courses(es: Elasticsearch, search_term: str):
     """
     Searches courses using both the original and normalized fields.
     Splits the search term into numeric and word parts to support queries like "COMP SCI 300".
+    Instead of enforcing the numeric part, this version boosts courses that match the numeric component.
     """
     search_term = search_term.strip()
     numeric_part = "".join(re.findall(r"\d+", search_term))
@@ -171,6 +172,7 @@ def search_courses(es: Elasticsearch, search_term: str):
             {"wildcard": {"departments_normalized": f"*{normalized_search_term}*"}},
         ])
 
+    # Wildcard matching on course_reference fields for the full search term.
     should_queries.append({
         "wildcard": {"course_reference": f"*{search_term}*"}
     })
@@ -178,15 +180,22 @@ def search_courses(es: Elasticsearch, search_term: str):
         "wildcard": {"course_reference_normalized": f"*{normalized_search_term}*"}
     })
 
+    # If numeric part exists, add a boosted term query on course_number.
+    if numeric_part:
+        should_queries.append({
+            "term": {
+                "course_number": {
+                    "value": int(numeric_part),
+                    "boost": 7.5  # Boost factor can be adjusted as needed.
+                }
+            }
+        })
+
     bool_query = {
         "must": [],
         "should": should_queries,
         "minimum_should_match": 1
     }
-    if numeric_part:
-        bool_query["must"].append({
-            "term": {"course_number": int(numeric_part)}
-        })
 
     es_query = {
         "query": {
@@ -206,6 +215,7 @@ def search_courses(es: Elasticsearch, search_term: str):
         }
         for hit in hits
     ]
+
 
 def load_instructors(es, instructors):
     """
