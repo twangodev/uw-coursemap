@@ -156,7 +156,7 @@
                 {/each}
             </Table.Body>
         </Table.Root>  
-        <Button variant="destructive" on:click={clearCourses}>Clear Courses</Button>
+        <Button variant="destructive" onclick={clearCourses}>Clear Courses</Button>
     {/if}
 
 

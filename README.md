@@ -33,7 +33,7 @@ This project provides a comprehensive view of course information at the Universi
 - Course Requirement DAG: Displays course prerequisites and dependencies in a visual format.
 - Historical Grade Distributions: Cumulative grade distributions for each course.
 - Professor Ratings: Integrates data from Rate My Professor to show professor ratings and comments.
-- Search Functionality: Easily search for courses, professors, and departments. (Coming soon)
+- Search Functionality: Easily search for courses, professors, and departments.
 
 ### Tech Stack
 - **Frontend**: Svelte, shadcn-svelte, Tailwind CSS

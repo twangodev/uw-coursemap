@@ -19,10 +19,10 @@
             UW Course Map is not affiliated by the University of Wisconsin-Madison.
         </p>
         <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
-            <Search wide={true}/>
+            <Search wide={true} fake={true}/>
             <AlertDialog.Root>
-                <AlertDialog.Trigger asChild let:builder>
-                    <Button builders={[builder]} variant="outline">Graph All</Button>
+                <AlertDialog.Trigger >
+                    <Button variant="outline">Graph All</Button>
                 </AlertDialog.Trigger>
                 <AlertDialog.Content>
                     <AlertDialog.Header>
@@ -33,7 +33,7 @@
                     </AlertDialog.Header>
                     <AlertDialog.Footer>
                         <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-                        <AlertDialog.Action on:click={() => goto('/explorer/all')}>Continue</AlertDialog.Action>
+                        <AlertDialog.Action onclick={() => goto('/explorer/all')}>Continue</AlertDialog.Action>
                     </AlertDialog.Footer>
                 </AlertDialog.Content>
             </AlertDialog.Root>

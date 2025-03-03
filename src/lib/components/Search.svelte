@@ -4,35 +4,68 @@
     import {cn} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/CtrlCmd.svelte";
+    import { search } from "$lib/api";
+    import { writable } from "svelte/store";
+    import CustomSearchInput from "$lib/components/CustomSearchInput.svelte";
+    import {
+        type CourseSearchResponse, courseSearchResponseToIdentifier,
+        type InstructorSearchResponse,
+        type SearchResponse,
+        type SubjectSearchResponse
+    } from "$lib/types/searchResponse.ts";
+    import {Book, School, User} from "lucide-svelte";
+    import {searchModalOpen} from "$lib/searchModalStore.ts";
 
     export let wide = false;
+    export let fake = false;
 
-    let open = false;
+    $: searchQuery = "";
+    let courses = writable<CourseSearchResponse[]>([]);
+    let subjects = writable<SubjectSearchResponse[]>([]);
+    let instructors = writable<InstructorSearchResponse[]>([]);
+    $: updateSuggestions(searchQuery);
 
-    onMount(() => {
-        function handleKeydown(e: KeyboardEvent) {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                open = true;
-            }
+    async function updateSuggestions(query: string) {
+        if (query.length <= 0) {
+            $courses = [];
+            $subjects = [];
+            $instructors = [];
+            return
         }
-        document.addEventListener("keydown", handleKeydown);
 
-        return () => {
-            document.removeEventListener("keydown", handleKeydown);
-        };
-    });
+        const response = await search(searchQuery)
+        const data: SearchResponse = await response.json()
+        $courses = data.courses
+        $subjects = data.subjects
+        $instructors = data.instructors
+        console.log($courses);
+    }
+
+
+    function handleKeydown(e: KeyboardEvent) {
+        if (fake) return;
+        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+            e.preventDefault();
+            searchQuery = "";
+
+            $searchModalOpen = !$searchModalOpen;
+        }
+    }
 </script>
+
+<svelte:document onkeydown={handleKeydown} />
 
 <Button
         variant="outline"
         class={cn(
 		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
 	)}
-        on:click={() => (open = true)}
-        {...$$restProps}
+        onclick={() => {
+            $searchModalOpen = true;
+            searchQuery = "";
+        }}
 >
-    <span class="hidden lg:inline-flex">Search courses, programs... </span>
+    <span class="hidden lg:inline-flex">Search courses, departments... </span>
     <span class="inline-flex lg:hidden">Search...</span>
     <kbd
             class="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
@@ -40,9 +73,52 @@
         <CtrlCmd />K
     </kbd>
 </Button>
-<Command.Dialog bind:open>
-    <Command.Input placeholder="Search courses, programs..." />
-    <Command.List>
-        <Command.Empty>No results found.</Command.Empty>
-    </Command.List>
-</Command.Dialog>
+{#if !fake}
+
+    <Command.Dialog bind:open={$searchModalOpen}>
+        <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
+        <Command.List>
+            {#if $courses.length <= 0 && $subjects.length <= 0 && $instructors.length <= 0}
+            <div class="py-6 text-center text-sm">No results found.</div>
+            {/if}
+            {#if $courses.length > 0}
+                <Command.Group heading="Courses">
+                    {#each $courses as suggestion }
+                        <Command.Item>
+                            <Book class="mr-3 h-4 w-4" />
+                            <div>
+                                <p>{suggestion.course_title}</p>
+                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                            </div>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+                <Command.Separator />
+            {/if}
+            {#if $subjects.length > 0}
+                <Command.Group heading="Departments">
+                    {#each $subjects as suggestion }
+                        <Command.Item>
+                            <School class="mr-3 h-4 w-4" />
+                            <span>{suggestion.name}</span>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+                <Command.Separator />
+            {/if}
+            {#if $instructors.length > 0}
+                <Command.Group heading="Instructors">
+                    {#each $instructors as suggestion }
+                        <Command.Item>
+                            <User class="mr-3 h-4 w-4" />
+                            <div>
+                                <p class="truncate line-clamp-1">{suggestion.name}</p>
+                                <p class="text-xs">{suggestion.position} &#x2022; {suggestion.department}</p>
+                            </div>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+            {/if}
+        </Command.List>
+    </Command.Dialog>
+{/if}
