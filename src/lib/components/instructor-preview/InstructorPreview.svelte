@@ -22,13 +22,13 @@
         href="/instructors/{name.replaceAll(' ', '_').replaceAll('/', '_')}"
 >
     <div class="flex items-center overflow-hidden">
-        <Avatar class="flex-shrink-0">
+        <Avatar class="shrink-0">
             <AvatarFallback>{name[0]}</AvatarFallback>
         </Avatar>
         <div class="ml-4 flex-1 min-w-0">
             <h4 class="text-sm font-semibold truncate">{name}</h4>
             <div class="flex items-center py-1">
-                <LucideMail class="mr-2 h-4 w-4 opacity-70 flex-shrink-0" />
+                <LucideMail class="mr-2 h-4 w-4 opacity-70 shrink-0" />
                 <span class="text-muted-foreground text-xs underline-offset-2 truncate">{email}</span>
             </div>
         </div>
