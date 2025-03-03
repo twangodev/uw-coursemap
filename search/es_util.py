@@ -96,7 +96,6 @@ def search_subjects(es: Elasticsearch, search_term: str):
         {
             "subject_id": hit["_id"],
             "name": hit["_source"]["name"],
-            "abbreviation": hit["_source"]["abbreviation"],
         }
         for hit in hits
     ]
