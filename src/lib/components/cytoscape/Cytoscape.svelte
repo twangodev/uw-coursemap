@@ -5,7 +5,7 @@
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
-    import {LucideFullscreen, LucideMail, LucideMinus, LucidePlus} from "lucide-svelte";
+    import {LucideFullscreen, LucideHand, LucideMail, LucideMinus, LucideMousePointer, LucidePlus} from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
@@ -52,6 +52,21 @@
     const zoomOut = () => {
         cy.zoom(cy.zoom() - 0.1);
     };
+
+    let elementsAreDraggable = true;
+    const toggleDraggableElements = () => {
+        if (elementsAreDraggable) {
+            cy.nodes().forEach((node) => {
+                node.ungrabify();
+            });
+            elementsAreDraggable = false;
+        } else {
+            cy.nodes().forEach((node) => {
+                node.grabify();
+            });
+            elementsAreDraggable = true;
+        }
+    }
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
@@ -349,10 +364,16 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
+        <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleDraggableElements}>
+            {#if elementsAreDraggable}
+                <LucideHand class="h-5 w-5" />
+            {:else}
+                <LucideMousePointer class="h-5 w-5"/>
+            {/if}
+        </Button>
         <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomIn}>
             <LucidePlus class="h-5 w-5"/>
         </Button>
-
         <!-- Zoom Out Button -->
         <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomOut}>
             <LucideMinus class="h-5 w-5"/>
