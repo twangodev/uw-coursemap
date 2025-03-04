@@ -134,7 +134,7 @@
     {:else}
         <Label for="dars-upload">Upload DARS PDF:</Label>
     {/if}
-    <Input accept="application/pdf" id="dars-upload" type="file" on:change={fileUploaded}/>
+    <Input accept="application/pdf" id="dars-upload" type="file" onchange={fileUploaded}/>
     
     {#if coursesFromDars.length > 0}
         <Table.Root>
