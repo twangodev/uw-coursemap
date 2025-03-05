@@ -53,7 +53,7 @@
         cy.zoom(cy.zoom() - 0.1);
     };
 
-    let elementsAreDraggable = true;
+    let elementsAreDraggable = false;
     const toggleDraggableElements = () => {
         elementsAreDraggable = !elementsAreDraggable;
     }
@@ -101,7 +101,10 @@
 
         let response = await fetch(url);
         let courseData = await response.json();
-
+        courseData.forEach((item: any) => {
+            item['grabbable'] = false;
+        });
+        
         progress = {
             text: "Styling Graph...",
             number: 50,
