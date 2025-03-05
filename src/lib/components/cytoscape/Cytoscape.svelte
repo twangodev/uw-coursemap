@@ -55,17 +55,7 @@
 
     let elementsAreDraggable = true;
     const toggleDraggableElements = () => {
-        if (elementsAreDraggable) {
-            cy.nodes().forEach((node) => {
-                node.ungrabify();
-            });
-            elementsAreDraggable = false;
-        } else {
-            cy.nodes().forEach((node) => {
-                node.grabify();
-            });
-            elementsAreDraggable = true;
-        }
+        elementsAreDraggable = !elementsAreDraggable;
     }
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
@@ -276,13 +266,17 @@
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
             highlightPath(targetNode);
+            if (elementsAreDraggable) {
+                targetNode.grabify();
+            } else {
+                targetNode.ungrabify();
+            }
         });
 
         cy.on('mouseout', 'node', function (event) {
             cy.nodes().removeClass('highlighted-nodes');
             cy.elements().removeClass('faded');
             cy.edges().removeClass('highlighted-edges');
-
             myTip?.destroy();
         });
 
@@ -299,7 +293,7 @@
                 fetchCourse(targetNode.id()).then(() => {});
                 return;
             }
-
+            
             let tip = targetNode.popper({
                 content: () => {
                     let div = document.createElement('div');
