@@ -447,7 +447,15 @@
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />
                     {/if}
-                    <InstructorPreview instructor={{name: name, email: email, data: null}}/>
+                    <InstructorPreview instructor={{
+                        name: name,
+                        email: email,
+                        credentials: null,
+                        rmp_data: null,
+                        department: null,
+                        official_name: null,
+                        position: null
+                    }}/>
                 {/each}
             {/if}
         </ScrollArea>
