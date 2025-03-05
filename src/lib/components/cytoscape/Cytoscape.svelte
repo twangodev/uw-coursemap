@@ -101,7 +101,7 @@
         let response = await fetch(url);
         let courseData = await response.json();
         courseData.forEach((item: any) => {
-            item['pannable'] = false;
+            item['pannable'] = true;
         });
         
         progress = {
@@ -174,7 +174,7 @@
                     }
             },
             {
-                selector: '.no-underlay',
+                selector: '.no-overlay',
                 style: {
                     'overlay-padding': 0,
                     'overlay-opacity': 0,
@@ -274,14 +274,14 @@
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
-            highlightPath(targetNode);
             if (elementsAreDraggable) {
-                targetNode.removeClass('no-underlay');
+                targetNode.removeClass('no-overlay');
                 targetNode.unpanify();
             } else {
-                targetNode.addClass('no-underlay');
+                targetNode.addClass('no-overlay');
                 targetNode.panify();
             }
+            highlightPath(targetNode);
         });
 
         cy.on('mouseout', 'node', function (event) {
