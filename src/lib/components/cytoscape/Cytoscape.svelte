@@ -91,7 +91,8 @@
         myTip?.destroy();
         myTip = newTip;
     }
-    var loadGraph = async () => {
+
+    const loadGraph = async () => {
 
         progress = {
             text: "Fetching Graph Data...",
@@ -103,7 +104,7 @@
         courseData.forEach((item: any) => {
             item['pannable'] = true;
         });
-        
+
         progress = {
             text: "Styling Graph...",
             number: 50,
@@ -112,7 +113,7 @@
         let styleResponse = await fetch(styleUrl);
         let styleData: StyleData[] = await styleResponse.json();
 
-        let cytoscapeStyles : Stylesheet[] = [
+        let cytoscapeStyles: Stylesheet[] = [
             {
                 selector: 'node',
                 style: {
@@ -169,9 +170,9 @@
             },
             {
                 selector: '.highlighted-edges',
-                    style: {
-                        'width': 2,
-                    }
+                style: {
+                    'width': 2,
+                }
             },
             {
                 selector: '.no-overlay',
@@ -301,10 +302,11 @@
                 $selectedCourse = null;
                 $sheetOpen = true;
 
-                fetchCourse(targetNode.id()).then(() => {});
+                fetchCourse(targetNode.id()).then(() => {
+                });
                 return;
             }
-            
+
             let tip = targetNode.popper({
                 content: () => {
                     let div = document.createElement('div');
@@ -359,7 +361,7 @@
         }
 
 
-    }
+    };
     onMount(() => loadGraph())
 
 </script>
