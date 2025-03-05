@@ -1,6 +1,6 @@
 import logging
 from argparse import ArgumentParser
-
+import os
 import coloredlogs
 from elasticsearch import Elasticsearch
 from flask import Flask, request
@@ -82,4 +82,5 @@ if __name__ == "__main__":
     load_courses(es, courses)
     load_instructors(es, instructors)
 
-    app.run(debug=True)
+    debug_mode = os.getenv("FLASK_DEBUG", "False").lower() in ("true", "1", "t")
+    app.run(debug=debug_mode)
