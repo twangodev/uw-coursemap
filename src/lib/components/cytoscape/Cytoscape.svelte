@@ -5,7 +5,13 @@
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
-    import {LucideFullscreen, LucideHand, LucideMail, LucideMinus, LucideMousePointer, LucidePlus} from "lucide-svelte";
+    import {
+        LockKeyhole,
+        LockKeyholeOpen,
+        LucideFullscreen,
+        LucideMinus,
+        LucidePlus
+    } from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
@@ -19,6 +25,7 @@
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
+    import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
 
     export let url: string
     export let styleUrl: string
@@ -372,13 +379,27 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
-        <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleDraggableElements}>
-            {#if elementsAreDraggable}
-                <LucideHand class="h-5 w-5" />
-            {:else}
-                <LucideMousePointer class="h-5 w-5"/>
-            {/if}
-        </Button>
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger>
+                    <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleDraggableElements}>
+                        {#if elementsAreDraggable}
+                            <LockKeyholeOpen class="h-5 w-5" />
+                        {:else}
+                            <LockKeyhole class="h-5 w-5"/>
+                        {/if}
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                    {#if elementsAreDraggable}
+                        Lock Elements
+                    {:else}
+                        Unlock Elements
+                    {/if}
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+
         <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomIn}>
             <LucidePlus class="h-5 w-5"/>
         </Button>
