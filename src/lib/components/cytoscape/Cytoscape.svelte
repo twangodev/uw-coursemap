@@ -91,8 +91,7 @@
         myTip?.destroy();
         myTip = newTip;
     }
-
-    onMount(async () => {
+    var loadGraph = async () => {
 
         progress = {
             text: "Fetching Graph Data...",
@@ -102,7 +101,7 @@
         let response = await fetch(url);
         let courseData = await response.json();
         courseData.forEach((item: any) => {
-            item['grabbable'] = false;
+            item['pannable'] = false;
         });
         
         progress = {
@@ -173,6 +172,13 @@
                     style: {
                         'width': 2,
                     }
+            },
+            {
+                selector: '.no-underlay',
+                style: {
+                    'overlay-padding': 0,
+                    'overlay-opacity': 0,
+                }
             }
         ]
 
@@ -270,9 +276,11 @@
             const targetNode = event.target;
             highlightPath(targetNode);
             if (elementsAreDraggable) {
-                targetNode.grabify();
+                targetNode.removeClass('no-underlay');
+                targetNode.unpanify();
             } else {
-                targetNode.ungrabify();
+                targetNode.addClass('no-underlay');
+                targetNode.panify();
             }
         });
 
@@ -351,7 +359,8 @@
         }
 
 
-    })
+    }
+    onMount(() => loadGraph())
 
 </script>
 <div class="relative grow" id="cy-container">
