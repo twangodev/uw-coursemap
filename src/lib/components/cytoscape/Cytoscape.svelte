@@ -5,7 +5,13 @@
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
-    import {LucideFullscreen, LucideMail, LucideMinus, LucidePlus} from "lucide-svelte";
+    import {
+        LockKeyhole,
+        LockKeyholeOpen,
+        LucideFullscreen,
+        LucideMinus,
+        LucidePlus
+    } from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
@@ -19,6 +25,7 @@
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
+    import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
 
     export let url: string
     export let styleUrl: string
@@ -52,6 +59,11 @@
     const zoomOut = () => {
         cy.zoom(cy.zoom() - 0.1);
     };
+
+    let elementsAreDraggable = false;
+    const toggleDraggableElements = () => {
+        elementsAreDraggable = !elementsAreDraggable;
+    }
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
@@ -87,7 +99,7 @@
         myTip = newTip;
     }
 
-    onMount(async () => {
+    const loadGraph = async () => {
 
         progress = {
             text: "Fetching Graph Data...",
@@ -96,6 +108,9 @@
 
         let response = await fetch(url);
         let courseData = await response.json();
+        courseData.forEach((item: any) => {
+            item['pannable'] = true;
+        });
 
         progress = {
             text: "Styling Graph...",
@@ -105,7 +120,7 @@
         let styleResponse = await fetch(styleUrl);
         let styleData: StyleData[] = await styleResponse.json();
 
-        let cytoscapeStyles : Stylesheet[] = [
+        let cytoscapeStyles: Stylesheet[] = [
             {
                 selector: 'node',
                 style: {
@@ -162,9 +177,16 @@
             },
             {
                 selector: '.highlighted-edges',
-                    style: {
-                        'width': 2,
-                    }
+                style: {
+                    'width': 2,
+                }
+            },
+            {
+                selector: '.no-overlay',
+                style: {
+                    'overlay-padding': 0,
+                    'overlay-opacity': 0,
+                }
             }
         ]
 
@@ -260,6 +282,13 @@
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
+            if (elementsAreDraggable) {
+                targetNode.removeClass('no-overlay');
+                targetNode.unpanify();
+            } else {
+                targetNode.addClass('no-overlay');
+                targetNode.panify();
+            }
             highlightPath(targetNode);
         });
 
@@ -267,7 +296,6 @@
             cy.nodes().removeClass('highlighted-nodes');
             cy.elements().removeClass('faded');
             cy.edges().removeClass('highlighted-edges');
-
             myTip?.destroy();
         });
 
@@ -281,7 +309,8 @@
                 $selectedCourse = null;
                 $sheetOpen = true;
 
-                fetchCourse(targetNode.id()).then(() => {});
+                fetchCourse(targetNode.id()).then(() => {
+                });
                 return;
             }
 
@@ -339,7 +368,8 @@
         }
 
 
-    })
+    };
+    onMount(() => loadGraph())
 
 </script>
 <div class="relative grow" id="cy-container">
@@ -349,10 +379,30 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger>
+                    <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleDraggableElements}>
+                        {#if elementsAreDraggable}
+                            <LockKeyholeOpen class="h-5 w-5" />
+                        {:else}
+                            <LockKeyhole class="h-5 w-5"/>
+                        {/if}
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                    {#if elementsAreDraggable}
+                        Lock Elements
+                    {:else}
+                        Unlock Elements
+                    {/if}
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+
         <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomIn}>
             <LucidePlus class="h-5 w-5"/>
         </Button>
-
         <!-- Zoom Out Button -->
         <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomOut}>
             <LucideMinus class="h-5 w-5"/>
@@ -397,7 +447,15 @@
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />
                     {/if}
-                    <InstructorPreview instructor={{name: name, email: email, data: null}}/>
+                    <InstructorPreview instructor={{
+                        name: name,
+                        email: email,
+                        credentials: null,
+                        rmp_data: null,
+                        department: null,
+                        official_name: null,
+                        position: null
+                    }}/>
                 {/each}
             {/if}
         </ScrollArea>
