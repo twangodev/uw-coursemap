@@ -14,7 +14,7 @@
 
     let { ratingData }: Props = $props();
 
-    let data: ChartTabularData = ratingData ? [
+    let data: ChartTabularData = $derived(ratingData ? [
         {
             group: '1 Star',
             value: ratingData.r1
@@ -35,7 +35,7 @@
             group: '5 Stars',
             value: ratingData.r5
         },
-    ] : []
+    ] : [])
 
     let options: DonutChartOptions = {
         title: 'Ratings',

@@ -63,13 +63,14 @@
         }
     };
 
-    onMount(() => {
-        const unsubscribe = page.subscribe(async (page) => {
-            const name = page.params.name
-            await fetchInstructor(name)
-        })
+    let name = $derived($page.params.name)
+    let currentName: string | null = null
 
-        return () => unsubscribe()
+    $effect(() => {
+        if (name && name !== currentName) {
+            currentName = name
+            fetchInstructor(name)
+        }
     })
 
 </script>
