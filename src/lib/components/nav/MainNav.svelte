@@ -5,7 +5,7 @@
 
     import { page } from "$app/stores";
 
-    $: currentPath = $page.url.pathname.toLowerCase();
+    let currentPath = $derived($page.url.pathname.toLowerCase());
 
 </script>
 

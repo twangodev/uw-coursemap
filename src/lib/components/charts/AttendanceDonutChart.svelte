@@ -8,7 +8,11 @@
     import '@carbon/charts-svelte/styles.css'
     import type {MandatoryAttendance} from "$lib/types/instructor.ts";
 
-    export let attendanceData: MandatoryAttendance | undefined;
+    interface Props {
+        attendanceData: MandatoryAttendance | undefined;
+    }
+
+    let { attendanceData }: Props = $props();
 
     let data: ChartTabularData = attendanceData ? [
         {

@@ -5,9 +5,13 @@
     import * as Tooltip from "$lib/components/ui/tooltip";
     import ColoredNumberBox from "$lib/components/instructor-preview/ColoredNumberBox.svelte";
 
-    export let instructor: FullInstructorInformation;
-    export let showRating: boolean = false;
-    export let showOtherDetails: boolean = false;
+    interface Props {
+        instructor: FullInstructorInformation;
+        showRating?: boolean;
+        showOtherDetails?: boolean;
+    }
+
+    let { instructor, showRating = false, showOtherDetails = false }: Props = $props();
 
     let {name, email} = instructor;
     let averageRating = instructor?.rmp_data?.average_rating;

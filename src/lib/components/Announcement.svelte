@@ -4,8 +4,13 @@
     import {ArrowRight} from "lucide-svelte";
     import {Separator} from "$lib/components/ui/separator";
 
-    let className: string | undefined | null = undefined;
-    export { className as class };
+    interface Props {
+        class?: string | undefined | null;
+        [key: string]: any
+    }
+
+    let { class: className = undefined, ...rest }: Props = $props();
+    
 </script>
 
 <a
@@ -15,7 +20,7 @@
 		"bg-muted inline-flex items-center rounded-lg px-3 py-1 text-sm font-medium",
 		className
 	)}
-        {...$$restProps}
+        {...rest}
 >
     <Blocks class="size-4" />
     <Separator class="mx-2 h-4" orientation="vertical" />

@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { run } from 'svelte/legacy';
+
     import { onMount } from "svelte";
     import {Button} from "$lib/components/ui/button";
     import {cn} from "$lib/utils.ts";
@@ -16,14 +18,16 @@
     import {Book, School, User} from "lucide-svelte";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
 
-    export let wide = false;
-    export let fake = false;
+    interface Props {
+        wide?: boolean;
+        fake?: boolean;
+    }
 
-    $: searchQuery = "";
+    let { wide = false, fake = false }: Props = $props();
+
     let courses = writable<CourseSearchResponse[]>([]);
     let subjects = writable<SubjectSearchResponse[]>([]);
     let instructors = writable<InstructorSearchResponse[]>([]);
-    $: updateSuggestions(searchQuery);
 
     async function updateSuggestions(query: string) {
         if (query.length <= 0) {
@@ -51,6 +55,11 @@
             $searchModalOpen = !$searchModalOpen;
         }
     }
+    let searchQuery = $state("");
+    
+    run(() => {
+        updateSuggestions(searchQuery);
+    });
 </script>
 
 <svelte:document onkeydown={handleKeydown} />

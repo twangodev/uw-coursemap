@@ -3,7 +3,11 @@
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {Card, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
 
-    export let course: Course
+    interface Props {
+        course: Course;
+    }
+
+    let { course }: Props = $props();
 
 </script>
 

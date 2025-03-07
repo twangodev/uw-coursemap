@@ -6,8 +6,12 @@
     const selectedGroups = ['a', 'ab', 'b', 'bc', 'c', 'd', 'f'];
     const selectedGroupsWithOther = selectedGroups.map((group) => group.toUpperCase()).concat(['Other']);
 
-    export let madgradesData: MadgradesData;
-    export let terms: Terms
+    interface Props {
+        madgradesData: MadgradesData;
+        terms: Terms;
+    }
+
+    let { madgradesData, terms }: Props = $props();
 
     function madgradesDataToChartTabularData(madgradesData: MadgradesData): ChartTabularData {
         const data: ChartTabularData = [];
@@ -38,8 +42,8 @@
         return data;
     }
 
-    let data: ChartTabularData;
-    $: data = madgradesDataToChartTabularData(madgradesData);
+    let data: ChartTabularData = $derived(madgradesDataToChartTabularData(madgradesData));
+    
 
     let options: ComboChartOptions = {
         title: 'Stacked Grade Distribution + GPA',

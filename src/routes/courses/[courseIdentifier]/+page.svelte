@@ -28,10 +28,10 @@
     import type {Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
-    $: courseIdentifier = $page.params.courseIdentifier;
+    let courseIdentifier = $derived($page.params.courseIdentifier);
 
     let course = writable<Course | null>(null)
-    let instructors: FullInstructorInformation[] = []
+    let instructors: FullInstructorInformation[] = $state([])
 
     const getLatestTermMadgradesData = (course: Course) => {
         let allTerms = Object.keys(course?.madgrades_data?.by_term ?? {}).sort()
@@ -107,7 +107,7 @@
         return `${value.toFixed(2)}%`
     }
 
-    let terms: Terms
+    let terms: Terms = $state()
 
     onMount(async () => {
         let termsData = await apiFetch(`/terms.json`)

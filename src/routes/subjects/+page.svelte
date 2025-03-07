@@ -4,7 +4,7 @@
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
     import {apiFetch} from "$lib/api.ts";
 
-    let entries: [string, string][] = [];
+    let entries: [string, string][] = $state([]);
 
     onMount(async () => {
         const response = await apiFetch(`/subjects.json`);
