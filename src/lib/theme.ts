@@ -5,7 +5,7 @@ export function getCarbonTheme(mode: "light" | "dark" | undefined) {
         case "light":
             return "white"
         case "dark":
-            return "g90"
+            return "g100"
         default:
             return "white"
     }
