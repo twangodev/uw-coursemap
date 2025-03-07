@@ -4,6 +4,8 @@
     import { removeStopwords, eng } from 'stopword'
     import '@carbon/charts-svelte/styles.css'
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
+    import {getCarbonTheme} from "$lib/theme.ts";
+    import {mode} from "mode-watcher";
 
     interface Props {
         instructors: FullInstructorInformation[];
@@ -63,11 +65,12 @@
     })
     
 
-    let options: WordCloudChartOptions = {
+    let options: WordCloudChartOptions = $derived({
         title: 'Word Cloud',
         resizable: true,
-        height: '400px'
-    }
+        height: '400px',
+        theme: getCarbonTheme($mode)
+    })
 
 
 </script>

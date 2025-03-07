@@ -7,6 +7,8 @@
     } from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {MandatoryAttendance} from "$lib/types/instructor.ts";
+    import {getCarbonTheme} from "$lib/theme.ts";
+    import {mode} from "mode-watcher";
 
     interface Props {
         attendanceData: MandatoryAttendance | undefined;
@@ -29,7 +31,7 @@
         },
     ] : [])
 
-    let options: DonutChartOptions = {
+    let options: DonutChartOptions = $derived({
         title: 'Attendance',
         resizable: true,
         donut: {
@@ -44,8 +46,9 @@
         height: '350px',
         toolbar: {
             enabled: false
-        }
-    }
+        },
+        theme: getCarbonTheme($mode)
+    })
 
 </script>
 

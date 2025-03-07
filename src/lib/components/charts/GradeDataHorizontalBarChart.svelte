@@ -3,6 +3,8 @@
     import {getTotalOtherGrades, type MadgradesData} from "$lib/types/madgrades.ts";
     import {type BarChartOptions, BarChartSimple, type ChartTabularData, ScaleTypes} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
+    import {getCarbonTheme} from "$lib/theme.ts";
+    import {mode} from "mode-watcher";
 
     interface Props {
         madgradesData: MadgradesData;
@@ -47,7 +49,7 @@
         }
     ].reverse())
 
-    let options: BarChartOptions = {
+    let options: BarChartOptions = $derived({
         title: 'Grade Distribution',
         axes: {
             left: {
@@ -72,7 +74,8 @@
         toolbar: {
             enabled: false
         },
-    }
+        theme: getCarbonTheme($mode)
+    })
 
 </script>
 
