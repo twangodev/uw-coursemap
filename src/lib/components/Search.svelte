@@ -8,21 +8,28 @@
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/CustomSearchInput.svelte";
     import {
-        type CourseSearchResponse, courseSearchResponseToIdentifier,
-        type InstructorSearchResponse,
-        type SearchResponse,
-        type SubjectSearchResponse
-    } from "$lib/types/searchResponse.ts";
+        courseSearchResponseToIdentifier,
+        type SearchResponse
+    } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
+    import {
+        type CourseSearchResult,
+        generateCourseSearchResults,
+        generateInstructorSearchResults,
+        generateSubjectSearchResults,
+        type InstructorSearchResult,
+        type SubjectSearchResult
+    } from "$lib/types/search/searchResults.ts";
+    import {goto} from "$app/navigation";
 
     export let wide = false;
     export let fake = false;
 
     $: searchQuery = "";
-    let courses = writable<CourseSearchResponse[]>([]);
-    let subjects = writable<SubjectSearchResponse[]>([]);
-    let instructors = writable<InstructorSearchResponse[]>([]);
+    let courses = writable<CourseSearchResult[]>([]);
+    let subjects = writable<SubjectSearchResult[]>([]);
+    let instructors = writable<InstructorSearchResult[]>([]);
     $: updateSuggestions(searchQuery);
 
     async function updateSuggestions(query: string) {
@@ -35,12 +42,15 @@
 
         const response = await search(searchQuery)
         const data: SearchResponse = await response.json()
-        $courses = data.courses
-        $subjects = data.subjects
-        $instructors = data.instructors
-        console.log($courses);
-    }
 
+        const rawCourses = data.courses
+        const rawSubjects = data.subjects
+        const rawInstructors = data.instructors
+
+        $courses = generateCourseSearchResults(rawCourses)
+        $subjects = generateSubjectSearchResults(rawSubjects)
+        $instructors = generateInstructorSearchResults(rawInstructors)
+    }
 
     function handleKeydown(e: KeyboardEvent) {
         if (fake) return;
@@ -51,6 +61,12 @@
             $searchModalOpen = !$searchModalOpen;
         }
     }
+
+    function suggestionSelected(href: string) {
+        goto(href);
+        $searchModalOpen = false;
+    }
+
 </script>
 
 <svelte:document onkeydown={handleKeydown} />
@@ -84,11 +100,15 @@
             {#if $courses.length > 0}
                 <Command.Group heading="Courses">
                     {#each $courses as suggestion }
-                        <Command.Item>
-                            <Book class="mr-3 h-4 w-4" />
-                            <div>
-                                <p>{suggestion.course_title}</p>
-                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                        <Command.Item
+                                onSelect={() => {
+                                    suggestionSelected(suggestion.href)
+                                }}
+                        >
+                        <Book class="mr-3 h-4 w-4" />
+                        <div>
+                            <p>{suggestion.course_title}</p>
+                            <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
                             </div>
                         </Command.Item>
                     {/each}
@@ -98,7 +118,11 @@
             {#if $subjects.length > 0}
                 <Command.Group heading="Departments">
                     {#each $subjects as suggestion }
-                        <Command.Item>
+                        <Command.Item
+                                onSelect={() => {
+                                    suggestionSelected(suggestion.href)
+                                }}
+                        >
                             <School class="mr-3 h-4 w-4" />
                             <span>{suggestion.name}</span>
                         </Command.Item>
@@ -109,7 +133,11 @@
             {#if $instructors.length > 0}
                 <Command.Group heading="Instructors">
                     {#each $instructors as suggestion }
-                        <Command.Item>
+                        <Command.Item
+                                onSelect={() => {
+                                    suggestionSelected(suggestion.href)
+                                }}
+                        >
                             <User class="mr-3 h-4 w-4" />
                             <div>
                                 <p class="truncate line-clamp-1">{suggestion.name}</p>
