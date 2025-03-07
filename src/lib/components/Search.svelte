@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import {Button} from "$lib/components/ui/button";
     import {cn} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
@@ -33,7 +32,10 @@
     let courses = writable<CourseSearchResult[]>([]);
     let subjects = writable<SubjectSearchResult[]>([]);
     let instructors = writable<InstructorSearchResult[]>([]);
-    $: updateSuggestions(searchQuery);
+
+    $effect(() => {
+        updateSuggestions(searchQuery);
+    });
 
     async function updateSuggestions(query: string) {
         if (query.length <= 0) {
@@ -73,9 +75,6 @@
 
     let searchQuery = $state("");
 
-    run(() => {
-        updateSuggestions(searchQuery);
-    });
 </script>
 
 <svelte:document onkeydown={handleKeydown} />
