@@ -1,10 +1,10 @@
 <script lang="ts">
 
     import Cytoscape from "$lib/components/cytoscape/Cytoscape.svelte";
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import {PUBLIC_API_URL} from "$env/static/public";
 
-    let subject = $derived($page.params.subject);
+    let subject = $derived(page.params.subject);
 
 </script>
 

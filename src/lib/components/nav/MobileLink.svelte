@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
     import { cn } from "$lib/utils.js";
 
 
@@ -23,7 +23,7 @@
 
 <a
         {href}
-        class={cn($page.url.pathname === href ? "text-foreground" : "text-foreground/60", className)}
+        class={cn(page.url.pathname === href ? "text-foreground" : "text-foreground/60", className)}
         onclick={() => (open = false)}
         {...rest}
 >

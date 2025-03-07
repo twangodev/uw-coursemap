@@ -3,9 +3,9 @@
     import {siteConfig} from "$lib/config/site.ts";
     import {navigation} from "$lib/config/navigation.ts";
 
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
 
-    let currentPath = $derived($page.url.pathname.toLowerCase());
+    let currentPath = $derived(page.url.pathname.toLowerCase());
 
 </script>
 
