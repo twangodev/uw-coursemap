@@ -5,7 +5,6 @@
     import {PUBLIC_API_URL} from "$env/static/public";
 
     let subject = $derived(page.params.subject.toUpperCase());
-
     let focus = $derived(page.url.searchParams.get('focus'));
 
 </script>

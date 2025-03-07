@@ -1,6 +1,6 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import ContentH1 from "$lib/components/content/ContentH1.svelte";
     import {onMount} from "svelte";
     import {writable} from "svelte/store";
@@ -28,7 +28,7 @@
     import type {Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
-    let courseIdentifier = $derived($page.params.courseIdentifier);
+    let courseIdentifier = $derived(page.params.courseIdentifier);
 
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = $state([])
@@ -123,7 +123,7 @@
                 course.set(courseData);
 
                 // Reset the instructors array for the new course data.
-                instructors = [];
+                let rawInstructors = [];
                 for (const [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
                     const response = await apiFetch(
                         `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
@@ -140,11 +140,11 @@
                                 position: null,
                                 rmp_data: null,
                             };
-                    instructors.push(data);
+                    rawInstructors.push(data);
                 }
 
                 // Optionally, sort the instructors.
-                instructors = instructors.toSorted((a, b) => {
+                instructors = rawInstructors.toSorted((a, b) => {
                     if (!a.rmp_data?.average_rating) return 1;
                     if (!b.rmp_data?.average_rating) return -1;
                     return b.rmp_data.average_rating - a.rmp_data.average_rating;

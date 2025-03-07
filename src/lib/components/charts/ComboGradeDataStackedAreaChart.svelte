@@ -2,6 +2,8 @@
     import {type ChartTabularData, ComboChart, type ComboChartOptions, ScaleTypes} from '@carbon/charts-svelte';
     import {calculateGradePointAverage, getTotalOtherGrades, type MadgradesData} from "$lib/types/madgrades.ts";
     import type {Terms} from "$lib/types/terms.ts";
+    import {getCarbonTheme} from "$lib/theme.ts";
+    import {mode} from "mode-watcher";
 
     const selectedGroups = ['a', 'ab', 'b', 'bc', 'c', 'd', 'f'];
     const selectedGroupsWithOther = selectedGroups.map((group) => group.toUpperCase()).concat(['Other']);
@@ -44,7 +46,7 @@
 
     let data: ChartTabularData = $derived(madgradesDataToChartTabularData(madgradesData));
 
-    let options: ComboChartOptions = {
+    let options: ComboChartOptions = $derived({
         title: 'Stacked Grade Distribution + GPA',
         axes: {
             left: {
@@ -79,8 +81,9 @@
             }
         ],
         curve: 'curveMonotoneX',
-        height: '500px'
-    }
+        height: '500px',
+        theme: getCarbonTheme($mode)
+    })
 
 </script>
 

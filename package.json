@@ -12,6 +12,7 @@
 		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
+		"@carbon/charts-svelte": "^1.23.0",
 		"@sveltejs/adapter-auto": "^4.0.0",
 		"@sveltejs/kit": "^2.15.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
@@ -37,7 +38,6 @@
 		"vitest": "^3.0.7"
 	},
 	"dependencies": {
-		"@carbon/charts-svelte": "^1.22.17",
 		"cytoscape": "^3.31.0",
 		"cytoscape-fcose": "^2.2.0",
 		"cytoscape-popper": "^4.0.1",

@@ -7,6 +7,8 @@
     } from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {RatingsDistribution} from "$lib/types/instructor.ts";
+    import {mode} from "mode-watcher";
+    import {getCarbonTheme} from "$lib/theme.ts";
 
     interface Props {
         ratingData: RatingsDistribution | undefined;
@@ -37,7 +39,7 @@
         },
     ] : [])
 
-    let options: DonutChartOptions = {
+    let options: DonutChartOptions = $derived({
         title: 'Ratings',
         resizable: true,
         donut: {
@@ -52,8 +54,9 @@
         height: '350px',
         toolbar: {
             enabled: false
-        }
-    }
+        },
+        theme: getCarbonTheme($mode)
+    })
 
 </script>
 
