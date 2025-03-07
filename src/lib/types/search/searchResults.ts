@@ -29,6 +29,6 @@ export function generateSubjectSearchResults(subjects: SubjectSearchResponse[]):
 export function generateInstructorSearchResults(instructors: InstructorSearchResponse[]): InstructorSearchResult[] {
     return instructors.map(instructor => ({
         ...instructor,
-        href: `/instructor/${instructor.instructor_id}`
+        href: `/instructors/${instructor.instructor_id}`
     }));
 }
