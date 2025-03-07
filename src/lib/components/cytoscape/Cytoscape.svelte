@@ -1,6 +1,6 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import cytoscape, {type Stylesheet} from "cytoscape";
+    import cytoscape, {type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -124,7 +124,7 @@
         let styleResponse = await fetch(styleUrl);
         let styleData: StyleData[] = await styleResponse.json();
 
-        let cytoscapeStyles: Stylesheet[] = [
+        let cytoscapeStyles: StylesheetStyle[] = [
             {
                 selector: 'node',
                 style: {
@@ -373,7 +373,12 @@
 
 
     };
-    onMount(() => loadGraph())
+
+    $effect(() => {
+        if (url && styleUrl) {
+            loadGraph()
+        }
+    });
 
 </script>
 <div class="relative grow" id="cy-container">
