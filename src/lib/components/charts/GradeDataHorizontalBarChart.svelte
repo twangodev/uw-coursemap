@@ -12,7 +12,7 @@
     let { madgradesData, term = null }: Props = $props();
 
     let gradeData = term ? madgradesData.by_term[term] : madgradesData.cumulative
-    let data: ChartTabularData = [
+    let data: ChartTabularData = $derived([
         {
             group: 'A',
             value: gradeData.a
@@ -45,7 +45,7 @@
             group: 'Other',
             value: getTotalOtherGrades(gradeData),
         }
-    ].reverse()
+    ].reverse())
 
     let options: BarChartOptions = {
         title: 'Grade Distribution',

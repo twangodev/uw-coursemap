@@ -43,7 +43,6 @@
     }
 
     let data: ChartTabularData = $derived(madgradesDataToChartTabularData(madgradesData));
-    
 
     let options: ComboChartOptions = {
         title: 'Stacked Grade Distribution + GPA',
