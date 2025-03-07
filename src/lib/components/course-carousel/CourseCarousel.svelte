@@ -9,10 +9,14 @@
     import {onMount} from "svelte";
     import CourseCardSkeleton from "$lib/components/course-carousel/CourseCardSkeleton.svelte";
 
-    export let courseReferences: CourseReference[];
+    interface Props {
+        courseReferences: CourseReference[];
+    }
 
-    let courses: Course[]; // Array to hold fetched Course objects
-    let loadedCourses = false;
+    let { courseReferences }: Props = $props();
+
+    let courses: Course[] = $state(); // Array to hold fetched Course objects
+    let loadedCourses = $state(false);
 
     onMount(async () => {
         loadedCourses = false;

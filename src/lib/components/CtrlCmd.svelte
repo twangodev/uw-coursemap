@@ -1,6 +1,6 @@
 <script>
     // Detect the user's operating system
-    let isMac = false;
+    let isMac = $state(false);
 
     if (typeof navigator !== 'undefined') {
         if ('userAgent' in navigator) {

@@ -8,7 +8,7 @@
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {Menu} from "lucide-svelte";
 
-    let open = false;
+    let open = $state(false);
 </script>
 
 <Sheet.Root bind:open>

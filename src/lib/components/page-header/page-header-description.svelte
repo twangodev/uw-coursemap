@@ -1,10 +1,16 @@
 <script lang="ts">
     import { cn } from "$lib/utils.js";
 
-    export let balanced = true;
 
-    let className: string | undefined | null = undefined;
-    export { className as class };
+    interface Props {
+        balanced?: boolean;
+        class?: string | undefined | null;
+        children?: import('svelte').Snippet;
+        [key: string]: any
+    }
+
+    let { balanced = true, class: className = undefined, children, ...rest }: Props = $props();
+    
 </script>
 
 <p
@@ -13,7 +19,7 @@
 		balanced && "text-balance",
 		className
 	)}
-        {...$$restProps}
+        {...rest}
 >
-    <slot />
+    {@render children?.()}
 </p>

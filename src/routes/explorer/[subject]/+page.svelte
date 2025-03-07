@@ -4,7 +4,7 @@
     import { page } from '$app/stores';
     import {PUBLIC_API_URL} from "$env/static/public";
 
-    $: subject = $page.params.subject;
+    let subject = $derived($page.params.subject);
 
 </script>
 

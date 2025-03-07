@@ -1,10 +1,19 @@
 <script lang="ts">
 
-    export let amount: number | undefined;
-    export let description: string;
 
-    export let scale: number = 1;
-    export let invert: boolean = false;
+    interface Props {
+        amount: number | undefined;
+        description: string;
+        scale?: number;
+        invert?: boolean;
+    }
+
+    let {
+        amount,
+        description,
+        scale = 1,
+        invert = false
+    }: Props = $props();
 
     let scaledAmount = (amount ?? -1) / scale;
     let invertedAmount = invert ? 1 - scaledAmount : scaledAmount;

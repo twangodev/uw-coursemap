@@ -3,7 +3,6 @@
     import {MoveRight, TrendingDown, TrendingUp} from "lucide-svelte";
     import {cn} from "$lib/utils.ts";
 
-    let className = "";
 
     const calculateColorFromChange = (points: number | null) => {
         if (points === null || points === 0) {
@@ -27,10 +26,20 @@
         return `${Math.abs(points).toFixed(2)}% from ${comparisonKeyword}`
     }
 
-    export let points: number | null;
-    export let comparisonKeyword = ""
-    export let trendSize = 14;
-    export {className as class};
+    interface Props {
+        class?: string;
+        points: number | null;
+        comparisonKeyword?: string;
+        trendSize?: number;
+    }
+
+    let {
+        class: className = "",
+        points,
+        comparisonKeyword = "",
+        trendSize = 14
+    }: Props = $props();
+    
 
 </script>
 

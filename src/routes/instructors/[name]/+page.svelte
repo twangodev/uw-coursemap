@@ -30,8 +30,8 @@
     }
 
     let instructor: Writable<FullInstructorInformation | null> = writable(null)
-    $: instructorName = $instructor?.name
-    $: attendanceRequirement = getAttendanceRequirement($instructor?.rmp_data?.mandatory_attendance)
+    let instructorName = $derived($instructor?.name)
+    let attendanceRequirement = $derived(getAttendanceRequirement($instructor?.rmp_data?.mandatory_attendance))
 
     const calculateRatingColor = (rating: number | undefined) => {
         if (!rating) {
