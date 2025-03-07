@@ -14,7 +14,7 @@
 
     let { attendanceData }: Props = $props();
 
-    let data: ChartTabularData = attendanceData ? [
+    let data: ChartTabularData = $derived(attendanceData ? [
         {
             group: 'Required',
             value: attendanceData.yes
@@ -27,7 +27,7 @@
             group: 'Unknown',
             value: attendanceData.neither
         },
-    ] : []
+    ] : [])
 
     let options: DonutChartOptions = {
         title: 'Attendance',
