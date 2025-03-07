@@ -53,7 +53,14 @@
     }
 
 
-    let data: ChartTabularData = $derived(commentsToChartTabularData(instructors));
+    let currentData : ChartTabularData = [];
+    let data: ChartTabularData = $derived.by(() => {
+        if (instructors != currentData) {
+            currentData = instructors;
+            return commentsToChartTabularData(instructors);
+        }
+        return currentData;
+    })
     
 
     let options: WordCloudChartOptions = {
