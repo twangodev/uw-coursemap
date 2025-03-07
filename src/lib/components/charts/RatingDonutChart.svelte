@@ -8,7 +8,11 @@
     import '@carbon/charts-svelte/styles.css'
     import type {RatingsDistribution} from "$lib/types/instructor.ts";
 
-    export let ratingData: RatingsDistribution | undefined;
+    interface Props {
+        ratingData: RatingsDistribution | undefined;
+    }
+
+    let { ratingData }: Props = $props();
 
     let data: ChartTabularData = ratingData ? [
         {

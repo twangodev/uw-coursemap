@@ -2,9 +2,14 @@
 	import Search from "lucide-svelte/icons/search";
 	import { cn } from "$lib/utils.js";
     import { Input } from "./ui/input";
-	let className: string | undefined | null = undefined;
-	export { className as class };
-	export let value: string = "";
+	
+	interface Props {
+		class?: string | undefined | null;
+		value?: string;
+		[key: string]: any
+	}
+
+	let { class: className = undefined, value = $bindable(""), ...rest }: Props = $props();
 </script>
 
 <div class="flex items-center border-b px-2" data-cmdk-input-wrapper="">
@@ -14,7 +19,7 @@
 			"placeholder:text-muted-foreground flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50 border-none focus-visible:ring-0 focus-visible:ring-opacity-0 focus-visible:ring-offset-0",
 			className
 		)}
-		{...$$restProps}
+		{...rest}
 		bind:value
 	/>
 </div>

@@ -23,10 +23,13 @@
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
 
-    export let wide = false;
-    export let fake = false;
+    interface Props {
+        wide?: boolean;
+        fake?: boolean;
+    }
 
-    $: searchQuery = "";
+    let { wide = false, fake = false }: Props = $props();
+
     let courses = writable<CourseSearchResult[]>([]);
     let subjects = writable<SubjectSearchResult[]>([]);
     let instructors = writable<InstructorSearchResult[]>([]);
@@ -52,6 +55,7 @@
         $instructors = generateInstructorSearchResults(rawInstructors)
     }
 
+
     function handleKeydown(e: KeyboardEvent) {
         if (fake) return;
         if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -67,6 +71,11 @@
         $searchModalOpen = false;
     }
 
+    let searchQuery = $state("");
+
+    run(() => {
+        updateSuggestions(searchQuery);
+    });
 </script>
 
 <svelte:document onkeydown={handleKeydown} />

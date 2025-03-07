@@ -5,7 +5,11 @@
     import '@carbon/charts-svelte/styles.css'
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
 
-    export let instructors: FullInstructorInformation[]
+    interface Props {
+        instructors: FullInstructorInformation[];
+    }
+
+    let { instructors }: Props = $props();
 
     function commentsToChartTabularData(instructors: FullInstructorInformation[]): ChartTabularData {
         const wordCounts = new Map();
@@ -49,8 +53,8 @@
     }
 
 
-    let data: ChartTabularData;
-    $: data = commentsToChartTabularData(instructors);
+    let data: ChartTabularData = $derived(commentsToChartTabularData(instructors));
+    
 
     let options: WordCloudChartOptions = {
         title: 'Word Cloud',

@@ -4,7 +4,7 @@
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header/index.js";
 
-    $: error = $page.error;
+    let error = $derived($page.error);
 
 </script>
 

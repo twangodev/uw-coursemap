@@ -10,7 +10,7 @@
     import * as Table from "$lib/components/ui/table/index.ts";
     import { onMount } from 'svelte';
     
-    let coursesFromDars = new Array<any>;
+    let coursesFromDars = $state(new Array<any>);
     
     //load data
     onMount(() => {

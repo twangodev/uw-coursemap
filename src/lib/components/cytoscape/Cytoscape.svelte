@@ -27,17 +27,21 @@
     import {apiFetch} from "$lib/api.ts";
     import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
 
-    export let url: string
-    export let styleUrl: string
+    interface Props {
+        url: string;
+        styleUrl: string;
+    }
+
+    let { url, styleUrl }: Props = $props();
 
     type StyleData = {
         [parent: string]: string;
     };
 
-    let progress = {
+    let progress = $state({
         text: "Loading Graph...",
         number: 10,
-    }
+    })
 
     let isFullscreen = false;
     let cy: cytoscape.Core;
@@ -60,7 +64,7 @@
         cy.zoom(cy.zoom() - 0.1);
     };
 
-    let elementsAreDraggable = false;
+    let elementsAreDraggable = $state(false);
     const toggleDraggableElements = () => {
         elementsAreDraggable = !elementsAreDraggable;
     }

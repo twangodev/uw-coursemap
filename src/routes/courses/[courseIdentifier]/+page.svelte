@@ -28,11 +28,11 @@
     import type {Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
-    $: courseIdentifier = $page.params.courseIdentifier;
+    let courseIdentifier = $derived($page.params.courseIdentifier);
 
-    let course = writable<Course | null>(null);
-    let instructors: FullInstructorInformation[] = [];
-    let terms: Terms;
+    let course = writable<Course | null>(null)
+    let instructors: FullInstructorInformation[] = $state([])
+    let terms: Terms = $state();
     let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
@@ -114,42 +114,44 @@
         terms = await termsData.json()
     })
 
-    $: if (courseIdentifier && courseIdentifier !== currentCourseIdentifier) {
-        (async () => {
-            currentCourseIdentifier = courseIdentifier; // update the guard variable
+    $effect(() => {
+        if (courseIdentifier && courseIdentifier !== currentCourseIdentifier) {
+            (async () => {
+                currentCourseIdentifier = courseIdentifier; // update the guard variable
 
-            const courseData = await courseReferenceStringToCourse(courseIdentifier);
-            course.set(courseData);
+                const courseData = await courseReferenceStringToCourse(courseIdentifier);
+                course.set(courseData);
 
-            // Reset the instructors array for the new course data.
-            instructors = [];
-            for (const [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
-                const response = await apiFetch(
-                    `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
-                );
-                const data: FullInstructorInformation =
-                    response.status === 200
-                        ? await response.json()
-                        : {
-                            name,
-                            email,
-                            credentials: null,
-                            department: null,
-                            official_name: null,
-                            position: null,
-                            rmp_data: null,
-                        };
-                instructors.push(data);
-            }
+                // Reset the instructors array for the new course data.
+                instructors = [];
+                for (const [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
+                    const response = await apiFetch(
+                        `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
+                    );
+                    const data: FullInstructorInformation =
+                        response.status === 200
+                            ? await response.json()
+                            : {
+                                name,
+                                email,
+                                credentials: null,
+                                department: null,
+                                official_name: null,
+                                position: null,
+                                rmp_data: null,
+                            };
+                    instructors.push(data);
+                }
 
-            // Optionally, sort the instructors.
-            instructors = instructors.toSorted((a, b) => {
-                if (!a.rmp_data?.average_rating) return 1;
-                if (!b.rmp_data?.average_rating) return -1;
-                return b.rmp_data.average_rating - a.rmp_data.average_rating;
-            });
-        })();
-    }
+                // Optionally, sort the instructors.
+                instructors = instructors.toSorted((a, b) => {
+                    if (!a.rmp_data?.average_rating) return 1;
+                    if (!b.rmp_data?.average_rating) return -1;
+                    return b.rmp_data.average_rating - a.rmp_data.average_rating;
+                });
+
+            })();
+    }})
 </script>
 
 <ContentWrapper>

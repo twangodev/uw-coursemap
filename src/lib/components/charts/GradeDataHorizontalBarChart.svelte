@@ -4,8 +4,12 @@
     import {type BarChartOptions, BarChartSimple, type ChartTabularData, ScaleTypes} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
 
-    export let madgradesData: MadgradesData;
-    export let term: string | null = null;
+    interface Props {
+        madgradesData: MadgradesData;
+        term?: string | null;
+    }
+
+    let { madgradesData, term = null }: Props = $props();
 
     let gradeData = term ? madgradesData.by_term[term] : madgradesData.cumulative
     let data: ChartTabularData = [
