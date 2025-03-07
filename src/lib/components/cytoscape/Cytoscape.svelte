@@ -30,9 +30,10 @@
     interface Props {
         url: string;
         styleUrl: string;
+        requestedFocus: string | null;
     }
 
-    let { url, styleUrl }: Props = $props();
+    let { url, styleUrl, requestedFocus }: Props = $props();
 
     type StyleData = {
         [parent: string]: string;
@@ -104,6 +105,8 @@
     }
 
     const loadGraph = async () => {
+
+        console.log(requestedFocus)
 
         progress = {
             text: "Fetching Graph Data...",
