@@ -30,8 +30,10 @@
 
     $: courseIdentifier = $page.params.courseIdentifier;
 
-    let course = writable<Course | null>(null)
-    let instructors: FullInstructorInformation[] = []
+    let course = writable<Course | null>(null);
+    let instructors: FullInstructorInformation[] = [];
+    let terms: Terms;
+    let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
         let allTerms = Object.keys(course?.madgrades_data?.by_term ?? {}).sort()
@@ -107,40 +109,47 @@
         return `${value.toFixed(2)}%`
     }
 
-    let terms: Terms
-
     onMount(async () => {
         let termsData = await apiFetch(`/terms.json`)
         terms = await termsData.json()
-
-        let courseData = await courseReferenceStringToCourse(courseIdentifier)
-        $course = courseData
-
-        for (let [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
-            let response = await apiFetch(`/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`)
-            let data: FullInstructorInformation  = response.status == 200 ? await response.json() : {
-                name: name,
-                email: email,
-                credentials: null,
-                department: null,
-                official_name: null,
-                position: null,
-                rmp_data: null,
-            }
-
-            instructors.push(data)
-        }
-
-        instructors = instructors.toSorted((a, b) => {
-            if (!a.rmp_data?.average_rating) {
-                return 1
-            }
-            if (!b.rmp_data?.average_rating) {
-                return -1
-            }
-            return b.rmp_data.average_rating - a.rmp_data.average_rating
-        })
     })
+
+    $: if (courseIdentifier && courseIdentifier !== currentCourseIdentifier) {
+        (async () => {
+            currentCourseIdentifier = courseIdentifier; // update the guard variable
+
+            const courseData = await courseReferenceStringToCourse(courseIdentifier);
+            course.set(courseData);
+
+            // Reset the instructors array for the new course data.
+            instructors = [];
+            for (const [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
+                const response = await apiFetch(
+                    `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
+                );
+                const data: FullInstructorInformation =
+                    response.status === 200
+                        ? await response.json()
+                        : {
+                            name,
+                            email,
+                            credentials: null,
+                            department: null,
+                            official_name: null,
+                            position: null,
+                            rmp_data: null,
+                        };
+                instructors.push(data);
+            }
+
+            // Optionally, sort the instructors.
+            instructors = instructors.toSorted((a, b) => {
+                if (!a.rmp_data?.average_rating) return 1;
+                if (!b.rmp_data?.average_rating) return -1;
+                return b.rmp_data.average_rating - a.rmp_data.average_rating;
+            });
+        })();
+    }
 </script>
 
 <ContentWrapper>
