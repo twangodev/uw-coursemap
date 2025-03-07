@@ -1,6 +1,5 @@
 import logging
 from argparse import ArgumentParser
-import os
 import coloredlogs
 from elasticsearch import Elasticsearch
 from flask import Flask, request
@@ -34,7 +33,7 @@ def generate_parser():
         "-v",
         "--verbose",
         action="store_true",
-        help="Enable verbose logging (DEBUG level)",
+        help="Enable verbose logging (DEBUG level). This will also enable Flask debug mode, and should not be used in production.",
     )
     return parser
 
@@ -82,5 +81,4 @@ if __name__ == "__main__":
     load_courses(es, courses)
     load_instructors(es, instructors)
 
-    debug_mode = os.getenv("FLASK_DEBUG", "False").lower() in ("true", "1", "t")
-    app.run(debug=debug_mode)
+    app.run(debug=verbose)
