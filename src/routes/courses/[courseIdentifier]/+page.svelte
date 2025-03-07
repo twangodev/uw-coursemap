@@ -32,7 +32,7 @@
 
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = $state([])
-    let terms: Terms = $state();
+    let terms: Terms = $state({});
     let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
@@ -151,7 +151,8 @@
                 });
 
             })();
-    }})
+        }
+    })
 </script>
 
 <ContentWrapper>
