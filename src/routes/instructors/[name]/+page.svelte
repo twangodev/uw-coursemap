@@ -1,6 +1,6 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import {type Writable, writable} from "svelte/store";
     import {type FullInstructorInformation, getAttendanceRequirement, type Instructor} from "$lib/types/instructor.ts";
     import {apiFetch} from "$lib/api.ts";
@@ -63,7 +63,7 @@
         }
     };
 
-    let name = $derived($page.params.name)
+    let name = $derived(page.params.name)
     let currentName: string | null = null
 
     $effect(() => {

@@ -1,6 +1,6 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import ContentH1 from "$lib/components/content/ContentH1.svelte";
     import {onMount} from "svelte";
     import {writable} from "svelte/store";
@@ -28,7 +28,7 @@
     import type {Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
 
-    let courseIdentifier = $derived($page.params.courseIdentifier);
+    let courseIdentifier = $derived(page.params.courseIdentifier);
 
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = $state([])
