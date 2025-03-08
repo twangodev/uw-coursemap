@@ -33,6 +33,8 @@
     let subjects = writable<SubjectSearchResult[]>([]);
     let instructors = writable<InstructorSearchResult[]>([]);
 
+    let shiftDown = $state(false);
+
     $effect(() => {
         updateSuggestions(searchQuery);
     });
@@ -66,10 +68,20 @@
 
             $searchModalOpen = !$searchModalOpen;
         }
+        shiftDown = e.shiftKey
     }
 
     function suggestionSelected(href: string) {
         goto(href);
+        $searchModalOpen = false;
+    }
+
+    function courseSuggestionSelected(result: CourseSearchResult) {
+        if (shiftDown) {
+            goto(result.href);
+        } else {
+            goto(Object.values(result.explorerHref)[0]); // TODO change via dialog or something
+        }
         $searchModalOpen = false;
     }
 
@@ -98,7 +110,6 @@
     </kbd>
 </Button>
 {#if !fake}
-
     <Command.Dialog bind:open={$searchModalOpen}>
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         <Command.List>
@@ -110,7 +121,7 @@
                     {#each $courses as suggestion }
                         <Command.Item
                                 onSelect={() => {
-                                    suggestionSelected(suggestion.href)
+                                    courseSuggestionSelected(suggestion)
                                 }}
                         >
                         <Book class="mr-3 h-4 w-4" />
