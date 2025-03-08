@@ -78,6 +78,7 @@
                 });
                 cy.zoom(1.5);
                 cy.center(node);
+                clearPath();
                 highlightPath(node);
             }
         })();
@@ -164,6 +165,13 @@
     function setTip(newTip: any) {
         myTip?.destroy();
         myTip = newTip;
+    }
+
+    function clearPath() {
+        cy?.nodes().removeClass('highlighted-nodes');
+        cy?.elements().removeClass('faded');
+        cy?.edges().removeClass('highlighted-edges');
+        myTip?.destroy();
     }
 
     const loadGraph = async () => {
@@ -360,10 +368,7 @@
         });
 
         cy.on('mouseout', 'node', function (event) {
-            cy?.nodes().removeClass('highlighted-nodes');
-            cy?.elements().removeClass('faded');
-            cy?.edges().removeClass('highlighted-edges');
-            myTip?.destroy();
+            clearPath();
         });
 
         cy.on('click', 'node', async function (event) {
