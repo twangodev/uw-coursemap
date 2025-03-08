@@ -4,8 +4,9 @@
     import { page } from '$app/state';
     import {PUBLIC_API_URL} from "$env/static/public";
 
-    let subject = $derived(page.params.subject);
+    let subject = $derived(page.params.subject.toUpperCase());
+
 
 </script>
 
-<Cytoscape url="{PUBLIC_API_URL}/graphs/{subject.toUpperCase()}.json" styleUrl="{PUBLIC_API_URL}/styles/{subject.toUpperCase()}.json"/>
+<Cytoscape url="{PUBLIC_API_URL}/graphs/{subject}.json" styleUrl="{PUBLIC_API_URL}/styles/{subject}.json" />
