@@ -303,7 +303,7 @@
             myTip?.destroy();
         });
 
-        cy.on('click', 'node', async function (event) {
+        cy.on('tap', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
                 return;
