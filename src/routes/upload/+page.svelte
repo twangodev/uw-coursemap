@@ -2,12 +2,13 @@
 	import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
     import { Input } from "$lib/components/ui/input/index.ts";
     import { Label } from "$lib/components/ui/label/index.ts";
-    import { Button } from "$lib/components/ui/button/index.js";
+    import {Button, buttonVariants} from "$lib/components/ui/button/index.js";
 	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
     import {apiFetch} from "$lib/api.ts";
     import {getData, setData} from "$lib/localStorage.ts";
     import * as Table from "$lib/components/ui/table/index.ts";
+    import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
     import { onMount } from 'svelte';
     
     let takenCourses = $state(new Array<any>);
@@ -149,7 +150,36 @@
         {:else}
         <Label for="transcript-upload">Upload Unofficial Transcript:</Label>
         {/if}
-        <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+        <div style="display: flex;">
+            <AlertDialog.Root>
+                <AlertDialog.Trigger >
+                    <Button variant="outline">Info</Button>
+                </AlertDialog.Trigger>
+                <AlertDialog.Content>
+                    <AlertDialog.Header>
+                        <AlertDialog.Title>How to get unofficial transcript:</AlertDialog.Title>
+                        <AlertDialog.Description>
+                            <ul style="list-style-type: disc; margin-left: 20px;">
+                                <li>Go to academic records: MyUW -> student center -> academic records
+                                    <ul style="list-style-type: disc; margin-left: 20px;">
+                                        <li>Or just go <a style="color: blue; text-decoration: underline;" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
+                                    </ul>
+                                </li>
+                                <li>Click on "View Unofficial Transcript on the side menu"</li>
+                                <li>Set "report type" to unofficial transcript, and submit</li>
+                                <li>Click on the new transcript, and press "view report"</li>
+                                <li>Download the pdf</li>
+                                <li>Upload using the file browser on this page</li>
+                            </ul>
+                        </AlertDialog.Description>
+                    </AlertDialog.Header>
+                    <AlertDialog.Footer>
+                        <AlertDialog.Cancel>Close</AlertDialog.Cancel>
+                    </AlertDialog.Footer>
+                </AlertDialog.Content>
+            </AlertDialog.Root>
+            <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+        </div>
     </div>
     
     {#if takenCourses.length > 0}
