@@ -11,6 +11,7 @@
     import { onMount } from 'svelte';
     
     let takenCourses = $state(new Array<any>);
+    let status = $state("");
     
     //load data
     onMount(() => {
@@ -32,60 +33,73 @@
 
     //for unofficial transcript
     async function parseTranscriptPDF(pdfData: ArrayBuffer) {
-        const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
-        let text: string = "";
+        //set status to loading
+        status = "Loading...";
+        
+        //get new courses
+        try{
+            const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
+            let text: string = "";
 
-        for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const content = await page.getTextContent();
-            text += content.items.map((item) => ("str" in item ? item.str : "")).join(" ") + "\n";
-        }
-        
-        //get course subject and numbers
-        const regex = /(\b[A-Z]+(?:\s[A-Z]+)*\b)\s+(X\d{2}|\d{3})/g;
-        let matches, results = [];
-        
-        while ((matches = regex.exec(text)) !== null) {
-            //remove all whitespace
-            let courseInfo = matches[0].replace(/\s/g, "");
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                text += content.items.map((item) => ("str" in item ? item.str : "")).join(" ") + "\n";
+            }
             
-            let courseData;
-            //if it has an there are multiple courses
-            if(courseInfo.match(/X\d\d/)){
-                courseData = {
-                    "course_title": "Multiple Courses",
-                    "course_reference": {
-                        "subjects": [courseInfo.split("X")[0]],
-                        "course_number": "X" + courseInfo.split("X")[1]
+            //get course subject and numbers
+            const regex = /(\b[A-Z]+(?:\s[A-Z]+)*\b)\s+(X\d{2}|\d{3})/g;
+            let matches, results = [];
+            
+            while ((matches = regex.exec(text)) !== null) {
+                //remove all whitespace
+                let courseInfo = matches[0].replace(/\s/g, "");
+                
+                let courseData;
+                //if it has an there are multiple courses
+                if(courseInfo.match(/X\d\d/)){
+                    courseData = {
+                        "course_title": "Multiple Courses",
+                        "course_reference": {
+                            "subjects": [courseInfo.split("X")[0]],
+                            "course_number": "X" + courseInfo.split("X")[1]
+                        }
                     }
                 }
-            }
-            else{
-                //split course subject and number
-                courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
+                else{
+                    //split course subject and number
+                    courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
 
-                //get the course's data
-                courseData = await getCourse(courseInfo);
-            }
-            
-            //check if it is a duplicate
-            let duplicate = false;
-            for(let takenCourse of takenCourses){
-                if(
-                    takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
-                    takenCourse["course_title"] == courseData["course_title"]
-                ){
-                    console.log("Course is a duplicate:", courseData["course_title"]);
-                    duplicate = true;
+                    //get the course's data
+                    courseData = await getCourse(courseInfo);
+                }
+                
+                //check if it is a duplicate
+                let duplicate = false;
+                for(let takenCourse of takenCourses){
+                    if(
+                        takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
+                        takenCourse["course_title"] == courseData["course_title"]
+                    ){
+                        console.log("Course is a duplicate:", courseData["course_title"]);
+                        duplicate = true;
+                    }
+                }
+
+                //add to courses (don't allow duplicates)
+                if(!duplicate){
+                    takenCourses.push(courseData);
+                    takenCourses = takenCourses; //force update
+                    saveData();
                 }
             }
-
-            //add to courses (don't allow duplicates)
-            if(!duplicate){
-                takenCourses.push(courseData);
-                takenCourses = takenCourses; //force update
-                saveData();
-            }
+            //set status to succes
+            status = "";
+        }
+        catch(e){
+            //set status to error
+            status = "There was an error parsing the pdf";
+            console.error(e);
         }
 
     }
@@ -138,7 +152,7 @@
     
     {#if takenCourses.length > 0}
         <Table.Root>
-            <Table.Caption>Courses Taken</Table.Caption>
+            <Table.Caption>{status}</Table.Caption>
             <Table.Header>
                 <Table.Row>
                     <Table.Head>Name</Table.Head>
