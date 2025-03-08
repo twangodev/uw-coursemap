@@ -59,7 +59,7 @@
                 //if it has an there are multiple courses
                 if(courseInfo.match(/X\d\d/)){
                     courseData = {
-                        "course_title": "Multiple Courses",
+                        "course_title": `Multiple ${courseInfo.split("X")[0]} Courses`,
                         "course_reference": {
                             "subjects": [courseInfo.split("X")[0]],
                             "course_number": "X" + courseInfo.split("X")[1]
