@@ -110,17 +110,27 @@
         while ((matches = regex.exec(text)) !== null) {
             //remove all whitespace
             let courseInfo = matches[0].replace(/\s/g, "");
+            
+            let courseData;
+            //if it has an there are multiple courses
+            if(courseInfo.match(/X\d\d/)){
+                courseData = {
+                    "course_title": "Multiple Courses",
+                    "course_reference": {
+                        "subjects": [courseInfo.split("X")[0]],
+                        "course_number": "X" + courseInfo.split("X")[1]
+                    }
+                }
+            }
+            else{
+                //split course subject and number
+                courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
 
-            //split course subject and number
-            courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
-            //if it couldnt be seperated, skip
-            if(!courseInfo.includes(" ")){
-                console.log("Could not seperate course info: " + courseInfo);
-                continue;
+                //get the course's data
+                courseData = await getCourse(courseInfo);
             }
 
-            //get the course's data
-            let courseData = await getCourse(courseInfo);
+            console.log(courseData);
             
             //add to courses
             takenCourses.push(courseData);
