@@ -71,6 +71,10 @@
         shiftDown = e.shiftKey
     }
 
+    function handleKeyUp(e: KeyboardEvent) {
+        shiftDown = e.shiftKey
+    }
+
     function suggestionSelected(href: string) {
         goto(href);
         $searchModalOpen = false;
@@ -89,7 +93,7 @@
 
 </script>
 
-<svelte:document onkeydown={handleKeydown} />
+<svelte:document onkeydown={handleKeydown} onkeyup={handleKeyUp}/>
 
 <Button
         variant="outline"
