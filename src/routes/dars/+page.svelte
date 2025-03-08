@@ -10,25 +10,27 @@
     import * as Table from "$lib/components/ui/table/index.ts";
     import { onMount } from 'svelte';
     
-    let coursesFromDars = $state(new Array<any>);
+    let takenCourses = $state(new Array<any>);
     
     //load data
     onMount(() => {
-        coursesFromDars = getData("coursesFromDars");
+        takenCourses = getData("takenCourses");
     });
 
+    //save the taken courses
     function saveData(){
-        setData("coursesFromDars", coursesFromDars);
+        setData("takenCourses", takenCourses);
     }
 
     function clearCourses(event: Event){
         //clear
-        coursesFromDars = new Array<any>;
+        takenCourses = new Array<any>;
         saveData();
 
         console.log("Cleared courses")
     }
 
+    //for DARS
     async function parseDarsPDF(pdfData: ArrayBuffer) {
         const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
         let text: string = "";
@@ -81,13 +83,49 @@
                 let courseData = await getCourse(courseCode);
                 
                 //add to courses
-                coursesFromDars.push(courseData);
-                coursesFromDars = coursesFromDars; //force update
+                takenCourses.push(courseData);
+                takenCourses = takenCourses; //force update
                 saveData();
             }
         } else {
             console.log("Error parsing DARS PDF, section used not found");
         }
+    }
+
+    //for unofficial transcript
+    async function parseTranscriptPDF(pdfData: ArrayBuffer) {
+        const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
+        let text: string = "";
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            text += content.items.map((item) => ("str" in item ? item.str : "")).join(" ") + "\n";
+        }
+        
+        //get course subject and numbers
+        const regex = /(\b[A-Z]+(?:\s[A-Z]+)*\b)\s+(X\d{2}|\d{3})/g;
+        let matches, results = [];
+        
+        while ((matches = regex.exec(text)) !== null) {
+            //remove all whitespace
+            let courseInfo = matches[0].replace(/\s/g, "");
+
+            //split course subject and number
+            //ddd
+            courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
+            //Xdd
+            courseInfo = courseInfo.replace(/([A-Z]+)X(\d{2})(.?)/, '$1 X$2')
+
+            //get the course's data
+            let courseData = await getCourse(courseInfo);
+            
+            //add to courses
+            takenCourses.push(courseData);
+            takenCourses = takenCourses; //force update
+            saveData();
+        }
+
     }
 
     async function getCourse(courseCode: string){
@@ -107,7 +145,7 @@
         }
 
         //no course found
-        throw new Error("Could not find course ):");
+        throw new Error("Could not find course ):\n" + courseCode);
     }
 
     async function fileUploaded(event: Event) {
@@ -119,7 +157,7 @@
             const reader = new FileReader();
             reader.onload = async () => {
                 if (reader.result instanceof ArrayBuffer) {
-                    await parseDarsPDF(reader.result);
+                    await parseTranscriptPDF(reader.result);
                 }
             };
             
@@ -129,16 +167,16 @@
 </script>
 
 <ContentWrapper>
-    {#if coursesFromDars.length > 0}
-        <Label for="dars-upload">Add to courses with DARS PDF:</Label>
+    {#if takenCourses.length > 0}
+        <Label for="dars-upload">Add to courses with Unofficial Transcript:</Label>
     {:else}
-        <Label for="dars-upload">Upload DARS PDF:</Label>
+        <Label for="dars-upload">Upload Unofficial Transcript:</Label>
     {/if}
     <Input accept="application/pdf" id="dars-upload" type="file" onchange={fileUploaded}/>
     
-    {#if coursesFromDars.length > 0}
+    {#if takenCourses.length > 0}
         <Table.Root>
-            <Table.Caption>Courses automatically imported from DARS</Table.Caption>
+            <Table.Caption>Courses Taken</Table.Caption>
             <Table.Header>
                 <Table.Row>
                     <Table.Head>Name</Table.Head>
@@ -147,7 +185,7 @@
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {#each coursesFromDars as courseData}
+                {#each takenCourses as courseData}
                     <Table.Row>
                         <Table.Cell>{courseData["course_title"]}</Table.Cell>
                         <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
@@ -155,9 +193,10 @@
                     </Table.Row>
                 {/each}
             </Table.Body>
-        </Table.Root>  
-        <Button variant="destructive" onclick={clearCourses}>Clear Courses</Button>
+        </Table.Root>
     {/if}
+    <Button variant="destructive" onclick={clearCourses}>Clear Course Data</Button>
+
 
 
 </ContentWrapper>
