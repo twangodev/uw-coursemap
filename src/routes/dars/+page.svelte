@@ -112,10 +112,12 @@
             let courseInfo = matches[0].replace(/\s/g, "");
 
             //split course subject and number
-            //ddd
             courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
-            //Xdd
-            courseInfo = courseInfo.replace(/([A-Z]+)X(\d{2})(.?)/, '$1 X$2')
+            //if it couldnt be seperated, skip
+            if(!courseInfo.includes(" ")){
+                console.log("Could not seperate course info: " + courseInfo);
+                continue;
+            }
 
             //get the course's data
             let courseData = await getCourse(courseInfo);
