@@ -143,12 +143,14 @@
 </script>
 
 <ContentWrapper>
-    {#if takenCourses.length > 0}
+    <div style="margin-bottom: 2rem;">
+        {#if takenCourses.length > 0}
         <Label for="transcript-upload">Add to courses with Unofficial Transcript:</Label>
-    {:else}
+        {:else}
         <Label for="transcript-upload">Upload Unofficial Transcript:</Label>
-    {/if}
-    <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+        {/if}
+        <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+    </div>
     
     {#if takenCourses.length > 0}
         <Table.Root>
