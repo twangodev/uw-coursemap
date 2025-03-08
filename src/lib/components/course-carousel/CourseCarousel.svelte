@@ -6,7 +6,6 @@
         courseReferenceToCourse
     } from "$lib/types/course.ts";
     import CourseCard from "$lib/components/course-carousel/CourseCard.svelte";
-    import {onMount} from "svelte";
     import CourseCardSkeleton from "$lib/components/course-carousel/CourseCardSkeleton.svelte";
 
     interface Props {
