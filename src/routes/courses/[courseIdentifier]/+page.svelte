@@ -16,11 +16,10 @@
         Users,
         ArrowUpRight
     } from "lucide-svelte";
-    import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/Change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
-    import type {FullInstructorInformation, Instructor} from "$lib/types/instructor.ts";
+    import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
     import GradeDataStackedAreaChart from "$lib/components/charts/ComboGradeDataStackedAreaChart.svelte";
