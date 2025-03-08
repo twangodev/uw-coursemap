@@ -76,6 +76,8 @@
                     level: 1.5,
                     renderedPosition: node.renderedPosition()
                 });
+                cy.zoom(1.5);
+                cy.center(node);
                 highlightPath(node);
             }
         })();
