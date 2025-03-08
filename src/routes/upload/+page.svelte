@@ -30,68 +30,6 @@
         console.log("Cleared courses")
     }
 
-    //for DARS
-    async function parseDarsPDF(pdfData: ArrayBuffer) {
-        const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
-        let text: string = "";
-
-        for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const content = await page.getTextContent();
-            text += content.items.map((item) => ("str" in item ? item.str : "")).join(" ") + "\n";
-        }
-
-        // Get text between "At least {int} Madison credits required" and a lot of "-"s
-        const match = text.match(/At least \d+ Madison credits required([\s\S]*?)--------/);
-
-        if (match) {
-            let extractedTextListOfCourses: Array<Array<string>>;
-            let extractedTextList: Array<string>;
-            
-            // Get text from match
-            let foundText = match[1].trim();
-
-            // Split by semester label + year (space + char + char + int + int + space)
-            extractedTextList = foundText.split(/\s[A-Z]{2}\d{2}\s/);
-
-            // Remove first element (not a class)
-            extractedTextList = extractedTextList.slice(1);
-
-            // Split individual courses by credits (space + int + . + int + int + space)
-            extractedTextListOfCourses = extractedTextList.map(str => str.split(/\s\d\.\d{2}\s/));  
-
-            // Trim each string
-            extractedTextListOfCourses = extractedTextListOfCourses.map(list => list.map(str => str.trim()));
-
-            // Get rid of general class name (and trim again)
-            extractedTextListOfCourses = extractedTextListOfCourses.map(list => [list[0], list[1].split(" ")[0]]);
-
-            // Condense course IDs (E C E 352 -> ECE352) (COMP SCI300 -> COMPSCI300)
-            extractedTextListOfCourses = extractedTextListOfCourses.map(list => [list[0].replace(/ /g, ""), list[1]]);
-
-            // Separate course IDs (ECE352 -> ECE 352) (COMPSCI300 -> COMPSCI 300)
-            extractedTextListOfCourses = extractedTextListOfCourses.map(list => [list[0].replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2'), list[1]]);
-
-            // Debug
-            console.log(`Courses: ${extractedTextListOfCourses}`);
-
-            //get each course
-            for(const courseInfo of extractedTextListOfCourses){
-                let courseCode = courseInfo[0];
-                
-                //get the course's data
-                let courseData = await getCourse(courseCode);
-                
-                //add to courses
-                takenCourses.push(courseData);
-                takenCourses = takenCourses; //force update
-                saveData();
-            }
-        } else {
-            console.log("Error parsing DARS PDF, section used not found");
-        }
-    }
-
     //for unofficial transcript
     async function parseTranscriptPDF(pdfData: ArrayBuffer) {
         const pdf: PDFDocumentProxy = await getDocument({ data: pdfData }).promise;
@@ -129,13 +67,25 @@
                 //get the course's data
                 courseData = await getCourse(courseInfo);
             }
-
-            console.log(courseData);
             
-            //add to courses
-            takenCourses.push(courseData);
-            takenCourses = takenCourses; //force update
-            saveData();
+            //check if it is a duplicate
+            let duplicate = false;
+            for(let takenCourse of takenCourses){
+                if(
+                    takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
+                    takenCourse["course_title"] == courseData["course_title"]
+                ){
+                    console.log("Course is a duplicate:", courseData["course_title"]);
+                    duplicate = true;
+                }
+            }
+
+            //add to courses (don't allow duplicates)
+            if(!duplicate){
+                takenCourses.push(courseData);
+                takenCourses = takenCourses; //force update
+                saveData();
+            }
         }
 
     }
@@ -180,11 +130,11 @@
 
 <ContentWrapper>
     {#if takenCourses.length > 0}
-        <Label for="dars-upload">Add to courses with Unofficial Transcript:</Label>
+        <Label for="transcript-upload">Add to courses with Unofficial Transcript:</Label>
     {:else}
-        <Label for="dars-upload">Upload Unofficial Transcript:</Label>
+        <Label for="transcript-upload">Upload Unofficial Transcript:</Label>
     {/if}
-    <Input accept="application/pdf" id="dars-upload" type="file" onchange={fileUploaded}/>
+    <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
     
     {#if takenCourses.length > 0}
         <Table.Root>
