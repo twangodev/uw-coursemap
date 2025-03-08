@@ -13,4 +13,8 @@ export const navigation: NavItem[] = [
         title: 'About',
         href: '/about',
     },
+    {
+        title: 'Upload Courses',
+        href: '/upload',
+    },
 ];
