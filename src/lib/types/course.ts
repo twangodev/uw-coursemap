@@ -20,7 +20,9 @@ export type Course = {
     prerequisites: CoursePrerequisites,
     optimized_prerequisites: CoursePrerequisites,
     madgrades_data: MadgradesData | null,
-    enrollment_data: EnrollmentData | null,
+    enrollment_data: {
+        [key: string]: EnrollmentData
+    }
 }
 
 export async function courseReferenceStringToCourse(sanatizedCourseReferenceString: string): Promise<Course> {
