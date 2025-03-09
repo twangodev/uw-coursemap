@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Button} from "$lib/components/ui/button";
-    import {cn} from "$lib/utils.ts";
+    import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/CtrlCmd.svelte";
     import { search } from "$lib/api";
@@ -39,7 +39,16 @@
         updateSuggestions(searchQuery);
     });
 
+    async function querySettled(query: string) : Promise<boolean> {
+        await sleep(500);
+        return query === searchQuery;
+    }
+
     async function updateSuggestions(query: string) {
+        if (!await querySettled(query)) {
+            return;
+        }
+
         if (query.length <= 0) {
             $courses = [];
             $subjects = [];
