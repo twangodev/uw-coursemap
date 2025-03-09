@@ -58,7 +58,7 @@ def generate_parser():
         "--max_prerequisites",
         type=int,
         help="Maximum number of prerequisites to keep for each course.",
-        default=3,
+        default=1,
     )
     parser.add_argument(
         "-v",
