@@ -1,6 +1,11 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import cytoscape, {type LayoutOptions, type Position, type StylesheetStyle} from "cytoscape";
+    import cytoscape, {
+        type CollectionReturnValue,
+        type LayoutOptions,
+        type Position,
+        type StylesheetStyle
+    } from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -21,6 +26,7 @@
     import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
+    import {searchModalOpen} from "$lib/searchModalStore.ts";
 
     let focus = $derived(page.url.searchParams.get('focus'));
 
@@ -32,6 +38,12 @@
     let { url, styleUrl }: Props = $props();
     let sheetOpen = writable(false);
 
+    searchModalOpen.subscribe((b) => {
+        if (b) {
+            sheetOpen.set(false);
+        }
+    });
+
     function getNonCompoundNodes() {
         return cy?.nodes().filter(function (node) {
             return node.data('type') !== 'compound';
@@ -40,7 +52,7 @@
 
     function highlightPath(node: cytoscape.NodeSingular) {
         if (node.data('type') === 'compound') {
-            return;
+            return
         }
 
         const incomingNodes = node.predecessors('node').union(node);
@@ -61,27 +73,35 @@
         const fadeEdges = cy?.edges().difference(highlightedEdges);
         fadeNodes?.addClass('faded');
         fadeEdges?.addClass('faded');
+
+        return highlightedNodes;
     }
 
     $effect(() => {
         (async () => {
             if (cy && focus) {
-                $sheetOpen = true;
                 let response = await apiFetch(`/course/${focus}.json`);
                 let course = await response.json();
-                $selectedCourse = course
 
                 let id = courseReferenceToString(course.course_reference);
                 let node = cy.$id(id)
 
-                cy.zoom({
-                    level: 1.5,
-                    renderedPosition: node.renderedPosition()
+
+                cy.animate({
+                    zoom: 2,
+                    center: {
+                        eles: node,
+                    },
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    queue: true
                 });
-                cy.zoom(1.5);
-                cy.center(node);
+
                 clearPath();
-                highlightPath(node);
+                highlightPath(node)
+
+                $selectedCourse = course
+                $sheetOpen = true;
             }
         })();
     })
@@ -340,9 +360,9 @@
         let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
             name: 'fcose',
             quality: 'proof', // 'draft', 'default' or 'proof'
-            animate: true, // Whether to animate the layout
+            animate: !(focus), // Whether to animate the layout
             animationDuration: 1000, // Duration of the animation in milliseconds
-            animationEasing: 'ease-out', // Easing of the animation
+            animationEasing: 'ease-out',
             fit: true, // Whether to fit the viewport to the graph
             padding: 30, // Padding around the layout
             nodeDimensionsIncludeLabels: true, // Excludes the label when calculating node bounding boxes for the layout algorithm
