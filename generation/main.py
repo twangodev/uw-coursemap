@@ -145,6 +145,7 @@ def optimize(
 
 def graph(
         course_ref_to_course,
+        color_map,
         logger
 ):
     subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
@@ -161,8 +162,8 @@ def graph(
         logger=logger
     )
 
-    subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
-    global_style = generate_style_from_graph(global_graph)
+    subject_to_style = generate_styles(subject_to_graph=subject_to_graph, color_map=color_map)
+    global_style = generate_style_from_graph(global_graph, color_map)
 
     return global_graph, subject_to_graph, subject_to_style, global_style
 
@@ -248,12 +249,14 @@ def main():
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
+        color_map = {}
         global_graph, subject_to_graph, subject_to_style, global_style = graph(
             course_ref_to_course=course_ref_to_course,
+            color_map=color_map,
             logger=logger
         )
 
-        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, logger)
+        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger)
 
         logger.info("Course graph built successfully.")
 
