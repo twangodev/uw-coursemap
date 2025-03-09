@@ -10,6 +10,7 @@
     import * as Table from "$lib/components/ui/table/index.ts";
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
     import { onMount } from 'svelte';
+    import XMark from "lucide-svelte/icons/x";
     
     let takenCourses = $state(new Array<any>);
     let status = $state("");
@@ -24,12 +25,25 @@
         setData("takenCourses", takenCourses);
     }
 
+    //used by a button to clear the courses
     function clearCourses(event: Event){
         //clear
         takenCourses = new Array<any>;
         saveData();
 
         console.log("Cleared courses")
+    }
+
+    //used by a button to remove a course from the list
+    function removeCourse(courseToRemove: JSON){
+        for(let i = 0; i < takenCourses.length; i++){
+            if(takenCourses[i]["course_reference"] == courseToRemove){
+                takenCourses.splice(i, 1);
+                takenCourses = takenCourses; //force update
+                saveData();
+                return;
+            }
+        }
     }
 
     //for unofficial transcript
@@ -56,24 +70,16 @@
                 //remove all whitespace
                 let courseInfo = matches[0].replace(/\s/g, "");
                 
-                let courseData;
-                //if it has an there are multiple courses
+                //if it has an X, it is a elective
                 if(courseInfo.match(/X\d\d/)){
-                    courseData = {
-                        "course_title": `Multiple ${courseInfo.split("X")[0]} Courses`,
-                        "course_reference": {
-                            "subjects": [courseInfo.split("X")[0]],
-                            "course_number": "X" + courseInfo.split("X")[1]
-                        }
-                    }
+                    continue;
                 }
-                else{
-                    //split course subject and number
-                    courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
 
-                    //get the course's data
-                    courseData = await getCourse(courseInfo);
-                }
+                //split course subject and number
+                courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
+
+                //get the course's data
+                let courseData = await getCourse(courseInfo);
                 
                 //check if it is a duplicate
                 let duplicate = false;
@@ -187,6 +193,7 @@
             <Table.Caption>{status}</Table.Caption>
             <Table.Header>
                 <Table.Row>
+                    <Table.Head>Remove</Table.Head>
                     <Table.Head>Name</Table.Head>
                     <Table.Head>Subject(s)</Table.Head>
                     <Table.Head>Number</Table.Head>
@@ -195,6 +202,11 @@
             <Table.Body>
                 {#each takenCourses as courseData}
                     <Table.Row>
+                        <Table.Cell>
+                            <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
+                                <XMark class="h-4 w-4" />
+                            </Button>
+                        </Table.Cell>
                         <Table.Cell>{courseData["course_title"]}</Table.Cell>
                         <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
                         <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
