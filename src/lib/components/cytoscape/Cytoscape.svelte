@@ -284,7 +284,7 @@
             number: 55,
         }
 
-        // cytoscape.use(cytoscapeFcose);
+        cytoscape.use(cytoscapeFcose);
 
         progress = {
             text: "Loading Tooltips...",
