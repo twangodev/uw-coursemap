@@ -298,8 +298,8 @@
 
         let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
             name: 'fcose',
-            quality: 'default', // 'draft', 'default' or 'proof'
-            animate: false, // Whether to animate the layout
+            quality: 'proof', // 'draft', 'default' or 'proof'
+            animate: true, // Whether to animate the layout
             animationDuration: 1000, // Duration of the animation in milliseconds
             animationEasing: 'ease-out', // Easing of the animation
             fit: true, // Whether to fit the viewport to the graph
