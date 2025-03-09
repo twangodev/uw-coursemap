@@ -5,28 +5,24 @@
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Button} from "$lib/components/ui/button";
-    import {
-        LockKeyhole,
-        LockKeyholeOpen,
-        LucideFullscreen,
-        LucideMinus,
-        LucidePlus
-    } from "lucide-svelte";
+    import {LockKeyhole, LockKeyholeOpen, LucideFullscreen, LucideMinus, LucidePlus} from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {writable} from "svelte/store";
-    import {PUBLIC_API_URL} from "$env/static/public";
     import {Skeleton} from "$lib/components/ui/skeleton";
     import {Separator} from "$lib/components/ui/separator";
     import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
-    import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
     import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
     import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
+    import {page} from "$app/state";
+    import {pushState} from "$app/navigation";
+
+    let focus = $derived(page.url.searchParams.get('focus'));
 
     interface Props {
         url: string;
@@ -34,6 +30,76 @@
     }
 
     let { url, styleUrl }: Props = $props();
+    let sheetOpen = writable(false);
+
+    function getNonCompoundNodes() {
+        return cy?.nodes().filter(function (node) {
+            return node.data('type') !== 'compound';
+        });
+    }
+
+    function highlightPath(node: cytoscape.NodeSingular) {
+        if (node.data('type') === 'compound') {
+            return;
+        }
+
+        const incomingNodes = node.predecessors('node').union(node);
+        const incomingEdges = node.predecessors('edge');
+
+        const outgoingNodes = node.outgoers('node').union(node);
+        const outgoingEdges = node.outgoers('edge');
+
+        const highlightedNodes = incomingNodes.union(outgoingNodes);
+        const highlightedEdges = incomingEdges.union(outgoingEdges);
+
+        highlightedNodes.addClass('highlighted-nodes');
+        highlightedEdges.addClass('highlighted-edges');
+
+        const nonCompoundNodes = getNonCompoundNodes();
+
+        const fadeNodes = nonCompoundNodes?.difference(highlightedNodes);
+        const fadeEdges = cy?.edges().difference(highlightedEdges);
+        fadeNodes?.addClass('faded');
+        fadeEdges?.addClass('faded');
+    }
+
+    $effect(() => {
+        (async () => {
+            if (cy && focus) {
+                $sheetOpen = true;
+                let response = await apiFetch(`/course/${focus}.json`);
+                let course = await response.json();
+                $selectedCourse = course
+
+                let id = courseReferenceToString(course.course_reference);
+                let node = cy.$id(id)
+
+                cy.zoom({
+                    level: 1.5,
+                    renderedPosition: node.renderedPosition()
+                });
+                cy.zoom(1.5);
+                cy.center(node);
+                clearPath();
+                highlightPath(node);
+            }
+        })();
+    })
+
+    $effect(() => {
+        if (cy && $selectedCourse) {
+            let courseId = sanitizeCourseToReferenceString($selectedCourse.course_reference);
+
+            if ($sheetOpen) {
+                page.url.searchParams.set('focus', courseId);
+
+            } else {
+                page.url.searchParams.delete('focus');
+            }
+
+            pushState(page.url, page.state);
+        }
+    })
 
     type StyleData = {
         [parent: string]: string;
@@ -45,7 +111,7 @@
     })
 
     let isFullscreen = false;
-    let cy: cytoscape.Core;
+    let cy: cytoscape.Core | undefined = $state()
 
     const toggleFullscreen = () => {
         if (!isFullscreen) {
@@ -58,11 +124,11 @@
     };
 
     const zoomIn = () => {
-        cy.zoom(cy.zoom() + 0.1);
+        cy?.zoom(cy.zoom() + 0.1);
     };
 
     const zoomOut = () => {
-        cy.zoom(cy.zoom() - 0.1);
+        cy?.zoom(cy.zoom() - 0.1);
     };
 
     let elementsAreDraggable = $state(false);
@@ -73,7 +139,6 @@
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse = writable<Course | null>(null);
-    let sheetOpen = writable(false);
 
     async function fetchCourse(courseId: string) {
         let response = await apiFetch(`/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
@@ -102,6 +167,13 @@
     function setTip(newTip: any) {
         myTip?.destroy();
         myTip = newTip;
+    }
+
+    function clearPath() {
+        cy?.nodes().removeClass('highlighted-nodes');
+        cy?.elements().removeClass('faded');
+        cy?.edges().removeClass('highlighted-edges');
+        myTip?.destroy();
     }
 
     const loadGraph = async () => {
@@ -313,13 +385,10 @@
         });
 
         cy.on('mouseout', 'node', function (event) {
-            cy.nodes().removeClass('highlighted-nodes');
-            cy.elements().removeClass('faded');
-            cy.edges().removeClass('highlighted-edges');
-            myTip?.destroy();
+            clearPath();
         });
 
-        cy.on('click', 'node', async function (event) {
+        cy.on('tap', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
                 return;
@@ -356,36 +425,7 @@
             number: 100,
         }
 
-        function getNonCompoundNodes() {
-            return cy.nodes().filter(function (node) {
-                return node.data('type') !== 'compound';
-            });
-        }
 
-        function highlightPath(node: cytoscape.NodeSingular) {
-            if (node.data('type') === 'compound') {
-                return;
-            }
-
-            const incomingNodes = node.predecessors('node').union(node);
-            const incomingEdges = node.predecessors('edge');
-
-            const outgoingNodes = node.outgoers('node').union(node);
-            const outgoingEdges = node.outgoers('edge');
-
-            const highlightedNodes = incomingNodes.union(outgoingNodes);
-            const highlightedEdges = incomingEdges.union(outgoingEdges);
-
-            highlightedNodes.addClass('highlighted-nodes');
-            highlightedEdges.addClass('highlighted-edges');
-
-            const nonCompoundNodes = getNonCompoundNodes();
-
-            const fadeNodes = nonCompoundNodes.difference(highlightedNodes);
-            const fadeEdges = cy.edges().difference(highlightedEdges);
-            fadeNodes.addClass('faded');
-            fadeEdges.addClass('faded');
-        }
 
 
     };

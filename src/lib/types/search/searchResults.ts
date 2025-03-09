@@ -8,14 +8,21 @@ type HrefResult<T> = T & {
     href: string,
 }
 
-export type CourseSearchResult = HrefResult<CourseSearchResponse>;
+export type CourseSearchResult = HrefResult<CourseSearchResponse> & {
+    explorerHref: {
+        [key: string]: string
+    }
+}
 export type SubjectSearchResult =  HrefResult<SubjectSearchResponse>;
 export type InstructorSearchResult = HrefResult<InstructorSearchResponse>;
 
 export function generateCourseSearchResults(courses: CourseSearchResponse[]): CourseSearchResult[] {
     return courses.map(course => ({
         ...course,
-        href: `/courses/${course.course_id}`
+        href: `/courses/${course.course_id}`,
+        explorerHref: Object.fromEntries(
+            course.subjects.map(subject => [subject, `/explorer/${subject}?focus=${course.course_id}`])
+        )
     }));
 }
 

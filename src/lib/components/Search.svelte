@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Button} from "$lib/components/ui/button";
-    import {cn} from "$lib/utils.ts";
+    import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/CtrlCmd.svelte";
     import { search } from "$lib/api";
@@ -33,11 +33,22 @@
     let subjects = writable<SubjectSearchResult[]>([]);
     let instructors = writable<InstructorSearchResult[]>([]);
 
+    let shiftDown = $state(false);
+
     $effect(() => {
         updateSuggestions(searchQuery);
     });
 
+    async function querySettled(query: string) : Promise<boolean> {
+        await sleep(500);
+        return query === searchQuery;
+    }
+
     async function updateSuggestions(query: string) {
+        if (!await querySettled(query)) {
+            return;
+        }
+
         if (query.length <= 0) {
             $courses = [];
             $subjects = [];
@@ -66,6 +77,11 @@
 
             $searchModalOpen = !$searchModalOpen;
         }
+        shiftDown = e.shiftKey
+    }
+
+    function handleKeyUp(e: KeyboardEvent) {
+        shiftDown = e.shiftKey
     }
 
     function suggestionSelected(href: string) {
@@ -73,11 +89,20 @@
         $searchModalOpen = false;
     }
 
+    function courseSuggestionSelected(result: CourseSearchResult) {
+        if (shiftDown) {
+            goto(result.href);
+        } else {
+            goto(Object.values(result.explorerHref)[0]); // TODO change via dialog or something
+        }
+        $searchModalOpen = false;
+    }
+
     let searchQuery = $state("");
 
 </script>
 
-<svelte:document onkeydown={handleKeydown} />
+<svelte:document onkeydown={handleKeydown} onkeyup={handleKeyUp}/>
 
 <Button
         variant="outline"
@@ -98,7 +123,6 @@
     </kbd>
 </Button>
 {#if !fake}
-
     <Command.Dialog bind:open={$searchModalOpen}>
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         <Command.List>
@@ -110,7 +134,7 @@
                     {#each $courses as suggestion }
                         <Command.Item
                                 onSelect={() => {
-                                    suggestionSelected(suggestion.href)
+                                    courseSuggestionSelected(suggestion)
                                 }}
                         >
                         <Book class="mr-3 h-4 w-4" />
