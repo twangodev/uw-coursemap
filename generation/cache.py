@@ -75,6 +75,8 @@ def read_course_ref_to_course_cache(cache_dir, logger):
 
 def read_terms_cache(cache_dir, logger):
     str_terms = read_cache(cache_dir, (), "terms", logger)
+    if str_terms is None:
+        return {}
     return {int(term_code): term_name for term_code, term_name in str_terms.items()}
 
 
@@ -94,6 +96,8 @@ def read_graphs_cache(cache_dir, logger):
 
 def read_instructors_to_rating_cache(cache_dir, logger):
     instructors_to_rating = read_cache(cache_dir, (), "instructors", logger)
+    if instructors_to_rating is None:
+        return {}
     return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
 
 
