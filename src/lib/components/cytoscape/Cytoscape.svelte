@@ -1,5 +1,6 @@
 <script lang="ts">
-    import cytoscape, {type StylesheetStyle} from "cytoscape";
+    import {onMount} from "svelte";
+    import cytoscape, {type LayoutOptions, type Position, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -17,6 +18,7 @@
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
     import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
+    import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
 
@@ -282,19 +284,58 @@
             number: 55,
         }
 
-        cytoscape.use(cytoscapeFcose);
+        // cytoscape.use(cytoscapeFcose);
 
         progress = {
             text: "Loading Tooltips...",
             number: 60,
-        }
+        };
 
-        cytoscape.use(cytoscapePopper(tippyFactory))
+        cytoscape.use(cytoscapePopper(tippyFactory));
 
         progress = {
             text: "Rendering Graph...",
             number: 65,
+        };
+
+        const elk = new ELK()
+        const newLayout = {
+            id: "root",
+            layoutOptions: { 'elk.algorithm': 'layered' },
+            children: (courseData.filter((item: any) => !("source" in item.data))).map((node: {data: {description: string, id: string, parent: string}}) => {
+                return {
+                    id: node.data.id,
+                    width: node.data.id.length * 15,
+                    height: 50 
+                }
+            }),
+            edges: (courseData.filter((item: any) => ("source" in item.data))).map((node: {data: {source: string, target: string}}) => {
+                return {
+                    id: node.data.source + "-" + node.data.target,
+                    sources: [node.data.source],
+                    targets: [node.data.target],
+                }
+            })
         }
+        
+        const nodePos = await elk.layout(newLayout)
+//         let newCytoscapeLayout: LayoutOptions = {
+//             name: 'preset',
+
+//             positions: Object.fromEntries(
+//                 nodePos.children!.map((child) => [child.id, { x: child.x === undefined ? 0 : child.x, y: child.y === undefined ? 0 : child.y }])
+//             ),            // (id: string) => {
+//             //     let ele = nodePos.children!.filter(child => child.id === id)[0]
+//             //     return {
+//             //         x: ele.x,
+//             //         y: ele.y
+//             //     }
+//             // }, // map of (node id) => (position obj); or function(node){ return somPos; }
+//             zoom: undefined, // the zoom level to set (prob want fit = false if set)
+//             pan: undefined, // the pan level to set (prob want fit = false if set)
+//             fit: true, // whether to fit to viewport
+//             padding: 30, // padding on fit
+//         }
 
         let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
             name: 'fcose',
