@@ -32,6 +32,7 @@
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = $state([])
     let terms: Terms = $state({});
+    let selectedTerm: string | undefined = undefined;
     let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
@@ -114,7 +115,7 @@
     })
 
     $effect(() => {
-        if (courseIdentifier && courseIdentifier !== currentCourseIdentifier) {
+        if (courseIdentifier && terms && courseIdentifier !== currentCourseIdentifier) {
             (async () => {
                 currentCourseIdentifier = courseIdentifier; // update the guard variable
 
@@ -123,7 +124,9 @@
 
                 // Reset the instructors array for the new course data.
                 let rawInstructors = [];
-                for (const [name, email] of Object.entries(courseData?.enrollment_data?.instructors ?? {})) {
+                let latestTerm = Object.keys(terms).sort().pop() ?? ""; // TODO Allow user to select term
+                let termValue = terms[latestTerm];
+                for (const [name, email] of Object.entries(courseData?.enrollment_data[termValue]?.instructors ?? {})) {
                     const response = await apiFetch(
                         `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
                     );
