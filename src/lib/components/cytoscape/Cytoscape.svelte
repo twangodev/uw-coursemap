@@ -317,23 +317,47 @@
                 }
             })
         }
+        
         const nodePos = await elk.layout(newLayout)
-        let newCytoscapeLayout: LayoutOptions = {
-            name: 'preset',
+//         let newCytoscapeLayout: LayoutOptions = {
+//             name: 'preset',
 
-            positions: Object.fromEntries(
-                nodePos.children!.map((child) => [child.id, { x: child.x === undefined ? 0 : child.x, y: child.y === undefined ? 0 : child.y }])
-            ),            // (id: string) => {
-            //     let ele = nodePos.children!.filter(child => child.id === id)[0]
-            //     return {
-            //         x: ele.x,
-            //         y: ele.y
-            //     }
-            // }, // map of (node id) => (position obj); or function(node){ return somPos; }
-            zoom: undefined, // the zoom level to set (prob want fit = false if set)
-            pan: undefined, // the pan level to set (prob want fit = false if set)
-            fit: true, // whether to fit to viewport
-            padding: 30, // padding on fit
+//             positions: Object.fromEntries(
+//                 nodePos.children!.map((child) => [child.id, { x: child.x === undefined ? 0 : child.x, y: child.y === undefined ? 0 : child.y }])
+//             ),            // (id: string) => {
+//             //     let ele = nodePos.children!.filter(child => child.id === id)[0]
+//             //     return {
+//             //         x: ele.x,
+//             //         y: ele.y
+//             //     }
+//             // }, // map of (node id) => (position obj); or function(node){ return somPos; }
+//             zoom: undefined, // the zoom level to set (prob want fit = false if set)
+//             pan: undefined, // the pan level to set (prob want fit = false if set)
+//             fit: true, // whether to fit to viewport
+//             padding: 30, // padding on fit
+//         }
+
+        let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
+            name: 'fcose',
+            quality: 'proof', // 'draft', 'default' or 'proof'
+            animate: true, // Whether to animate the layout
+            animationDuration: 1000, // Duration of the animation in milliseconds
+            animationEasing: 'ease-out', // Easing of the animation
+            fit: true, // Whether to fit the viewport to the graph
+            padding: 30, // Padding around the layout
+            nodeDimensionsIncludeLabels: true, // Excludes the label when calculating node bounding boxes for the layout algorithm
+            uniformNodeDimensions: true, // Specifies whether the node dimensions should be uniform
+            packComponents: true, // Pack connected components - usually for graphs with multiple components
+            nodeRepulsion: 40000, // Node repulsion (non overlapping) multiplier
+            idealEdgeLength: 60, // Ideal edge (non nested) length
+            edgeElasticity: 0.002, // Divisor to compute edge forces
+            nestingFactor: 1, // Nesting factor (multiplier) to compute ideal edge length for nested edges
+            gravity: 1,
+            gravityRangeCompound: 1,
+            gravityCompound: 0.1,
+            gravityRange: 1.5,
+            initialEnergyOnIncremental: 0.1,
+            randomize: true, // Whether to randomize the initial positions of nodes
             // fixedNodeConstraint: [
             //     {
             //         nodeId: '300',
