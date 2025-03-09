@@ -1,6 +1,6 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import cytoscape, {type StylesheetStyle} from "cytoscape";
+    import cytoscape, {type LayoutOptions, type Position, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -26,6 +26,7 @@
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import {apiFetch} from "$lib/api.ts";
     import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
+    import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
 
     interface Props {
         url: string;
@@ -211,41 +212,56 @@
             number: 55,
         }
 
-        cytoscape.use(cytoscapeFcose);
+        // cytoscape.use(cytoscapeFcose);
 
         progress = {
             text: "Loading Tooltips...",
             number: 60,
-        }
+        };
 
-        cytoscape.use(cytoscapePopper(tippyFactory))
+        cytoscape.use(cytoscapePopper(tippyFactory));
 
         progress = {
             text: "Rendering Graph...",
             number: 65,
-        }
+        };
 
-        let newCytoscapeLayout: cytoscapeFcose.FcoseLayoutOptions = {
-            name: 'fcose',
-            quality: 'default', // 'draft', 'default' or 'proof'
-            animate: false, // Whether to animate the layout
-            animationDuration: 1000, // Duration of the animation in milliseconds
-            animationEasing: 'ease-out', // Easing of the animation
-            fit: true, // Whether to fit the viewport to the graph
-            padding: 30, // Padding around the layout
-            nodeDimensionsIncludeLabels: true, // Excludes the label when calculating node bounding boxes for the layout algorithm
-            uniformNodeDimensions: true, // Specifies whether the node dimensions should be uniform
-            packComponents: true, // Pack connected components - usually for graphs with multiple components
-            nodeRepulsion: 40000, // Node repulsion (non overlapping) multiplier
-            idealEdgeLength: 60, // Ideal edge (non nested) length
-            edgeElasticity: 0.002, // Divisor to compute edge forces
-            nestingFactor: 1, // Nesting factor (multiplier) to compute ideal edge length for nested edges
-            gravity: 1,
-            gravityRangeCompound: 1,
-            gravityCompound: 0.1,
-            gravityRange: 1.5,
-            initialEnergyOnIncremental: 0.1,
-            randomize: true, // Whether to randomize the initial positions of nodes
+        const elk = new ELK()
+        const newLayout = {
+            id: "root",
+            layoutOptions: { 'elk.algorithm': 'layered' },
+            children: (courseData.filter((item: any) => !("source" in item.data))).map((node: {data: {description: string, id: string, parent: string}}) => {
+                return {
+                    id: node.data.id,
+                    width: node.data.id.length * 15,
+                    height: 50 
+                }
+            }),
+            edges: (courseData.filter((item: any) => ("source" in item.data))).map((node: {data: {source: string, target: string}}) => {
+                return {
+                    id: node.data.source + "-" + node.data.target,
+                    sources: [node.data.source],
+                    targets: [node.data.target],
+                }
+            })
+        }
+        const nodePos = await elk.layout(newLayout)
+        let newCytoscapeLayout: LayoutOptions = {
+            name: 'preset',
+
+            positions: Object.fromEntries(
+                nodePos.children!.map((child) => [child.id, { x: child.x === undefined ? 0 : child.x, y: child.y === undefined ? 0 : child.y }])
+            ),            // (id: string) => {
+            //     let ele = nodePos.children!.filter(child => child.id === id)[0]
+            //     return {
+            //         x: ele.x,
+            //         y: ele.y
+            //     }
+            // }, // map of (node id) => (position obj); or function(node){ return somPos; }
+            zoom: undefined, // the zoom level to set (prob want fit = false if set)
+            pan: undefined, // the pan level to set (prob want fit = false if set)
+            fit: true, // whether to fit to viewport
+            padding: 30, // padding on fit
             // fixedNodeConstraint: [
             //     {
             //         nodeId: '300',
