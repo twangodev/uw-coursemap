@@ -1,6 +1,6 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import cytoscape, {type LayoutOptions, type Position, type StylesheetStyle} from "cytoscape";
+    import cytoscape, {type EdgeDefinition, type LayoutOptions, type NodeDefinition, type Position, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -21,6 +21,7 @@
     import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
+    import { fetchCourseData, getEdgeData, getNodeData } from "./Data";
 
     let focus = $derived(page.url.searchParams.get('focus'));
 
@@ -182,12 +183,8 @@
             text: "Fetching Graph Data...",
             number: 25,
         }
-
-        let response = await fetch(url);
-        let courseData = await response.json();
-        courseData.forEach((item: any) => {
-            item['pannable'] = true;
-        });
+        
+        let courseData = await fetchCourseData(url); 
 
         progress = {
             text: "Styling Graph...",
@@ -284,7 +281,7 @@
             number: 55,
         }
 
-        // cytoscape.use(cytoscapeFcose);
+        cytoscape.use(cytoscapeFcose);
 
         progress = {
             text: "Loading Tooltips...",
@@ -302,21 +299,27 @@
         const newLayout = {
             id: "root",
             layoutOptions: { 'elk.algorithm': 'layered' },
-            children: (courseData.filter((item: any) => !("source" in item.data))).map((node: {data: {description: string, id: string, parent: string}}) => {
+            children: getNodeData(courseData).map((node: NodeDefinition) => {
+                if (!node.data.id) {
+                    throw new Error("Node ID is undefined");
+                }
                 return {
                     id: node.data.id,
                     width: node.data.id.length * 15,
                     height: 50 
                 }
             }),
-            edges: (courseData.filter((item: any) => ("source" in item.data))).map((node: {data: {source: string, target: string}}) => {
-                return {
-                    id: node.data.source + "-" + node.data.target,
-                    sources: [node.data.source],
-                    targets: [node.data.target],
+            edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
+                if (!edge.data) {
+                    throw new Error("Edge is undefined");
                 }
-            })
-        }
+                return {
+                    id: edge.data.source + "-" + edge.data.target,
+                    sources: [edge.data.source],
+                    targets: [edge.data.target],
+                }
+            }),
+        };
         
         const nodePos = await elk.layout(newLayout)
 //         let newCytoscapeLayout: LayoutOptions = {
