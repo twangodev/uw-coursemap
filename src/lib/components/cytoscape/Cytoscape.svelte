@@ -9,10 +9,10 @@
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
+    import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
     import {writable} from "svelte/store";
     import {Skeleton} from "$lib/components/ui/skeleton";
     import {Separator} from "$lib/components/ui/separator";
-    import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
     import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
@@ -25,6 +25,7 @@
     import { getStyles } from "./Styles";
     import { FcoseLayout, generateLayeredLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
+    import Sheet from "./Sheet.svelte";
 
     let focus = $derived(page.url.searchParams.get('focus'));
 
@@ -34,7 +35,7 @@
     }
 
     let { url, styleUrl }: Props = $props();
-    let sheetOpen = writable(false);
+    let sheetOpen = $state(false);
 
     function getNonCompoundNodes() {
         return cy?.nodes().filter(function (node) {
@@ -70,10 +71,10 @@
     $effect(() => {
         (async () => {
             if (cy && focus) {
-                $sheetOpen = true;
+                sheetOpen = true;
                 let response = await apiFetch(`/course/${focus}.json`);
                 let course = await response.json();
-                $selectedCourse = course
+                selectedCourse = course
 
                 let id = courseReferenceToString(course.course_reference);
                 let node = cy.$id(id)
@@ -91,10 +92,10 @@
     })
 
     $effect(() => {
-        if (cy && $selectedCourse) {
-            let courseId = sanitizeCourseToReferenceString($selectedCourse.course_reference);
+        if (cy && selectedCourse) {
+            let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
 
-            if ($sheetOpen) {
+            if (sheetOpen) {
                 page.url.searchParams.set('focus', courseId);
 
             } else {
@@ -115,7 +116,7 @@
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let selectedCourse = writable<Course | null>(null);
+    let selectedCourse = $state<Course | null>(null);
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -224,10 +225,10 @@
             }
 
             if (isDesktop()) {
-                $selectedCourse = null;
-                $sheetOpen = true;
+                selectedCourse = null;
+                sheetOpen = true;
 
-                $selectedCourse = await fetchCourse(targetNode.id())
+                selectedCourse = await fetchCourse(targetNode.id())
                 return;
             }
 
@@ -273,57 +274,4 @@
 
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
-
-<Root bind:open={$sheetOpen}>
-    <SheetContent class="flex flex-col h-full">
-        <SheetHeader class="sticky">
-            <SheetTitle class="text-2xl">
-                {#if $selectedCourse}
-                    {courseReferenceToString($selectedCourse.course_reference)}
-                {:else}
-                    <Skeleton class="h-6 w-9/12"/>
-                {/if}
-            </SheetTitle>
-        </SheetHeader>
-        <ScrollArea class="flex-1 overflow-y-auto mr-1">
-            <div class="font-semibold">
-                {#if $selectedCourse}
-                    {$selectedCourse.course_title}
-                {:else}
-                    <Skeleton class="h-5 w-6/12"/>
-                {/if}
-            </div>
-            <Separator class="my-1"/>
-            <SheetDescription>
-                {#if $selectedCourse}
-                    {$selectedCourse.description}
-                {:else}
-                    <Skeleton class="h-5 w-6/12"/>
-                {/if}
-            </SheetDescription>
-            {#if $selectedCourse}
-                {#each Object.entries($selectedCourse?.enrollment_data?.instructors ?? {}) as [name, email], index}
-                    {#if index === 0}
-                        <div class="font-semibold mt-2">INSTRUCTORS</div>
-                        <Separator class="my-1" />
-                    {/if}
-                    <InstructorPreview instructor={{
-                        name: name,
-                        email: email,
-                        credentials: null,
-                        rmp_data: null,
-                        department: null,
-                        official_name: null,
-                        position: null
-                    }}/>
-                {/each}
-            {/if}
-        </ScrollArea>
-        {#if $selectedCourse}
-            <Button class="sticky bottom-0" href="/courses/{sanitizeCourseToReferenceString($selectedCourse.course_reference)}" target="_blank">
-                View Course Page
-                <ArrowUpRight class="h-4 w-4"/>
-            </Button>
-        {/if}
-    </SheetContent>
-</Root>
+<Sheet bind:sheetOpen {selectedCourse}/>
