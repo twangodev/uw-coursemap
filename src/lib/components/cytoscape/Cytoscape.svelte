@@ -21,7 +21,7 @@
     import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
-    import { fetchCourseData, getEdgeData, getNodeData } from "./Data";
+    import { fetchCourse, fetchGraphData, getEdgeData, getNodeData } from "./Data";
     import { getStyles } from "./Styles";
     import { FcoseLayout, generateLayeredLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
@@ -117,11 +117,6 @@
 
     let selectedCourse = writable<Course | null>(null);
 
-    async function fetchCourse(courseId: string) {
-        let response = await apiFetch(`/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
-        $selectedCourse = await response.json();
-    }
-
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
         const dummyDomEle = document.createElement('div');
@@ -160,7 +155,7 @@
             number: 25,
         }
         
-        let courseData = await fetchCourseData(url); 
+        let courseData = await fetchGraphData(url); 
 
         progress = {
             text: "Styling Graph...",
@@ -232,8 +227,7 @@
                 $selectedCourse = null;
                 $sheetOpen = true;
 
-                fetchCourse(targetNode.id()).then(() => {
-                });
+                $selectedCourse = await fetchCourse(targetNode.id())
                 return;
             }
 
