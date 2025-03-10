@@ -24,6 +24,7 @@
     import { fetchCourseData, getEdgeData, getNodeData } from "./Data";
     import { getStyles } from "./Styles";
     import { FcoseLayout, generateLayeredLayout } from "./Layout";
+    import SideControls from "./SideControls.svelte";
 
     let focus = $derived(page.url.searchParams.get('focus'));
 
@@ -109,31 +110,8 @@
         number: 10,
     })
 
-    let isFullscreen = false;
     let cy: cytoscape.Core | undefined = $state()
-
-    const toggleFullscreen = () => {
-        if (!isFullscreen) {
-            let element = document.getElementById('cy-container');
-            element?.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-        isFullscreen = !isFullscreen;
-    };
-
-    const zoomIn = () => {
-        cy?.zoom(cy.zoom() + 0.1);
-    };
-
-    const zoomOut = () => {
-        cy?.zoom(cy.zoom() - 0.1);
-    };
-
     let elementsAreDraggable = $state(false);
-    const toggleDraggableElements = () => {
-        elementsAreDraggable = !elementsAreDraggable;
-    }
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
@@ -299,40 +277,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
-        <TooltipProvider>
-            <Tooltip>
-                <TooltipTrigger>
-                    <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleDraggableElements}>
-                        {#if elementsAreDraggable}
-                            <LockKeyholeOpen class="h-5 w-5" />
-                        {:else}
-                            <LockKeyhole class="h-5 w-5"/>
-                        {/if}
-                    </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                    {#if elementsAreDraggable}
-                        Lock Elements
-                    {:else}
-                        Unlock Elements
-                    {/if}
-                </TooltipContent>
-            </Tooltip>
-        </TooltipProvider>
-
-        <Button size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomIn}>
-            <LucidePlus class="h-5 w-5"/>
-        </Button>
-        <!-- Zoom Out Button -->
-        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={zoomOut}>
-            <LucideMinus class="h-5 w-5"/>
-        </Button>
-
-        <Button  size="sm" variant="outline" class="h-8 w-8 px-0" onclick={toggleFullscreen}>
-            <LucideFullscreen class="h-5 w-5"/>
-        </Button>
-    </div>
+    <SideControls bind:elementsAreDraggable {cy}/>
 </div>
 
 <Root bind:open={$sheetOpen}>
