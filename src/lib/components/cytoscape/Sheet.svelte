@@ -7,12 +7,59 @@
     import {Button} from "$lib/components/ui/button";
     import InstructorPreview from "../instructor-preview/InstructorPreview.svelte";
     import { ArrowUpRight } from "lucide-svelte";
-    
+    import { apiFetch } from "$lib/api";
+    import { clearPath, highlightPath } from "./PathAlgos";
+    import {page} from "$app/state";
+    import {pushState} from "$app/navigation";
+
     interface Props {
+        cy: cytoscape.Core | undefined;
         sheetOpen: boolean;
         selectedCourse: Course | null;
+        myTip: any;
     }
-    let { sheetOpen = $bindable<boolean>(), selectedCourse }: Props = $props();
+    let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, myTip }: Props = $props();
+    let focus = $derived(page.url.searchParams.get('focus'));
+
+    $effect(() => {
+        (async () => {
+            if (cy && focus) {
+                sheetOpen = true;
+                let response = await apiFetch(`/course/${focus}.json`);
+                let course = await response.json();
+                selectedCourse = course
+
+                let id = courseReferenceToString(course.course_reference);
+                let node = cy.$id(id)
+
+                cy.zoom({
+                    level: 1.5,
+                    renderedPosition: node.renderedPosition()
+                });
+                cy.zoom(1.5);
+                cy.center(node);
+                clearPath(cy, myTip);
+                highlightPath(cy, node);
+            }
+        })();
+    })
+
+    $effect(() => {
+        if (cy && selectedCourse) {
+            let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
+
+            if (sheetOpen) {
+                page.url.searchParams.set('focus', courseId);
+
+            } else {
+                page.url.searchParams.delete('focus');
+            }
+
+            pushState(page.url, page.state);
+        }
+    })
+
+
 </script>
 
 <Root bind:open={sheetOpen}>

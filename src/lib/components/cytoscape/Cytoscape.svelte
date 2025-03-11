@@ -19,8 +19,6 @@
     import {apiFetch} from "$lib/api.ts";
     import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
     import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
-    import {page} from "$app/state";
-    import {pushState} from "$app/navigation";
     import { fetchCourse, fetchGraphData, getEdgeData, getNodeData } from "./Data";
     import { getStyles } from "./Styles";
     import { FcoseLayout, generateLayeredLayout } from "./Layout";
@@ -28,7 +26,6 @@
     import Sheet from "./Sheet.svelte";
     import { clearPath, highlightPath } from "./PathAlgos";
 
-    let focus = $derived(page.url.searchParams.get('focus'));
 
     interface Props {
         url: string;
@@ -37,45 +34,7 @@
 
     let { url, styleUrl }: Props = $props();
     let sheetOpen = $state(false);
-    $effect(() => {
-        (async () => {
-            if (cy && focus) {
-                sheetOpen = true;
-                let response = await apiFetch(`/course/${focus}.json`);
-                let course = await response.json();
-                selectedCourse = course
-
-                let id = courseReferenceToString(course.course_reference);
-                let node = cy.$id(id)
-
-                cy.zoom({
-                    level: 1.5,
-                    renderedPosition: node.renderedPosition()
-                });
-                cy.zoom(1.5);
-                cy.center(node);
-                clearPath(cy, myTip);
-                highlightPath(cy, node);
-            }
-        })();
-    })
-
-    $effect(() => {
-        if (cy && selectedCourse) {
-            let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
-
-            if (sheetOpen) {
-                page.url.searchParams.set('focus', courseId);
-
-            } else {
-                page.url.searchParams.delete('focus');
-            }
-
-            pushState(page.url, page.state);
-        }
-    })
-
-    let progress = $state({
+        let progress = $state({
         text: "Loading Graph...",
         number: 10,
     })
@@ -236,4 +195,4 @@
 
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
-<Sheet bind:sheetOpen {selectedCourse}/>
+<Sheet {cy} bind:sheetOpen {selectedCourse} {myTip}/>
