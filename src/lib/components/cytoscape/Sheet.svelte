@@ -16,9 +16,9 @@
         cy: cytoscape.Core | undefined;
         sheetOpen: boolean;
         selectedCourse: Course | null;
-        myTip: any;
+        destroyTip: () => void;
     }
-    let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, myTip }: Props = $props();
+    let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
 
     $effect(() => {
@@ -38,7 +38,7 @@
                 });
                 cy.zoom(1.5);
                 cy.center(node);
-                clearPath(cy, myTip);
+                clearPath(cy, destroyTip);
                 highlightPath(cy, node);
             }
         })();

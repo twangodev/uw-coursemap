@@ -29,10 +29,10 @@ export function highlightPath(cy: cytoscape.Core | undefined, node: cytoscape.No
     fadeEdges?.addClass('faded');
 }
 
-export function clearPath(cy: cytoscape.Core | undefined, myTip: any) {
+export function clearPath(cy: cytoscape.Core | undefined, destroyTip: () => void) {
     cy?.nodes().removeClass('highlighted-nodes');
     cy?.elements().removeClass('faded');
     cy?.edges().removeClass('highlighted-edges');
-    myTip?.destroy();
+    destroyTip();
 }
 

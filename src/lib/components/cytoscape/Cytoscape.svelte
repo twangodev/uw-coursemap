@@ -1,31 +1,17 @@
 <script lang="ts">
-    import {onMount} from "svelte";
-    import cytoscape, {type EdgeDefinition, type LayoutOptions, type NodeDefinition, type Position, type StylesheetStyle} from "cytoscape";
+    import cytoscape from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
-    import {Button} from "$lib/components/ui/button";
-    import {LockKeyhole, LockKeyholeOpen, LucideFullscreen, LucideMinus, LucidePlus} from "lucide-svelte";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
-    import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
-    import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
-    import {writable} from "svelte/store";
-    import {Skeleton} from "$lib/components/ui/skeleton";
-    import {Separator} from "$lib/components/ui/separator";
-    import ArrowUpRight from "lucide-svelte/icons/arrow-up-right";
-    import {ScrollArea} from "$lib/components/ui/scroll-area";
-    import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
-    import {apiFetch} from "$lib/api.ts";
-    import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "../ui/tooltip";
-    import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
-    import { fetchCourse, fetchGraphData, getEdgeData, getNodeData } from "./Data";
+    import {type Course} from "$lib/types/course.ts";
+    import { fetchCourse, fetchGraphData} from "./Data";
     import { getStyles } from "./Styles";
-    import { FcoseLayout, generateLayeredLayout } from "./Layout";
+    import { FcoseLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
     import Sheet from "./Sheet.svelte";
     import { clearPath, highlightPath } from "./PathAlgos";
-
 
     interface Props {
         url: string;
@@ -68,6 +54,9 @@
     function setTip(newTip: any) {
         myTip?.destroy();
         myTip = newTip;
+    }
+    function destroyTip() {
+        myTip?.destroy();
     }
     const loadGraph = async () => {
 
@@ -136,7 +125,7 @@
         });
 
         cy.on('mouseout', 'node', function (event) {
-            clearPath(cy, myTip);
+            clearPath(cy, destroyTip);
         });
 
         cy.on('tap', 'node', async function (event) {
@@ -174,10 +163,6 @@
             text: "Graph Loaded",
             number: 100,
         }
-
-
-
-
     };
 
     $effect(() => {
@@ -195,4 +180,4 @@
 
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
-<Sheet {cy} bind:sheetOpen {selectedCourse} {myTip}/>
+<Sheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
