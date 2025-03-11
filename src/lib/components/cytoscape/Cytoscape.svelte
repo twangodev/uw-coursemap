@@ -6,7 +6,7 @@
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
-    import { fetchCourse, fetchGraphData} from "./Data";
+    import { fetchCourse, fetchGraphData} from "./FetchData";
     import { getStyles } from "./Styles";
     import { FcoseLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
