@@ -45,13 +45,17 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
     }
 
     async with aiohttp.ClientSession() as session:
-        logger.debug("Building enrollment package...")
+        logger.debug(f"Building enrollment package for {terms[selected_term]}...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
         course_count = data["found"]
 
+        if not course_count:
+            logger.warning(f"No courses found in the {terms[selected_term]} term")
+            return {}
+
         post_data["pageSize"] = course_count
-        logger.debug(f"Discovered {course_count} courses in the latest term. Syncing terms...")
+        logger.debug(f"Discovered {course_count} courses in the {terms[selected_term]} term. Syncing terms...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
 
@@ -70,7 +74,7 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
             for full_name, email in instructors.items():
                 all_instructors.setdefault(full_name, email)
 
-        logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in the latest term")
+        logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {terms[selected_term]}")
         return all_instructors
 
 
@@ -125,6 +129,6 @@ async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_
 
     enrollment_data.instructors = course_instructors
     logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")
-    course.enrollment_data = enrollment_data
+    course.enrollment_data[terms[selected_term]] = enrollment_data
 
     return course_instructors

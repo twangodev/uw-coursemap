@@ -24,22 +24,27 @@
     $effect(() => {
         (async () => {
             if (cy && focus) {
-                sheetOpen = true;
                 let response = await apiFetch(`/course/${focus}.json`);
                 let course = await response.json();
-                selectedCourse = course
 
                 let id = courseReferenceToString(course.course_reference);
                 let node = cy.$id(id)
 
-                cy.zoom({
-                    level: 1.5,
-                    renderedPosition: node.renderedPosition()
+                cy.animate({
+                    zoom: 2,
+                    center: {
+                        eles: node,
+                    },
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    queue: true
                 });
-                cy.zoom(1.5);
-                cy.center(node);
+
                 clearPath(cy, destroyTip);
                 highlightPath(cy, node);
+
+                sheetOpen = true;
+                selectedCourse = course
             }
         })();
     })
@@ -47,7 +52,6 @@
     $effect(() => {
         if (cy && selectedCourse) {
             let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
-
             if (sheetOpen) {
                 page.url.searchParams.set('focus', courseId);
 

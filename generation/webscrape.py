@@ -1,7 +1,9 @@
+import asyncio
 import re
 import time
 from logging import Logger
 
+import aiohttp
 import requests
 from bs4 import BeautifulSoup, ResultSet
 from requests.adapters import HTTPAdapter
@@ -13,17 +15,26 @@ from timer import get_ms
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
 
-def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
-    time_start = time.time()
-    response = session.get(url)
-    soup = BeautifulSoup(response.content, "html.parser")
+async def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
+    attempts = 5
+    for attempt in range(1, attempts + 1):
+        try:
+            time_start = time.time()
+            async with session.get(url) as response:
+                content = await response.read()
+            soup = BeautifulSoup(content, "html.parser")
 
-    subject_title = soup.find(class_="page-title").get_text(strip=True)
+            subject_title = soup.find(class_="page-title").get_text(strip=True)
+            results = soup.find_all("div", class_="courseblock")
 
-    results = soup.find_all("div", class_="courseblock")
-    time_elapsed_ms = get_ms(time_start)
-    logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}")
-    return subject_title, results
+            time_elapsed_ms = get_ms(time_start)
+            logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}ms")
+            return subject_title, results
+        except Exception as e:
+            logger.error(f"Attempt {attempt} failed for URL {url}: {e}")
+            if attempt == attempts:
+                raise
+            await asyncio.sleep(1)  # Wait 1 second before retrying
 
 
 def add_data(subjects, course_ref_course, full_subject, blocks):
@@ -65,26 +76,28 @@ def get_course_urls(logger: Logger) -> set[str]:
     return sitemap_urls
 
 
-def scrape_all(urls: set[str], logger: Logger):
+async def scrape_all(urls: set[str], logger: Logger):
     logger.info("Building course data...")
 
-    subject_to_full_subject = dict()
-    course_ref_to_course = dict()
+    subject_to_full_subject = {}
+    course_ref_to_course = {}
 
     prefix = get_prefix(list(urls)[0])
 
-    session = requests.Session()
-    adapter = HTTPAdapter(pool_connections=10, pool_maxsize=10, max_retries=get_global_retry_strategy())
-    session.mount(prefix, adapter)
+    timeout = aiohttp.ClientTimeout(total=60)
+    connector = aiohttp.TCPConnector(limit=10)
 
-    for url in urls:
-        full_subject, blocks = get_course_blocks(session, url, logger)
-        add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
+    async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
+        tasks = [get_course_blocks(session, url, logger) for url in urls]
+        results = await asyncio.gather(*tasks, return_exceptions=False)
+        for full_subject, blocks in results:
+            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
 
     return subject_to_full_subject, course_ref_to_course
+
 
 
 def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:

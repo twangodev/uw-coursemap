@@ -66,8 +66,7 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
         graph_set_2.add(graph_data)
 
 
-def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]],
-                 logger: Logger):
+def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]], logger: Logger):
     logger.info("Building course graphs...")
 
     graph = set()
@@ -94,7 +93,7 @@ def cleanup_graphs(global_graph, subject_to_graph, logger: Logger):
     logger.info(f"Removed {count} None graphs")
 
 
-def generate_style_from_graph(graph):
+def generate_style_from_graph(graph, color_map):
     parents = set()
     for el in graph:
         if "data" in el:
@@ -102,10 +101,10 @@ def generate_style_from_graph(graph):
             if "parent" in data:
                 parents.add(data["parent"])
 
-    colors = generate_random_hex_colors(len(set(parents)))
+    colors = generate_random_hex_colors(parents, color_map)
 
     return [generate_style(parent, color) for parent, color in zip(set(parents), colors)]
 
 
-def generate_styles(subject_to_graph):
-    return {subject: generate_style_from_graph(subject_to_graph[subject]) for subject in subject_to_graph}
+def generate_styles(subject_to_graph, color_map):
+    return {subject: generate_style_from_graph(subject_to_graph[subject], color_map) for subject in subject_to_graph}

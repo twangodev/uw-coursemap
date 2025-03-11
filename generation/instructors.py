@@ -7,6 +7,7 @@ import aiohttp
 import requests
 from bs4 import BeautifulSoup
 
+from enrollment import build_from_mega_query
 from json_serializable import JsonSerializable
 
 faculty_url = "https://guide.wisc.edu/faculty/"
@@ -319,3 +320,24 @@ async def get_ratings(instructors: dict[str, str], logger: Logger):
     logger.info(
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
     return instructor_data
+
+async def gather_instructor_emails(terms, course_ref_to_course, logger):
+    combined_emails = {}
+    # sort terms so that later (i.e. 'larger') keys override earlier ones
+    sorted_terms = sorted(terms.keys())
+    # Create a list of tasks, one per term
+    tasks = [
+        build_from_mega_query(
+            selected_term=term,
+            terms=terms,
+            course_ref_to_course=course_ref_to_course,
+            logger=logger
+        )
+        for term in sorted_terms
+    ]
+    # Run all tasks concurrently
+    results = await asyncio.gather(*tasks)
+    # Merge dictionaries; later ones override earlier ones for duplicate keys
+    for term, emails in zip(sorted_terms, results):
+        combined_emails.update(emails)
+    return combined_emails

@@ -58,13 +58,14 @@ def write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger):
     write_file(cache_dir, (), "instructors", instructor_to_rating, logger)
 
 
-def write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, logger):
+def write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger):
     write_file(cache_dir, ("graphs",), "global_graph", global_graph, logger)
     write_file(cache_dir, ("graphs",), "subject_to_graph", subject_to_graph, logger)
 
     write_file(cache_dir, ("graphs",), "global_style", global_style, logger)
     write_file(cache_dir, ("graphs",), "subject_to_style", subject_to_style, logger)
 
+    write_file(cache_dir, ("graphs",), "color_map", color_map, logger)
 
 def read_course_ref_to_course_cache(cache_dir, logger):
     str_course_ref_to_course = read_cache(cache_dir, (), "courses", logger)
@@ -74,6 +75,8 @@ def read_course_ref_to_course_cache(cache_dir, logger):
 
 def read_terms_cache(cache_dir, logger):
     str_terms = read_cache(cache_dir, (), "terms", logger)
+    if str_terms is None:
+        return {}
     return {int(term_code): term_name for term_code, term_name in str_terms.items()}
 
 
@@ -93,6 +96,8 @@ def read_graphs_cache(cache_dir, logger):
 
 def read_instructors_to_rating_cache(cache_dir, logger):
     instructors_to_rating = read_cache(cache_dir, (), "instructors", logger)
+    if instructors_to_rating is None:
+        return {}
     return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
 
 

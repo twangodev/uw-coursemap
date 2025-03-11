@@ -110,7 +110,7 @@ class Course(JsonSerializable):
             prerequisites: Prerequisites,
             optimized_prerequisites: Prerequisites | None,
             madgrades_data,
-            enrollment_data: EnrollmentData | None
+            enrollment_data: dict[str, EnrollmentData],
     ):
         self.course_reference = course_reference
         self.course_title = course_title
@@ -137,8 +137,7 @@ class Course(JsonSerializable):
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
             optimized_prerequisites=optimized_prerequisites,
             madgrades_data=madgrades_data,
-            enrollment_data=EnrollmentData.from_json(json_data["enrollment_data"]) if json_data[
-                "enrollment_data"] else None
+            enrollment_data={term: EnrollmentData.from_json(data) for term, data in json_data["enrollment_data"].items()}
         )
 
     def to_dict(self):
@@ -149,7 +148,7 @@ class Course(JsonSerializable):
             "prerequisites": self.prerequisites.to_dict(),
             "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
             "madgrades_data": self.madgrades_data.to_dict() if self.madgrades_data else None,
-            "enrollment_data": self.enrollment_data.to_dict() if self.enrollment_data else None,
+            "enrollment_data": {term: data.to_dict() for term, data in self.enrollment_data.items()}
         }
 
     @classmethod
@@ -172,7 +171,7 @@ class Course(JsonSerializable):
 
         cb_extras = block.find("div", class_="cb-extras")
         basic_course = Course(course_reference, course_title, description, Course.Prerequisites("", set()), None, None,
-                              None)
+                              {})
         if not cb_extras:
             return basic_course
 
@@ -191,7 +190,7 @@ class Course(JsonSerializable):
         requisites_courses.discard(course_reference)  # Remove self-reference
 
         course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
-        return Course(course_reference, course_title, description, course_prerequisite, None, None, None)
+        return Course(course_reference, course_title, description, course_prerequisite, None, None, {})
 
     def determine_parent(self):
         parent = None
