@@ -184,6 +184,7 @@
             number: 65,
         };
 
+        // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
         let newCytoscapeLayout = FcoseLayout;
         
