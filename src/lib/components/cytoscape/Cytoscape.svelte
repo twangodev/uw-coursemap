@@ -26,6 +26,7 @@
     import { FcoseLayout, generateLayeredLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
     import Sheet from "./Sheet.svelte";
+    import { clearPath, highlightPath } from "./PathAlgos";
 
     let focus = $derived(page.url.searchParams.get('focus'));
 
@@ -36,38 +37,6 @@
 
     let { url, styleUrl }: Props = $props();
     let sheetOpen = $state(false);
-
-    function getNonCompoundNodes() {
-        return cy?.nodes().filter(function (node) {
-            return node.data('type') !== 'compound';
-        });
-    }
-
-    function highlightPath(node: cytoscape.NodeSingular) {
-        if (node.data('type') === 'compound') {
-            return;
-        }
-
-        const incomingNodes = node.predecessors('node').union(node);
-        const incomingEdges = node.predecessors('edge');
-
-        const outgoingNodes = node.outgoers('node').union(node);
-        const outgoingEdges = node.outgoers('edge');
-
-        const highlightedNodes = incomingNodes.union(outgoingNodes);
-        const highlightedEdges = incomingEdges.union(outgoingEdges);
-
-        highlightedNodes.addClass('highlighted-nodes');
-        highlightedEdges.addClass('highlighted-edges');
-
-        const nonCompoundNodes = getNonCompoundNodes();
-
-        const fadeNodes = nonCompoundNodes?.difference(highlightedNodes);
-        const fadeEdges = cy?.edges().difference(highlightedEdges);
-        fadeNodes?.addClass('faded');
-        fadeEdges?.addClass('faded');
-    }
-
     $effect(() => {
         (async () => {
             if (cy && focus) {
@@ -85,8 +54,8 @@
                 });
                 cy.zoom(1.5);
                 cy.center(node);
-                clearPath();
-                highlightPath(node);
+                clearPath(cy, myTip);
+                highlightPath(cy, node);
             }
         })();
     })
@@ -141,14 +110,6 @@
         myTip?.destroy();
         myTip = newTip;
     }
-
-    function clearPath() {
-        cy?.nodes().removeClass('highlighted-nodes');
-        cy?.elements().removeClass('faded');
-        cy?.edges().removeClass('highlighted-edges');
-        myTip?.destroy();
-    }
-
     const loadGraph = async () => {
 
         progress = {
@@ -212,11 +173,11 @@
                 targetNode.addClass('no-overlay');
                 targetNode.panify();
             }
-            highlightPath(targetNode);
+            highlightPath(cy, targetNode);
         });
 
         cy.on('mouseout', 'node', function (event) {
-            clearPath();
+            clearPath(cy, myTip);
         });
 
         cy.on('tap', 'node', async function (event) {
