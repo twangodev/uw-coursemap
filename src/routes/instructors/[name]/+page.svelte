@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import { page } from '$app/state';
     import {type Writable, writable} from "svelte/store";
     import {type FullInstructorInformation, getAttendanceRequirement, type Instructor} from "$lib/types/instructor.ts";

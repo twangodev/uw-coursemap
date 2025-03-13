@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header";
     import {Button} from "$lib/components/ui/button";
     import Search from "$lib/components/Search.svelte";

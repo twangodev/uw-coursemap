@@ -1,7 +1,7 @@
 <script lang="ts">
-    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import { page } from '$app/state';
-    import ContentH1 from "$lib/components/content/ContentH1.svelte";
+    import ContentH1 from "$lib/components/content/content-h1.svelte";
     import {onMount} from "svelte";
     import {writable} from "svelte/store";
     import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";

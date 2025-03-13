@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+	import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import { Input } from "$lib/components/ui/input/index.ts";
     import { Label } from "$lib/components/ui/label/index.ts";
     import {Button, buttonVariants} from "$lib/components/ui/button/index.js";
