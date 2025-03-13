@@ -1,6 +1,6 @@
 
 import type { EdgeDefinition, LayoutOptions, NodeDefinition } from 'cytoscape'
-import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js'
+import ELK from 'elkjs/lib/elk.bundled.js'
 import { getEdgeData, getNodeData } from './FetchData'
 
 export async function generateLayeredLayout(courseData: any): Promise<LayoutOptions> {

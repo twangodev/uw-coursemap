@@ -15,7 +15,7 @@
     interface Props {
         cy: cytoscape.Core | undefined;
         sheetOpen: boolean;
-        selectedCourse: Course | null;
+        selectedCourse: Course | undefined;
         destroyTip: () => void;
     }
     let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();

@@ -10,7 +10,7 @@
     import { getStyles } from "./Styles";
     import { FcoseLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
-    import Sheet from "./Sheet.svelte";
+    import CourseSheet from "./CourseSheet.svelte";
     import { clearPath, highlightPath } from "./PathAlgos";
 
     interface Props {
@@ -20,7 +20,7 @@
 
     let { url, styleUrl }: Props = $props();
     let sheetOpen = $state(false);
-        let progress = $state({
+    let progress = $state({
         text: "Loading Graph...",
         number: 10,
     })
@@ -30,7 +30,7 @@
 
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let selectedCourse = $state<Course | null>(null);
+    let selectedCourse = $state<Course | undefined>();
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -135,7 +135,7 @@
             }
 
             if (isDesktop()) {
-                selectedCourse = null;
+                selectedCourse = undefined;
                 sheetOpen = true;
 
                 selectedCourse = await fetchCourse(targetNode.id())
@@ -180,4 +180,4 @@
 
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
-<Sheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+<CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>

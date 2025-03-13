@@ -1,4 +1,4 @@
-import type { StylesheetStyle } from "cytoscape";
+import type {StylesheetStyle} from "cytoscape";
 
 type StyleData = {
     [parent: string]: string;
@@ -89,6 +89,5 @@ export async function getStyles(styleUrl: string): Promise<StylesheetStyle[]> {
         };
     });
 
-    let ret = defaultStyles.concat(styles);
-    return ret;
+    return defaultStyles.concat(styles);
 }
