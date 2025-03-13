@@ -21,7 +21,7 @@
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
-    import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
+    import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
     import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {apiFetch} from "$lib/api.ts";
     import type {Terms} from "$lib/types/terms.ts";
