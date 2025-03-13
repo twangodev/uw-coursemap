@@ -6,13 +6,13 @@
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
-    import { fetchCourse, fetchGraphData} from "./FetchData";
-    import { getStyles } from "./Styles";
-    import SideControls from "./SideControls.svelte";
-    import CourseSheet from "./CourseSheet.svelte";
-    import { clearPath, highlightPath } from "./PathAlgos";
+    import { fetchCourse, fetchGraphData} from "./graph-data.ts";
+    import { getStyles } from "./graph-styles.ts";
+    import SideControls from "./side-controls.svelte";
+    import CourseSheet from "./course-sheet.svelte";
+    import { clearPath, highlightPath } from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
-    import {generateFcoseLayout} from "$lib/components/cytoscape/Layout.ts";
+    import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
     import {page} from "$app/state";
 
     interface Props {

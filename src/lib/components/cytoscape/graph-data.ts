@@ -11,7 +11,7 @@ export async function fetchGraphData(url: string): Promise<ElementDefinition[]> 
     return courseData
 }
 
-export async function fetchCourse(courseId: string): Promise<Course>  {
+export async function fetchCourse(courseId: string): Promise<Course>  { // TODO use course.ts with sanatization
     let response = await apiFetch(`/course/${courseId.replaceAll(" ", "_").replaceAll("/", "_")}.json`);
     return response.json();
 }

@@ -8,7 +8,7 @@
     import InstructorPreview from "../instructor-preview/InstructorPreview.svelte";
     import { ArrowUpRight } from "lucide-svelte";
     import { apiFetch } from "$lib/api";
-    import { clearPath, highlightPath } from "./PathAlgos";
+    import { clearPath, highlightPath } from "./paths.ts";
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
     import type {Terms} from "$lib/types/terms.ts";
