@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import {type ChartTabularData, WordCloudChart, type WordCloudChartOptions} from '@carbon/charts-svelte'
-    import { removeStopwords, eng } from 'stopword'
+    import { removeStopwords } from 'stopword'
     import '@carbon/charts-svelte/styles.css'
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import {getCarbonTheme} from "$lib/theme.ts";

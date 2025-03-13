@@ -20,12 +20,12 @@
     import Change from "$lib/components/Change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
-    import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
+    import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/CourseCarousel.svelte";
-    import GradeDataStackedAreaChart from "$lib/components/charts/ComboGradeDataStackedAreaChart.svelte";
+    import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {apiFetch} from "$lib/api.ts";
     import type {Terms} from "$lib/types/terms.ts";
-    import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
+    import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
@@ -291,7 +291,7 @@
                     <Card.Root>
                         <Card.Content class="pt-6">
                             {#if $course.madgrades_data}
-                            <GradeDataStackedAreaChart madgradesData={$course.madgrades_data} {terms} />
+                            <ComboGradeDataStackedAreaChart madgradesData={$course.madgrades_data} {terms} />
                             {:else }
                                 <p class="text-center">No data available</p>
                             {/if}
