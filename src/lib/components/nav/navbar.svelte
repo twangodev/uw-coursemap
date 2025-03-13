@@ -1,12 +1,12 @@
 <script lang="ts">
     import { cn } from "$lib/utils.js";
-    import Banner from "$lib/components/Banner.svelte";
+    import Banner from "$lib/components/banner.svelte";
     import MainNav from "$lib/components/nav/main-nav.svelte";
     import {siteConfig} from "$lib/config/site.ts";
     import {buttonVariants} from "$lib/components/ui/button";
-    import Search from "$lib/components/Search.svelte";
+    import Search from "$lib/components/search.svelte";
     import MobileNav from "$lib/components/nav/mobile-nav.svelte";
-    import ModeToggle from "$lib/components/ModeToggle.svelte";
+    import ModeToggle from "$lib/components/mode-toggle.svelte";
     import {Github, GithubIcon} from "lucide-svelte";
 </script>
 

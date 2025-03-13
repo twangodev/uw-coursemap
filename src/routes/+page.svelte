@@ -2,7 +2,7 @@
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header/index.js";
     import {Button} from "$lib/components/ui/button";
-    import Announcement from "$lib/components/Announcement.svelte";
+    import Announcement from "$lib/components/announcement.svelte";
 
 </script>
 

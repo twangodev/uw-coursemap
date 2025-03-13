@@ -3,7 +3,7 @@
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header";
     import {Button} from "$lib/components/ui/button";
-    import Search from "$lib/components/Search.svelte";
+    import Search from "$lib/components/search.svelte";
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
     import {goto} from "$app/navigation";
 

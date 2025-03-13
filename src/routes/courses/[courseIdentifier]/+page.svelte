@@ -17,7 +17,7 @@
         ArrowUpRight
     } from "lucide-svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
-    import Change from "$lib/components/Change.svelte";
+    import Change from "$lib/components/change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";

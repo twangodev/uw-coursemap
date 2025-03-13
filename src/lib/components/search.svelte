@@ -2,10 +2,10 @@
     import {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
-    import CtrlCmd from "$lib/components/CtrlCmd.svelte";
+    import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
-    import CustomSearchInput from "$lib/components/CustomSearchInput.svelte";
+    import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
         courseSearchResponseToIdentifier,
         type SearchResponse

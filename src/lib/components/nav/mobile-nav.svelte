@@ -3,7 +3,7 @@
     import * as Sheet from "$lib/components/ui/sheet";
     import {Button} from "$lib/components/ui/button";
     import MobileLink from "$lib/components/nav/mobile-link.svelte";
-    import Crest from "$lib/components/Crest.svelte";
+    import Crest from "$lib/components/crest.svelte";
     import {navigation} from "$lib/config/navigation.ts";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {Menu} from "lucide-svelte";
