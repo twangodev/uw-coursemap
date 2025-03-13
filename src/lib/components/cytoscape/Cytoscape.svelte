@@ -8,10 +8,11 @@
     import {type Course} from "$lib/types/course.ts";
     import { fetchCourse, fetchGraphData} from "./FetchData";
     import { getStyles } from "./Styles";
-    import { FcoseLayout } from "./Layout";
     import SideControls from "./SideControls.svelte";
     import CourseSheet from "./CourseSheet.svelte";
     import { clearPath, highlightPath } from "./PathAlgos";
+    import {searchModalOpen} from "$lib/searchModalStore.ts";
+    import {generateFcoseLayout} from "$lib/components/cytoscape/Layout.ts";
 
     interface Props {
         url: string;
@@ -24,6 +25,12 @@
         text: "Loading Graph...",
         number: 10,
     })
+
+    searchModalOpen.subscribe((isOpen) => {
+        if (isOpen) {
+            sheetOpen = false;
+        }
+    });
 
     let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
@@ -95,7 +102,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let newCytoscapeLayout = FcoseLayout;
+        let layout = generateFcoseLayout();
         
         progress = {
             text: "Graph Loaded",
@@ -106,7 +113,7 @@
             container: document.getElementById('cy'),
             elements: courseData,
             style: cytoscapeStyles,
-            layout: newCytoscapeLayout,
+            layout: layout,
             minZoom: 0.01,
             maxZoom: 2,
             motionBlur: true,
