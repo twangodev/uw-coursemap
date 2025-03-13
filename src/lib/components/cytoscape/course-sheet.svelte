@@ -5,7 +5,7 @@
     import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
     import {Separator} from "$lib/components/ui/separator";
     import {Button} from "$lib/components/ui/button";
-    import InstructorPreview from "../instructor-preview/InstructorPreview.svelte";
+    import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
     import { ArrowUpRight } from "lucide-svelte";
     import { apiFetch } from "$lib/api";
     import { clearPath, highlightPath } from "./paths.ts";

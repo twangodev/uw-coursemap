@@ -18,7 +18,7 @@
     } from "lucide-svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/Change.svelte";
-    import InstructorPreview from "$lib/components/instructor-preview/InstructorPreview.svelte";
+    import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
