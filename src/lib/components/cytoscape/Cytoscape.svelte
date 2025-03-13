@@ -13,6 +13,7 @@
     import { clearPath, highlightPath } from "./PathAlgos";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout} from "$lib/components/cytoscape/Layout.ts";
+    import {page} from "$app/state";
 
     interface Props {
         url: string;
@@ -25,6 +26,7 @@
         text: "Loading Graph...",
         number: 10,
     })
+    let focus = $derived(page.url.searchParams.get('focus'));
 
     searchModalOpen.subscribe((isOpen) => {
         if (isOpen) {
@@ -102,7 +104,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = generateFcoseLayout();
+        let layout = generateFcoseLayout(focus);
         
         progress = {
             text: "Graph Loaded",

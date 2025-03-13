@@ -11,6 +11,8 @@
     import { clearPath, highlightPath } from "./PathAlgos";
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
+    import type {Terms} from "$lib/types/terms.ts";
+    import {onMount} from "svelte";
 
     interface Props {
         cy: cytoscape.Core | undefined;
@@ -20,6 +22,19 @@
     }
     let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
+
+    let selectedTerm: string | undefined = undefined;
+
+    let terms: Terms = $state({});
+    let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
+    let latestTermValue = $derived(terms[latestTerm]);
+
+    let instructors = $derived(Object.entries(selectedCourse?.enrollment_data[latestTermValue]?.instructors ?? {}));
+
+    onMount(async () => {
+        let termsData = await apiFetch(`/terms.json`)
+        terms = await termsData.json()
+    })
 
     $effect(() => {
         (async () => {
@@ -93,8 +108,8 @@
                     <Skeleton class="h-5 w-6/12"/>
                 {/if}
             </SheetDescription>
-            {#if selectedCourse}
-                {#each Object.entries(selectedCourse?.enrollment_data?.instructors ?? {}) as [name, email], index}
+            {#if instructors}
+                {#each instructors as [name, email], index}
                     {#if index === 0}
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1" />

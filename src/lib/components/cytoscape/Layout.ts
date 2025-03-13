@@ -46,9 +46,7 @@ export async function generateLayeredLayout(courseData: any): Promise<LayoutOpti
     return newCytoscapeLayout;
 }
 
-let focus = $derived(page.url.searchParams.get('focus'));
-
-export function generateFcoseLayout(): cytoscapeFcose.FcoseLayoutOptions  {
+export function generateFcoseLayout(focus: string | null): cytoscapeFcose.FcoseLayoutOptions  {
 
     return {
         name: 'fcose',
