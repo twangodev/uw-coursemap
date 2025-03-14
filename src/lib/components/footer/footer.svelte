@@ -1,5 +1,5 @@
 <script>
-    import FooterLink from "$lib/components/footer/FooterLink.svelte";
+    import FooterLink from "$lib/components/footer/footer-link.svelte";
 </script>
 
 <footer class="flex bg-background border-t border-border/40 py-6 dark:border-border md:px-8 md:py-0">

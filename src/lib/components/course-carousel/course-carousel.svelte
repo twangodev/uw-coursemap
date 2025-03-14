@@ -5,8 +5,8 @@
         type CourseReference,
         courseReferenceToCourse
     } from "$lib/types/course.ts";
-    import CourseCard from "$lib/components/course-carousel/CourseCard.svelte";
-    import CourseCardSkeleton from "$lib/components/course-carousel/CourseCardSkeleton.svelte";
+    import CourseCard from "$lib/components/course-carousel/course-card.svelte";
+    import CourseCardSkeleton from "$lib/components/course-carousel/course-card-skeleton.svelte";
 
     interface Props {
         courseReferences: CourseReference[];
