@@ -26,13 +26,15 @@
     import {apiFetch} from "$lib/api.ts";
     import type {Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
+    import {Row} from "$lib/components/ui/table";
+    import TermSelector from "$lib/components/term-selector.svelte";
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
     let course = writable<Course | null>(null)
     let instructors: FullInstructorInformation[] = $state([])
     let terms: Terms = $state({});
-    let selectedTerm: string | undefined = undefined;
+    let selectedTerm: string | null = null;
     let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
@@ -159,9 +161,14 @@
 
 <ContentWrapper>
     {#if $course}
-        <ContentH1>{$course.course_title}</ContentH1>
-        <div class="text-xl font-bold my-2">
-            {courseReferenceToString($course.course_reference)}
+        <div class="flex justify-between items-center">
+            <div>
+                <ContentH1>{$course.course_title}</ContentH1>
+                <div class="text-xl font-bold my-2">
+                    {courseReferenceToString($course.course_reference)}
+                </div>
+            </div>
+            <TermSelector {selectedTerm} terms={Object.values(terms)} />
         </div>
         <Tabs.Root value="overview">
             <Tabs.List class="my-2">
