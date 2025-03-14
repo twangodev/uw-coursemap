@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Button} from "$lib/components/ui/button";
+    import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
@@ -21,6 +21,7 @@
         type SubjectSearchResult
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
+    import {toast} from "svelte-sonner";
 
     interface Props {
         wide?: boolean;
@@ -38,6 +39,21 @@
     $effect(() => {
         updateSuggestions(searchQuery);
     });
+
+    $effect(() => {
+        if ($searchModalOpen) {
+            toast.message("Tip", {
+                description: "Hold shift to open course details directly.",
+                duration: 3000,
+                cancel: {
+                    label: "Hide",
+                    onClick: () => {
+                        toast.dismiss();
+                    }
+                }
+            })
+        }
+    })
 
     async function querySettled(query: string) : Promise<boolean> {
         await sleep(500);
