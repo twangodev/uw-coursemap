@@ -31,7 +31,7 @@ export async function courseReferenceStringToCourse(sanatizedCourseReferenceStri
 }
 
 export function courseReferenceToString(courseReference: CourseReference): string {
-    let subjects = courseReference.subjects.sort().join("/");
+    let subjects = [...courseReference.subjects].sort().join("/");
     return `${subjects} ${courseReference.course_number}`;
 }
 
