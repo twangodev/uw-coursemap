@@ -1,11 +1,11 @@
 <script lang="ts">
-    import {Button} from "$lib/components/ui/button";
-    import {cn} from "$lib/utils.ts";
+    import  {Button} from "$lib/components/ui/button";
+    import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
-    import CtrlCmd from "$lib/components/CtrlCmd.svelte";
+    import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
-    import CustomSearchInput from "$lib/components/CustomSearchInput.svelte";
+    import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
         courseSearchResponseToIdentifier,
         type SearchResponse
@@ -21,6 +21,7 @@
         type SubjectSearchResult
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
+    import {toast} from "svelte-sonner";
 
     interface Props {
         wide?: boolean;
@@ -39,7 +40,31 @@
         updateSuggestions(searchQuery);
     });
 
+    $effect(() => {
+        if ($searchModalOpen) {
+            toast.message("Tip", {
+                description: "Hold shift to open course details directly.",
+                duration: 3000,
+                cancel: {
+                    label: "Hide",
+                    onClick: () => {
+                        toast.dismiss();
+                    }
+                }
+            })
+        }
+    })
+
+    async function querySettled(query: string) : Promise<boolean> {
+        await sleep(500);
+        return query === searchQuery;
+    }
+
     async function updateSuggestions(query: string) {
+        if (!await querySettled(query)) {
+            return;
+        }
+
         if (query.length <= 0) {
             $courses = [];
             $subjects = [];

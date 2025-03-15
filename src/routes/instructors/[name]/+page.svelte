@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
+    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import { page } from '$app/state';
     import {type Writable, writable} from "svelte/store";
     import {type FullInstructorInformation, getAttendanceRequirement, type Instructor} from "$lib/types/instructor.ts";
@@ -16,12 +16,9 @@
     import {Card, CardContent, CardHeader} from "$lib/components/ui/card";
     import {CardDescription, CardTitle} from "$lib/components/ui/card/index.js";
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
-    import Change from "$lib/components/Change.svelte";
-    import {onMount} from "svelte";
-    import GradeDataHorizontalBarChart from "$lib/components/charts/GradeDataHorizontalBarChart.svelte";
-    import RatingHorizontalBarChart from "$lib/components/charts/RatingDonutChart.svelte";
-    import AttendanceDonutChart from "$lib/components/charts/AttendanceDonutChart.svelte";
-    import InstructorWordCloud from "$lib/components/charts/InstructorWordCloud.svelte";
+    import RatingDonutChart from "$lib/components/charts/rating-donut-chart.svelte";
+    import AttendanceDonutChart from "$lib/components/charts/attendance-donut-chart.svelte";
+    import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
 
     async function fetchInstructor(name: string) {
         const response = await apiFetch(`/instructors/${name}.json`)
@@ -246,7 +243,7 @@
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
                         <Card>
                             <CardContent class="pt-6">
-                                <RatingHorizontalBarChart ratingData={$instructor.rmp_data?.ratings_distribution} />
+                                <RatingDonutChart ratingData={$instructor.rmp_data?.ratings_distribution} />
                             </CardContent>
                         </Card>
                         <Card>

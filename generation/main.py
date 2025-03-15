@@ -11,7 +11,7 @@ from cache import read_course_ref_to_course_cache, write_course_ref_to_course_ca
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
-from instructors import get_ratings
+from instructors import get_ratings, gather_instructor_emails
 from madgrades import add_madgrades_data
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
@@ -58,7 +58,7 @@ def generate_parser():
         "--max_prerequisites",
         type=int,
         help="Maximum number of prerequisites to keep for each course.",
-        default=3,
+        default=1,
     )
     parser.add_argument(
         "-v",
@@ -85,7 +85,7 @@ def courses(
         logger: Logger
 ):
     site_map_urls = get_course_urls(logger=logger)
-    subject_to_full_subject, course_ref_to_course = scrape_all(urls=site_map_urls, logger=logger)
+    subject_to_full_subject, course_ref_to_course = asyncio.run(scrape_all(urls=site_map_urls, logger=logger))
     return subject_to_full_subject, course_ref_to_course
 
 
@@ -111,9 +111,7 @@ def instructors(
         terms,
         logger
 ):
-    instructors_emails = asyncio.run(
-        build_from_mega_query(selected_term=max(terms.keys()), terms=terms, course_ref_to_course=course_ref_to_course,
-                              logger=logger))
+    instructors_emails = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
     instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, logger=logger))
     return instructor_to_rating, instructors_emails
 
@@ -145,6 +143,7 @@ def optimize(
 
 def graph(
         course_ref_to_course,
+        color_map,
         logger
 ):
     subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
@@ -161,8 +160,8 @@ def graph(
         logger=logger
     )
 
-    subject_to_style = generate_styles(subject_to_graph=subject_to_graph)
-    global_style = generate_style_from_graph(global_graph)
+    subject_to_style = generate_styles(subject_to_graph=subject_to_graph, color_map=color_map)
+    global_style = generate_style_from_graph(global_graph, color_map)
 
     return global_graph, subject_to_graph, subject_to_style, global_style
 
@@ -248,12 +247,14 @@ def main():
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
+        color_map = {}
         global_graph, subject_to_graph, subject_to_style, global_style = graph(
             course_ref_to_course=course_ref_to_course,
+            color_map=color_map,
             logger=logger
         )
 
-        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, logger)
+        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger)
 
         logger.info("Course graph built successfully.")
 

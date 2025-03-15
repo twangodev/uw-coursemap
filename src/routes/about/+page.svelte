@@ -1,7 +1,7 @@
 <script>
-    import ContentWrapper from "$lib/components/content/ContentWrapper.svelte";
-    import ContentH1 from "$lib/components/content/ContentH1.svelte";
-    import ContentP from "$lib/components/content/ContentP.svelte";
+    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
+    import ContentH1 from "$lib/components/content/content-h1.svelte";
+    import ContentP from "$lib/components/content/content-p.svelte";
 </script>
 
 <ContentWrapper>

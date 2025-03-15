@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Crest from "$lib/components/Crest.svelte";
+    import Crest from "$lib/components/crest.svelte";
     import {siteConfig} from "$lib/config/site.ts";
     import {navigation} from "$lib/config/navigation.ts";
 
