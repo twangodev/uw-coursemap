@@ -43,8 +43,11 @@
 
     let randomCourses = $derived.by(async () => {
         if ($searchModalOpen && !fake) {
-            return (await getRandomCourses()).json();
+            const response = await getRandomCourses();
+            const data: CourseSearchResult[] = await response.json();
+            return generateCourseSearchResults(data);
         }
+        return []
     })
 
     $effect(() => {
