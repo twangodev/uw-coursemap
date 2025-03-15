@@ -10,13 +10,14 @@
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
-    import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {
         type CourseSearchResult,
         generateCourseSearchResults,
     } from "$lib/types/search/searchResults.ts";
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
+
+    let searchOpen = $state(false);
 
     //save the taken courses
     function saveData(){
@@ -25,10 +26,12 @@
 
     interface Props {
         takenCourses: Array<any>;
+        status: string;
     }
 
     let { 
-        takenCourses = $bindable()
+        takenCourses = $bindable(),
+        status = $bindable()
     }: Props = $props();
 
     let courses = writable<CourseSearchResult[]>([]);
@@ -61,20 +64,36 @@
     }
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
+        //close search
+        searchOpen = false;
+
         //get course data from API
         let courseID = result.course_id.replaceAll("_", "");
-        console.log(courseID);
         let courseData = await getCourse(courseID);
+        
+        //check if it is a duplicate
+        let duplicate = false;
+        for(let takenCourse of takenCourses){
+            if(
+                takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
+                takenCourse["course_title"] == courseData["course_title"]
+            ){
+                console.log("Course is a duplicate:", courseData["course_title"]);
+                duplicate = true;
+            }
+        }
 
-        //add to list
-        takenCourses.push(courseData);
-        takenCourses = takenCourses; //force update
-
-        //save to local storage
-        saveData();
-
-        //close search
-        $searchModalOpen = false;
+        //add to list (only if not duplicate)
+        if(!duplicate){
+            takenCourses.push(courseData);
+            takenCourses = takenCourses; //force update
+    
+            //save to local storage
+            saveData();
+        }
+        else{
+            status = "course was not added due to being a duplicate";
+        }
     }
 
     let searchQuery = $state("");
@@ -88,7 +107,7 @@
         "lg:w-80 md:w-40"
 	)}
         onclick={() => {
-            $searchModalOpen = true;
+            searchOpen = true;
             searchQuery = "";
         }}
 >
@@ -96,7 +115,7 @@
     <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
 
-<Command.Dialog bind:open={$searchModalOpen}>
+<Command.Dialog bind:open={searchOpen}>
     <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
     <Command.List>
         {#if $courses.length <= 0}
