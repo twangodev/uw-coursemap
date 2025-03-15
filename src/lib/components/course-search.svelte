@@ -60,10 +60,11 @@
         $courses = generateCourseSearchResults(rawCourses)
     }
 
-    function courseSuggestionSelected(result: CourseSearchResult) {
+    async function courseSuggestionSelected(result: CourseSearchResult) {
         //get course data from API
         let courseID = result.course_id.replaceAll("_", "");
-        let courseData = getCourse(courseID);
+        console.log(courseID);
+        let courseData = await getCourse(courseID);
 
         //add to list
         takenCourses.push(courseData);

@@ -77,9 +77,6 @@
                     continue;
                 }
 
-                //split course subject and number
-                courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
-
                 //get the course's datas
                 let courseData = await getCourse(courseInfo);
                 

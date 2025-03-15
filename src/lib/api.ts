@@ -16,6 +16,9 @@ export async function search(query: string): Promise<Response> {
 
 export async function getCourse(courseCode: string){
     try{
+        //split course subject and number
+        courseCode = courseCode.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
+
         //seperate course info
         let section = courseCode.split(" ")[0];
         let number = parseInt(courseCode.split(" ")[1]);
