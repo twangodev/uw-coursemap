@@ -20,7 +20,7 @@ To run the Flask server, you can use the following commands (assuming you have `
 
 ```bash
 pipenv sync
-pipenv run python app.py # Only for development
+pipenv run python main.py ../generation/data -v # Only for development
 ```
 
 We will eventually configure WSGI to run the Flask server in production.
