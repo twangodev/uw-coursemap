@@ -5,7 +5,7 @@
     import {Button, buttonVariants} from "$lib/components/ui/button/index.js";
 	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
-    import {apiFetch} from "$lib/api.ts";
+    import {getCourse} from "$lib/api.ts";
     import {getData, setData} from "$lib/localStorage.ts";
     import * as Table from "$lib/components/ui/table/index.ts";
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
@@ -121,33 +121,6 @@
         }
     }
 
-    async function getCourse(courseCode: string){
-        try{
-            //seperate course info
-            let section = courseCode.split(" ")[0];
-            let number = parseInt(courseCode.split(" ")[1]);
-
-            //get the section data
-            const response = await apiFetch(`/courses/${section}.json`)
-            let subjectCourses = await response.json();
-
-            //get the specific course
-            for(const courseData of subjectCourses){
-                if(courseData["course_reference"]["course_number"] == number){
-                    return courseData;
-                }
-            }
-
-            //no course found
-            throw new Error("Could not find course ):\n" + courseCode);
-        }
-        catch(e){
-            console.log(e);
-            status = "Error using course data API";
-            return null;
-        }
-    }
-
     async function fileUploaded(event: Event) {
         const target = event.target as HTMLInputElement;
         if (target.files && target.files.length > 0) {
@@ -235,7 +208,7 @@
         </Table.Body>
     </Table.Root>
 
-    <CourseSearch bind:takenCourses={takenCourses} wide={false} fake={false}/>
+    <CourseSearch bind:takenCourses={takenCourses}/>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >

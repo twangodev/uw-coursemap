@@ -2,7 +2,6 @@
     import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
-    import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
@@ -16,7 +15,13 @@
         type CourseSearchResult,
         generateCourseSearchResults,
     } from "$lib/types/search/searchResults.ts";
-    import {goto} from "$app/navigation";
+    import {getCourse} from "$lib/api.ts";
+    import {setData} from "$lib/localStorage.ts";
+
+    //save the taken courses
+    function saveData(){
+        setData("takenCourses", takenCourses);
+    }
 
     interface Props {
         takenCourses: Array<any>;
@@ -56,7 +61,18 @@
     }
 
     function courseSuggestionSelected(result: CourseSearchResult) {
-        console.log(result.course_id);
+        //get course data from API
+        let courseID = result.course_id.replaceAll("_", "");
+        let courseData = getCourse(courseID);
+
+        //add to list
+        takenCourses.push(courseData);
+        takenCourses = takenCourses; //force update
+
+        //save to local storage
+        saveData();
+
+        //close search
         $searchModalOpen = false;
     }
 
