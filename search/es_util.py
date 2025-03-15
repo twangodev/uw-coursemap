@@ -151,13 +151,9 @@ def search_courses(es: Elasticsearch, search_term: str):
             "multi_match": {
                 "query": word_part,
                 "fields": [
-                    "course_title^3",
-                    "course_reference^2",
-                    "subjects^8",
-                    "departments",
                     "course_title_normalized^3",
                     "course_reference_normalized^2",
-                    "subjects_normalized",
+                    "subjects_normalized^5",
                     "departments_normalized"
                 ],
                 "fuzziness": "AUTO"
