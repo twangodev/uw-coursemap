@@ -61,20 +61,36 @@
     }
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
-        //get course data from API
-        let courseID = result.course_id.replaceAll("_", "");
-        console.log(courseID);
-        let courseData = await getCourse(courseID);
-
-        //add to list
-        takenCourses.push(courseData);
-        takenCourses = takenCourses; //force update
-
-        //save to local storage
-        saveData();
-
         //close search
         $searchModalOpen = false;
+
+        //get course data from API
+        let courseID = result.course_id.replaceAll("_", "");
+        let courseData = await getCourse(courseID);
+        
+        //check if it is a duplicate
+        let duplicate = false;
+        for(let takenCourse of takenCourses){
+            if(
+                takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
+                takenCourse["course_title"] == courseData["course_title"]
+            ){
+                console.log("Course is a duplicate:", courseData["course_title"]);
+                duplicate = true;
+            }
+        }
+
+        //add to list (only if not duplicate)
+        if(!duplicate){
+            takenCourses.push(courseData);
+            takenCourses = takenCourses; //force update
+    
+            //save to local storage
+            saveData();
+        }
+        else{
+            console.log("course was a duplicate")
+        }
     }
 
     let searchQuery = $state("");
