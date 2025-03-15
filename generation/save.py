@@ -95,18 +95,17 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
 
 def wipe_data(data_dir, logger):
     """
-    Wipe all data in the data directory.
+    Wipe only .json files in the data directory.
     """
-    logger.info("Wiping data directory...")
+    logger.info("Wiping .json files in the data directory...")
 
-    # Remove all files and directories in the data directory
+    # Remove only files ending with .json in the data directory
     for root, dirs, files in os.walk(data_dir, topdown=False):
         for file in files:
-            os.remove(os.path.join(root, file))
-        for directory in dirs:
-            os.rmdir(os.path.join(root, directory))
+            if file.endswith(".json"):
+                os.remove(os.path.join(root, file))
 
-    logger.info("Data directory wiped.")
+    logger.info("Wiping complete. Only .json files were removed.")
 
 
 def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph,
