@@ -78,7 +78,7 @@
                 //split course subject and number
                 courseInfo = courseInfo.replace(/([A-Z]+)(\d{3})(.?)/, '$1 $2')
 
-                //get the course's data
+                //get the course's datas
                 let courseData = await getCourse(courseInfo);
                 
                 //check if it is a duplicate
@@ -105,10 +105,9 @@
         }
         catch(e){
             //set status to error
-            status = "There was an error parsing the pdf";
+            status = "Error";
             console.error(e);
         }
-
     }
 
     async function getCourse(courseCode: string){
@@ -225,14 +224,10 @@
                 <AlertDialog.Title>Are you sure you want to remove all uploaded courses?</AlertDialog.Title>
                 <AlertDialog.Footer>
                     <AlertDialog.Cancel>
-                        <Button variant="soft" color="gray">
                             Cancel
-                        </Button>
                     </AlertDialog.Cancel>
-                    <AlertDialog.Cancel>
-                        <Button variant="solid" color="red" onclick={clearCourses}>
-                            Clear
-                        </Button>
+                    <AlertDialog.Cancel onclick={clearCourses}>
+                        Clear
                     </AlertDialog.Cancel>
                 </AlertDialog.Footer>
             </AlertDialog.Header>
