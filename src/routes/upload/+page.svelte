@@ -168,7 +168,7 @@
                             <ul style="list-style-type: disc; margin-left: 20px;">
                                 <li>Go to academic records: MyUW -> student center -> academic records
                                     <ul style="list-style-type: disc; margin-left: 20px;">
-                                        <li>Or just go <a style="color: blue; text-decoration: underline;" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
+                                        <li>Or just go <a style="color: blue; text-decoration: underline;" target="_blank" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
                                     </ul>
                                 </li>
                                 <li>Click on "View Unofficial Transcript on the side menu"</li>
@@ -231,7 +231,7 @@
                     </AlertDialog.Cancel>
                     <AlertDialog.Cancel>
                         <Button variant="solid" color="red" onclick={clearCourses}>
-                            Revoke access
+                            Clear
                         </Button>
                     </AlertDialog.Cancel>
                 </AlertDialog.Footer>
