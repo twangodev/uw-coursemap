@@ -64,35 +64,44 @@
     }
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
-        //close search
-        searchOpen = false;
+        try{
+            //close search
+            searchOpen = false;
 
-        //get course data from API
-        let courseID = result.course_id.replaceAll("_", "");
-        let courseData = await getCourse(courseID);
+            //parse course ID, compssci_ece_252
+            let courseIDParts = result.course_id.split("_");
+            let courseID = courseIDParts.slice(-2).join("");
+            
+            //get course data from API
+            let courseData = await getCourse(courseID);
+            
+            //check if it is a duplicate
+            let duplicate = false;
+            for(let takenCourse of takenCourses){
+                if(
+                    takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
+                    takenCourse["course_title"] == courseData["course_title"]
+                ){
+                    console.log("Course is a duplicate:", courseData["course_title"]);
+                    duplicate = true;
+                }
+            }
+
+            //add to list (only if not duplicate)
+            if(!duplicate){
+                takenCourses.push(courseData);
+                takenCourses = takenCourses; //force update
         
-        //check if it is a duplicate
-        let duplicate = false;
-        for(let takenCourse of takenCourses){
-            if(
-                takenCourse["course_reference"]["course_number"] == courseData["course_reference"]["course_number"] &&
-                takenCourse["course_title"] == courseData["course_title"]
-            ){
-                console.log("Course is a duplicate:", courseData["course_title"]);
-                duplicate = true;
+                //save to local storage
+                saveData();
+            }
+            else{
+                status = "course was not added due to being a duplicate";
             }
         }
-
-        //add to list (only if not duplicate)
-        if(!duplicate){
-            takenCourses.push(courseData);
-            takenCourses = takenCourses; //force update
-    
-            //save to local storage
-            saveData();
-        }
-        else{
-            status = "course was not added due to being a duplicate";
+        catch(e){
+            status = "there was an error adding the course";
+            console.log(e);
         }
     }
 
