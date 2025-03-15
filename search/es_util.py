@@ -153,7 +153,7 @@ def search_courses(es: Elasticsearch, search_term: str):
                 "fields": [
                     "course_title^3",
                     "course_reference^2",
-                    "subjects",
+                    "subjects^8",
                     "departments",
                     "course_title_normalized^3",
                     "course_reference_normalized^2",
