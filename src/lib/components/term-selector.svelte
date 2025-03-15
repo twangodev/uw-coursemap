@@ -8,7 +8,7 @@
     import {tick} from "svelte";
     import Check from "lucide-svelte/icons/check";
     import {cn} from "$lib/utils.ts";
-    import {getLatestTermId, getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
+    import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 
     interface Props {
         selectedTerm: string | undefined;

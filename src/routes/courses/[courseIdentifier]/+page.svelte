@@ -19,12 +19,12 @@
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
-    import type {FullInstructorInformation} from "$lib/types/instructor.ts";
+    import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
     import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {apiFetch} from "$lib/api.ts";
-    import {getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
+    import {getLatestTermId, getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
     import {Row} from "$lib/components/ui/table";
     import TermSelector from "$lib/components/term-selector.svelte";
@@ -33,45 +33,14 @@
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
     let course: Promise<Course> = $derived(courseReferenceStringToCourse(courseIdentifier));
-    
-    let instructors: Promise<FullInstructorInformation[]> = $derived.by(async () => {
-        let loadedCourse = await course;
-
-        let rawInstructors = [];
-        console.log(selectedTerm ?? getLatestTermIdPromise(terms))
-        console.log((loadedCourse.enrollment_data[selectedTerm ?? getLatestTermIdPromise(terms)]?.instructors));
-        for (const [name, email] of Object.entries(loadedCourse.enrollment_data[selectedTerm ?? getLatestTermIdPromise(terms)]?.instructors ?? {})) {
-            const response = await apiFetch(
-                `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
-            );
-            const data: FullInstructorInformation =
-                response.status === 200
-                    ? await response.json()
-                    : {
-                        name,
-                        email,
-                        credentials: null,
-                        department: null,
-                        official_name: null,
-                        position: null,
-                        rmp_data: null,
-                    };
-            rawInstructors.push(data);
-        }
-
-        return rawInstructors.toSorted((a, b) => {
-            if (!a.rmp_data?.average_rating) return 1;
-            if (!b.rmp_data?.average_rating) return -1;
-            return b.rmp_data.average_rating - a.rmp_data.average_rating;
-        });
-    })
 
     let terms: Promise<Terms> = (async () => {
         let termsData = await apiFetch(`/terms.json`)
         return await termsData.json()
     })();
-
     let selectedTerm: string | undefined = $state(undefined)
+    let instructors: Promise<FullInstructorInformation[]> = $derived(getFullInstructorInformation(course, terms, selectedTerm))
+
     let latestTerm = $derived.by(async () => {
         selectedTerm = String(await getLatestTermIdPromise(terms))
         return selectedTerm
@@ -271,7 +240,7 @@
                         </Card.Root>
                         <Card.Root class="lg:col-span-3">
                             <Card.Header>
-                                <Card.Title>Instructors ({terms[selectedTerm]})</Card.Title>
+                                <Card.Title>Instructors ({selectedTerm ? terms[selectedTerm] : ""})</Card.Title>
                                 <Card.Description class="flex">
                                     Sorted by ratings from
                                     <a href="https://www.ratemyprofessors.com/"
@@ -331,14 +300,13 @@
                             {#await instructors}
                                 <p class="text-center">Loading...</p>
                             {:then instructors}
-
-                            {#each instructors as instructor}
-                                <InstructorPreview
-                                    {instructor}
-                                    showRating={true}
-                                    showOtherDetails={true}
-                                />
-                            {/each}
+                                {#each instructors as instructor}
+                                    <InstructorPreview
+                                        {instructor}
+                                        showRating={true}
+                                        showOtherDetails={true}
+                                    />
+                                {/each}
                             {:catch error}
                                 <p class="text-red-600">Error loading instructors: {error.message}</p>
                             {/await}

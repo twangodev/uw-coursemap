@@ -2,7 +2,7 @@ export type Terms = {
     [term: string]: string
 }
 
-export async function getLatestTermId(terms: Terms): Promise<String> {
+export function getLatestTermId(terms: Terms): string {
     const termIds = Object.keys(terms).map((termId) => parseInt(termId))
     return Math.max(...termIds).toString()
 }
