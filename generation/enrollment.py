@@ -129,6 +129,6 @@ async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_
 
     enrollment_data.instructors = course_instructors
     logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")
-    course.enrollment_data[terms[selected_term]] = enrollment_data
+    course.enrollment_data[selected_term] = enrollment_data
 
     return course_instructors

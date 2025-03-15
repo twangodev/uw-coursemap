@@ -214,11 +214,16 @@ async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.C
     return None
 
 
-def scrape_api_key():
-    response = requests.get(rmp_url)
+def scrape_rmp_api_key(logger):
+    response = requests.get(rmp_url, headers={"User-Agent": "Mozilla/5.0"}) # Some sites require a user-agent to avoid blocking
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
-    graphql_auth = match.group(1)
+    if match:
+        graphql_auth = match.group(1)
+    else :
+        logger.error("Failed to scrape the RMP API key from the response.")
+        logger.debug(response.text)
+        raise RuntimeError("Failed to scrape the RMP API key from the response.")
 
     return graphql_auth
 
@@ -275,9 +280,8 @@ def match_name(student_name, official_names):
     return matches[0] if matches else None
 
 
-async def get_ratings(instructors: dict[str, str], logger: Logger):
+async def get_ratings(instructors: dict[str, str], api_key: str, logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
-    api_key = scrape_api_key()
 
     instructor_data = {}
     total = len(instructors)
