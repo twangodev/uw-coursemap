@@ -11,9 +11,9 @@
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
     import { onMount } from 'svelte';
     import XMark from "lucide-svelte/icons/x";
-    import Search from "$lib/components/search.svelte";
+    import CourseSearch from "$lib/components/course-search.svelte";
     
-    let takenCourses = $state(new Array<any>);
+    let takenCourses = $state(new Array<any>)
     let status = $state("");
     
     //load data
@@ -235,24 +235,7 @@
         </Table.Body>
     </Table.Root>
 
-    <AlertDialog.Root>
-        <AlertDialog.Trigger >
-            <Button variant="secondary">Add Course Manually</Button>
-        </AlertDialog.Trigger>
-        <AlertDialog.Content>
-            <AlertDialog.Header>
-                <AlertDialog.Title>Adding course manually:</AlertDialog.Title>
-                <AlertDialog.Description>
-                    <Search wide={false} fake={true}/>
-                </AlertDialog.Description>
-                <AlertDialog.Footer>
-                    <AlertDialog.Cancel>
-                        Cancel
-                    </AlertDialog.Cancel>
-                </AlertDialog.Footer>
-            </AlertDialog.Header>
-        </AlertDialog.Content>
-    </AlertDialog.Root>
+    <CourseSearch wide={false} fake={false}/>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >
