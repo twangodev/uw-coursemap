@@ -235,7 +235,7 @@
         </Table.Body>
     </Table.Root>
 
-    <CourseSearch wide={false} fake={false}/>
+    <CourseSearch bind:takenCourses={takenCourses} wide={false} fake={false}/>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >

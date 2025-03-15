@@ -15,43 +15,22 @@
     import {
         type CourseSearchResult,
         generateCourseSearchResults,
-        generateInstructorSearchResults,
-        generateSubjectSearchResults,
-        type InstructorSearchResult,
-        type SubjectSearchResult
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
-    import {toast} from "svelte-sonner";
 
     interface Props {
-        wide?: boolean;
-        fake?: boolean;
+        takenCourses: Array<any>;
     }
 
-    let { wide = false, fake = false }: Props = $props();
+    let { 
+        takenCourses = $bindable()
+    }: Props = $props();
 
     let courses = writable<CourseSearchResult[]>([]);
-
-    let shiftDown = $state(false);
 
     $effect(() => {
         updateSuggestions(searchQuery);
     });
-
-    $effect(() => {
-        if ($searchModalOpen) {
-            toast.message("Tip", {
-                description: "Hold shift to open course details directly.",
-                duration: 3000,
-                cancel: {
-                    label: "Hide",
-                    onClick: () => {
-                        toast.dismiss();
-                    }
-                }
-            })
-        }
-    })
 
     async function querySettled(query: string) : Promise<boolean> {
         await sleep(500);
@@ -72,34 +51,12 @@
         const data: SearchResponse = await response.json()
 
         const rawCourses = data.courses
-        const rawSubjects = data.subjects
-        const rawInstructors = data.instructors
 
         $courses = generateCourseSearchResults(rawCourses)
     }
 
-
-    function handleKeydown(e: KeyboardEvent) {
-        if (fake) return;
-        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-            e.preventDefault();
-            searchQuery = "";
-
-            $searchModalOpen = !$searchModalOpen;
-        }
-        shiftDown = e.shiftKey
-    }
-
-    function handleKeyUp(e: KeyboardEvent) {
-        shiftDown = e.shiftKey
-    }
-
     function courseSuggestionSelected(result: CourseSearchResult) {
-        if (shiftDown) {
-            goto(result.href);
-        } else {
-            goto(Object.values(result.explorerHref)[0]); // TODO change via dialog or something
-        }
+        console.log(result.course_id);
         $searchModalOpen = false;
     }
 
@@ -107,51 +64,45 @@
 
 </script>
 
-<svelte:document onkeydown={handleKeydown} onkeyup={handleKeyUp}/>
-
 <Button
-        variant="outline"
-        class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
+    variant="outline"
+    class={cn(
+		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", 
+        "lg:w-80 md:w-40"
 	)}
         onclick={() => {
             $searchModalOpen = true;
             searchQuery = "";
         }}
 >
-    <span class="hidden lg:inline-flex">Search courses, departments... </span>
-    <span class="inline-flex lg:hidden">Search...</span>
-    <kbd
-            class="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
-    >
-        <CtrlCmd />K
-    </kbd>
+    <span class="hidden lg:inline-flex">Search courses... </span>
+    <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
-{#if !fake}
-    <Command.Dialog bind:open={$searchModalOpen}>
-        <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
-        <Command.List>
-            {#if $courses.length <= 0}
-            <div class="py-6 text-center text-sm">No results found.</div>
-            {/if}
-            {#if $courses.length > 0}
-                <Command.Group heading="Courses">
-                    {#each $courses as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    courseSuggestionSelected(suggestion)
-                                }}
-                        >
-                        <Book class="mr-3 h-4 w-4" />
-                        <div>
-                            <p>{suggestion.course_title}</p>
-                            <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
-                            </div>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                <Command.Separator />
-            {/if}
-        </Command.List>
-    </Command.Dialog>
-{/if}
+
+<Command.Dialog bind:open={$searchModalOpen}>
+    <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
+    <Command.List>
+        {#if $courses.length <= 0}
+            <div class="py-6 text-center text-sm">Enter something into the search bar pwetty pweese</div>
+        {/if}
+        
+        {#if $courses.length > 0}
+            <Command.Group heading="Courses">
+                {#each $courses as suggestion }
+                    <Command.Item
+                            onSelect={() => {
+                                courseSuggestionSelected(suggestion)
+                            }}
+                    >
+                    <Book class="mr-3 h-4 w-4" />
+                    <div>
+                        <p>{suggestion.course_title}</p>
+                        <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                        </div>
+                    </Command.Item>
+                {/each}
+            </Command.Group>
+            <Command.Separator/>
+        {/if}
+    </Command.List>
+</Command.Dialog>
