@@ -10,13 +10,14 @@
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
-    import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {
         type CourseSearchResult,
         generateCourseSearchResults,
     } from "$lib/types/search/searchResults.ts";
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
+
+    let searchOpen = $state(false);
 
     //save the taken courses
     function saveData(){
@@ -25,10 +26,12 @@
 
     interface Props {
         takenCourses: Array<any>;
+        status: string;
     }
 
     let { 
-        takenCourses = $bindable()
+        takenCourses = $bindable(),
+        status = $bindable()
     }: Props = $props();
 
     let courses = writable<CourseSearchResult[]>([]);
@@ -62,7 +65,7 @@
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
         //close search
-        $searchModalOpen = false;
+        searchOpen = false;
 
         //get course data from API
         let courseID = result.course_id.replaceAll("_", "");
@@ -89,7 +92,7 @@
             saveData();
         }
         else{
-            console.log("course was a duplicate")
+            status = "course was not added due to being a duplicate";
         }
     }
 
@@ -104,7 +107,7 @@
         "lg:w-80 md:w-40"
 	)}
         onclick={() => {
-            $searchModalOpen = true;
+            searchOpen = true;
             searchQuery = "";
         }}
 >
@@ -112,7 +115,7 @@
     <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
 
-<Command.Dialog bind:open={$searchModalOpen}>
+<Command.Dialog bind:open={searchOpen}>
     <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
     <Command.List>
         {#if $courses.length <= 0}

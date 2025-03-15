@@ -205,7 +205,7 @@
         </Table.Body>
     </Table.Root>
 
-    <CourseSearch bind:takenCourses={takenCourses}/>
+    <CourseSearch bind:takenCourses={takenCourses} bind:status={status}/>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >
