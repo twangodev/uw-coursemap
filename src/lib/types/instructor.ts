@@ -1,3 +1,7 @@
+import type {Course} from "$lib/types/course.ts";
+import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
+import {apiFetch} from "$lib/api.ts";
+
 export type MandatoryAttendance = {
     neither: number,
     no: number,
@@ -80,4 +84,35 @@ export type FullInstructorInformation = {
     official_name: string | null,
     position: string | null,
     rmp_data: Instructor | null
+}
+
+export async function getFullInstructorInformation(course: Promise<Course>, terms: Promise<Terms>, selectedTerm: string | undefined): Promise<FullInstructorInformation[]> {
+    let loadedCourse = await course;
+    let loadedTerms = await terms;
+
+    let rawInstructors = [];
+    for (const [name, email] of Object.entries(loadedCourse.enrollment_data[selectedTerm ?? getLatestTermId(loadedTerms)]?.instructors ?? {})) {
+        const response = await apiFetch(
+            `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
+        );
+        const data: FullInstructorInformation =
+            response.status === 200
+                ? await response.json()
+                : {
+                    name,
+                    email,
+                    credentials: null,
+                    department: null,
+                    official_name: null,
+                    position: null,
+                    rmp_data: null,
+                };
+        rawInstructors.push(data);
+    }
+
+    return rawInstructors.toSorted((a, b) => {
+        if (!a.rmp_data?.average_rating) return 1;
+        if (!b.rmp_data?.average_rating) return -1;
+        return b.rmp_data.average_rating - a.rmp_data.average_rating;
+    });
 }
