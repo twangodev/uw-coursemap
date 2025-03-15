@@ -24,17 +24,59 @@
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
     import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {apiFetch} from "$lib/api.ts";
-    import type {Terms} from "$lib/types/terms.ts";
+    import {getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
     import {Row} from "$lib/components/ui/table";
     import TermSelector from "$lib/components/term-selector.svelte";
+    import {theme} from "mode-watcher";
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
-    let course = writable<Course | null>(null)
-    let instructors: FullInstructorInformation[] = $state([])
-    let terms: Terms = $state({});
-    let selectedTerm: string | null = null;
+    let course: Promise<Course> = $derived(courseReferenceStringToCourse(courseIdentifier));
+    
+    let instructors: Promise<FullInstructorInformation[]> = $derived.by(async () => {
+        let loadedCourse = await course;
+
+        let rawInstructors = [];
+        console.log(selectedTerm ?? getLatestTermIdPromise(terms))
+        console.log((loadedCourse.enrollment_data[selectedTerm ?? getLatestTermIdPromise(terms)]?.instructors));
+        for (const [name, email] of Object.entries(loadedCourse.enrollment_data[selectedTerm ?? getLatestTermIdPromise(terms)]?.instructors ?? {})) {
+            const response = await apiFetch(
+                `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
+            );
+            const data: FullInstructorInformation =
+                response.status === 200
+                    ? await response.json()
+                    : {
+                        name,
+                        email,
+                        credentials: null,
+                        department: null,
+                        official_name: null,
+                        position: null,
+                        rmp_data: null,
+                    };
+            rawInstructors.push(data);
+        }
+
+        return rawInstructors.toSorted((a, b) => {
+            if (!a.rmp_data?.average_rating) return 1;
+            if (!b.rmp_data?.average_rating) return -1;
+            return b.rmp_data.average_rating - a.rmp_data.average_rating;
+        });
+    })
+
+    let terms: Promise<Terms> = (async () => {
+        let termsData = await apiFetch(`/terms.json`)
+        return await termsData.json()
+    })();
+
+    let selectedTerm: string | undefined = $state(undefined)
+    let latestTerm = $derived.by(async () => {
+        selectedTerm = String(await getLatestTermIdPromise(terms))
+        return selectedTerm
+    });
+
     let currentCourseIdentifier: string | null = null;
 
     const getLatestTermMadgradesData = (course: Course) => {
@@ -112,63 +154,22 @@
     }
 
     onMount(async () => {
-        let termsData = await apiFetch(`/terms.json`)
-        terms = await termsData.json()
     })
 
-    $effect(() => {
-        if (courseIdentifier && terms && courseIdentifier !== currentCourseIdentifier) {
-            (async () => {
-                currentCourseIdentifier = courseIdentifier; // update the guard variable
-
-                const courseData = await courseReferenceStringToCourse(courseIdentifier);
-                course.set(courseData);
-
-                // Reset the instructors array for the new course data.
-                let rawInstructors = [];
-                let latestTerm = Object.keys(terms).sort().pop() ?? ""; // TODO Allow user to select term
-                let termValue = terms[latestTerm];
-                for (const [name, email] of Object.entries(courseData?.enrollment_data[termValue]?.instructors ?? {})) {
-                    const response = await apiFetch(
-                        `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
-                    );
-                    const data: FullInstructorInformation =
-                        response.status === 200
-                            ? await response.json()
-                            : {
-                                name,
-                                email,
-                                credentials: null,
-                                department: null,
-                                official_name: null,
-                                position: null,
-                                rmp_data: null,
-                            };
-                    rawInstructors.push(data);
-                }
-
-                // Optionally, sort the instructors.
-                instructors = rawInstructors.toSorted((a, b) => {
-                    if (!a.rmp_data?.average_rating) return 1;
-                    if (!b.rmp_data?.average_rating) return -1;
-                    return b.rmp_data.average_rating - a.rmp_data.average_rating;
-                });
-
-            })();
-        }
-    })
 </script>
 
 <ContentWrapper>
-    {#if $course}
+    {#await Promise.all([course, terms, latestTerm])}
+        <p class="text-center">Loading...</p>
+    {:then [course, terms]}
         <div class="flex justify-between items-center">
             <div>
-                <ContentH1>{$course.course_title}</ContentH1>
+                <ContentH1>{course.course_title}</ContentH1>
                 <div class="text-xl font-bold my-2">
-                    {courseReferenceToString($course.course_reference)}
+                    {courseReferenceToString(course.course_reference)}
                 </div>
             </div>
-            <TermSelector {selectedTerm} terms={Object.values(terms)} />
+            <TermSelector bind:selectedTerm={selectedTerm} terms={terms} />
         </div>
         <Tabs.Root value="overview">
             <Tabs.List class="my-2">
@@ -186,7 +187,7 @@
                             <Info class="text-muted-foreground h-4 w-4" />
                         </Card.Header>
                         <Card.Content>
-                            <p class="text-sm break-words">{$course.description}</p>
+                            <p class="text-sm break-words">{course.description}</p>
                         </Card.Content>
                         <Card.Header
                                 class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -195,7 +196,7 @@
                             <BookOpen class="text-muted-foreground h-4 w-4" />
                         </Card.Header>
                         <Card.Content>
-                            <p class="text-sm break-words">{$course.prerequisites.prerequisites_text}</p>
+                            <p class="text-sm break-words">{course.prerequisites.prerequisites_text}</p>
                         </Card.Content>
                     </Card.Root>
                 </div>
@@ -209,10 +210,10 @@
                                 <BookPlus class="text-muted-foreground h-4 w-4" />
                             </Card.Header>
                             <Card.Content>
-                                <div class="text-2xl font-bold {calculateColorFromGPA(getLatestTermGPA($course))}">
-                                    {getLatestTermGPA($course)?.toFixed(2) ?? "Not Reported"}
+                                <div class="text-2xl font-bold {calculateColorFromGPA(getLatestTermGPA(course))}">
+                                    {getLatestTermGPA(course)?.toFixed(2) ?? "Not Reported"}
                                 </div>
-                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA(course), getCumulativeGPA(course))} comparisonKeyword="Historical"/>
                             </Card.Content>
                         </Card.Root>
                         <Card.Root>
@@ -224,9 +225,9 @@
                             </Card.Header>
                             <Card.Content>
                                 <div class="text-2xl font-bold">
-                                    {appendPercent(getLatestCompletionRate($course))}
+                                    {appendPercent(getLatestCompletionRate(course))}
                                 </div>
-                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate(course), getCumulativeCompletionRate(course))} comparisonKeyword="Historical"/>
                             </Card.Content>
                         </Card.Root>
                         <Card.Root>
@@ -238,9 +239,9 @@
                             </Card.Header>
                             <Card.Content>
                                 <div class="text-2xl font-bold">
-                                    {appendPercent(getLatestARate($course))}
+                                    {appendPercent(getLatestARate(course))}
                                 </div>
-                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate(course), getCumulativeARate(course))} comparisonKeyword="Historical"/>
                             </Card.Content>
                         </Card.Root>
                         <Card.Root>
@@ -252,17 +253,17 @@
                             </Card.Header>
                             <Card.Content>
                                 <div class="text-2xl font-bold">
-                                    {getLatestClassSize($course) ?? "Not Reported"}
+                                    {getLatestClassSize(course) ?? "Not Reported"}
                                 </div>
-                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize($course), getCumulativeClassSize($course))} comparisonKeyword="Historical"/>
+                                <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize(course), getCumulativeClassSize(course))} comparisonKeyword="Historical"/>
                             </Card.Content>
                         </Card.Root>
                     </div>
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                         <Card.Root class="lg:col-span-4">
                             <Card.Content class="pt-6">
-                                {#if $course.madgrades_data}
-                                    <GradeDataHorizontalBarChart madgradesData={$course.madgrades_data} />
+                                {#if course.madgrades_data}
+                                    <GradeDataHorizontalBarChart madgradesData={course.madgrades_data} />
                                 {:else}
                                     <p class="text-center">No data available</p>
                                 {/if}
@@ -270,7 +271,7 @@
                         </Card.Root>
                         <Card.Root class="lg:col-span-3">
                             <Card.Header>
-                                <Card.Title>Instructors</Card.Title>
+                                <Card.Title>Instructors ({terms[selectedTerm]})</Card.Title>
                                 <Card.Description class="flex">
                                     Sorted by ratings from
                                     <a href="https://www.ratemyprofessors.com/"
@@ -283,22 +284,28 @@
                                 </Card.Description>
                             </Card.Header>
                             <Card.Content>
-                                {#each instructors as instructor}
-                                    <InstructorPreview {instructor} showRating={true} />
-                                {/each}
+                                {#await instructors}
+                                    <p class="text-center">Loading...</p>
+                                {:then instructors}
+                                    {#each instructors as instructor}
+                                        <InstructorPreview {instructor} showRating={true} />
+                                    {/each}
+                                {:catch error}
+                                    <p class="text-red-600">Error loading instructors: {error.message}</p>
+                                {/await}
                             </Card.Content>
                         </Card.Root>
                         <div class="md:col-span-2 lg:col-span-7">
                             <h2 class="text-2xl font-bold my-4">Related Courses</h2>
-                            <CourseCarousel courseReferences={$course.prerequisites.course_references}/>
+                            <CourseCarousel courseReferences={course.prerequisites.course_references}/>
                         </div>
                     </div>
                 </Tabs.Content>
                 <Tabs.Content value="trends" class="lg:col-span-9 space-y-4">
                     <Card.Root>
                         <Card.Content class="pt-6">
-                            {#if $course.madgrades_data}
-                            <ComboGradeDataStackedAreaChart madgradesData={$course.madgrades_data} {terms} />
+                            {#if course.madgrades_data}
+                            <ComboGradeDataStackedAreaChart madgradesData={course.madgrades_data} {terms} />
                             {:else }
                                 <p class="text-center">No data available</p>
                             {/if}
@@ -321,6 +328,10 @@
                             </Card.Description>
                         </Card.Header>
                         <Card.Content>
+                            {#await instructors}
+                                <p class="text-center">Loading...</p>
+                            {:then instructors}
+
                             {#each instructors as instructor}
                                 <InstructorPreview
                                     {instructor}
@@ -328,15 +339,26 @@
                                     showOtherDetails={true}
                                 />
                             {/each}
+                            {:catch error}
+                                <p class="text-red-600">Error loading instructors: {error.message}</p>
+                            {/await}
                         </Card.Content>
                     </Card.Root>
                     <Card.Root>
-                        <Card.Content>
-                            <InstructorWordCloud instructors={instructors} />
-                        </Card.Content>
+                        {#await instructors}
+                            <p class="text-center">Loading...</p>
+                        {:then instructors}
+                            <Card.Content>
+                                <InstructorWordCloud instructors={instructors} />
+                            </Card.Content>
+                        {:catch error}
+                            <p class="text-red-600">Error loading instructors: {error.message}</p>
+                        {/await}
                     </Card.Root>
                 </Tabs.Content>
             </div>
         </Tabs.Root>
-    {/if}
+    {:catch error}
+        <p class="text-red-600">Error loading course: {error.message}</p>
+    {/await}
 </ContentWrapper>
