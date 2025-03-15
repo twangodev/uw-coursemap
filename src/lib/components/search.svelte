@@ -41,7 +41,7 @@
     });
 
     $effect(() => {
-        if ($searchModalOpen) {
+        if ($searchModalOpen && !fake) {
             toast.message("Tip", {
                 description: "Hold shift to open course details directly.",
                 duration: 3000,
