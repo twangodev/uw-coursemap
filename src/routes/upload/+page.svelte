@@ -215,8 +215,28 @@
             </Table.Body>
         </Table.Root>
     {/if}
-    <Button variant="destructive" onclick={clearCourses}>Clear Course Data</Button>
 
-
-
+    <AlertDialog.Root>
+        <AlertDialog.Trigger >
+            <Button variant="destructive">Clear Course Data</Button>
+        </AlertDialog.Trigger>
+        <AlertDialog.Content>
+            <AlertDialog.Header>
+                <AlertDialog.Title>Are you sure you want to remove all uploaded courses?</AlertDialog.Title>
+                <AlertDialog.Footer>
+                    <AlertDialog.Cancel>
+                        <Button variant="soft" color="gray">
+                            Cancel
+                        </Button>
+                    </AlertDialog.Cancel>
+                    <AlertDialog.Cancel>
+                        <Button variant="solid" color="red" onclick={clearCourses}>
+                            Revoke access
+                        </Button>
+                    </AlertDialog.Cancel>
+                </AlertDialog.Footer>
+            </AlertDialog.Header>
+        </AlertDialog.Content>
+    </AlertDialog.Root>
+    
 </ContentWrapper>
