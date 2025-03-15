@@ -50,6 +50,7 @@
     async function parseTranscriptPDF(pdfData: ArrayBuffer) {
         //set status to loading
         status = "Loading...";
+        let hadError = false;
         
         //get new courses
         try{
@@ -81,6 +82,12 @@
                 //get the course's datas
                 let courseData = await getCourse(courseInfo);
                 
+                //couldnt get course data
+                if(courseData == null){
+                    hadError = true;
+                    continue;
+                }
+                
                 //check if it is a duplicate
                 let duplicate = false;
                 for(let takenCourse of takenCourses){
@@ -100,34 +107,44 @@
                     saveData();
                 }
             }
-            //set status to succes
-            status = "";
+
+            //set status to succes (only if there wasnt an error)
+            if(!hadError){
+                status = "";
+            }
         }
         catch(e){
             //set status to error
-            status = "Error";
+            status = "Error parsing pdf";
             console.error(e);
         }
     }
 
     async function getCourse(courseCode: string){
-        //seperate course info
-        let section = courseCode.split(" ")[0];
-        let number = parseInt(courseCode.split(" ")[1]);
+        try{
+            //seperate course info
+            let section = courseCode.split(" ")[0];
+            let number = parseInt(courseCode.split(" ")[1]);
 
-        //get the section data
-        const response = await apiFetch(`/courses/${section}.json`)
-        let subjectCourses = await response.json();
+            //get the section data
+            const response = await apiFetch(`/courses/${section}.json`)
+            let subjectCourses = await response.json();
 
-        //get the specific course
-        for(const courseData of subjectCourses){
-            if(courseData["course_reference"]["course_number"] == number){
-                return courseData;
+            //get the specific course
+            for(const courseData of subjectCourses){
+                if(courseData["course_reference"]["course_number"] == number){
+                    return courseData;
+                }
             }
-        }
 
-        //no course found
-        throw new Error("Could not find course ):\n" + courseCode);
+            //no course found
+            throw new Error("Could not find course ):\n" + courseCode);
+        }
+        catch(e){
+            console.log(e);
+            status = "Error using course data API";
+            return null;
+        }
     }
 
     async function fileUploaded(event: Event) {
@@ -187,33 +204,35 @@
         </div>
     </div>
     
-    {#if takenCourses.length > 0}
-        <Table.Root>
+    <Table.Root style="margin-bottom: 20px;">
+        {#if takenCourses.length == 0 && status == ""}
+            <Table.Caption>no courses to display</Table.Caption>
+        {:else}
             <Table.Caption>{status}</Table.Caption>
-            <Table.Header>
+        {/if}
+        <Table.Header>
+            <Table.Row>
+                <Table.Head>Remove</Table.Head>
+                <Table.Head>Name</Table.Head>
+                <Table.Head>Subject(s)</Table.Head>
+                <Table.Head>Number</Table.Head>
+            </Table.Row>
+        </Table.Header>
+        <Table.Body>
+            {#each takenCourses as courseData}
                 <Table.Row>
-                    <Table.Head>Remove</Table.Head>
-                    <Table.Head>Name</Table.Head>
-                    <Table.Head>Subject(s)</Table.Head>
-                    <Table.Head>Number</Table.Head>
+                    <Table.Cell>
+                        <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
+                            <XMark class="h-4 w-4" />
+                        </Button>
+                    </Table.Cell>
+                    <Table.Cell>{courseData["course_title"]}</Table.Cell>
+                    <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
+                    <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
                 </Table.Row>
-            </Table.Header>
-            <Table.Body>
-                {#each takenCourses as courseData}
-                    <Table.Row>
-                        <Table.Cell>
-                            <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
-                                <XMark class="h-4 w-4" />
-                            </Button>
-                        </Table.Cell>
-                        <Table.Cell>{courseData["course_title"]}</Table.Cell>
-                        <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
-                        <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
-                    </Table.Row>
-                {/each}
-            </Table.Body>
-        </Table.Root>
-    {/if}
+            {/each}
+        </Table.Body>
+    </Table.Root>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >
