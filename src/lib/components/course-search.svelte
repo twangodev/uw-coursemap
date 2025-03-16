@@ -1,7 +1,7 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
-    import * as Command from "$lib/components/ui/command/index.js";
+    import {Command, CommandItem} from "$lib/components/ui/command";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
@@ -16,6 +16,11 @@
     } from "$lib/types/search/searchResults.ts";
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
+    import {tick} from "svelte";
+    import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
+    import {ChevronsUpDown} from "lucide-svelte";
+    import {CommandEmpty, CommandGroup} from "$lib/components/ui/command/index.js";
+    import Check from "lucide-svelte/icons/check";
 
     let searchOpen = $state(false);
 
@@ -106,6 +111,17 @@
     }
 
     let searchQuery = $state("");
+    let triggerRef = $state<HTMLButtonElement>(null!);
+    let selectedTerm = $state<string | null>(null);
+    let terms: Array<string> = ["test1", "test2", "test3"];
+    
+
+    function closeAndFocusTrigger() {
+        searchOpen = false;
+        tick().then(() => {
+            triggerRef.focus();
+        });
+    }
 
 </script>
 
@@ -124,30 +140,39 @@
     <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
 
-<Command.Dialog bind:open={searchOpen}>
-    <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
-    <Command.List>
-        {#if $courses.length <= 0}
-            <div class="py-6 text-center text-sm">Enter something into the search bar pwetty pweese</div>
-        {/if}
-        
-        {#if $courses.length > 0}
-            <Command.Group heading="Courses">
-                {#each $courses as suggestion }
-                    <Command.Item
-                            onSelect={() => {
-                                courseSuggestionSelected(suggestion)
-                            }}
-                    >
-                    <Book class="mr-3 h-4 w-4" />
-                    <div>
-                        <p>{suggestion.course_title}</p>
-                        <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
-                        </div>
-                    </Command.Item>
+<Popover>
+    <Trigger bind:ref={triggerRef}>
+        {#snippet child({ props })}
+            <Button
+                    variant="outline"
+                    class="w-[200px] justify-between"
+                    {...props}
+                    role="combobox"
+                    aria-expanded={searchOpen}
+            >
+                {selectedTerm ? selectedTerm : "Select a term..."}
+                <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
+            </Button>
+        {/snippet}
+    </Trigger>
+    <PopoverContent>
+        <Command>
+            <CommandEmpty>No term found.</CommandEmpty>
+            <CommandGroup>
+                {#each Object.entries(terms).toReversed() as [termId, termName]}
+                    <CommandItem
+                        value={termId}
+                        onSelect={() => {
+                            selectedTerm = termId;
+                            closeAndFocusTrigger();
+                        }}>
+                        <Check
+                                class={cn(selectedTerm !== termId && "text-transparent")}
+                        />
+                        termName
+                    </CommandItem>
                 {/each}
-            </Command.Group>
-            <Command.Separator/>
-        {/if}
-    </Command.List>
-</Command.Dialog>
+            </CommandGroup>
+        </Command>
+    </PopoverContent>
+</Popover>
