@@ -7,8 +7,8 @@ def generate_accessible_color():
     Generate an accessible random hex color that meets WCAG contrast ratios for both
     black and white text. The function uses Material 3's tonal idea by adjusting the
     lightness value via binary search, targeting a mid-tone that typically yields
-    sufficient contrast (roughly corresponding to a relative luminance around 0.18).
-    
+    sufficient contrast. Additionally, the saturation is restricted to avoid near-gray colors.
+
     Returns:
         str: A hex color string in the form "#RRGGBB".
     """
@@ -21,9 +21,10 @@ def generate_accessible_color():
         B_lin = to_linear(b)
         return 0.2126 * R_lin + 0.7152 * G_lin + 0.0722 * B_lin
 
-    # Pick random hue and saturation
-    h = random.random()  # Hue in [0,1)
-    s = random.random()  # Saturation in [0,1]
+    # Choose a random hue in [0, 1)
+    h = random.random()
+    # Restrict saturation to avoid near-gray colors; pick from [0.5, 1.0] for vibrant colors.
+    s = random.uniform(0.5, 1.0)
 
     # Use binary search to find a suitable lightness value that provides good contrast.
     # We aim for a relative luminance of about 0.18.
