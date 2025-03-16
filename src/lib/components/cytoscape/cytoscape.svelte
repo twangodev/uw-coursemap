@@ -60,7 +60,7 @@
     }
 
     let myTip: any;
-    let cytoscapeStyles: StylesheetStyle[];
+    let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     function setTip(newTip: any) {
         myTip?.destroy();
@@ -174,9 +174,7 @@
             text: "Graph Loaded",
             number: 100,
         }
-    
-    console.log(cytoscapeStyles.filter(style => style.selector.includes('node[')).map(style => style.style));
-    };
+        };
 
     $effect(() => {
         if (url && styleUrl) {
@@ -191,7 +189,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <Legend />
+    <Legend {cytoscapeStyles}/>
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
