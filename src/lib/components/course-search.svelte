@@ -1,7 +1,7 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
-    import {Command, CommandItem} from "$lib/components/ui/command";
+    import * as Command from "$lib/components/ui/command";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
@@ -22,7 +22,7 @@
     import {CommandEmpty, CommandGroup} from "$lib/components/ui/command/index.js";
     import Check from "lucide-svelte/icons/check";
 
-    let searchOpen = $state(false);
+    let open = $state(false);
 
     //save the taken courses
     function saveData(){
@@ -71,7 +71,7 @@
     async function courseSuggestionSelected(result: CourseSearchResult) {
         try{
             //close search
-            searchOpen = false;
+            open = false;
 
             //parse course ID, compssci_ece_252
             let courseIDParts = result.course_id.split("_");
@@ -112,15 +112,16 @@
 
     let searchQuery = $state("");
     let triggerRef = $state<HTMLButtonElement>(null!);
-    let selectedTerm = $state<string | null>(null);
-    let terms: Array<string> = ["test1", "test2", "test3"];
+    let selectedCourseIndex = $state(-1);
+    let courseOptions: Array<string> = ["test1", "test2", "test3", "test4", "test5", "test6", "test7"];
     
 
     function closeAndFocusTrigger() {
-        searchOpen = false;
-        tick().then(() => {
-            triggerRef.focus();
-        });
+        console.log(courseOptions[selectedCourseIndex]);
+        open = false;
+        //tick().then(() => {
+        //    triggerRef.focus();
+        //}); 
     }
 
 </script>
@@ -132,7 +133,7 @@
         "lg:w-80 md:w-40"
 	)}
         onclick={() => {
-            searchOpen = true;
+            open = true;
             searchQuery = "";
         }}
 >
@@ -148,31 +149,30 @@
                     class="w-[200px] justify-between"
                     {...props}
                     role="combobox"
-                    aria-expanded={searchOpen}
+                    aria-expanded={open}
             >
-                {selectedTerm ? selectedTerm : "Select a term..."}
+                Add a course...
                 <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
             </Button>
         {/snippet}
     </Trigger>
     <PopoverContent>
-        <Command>
-            <CommandEmpty>No term found.</CommandEmpty>
+        <Command.Root>
+            <Command.Input placeholder="Search framework..." />
+            <CommandEmpty>No course found.</CommandEmpty>
             <CommandGroup>
-                {#each Object.entries(terms).toReversed() as [termId, termName]}
-                    <CommandItem
-                        value={termId}
+                {#each Object.entries(courseOptions) as [courseIndex, courseID]}
+                    <Command.Item
+                        value={courseIndex}
                         onSelect={() => {
-                            selectedTerm = termId;
+                            selectedCourseIndex = parseInt(courseIndex);
                             closeAndFocusTrigger();
                         }}>
-                        <Check
-                                class={cn(selectedTerm !== termId && "text-transparent")}
-                        />
-                        termName
-                    </CommandItem>
+                        <Check class={cn(selectedCourseIndex !== parseInt(courseIndex) && "text-transparent")}/>
+                        {courseID}
+                    </Command.Item>
                 {/each}
             </CommandGroup>
-        </Command>
+        </Command.Root>
     </PopoverContent>
 </Popover>
