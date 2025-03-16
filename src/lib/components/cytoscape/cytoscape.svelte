@@ -15,6 +15,7 @@
     import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
     import {page} from "$app/state";
     import {mode} from "mode-watcher";
+    import {getTextColor} from "$lib/theme.ts";
 
     interface Props {
         url: string;
@@ -181,6 +182,20 @@
             loadGraph()
         }
     });
+
+    $effect(() => {
+        if (!cy) {
+            return;
+        }
+        cy.style().selector('node').style({
+            'color': getTextColor($mode)
+        }).selector('.highlighted-nodes').style({
+            'border-color': getTextColor($mode),
+        }).selector('edge').style({
+            'line-color': getTextColor($mode),
+            'target-arrow-color': getTextColor($mode),
+        }).update()
+    })
 
 </script>
 <div class="relative grow" id="cy-container">
