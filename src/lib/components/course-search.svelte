@@ -123,28 +123,12 @@
     }
 
 </script>
-
-<Button
-    variant="outline"
-    class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", 
-        "lg:w-80 md:w-40"
-	)}
-        onclick={() => {
-            open = true;
-            searchQuery = "";
-        }}
->
-    <span class="hidden lg:inline-flex">Search courses... </span>
-    <span class="inline-flex lg:hidden">Add course...</span>
-</Button>
-
 <Popover>
     <Trigger bind:ref={triggerRef}>
         {#snippet child({ props })}
             <Button
                     variant="outline"
-                    class="w-[200px] justify-between"
+                    class="w-[400px] justify-between"
                     {...props}
                     role="combobox"
                     aria-expanded={open}
@@ -154,7 +138,7 @@
             </Button>
         {/snippet}
     </Trigger>
-    <PopoverContent class="w-[200px] p-0">
+    <PopoverContent class="w-[400px] p-0">
         <Command>
             <CustomSearchInput placeholder="Search courses..." bind:value={searchQuery} />
             <CommandList>
