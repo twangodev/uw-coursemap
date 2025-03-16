@@ -1,28 +1,24 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
-    import {cn, sleep} from "$lib/utils.ts";
+    import {sleep} from "$lib/utils.ts";
     import {Command, CommandItem, CommandList} from "$lib/components/ui/command";
     import {CommandEmpty, CommandGroup, CommandInput} from "$lib/components/ui/command/index.js";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
-    import {
-        courseSearchResponseToIdentifier,
-        type SearchResponse
-    } from "$lib/types/search/searchApiResponse.ts";
-    import {Book, School, User} from "lucide-svelte";
-    import {
-        type CourseSearchResult,
-        generateCourseSearchResults,
-    } from "$lib/types/search/searchResults.ts";
+    import {type SearchResponse} from "$lib/types/search/searchApiResponse.ts";
+    import {type CourseSearchResult, generateCourseSearchResults} from "$lib/types/search/searchResults.ts";
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
-    import {tick} from "svelte";
     import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
     import {ChevronsUpDown} from "lucide-svelte";
-    import Check from "lucide-svelte/icons/check";
 
     let open = $state(false);
+    let numOptions = 4;
+    let searchQuery = $state("");
+    let triggerRef = $state<HTMLButtonElement>(null!);
+    let selectedCourse: CourseSearchResult;
+    let courses = writable<CourseSearchResult[]>([]);
 
     //save the taken courses
     function saveData(){
@@ -38,8 +34,6 @@
         takenCourses = $bindable(),
         status = $bindable()
     }: Props = $props();
-
-    let courses = writable<CourseSearchResult[]>([]);
 
     $effect(() => {
         updateSuggestions(searchQuery);
@@ -65,11 +59,14 @@
 
         const rawCourses = data.courses
 
-        $courses = generateCourseSearchResults(rawCourses)
+        $courses = generateCourseSearchResults(rawCourses).slice(0, numOptions);
     }
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
         try{
+            //set status
+            status = "Loading...";
+
             //close search
             open = false;
 
@@ -99,6 +96,9 @@
         
                 //save to local storage
                 saveData();
+
+                //no errors, done
+                status = "";
             }
             else{
                 status = "course was not added due to being a duplicate";
@@ -110,10 +110,6 @@
         }
     }
 
-    let searchQuery = $state("");
-    let triggerRef = $state<HTMLButtonElement>(null!);
-    let selectedCourse: CourseSearchResult;
-
     function closeAndFocusTrigger() {
         //close dropdown
         open = false;
@@ -123,7 +119,7 @@
     }
 
 </script>
-<Popover>
+<Popover bind:open>
     <Trigger bind:ref={triggerRef}>
         {#snippet child({ props })}
             <Button
