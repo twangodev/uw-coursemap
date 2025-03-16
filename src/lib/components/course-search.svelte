@@ -1,7 +1,8 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
-    import * as Command from "$lib/components/ui/command";
+    import {Command, CommandItem, CommandList} from "$lib/components/ui/command";
+    import {CommandEmpty, CommandGroup, CommandInput} from "$lib/components/ui/command/index.js";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
@@ -19,7 +20,6 @@
     import {tick} from "svelte";
     import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
     import {ChevronsUpDown} from "lucide-svelte";
-    import {CommandEmpty, CommandGroup} from "$lib/components/ui/command/index.js";
     import Check from "lucide-svelte/icons/check";
 
     let open = $state(false);
@@ -112,13 +112,12 @@
 
     let searchQuery = $state("");
     let triggerRef = $state<HTMLButtonElement>(null!);
-    let selectedCourseIndex = $state(-1);
-    let courseOptions: Array<string> = ["test1", "test2", "test3", "test4", "test5", "test6", "test7"];
-    
+    let selectedCourse: CourseSearchResult;
 
     function closeAndFocusTrigger() {
-        console.log(courseOptions[selectedCourseIndex]);
+        console.log(selectedCourse.course_title);
         open = false;
+        courseSuggestionSelected(selectedCourse);
         //tick().then(() => {
         //    triggerRef.focus();
         //}); 
@@ -156,23 +155,25 @@
             </Button>
         {/snippet}
     </Trigger>
-    <PopoverContent>
-        <Command.Root>
-            <Command.Input placeholder="Search framework..." />
-            <CommandEmpty>No course found.</CommandEmpty>
-            <CommandGroup>
-                {#each Object.entries(courseOptions) as [courseIndex, courseID]}
-                    <Command.Item
-                        value={courseIndex}
-                        onSelect={() => {
-                            selectedCourseIndex = parseInt(courseIndex);
-                            closeAndFocusTrigger();
-                        }}>
-                        <Check class={cn(selectedCourseIndex !== parseInt(courseIndex) && "text-transparent")}/>
-                        {courseID}
-                    </Command.Item>
-                {/each}
-            </CommandGroup>
-        </Command.Root>
+    <PopoverContent class="w-[200px] p-0">
+        <Command>
+            <CustomSearchInput placeholder="Search courses..." bind:value={searchQuery} />
+            <CommandList>
+                <CommandEmpty>No course found.</CommandEmpty>
+                <CommandGroup>
+                    {#each $courses as course}
+                        <CommandItem
+                                value={course.course_id}
+                                onSelect={() => {
+                                    selectedCourse = course;
+                                    closeAndFocusTrigger();
+                                }}
+                            >
+                            {course.subjects.join("/") + " " + course.course_number}
+                        </CommandItem>
+                    {/each}
+                </CommandGroup>
+            </CommandList>
+        </Command>
     </PopoverContent>
 </Popover>
