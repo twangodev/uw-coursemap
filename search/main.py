@@ -1,8 +1,10 @@
 import logging
+import random
 from argparse import ArgumentParser
+
 import coloredlogs
 from elasticsearch import Elasticsearch
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from data import get_instructors, get_courses, get_subjects, normalize_text
@@ -50,6 +52,24 @@ def search():
         "instructors": search_instructors(es, normalized_search_term),
         "subjects": search_subjects(es, normalized_search_term),
     }
+
+@app.route('/random-courses', methods=['GET'])
+def get_random_courses():
+    """Returns 5 random courses from the dataset."""
+    if not courses:
+        return jsonify({"error": "No courses available"}), 404
+
+    # Ensure we don't try to sample more courses than exist
+    num_courses = min(5, len(courses))
+
+    # Select 5 unique random course IDs
+    random_course_ids = random.sample(list(courses.keys()), num_courses)
+
+    # Retrieve the full course details
+    random_courses = [{"id": course_id, **courses[course_id]} for course_id in random_course_ids]
+
+    return jsonify(random_courses)
+
 
 def clear_elasticsearch():
 

@@ -3,7 +3,7 @@
     import {cn, sleep} from "$lib/utils.ts";
     import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
-    import { search } from "$lib/api";
+    import {getRandomCourses, search} from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
@@ -22,6 +22,7 @@
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
+    import {onMount} from "svelte";
 
     interface Props {
         wide?: boolean;
@@ -40,8 +41,17 @@
         updateSuggestions(searchQuery);
     });
 
+    let randomCourses = $derived.by(async () => {
+        if ($searchModalOpen && !fake) {
+            const response = await getRandomCourses();
+            const data: CourseSearchResult[] = await response.json();
+            return generateCourseSearchResults(data);
+        }
+        return []
+    })
+
     $effect(() => {
-        if ($searchModalOpen) {
+        if ($searchModalOpen && !fake) {
             toast.message("Tip", {
                 description: "Hold shift to open course details directly.",
                 duration: 3000,
@@ -51,7 +61,7 @@
                         toast.dismiss();
                     }
                 }
-            })
+            });
         }
     })
 
@@ -143,7 +153,27 @@
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         <Command.List>
             {#if $courses.length <= 0 && $subjects.length <= 0 && $instructors.length <= 0}
-            <div class="py-6 text-center text-sm">No results found.</div>
+                {#await randomCourses}
+                    <div class="py-6 text-center text-sm">No results found.</div>
+                {:then randomCourses}
+                <Command.Group heading="Random Courses">
+                    {#each randomCourses as suggestion }
+                        <Command.Item
+                                onSelect={() => {
+                                    courseSuggestionSelected(suggestion)
+                                }}
+                        >
+                            <Book class="mr-3 h-4 w-4" />
+                            <div>
+                                <p>{suggestion.course_title}</p>
+                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                            </div>
+                        </Command.Item>
+                    {/each}
+                </Command.Group>
+                {:catch error}
+                    <div class="py-6 text-center text-sm">Error loading random courses.</div>
+                {/await}
             {/if}
             {#if $courses.length > 0}
                 <Command.Group heading="Courses">
