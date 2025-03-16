@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape from "cytoscape";
+    import cytoscape, { type StylesheetStyle } from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -14,6 +14,7 @@
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
     import {page} from "$app/state";
+    import Legend from "./legend.svelte";
 
     interface Props {
         url: string;
@@ -59,6 +60,7 @@
     }
 
     let myTip: any;
+    let cytoscapeStyles: StylesheetStyle[];
 
     function setTip(newTip: any) {
         myTip?.destroy();
@@ -81,7 +83,7 @@
             number: 50,
         }
 
-        let cytoscapeStyles = getStyles(styleUrl);
+        cytoscapeStyles = await getStyles(styleUrl);
 
         progress = {
             text: "Loading Layout...",
@@ -172,6 +174,8 @@
             text: "Graph Loaded",
             number: 100,
         }
+    
+    console.log(cytoscapeStyles.filter(style => style.selector.includes('node[')).map(style => style.style));
     };
 
     $effect(() => {
@@ -187,6 +191,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
+    <Legend />
     <SideControls bind:elementsAreDraggable {cy}/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
