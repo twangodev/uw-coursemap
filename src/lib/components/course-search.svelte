@@ -115,12 +115,11 @@
     let selectedCourse: CourseSearchResult;
 
     function closeAndFocusTrigger() {
-        console.log(selectedCourse.course_title);
+        //close dropdown
         open = false;
+
+        //add to courses
         courseSuggestionSelected(selectedCourse);
-        //tick().then(() => {
-        //    triggerRef.focus();
-        //}); 
     }
 
 </script>
