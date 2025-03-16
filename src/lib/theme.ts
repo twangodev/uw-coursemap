@@ -1,4 +1,3 @@
-
 export function getCarbonTheme(mode: "light" | "dark" | undefined) {
 
     switch (mode) {
@@ -10,4 +9,15 @@ export function getCarbonTheme(mode: "light" | "dark" | undefined) {
             return "white"
     }
 
+}
+
+export function getTextColor(mode: "light" | "dark" | undefined) {
+    switch (mode) {
+        case "light":
+            return "black"
+        case "dark":
+            return "white"
+        default:
+            return "black"
+    }
 }
