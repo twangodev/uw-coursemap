@@ -15,9 +15,10 @@ def create_compound(subject):
     })
 
 
-def create_node(course):
+def create_node(course: Course):
     data = {
         "id": course.get_identifier(),
+        "title": course.course_title,
         "description": course.description,
     }
 
