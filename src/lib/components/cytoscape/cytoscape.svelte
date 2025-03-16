@@ -7,13 +7,14 @@
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
     import { fetchCourse, fetchGraphData} from "./graph-data.ts";
-    import { getStyles } from "./graph-styles.ts";
+    import { getStyles } from "./graph-styles.svelte.ts";
     import SideControls from "./side-controls.svelte";
     import CourseSheet from "./course-sheet.svelte";
     import { clearPath, highlightPath } from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
     import {page} from "$app/state";
+    import {mode} from "mode-watcher";
 
     interface Props {
         url: string;
@@ -67,6 +68,7 @@
     function destroyTip() {
         myTip?.destroy();
     }
+
     const loadGraph = async () => {
 
         progress = {
@@ -74,14 +76,14 @@
             number: 25,
         }
         
-        let courseData = await fetchGraphData(url); 
+        let courseData = await fetchGraphData(url);
 
         progress = {
             text: "Styling Graph...",
             number: 50,
         }
 
-        let cytoscapeStyles = getStyles(styleUrl);
+        let cytoscapeStyles = await getStyles(styleUrl, $mode);
 
         progress = {
             text: "Loading Layout...",
