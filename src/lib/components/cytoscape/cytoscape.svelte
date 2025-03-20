@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape, { type StylesheetStyle } from "cytoscape";
+    import cytoscape from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -14,6 +14,8 @@
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
     import {page} from "$app/state";
+    import {mode} from "mode-watcher";
+    import {getTextColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
 
     interface Props {
@@ -60,7 +62,6 @@
     }
 
     let myTip: any;
-    let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     function setTip(newTip: any) {
         myTip?.destroy();
@@ -83,7 +84,7 @@
             number: 50,
         }
 
-        cytoscapeStyles = await getStyles(styleUrl);
+        let cytoscapeStyles = await getStyles(styleUrl, $mode);
 
         progress = {
             text: "Loading Layout...",
@@ -174,13 +175,27 @@
             text: "Graph Loaded",
             number: 100,
         }
-        };
+    };
 
     $effect(() => {
         if (url && styleUrl) {
             loadGraph()
         }
     });
+
+    $effect(() => {
+        if (!cy) {
+            return;
+        }
+        cy.style().selector('node').style({
+            'color': getTextColor($mode)
+        }).selector('.highlighted-nodes').style({
+            'border-color': getTextColor($mode),
+        }).selector('edge').style({
+            'line-color': getTextColor($mode),
+            'target-arrow-color': getTextColor($mode),
+        }).update()
+    })
 
 </script>
 <div class="relative grow" id="cy-container">

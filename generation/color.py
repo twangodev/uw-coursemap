@@ -1,60 +1,58 @@
 import random
+import colorsys
 
-def compute_relative_luminance(color):
+
+def generate_accessible_color():
     """
-    Compute the relative luminance of a hex color according to WCAG guidelines.
-
-    Args:
-        color (str): A hex color string in the form "#RRGGBB".
+    Generate an accessible random hex color that meets WCAG contrast ratios for both
+    black and white text. The function uses Material 3's tonal idea by adjusting the
+    lightness value via binary search, targeting a mid-tone that typically yields
+    sufficient contrast. Additionally, the saturation is restricted to avoid near-gray colors.
 
     Returns:
-        float: The relative luminance value.
+        str: A hex color string in the form "#RRGGBB".
     """
-    # Remove '#' if present
-    if color.startswith("#"):
-        color = color[1:]
-    # Convert hex to RGB and normalize to 0-1 range
-    r = int(color[0:2], 16) / 255.0
-    g = int(color[2:4], 16) / 255.0
-    b = int(color[4:6], 16) / 255.0
+    def relative_luminance(r, g, b):
+        # Convert sRGB to linear light values
+        def to_linear(c):
+            return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+        R_lin = to_linear(r)
+        G_lin = to_linear(g)
+        B_lin = to_linear(b)
+        return 0.2126 * R_lin + 0.7152 * G_lin + 0.0722 * B_lin
 
-    # Apply gamma correction
-    def adjust(c):
-        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    # Choose a random hue in [0, 1)
+    h = random.random()
+    # Restrict saturation to avoid near-gray colors; pick from [0.5, 1.0] for vibrant colors.
+    s = random.uniform(0.5, 1.0)
 
-    r_lin = adjust(r)
-    g_lin = adjust(g)
-    b_lin = adjust(b)
+    # Use binary search to find a suitable lightness value that provides good contrast.
+    # We aim for a relative luminance of about 0.18.
+    low, high = 0.0, 1.0
+    chosen_l = 0.5  # Start in the middle
 
-    # Compute relative luminance using the standard coefficients
-    return 0.2126 * r_lin + 0.7152 * g_lin + 0.0722 * b_lin
+    for _ in range(20):
+        r, g, b = colorsys.hls_to_rgb(h, chosen_l, s)
+        lum = relative_luminance(r, g, b)
+        # Adjust lightness based on whether the luminance is too high or too low.
+        if lum > 0.18:
+            high = chosen_l
+        else:
+            low = chosen_l
+        chosen_l = (low + high) / 2.0
 
-def is_contrasting(color, min_ratio=4.5):
-    """
-    Check if the provided hex color meets the Material Design contrast ratio standards against a white background.
-
-    This function calculates the contrast ratio using the WCAG formula:
-        contrast ratio = (L_light + 0.05) / (L_dark + 0.05)
-    Since white (with relative luminance 1.0) is the background, if our color is darker,
-    the ratio becomes (1.0 + 0.05) / (L_color + 0.05).
-
-    Args:
-        color (str): A hex color string in the form "#RRGGBB".
-        min_ratio (float): The minimum required contrast ratio. Defaults to 4.5.
-
-    Returns:
-        bool: True if the color meets the contrast ratio requirement, else False.
-    """
-    L = compute_relative_luminance(color)
-    # White has a luminance of 1.0
-    contrast = (1.0 + 0.05) / (L + 0.05)
-    return contrast >= min_ratio
+    # Convert final HLS value to RGB and then to HEX.
+    r, g, b = colorsys.hls_to_rgb(h, chosen_l, s)
+    R = int(round(r * 255))
+    G = int(round(g * 255))
+    B = int(round(b * 255))
+    return f"#{R:02x}{G:02x}{B:02x}"
 
 def generate_random_hex_colors(parents, color_map):
     """
-    For each parent in the set, use its existing color from color_map if available;
-    otherwise, generate a new random hex color that meets Material Design's contrast
-    requirements against a white background, update the color_map, and add it to the result list.
+    For each parent identifier in the given set, either retrieve its existing color
+    from color_map or generate a new accessible hex color using generate_accessible_color().
+    The colors are consistent: once a parent is assigned a color, it is reused.
 
     Args:
         parents (set of str): Set of parent identifiers.
@@ -68,11 +66,7 @@ def generate_random_hex_colors(parents, color_map):
         if parent in color_map:
             colors.append(color_map[parent])
         else:
-            # Generate a new random color until one meets the contrast requirement
-            while True:
-                random_color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
-                if is_contrasting(random_color):
-                    break
-            color_map[parent] = random_color
-            colors.append(random_color)
+            new_color = generate_accessible_color()
+            color_map[parent] = new_color
+            colors.append(new_color)
     return colors
