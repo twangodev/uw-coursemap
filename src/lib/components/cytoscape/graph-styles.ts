@@ -9,9 +9,10 @@ let defaultStyles: StylesheetStyle[] = [
         selector: 'node',
         style: {
             'label': 'data(id)',
-            'text-valign': 'center',
+            'text-valign': 'top',
             'text-halign': 'center',
             'background-color': '#757575',
+            'text-wrap': 'wrap',
         }
     },
     {
