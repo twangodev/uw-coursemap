@@ -1,10 +1,22 @@
 <script lang="ts">
-    import { LockKeyhole, LockKeyholeOpen, LucideFullscreen, LucideMinus, LucidePlus } from "lucide-svelte";
-    import { Button } from "../ui/button";
+    import {
+        Group,
+        LockKeyhole,
+        LockKeyholeOpen,
+        LucideFullscreen,
+        LucideMinus,
+        LucidePlus,
+        Ungroup,
+    } from "lucide-svelte";
     import IconTooltipStateWrapper from "../icon-toolips/icon-tooltip-state-wrapper.svelte";
     import IconTootipWrapper from "../icon-toolips/icon-tootip-wrapper.svelte";
+    import {LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
 
-    let { elementsAreDraggable = $bindable<boolean>(), cy } = $props();
+    let {
+        elementsAreDraggable = $bindable<boolean>(),
+        layoutType = $bindable<LayoutType>(),
+        cy
+    } = $props();
 
     let isFullscreen = $state(false);
 
@@ -30,6 +42,10 @@
         elementsAreDraggable = !elementsAreDraggable;
     }
 
+    const toggleLayoutType = () => {
+        layoutType = layoutType === LayoutType.GROUPED ? LayoutType.LAYERED : LayoutType.GROUPED;
+    }
+
 </script>
 <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
 
@@ -44,6 +60,20 @@
         {/snippet}
         {#snippet inactive()}
             <LockKeyhole class="h-5 w-5" />
+        {/snippet}
+    </IconTooltipStateWrapper>
+
+    <IconTooltipStateWrapper
+            state={layoutType === LayoutType.GROUPED }
+            onclick={toggleLayoutType}
+            activeTooltip="Ungroup Elements"
+            inactiveTooltip="Group Elements"
+    >
+        {#snippet active()}
+            <Group class="h-5 w-5" />
+        {/snippet}
+        {#snippet inactive()}
+            <Ungroup class="h-5 w-5" />
         {/snippet}
     </IconTooltipStateWrapper>
 
