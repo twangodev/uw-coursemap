@@ -2,6 +2,7 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import type { StylesheetStyle } from "cytoscape";
     import { Badge } from "../ui/badge";
+    import { Button } from "../ui/button";
     interface Props {
         cytoscapeStyles: StylesheetStyle[];
     }
@@ -37,9 +38,7 @@
     </Card.Header> -->
     <Card.Content class="p-2 pt-1">
         <Card.Title class="text-base font-medium">Options</Card.Title>
-        <p class="text-sm break-words">
-           Show title 
-        </p>
+        <Button>Show title</Button>
     </Card.Content>
 </Card.Root>
 </div>
