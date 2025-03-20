@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape from "cytoscape";
+    import cytoscape, {type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -30,6 +30,7 @@
         number: 10,
     })
     let focus = $derived(page.url.searchParams.get('focus'));
+    let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     searchModalOpen.subscribe((isOpen) => {
         if (isOpen) {
@@ -84,7 +85,7 @@
             number: 50,
         }
 
-        let cytoscapeStyles = await getStyles(styleUrl, $mode);
+        cytoscapeStyles = await getStyles(styleUrl, $mode);
 
         progress = {
             text: "Loading Layout...",
