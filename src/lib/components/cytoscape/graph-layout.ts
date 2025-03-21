@@ -1,10 +1,13 @@
-
-import type { EdgeDefinition, LayoutOptions, NodeDefinition } from 'cytoscape'
+import type {EdgeDefinition, ElementDefinition, LayoutOptions, NodeDefinition} from 'cytoscape'
 import ELK from 'elkjs/lib/elk.bundled.js'
-import { getEdgeData, getNodeData } from './graph-data.ts'
-import {page} from "$app/state";
+import {getEdgeData, getNodeData} from './graph-data.ts'
 
-export async function generateLayeredLayout(courseData: any): Promise<LayoutOptions> {
+export enum LayoutType {
+    GROUPED,
+    LAYERED,
+}
+
+export async function generateLayeredLayout(courseData: ElementDefinition[]): Promise<LayoutOptions> {
     const elk = new ELK()
     const newLayout = {
         id: "root",
@@ -32,28 +35,33 @@ export async function generateLayeredLayout(courseData: any): Promise<LayoutOpti
     }
 
     const nodePos = await elk.layout(newLayout)
-    let newCytoscapeLayout: LayoutOptions = {
+    return {
         name: 'preset',
 
         positions: Object.fromEntries(
-            nodePos.children!.map((child) => [child.id, { x: child.x === undefined ? 0 : child.x, y: child.y === undefined ? 0 : child.y }])
-        ),            
+            nodePos.children!.map((child) => [child.id, {
+                x: child.x === undefined ? 0 : child.x,
+                y: child.y === undefined ? 0 : child.y
+            }])
+        ),
+        animate: true,
+        animationDuration: 1000,
+        animationEasing: 'ease-in-out',
         zoom: undefined, // the zoom level to set (prob want fit = false if set)
         pan: undefined, // the pan level to set (prob want fit = false if set)
         fit: true, // whether to fit to viewport
         padding: 30, // padding on fit
-    }
-    return newCytoscapeLayout;
+    };
 }
 
-export function generateFcoseLayout(focus: string | null): cytoscapeFcose.FcoseLayoutOptions  {
+export function generateFcoseLayout(focus: string | null)  {
 
     return {
         name: 'fcose',
         quality: 'proof', // 'draft', 'default' or 'proof'
         animate: !(focus), // Whether to animate the layout
         animationDuration: 1000, // Duration of the animation in milliseconds
-        animationEasing: 'ease-out', // Easing of the animation
+        animationEasing: 'ease-in-out', // Easing of the animation
         fit: true, // Whether to fit the viewport to the graph
         padding: 30, // Padding around the layout
         nodeDimensionsIncludeLabels: true, // Excludes the label when calculating node bounding boxes for the layout algorithm

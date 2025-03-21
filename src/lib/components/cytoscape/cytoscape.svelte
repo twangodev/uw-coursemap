@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape from "cytoscape";
+    import cytoscape, {type ElementDefinition, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -7,15 +7,16 @@
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
     import { fetchCourse, fetchGraphData} from "./graph-data.ts";
-    import { getStyles } from "./graph-styles.svelte.ts";
+    import { getStyles } from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseSheet from "./course-sheet.svelte";
     import { clearPath, highlightPath } from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
-    import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
+    import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
     import {mode} from "mode-watcher";
     import {getTextColor} from "$lib/theme.ts";
+    import Legend from "./legend.svelte";
 
     interface Props {
         url: string;
@@ -29,6 +30,10 @@
         number: 10,
     })
     let focus = $derived(page.url.searchParams.get('focus'));
+    let courseData: ElementDefinition[] = $state([]);
+    let cytoscapeStyles: StylesheetStyle[] = $state([]);
+
+    let layoutType : LayoutType = $state(LayoutType.GROUPED);
 
     searchModalOpen.subscribe((isOpen) => {
         if (isOpen) {
@@ -69,7 +74,6 @@
     function destroyTip() {
         myTip?.destroy();
     }
-
     const loadGraph = async () => {
 
         progress = {
@@ -77,14 +81,14 @@
             number: 25,
         }
         
-        let courseData = await fetchGraphData(url);
+        courseData = await fetchGraphData(url);
 
         progress = {
             text: "Styling Graph...",
             number: 50,
         }
 
-        let cytoscapeStyles = await getStyles(styleUrl, $mode);
+        cytoscapeStyles = await getStyles(styleUrl, $mode);
 
         progress = {
             text: "Loading Layout...",
@@ -184,6 +188,19 @@
     });
 
     $effect(() => {
+
+        if (!cy) {
+            return;
+        }
+
+        if (layoutType === LayoutType.GROUPED) {
+            cy.layout(generateFcoseLayout(focus)).run();
+        } else {
+            (async () => {cy.layout(await generateLayeredLayout(courseData)).run();})();
+        }
+    })
+
+    $effect(() => {
         if (!cy) {
             return;
         }
@@ -204,6 +221,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <SideControls bind:elementsAreDraggable {cy}/>
+    <Legend {cytoscapeStyles}/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
