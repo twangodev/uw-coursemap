@@ -145,7 +145,33 @@ class RMPData(JsonSerializable):
 
 class FullInstructor(JsonSerializable):
 
-    def __init__(self, name, email, rmp_data, position, department, credentials, official_name):
+    class Aggregation(JsonSerializable):
+
+        def __init__(self, average_gpa: float, average_completion_rate: float, average_a_rate: float, total_taught: int):
+            self.average_gpa = average_gpa
+            self.average_completion_rate = average_completion_rate
+            self.average_a_rate = average_a_rate
+            self.total_taught = total_taught
+
+        @classmethod
+        def from_json(cls, json_data) -> "FullInstructor.Aggregation":
+            return FullInstructor.Aggregation(
+                average_gpa=json_data["average_gpa"],
+                average_completion_rate=json_data["average_completion_rate"],
+                average_a_rate=json_data["average_a_rate"],
+                total_taught=json_data["total_taught"]
+            )
+
+        def to_dict(self):
+            return {
+                "average_gpa": self.average_gpa,
+                "average_completion_rate": self.average_completion_rate,
+                "average_a_rate": self.average_a_rate,
+                "total_taught": self.total_taught
+            }
+
+
+    def __init__(self, name, email, rmp_data, position, department, credentials, official_name, aggregation = None):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data
@@ -153,6 +179,7 @@ class FullInstructor(JsonSerializable):
         self.department = department
         self.credentials = credentials
         self.official_name = official_name
+        self.aggregation = aggregation
 
     @classmethod
     def from_json(cls, json_data) -> "FullInstructor":
@@ -163,7 +190,8 @@ class FullInstructor(JsonSerializable):
             position=json_data["position"],
             department=json_data["department"],
             credentials=json_data["credentials"],
-            official_name=json_data["official_name"]
+            official_name=json_data["official_name"],
+            aggregation=json_data["aggregation"]
         )
 
     def to_dict(self):
@@ -174,7 +202,8 @@ class FullInstructor(JsonSerializable):
             "position": self.position,
             "department": self.department,
             "credentials": self.credentials,
-            "official_name": self.official_name
+            "official_name": self.official_name,
+            "aggregation": self.aggregation
         }
 
 
