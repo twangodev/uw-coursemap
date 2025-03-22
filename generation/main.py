@@ -50,7 +50,7 @@ def generate_parser():
     )
     parser.add_argument(
         "--step",
-        choices=["force", "courses", "madgrades", "instructors", "madgrades", "optimize", "graph"],
+        choices=["all", "courses", "madgrades", "instructors", "madgrades", "optimize", "graph"],
         help="Strategy for generating course map data.",
         required=True,
     )
@@ -76,7 +76,7 @@ def generate_parser():
 
 
 def filter_step(step_name, allowed_step):
-    if step_name == "force":
+    if step_name == "all":
         return True
     return step_name == allowed_step
 
