@@ -5,7 +5,7 @@ export type StyleEntry = {
     [parent: string]: string;
 };
 
-export async function getStyleData(styleUrl: string): Promise<StyleEntry> {
+export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
     const response = await fetch(styleUrl);
     return await response.json();
 }
