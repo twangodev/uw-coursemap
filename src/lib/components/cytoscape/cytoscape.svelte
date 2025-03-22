@@ -115,7 +115,7 @@
         if (layoutType === LayoutType.GROUPED) {
             layout = generateFcoseLayout(focus);
         } else {
-            layout = await generateLayeredLayout(courseData);
+            layout = await generateLayeredLayout(focus, courseData);
         }
         
         progress = {
@@ -201,7 +201,7 @@
         if (layoutType === LayoutType.GROUPED) {
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
-            (async () => {cy.layout(await generateLayeredLayout(courseData)).run();})();
+            (async () => {cy.layout(await generateLayeredLayout(focus, courseData)).run();})();
         }
     })
 
