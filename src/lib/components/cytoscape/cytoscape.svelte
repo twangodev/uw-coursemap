@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape, { type StylesheetStyle } from "cytoscape";
+    import cytoscape, {type ElementDefinition, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -12,8 +12,10 @@
     import CourseSheet from "./course-sheet.svelte";
     import { clearPath, highlightPath } from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
-    import {generateFcoseLayout} from "$lib/components/cytoscape/layout.ts";
+    import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
+    import {mode} from "mode-watcher";
+    import {getTextColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
 
     interface Props {
@@ -28,6 +30,10 @@
         number: 10,
     })
     let focus = $derived(page.url.searchParams.get('focus'));
+    let courseData: ElementDefinition[] = $state([]);
+    let cytoscapeStyles: StylesheetStyle[] = $state([]);
+
+    let layoutType : LayoutType = $state(LayoutType.LAYERED);
 
     searchModalOpen.subscribe((isOpen) => {
         if (isOpen) {
@@ -60,7 +66,6 @@
     }
 
     let myTip: any;
-    let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     function setTip(newTip: any) {
         myTip?.destroy();
@@ -76,14 +81,14 @@
             number: 25,
         }
         
-        let courseData = await fetchGraphData(url); 
+        courseData = await fetchGraphData(url);
 
         progress = {
             text: "Styling Graph...",
             number: 50,
         }
 
-        cytoscapeStyles = await getStyles(styleUrl);
+        cytoscapeStyles = await getStyles(styleUrl, $mode);
 
         progress = {
             text: "Loading Layout...",
@@ -106,7 +111,12 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = generateFcoseLayout(focus);
+        let layout: any;
+        if (layoutType === LayoutType.GROUPED) {
+            layout = generateFcoseLayout(focus);
+        } else {
+            layout = await generateLayeredLayout(focus, courseData);
+        }
         
         progress = {
             text: "Graph Loaded",
@@ -174,13 +184,40 @@
             text: "Graph Loaded",
             number: 100,
         }
-        };
+    };
 
     $effect(() => {
         if (url && styleUrl) {
             loadGraph()
         }
     });
+
+    $effect(() => {
+
+        if (!cy) {
+            return;
+        }
+
+        if (layoutType === LayoutType.GROUPED) {
+            cy.layout(generateFcoseLayout(focus)).run();
+        } else {
+            (async () => {cy.layout(await generateLayeredLayout(focus, courseData)).run();})();
+        }
+    })
+
+    $effect(() => {
+        if (!cy) {
+            return;
+        }
+        cy.style().selector('node').style({
+            'color': getTextColor($mode)
+        }).selector('.highlighted-nodes').style({
+            'border-color': getTextColor($mode),
+        }).selector('edge').style({
+            'line-color': getTextColor($mode),
+            'target-arrow-color': getTextColor($mode),
+        }).update()
+    })
 
 </script>
 <div class="relative grow" id="cy-container">
@@ -190,6 +227,6 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend {cytoscapeStyles}/>
-    <SideControls bind:elementsAreDraggable {cy}/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>

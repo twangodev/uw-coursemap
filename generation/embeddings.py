@@ -1,5 +1,6 @@
 import asyncio
 import hashlib
+import re
 from logging import Logger
 
 import numpy as np
@@ -42,7 +43,11 @@ def cosine_similarity(vec_a, vec_b):
     return np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b))
 
 
-def find_best_prerequisite(cache_dir, client, model, course, prerequisites, max_prerequisites, logger) -> list[Course]:
+def find_best_prerequisite(cache_dir, client, model, course: Course, prerequisites, max_prerequisites, logger) -> list[Course]:
+    prerequisite_text = course.prerequisites.prerequisites_text
+    and_count = len(re.findall(r"\d*and\d*", prerequisite_text))
+    max_prerequisites += and_count
+
     course_embedding = get_embedding(cache_dir, client, model, course.get_full_summary(), logger)
     prerequisite_embeddings = [
         (prereq, get_embedding(cache_dir, client, model, prereq.get_short_summary(), logger)) for prereq in
@@ -53,6 +58,7 @@ def find_best_prerequisite(cache_dir, client, model, course, prerequisites, max_
         (prereq, cosine_similarity(course_embedding, prereq_embedding))
         for prereq, prereq_embedding in prerequisite_embeddings
     ]
+
 
     # Find the prerequisite with the highest similarity score
     best_prerequisite = sorted(similarities, key=lambda x: x[1], reverse=True)[:max_prerequisites]
