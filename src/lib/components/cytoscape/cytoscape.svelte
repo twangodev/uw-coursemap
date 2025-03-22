@@ -7,7 +7,7 @@
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
     import { fetchCourse, fetchGraphData} from "./graph-data.ts";
-    import { getStyles } from "./graph-styles.ts";
+    import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseSheet from "./course-sheet.svelte";
     import { clearPath, highlightPath } from "./paths.ts";
@@ -31,6 +31,7 @@
     })
     let focus = $derived(page.url.searchParams.get('focus'));
     let courseData: ElementDefinition[] = $state([]);
+    let cytoscapeStyleData: StyleEntry[] = $state([]);
     let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     let layoutType : LayoutType = $state(LayoutType.LAYERED);
@@ -88,7 +89,9 @@
             number: 50,
         }
 
-        cytoscapeStyles = await getStyles(styleUrl, $mode);
+
+        cytoscapeStyleData = await getStyleData(styleUrl);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode);
 
         progress = {
             text: "Loading Layout...",
@@ -226,7 +229,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <Legend {cytoscapeStyles}/>
+    <Legend styleEntries={cytoscapeStyleData}/>
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
