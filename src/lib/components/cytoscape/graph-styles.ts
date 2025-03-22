@@ -1,4 +1,5 @@
 import type {StylesheetStyle} from "cytoscape";
+import {getTextColor} from "$lib/theme.ts";
 
 type StyleData = {
     [parent: string]: string;
