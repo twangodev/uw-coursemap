@@ -33,7 +33,7 @@
     let courseData: ElementDefinition[] = $state([]);
     let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
-    let layoutType : LayoutType = $state(LayoutType.GROUPED);
+    let layoutType : LayoutType = $state(LayoutType.LAYERED);
 
     searchModalOpen.subscribe((isOpen) => {
         if (isOpen) {
@@ -111,7 +111,12 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = generateFcoseLayout(focus);
+        let layout: any;
+        if (layoutType === LayoutType.GROUPED) {
+            layout = generateFcoseLayout(focus);
+        } else {
+            layout = await generateLayeredLayout(courseData);
+        }
         
         progress = {
             text: "Graph Loaded",
