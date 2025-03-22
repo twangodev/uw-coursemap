@@ -18,8 +18,8 @@ export async function generateLayeredLayout(courseData: ElementDefinition[]): Pr
                 }
                 return {
                     id: node.data.id,
-                    width: node.data.id.length * 15,
-                    height: 50 
+                    width: node.data.id.length * 10,
+                    height: 15
                 }
             }),
         edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
