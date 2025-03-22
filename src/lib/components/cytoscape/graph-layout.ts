@@ -7,7 +7,7 @@ export enum LayoutType {
     LAYERED,
 }
 
-export async function generateLayeredLayout(courseData: ElementDefinition[]): Promise<LayoutOptions> {
+export async function generateLayeredLayout(focus: string | null, courseData: ElementDefinition[]): Promise<LayoutOptions> {
     const elk = new ELK()
     const newLayout = {
         id: "root",
@@ -44,7 +44,7 @@ export async function generateLayeredLayout(courseData: ElementDefinition[]): Pr
                 y: child.y === undefined ? 0 : child.y
             }])
         ),
-        animate: true,
+        animate: !(focus),
         animationDuration: 1000,
         animationEasing: 'ease-in-out',
         zoom: undefined, // the zoom level to set (prob want fit = false if set)
