@@ -1,5 +1,5 @@
 <script lang="ts">
-    import cytoscape, {type ElementDefinition, type StylesheetStyle} from "cytoscape";
+    import cytoscape, {type Collection, type ElementDefinition, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
@@ -114,12 +114,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout: any;
-        if (layoutType === LayoutType.GROUPED) {
-            layout = generateFcoseLayout(focus);
-        } else {
-            layout = await generateLayeredLayout(focus, courseData);
-        }
+        let layout = await computeLayout(layoutType);
         
         progress = {
             text: "Graph Loaded",
@@ -195,8 +190,7 @@
         }
     });
 
-    $effect(() => {
-
+    async function computeLayout(layoutType: LayoutType) {
         if (!cy) {
             return;
         }
@@ -204,8 +198,14 @@
         if (layoutType === LayoutType.GROUPED) {
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
-            (async () => {cy.layout(await generateLayeredLayout(focus, courseData)).run();})();
+            await (async () => {
+                cy.layout(await generateLayeredLayout(focus, courseData)).run();
+            })();
         }
+    }
+
+    $effect(() => {
+        computeLayout(layoutType);
     })
 
     $effect(() => {
