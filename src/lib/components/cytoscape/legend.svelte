@@ -7,17 +7,23 @@
     import type {StyleEntry} from "$lib/components/cytoscape/graph-styles.ts";
 
     interface Props {
-        styleEntries: StyleEntry[]
+        styleEntries: StyleEntry[],
+        toggleSubject: (subject: string, desiredState: boolean) => void
     }
 
-    let { styleEntries }: Props = $props();
+    let {
+        styleEntries,
+        toggleSubject
+    }: Props = $props();
+
 </script>
 
 <div class="absolute bottom-4 left-4">
     {#each styleEntries as entry}
         {#each Object.entries(entry) as [subject, hex]}
-            <ColorDot hex={hex} onclick={() => {
-            }} label={subject} enabled={true}/>
+            <ColorDot hex={hex} onclick={(state) => {
+                toggleSubject(subject, state);
+            }} label={subject} />
         {/each}
     {/each}
 <!--<Card.Root class="px-2 py-1">-->

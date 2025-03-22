@@ -222,6 +222,30 @@
         }).update()
     })
 
+    type removedSubjectNodes = {
+        [subject: string]: Collection
+    }
+
+    let removedSubjectNodes: removedSubjectNodes = {}
+
+    function toggleSubjectNode(subject: string, show: boolean) {
+        if (!cy) {
+            return;
+        }
+        if (show) {
+            if (removedSubjectNodes[subject]) {
+                cy.add(removedSubjectNodes[subject]);
+            }
+        } else {
+            const target = cy.nodes(`[parent = "${subject}"]`);
+            console.log(target)
+            removedSubjectNodes[subject] = target.remove()
+        }
+
+        computeLayout(layoutType);
+    }
+
+
 </script>
 <div class="relative grow" id="cy-container">
     <div class={cn("absolute inset-0 flex flex-col justify-center items-center space-y-4 transition-opacity", progress.number === 100 ? "opacity-0" : "")}>
@@ -229,7 +253,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <Legend styleEntries={cytoscapeStyleData}/>
+    <Legend styleEntries={cytoscapeStyleData} toggleSubject={toggleSubjectNode} />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
