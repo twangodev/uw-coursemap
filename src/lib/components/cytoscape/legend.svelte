@@ -8,12 +8,12 @@
 
     interface Props {
         styleEntries: StyleEntry[],
-        toggleSubject: (subject: string, desiredState: boolean) => void
+        hiddenSubject: string | null
     }
 
     let {
         styleEntries,
-        toggleSubject
+        hiddenSubject = $bindable(null),
     }: Props = $props();
 
 </script>
@@ -21,9 +21,9 @@
 <div class="absolute bottom-4 left-4">
     {#each styleEntries as entry}
         {#each Object.entries(entry) as [subject, hex]}
-            <ColorDot hex={hex} onclick={(state) => {
-                toggleSubject(subject, state);
-            }} label={subject} />
+            <ColorDot hex={hex} onclick={() => {
+                hiddenSubject = hiddenSubject === subject ? null : subject;
+            }} label={subject} {hiddenSubject} />
         {/each}
     {/each}
 <!--<Card.Root class="px-2 py-1">-->

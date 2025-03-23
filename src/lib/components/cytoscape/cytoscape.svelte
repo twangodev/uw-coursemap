@@ -1,16 +1,21 @@
 <script lang="ts">
-    import cytoscape, {type Collection, type ElementDefinition, type StylesheetStyle} from "cytoscape";
+    import cytoscape, {
+        type Collection,
+        type EdgeCollection,
+        type ElementDefinition,
+        type StylesheetStyle
+    } from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
-    import { fetchCourse, fetchGraphData} from "./graph-data.ts";
+    import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseSheet from "./course-sheet.svelte";
-    import { clearPath, highlightPath } from "./paths.ts";
+    import {clearPath, highlightPath} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -190,7 +195,7 @@
         }
     });
 
-    async function computeLayout(layoutType: LayoutType) {
+    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[]) {
         if (!cy) {
             return;
         }
@@ -205,7 +210,7 @@
     }
 
     $effect(() => {
-        computeLayout(layoutType);
+        computeLayout(layoutType, courseData);
     })
 
     $effect(() => {
@@ -222,28 +227,33 @@
         }).update()
     })
 
-    type removedSubjectNodes = {
-        [subject: string]: Collection
-    }
+    let hiddenSubject = $state(null)
 
-    let removedSubjectNodes: removedSubjectNodes = {}
+    let removedSubjectNodes: Collection | null
 
-    function toggleSubjectNode(subject: string, show: boolean) {
+    function hide(subject: string | null) {
+        console.log(hiddenSubject);
         if (!cy) {
             return;
         }
-        if (show) {
-            if (removedSubjectNodes[subject]) {
-                cy.add(removedSubjectNodes[subject]);
-            }
-        } else {
-            const target = cy.nodes(`[parent = "${subject}"]`);
-            console.log(target)
-            removedSubjectNodes[subject] = target.remove()
+
+        removedSubjectNodes?.restore()
+        removedSubjectNodes = null
+
+        if (subject) {
+            removedSubjectNodes = cy.nodes(`[parent = "${subject}"]`).remove();
         }
 
-        computeLayout(layoutType);
+        computeLayout(layoutType, courseData);
     }
+
+    $effect(() => {
+        if (!cy) {
+            return;
+        }
+
+        hide(hiddenSubject);
+    })
 
 
 </script>
@@ -253,7 +263,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <Legend styleEntries={cytoscapeStyleData} toggleSubject={toggleSubjectNode} />
+    <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
