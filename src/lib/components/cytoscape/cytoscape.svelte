@@ -1,16 +1,21 @@
 <script lang="ts">
-    import cytoscape, {type ElementDefinition, type StylesheetStyle} from "cytoscape";
+    import cytoscape, {
+        type Collection,
+        type EdgeCollection,
+        type ElementDefinition,
+        type StylesheetStyle
+    } from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
     import {type Course} from "$lib/types/course.ts";
-    import { fetchCourse, fetchGraphData} from "./graph-data.ts";
-    import { getStyles } from "./graph-styles.ts";
+    import {fetchCourse, fetchGraphData} from "./graph-data.ts";
+    import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseSheet from "./course-sheet.svelte";
-    import { clearPath, highlightPath } from "./paths.ts";
+    import {clearPath, highlightPath} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -31,6 +36,7 @@
     })
     let focus = $derived(page.url.searchParams.get('focus'));
     let courseData: ElementDefinition[] = $state([]);
+    let cytoscapeStyleData: StyleEntry[] = $state([]);
     let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     let layoutType : LayoutType = $state(LayoutType.LAYERED);
@@ -88,7 +94,9 @@
             number: 50,
         }
 
-        cytoscapeStyles = await getStyles(styleUrl, $mode);
+
+        cytoscapeStyleData = await getStyleData(styleUrl);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode);
 
         progress = {
             text: "Loading Layout...",
@@ -111,12 +119,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout: any;
-        if (layoutType === LayoutType.GROUPED) {
-            layout = generateFcoseLayout(focus);
-        } else {
-            layout = await generateLayeredLayout(focus, courseData);
-        }
+        let layout = await computeLayout(layoutType);
         
         progress = {
             text: "Graph Loaded",
@@ -192,8 +195,7 @@
         }
     });
 
-    $effect(() => {
-
+    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[]) {
         if (!cy) {
             return;
         }
@@ -201,8 +203,14 @@
         if (layoutType === LayoutType.GROUPED) {
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
-            (async () => {cy.layout(await generateLayeredLayout(focus, courseData)).run();})();
+            await (async () => {
+                cy.layout(await generateLayeredLayout(focus, courseData)).run();
+            })();
         }
+    }
+
+    $effect(() => {
+        computeLayout(layoutType, courseData);
     })
 
     $effect(() => {
@@ -219,6 +227,35 @@
         }).update()
     })
 
+    let hiddenSubject = $state(null)
+
+    let removedSubjectNodes: Collection | null
+
+    function hide(subject: string | null) {
+        console.log(hiddenSubject);
+        if (!cy) {
+            return;
+        }
+
+        removedSubjectNodes?.restore()
+        removedSubjectNodes = null
+
+        if (subject) {
+            removedSubjectNodes = cy.nodes(`[parent = "${subject}"]`).remove();
+        }
+
+        computeLayout(layoutType, courseData);
+    }
+
+    $effect(() => {
+        if (!cy) {
+            return;
+        }
+
+        hide(hiddenSubject);
+    })
+
+
 </script>
 <div class="relative grow" id="cy-container">
     <div class={cn("absolute inset-0 flex flex-col justify-center items-center space-y-4 transition-opacity", progress.number === 100 ? "opacity-0" : "")}>
@@ -226,7 +263,7 @@
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
-    <Legend {cytoscapeStyles}/>
+    <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
 <CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>

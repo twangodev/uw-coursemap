@@ -1,12 +1,16 @@
 import type {StylesheetStyle} from "cytoscape";
 import {getTextColor} from "$lib/theme.ts";
 
-
-type StyleData = {
+export type StyleEntry = {
     [parent: string]: string;
 };
 
-export async function getStyles(styleUrl: string, mode: "light" | "dark" | undefined): Promise<StylesheetStyle[]> {
+export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
+    const response = await fetch(styleUrl);
+    return await response.json();
+}
+
+export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" | undefined): Promise<StylesheetStyle[]> {
 
     let defaultStyles: StylesheetStyle[] = [
         {
@@ -79,9 +83,6 @@ export async function getStyles(styleUrl: string, mode: "light" | "dark" | undef
         }
     ]
 
-    let styleResponse = await fetch(styleUrl);
-    let styleData: StyleData[] = await styleResponse.json();
-
     const styles = styleData.map(item => {
         const [parent, color] = Object.entries(item)[0];
         return {
@@ -91,7 +92,6 @@ export async function getStyles(styleUrl: string, mode: "light" | "dark" | undef
             },
         };
     });
-
 
     return defaultStyles.concat(styles);
 }
