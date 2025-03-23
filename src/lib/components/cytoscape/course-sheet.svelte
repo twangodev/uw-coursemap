@@ -12,7 +12,7 @@
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
     import type {Terms} from "$lib/types/terms.ts";
-    import {onMount} from "svelte";
+    import {onMount, tick} from "svelte";
 
     interface Props {
         cy: cytoscape.Core | undefined;
@@ -22,8 +22,6 @@
     }
     let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
-
-    let selectedTerm: string | undefined = undefined;
 
     let terms: Terms = $state({});
     let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
@@ -65,18 +63,22 @@
     })
 
     $effect(() => {
-        if (cy && selectedCourse) {
-            let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
-            if (sheetOpen) {
+        if (!cy) return
+
+        if (sheetOpen) {
+            if (selectedCourse) {
+                let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
                 page.url.searchParams.set('focus', courseId);
-
-            } else {
-                page.url.searchParams.delete('focus');
             }
-
-            pushState(page.url, page.state);
+        } else {
+            page.url.searchParams.delete('focus');
         }
-    })
+
+        tick().then(() => {
+            pushState(page.url, page.state);
+        })
+    });
+
 
 
 </script>
