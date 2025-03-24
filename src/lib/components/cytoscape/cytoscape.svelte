@@ -14,7 +14,7 @@
     import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
-    import CourseSheet from "./course-sheet.svelte";
+    import CourseDrawer from "./course-drawer.svelte";
     import {clearPath, highlightPath} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
@@ -266,4 +266,4 @@
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
-<CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
