@@ -218,7 +218,9 @@
             return;
         }
         cy.style().selector('node').style({
-            'color': getTextColor($mode)
+            'color': getTextColor($mode),
+	        'text-outline-opacity': 1,
+	        'text-outline-width': 2,
         }).selector('.highlighted-nodes').style({
             'border-color': getTextColor($mode),
         }).selector('edge').style({
