@@ -1,4 +1,5 @@
 export function getCarbonTheme(mode: "light" | "dark" | undefined) {
+
     switch (mode) {
         case "light":
             return "white"
