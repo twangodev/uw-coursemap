@@ -20,7 +20,7 @@
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
     import {mode} from "mode-watcher";
-    import {getCarbonTheme, getTextColor} from "$lib/theme.ts";
+    import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
 
     interface Props {
@@ -219,7 +219,7 @@
         }
         cy.style().selector('node').style({
             'color': getTextColor($mode),
-            'text-outline-color': getCarbonTheme($mode),
+            'text-outline-color': getTextOutlineColor($mode),
 	        'text-outline-opacity': 1,
 	        'text-outline-width': 2
         }).selector('.highlighted-nodes').style({
