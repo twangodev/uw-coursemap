@@ -20,7 +20,7 @@
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
     import {mode} from "mode-watcher";
-    import {getTextColor} from "$lib/theme.ts";
+    import {getCarbonTheme, getTextColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
 
     interface Props {
@@ -86,7 +86,7 @@
             text: "Fetching Graph Data...",
             number: 25,
         }
-        
+
         courseData = await fetchGraphData(url);
 
         progress = {
@@ -120,7 +120,7 @@
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
         let layout = await computeLayout(layoutType);
-        
+
         progress = {
             text: "Graph Loaded",
             number: 99,
@@ -219,6 +219,7 @@
         }
         cy.style().selector('node').style({
             'color': getTextColor($mode),
+            'text-outline-color': getCarbonTheme($mode),
 	        'text-outline-opacity': 1,
 	        'text-outline-width': 2
         }).selector('.highlighted-nodes').style({
