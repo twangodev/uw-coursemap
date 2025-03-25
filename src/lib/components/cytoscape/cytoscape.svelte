@@ -14,7 +14,7 @@
     import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
-    import CourseSheet from "./course-sheet.svelte";
+    import CourseDrawer from "./course-drawer.svelte";
     import {clearPath, highlightPath} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
@@ -119,7 +119,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType);
+        let layout = await computeLayout(layoutType, courseData);
 
         progress = {
             text: "Graph Loaded",
@@ -269,4 +269,4 @@
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
 </div>
-<CourseSheet {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
