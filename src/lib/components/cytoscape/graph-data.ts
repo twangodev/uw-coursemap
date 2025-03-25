@@ -16,5 +16,5 @@ export async function fetchCourse(courseId: string): Promise<Course>  { // TODO 
     return response.json();
 }
     
-export function getNodeData(courseData: ElementDefinition[]): NodeDefinition[] { return courseData.filter((item) => !("source" in item.data)) as NodeDefinition[] }
+export function getNodeData(courseData: ElementDefinition[]): NodeDefinition[] { return courseData.filter((item) => ("id" in item.data)) as NodeDefinition[] }
 export function getEdgeData(courseData: ElementDefinition[]): EdgeDefinition[] { return courseData.filter((item) => ("source" in item.data)) as EdgeDefinition[] }
