@@ -119,7 +119,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType);
+        let layout = await computeLayout(layoutType, courseData);
 
         progress = {
             text: "Graph Loaded",
