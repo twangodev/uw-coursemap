@@ -6,6 +6,7 @@ from logging import Logger
 import aiohttp
 import requests
 from bs4 import BeautifulSoup
+from nameparser import HumanName
 from rapidfuzz import fuzz
 
 from course import Course
@@ -283,106 +284,97 @@ def get_faculty():
 
     return faculty
 
-def match_name(student_name, official_names, score_threshold=75):
-    """
-    Matches a student name to an official name using fuzzy matching.
 
-    The algorithm:
-      1. Normalizes names.
-      2. Filters candidates based on an exact last name match.
-      3. Uses fuzzy matching on the remaining parts (first name, etc.).
+def match_name(student_name, official_names, threshold=80):
+    """
+    Matches a student name to an official name using robust name parsing and fuzzy matching.
+
+    Steps:
+      1. Parse and normalize the student and official names.
+      2. Filter candidates based on an exact match for the last name.
+      3. Compute a fuzzy match score on the first names.
+      4. Return the best candidate if the score meets the threshold.
 
     Args:
-        student_name (str): The name given by the student.
+        student_name (str): The name provided by the student.
         official_names (set of str): The list of official names.
-        score_threshold (int): The minimum fuzzy score required for a match.
+        threshold (int): The minimum fuzzy score required for a match.
 
     Returns:
-        str: The matched official name or None if no sufficient match is found.
+        str: The matched official name or None if no match is found.
     """
-    # Normalize and split the student name
-    student_name = student_name.strip().upper()
-    student_parts = student_name.split()
-    if not student_parts:
-        return None
-
-    student_last = student_parts[-1]
-    student_front = " ".join(student_parts[:-1])
-
-    # Filter candidates based on last name
-    candidates = [name for name in official_names if student_last in name.upper()]
-    if not candidates:
-        return None
+    # Parse and normalize the student name.
+    student_parsed = HumanName(student_name)
+    student_first = student_parsed.first.upper().strip()
+    student_last = student_parsed.last.upper().strip()
 
     best_match = None
     best_score = 0
-    for candidate in candidates:
-        candidate_norm = candidate.strip().upper()
-        candidate_parts = candidate_norm.split()
-        # Assume the candidate's last token is the last name.
-        candidate_last = candidate_parts[-1]
+
+    for candidate in official_names:
+        candidate_parsed = HumanName(candidate)
+        candidate_first = candidate_parsed.first.upper().strip()
+        candidate_last = candidate_parsed.last.upper().strip()
+
+        # Filter: if the last names don't match exactly, skip this candidate.
         if student_last != candidate_last:
-            continue  # Only consider candidates with an exact last name match
+            continue
 
-        # If we have a front part to compare, use fuzzy matching.
-        if student_front:
-            # For candidates formatted as "LAST, FIRST", adjust accordingly.
-            if ',' in candidate:
-                try:
-                    candidate_first = candidate_norm.split(',')[1].strip().split()[0]
-                except IndexError:
-                    candidate_first = ""
-            else:
-                candidate_first = candidate_parts[0]
-
-            score = fuzz.partial_ratio(student_front, candidate_first)
-        else:
-            # If no front part is provided, consider it a perfect match.
-            score = 100
-
+        # Use fuzzy matching on the first name.
+        score = fuzz.token_set_ratio(student_first, candidate_first)
         if score > best_score:
             best_score = score
             best_match = candidate
 
-    return best_match if best_score >= score_threshold else None
+    return best_match if best_score >= threshold else None
 
+async def merge_instructors(instructor: str,
+                            instructors: dict[str, str | None],
+                            course_ref_to_course: dict,
+                            logger: Logger) -> None:
+    # Call the synchronous match_name function.
+    match = match_name(instructor, set(instructors.keys()))
+
+    if match:
+        logger.debug(f"Found existing instructor match for {instructor}: {match}.")
+        if match == instructor:
+            return
+
+        # Update each course where the instructor appears.
+        for course in course_ref_to_course.values():
+            for term_data in course.term_data.values():
+                if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
+                    continue
+                if instructor in term_data.grade_data.instructors:
+                    term_data.grade_data.instructors.remove(instructor)
+                    term_data.grade_data.instructors.append(match)
+    else:
+        logger.debug(f"Could not find existing instructor match for {instructor}. Adding to list of instructors to fetch.")
+        instructors[instructor] = None
 
 async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
     additional_instructors = set()
 
+    # Gather all instructors from the course data.
     for course in course_ref_to_course.values():
         for term_data in course.term_data.values():
-
             if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
                 continue
-
             for instructor in term_data.grade_data.instructors:
                 if instructor:
                     additional_instructors.add(instructor)
 
-    for instructor in additional_instructors:
-        match = match_name(instructor, set(instructors.keys()))
-        if match:
-            logger.debug(f"Found existing instructor match for {instructor}: {match}.")
-
-            if match == instructor:
-                continue
-
-            for course in course_ref_to_course.values():
-                for term_data in course.term_data.values():
-
-                    if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
-                        continue
-
-                    if instructor in term_data.grade_data.instructors:
-                        term_data.grade_data.instructors.remove(instructor)
-                        term_data.grade_data.instructors.append(match)
-
-        else:
-            logger.debug(f"Could not find existing instructor match for {instructor}. Adding to list of instructors to fetch.")
-            instructors[instructor] = None
+    # Create and schedule a task for each instructor.
+    tasks = [
+        asyncio.create_task(
+            merge_instructors(instructor, instructors, course_ref_to_course, logger)
+        )
+        for instructor in additional_instructors
+    ]
+    # Wait for all instructor tasks to complete.
+    await asyncio.gather(*tasks)
 
     instructor_data = {}
     total = len(instructors)
