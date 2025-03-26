@@ -101,8 +101,27 @@ class EnrollmentData(JsonSerializable):
 
 class GradeData(JsonSerializable):
 
-    def __init__(self, total, a, ab, b, bc, c, d, f, satisfactory, unsatisfactory, credit, no_credit, passed,
-                 incomplete, no_work, not_reported, other):
+    def __init__(
+            self,
+            total,
+            a,
+            ab,
+            b,
+            bc,
+            c,
+            d,
+            f,
+            satisfactory,
+            unsatisfactory,
+            credit,
+            no_credit,
+            passed,
+            incomplete,
+            no_work,
+            not_reported,
+            other,
+            instructors: set[str] | None,
+    ):
         self.total = total
         self.a = a
         self.ab = ab
@@ -120,6 +139,7 @@ class GradeData(JsonSerializable):
         self.no_work = no_work
         self.not_reported = not_reported
         self.other = other
+        self.instructors = instructors
 
     @classmethod
     def from_madgrades(cls, json_data) -> "GradeData":
@@ -140,7 +160,8 @@ class GradeData(JsonSerializable):
             incomplete=json_data["iCount"],
             no_work=json_data["nwCount"],
             not_reported=json_data["nrCount"],
-            other=json_data["otherCount"]
+            other=json_data["otherCount"],
+            instructors=None
         )
 
     @classmethod
@@ -162,7 +183,8 @@ class GradeData(JsonSerializable):
             incomplete=json_data["incomplete"],
             no_work=json_data["no_work"],
             not_reported=json_data["not_reported"],
-            other=json_data["other"]
+            other=json_data["other"],
+            instructors=json_data["instructors"]
         )
 
     def to_dict(self):
@@ -183,7 +205,8 @@ class GradeData(JsonSerializable):
             "incomplete": self.incomplete,
             "no_work": self.no_work,
             "not_reported": self.not_reported,
-            "other": self.other
+            "other": self.other,
+            "instructors": self.instructors
         }
 
 
@@ -214,6 +237,16 @@ class MadgradesData:
         for offering in course_offerings:
             term_code = str(offering["termCode"])
             grade_data = GradeData.from_madgrades(offering["cumulative"])
+
+            instructors = set()
+            sections = offering["sections"]
+
+            for section in sections:
+                for instructor in section["instructors"]:
+                    instructors.add(instructor["name"])
+
+            grade_data.instructors = instructors
+
             by_term[term_code] = grade_data
 
         return MadgradesData(cumulative=cumulative, by_term=by_term)
