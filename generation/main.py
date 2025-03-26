@@ -113,7 +113,7 @@ def instructors(
 ):
     api_key = scrape_rmp_api_key(logger)
     instructors_emails = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
-    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails,api_key=api_key, logger=logger))
+    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
     return instructor_to_rating, instructors_emails
 
 
@@ -230,8 +230,6 @@ def main():
 
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-
-
 
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")

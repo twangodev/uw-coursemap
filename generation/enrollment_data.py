@@ -120,7 +120,7 @@ class GradeData(JsonSerializable):
             no_work,
             not_reported,
             other,
-            instructors: set[str] | None,
+            instructors: list[str] | None,
     ):
         self.total = total
         self.a = a
@@ -245,7 +245,7 @@ class MadgradesData:
                 for instructor in section["instructors"]:
                     instructors.add(instructor["name"])
 
-            grade_data.instructors = instructors
+            grade_data.instructors = list(instructors)
 
             by_term[term_code] = grade_data
 
