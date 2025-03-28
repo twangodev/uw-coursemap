@@ -54,6 +54,11 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     - data: Dictionary or list to be written to the file.
     - logger: Logger instance for logging messages.
     """
+
+    if not data:
+        logger.warning(f"Data is empty for {filename}. Skipping writing to file.")
+        return
+
     if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
         raise TypeError("Data must be a dictionary, list, set, tuple, or JsonSerializable object")
 
