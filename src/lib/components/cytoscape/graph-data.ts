@@ -9,7 +9,7 @@ export async function fetchGraphData(url: string): Promise<ElementDefinition[]> 
         item['pannable'] = true;
         if (!Object.hasOwn(item.data, 'title')) {
             // to avoid the warnings in console
-            item.data['title'] = item.data['id']; 
+            item.data['title'] = ""; 
         }
     });
     return courseData
