@@ -49,7 +49,7 @@
 
     let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
-
+    let showCodeLabels = $state(false);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse = $state<Course | undefined>();
@@ -96,7 +96,7 @@
 
 
         cytoscapeStyleData = await getStyleData(styleUrl);
-        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode, showCodeLabels);
 
         progress = {
             text: "Loading Layout...",
@@ -221,7 +221,8 @@
             'color': getTextColor($mode),
             'text-outline-color': getTextOutlineColor($mode),
 	        'text-outline-opacity': 1,
-	        'text-outline-width': 1
+	        'text-outline-width': 1,
+            'label': showCodeLabels ? 'data(id)': 'data(title)',
         }).selector('.highlighted-nodes').style({
             'border-color': getTextColor($mode),
         }).selector('edge').style({
@@ -267,6 +268,6 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
-    <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>

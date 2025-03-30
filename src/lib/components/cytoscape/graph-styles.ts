@@ -10,13 +10,13 @@ export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
     return await response.json();
 }
 
-export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" | undefined): Promise<StylesheetStyle[]> {
+export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" | undefined, showCode: boolean): Promise<StylesheetStyle[]> {
 
     let defaultStyles: StylesheetStyle[] = [
         {
             selector: 'node',
             style: {
-                'label': 'data(id)',
+                'label': showCode ? 'data(id)': 'data(title)',
                 'text-valign': 'center',
                 'text-halign': 'center',
                 'background-color': '#757575',
