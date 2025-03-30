@@ -10,7 +10,7 @@
     import cytoscapePopper from "cytoscape-popper";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
-    import {type Course} from "$lib/types/course.ts";
+    import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
     import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
@@ -22,11 +22,28 @@
     import {mode} from "mode-watcher";
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
+    import { onMount } from "svelte";
+    import { getData } from "$lib/localStorage.ts";
 
     interface Props {
         url: string;
         styleUrl: string;
     }
+
+    let takenCourses: (undefined | string)[] = [];
+    //load data
+    onMount(() => {
+        console.log("mounted")
+        console.log("data", getData("takenCourses"));
+        takenCourses = getData("takenCourses").map((course: any) => {
+            if (course.course_reference === undefined) {
+                return;
+            }
+
+            return courseReferenceToString(course.course_reference);
+        });
+        console.log("after", takenCourses);
+    });
 
     let { url, styleUrl }: Props = $props();
     let sheetOpen = $state(false);
@@ -210,6 +227,22 @@
     }
 
     $effect(() => {
+        console.log("takencourses: ", takenCourses);
+        if (!cy || !takenCourses) {
+            return;
+        }
+
+        cy.nodes().forEach((node: cytoscape.NodeSingular) => {
+            console.log(node.data("id"), takenCourses.includes(node.data("id")));
+            if (takenCourses.includes(node.data("id"))) {
+                node.addClass("taken-nodes");
+            } else {
+                node.removeClass("taken-nodes");
+            }
+        });
+    })
+
+    $effect(() => {
         computeLayout(layoutType, courseData);
     })
 
@@ -227,6 +260,8 @@
         }).selector('edge').style({
             'line-color': getTextColor($mode),
             'target-arrow-color': getTextColor($mode),
+        }).selector('.taken-nodes').style({
+            'color': "green",
         }).update()
     })
 
