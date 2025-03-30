@@ -20,6 +20,9 @@ export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" 
                 'text-valign': 'center',
                 'text-halign': 'center',
                 'background-color': '#757575',
+                'text-wrap': 'wrap',
+                'text-max-width': '100',
+                'text-margin-y': 5,
                 'color': getTextColor(mode)
             }
         },
