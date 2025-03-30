@@ -15,7 +15,7 @@
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseDrawer from "./course-drawer.svelte";
-    import {clearPath, highlightPath} from "./paths.ts";
+    import {clearPath, highlightPath, markNextCourses} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -33,8 +33,8 @@
     let takenCourses: (undefined | string)[] = [];
     //load data
     onMount(() => {
-        console.log("mounted")
-        console.log("data", getData("takenCourses"));
+        // console.log("mounted")
+        // console.log("data", getData("takenCourses"));
         takenCourses = getData("takenCourses").map((course: any) => {
             if (course.course_reference === undefined) {
                 return;
@@ -42,7 +42,7 @@
 
             return courseReferenceToString(course.course_reference);
         });
-        console.log("after", takenCourses);
+        // console.log("after", takenCourses);
     });
 
     let { url, styleUrl }: Props = $props();
@@ -227,19 +227,20 @@
     }
 
     $effect(() => {
-        console.log("takencourses: ", takenCourses);
         if (!cy || !takenCourses) {
             return;
         }
 
         cy.nodes().forEach((node: cytoscape.NodeSingular) => {
-            console.log(node.data("id"), takenCourses.includes(node.data("id")));
             if (takenCourses.includes(node.data("id"))) {
                 node.addClass("taken-nodes");
             } else {
                 node.removeClass("taken-nodes");
             }
         });
+
+        // console.log("actually taken: ", takenCourses);
+        markNextCourses(cy);
     })
 
     $effect(() => {
@@ -261,7 +262,9 @@
             'line-color': getTextColor($mode),
             'target-arrow-color': getTextColor($mode),
         }).selector('.taken-nodes').style({
-            'color': "green",
+            'color': "#008450",
+        }).selector('.next-nodes').style({
+            'color': "#EFB700",
         }).update()
     })
 
@@ -270,7 +273,7 @@
     let removedSubjectNodes: Collection | null
 
     function hide(subject: string | null) {
-        console.log(hiddenSubject);
+        // console.log(hiddenSubject);
         if (!cy) {
             return;
         }

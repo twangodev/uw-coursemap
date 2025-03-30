@@ -4,6 +4,33 @@ export function getNonCompoundNodes(cy: cytoscape.Core | undefined) {
     });
 }
 
+export function markNextCourses(cy: cytoscape.Core | undefined) {
+    if (!cy) {
+        return;
+    }
+    const takenNodes = cy.nodes('.taken-nodes');
+
+    const outgoingNodes = new Set<cytoscape.NodeSingular>();
+    takenNodes.forEach(
+        (node) => {
+            const nextNodes = node.outgoers('node');
+            nextNodes.forEach((node) => {
+                outgoingNodes.add(node)});
+        }
+    )
+    // console.log("Taken Nodes: ", takenNodes.forEach((node) => console.log(node.data('id'))));
+    outgoingNodes.forEach((node) => {
+        if (!takenNodes.intersection(node).empty()) return;
+        // console.log("Node: ", node.data('id'));
+        // console.log("Incomers: ", node.incomers('node').map((node) => node.data('id')));
+        // console.log("is Contains: ", takenNodes.contains(node.incomers()));
+        if (takenNodes.contains(node.incomers('node'))) {
+            node.addClass('next-nodes');
+        }
+        // else console.log(node.data('id'));
+    })
+}
+
 export function highlightPath(cy: cytoscape.Core | undefined, node: cytoscape.NodeSingular) {
     if (node.data('type') === 'compound') {
         return;
