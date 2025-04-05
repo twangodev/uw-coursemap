@@ -24,10 +24,10 @@ def recursive_sort_data(data):
     """
     if isinstance(data, dict):
         return {key: recursive_sort_data(data[key]) for key in sorted(data.keys())}
-    elif isinstance(data, (list, set, tuple)):
+    if isinstance(data, (list, set, tuple)):
         return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for
                 item in data]
-    elif isinstance(data, JsonSerializable):
+    if isinstance(data, JsonSerializable):
         return recursive_sort_data(json.loads(data.to_json()))
     else:
         return data
@@ -54,6 +54,11 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     - data: Dictionary or list to be written to the file.
     - logger: Logger instance for logging messages.
     """
+
+    if not data:
+        logger.warning(f"Data is empty for {filename}. Skipping writing to file.")
+        return
+
     if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
         raise TypeError("Data must be a dictionary, list, set, tuple, or JsonSerializable object")
 
