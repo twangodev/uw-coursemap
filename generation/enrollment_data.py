@@ -228,7 +228,7 @@ class GradeData(JsonSerializable):
             "no_work": self.no_work,
             "not_reported": self.not_reported,
             "other": self.other,
-            "instructors": list(self.instructors)
+            "instructors": list(self.instructors) if self.instructors else None
         }
 
 
