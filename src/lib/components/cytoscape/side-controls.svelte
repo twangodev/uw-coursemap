@@ -6,6 +6,8 @@
         LucideFullscreen,
         LucideMinus,
         LucidePlus,
+        LucideHash,
+        LucideCaseUpper,
         Ungroup,
     } from "lucide-svelte";
     import IconTooltipStateWrapper from "../icon-toolips/icon-tooltip-state-wrapper.svelte";
@@ -15,6 +17,7 @@
     let {
         elementsAreDraggable = $bindable<boolean>(),
         layoutType = $bindable<LayoutType>(),
+        showCodeLabels = $bindable<boolean>(),
         cy
     } = $props();
 
@@ -46,8 +49,25 @@
         layoutType = layoutType === LayoutType.GROUPED ? LayoutType.LAYERED : LayoutType.GROUPED;
     }
 
+    const toggleShowCodeLabels = () => {
+        showCodeLabels = !showCodeLabels;
+    }
 </script>
 <div class="absolute bottom-4 right-4 flex flex-col space-y-2">
+    <IconTooltipStateWrapper
+            state={showCodeLabels}
+            onclick={toggleShowCodeLabels}
+            activeTooltip="Show Course Codes"
+            inactiveTooltip="Show Course Titles"
+    >
+        {#snippet active()}
+            <LucideHash class="h-5 w-5" />
+        {/snippet}
+        {#snippet inactive()}
+            <LucideCaseUpper class="h-5 w-5" />
+        {/snippet}
+    </IconTooltipStateWrapper>
+
 
     <IconTooltipStateWrapper
             state={elementsAreDraggable}
