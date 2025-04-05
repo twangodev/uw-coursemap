@@ -51,7 +51,7 @@ def generate_parser():
     )
     parser.add_argument(
         "--step",
-        choices=["all", "courses", "madgrades", "instructors", "madgrades", "aggregate", "optimize", "graph"],
+        choices=["all", "courses", "madgrades", "instructors", "aggregate", "optimize", "graph"],
         help="Strategy for generating course map data.",
         required=True,
     )
