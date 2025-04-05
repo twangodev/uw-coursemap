@@ -5,6 +5,7 @@ from logging import Logger
 
 import coloredlogs
 
+from aggregate import aggregate_instructors
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache
@@ -230,6 +231,18 @@ def main():
 
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+
+        if instructor_to_rating is None:
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+
+        aggregate_instructors(
+            course_ref_to_course=course_ref_to_course,
+            instructor_to_rating=instructor_to_rating,
+            logger=logger
+        )
+
+        write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+        logger.info("Data aggregated successfully.")
 
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")

@@ -11,6 +11,7 @@ from rapidfuzz import fuzz
 
 from course import Course
 from enrollment import build_from_mega_query
+from enrollment_data import GradeData
 from json_serializable import JsonSerializable
 
 faculty_url = "https://guide.wisc.edu/faculty/"
@@ -148,33 +149,7 @@ class RMPData(JsonSerializable):
 
 class FullInstructor(JsonSerializable):
 
-    class Aggregation(JsonSerializable):
-
-        def __init__(self, average_gpa: float, average_completion_rate: float, average_a_rate: float, total_taught: int):
-            self.average_gpa = average_gpa
-            self.average_completion_rate = average_completion_rate
-            self.average_a_rate = average_a_rate
-            self.total_taught = total_taught
-
-        @classmethod
-        def from_json(cls, json_data) -> "FullInstructor.Aggregation":
-            return FullInstructor.Aggregation(
-                average_gpa=json_data["average_gpa"],
-                average_completion_rate=json_data["average_completion_rate"],
-                average_a_rate=json_data["average_a_rate"],
-                total_taught=json_data["total_taught"]
-            )
-
-        def to_dict(self):
-            return {
-                "average_gpa": self.average_gpa,
-                "average_completion_rate": self.average_completion_rate,
-                "average_a_rate": self.average_a_rate,
-                "total_taught": self.total_taught
-            }
-
-
-    def __init__(self, name, email, rmp_data, position, department, credentials, official_name, aggregation = None):
+    def __init__(self, name, email, rmp_data, position, department, credentials, official_name, courses_taught = None, cumulative_grade_data: GradeData | None = None):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data
@@ -182,10 +157,19 @@ class FullInstructor(JsonSerializable):
         self.department = department
         self.credentials = credentials
         self.official_name = official_name
-        self.aggregation = aggregation
+        self.courses_taught = courses_taught
+        self.cumulative_grade_data = cumulative_grade_data
 
     @classmethod
     def from_json(cls, json_data) -> "FullInstructor":
+        cumulative_grade_data = json_data.get("cumulative_grade_data", None)
+        if cumulative_grade_data:
+            cumulative_grade_data = GradeData.from_json(cumulative_grade_data)
+
+        courses_taught = json_data.get("courses_taught", None)
+        if courses_taught:
+            courses_taught = set(courses_taught)
+
         return FullInstructor(
             name=json_data["name"],
             email=json_data["email"],
@@ -194,7 +178,8 @@ class FullInstructor(JsonSerializable):
             department=json_data["department"],
             credentials=json_data["credentials"],
             official_name=json_data["official_name"],
-            aggregation=json_data["aggregation"]
+            courses_taught=courses_taught,
+            cumulative_grade_data=cumulative_grade_data
         )
 
     def to_dict(self):
@@ -206,7 +191,8 @@ class FullInstructor(JsonSerializable):
             "department": self.department,
             "credentials": self.credentials,
             "official_name": self.official_name,
-            "aggregation": self.aggregation
+            "courses_taught": list(self.courses_taught) if self.courses_taught else None,
+            "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None
         }
 
 

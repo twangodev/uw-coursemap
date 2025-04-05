@@ -120,7 +120,7 @@ class GradeData(JsonSerializable):
             no_work,
             not_reported,
             other,
-            instructors: list[str] | None,
+            instructors: set[str] | None,
     ):
         self.total = total
         self.a = a
@@ -140,6 +140,28 @@ class GradeData(JsonSerializable):
         self.not_reported = not_reported
         self.other = other
         self.instructors = instructors
+
+    def merge_with(self, other: "GradeData") -> "GradeData":
+        return GradeData(
+            total=self.total + other.total,
+            a=self.a + other.a,
+            ab=self.ab + other.ab,
+            b=self.b + other.b,
+            bc=self.bc + other.bc,
+            c=self.c + other.c,
+            d=self.d + other.d,
+            f=self.f + other.f,
+            satisfactory=self.satisfactory + other.satisfactory,
+            unsatisfactory=self.unsatisfactory + other.unsatisfactory,
+            credit=self.credit + other.credit,
+            no_credit=self.no_credit + other.no_credit,
+            passed=self.passed + other.passed,
+            incomplete=self.incomplete + other.incomplete,
+            no_work=self.no_work + other.no_work,
+            not_reported=self.not_reported + other.not_reported,
+            other=self.other + other.other,
+            instructors=self.instructors.union(other.instructors)
+        )
 
     @classmethod
     def from_madgrades(cls, json_data) -> "GradeData":
@@ -184,7 +206,7 @@ class GradeData(JsonSerializable):
             no_work=json_data["no_work"],
             not_reported=json_data["not_reported"],
             other=json_data["other"],
-            instructors=json_data["instructors"]
+            instructors=set(json_data["instructors"]) if json_data["instructors"] else None
         )
 
     def to_dict(self):
@@ -206,7 +228,7 @@ class GradeData(JsonSerializable):
             "no_work": self.no_work,
             "not_reported": self.not_reported,
             "other": self.other,
-            "instructors": self.instructors
+            "instructors": list(self.instructors)
         }
 
 

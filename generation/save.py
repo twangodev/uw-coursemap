@@ -24,10 +24,10 @@ def recursive_sort_data(data):
     """
     if isinstance(data, dict):
         return {key: recursive_sort_data(data[key]) for key in sorted(data.keys())}
-    elif isinstance(data, (list, set, tuple)):
+    if isinstance(data, (list, set, tuple)):
         return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for
                 item in data]
-    elif isinstance(data, JsonSerializable):
+    if isinstance(data, JsonSerializable):
         return recursive_sort_data(json.loads(data.to_json()))
     else:
         return data
