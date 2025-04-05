@@ -66,7 +66,7 @@
 
     let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
-
+    let showCodeLabels = $state(false);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse = $state<Course | undefined>();
@@ -113,7 +113,7 @@
 
 
         cytoscapeStyleData = await getStyleData(styleUrl);
-        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode, showCodeLabels);
 
         progress = {
             text: "Loading Layout...",
@@ -221,7 +221,7 @@
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
             await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData)).run();
+                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
             })();
         }
     }
@@ -255,7 +255,8 @@
             'color': getTextColor($mode),
             'text-outline-color': getTextOutlineColor($mode),
 	        'text-outline-opacity': 1,
-	        'text-outline-width': 1
+	        'text-outline-width': 1,
+            'label': showCodeLabels ? 'data(id)': 'data(title)',
         }).selector('.highlighted-nodes').style({
             'border-color': getTextColor($mode),
         }).selector('edge').style({
@@ -273,7 +274,6 @@
     let removedSubjectNodes: Collection | null
 
     function hide(subject: string | null) {
-        // console.log(hiddenSubject);
         if (!cy) {
             return;
         }
@@ -305,6 +305,6 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
-    <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
