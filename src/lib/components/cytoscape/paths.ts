@@ -25,14 +25,14 @@ export function markNextCourses(cy: cytoscape.Core | undefined) {
         // console.log("Incomers: ", node.incomers('node').map((node) => node.data('id')));
         // console.log("is Contains: ", takenNodes.contains(node.incomers()));
         const incomers = node.incomers('node');
-        let isContains = true;
+        let allIncomersTaken = true;
         incomers.forEach((incomer) => {
             if (!takenNodes.contains(incomer)) {
-                isContains = false;
+                allIncomersTaken = false;
             }
         })
 
-        if (isContains) {
+        if (allIncomersTaken) {
             node.addClass('next-nodes');
         }
         // else console.log(node.data('id'));
