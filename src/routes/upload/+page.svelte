@@ -16,6 +16,7 @@
     
     let takenCourses = $state(new Array<any>)
     let status = $state("");
+    let browseInput: HTMLInputElement;
     
     //load data
     onMount(() => {
@@ -134,13 +135,24 @@
             
             reader.readAsArrayBuffer(file);
         }
+
+        setOpen(false); //close the dialog after file upload
     }
+
+    let myOpen = $state(false);
+    function getOpen() {
+		return myOpen;
+	}
+ 
+	function setOpen(newOpen: boolean) {
+		myOpen = newOpen;
+	}
 </script>
 
 <ContentWrapper>
     <div style="margin-bottom: 1rem; display: flex; gap: .5rem;">
         <div style="display: flex;">
-            <Dialog.Root>
+            <Dialog.Root bind:open={getOpen, setOpen}>
                 <Dialog.Trigger>
                     <Button variant="outline">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload size-7 text-muted-foreground" aria-hidden="true" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
@@ -156,7 +168,8 @@
                         </Dialog.Title>
                         <Dialog.Description>
                             <div class="grid gap-4 py-4">
-                                <Input accept="application/pdf" type="file" class="hover:bg-muted/50" onchange={fileUploaded}/>
+                                <Button variant="outline" onclick={() => browseInput.click()}>Upload Transcript</Button>
+                                <input bind:this={browseInput} accept="application/pdf" type="file" class="hidden" onchange={fileUploaded}>
                                 <ul style="list-style-type: numbers; margin-left: 20px;">
                                     <li>Go to academic records: MyUW -> student center -> academic records
                                         <ul style="list-style-type: disc; margin-left: 20px;">
@@ -181,34 +194,57 @@
     </div>
 
     
-    <Label for="courses">{status}</Label>
-    <Table.Root id="courses" style="margin-bottom: 20px;">
-        {#if takenCourses.length == 0 && status == ""}
-            <Table.Caption>no courses to display</Table.Caption>
-        {/if}
-        <Table.Header>
-            <Table.Row>
-                <Table.Head>Remove</Table.Head>
-                <Table.Head>Name</Table.Head>
-                <Table.Head>Subject(s)</Table.Head>
-                <Table.Head>Number</Table.Head>
-            </Table.Row>
-        </Table.Header>
-        <Table.Body>
-            {#each takenCourses.slice().reverse() as courseData}
+    {#if takenCourses.length == 0 && status == ""}
+        <div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-:Rv6db:-trigger-basic" id="radix-:Rv6db:-content-basic" tabindex="0" class="ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mt-6" style="">
+            <div class="flex flex-col gap-6">
+                <div class="relative flex flex-col gap-6 overflow-hidden">
+                    <div role="presentation" class="group relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed border-muted-foreground/25 px-5 py-2.5 text-center transition hover:bg-muted/25 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                        <input accept="image/*" type="file" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: 0px -1px -1px 0px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" tabindex="-1" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+                        <div class="flex flex-col items-center justify-center gap-4 sm:px-5">
+                            <div class="rounded-full border border-dashed p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload size-7 text-muted-foreground" aria-hidden="true" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-px">
+                                <p class="font-medium text-muted-foreground">
+                                    Drag <!-- -->'n'<!-- --> drop transcript here, or click to browse for it
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {:else}
+        <Label for="courses">{status}</Label>
+        <Table.Root id="courses" style="margin-bottom: 20px;">
+            <Table.Header>
                 <Table.Row>
-                    <Table.Cell>
-                        <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
-                            <XMark class="h-4 w-4" />
-                        </Button>
-                    </Table.Cell>
-                    <Table.Cell>{courseData["course_title"]}</Table.Cell>
-                    <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
-                    <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
+                    <Table.Head>Remove</Table.Head>
+                    <Table.Head>Name</Table.Head>
+                    <Table.Head>Subject(s)</Table.Head>
+                    <Table.Head>Number</Table.Head>
                 </Table.Row>
-            {/each}
-        </Table.Body>
-    </Table.Root>
+            </Table.Header>
+            <Table.Body>
+                {#each takenCourses.slice().reverse() as courseData}
+                    <Table.Row>
+                        <Table.Cell>
+                            <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
+                                <XMark class="h-4 w-4" />
+                            </Button>
+                        </Table.Cell>
+                        <Table.Cell>{courseData["course_title"]}</Table.Cell>
+                        <Table.Cell>{courseData["course_reference"]["subjects"].join(", ")}</Table.Cell>
+                        <Table.Cell>{courseData["course_reference"]["course_number"]}</Table.Cell>
+                    </Table.Row>
+                {/each}
+            </Table.Body>
+        </Table.Root>
+    {/if}
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >
