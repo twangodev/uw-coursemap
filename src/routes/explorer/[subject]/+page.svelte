@@ -2,9 +2,11 @@
 
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
     import { page } from '$app/state';
-    import {PUBLIC_API_URL} from "$env/static/public";
+    import {env} from "$env/dynamic/public";
 
     let subject = $derived(page.params.subject.toUpperCase());
+
+    const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
 
 </script>
