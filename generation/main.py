@@ -5,6 +5,7 @@ from logging import Logger
 
 import coloredlogs
 
+from aggregate import aggregate_instructors
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache
@@ -50,7 +51,7 @@ def generate_parser():
     )
     parser.add_argument(
         "--step",
-        choices=["all", "courses", "madgrades", "instructors", "madgrades", "optimize", "graph"],
+        choices=["all", "courses", "madgrades", "instructors", "aggregate", "optimize", "graph"],
         help="Strategy for generating course map data.",
         required=True,
     )
@@ -113,7 +114,7 @@ def instructors(
 ):
     api_key = scrape_rmp_api_key(logger)
     instructors_emails = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
-    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails,api_key=api_key, logger=logger))
+    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
     return instructor_to_rating, instructors_emails
 
 
@@ -224,6 +225,24 @@ def main():
         write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
+
+    if filter_step(step, "aggregate"):
+        logger.info("Aggregating data")
+
+        if course_ref_to_course is None:
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+
+        if instructor_to_rating is None:
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+
+        aggregate_instructors(
+            course_ref_to_course=course_ref_to_course,
+            instructor_to_rating=instructor_to_rating,
+            logger=logger
+        )
+
+        write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+        logger.info("Data aggregated successfully.")
 
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")

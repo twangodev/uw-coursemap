@@ -6,7 +6,7 @@ import aiohttp
 import requests
 
 from course import Course
-from enrollment_data import EnrollmentData
+from enrollment_data import EnrollmentData, TermData
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
@@ -129,6 +129,13 @@ async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_
 
     enrollment_data.instructors = course_instructors
     logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")
-    course.enrollment_data[selected_term] = enrollment_data
+
+    term_data = TermData(None, None)
+    if course.term_data.get(selected_term):
+        term_data = course.term_data[selected_term]
+
+    term_data.enrollment_data = enrollment_data
+
+    course.term_data[selected_term] = term_data
 
     return course_instructors
