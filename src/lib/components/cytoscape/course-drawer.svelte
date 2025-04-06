@@ -1,7 +1,11 @@
 <script lang="ts">
     import {Skeleton} from "$lib/components/ui/skeleton";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
-    import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
+    import {
+        courseReferenceToString,
+        sanitizeCourseToReferenceString,
+        type Course, getInstructorsWithEmail
+    } from "$lib/types/course.ts";
     import {Separator} from "$lib/components/ui/separator";
     import {Button} from "$lib/components/ui/button";
     import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
@@ -26,9 +30,8 @@
 
     let terms: Terms = $state({});
     let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
-    let latestTermValue = $derived(terms[latestTerm]);
 
-    let instructors = $derived(Object.entries(selectedCourse?.enrollment_data[latestTermValue]?.instructors ?? {}));
+    let instructors = $derived(Object.entries(getInstructorsWithEmail(selectedCourse, latestTerm)));
 
     onMount(async () => {
         let termsData = await apiFetch(`/terms.json`)
@@ -110,7 +113,6 @@
             </DrawerDescription>
         </DrawerHeader>
         <div class="p-4 pb-0">
-
             {#if instructors}
                 {#each instructors as [name, email], index}
                     {#if index === 0}
@@ -119,7 +121,7 @@
                     {/if}
                     <InstructorPreview instructor={{
                     name: name,
-                    email: email,
+                    email: email ?? "",
                     credentials: null,
                     rmp_data: null,
                     department: null,

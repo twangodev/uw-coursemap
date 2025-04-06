@@ -1,6 +1,5 @@
-import type {MadgradesData} from "$lib/types/madgrades.ts";
+import type {GradeData} from "$lib/types/madgrades.ts";
 import type {EnrollmentData} from "$lib/types/enrollment.ts";
-import {PUBLIC_API_URL} from "$env/static/public";
 import {apiFetch} from "$lib/api.ts";
 
 export type CourseReference = {
@@ -19,10 +18,15 @@ export type Course = {
     description: string
     prerequisites: CoursePrerequisites,
     optimized_prerequisites: CoursePrerequisites,
-    madgrades_data: MadgradesData | null,
-    enrollment_data: {
-        [key: string]: EnrollmentData
+    cumulative_grade_data: GradeData,
+    term_data: {
+        [key: string]: TermData,
     }
+}
+
+export type TermData = {
+    enrollment_data: EnrollmentData | null,
+    grade_data: GradeData | null,
 }
 
 export async function courseReferenceStringToCourse(sanatizedCourseReferenceString: string): Promise<Course> {
@@ -42,4 +46,31 @@ export function sanitizeCourseToReferenceString(courseReference: CourseReference
 export async function courseReferenceToCourse(courseReference: CourseReference): Promise<Course> {
     let sanitizedCourseReferenceToString = sanitizeCourseToReferenceString(courseReference);
     return await courseReferenceStringToCourse(sanitizedCourseReferenceToString);
+}
+
+export function getInstructorsWithEmail(course: Course | undefined, term: string): { [key: string]: string | null } {
+    if (!course) return {};
+
+    const termData = course.term_data[term];
+
+    if (!termData) return {};
+
+    const enrollmentData = termData.enrollment_data;
+    if (enrollmentData) {
+        return enrollmentData.instructors
+    }
+
+    const gradesData = termData.grade_data;
+    console.log(termData);
+    if (gradesData) {
+        const names = gradesData.instructors;
+        if (!names) return {};
+        const instructorWithEmail: { [key: string]: string | null } = {};
+        for (const name of names) {
+            instructorWithEmail[name] = null;
+        }
+        return instructorWithEmail;
+    }
+
+    return {};
 }
