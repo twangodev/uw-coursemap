@@ -62,7 +62,6 @@ export function getInstructorsWithEmail(course: Course | undefined, term: string
     }
 
     const gradesData = termData.grade_data;
-    console.log(termData);
     if (gradesData) {
         const names = gradesData.instructors;
         if (!names) return {};
