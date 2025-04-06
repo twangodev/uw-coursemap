@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {Root, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "$lib/components/ui/sheet";
     import {Skeleton} from "$lib/components/ui/skeleton";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
@@ -12,7 +11,9 @@
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
     import type {Terms} from "$lib/types/terms.ts";
-    import {onMount} from "svelte";
+    import {onMount, tick} from "svelte";
+    import {Drawer, DrawerContent, DrawerFooter, DrawerTitle} from "$lib/components/ui/drawer";
+    import {DrawerDescription, DrawerHeader} from "$lib/components/ui/drawer/index.js";
 
     interface Props {
         cy: cytoscape.Core | undefined;
@@ -22,8 +23,6 @@
     }
     let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
-
-    let selectedTerm: string | undefined = undefined;
 
     let terms: Terms = $state({});
     let latestTerm = $derived(Object.keys(terms).sort().pop() ?? ""); // TODO Allow user to select term
@@ -65,34 +64,36 @@
     })
 
     $effect(() => {
-        if (cy && selectedCourse) {
-            let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
-            if (sheetOpen) {
+        if (!cy) return
+
+        if (sheetOpen) {
+            if (selectedCourse) {
+                let courseId = sanitizeCourseToReferenceString(selectedCourse.course_reference);
                 page.url.searchParams.set('focus', courseId);
-
-            } else {
-                page.url.searchParams.delete('focus');
             }
-
-            pushState(page.url, page.state);
+        } else {
+            page.url.searchParams.delete('focus');
         }
-    })
+
+        tick().then(() => {
+            pushState(page.url, page.state);
+        })
+    });
+
 
 
 </script>
 
-<Root bind:open={sheetOpen}>
-    <SheetContent class="flex flex-col h-full">
-        <SheetHeader class="sticky">
-            <SheetTitle class="text-2xl">
+<Drawer bind:open={sheetOpen} shouldScaleBackground>
+    <DrawerContent class="mx-auto w-full max-w-sm">
+        <DrawerHeader class="sticky">
+            <DrawerTitle class="text-2xl">
                 {#if selectedCourse}
                     {courseReferenceToString(selectedCourse.course_reference)}
                 {:else}
                     <Skeleton class="h-6 w-9/12"/>
                 {/if}
-            </SheetTitle>
-        </SheetHeader>
-        <ScrollArea class="flex-1 overflow-y-auto mr-1">
+            </DrawerTitle>
             <div class="font-semibold">
                 {#if selectedCourse}
                     {selectedCourse.course_title}
@@ -100,14 +101,16 @@
                     <Skeleton class="h-5 w-6/12"/>
                 {/if}
             </div>
-            <Separator class="my-1"/>
-            <SheetDescription>
+            <DrawerDescription>
                 {#if selectedCourse}
                     {selectedCourse.description}
                 {:else}
                     <Skeleton class="h-5 w-6/12"/>
                 {/if}
-            </SheetDescription>
+            </DrawerDescription>
+        </DrawerHeader>
+        <div class="p-4 pb-0">
+
             {#if instructors}
                 {#each instructors as [name, email], index}
                     {#if index === 0}
@@ -115,22 +118,25 @@
                         <Separator class="my-1" />
                     {/if}
                     <InstructorPreview instructor={{
-                        name: name,
-                        email: email,
-                        credentials: null,
-                        rmp_data: null,
-                        department: null,
-                        official_name: null,
-                        position: null
-                    }}/>
+                    name: name,
+                    email: email,
+                    credentials: null,
+                    rmp_data: null,
+                    department: null,
+                    official_name: null,
+                    position: null
+                }}/>
                 {/each}
             {/if}
-        </ScrollArea>
+        </div>
+
         {#if selectedCourse}
-            <Button class="sticky bottom-0" href="/courses/{sanitizeCourseToReferenceString(selectedCourse.course_reference)}" target="_blank">
-                View Course Page
-                <ArrowUpRight class="h-4 w-4"/>
-            </Button>
+            <DrawerFooter>
+                <Button href="/courses/{sanitizeCourseToReferenceString(selectedCourse.course_reference)}" target="_blank">
+                    View Course Page
+                    <ArrowUpRight class="h-4 w-4"/>
+                </Button>
+            </DrawerFooter>
         {/if}
-    </SheetContent>
-</Root>
+    </DrawerContent>
+</Drawer>
