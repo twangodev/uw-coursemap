@@ -9,6 +9,7 @@
     import {getData, setData} from "$lib/localStorage.ts";
     import * as Table from "$lib/components/ui/table/index.ts";
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
+    import * as Dialog from "$lib/components/ui/dialog/index.js";
     import { onMount } from 'svelte';
     import XMark from "lucide-svelte/icons/x";
     import CourseSearch from "$lib/components/course-search.svelte";
@@ -137,43 +138,48 @@
 </script>
 
 <ContentWrapper>
-    <div style="margin-bottom: 2rem;">
-        {#if takenCourses.length > 0}
-            <Label for="transcript-upload">Add to courses with Unofficial Transcript:</Label>
-        {:else}
-            <Label for="transcript-upload">Upload Unofficial Transcript:</Label>
-        {/if}
+    <div style="margin-bottom: 1rem; display: flex; gap: .5rem;">
         <div style="display: flex;">
-            <AlertDialog.Root>
-                <AlertDialog.Trigger >
-                    <Button variant="outline">Info</Button>
-                </AlertDialog.Trigger>
-                <AlertDialog.Content>
-                    <AlertDialog.Header>
-                        <AlertDialog.Title>How to get unofficial transcript:</AlertDialog.Title>
-                        <AlertDialog.Description>
-                            <ul style="list-style-type: disc; margin-left: 20px;">
-                                <li>Go to academic records: MyUW -> student center -> academic records
-                                    <ul style="list-style-type: disc; margin-left: 20px;">
-                                        <li>Or just go <a style="color: blue; text-decoration: underline;" target="_blank" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
-                                    </ul>
-                                </li>
-                                <li>Click on "View Unofficial Transcript on the side menu"</li>
-                                <li>Set "report type" to unofficial transcript, and submit</li>
-                                <li>Click on the new transcript, and press "view report"</li>
-                                <li>Download the pdf</li>
-                                <li>Upload using the file browser on this page</li>
-                            </ul>
-                        </AlertDialog.Description>
-                    </AlertDialog.Header>
-                    <AlertDialog.Footer>
-                        <AlertDialog.Cancel>Close</AlertDialog.Cancel>
-                    </AlertDialog.Footer>
-                </AlertDialog.Content>
-            </AlertDialog.Root>
-            <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+            <Dialog.Root>
+                <Dialog.Trigger>
+                    <Button variant="outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload size-7 text-muted-foreground" aria-hidden="true" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" x2="12" y1="3" y2="15"></line></svg>
+                    </Button>
+                </Dialog.Trigger>
+                <Dialog.Content>
+                    <Dialog.Header>
+                        <Dialog.Title>
+                            Upload transcript to add courses:
+                        </Dialog.Title>
+                        <Dialog.Description>
+                            <div class="grid gap-4 py-4">
+                                <Input accept="application/pdf" type="file" class="hover:bg-muted/50" onchange={fileUploaded}/>
+                                <ul style="list-style-type: numbers; margin-left: 20px;">
+                                    <li>Go to academic records: MyUW -> student center -> academic records
+                                        <ul style="list-style-type: disc; margin-left: 20px;">
+                                            <li>Or just go <a style="color: blue; text-decoration: underline;" target="_blank" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Click on "View Unofficial Transcript" on the left side menu</li>
+                                    <li>Set "report type" to unofficial transcript, and submit</li>
+                                    <li>Click on the new transcript, and press "view report"</li>
+                                    <li>Download the pdf, then upload here</li>
+                                </ul>
+                            </div>
+                        </Dialog.Description>
+                    </Dialog.Header>
+                </Dialog.Content>
+            </Dialog.Root>
+        </div>
+
+        <div style="width: 100%;">
+            <CourseSearch bind:takenCourses={takenCourses} bind:status={status}/>
         </div>
     </div>
+
     
     <Table.Root style="margin-bottom: 20px;">
         {#if takenCourses.length == 0 && status == ""}
@@ -204,8 +210,6 @@
             {/each}
         </Table.Body>
     </Table.Root>
-
-    <CourseSearch bind:takenCourses={takenCourses} bind:status={status}/>
 
     <AlertDialog.Root>
         <AlertDialog.Trigger >

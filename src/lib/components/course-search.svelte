@@ -12,9 +12,10 @@
     import {setData} from "$lib/localStorage.ts";
     import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
     import {ChevronsUpDown} from "lucide-svelte";
+	import { onMount } from "svelte";
 
     let open = $state(false);
-    let numOptions = 4;
+    let numOptions = 20;
     let searchQuery = $state("");
     let triggerRef = $state<HTMLButtonElement>(null!);
     let selectedCourse: CourseSearchResult;
@@ -117,19 +118,17 @@
         //add to courses
         courseSuggestionSelected(selectedCourse);
     }
-
 </script>
 <Popover bind:open>
     <Trigger bind:ref={triggerRef}>
         {#snippet child({ props })}
             <Button
-                    variant="outline"
-                    class="w-[400px] justify-between"
-                    {...props}
-                    role="combobox"
-                    aria-expanded={open}
-            >
-                Add a course...
+                variant="outline"
+                class="w-[400px] justify-between"
+                {...props}
+                role="combobox"
+                aria-expanded={open}>  
+                Search courses to add...
                 <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
             </Button>
         {/snippet}
