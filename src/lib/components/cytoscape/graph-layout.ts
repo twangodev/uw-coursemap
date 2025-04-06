@@ -7,7 +7,7 @@ export enum LayoutType {
     LAYERED,
 }
 
-export async function generateLayeredLayout(focus: string | null, courseData: ElementDefinition[]): Promise<LayoutOptions> {
+export async function generateLayeredLayout(focus: string | null, courseData: ElementDefinition[], labelIsCode: boolean): Promise<LayoutOptions> {
     const elk = new ELK()
     const newLayout = {
         id: "root",
@@ -16,10 +16,16 @@ export async function generateLayeredLayout(focus: string | null, courseData: El
                 if (!node.data.id) {
                     throw new Error("Node ID is undefined");
                 }
+                // console.log(node.data.title.split(' ').reduce(
+                //             (acc: number, word: string) => acc = Math.max(acc, word.length),
+                //       0) * 15)
                 return {
                     id: node.data.id,
-                    width: node.data.id.length * 10,
-                    height: 15
+                    width: labelIsCode ? node.data.id.length * 15 : 
+                        node.data.title.split(' ').reduce(
+                            (acc: number, word: string) => acc = Math.max(acc, word.length),
+                            0) * 20,
+                    height: node.data.title.split(' ').length * 15, 
                 }
             }),
         edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {

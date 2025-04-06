@@ -10,23 +10,40 @@
     import cytoscapePopper from "cytoscape-popper";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
-    import {type Course} from "$lib/types/course.ts";
+    import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
     import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseDrawer from "./course-drawer.svelte";
-    import {clearPath, highlightPath} from "./paths.ts";
+    import {clearPath, highlightPath, markNextCourses} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
     import {mode} from "mode-watcher";
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
+    import { onMount } from "svelte";
+    import { getData } from "$lib/localStorage.ts";
 
     interface Props {
         url: string;
         styleUrl: string;
     }
+
+    let takenCourses: (undefined | string)[] = [];
+    //load data
+    onMount(() => {
+        // console.log("mounted")
+        // console.log("data", getData("takenCourses"));
+        takenCourses = getData("takenCourses").map((course: any) => {
+            if (course.course_reference === undefined) {
+                return;
+            }
+
+            return courseReferenceToString(course.course_reference);
+        });
+        // console.log("after", takenCourses);
+    });
 
     let { url, styleUrl }: Props = $props();
     let sheetOpen = $state(false);
@@ -49,7 +66,7 @@
 
     let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
-
+    let showCodeLabels = $state(false);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse = $state<Course | undefined>();
@@ -96,7 +113,7 @@
 
 
         cytoscapeStyleData = await getStyleData(styleUrl);
-        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode, showCodeLabels);
 
         progress = {
             text: "Loading Layout...",
@@ -204,10 +221,27 @@
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
             await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData)).run();
+                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
             })();
         }
     }
+
+    $effect(() => {
+        if (!cy || !takenCourses) {
+            return;
+        }
+
+        cy.nodes().forEach((node: cytoscape.NodeSingular) => {
+            if (takenCourses.includes(node.data("id"))) {
+                node.addClass("taken-nodes");
+            } else {
+                node.removeClass("taken-nodes");
+            }
+        });
+
+        // console.log("actually taken: ", takenCourses);
+        markNextCourses(cy);
+    })
 
     $effect(() => {
         computeLayout(layoutType, courseData);
@@ -221,12 +255,17 @@
             'color': getTextColor($mode),
             'text-outline-color': getTextOutlineColor($mode),
 	        'text-outline-opacity': 1,
-	        'text-outline-width': 1
+	        'text-outline-width': 1,
+            'label': showCodeLabels ? 'data(id)': 'data(title)',
         }).selector('.highlighted-nodes').style({
             'border-color': getTextColor($mode),
         }).selector('edge').style({
             'line-color': getTextColor($mode),
             'target-arrow-color': getTextColor($mode),
+        }).selector('.taken-nodes').style({
+            'color': "#008450",
+        }).selector('.next-nodes').style({
+            'color': "#EFB700",
         }).update()
     })
 
@@ -235,7 +274,6 @@
     let removedSubjectNodes: Collection | null
 
     function hide(subject: string | null) {
-        console.log(hiddenSubject);
         if (!cy) {
             return;
         }
@@ -267,6 +305,6 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
-    <SideControls {cy} bind:elementsAreDraggable bind:layoutType/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>

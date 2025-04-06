@@ -39,6 +39,7 @@ export function courseReferenceToString(courseReference: CourseReference): strin
     return `${subjects} ${courseReference.course_number}`;
 }
 
+// This function is used to sanitize the course reference string for use in URLs
 export function sanitizeCourseToReferenceString(courseReference: CourseReference): string {
     return courseReferenceToString(courseReference).replaceAll(" ", "_").replaceAll("/", "_");
 }
