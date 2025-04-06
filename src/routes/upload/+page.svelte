@@ -181,11 +181,10 @@
     </div>
 
     
-    <Table.Root style="margin-bottom: 20px;">
+    <Label for="courses">{status}</Label>
+    <Table.Root id="courses" style="margin-bottom: 20px;">
         {#if takenCourses.length == 0 && status == ""}
             <Table.Caption>no courses to display</Table.Caption>
-        {:else}
-            <Table.Caption>{status}</Table.Caption>
         {/if}
         <Table.Header>
             <Table.Row>
@@ -196,7 +195,7 @@
             </Table.Row>
         </Table.Header>
         <Table.Body>
-            {#each takenCourses as courseData}
+            {#each takenCourses.slice().reverse() as courseData}
                 <Table.Row>
                     <Table.Cell>
                         <Button variant="outline" size="icon" onclick={() => removeCourse(courseData["course_reference"])}>
