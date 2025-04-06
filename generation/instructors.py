@@ -6,8 +6,12 @@ from logging import Logger
 import aiohttp
 import requests
 from bs4 import BeautifulSoup
+from nameparser import HumanName
+from rapidfuzz import fuzz
 
+from course import Course
 from enrollment import build_from_mega_query
+from enrollment_data import GradeData
 from json_serializable import JsonSerializable
 
 faculty_url = "https://guide.wisc.edu/faculty/"
@@ -145,7 +149,7 @@ class RMPData(JsonSerializable):
 
 class FullInstructor(JsonSerializable):
 
-    def __init__(self, name, email, rmp_data, position, department, credentials, official_name):
+    def __init__(self, name, email, rmp_data, position, department, credentials, official_name, courses_taught = None, cumulative_grade_data: GradeData | None = None):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data
@@ -153,9 +157,19 @@ class FullInstructor(JsonSerializable):
         self.department = department
         self.credentials = credentials
         self.official_name = official_name
+        self.courses_taught = courses_taught
+        self.cumulative_grade_data = cumulative_grade_data
 
     @classmethod
     def from_json(cls, json_data) -> "FullInstructor":
+        cumulative_grade_data = json_data.get("cumulative_grade_data", None)
+        if cumulative_grade_data:
+            cumulative_grade_data = GradeData.from_json(cumulative_grade_data)
+
+        courses_taught = json_data.get("courses_taught", None)
+        if courses_taught:
+            courses_taught = set(courses_taught)
+
         return FullInstructor(
             name=json_data["name"],
             email=json_data["email"],
@@ -163,7 +177,9 @@ class FullInstructor(JsonSerializable):
             position=json_data["position"],
             department=json_data["department"],
             credentials=json_data["credentials"],
-            official_name=json_data["official_name"]
+            official_name=json_data["official_name"],
+            courses_taught=courses_taught,
+            cumulative_grade_data=cumulative_grade_data
         )
 
     def to_dict(self):
@@ -174,7 +190,9 @@ class FullInstructor(JsonSerializable):
             "position": self.position,
             "department": self.department,
             "credentials": self.credentials,
-            "official_name": self.official_name
+            "official_name": self.official_name,
+            "courses_taught": list(self.courses_taught) if self.courses_taught else None,
+            "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None
         }
 
 
@@ -253,35 +271,96 @@ def get_faculty():
     return faculty
 
 
-def match_name(student_name, official_names):
+def match_name(student_name, official_names, threshold=80):
     """
-    Matches a student-provided name to an official name based on last name priority.
+    Matches a student name to an official name using robust name parsing and fuzzy matching.
+
+    Steps:
+      1. Parse and normalize the student and official names.
+      2. Filter candidates based on an exact match for the last name.
+      3. Compute a fuzzy match score on the first names.
+      4. Return the best candidate if the score meets the threshold.
 
     Args:
-        student_name (str): The name given by the student.
+        student_name (str): The name provided by the student.
         official_names (set of str): The list of official names.
+        threshold (int): The minimum fuzzy score required for a match.
 
     Returns:
         str: The matched official name or None if no match is found.
     """
-    student_last_name = student_name.split()[-1].upper()
-    matches = [official_name for official_name in official_names if student_last_name in official_name.upper()]
+    # Parse and normalize the student name.
+    student_parsed = HumanName(student_name)
+    student_first = student_parsed.first.upper().strip()
+    student_last = student_parsed.last.upper().strip()
 
-    if len(matches) == 1:
-        return matches[0]
+    best_match = None
+    best_score = 0
 
-    # If multiple matches, attempt further refinement (e.g., first name matching)
-    student_first_name = student_name.split()[0].upper() if len(student_name.split()) > 1 else ""
-    for match in matches:
-        official_first_name = match.split(',')[1].strip().split()[0].upper() if ',' in match else ""
-        if student_first_name == official_first_name:
-            return match
+    for candidate in official_names:
+        candidate_parsed = HumanName(candidate)
+        candidate_first = candidate_parsed.first.upper().strip()
+        candidate_last = candidate_parsed.last.upper().strip()
 
-    return matches[0] if matches else None
+        # Filter: if the last names don't match exactly, skip this candidate.
+        if student_last != candidate_last:
+            continue
 
+        # Use fuzzy matching on the first name.
+        score = fuzz.token_set_ratio(student_first, candidate_first)
+        if score > best_score:
+            best_score = score
+            best_match = candidate
 
-async def get_ratings(instructors: dict[str, str], api_key: str, logger: Logger):
+    return best_match if best_score >= threshold else None
+
+async def merge_instructors(instructor: str,
+                            instructors: dict[str, str | None],
+                            course_ref_to_course: dict,
+                            logger: Logger) -> None:
+    # Call the synchronous match_name function.
+    match = match_name(instructor, set(instructors.keys()))
+
+    if match:
+        logger.debug(f"Found existing instructor match for {instructor}: {match}.")
+        if match == instructor:
+            return
+
+        # Update each course where the instructor appears.
+        for course in course_ref_to_course.values():
+            for term_data in course.term_data.values():
+                if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
+                    continue
+                if instructor in term_data.grade_data.instructors:
+                    term_data.grade_data.instructors.remove(instructor)
+                    term_data.grade_data.instructors.append(match)
+    else:
+        logger.debug(f"Could not find existing instructor match for {instructor}. Adding to list of instructors to fetch.")
+        instructors[instructor] = None
+
+async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
+
+    additional_instructors = set()
+
+    # Gather all instructors from the course data.
+    for course in course_ref_to_course.values():
+        for term_data in course.term_data.values():
+            if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
+                continue
+            for instructor in term_data.grade_data.instructors:
+                if instructor:
+                    additional_instructors.add(instructor)
+
+    # Create and schedule a task for each instructor.
+    tasks = [
+        asyncio.create_task(
+            merge_instructors(instructor, instructors, course_ref_to_course, logger)
+        )
+        for instructor in additional_instructors
+    ]
+    # Wait for all instructor tasks to complete.
+    await asyncio.gather(*tasks)
 
     instructor_data = {}
     total = len(instructors)

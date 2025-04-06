@@ -1,19 +1,27 @@
 <script lang="ts">
 
-    import {getTotalOtherGrades, type MadgradesData} from "$lib/types/madgrades.ts";
+    import {getTotalOtherGrades, type GradeData} from "$lib/types/madgrades.ts";
     import {type BarChartOptions, BarChartSimple, type ChartTabularData, ScaleTypes} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import {getCarbonTheme} from "$lib/theme.ts";
     import {mode} from "mode-watcher";
+    import type {TermData} from "$lib/types/course.ts";
 
     interface Props {
-        madgradesData: MadgradesData;
+        cumulative: GradeData,
+        termData: {
+            [key: string]: TermData
+        },
         term?: string | null;
     }
 
-    let { madgradesData, term = null }: Props = $props();
+    let {
+        cumulative,
+        termData,
+        term = null
+    }: Props = $props();
 
-    let gradeData = term ? madgradesData.by_term[term] : madgradesData.cumulative
+    let gradeData = term ? (termData[term].grade_data ?? cumulative) : cumulative
     let data: ChartTabularData = $derived([
         {
             group: 'A',
