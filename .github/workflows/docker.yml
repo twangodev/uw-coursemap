@@ -27,7 +27,7 @@ jobs:
             # Remove the 'refs/tags/' prefix to get just the tag name.
             tag="${GITHUB_REF#refs/tags/}"
           else
-            tag="${GITHUB_SHA}"
+            tag="latest"
           fi
           echo "TAG=${tag}" >> "${GITHUB_OUTPUT}"
           echo "Using tag: ${tag}"
