@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 RUN npm prune --production
 
-FROM node:23-alpine AS run
+FROM node:23-alpine AS runtime
 
 WORKDIR /app
 

@@ -1,6 +1,7 @@
 import logging
 import random
 from argparse import ArgumentParser
+from os import environ
 
 import coloredlogs
 from elasticsearch import Elasticsearch
@@ -10,34 +11,54 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
+ES_HOST = environ.get("ES_HOST")
+ES_USERNAME = environ.get("ES_USERNAME")
+ES_PASSWORD = environ.get("ES_PASSWORD")
+ES_VERIFY_CERTS = environ.get("ES_VERIFY_CERTS")
+
+if not ES_HOST:
+    raise EnvironmentError("ES_HOST environment variable not set")
+if not ES_USERNAME:
+    raise EnvironmentError("ES_USERNAME environment variable not set")
+if not ES_PASSWORD:
+    raise EnvironmentError("ES_PASSWORD environment variable not set")
+if ES_VERIFY_CERTS is None:
+    raise EnvironmentError("ES_VERIFY_CERTS environment variable not set")
+
+verify_certs = ES_VERIFY_CERTS.lower() in ("true", "1", "yes")
+
+es = Elasticsearch(
+    ES_HOST,
+    basic_auth=(ES_USERNAME, ES_PASSWORD),
+    verify_certs=verify_certs
+)
+
 app = Flask(__name__)
 cors = CORS(app)
-es = Elasticsearch(
-    "https://localhost:9200",
-    basic_auth=("elastic", "changeme"),
-    verify_certs=False
-)
+
+data_dir_default = environ.get("DATA_DIR", "../generation/data")
 
 def generate_parser():
     """
     Build the argument parser for command line arguments.
     """
-    parser = ArgumentParser(
+    arg_parser = ArgumentParser(
         description="Search for courses"
     )
-    parser.add_argument(
+    arg_parser.add_argument(
         "data_dir",
         type=str,
-        help="Directory to pull generated data.",
-        default="../generation/data"
+        nargs="?",
+        default=data_dir_default,
+        help="Directory to pull generated data."
     )
-    parser.add_argument(
+    arg_parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
         help="Enable verbose logging (DEBUG level). This will also enable Flask debug mode, and should not be used in production.",
     )
-    return parser
+    return arg_parser
 
 @app.route('/search', methods=['POST'])
 def search():
