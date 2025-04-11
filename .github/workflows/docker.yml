@@ -46,8 +46,8 @@ jobs:
           context: .
           push: true
           tags: |
-            twangodev/uw-coursemap/svelte:latest
-            ${{ github.event_name == 'release' && format('twangodev/uw-coursemap/svelte:{}', github.event.release.tag_name) || '' }}
+            uw-coursemap-web:latest
+            ${{ github.event_name == 'release' && format('uw-coursemap-web:{}', github.event.release.tag_name) || '' }}
 
       - name: Build and push Search image
         uses: docker/build-push-action@v6
@@ -56,5 +56,5 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            wangodev/uw-coursemap/search:latest
-            ${{ github.event_name == 'release' && format('twangodev/uw-coursemap/search:{}', github.event.release.tag_name) || '' }}
+            uw-coursemap-search:latest
+            ${{ github.event_name == 'release' && format('uw-coursemap-search:{}', github.event.release.tag_name) || '' }}
