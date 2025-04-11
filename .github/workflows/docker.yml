@@ -57,19 +57,15 @@ jobs:
           context: .
           push: true
           tags: |
-            twango/uw-coursemap-web:latest
             twango/uw-coursemap-web:${{ steps.set_tag.outputs.TAG }}
-            ghcr.io/twangodev/uw-coursemap-web:latest
             ghcr.io/twangodev/uw-coursemap-web:${{ steps.set_tag.outputs.TAG }}
 
       - name: Build and push Search image
         uses: docker/build-push-action@v6
         with:
           context: ./search
-          file: Dockerfile
+          file: ./search/Dockerfile
           push: true
           tags: |
-            twango/uw-coursemap-search:latest
             twango/uw-coursemap-search:${{ steps.set_tag.outputs.TAG }}
-            ghcr.io/twangodev/uw-coursemap-search:latest
             ghcr.io/twangodev/uw-coursemap-search:${{ steps.set_tag.outputs.TAG }}
