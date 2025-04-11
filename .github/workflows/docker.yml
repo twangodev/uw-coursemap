@@ -22,13 +22,14 @@ jobs:
       - name: Determine Tag
         id: set_tag
         run: |
+          set -e
           if [[ "${GITHUB_EVENT_NAME}" == "release" ]]; then
             # Remove the 'refs/tags/' prefix to get just the tag name.
             tag="${GITHUB_REF#refs/tags/}"
           else
             tag="${GITHUB_SHA}"
           fi
-          echo "TAG=${tag}" >> $GITHUB_OUTPUT
+          echo "TAG=${tag}" >> "${GITHUB_OUTPUT}"
           echo "Using tag: ${tag}"
 
       - name: Log in to Docker Hub
