@@ -11,25 +11,25 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
-ES_HOST = environ.get("ES_HOST")
-ES_USERNAME = environ.get("ES_USERNAME")
-ES_PASSWORD = environ.get("ES_PASSWORD")
-ES_VERIFY_CERTS = environ.get("ES_VERIFY_CERTS")
+ELASTIC_HOST = environ.get("ELASTIC_HOST")
+ELASTIC_USERNAME = environ.get("ELASTIC_USERNAME")
+ELASTIC_PASSWORD = environ.get("ELASTIC_PASSWORD")
+ELASTIC_VERIFY_CERTS = environ.get("ELASTIC_VERIFY_CERTS")
 
-if not ES_HOST:
-    raise EnvironmentError("ES_HOST environment variable not set")
-if not ES_USERNAME:
-    raise EnvironmentError("ES_USERNAME environment variable not set")
-if not ES_PASSWORD:
-    raise EnvironmentError("ES_PASSWORD environment variable not set")
-if ES_VERIFY_CERTS is None:
-    raise EnvironmentError("ES_VERIFY_CERTS environment variable not set")
+if not ELASTIC_HOST:
+    raise EnvironmentError("ELASTIC_HOST environment variable not set")
+if not ELASTIC_USERNAME:
+    raise EnvironmentError("ELASTIC_USERNAME environment variable not set")
+if not ELASTIC_PASSWORD:
+    raise EnvironmentError("ELASTIC_PASSWORD environment variable not set")
+if ELASTIC_VERIFY_CERTS is None:
+    raise EnvironmentError("ELASTIC_VERIFY_CERTS environment variable not set")
 
-verify_certs = ES_VERIFY_CERTS.lower() in ("true", "1", "yes")
+verify_certs = ELASTIC_VERIFY_CERTS.lower() in ("true", "1", "yes")
 
 es = Elasticsearch(
-    ES_HOST,
-    basic_auth=(ES_USERNAME, ES_PASSWORD),
+    ELASTIC_HOST,
+    basic_auth=(ELASTIC_USERNAME, ELASTIC_PASSWORD),
     verify_certs=verify_certs
 )
 
