@@ -100,11 +100,18 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
-parser = generate_parser()
-args = parser.parse_args()
+args = None
+verbose = False
 
-data_dir = str(args.data_dir)
-verbose = bool(args.verbose)
+if __name__ == "__main__":
+    parser = generate_parser()
+    args = parser.parse_args()
+
+    verbose = bool(args.verbose) if args else verbose
+
+    app.run(debug=verbose)
+
+data_dir = args.data_dir if args else data_dir_default
 
 logger = logging.getLogger(__name__)
 logging_level = logging.DEBUG if verbose else logging.INFO
@@ -120,5 +127,3 @@ load_subjects(es, subjects)
 load_courses(es, courses)
 load_instructors(es, instructors)
 
-if __name__ == "__main__":
-    app.run(debug=verbose)
