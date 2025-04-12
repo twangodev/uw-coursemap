@@ -100,26 +100,25 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
+parser = generate_parser()
+args = parser.parse_args()
+
+data_dir = str(args.data_dir)
+verbose = bool(args.verbose)
+
+logger = logging.getLogger(__name__)
+logging_level = logging.DEBUG if verbose else logging.INFO
+coloredlogs.install(level=logging_level, logger=logger)
+
+subjects = get_subjects(data_dir, logger)
+instructors = get_instructors(data_dir, logger)
+courses = get_courses(data_dir, subjects, logger)
+
+clear_elasticsearch()
+
+load_subjects(es, subjects)
+load_courses(es, courses)
+load_instructors(es, instructors)
+
 if __name__ == "__main__":
-
-    parser = generate_parser()
-    args = parser.parse_args()
-
-    data_dir = str(args.data_dir)
-    verbose = bool(args.verbose)
-
-    logger = logging.getLogger(__name__)
-    logging_level = logging.DEBUG if verbose else logging.INFO
-    coloredlogs.install(level=logging_level, logger=logger)
-
-    subjects = get_subjects(data_dir, logger)
-    instructors = get_instructors(data_dir, logger)
-    courses = get_courses(data_dir, subjects, logger)
-
-    clear_elasticsearch()
-
-    load_subjects(es, subjects)
-    load_courses(es, courses)
-    load_instructors(es, instructors)
-
     app.run(debug=verbose)
