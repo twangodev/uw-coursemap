@@ -42,9 +42,10 @@ def create_edge(target, source):
 def generate_style(parent, color):
     return {parent: color}
 
-
+# This function is used to create a subgraph for a course and its prerequisites which is added to the global graph and the subject graph
+# the seen parameter is needed to avoid infinite recursion in case of circular dependencies
 def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course],
-                  graph_set_1: set[Course], graph_set_2: set[Course]):
+                  global_graph: set[Course], subject_graph: set[Course]):
     if course.get_identifier() in seen:
         return
     seen.add(course.get_identifier())
@@ -60,13 +61,14 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
         edge = create_edge(target=course.get_identifier(), source=reference.get_identifier())
         to_add.add(edge)
         c: Course = course_ref_to_course[reference]
-        to_add.add(get_subgraphs(c, course_ref_to_course, seen, graph_set_1, graph_set_2))
+        to_add.add(get_subgraphs(c, course_ref_to_course, seen, global_graph, subject_graph))
 
     for graph_data in to_add:
-        graph_set_1.add(graph_data)
-        graph_set_2.add(graph_data)
+        global_graph.add(graph_data)
+        subject_graph.add(graph_data)
 
-
+# returns a tuple of the two graphs (global graph, subject graph)
+# the subject graph is a dictionary mapping subjects to their respective graphs
 def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]], logger: Logger):
     logger.info("Building course graphs...")
 
