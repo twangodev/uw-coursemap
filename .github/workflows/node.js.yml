@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 env:
   PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
   PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
