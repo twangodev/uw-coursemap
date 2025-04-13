@@ -87,7 +87,12 @@ def get_random_courses():
     random_course_ids = random.sample(list(courses.keys()), num_courses)
 
     # Retrieve the full course details
-    random_courses = [{"id": course_id, **courses[course_id]} for course_id in random_course_ids]
+    random_courses = [
+        {
+        "course_id": course_id,
+        **courses[course_id]
+        } for course_id in random_course_ids
+    ]
 
     return jsonify(random_courses)
 
