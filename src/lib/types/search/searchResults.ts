@@ -3,6 +3,7 @@ import type {
     InstructorSearchResponse,
     SubjectSearchResponse
 } from "$lib/types/search/searchApiResponse.ts";
+import {type Course, courseReferenceToString} from "$lib/types/course.ts";
 
 type HrefResult<T> = T & {
     href: string,
