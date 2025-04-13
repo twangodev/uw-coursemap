@@ -19,7 +19,7 @@ jobs:
       # Use Docker metadata action to prepare tags for the Svelte image.
       - name: Set up Docker metadata for Svelte image
         id: meta-svelte
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             twango/uw-coursemap-web
@@ -30,7 +30,7 @@ jobs:
       # Use Docker metadata action to prepare tags for the Search image.
       - name: Set up Docker metadata for Search image
         id: meta-search
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             twango/uw-coursemap-search
