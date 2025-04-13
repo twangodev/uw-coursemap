@@ -7,6 +7,12 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+    <title>UW Course Map</title>
+    <meta name="description" content="Explore the courses offered by the UW-Madison in a visual and interactive way." />
+    <meta name="keywords" content="UW-Madison, course map, course explorer, university courses" />
+</svelte:head>
+
 <Toaster/>
 <ModeWatcher/>
 <div class="flex flex-col min-h-screen h-screen">
