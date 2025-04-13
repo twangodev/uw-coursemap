@@ -22,7 +22,6 @@
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
-    import {onMount} from "svelte";
 
     interface Props {
         wide?: boolean;
@@ -53,7 +52,7 @@
     $effect(() => {
         if ($searchModalOpen && !fake) {
             toast.message("Tip", {
-                description: "Hold shift to open course details directly.",
+                description: "Hold shift to open course graph directly.",
                 duration: 3000,
                 cancel: {
                     label: "Hide",
@@ -117,9 +116,9 @@
 
     function courseSuggestionSelected(result: CourseSearchResult) {
         if (shiftDown) {
-            goto(result.href);
-        } else {
             goto(Object.values(result.explorerHref)[0]); // TODO change via dialog or something
+        } else {
+            goto(result.href);
         }
         $searchModalOpen = false;
     }
