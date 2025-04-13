@@ -1,0 +1,30 @@
+services:
+
+  elasticsearch:
+    image: elasticsearch:8.17.4
+    container_name: elasticsearch
+    env_file: ".env"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  search:
+    container_name: uw-coursemap-search
+    image: ghcr.io/twangodev/uw-coursemap-search:v0.8.0
+    restart: unless-stopped
+    env_file: ".env"
+    ports:
+      - "3001:8000"
+    volumes:
+      - ./generation/data:/data
+    depends_on:
+      - elasticsearch
+
+  web:
+    container_name: uw-coursemap-web
+    image: ghcr.io/twangodev/uw-coursemap-web:v0.8.0
+    env_file: ".env"
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+
