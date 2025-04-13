@@ -66,7 +66,7 @@
 
     let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
-    let showCodeLabels = $state(false);
+    let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse = $state<Course | undefined>();
