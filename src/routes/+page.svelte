@@ -3,7 +3,7 @@
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header/index.js";
     import {Button} from "$lib/components/ui/button";
     import Announcement from "$lib/components/announcement.svelte";
-
+    import {Card, CardHeader, CardTitle, CardContent} from "$lib/components/ui/card";
 </script>
 
 <ContentWrapper>
@@ -16,10 +16,43 @@
         <p class="text-center text-sm text-primary">
             UW Course Map is not affiliated by the University of Wisconsin-Madison.
         </p>
-        <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
-            <Button href="/explorer">
-                Get Started
-            </Button>
-        </div>
     </PageHeader>
+
+    <!-- Flex container for feature cards -->
+    <div class="flex flex-wrap justify-center gap-6">
+        <!-- Card 1: Upload Transcript -->
+        <a href="/upload" class="w-80">
+            <Card class="w-full hover:shadow-lg hover:scale-105 transition-transform">
+                <CardHeader>
+                    <CardTitle>Upload Transcript</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    Upload your transcript to automatically analyze and visualize your completed courses.
+                </CardContent>
+            </Card>
+        </a>
+        <a href="/explorer" class="w-80">
+            <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
+            <CardHeader>
+                <CardTitle>Display Graph of Departments</CardTitle>
+            </CardHeader>
+            <CardContent>
+                View an interactive graph of departments and their relationships to explore course offerings.
+            </CardContent>
+            </Card>
+        </a>
+        <!-- Card 2: Display Graph of Departments -->
+        <a href="/explorer">
+            <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
+                <CardHeader>
+                    <CardTitle>Course Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    Dive into detailed information about individual courses, including prerequisites and instructors.
+                </CardContent>
+            </Card>
+        </a>        
+
+        <!-- Card 3: Course Details -->
+    </div>
 </ContentWrapper>
