@@ -122,7 +122,7 @@ def wipe_data(data_dir, logger):
 
 
 def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph,
-               subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms,
+               subject_to_graph, course_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms,
                logger):
     wipe_data(data_dir, logger)
 
@@ -137,6 +137,9 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     write_file(data_dir, tuple(), "global_graph", global_graph, logger)
     for subject, graph in subject_to_graph.items():
         write_file(data_dir, ("graphs",), subject, graph, logger)
+
+    for course, graph in course_to_graph.items():
+        write_file(data_dir, ("graphs",), course, graph, logger) 
 
     write_file(data_dir, tuple(), "global_style", global_style, logger)
     for subject, style in subject_to_style.items():

@@ -45,8 +45,9 @@ def generate_style(parent, color):
 # This function is used to create a subgraph for a course and its prerequisites which is added to the global graph and the subject graph
 # the seen parameter is needed to avoid infinite recursion in case of circular dependencies
 def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course],
-                  global_graph: set[Course], subject_graph: set[Course]):
+                  global_graph, subject_graph, course_graph):
     if course.get_identifier() in seen:
+        print(course.get_identifier(), "already seen")
         return
     seen.add(course.get_identifier())
     to_add = set()
@@ -61,30 +62,33 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
         edge = create_edge(target=course.get_identifier(), source=reference.get_identifier())
         to_add.add(edge)
         c: Course = course_ref_to_course[reference]
-        to_add.add(get_subgraphs(c, course_ref_to_course, seen, global_graph, subject_graph))
+        to_add.add(get_subgraphs(c, course_ref_to_course, seen, global_graph, subject_graph, course_graph))
 
     for graph_data in to_add:
         global_graph.add(graph_data)
         subject_graph.add(graph_data)
+        course_graph.add(graph_data)
 
-# returns a tuple of the two graphs (global graph, subject graph)
-# the subject graph is a dictionary mapping subjects to their respective graphs
+# returns a tuple of the three graphs (global graph, subject graph, course graph)
+# the subject graph and course graph is a dictionary mapping subjects/course to their respective graphs
 def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]], logger: Logger):
     logger.info("Building course graphs...")
 
     graph = set()
     subject_to_graph = dict()
+    course_to_graph = dict()
 
     for subject, course_set in subject_to_courses.items():
         for course in course_set:
             if subject not in subject_to_graph:
                 subject_to_graph[subject] = set()
-            get_subgraphs(course, course_ref_to_course, set(), graph, subject_to_graph[subject])
+            if course.get_identifier() not in course_to_graph:
+                course_to_graph[course.get_identifier()] = set()
+            get_subgraphs(course, course_ref_to_course, set(), graph, subject_to_graph[subject], course_to_graph[course.get_identifier()])
 
-    return graph, subject_to_graph
+    return graph, subject_to_graph, course_to_graph
 
-
-def cleanup_graphs(global_graph, subject_to_graph, logger: Logger):
+def cleanup_graphs(global_graph, subject_to_graph, course_to_graph, logger: Logger):
     count = 0
     if None in global_graph:
         count += 1
@@ -93,8 +97,11 @@ def cleanup_graphs(global_graph, subject_to_graph, logger: Logger):
         if None in subject_to_graph[subject]:
             count += 1
         subject_to_graph[subject].discard(None)
+    for course in course_to_graph:
+        if None in course_to_graph[course]:
+            count += 1
+        course_to_graph[course].discard(None)
     logger.info(f"Removed {count} None graphs")
-
 
 def generate_style_from_graph(graph, color_map):
     parents = set()
