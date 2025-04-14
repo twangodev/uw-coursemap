@@ -22,13 +22,28 @@
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
+    import { page } from "$app/stores";
 
+    export interface SearchBarOptions {
+        showCourses: boolean;
+        showDepartments: boolean;
+        showInstructors: boolean;
+    }
     interface Props {
         wide?: boolean;
         fake?: boolean;
     }
-
-    let { wide = false, fake = false }: Props = $props();
+    let props: Props = $props();
+    let wide = props.wide ?? false;
+    let fake = props.fake ?? false;
+    
+    // from the url it determines whether to show courses, departments, or instructors
+    let showOptionsQuery = $derived($page.url.searchParams.get('searchShowOptions')?.toUpperCase() ?? '');
+    let showOptions = $derived<SearchBarOptions>({
+        showCourses: showOptionsQuery ? showOptionsQuery.includes("COURSES"): true,
+        showDepartments: showOptionsQuery ? showOptionsQuery.includes("DEPARTMENTS") : true,
+        showInstructors: showOptionsQuery ? showOptionsQuery.includes("INSTRUCTORS") : true 
+    })
 
     let results = writable<UnifiedSearchResponse[]>([]);
     let shiftDown = $state(false);
@@ -36,7 +51,7 @@
     $effect(() => {
         updateSuggestions(searchQuery);
     });
-
+    
     let randomCourses = $derived.by(async () => {
         if ($searchModalOpen && !fake) {
             const response = await getRandomCourses();
@@ -79,9 +94,10 @@
         const response = await search(searchQuery)
         const data: SearchResponse = await response.json()
 
-        const rawCourses = data.courses
-        const rawSubjects = data.subjects
-        const rawInstructors = data.instructors
+        // Filter results before combining them
+        const rawCourses = showOptions.showCourses ? data.courses : []
+        const rawSubjects = showOptions.showDepartments ? data.subjects : []
+        const rawInstructors = showOptions.showInstructors ? data.instructors : []
 
         $results = combineSearchResults(
             rawCourses,
@@ -188,6 +204,7 @@
 {#if !fake}
     <Command.Dialog bind:open={$searchModalOpen}>
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
+        
         <Command.List>
             {#if $results.length <= 0 }
                 {#await randomCourses}
@@ -217,7 +234,7 @@
             {/if}
             {#if $results.length > 0}
                 <Command.Group heading="Results">
-                    {#each $results as suggestion}
+                                        {#each $results as suggestion}
                         <Command.Item onSelect={() => handleSuggestionSelect(suggestion)}>
                             <!-- Render icon based on type -->
                             {#if suggestion.type === 'course'}
@@ -242,6 +259,7 @@
                     {/each}
                 </Command.Group>
             {/if}
+
         </Command.List>
     </Command.Dialog>
 {/if}

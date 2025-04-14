@@ -31,7 +31,7 @@
                 </CardContent>
             </Card>
         </a>
-        <a href="/explorer" class="w-80">
+        <a href="/explorer/?searchShowOptions=departments" class="w-80">
             <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
             <CardHeader>
                 <CardTitle>Display Map of Departments</CardTitle>
@@ -42,13 +42,13 @@
             </Card>
         </a>
         <!-- Card 2: Display Graph of Departments -->
-        <a href="/explorer">
+        <a href="/explorer/?searchShowOptions=courses,instructors">
             <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
-                    <CardTitle>Course Details</CardTitle>
+                    <CardTitle>Course and Instructor Details</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    Dive into detailed information about individual courses, including prerequisites and instructors.
+                    Dive into detailed information about individual courses and instructors.
                 </CardContent>
             </Card>
         </a>        
