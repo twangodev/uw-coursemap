@@ -133,7 +133,7 @@
     function getInstructorDetail(suggestion: UnifiedSearchResponse) {
         if (suggestion.type === "instructor") {
             const instructorSearch = suggestion.data as InstructorSearchResult;
-            return `${instructorSearch.position} • ${instructorSearch.department}`;
+            return `${instructorSearch.position ?? "Position Unknown"} • ${instructorSearch.department ?? "Department Unknown"}`;
         }
         return "";
     }
