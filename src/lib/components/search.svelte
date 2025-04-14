@@ -44,6 +44,13 @@
         showDepartments: showOptionsQuery ? showOptionsQuery.includes("DEPARTMENTS") : true,
         showInstructors: showOptionsQuery ? showOptionsQuery.includes("INSTRUCTORS") : true 
     })
+    let placeholderString = $derived((() => {
+        let options = [];
+        if (showOptions.showCourses) options.push("courses")
+        if (showOptions.showDepartments) options.push("departments")
+        if (showOptions.showInstructors) options.push("instructors")
+        return `Search ${options.join(", ")}...`
+    })());
 
     let results = writable<UnifiedSearchResponse[]>([]);
     let shiftDown = $state(false);
@@ -193,7 +200,7 @@
             searchQuery = "";
         }}
 >
-    <span class="hidden lg:inline-flex">Search courses, departments... </span>
+    <span class="hidden lg:inline-flex">{placeholderString}</span>
     <span class="inline-flex lg:hidden">Search...</span>
     <kbd
             class="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
@@ -203,7 +210,7 @@
 </Button>
 {#if !fake}
     <Command.Dialog bind:open={$searchModalOpen}>
-        <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
+        <CustomSearchInput placeholder={placeholderString} bind:value={searchQuery} />
         
         <Command.List>
             <!-- TODO: Add way to generate random departments and instructors -->
