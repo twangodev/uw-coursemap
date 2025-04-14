@@ -193,7 +193,7 @@
 <Button
         variant="outline"
         class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
+		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-90 md:w-40"
 	)}
         onclick={() => {
             $searchModalOpen = true;
