@@ -15,6 +15,7 @@
     
     let takenCourses = $state(new Array<any>)
     let status = $state("");
+    let infoDialogOpen = $state(false);
     
     //load data
     onMount(() => {
@@ -137,44 +138,98 @@
 </script>
 
 <ContentWrapper>
-    <div style="margin-bottom: 2rem;">
-        {#if takenCourses.length > 0}
-            <Label for="transcript-upload">Add to courses with Unofficial Transcript:</Label>
-        {:else}
-            <Label for="transcript-upload">Upload Unofficial Transcript:</Label>
-        {/if}
-        <div style="display: flex;">
+    <div class="space-y-3 mb-8">
+        <p class="text-base text-muted-foreground">Courses added here will appear as <span class="text-green-600 font-semibold">green</span> text in the explorer. This is meant to represent courses you've taken.</p>
+        <p class="text-base text-muted-foreground">Courses whose requisites have been taken (but is not a class you've already took) will appear as <span class="text-yellow-500 font-semibold">yellow</span>. This is meant to represent courses you can take next semester.
+        </p>
+
+        <!-- Add to courses with unofficial transcript -->
+            <Label>
+                {#if takenCourses.length > 0}
+                    Add to courses with 
+                    <span
+                        class="text-blue-500 underline cursor-pointer"
+                        role="button"
+                        tabindex="0"
+                        onclick={() => infoDialogOpen = true}
+                        onkeydown={(e) => e.key === 'Enter' && (infoDialogOpen = true)}
+                    >
+                        Unofficial Transcript
+                    </span>:
+                {:else}
+                    Upload 
+                    <span
+                        class="text-blue-500 underline cursor-pointer"
+                        role="button"
+                        tabindex="0"
+                        onclick={() => infoDialogOpen = true}
+                        onkeydown={(e) => e.key === 'Enter' && (infoDialogOpen = true)}
+                    >
+                        Unofficial Transcript
+                    </span>:
+                {/if}
+            </Label>
+            
+            <div class="flex items-center space-x-4 mt-2">
+                <AlertDialog.Root bind:open={infoDialogOpen}>
+                    <AlertDialog.Content>
+                        <AlertDialog.Header>
+                            <AlertDialog.Title>How to get unofficial transcript:</AlertDialog.Title>
+                            <AlertDialog.Description>
+                                <ul style="list-style-type: disc; margin-left: 20px;">
+                                    <li>Go to academic records: MyUW -> student center -> academic records
+                                        <ul style="list-style-type: disc; margin-left: 20px;">
+                                            <li>Or just go <a style="color: blue; text-decoration: underline;" target="_blank" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Click on "View Unofficial Transcript on the side menu"</li>
+                                    <li>Set "report type" to unofficial transcript, and submit</li>
+                                    <li>Click on the new transcript, and press "view report"</li>
+                                    <li>Download the pdf</li>
+                                    <li>Upload using the file browser on this page</li>
+                                </ul>
+                            </AlertDialog.Description>
+                        </AlertDialog.Header>
+                        <AlertDialog.Footer>
+                            <AlertDialog.Cancel>Close</AlertDialog.Cancel>
+                        </AlertDialog.Footer>
+                    </AlertDialog.Content>
+                </AlertDialog.Root>
+            </div>
+
+        <Input class="max-w-sm" accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded} />
+        
+        <!-- Add to courses with course search -->
+        <Label>Or add to courses by searching:</Label>
+        <div></div>
+        <CourseSearch bind:takenCourses={takenCourses} bind:status={status} defaultString="Add courses..." />
+        <div>
             <AlertDialog.Root>
                 <AlertDialog.Trigger >
-                    <Button variant="outline">Info</Button>
+                    <Button variant="destructive">Clear Course Data</Button>
                 </AlertDialog.Trigger>
                 <AlertDialog.Content>
                     <AlertDialog.Header>
-                        <AlertDialog.Title>How to get unofficial transcript:</AlertDialog.Title>
+                        <AlertDialog.Title>Are you sure you want to remove all uploaded courses?</AlertDialog.Title>
                         <AlertDialog.Description>
-                            <ul style="list-style-type: disc; margin-left: 20px;">
-                                <li>Go to academic records: MyUW -> student center -> academic records
-                                    <ul style="list-style-type: disc; margin-left: 20px;">
-                                        <li>Or just go <a style="color: blue; text-decoration: underline;" target="_blank" href="https://madison.sis.wisc.edu/psc/sissso/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=U__U_ACADEMIC_RECORDS&PTPPB_GROUPLET_ID=U_ACADEMIC_RECORDS&CRefName=U_ACADEMIC_RECORDS">here</a></li>
-                                    </ul>
-                                </li>
-                                <li>Click on "View Unofficial Transcript on the side menu"</li>
-                                <li>Set "report type" to unofficial transcript, and submit</li>
-                                <li>Click on the new transcript, and press "view report"</li>
-                                <li>Download the pdf</li>
-                                <li>Upload using the file browser on this page</li>
-                            </ul>
+                            This action cannot be undone. This will permanently delete your uploaded courses.
                         </AlertDialog.Description>
+                        <AlertDialog.Footer>
+                            <AlertDialog.Cancel>
+                                Cancel
+                            </AlertDialog.Cancel>
+                            <AlertDialog.Cancel onclick={clearCourses}>
+                                Clear
+                            </AlertDialog.Cancel>
+                        </AlertDialog.Footer>
                     </AlertDialog.Header>
-                    <AlertDialog.Footer>
-                        <AlertDialog.Cancel>Close</AlertDialog.Cancel>
-                    </AlertDialog.Footer>
                 </AlertDialog.Content>
             </AlertDialog.Root>
-            <Input accept="application/pdf" id="transcript-upload" type="file" onchange={fileUploaded}/>
+
         </div>
     </div>
-    
+
+        
     <Table.Root style="margin-bottom: 20px;">
         {#if takenCourses.length == 0 && status == ""}
             <Table.Caption>no courses to display</Table.Caption>
@@ -204,29 +259,4 @@
             {/each}
         </Table.Body>
     </Table.Root>
-
-    <CourseSearch bind:takenCourses={takenCourses} bind:status={status}/>
-
-    <AlertDialog.Root>
-        <AlertDialog.Trigger >
-            <Button variant="destructive">Clear Course Data</Button>
-        </AlertDialog.Trigger>
-        <AlertDialog.Content>
-            <AlertDialog.Header>
-                <AlertDialog.Title>Are you sure you want to remove all uploaded courses?</AlertDialog.Title>
-                <AlertDialog.Description>
-                    This action cannot be undone. This will permanently delete your uploaded courses.
-                </AlertDialog.Description>
-                <AlertDialog.Footer>
-                    <AlertDialog.Cancel>
-                        Cancel
-                    </AlertDialog.Cancel>
-                    <AlertDialog.Cancel onclick={clearCourses}>
-                        Clear
-                    </AlertDialog.Cancel>
-                </AlertDialog.Footer>
-            </AlertDialog.Header>
-        </AlertDialog.Content>
-    </AlertDialog.Root>
-    
 </ContentWrapper>

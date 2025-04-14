@@ -27,11 +27,13 @@
     interface Props {
         takenCourses: Array<any>;
         status: string;
+        defaultString?: string;
     }
 
     let { 
         takenCourses = $bindable(),
-        status = $bindable()
+        status = $bindable(),
+        defaultString = "Search courses..."
     }: Props = $props();
 
     let courses = writable<CourseSearchResult[]>([]);
@@ -120,7 +122,7 @@
             searchQuery = "";
         }}
 >
-    <span class="hidden lg:inline-flex">Search courses... </span>
+    <span class="hidden lg:inline-flex">{defaultString}</span>
     <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
 
