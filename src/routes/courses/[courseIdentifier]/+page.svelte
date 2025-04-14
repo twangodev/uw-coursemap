@@ -99,7 +99,7 @@
     }
 
     const getCumulativeClassSize = (course: Course) => {
-        return course.cumulative_grade_data.total / termsWithGradeData(course).length
+        return course.cumulative_grade_data?.total ?? 0 / termsWithGradeData(course).length;
     }
 
     const getLatestClassSize = (course: Course) => {
