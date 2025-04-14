@@ -1,13 +1,16 @@
-export type SearchResponse = {
+import type {UnifiedSearchResponse} from "$lib/types/search/searchResults.ts";
 
+export type SearchResponse = {
     courses: CourseSearchResponse[],
     instructors: InstructorSearchResponse[],
     subjects: SubjectSearchResponse[],
-
 }
 
+type ScoredSearch = {
+    score: number,
+}
 
-export type CourseSearchResponse = {
+export type CourseSearchResponse = ScoredSearch & {
     course_id: string,
     course_title: string,
     course_number: number,
@@ -15,7 +18,7 @@ export type CourseSearchResponse = {
     departments: string[],
 }
 
-export type InstructorSearchResponse = {
+export type InstructorSearchResponse = ScoredSearch & {
     instructor_id: string,
     name: string,
     official_name: string,
@@ -24,13 +27,16 @@ export type InstructorSearchResponse = {
     department: string,
 }
 
-export type SubjectSearchResponse = {
+export type SubjectSearchResponse = ScoredSearch & {
     subject_id: string,
     name: string,
 }
 
-
-export function courseSearchResponseToIdentifier(course: CourseSearchResponse): string {
-    let subjects = course.subjects.sort().join('/');
-    return `${subjects} ${course.course_number}`;
+export function courseSearchResponseToIdentifier(unifiedSearchResponse: UnifiedSearchResponse): string {
+    if (unifiedSearchResponse.type !== "course") {
+        return '';
+    }
+    let courseData = unifiedSearchResponse.data as CourseSearchResponse;
+    let subjects = courseData.subjects.sort().join('/');
+    return `${subjects} ${courseData.course_number}`;
 }

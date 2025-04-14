@@ -13,12 +13,12 @@
     import {Book, School, User} from "lucide-svelte";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {
+        combineSearchResults,
         type CourseSearchResult,
         generateCourseSearchResults,
-        generateInstructorSearchResults,
         generateSubjectSearchResults,
         type InstructorSearchResult,
-        type SubjectSearchResult
+        type SubjectSearchResult, type UnifiedSearchResponse
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
@@ -30,10 +30,7 @@
 
     let { wide = false, fake = false }: Props = $props();
 
-    let courses = writable<CourseSearchResult[]>([]);
-    let subjects = writable<SubjectSearchResult[]>([]);
-    let instructors = writable<InstructorSearchResult[]>([]);
-
+    let results = writable<UnifiedSearchResponse[]>([]);
     let shiftDown = $state(false);
 
     $effect(() => {
@@ -75,9 +72,7 @@
         }
 
         if (query.length <= 0) {
-            $courses = [];
-            $subjects = [];
-            $instructors = [];
+            $results = []
             return
         }
 
@@ -88,11 +83,13 @@
         const rawSubjects = data.subjects
         const rawInstructors = data.instructors
 
-        $courses = generateCourseSearchResults(rawCourses)
-        $subjects = generateSubjectSearchResults(rawSubjects)
-        $instructors = generateInstructorSearchResults(rawInstructors)
-    }
+        $results = combineSearchResults(
+            rawCourses,
+            rawSubjects,
+            rawInstructors
+        )
 
+    }
 
     function handleKeydown(e: KeyboardEvent) {
         if (fake) return;
@@ -109,8 +106,49 @@
         shiftDown = e.shiftKey
     }
 
-    function suggestionSelected(href: string) {
-        goto(href);
+    function getCourseTitle(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "course") {
+            const courseSearch = suggestion.data as CourseSearchResult;
+            return courseSearch.course_title;
+        }
+        return "";
+    }
+
+    function getSubjectTitle(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "subject") {
+            const subjectSearch = suggestion.data as SubjectSearchResult;
+            return subjectSearch.name;
+        }
+        return "";
+    }
+
+    function getInstructorName(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "instructor") {
+            const instructorSearch = suggestion.data as InstructorSearchResult;
+            return instructorSearch.name;
+        }
+        return "";
+    }
+
+    function getInstructorDetail(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "instructor") {
+            const instructorSearch = suggestion.data as InstructorSearchResult;
+            return `${instructorSearch.position} • ${instructorSearch.department}`;
+        }
+        return "";
+    }
+
+    function handleSuggestionSelect(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "course") {
+            const courseSearch = suggestion.data as CourseSearchResult;
+            if (shiftDown) {
+                goto(Object.values(courseSearch.explorerHref)[0]);
+            } else {
+                goto(courseSearch.href);
+            }
+        } else {
+            goto(suggestion.data.href);
+        }
         $searchModalOpen = false;
     }
 
@@ -151,7 +189,7 @@
     <Command.Dialog bind:open={$searchModalOpen}>
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         <Command.List>
-            {#if $courses.length <= 0 && $subjects.length <= 0 && $instructors.length <= 0}
+            {#if $results.length <= 0 }
                 {#await randomCourses}
                     <div class="py-6 text-center text-sm">No results found.</div>
                 {:then randomCourses}
@@ -165,7 +203,10 @@
                             <Book class="mr-3 h-4 w-4" />
                             <div>
                                 <p>{suggestion.course_title}</p>
-                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                                <p class="text-xs">{courseSearchResponseToIdentifier({
+                                    type: "course",
+                                    data: suggestion
+                                })}</p>
                             </div>
                         </Command.Item>
                     {/each}
@@ -174,51 +215,28 @@
                     <div class="py-6 text-center text-sm">Error loading random courses.</div>
                 {/await}
             {/if}
-            {#if $courses.length > 0}
-                <Command.Group heading="Courses">
-                    {#each $courses as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    courseSuggestionSelected(suggestion)
-                                }}
-                        >
-                        <Book class="mr-3 h-4 w-4" />
-                        <div>
-                            <p>{suggestion.course_title}</p>
-                            <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
-                            </div>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                <Command.Separator />
-            {/if}
-            {#if $subjects.length > 0}
-                <Command.Group heading="Departments">
-                    {#each $subjects as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    suggestionSelected(suggestion.href)
-                                }}
-                        >
-                            <School class="mr-3 h-4 w-4" />
-                            <span>{suggestion.name}</span>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                <Command.Separator />
-            {/if}
-            {#if $instructors.length > 0}
-                <Command.Group heading="Instructors">
-                    {#each $instructors as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    suggestionSelected(suggestion.href)
-                                }}
-                        >
-                            <User class="mr-3 h-4 w-4" />
+            {#if $results.length > 0}
+                <Command.Group heading="Results">
+                    {#each $results as suggestion}
+                        <Command.Item onSelect={() => handleSuggestionSelect(suggestion)}>
+                            <!-- Render icon based on type -->
+                            {#if suggestion.type === 'course'}
+                                <Book class="mr-3 h-4 w-4" />
+                            {:else if suggestion.type === 'subject'}
+                                <School class="mr-3 h-4 w-4" />
+                            {:else if suggestion.type === 'instructor'}
+                                <User class="mr-3 h-4 w-4" />
+                            {/if}
                             <div>
-                                <p class="truncate line-clamp-1">{suggestion.name}</p>
-                                <p class="text-xs">{suggestion.position} &#x2022; {suggestion.department}</p>
+                                {#if suggestion.type === 'course'}
+                                    <p>{getCourseTitle(suggestion)}</p>
+                                    <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                                {:else if suggestion.type === 'subject'}
+                                    <span>{getSubjectTitle(suggestion)}</span>
+                                {:else if suggestion.type === 'instructor'}
+                                    <p class="truncate line-clamp-1">{getInstructorName(suggestion)}</p>
+                                    <p class="text-xs">{getInstructorDetail(suggestion)}</p>
+                                {/if}
                             </div>
                         </Command.Item>
                     {/each}
