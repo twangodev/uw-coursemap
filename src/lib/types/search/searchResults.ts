@@ -16,6 +16,12 @@ export type CourseSearchResult = HrefResult<CourseSearchResponse> & {
 export type SubjectSearchResult =  HrefResult<SubjectSearchResponse>;
 export type InstructorSearchResult = HrefResult<InstructorSearchResponse>;
 
+
+export type UnifiedSearchResponse = {
+    type: "course" | "instructor" | "subject",
+    data: CourseSearchResult | SubjectSearchResult | InstructorSearchResult,
+}
+
 export function generateCourseSearchResults(courses: CourseSearchResponse[]): CourseSearchResult[] {
     return courses.map(course => ({
         ...course,
@@ -38,4 +44,31 @@ export function generateInstructorSearchResults(instructors: InstructorSearchRes
         ...instructor,
         href: `/instructors/${instructor.instructor_id}`
     }));
+}
+
+export function combineSearchResults(
+    courses: CourseSearchResponse[],
+    subjects: SubjectSearchResponse[],
+    instructors: InstructorSearchResponse[]
+): UnifiedSearchResponse[] {
+    const courseResults: UnifiedSearchResponse[] = generateCourseSearchResults(courses).map(result => ({
+        type: "course",
+        data: result
+    }));
+
+    const subjectResults: UnifiedSearchResponse[] = generateSubjectSearchResults(subjects).map(result => ({
+        type: "subject",
+        data: result
+    }));
+
+    const instructorResults: UnifiedSearchResponse[] = generateInstructorSearchResults(instructors).map(result => ({
+        type: "instructor",
+        data: result
+    }));
+
+    const unsortedResults = [...courseResults, ...subjectResults, ...instructorResults];
+
+    return unsortedResults.sort((a, b) => {
+        return (b.data.score ?? 0) - (a.data.score ?? 0);
+    });
 }
