@@ -96,6 +96,7 @@ def search_subjects(es: Elasticsearch, search_term: str):
         {
             "subject_id": hit["_id"],
             "name": hit["_source"]["name"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]
@@ -208,6 +209,7 @@ def search_courses(es: Elasticsearch, search_term: str):
             "course_number": hit["_source"]["course_number"],
             "subjects": hit["_source"]["subjects"],
             "departments": hit["_source"]["departments"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]
@@ -298,6 +300,7 @@ def search_instructors(es, search_term):
             "email": hit["_source"]["email"],
             "position": hit["_source"]["position"],
             "department": hit["_source"]["department"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]
