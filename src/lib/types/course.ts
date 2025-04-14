@@ -18,7 +18,7 @@ export type Course = {
     description: string
     prerequisites: CoursePrerequisites,
     optimized_prerequisites: CoursePrerequisites,
-    cumulative_grade_data: GradeData,
+    cumulative_grade_data: GradeData | null,
     term_data: {
         [key: string]: TermData,
     }
