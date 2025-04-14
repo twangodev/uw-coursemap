@@ -22,7 +22,7 @@
     <div class="flex flex-wrap justify-center gap-6">
         <!-- Card 1: Upload Transcript -->
         <a href="/upload" class="w-80">
-            <Card class="w-full hover:shadow-lg hover:scale-105 transition-transform">
+            <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Upload Transcript</CardTitle>
                 </CardHeader>
@@ -32,7 +32,7 @@
             </Card>
         </a>
         <a href="/explorer/?searchShowOptions=departments" class="w-80">
-            <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
+            <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
             <CardHeader>
                 <CardTitle>Display Map of Departments</CardTitle>
             </CardHeader>
@@ -42,8 +42,8 @@
             </Card>
         </a>
         <!-- Card 2: Display Graph of Departments -->
-        <a href="/explorer/?searchShowOptions=courses,instructors">
-            <Card class="w-80 hover:shadow-lg hover:scale-105 transition-transform">
+        <a href="/explorer/?searchShowOptions=courses,instructors" class="w-80">
+            <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Course and Instructor Details</CardTitle>
                 </CardHeader>
