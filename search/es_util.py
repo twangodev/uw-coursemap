@@ -82,8 +82,12 @@ def search_subjects(es: Elasticsearch, search_term: str):
             "multi_match": {
                 "query": search_term,
                 "fields": [
-                    "name", "abbreviation", "variations",
-                    "name_normalized", "abbreviation_normalized", "variations_normalized"
+                    "name^20",
+                    "abbreviation^20",
+                    "variations^20",
+                    "name_normalized^20",
+                    "abbreviation_normalized^20",
+                    "variations_normalized^20"
                 ],
                 "fuzziness": "AUTO"
             }
