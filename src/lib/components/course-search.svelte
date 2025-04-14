@@ -6,7 +6,7 @@
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
-        courseSearchResponseToIdentifier,
+        searchResponseToIdentifier,
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
@@ -144,7 +144,7 @@
                     <Book class="mr-3 h-4 w-4" />
                     <div>
                         <p>{suggestion.course_title}</p>
-                        <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                        <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
                         </div>
                     </Command.Item>
                 {/each}
