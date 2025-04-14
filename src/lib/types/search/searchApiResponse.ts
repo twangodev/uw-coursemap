@@ -32,7 +32,7 @@ export type SubjectSearchResponse = ScoredSearch & {
     name: string,
 }
 
-export function courseSearchResponseToIdentifier(unifiedSearchResponse: UnifiedSearchResponse): string {
+export function searchResponseToIdentifier(unifiedSearchResponse: UnifiedSearchResponse): string {
     if (unifiedSearchResponse.type !== "course") {
         return '';
     }
