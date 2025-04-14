@@ -206,33 +206,38 @@
         <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
         
         <Command.List>
-            {#if $results.length <= 0 }
-                {#await randomCourses}
+            <!-- TODO: Add way to generate random departments and instructors -->
+            {#if $results.length <= 0}
+                {#if showOptions.showCourses}
+                    {#await randomCourses}
+                        <div class="py-6 text-center text-sm">No results found.</div>
+                    {:then randomCourses}
+                    <Command.Group heading="Random Courses">
+                        {#each randomCourses as suggestion }
+                            <Command.Item
+                                    onSelect={() => {
+                                        courseSuggestionSelected(suggestion)
+                                    }}
+                            >
+                                <Book class="mr-3 h-4 w-4" />
+                                <div>
+                                    <p>{suggestion.course_title}</p>
+                                    <p class="text-xs">{searchResponseToIdentifier({
+                                        type: "course",
+                                        data: suggestion
+                                    })}</p>
+                                </div>
+                            </Command.Item>
+                        {/each}
+                    </Command.Group>
+                    {:catch error}
+                        <div class="py-6 text-center text-sm">Error loading random courses.</div>
+                    {/await}
+                    {:else}
                     <div class="py-6 text-center text-sm">No results found.</div>
-                {:then randomCourses}
-                <Command.Group heading="Random Courses">
-                    {#each randomCourses as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    courseSuggestionSelected(suggestion)
-                                }}
-                        >
-                            <Book class="mr-3 h-4 w-4" />
-                            <div>
-                                <p>{suggestion.course_title}</p>
-                                <p class="text-xs">{searchResponseToIdentifier({
-                                    type: "course",
-                                    data: suggestion
-                                })}</p>
-                            </div>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                {:catch error}
-                    <div class="py-6 text-center text-sm">Error loading random courses.</div>
-                {/await}
-            {/if}
-            {#if $results.length > 0}
+                    {/if}
+                {/if}
+                {#if $results.length > 0}
                 <Command.Group heading="Results">
                                         {#each $results as suggestion}
                         <Command.Item onSelect={() => handleSuggestionSelect(suggestion)}>
