@@ -349,7 +349,7 @@
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
 
 {#if cy && !hasSeenTapGuide}
-    <Alert.Root class="absolute {showAlert ? "bottom-55" : "bottom-28"} right-15 z-50 w-96">
+    <Alert.Root class={cn("absolute", (showAlert ? "bottom-55" : "bottom-28"), "right-15 z-50 w-96")}>
         <div class="flex gap-3">
             <div class="flex-1">
                 <Alert.Title>Quick Guide</Alert.Title>
