@@ -47,7 +47,9 @@
         const validTerms = termsWithGradeData(course);
         if (!validTerms.length) return null;
         const latestTerm = validTerms[validTerms.length - 1];
-        return selectedTerm ? course.term_data[selectedTerm].grade_data ?? course.term_data[latestTerm].grade_data : course.term_data[latestTerm].grade_data;
+
+        let candidateTerm = selectedTerm ?? latestTerm;
+        return course.term_data[candidateTerm]?.grade_data ?? course.term_data[latestTerm].grade_data;
     }
 
     function getCumulativeGPA(course: Course) {
@@ -97,7 +99,7 @@
     }
 
     const getCumulativeClassSize = (course: Course) => {
-        return course.cumulative_grade_data.total / termsWithGradeData(course).length
+        return course.cumulative_grade_data?.total ?? 0 / termsWithGradeData(course).length;
     }
 
     const getLatestClassSize = (course: Course) => {
