@@ -76,7 +76,8 @@
     let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let selectedCourse = $state<Course | undefined>();
+    let selectedCourse = $state<cytoscape.NodeSingular | undefined>();
+    let selectedCourseData: Course | undefined = $state(undefined);
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -162,6 +163,9 @@
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
+            if (targetNode?.data('type') === 'compound') {
+                return;
+            }
             if (elementsAreDraggable) {
                 targetNode.removeClass('no-overlay');
                 targetNode.unpanify();
@@ -169,14 +173,41 @@
                 targetNode.addClass('no-overlay');
                 targetNode.panify();
             }
+
+            console.log("mouseover", targetNode.data('id'));
+            clearPath(cy, destroyTip);
             highlightPath(cy, targetNode);
         });
 
         cy.on('mouseout', 'node', function (event) {
             clearPath(cy, destroyTip);
+            if (selectedCourse !== undefined) {
+                highlightPath(cy, selectedCourse)
+                console.log("mouseout", selectedCourse.data('id'));
+            }
+            console.log("mouseout", "no selected course");
         });
 
         cy.on('tap', 'node', async function (event) {
+            const targetNode = event.target;
+            if (targetNode?.data('type') === 'compound') {
+                return;
+            }
+            console.log("tap", targetNode.data('id'));
+            selectedCourse = targetNode; 
+            highlightPath(cy, targetNode);
+        });
+        cy.on('dbltap', async function (event) {
+            const targetNode = event.target;
+            if (targetNode?.data('type') === 'node') {
+                return;
+            }
+            console.log("dbltap", targetNode);
+            selectedCourse = undefined; 
+            clearPath(cy, destroyTip); 
+        })
+
+        cy.on('dbltap', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
                 return;
@@ -185,8 +216,8 @@
             if (isDesktop()) {
                 selectedCourse = undefined;
                 sheetOpen = true;
-
-                selectedCourse = await fetchCourse(targetNode.id())
+                selectedCourse = targetNode;
+                selectedCourseData = await fetchCourse(targetNode.id())
                 return;
             }
 
@@ -314,7 +345,7 @@
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
-<CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourseData} {destroyTip}/>
 
 {#if showAlert}
     {console.log("no taken courses")}
