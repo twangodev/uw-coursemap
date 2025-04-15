@@ -24,13 +24,21 @@
     import Legend from "./legend.svelte";
     import { onMount } from "svelte";
     import { getData } from "$lib/localStorage.ts";
+    import { FileText, Terminal, X } from "lucide-svelte";
+    import * as Alert from "$lib/components/ui/alert/index.js"; 
+    import { AlertClose } from "$lib/components/ui/alert";
+
 
     interface Props {
         url: string;
         styleUrl: string;
     }
 
-    let takenCourses: (undefined | string)[] = [];
+    let cy: cytoscape.Core | undefined = $state()
+
+    let takenCourses: (undefined | string)[] = $state([]);
+    let showAlert = $derived(cy && takenCourses.length <= 0);
+
     //load data
     onMount(() => {
         // console.log("mounted")
@@ -64,7 +72,6 @@
         }
     });
 
-    let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
     let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
@@ -308,3 +315,21 @@
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+
+{#if showAlert}
+    {console.log("no taken courses")}
+    <Alert.Root class="absolute bottom-28 right-15 z-50 w-96">
+        <FileText class="h-4 w-4" />
+        <Alert.Title>Heads up!</Alert.Title>
+        <Alert.Description
+            >You can upload your transcript <a href="/upload"
+            class="font-medium text-primary underline decoration-primary underline-offset-4 hover:text-primary/80 transition-colors"
+>here</a> and display courses you've taken in a different color.</Alert.Description
+        >
+        <AlertClose class="absolute right-2 top-2 md:right-3 md:top-3 opacity-70 hover:opacity-100 transition-opacity rounded-full p-1 hover:bg-muted" onclick={() => showAlert = false}>
+            <X class="h-4 w-4" />
+            <span class="sr-only">Close</span>
+        </AlertClose>
+
+    </Alert.Root>
+{/if}
