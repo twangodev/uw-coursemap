@@ -121,9 +121,20 @@ def wipe_data(data_dir, logger):
     logger.info("Wiping complete. Only .json files were removed.")
 
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph,
-               subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms,
-               logger):
+def write_data(
+        data_dir,
+        subject_to_full_subject,
+        subject_to_courses,
+        identifier_to_course,
+        global_graph,
+        subject_to_graph,
+        global_style,
+        subject_to_style,
+        instructor_to_rating: dict[str, FullInstructor],
+        terms,
+        quick_statistics,
+        logger
+):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -148,6 +159,8 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
         write_file(data_dir, ("instructors",), instructor, rating, logger)
 
     write_file(data_dir, tuple(), "terms", terms, logger)
+
+    write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {

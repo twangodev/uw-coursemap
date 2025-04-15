@@ -9,7 +9,7 @@ from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
-    write_quick_statistics_cache
+    write_quick_statistics_cache, read_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
@@ -226,6 +226,8 @@ def main():
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
 
+    quick_statistics = None
+
     if filter_step(step, "aggregate"):
         logger.info("Aggregating data")
 
@@ -307,6 +309,9 @@ def main():
         if terms is None:
             terms = read_terms_cache(cache_dir, logger)
 
+        if quick_statistics is None:
+            quick_statistics = read_quick_statistics_cache(cache_dir, logger)
+
         write_data(
             data_dir=data_dir,
             subject_to_full_subject=subject_to_full_subject,
@@ -318,6 +323,7 @@ def main():
             subject_to_style=subject_to_style,
             instructor_to_rating=instructor_to_rating,
             terms=terms,
+            quick_statistics=quick_statistics,
             logger=logger
         )
 
