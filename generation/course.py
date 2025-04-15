@@ -109,7 +109,11 @@ class Course(JsonSerializable):
             optimized_prerequisites: Prerequisites | None,
             cumulative_grade_data: "GradeData | None",
             term_data: dict[str, TermData],
+            similar_courses=None
     ):
+        if similar_courses is None:
+            similar_courses = set()
+
         self.course_reference = course_reference
         self.course_title = course_title
         self.description = description
@@ -117,6 +121,7 @@ class Course(JsonSerializable):
         self.optimized_prerequisites = optimized_prerequisites
         self.cumulative_grade_data = cumulative_grade_data
         self.term_data = term_data
+        self.similar_courses = similar_courses
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -135,7 +140,8 @@ class Course(JsonSerializable):
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
             optimized_prerequisites=optimized_prerequisites,
             cumulative_grade_data=cumulative_grade_data,
-            term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()}
+            term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()},
+            similar_courses={Course.Reference.from_json(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set()
         )
 
     def to_dict(self):
@@ -146,7 +152,8 @@ class Course(JsonSerializable):
             "prerequisites": self.prerequisites.to_dict(),
             "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None,
-            "term_data": {term: data.to_dict() for term, data in self.term_data.items()}
+            "term_data": {term: data.to_dict() for term, data in self.term_data.items()},
+            "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses]
         }
 
     @classmethod

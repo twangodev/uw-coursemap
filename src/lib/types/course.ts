@@ -21,7 +21,8 @@ export type Course = {
     cumulative_grade_data: GradeData | null,
     term_data: {
         [key: string]: TermData,
-    }
+    },
+    similar_courses: CourseReference[],
 }
 
 export type TermData = {
