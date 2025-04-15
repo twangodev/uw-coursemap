@@ -27,6 +27,7 @@
     import * as Alert from "$lib/components/ui/alert/index.js"; 
     import { AlertClose } from "$lib/components/ui/alert";
     import { getData, setData, clearData } from "$lib/localStorage.ts";
+    import * as Dialog from "$lib/components/ui/dialog";
 
     interface Props {
         url: string;
@@ -349,28 +350,29 @@
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
 
 {#if cy && !hasSeenTapGuide}
-    <Alert.Root class={cn("absolute", (showAlert ? "bottom-55" : "bottom-28"), "right-15 z-50 w-96")}>
-        <div class="flex gap-3">
-            <div class="flex-1">
-                <Alert.Title>Quick Guide</Alert.Title>
-                <Alert.Description class="space-y-2">
+    <Dialog.Root open={true}>
+        <Dialog.Content class="sm:max-w-md">
+            <Dialog.Header>
+                <Dialog.Title>Quick Guide</Dialog.Title>
+                <Dialog.Description class="space-y-2">
                     <p><strong>Single tap on course</strong>: {isDesktop() ? 'Open detailed course information' : 'Show course description'}</p>
                     <p><strong>Double tap on course</strong>: Keeps course prerequisites and dependencies highlighted</p>
                     <p><strong>Double tap on empty space</strong>: Clears highlighting</p>
-                </Alert.Description>
-            </div>
-            <AlertClose 
-                class="absolute right-2 top-2 md:right-3 md:top-3 opacity-70 hover:opacity-100 transition-opacity rounded-full p-1 hover:bg-muted" 
-                onclick={() => {
-                    hasSeenTapGuide = true;
-                    setData("hasSeenTapGuide", ["true"]);
-                }}
-            >
-                <X class="h-4 w-4" />
-                <span class="sr-only">Close</span>
-            </AlertClose>
-        </div>
-    </Alert.Root>
+                </Dialog.Description>
+            </Dialog.Header>
+            <Dialog.Footer class="flex justify-end">
+                <Dialog.Close 
+                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                    onclick={() => {
+                        hasSeenTapGuide = true;
+                        setData("hasSeenTapGuide", [true]);
+                    }}
+                >
+                    Got it
+                </Dialog.Close>
+            </Dialog.Footer>
+        </Dialog.Content>
+    </Dialog.Root>
 {/if}
 
 {#if showAlert}
