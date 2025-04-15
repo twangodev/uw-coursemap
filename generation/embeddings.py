@@ -10,7 +10,7 @@ from cache import read_embedding_cache, write_embedding_cache
 from course import Course
 
 
-def get_openai_client(api_key: str, logger: Logger, verbose: bool):
+def get_openai_client(api_key: str, logger: Logger):
     """
     Returns an OpenAI client object.
     """
@@ -35,6 +35,8 @@ def get_embedding(cache_dir, client: OpenAI, model, text, logger):
 
     return embedding
 
+def normalize(v):
+    return v / np.linalg.norm(v)
 
 def cosine_similarity(vec_a, vec_b):
     """
@@ -42,6 +44,13 @@ def cosine_similarity(vec_a, vec_b):
     """
     return np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b))
 
+def average_embedding(embeddings):
+    """
+    Computes the average of a list of embeddings.
+    """
+    if not embeddings:
+        return None
+    return np.mean(embeddings, axis=0)
 
 def find_best_prerequisite(cache_dir, client, model, course: Course, prerequisites, max_prerequisites, logger) -> list[Course]:
     prerequisite_text = course.prerequisites.prerequisites_text
