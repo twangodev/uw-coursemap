@@ -32,7 +32,7 @@
             </Card>
         </a>
         <!-- Department Map Card -->
-        <a href="/explorer/?searchShowOptions=departments" class="col-span-1">
+        <a href="/explorer/?searchShowOptions=DEPARTMENTS" class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Display Map of a Department</CardTitle>
@@ -43,7 +43,7 @@
             </Card>
         </a>
         <!-- Course and Instructor Details Card -->
-        <a href="/explorer/?searchShowOptions=courses,instructors" class="col-span-1">
+        <a href="/explorer/?searchShowOptions=COURSES,INSTRUCTORS" class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Course and Instructor Details</CardTitle>
