@@ -5,10 +5,11 @@ from logging import Logger
 
 import coloredlogs
 
-from aggregate import aggregate_instructors
+from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
-    write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache
+    write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
+    write_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
@@ -117,24 +118,23 @@ def instructors(
     instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
     return instructor_to_rating, instructors_emails
 
+embedding_model = "text-embedding-3-small"
 
 def optimize(
         cache_dir,
         course_ref_to_course,
         max_prerequisites,
         openai_api_key,
-        verbose,
         logger,
 ):
     open_ai_client = get_openai_client(
         api_key=openai_api_key,
         logger=logger,
-        verbose=verbose
     )
     asyncio.run(optimize_prerequisites(
         cache_dir=cache_dir,
         client=open_ai_client,
-        model="text-embedding-3-small",
+        model=embedding_model,
         course_ref_to_course=course_ref_to_course,
         max_prerequisites=max_prerequisites,
         max_retries=50,
@@ -241,7 +241,17 @@ def main():
             logger=logger
         )
 
+        quick_statistics = aggregate_courses(
+            course_ref_to_course=course_ref_to_course,
+            cache_dir=cache_dir,
+            openai_api_key=openai_api_key,
+            model=embedding_model,
+            logger=logger
+        )
+
         write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+        write_quick_statistics_cache(cache_dir, quick_statistics, logger)
+
         logger.info("Data aggregated successfully.")
 
     if filter_step(step, "optimize"):
@@ -254,7 +264,6 @@ def main():
             course_ref_to_course=course_ref_to_course,
             max_prerequisites=max_prerequisites,
             openai_api_key=openai_api_key,
-            verbose=verbose,
             logger=logger
         )
 
