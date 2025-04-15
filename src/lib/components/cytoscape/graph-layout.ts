@@ -7,7 +7,7 @@ export enum LayoutType {
     LAYERED,
 }
 
-export async function generateLayeredLayout(focus: string | null, courseData: ElementDefinition[], labelIsCode: boolean): Promise<LayoutOptions> {
+export async function generateLayeredLayout(focus: string | null, courseData: ElementDefinition[]): Promise<LayoutOptions> {
     const elk = new ELK()
     const newLayout = {
         id: "root",
@@ -21,8 +21,8 @@ export async function generateLayeredLayout(focus: string | null, courseData: El
                 //       0) * 15)
                 return {
                     id: node.data.id,
-                    width: labelIsCode ? node.data.id.length * 7.5 :node.data.title.length * 7.5,
-                    height: labelIsCode ? 15 : 20
+                    width: node.data.title.length * 7.5,
+                    height: 20
                 }
             }),
         edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {

@@ -228,7 +228,7 @@
             cy.layout(generateFcoseLayout(focus)).run();
         } else {
             await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
+                cy.layout(await generateLayeredLayout(focus, courseData)).run();
             })();
         }
     }
