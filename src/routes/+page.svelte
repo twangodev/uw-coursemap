@@ -18,10 +18,10 @@
         </p>
     </PageHeader>
 
-    <!-- Flex container for feature cards -->
-    <div class="flex flex-wrap justify-center gap-6">
+    <!-- bento grid showcasing features -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto px-4">
         <!-- Card 1: Upload Transcript -->
-        <a href="/upload" class="w-80">
+        <a href="/upload" class="col-span-1 md:col-span-2 lg:col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Upload Transcript</CardTitle>
@@ -31,18 +31,19 @@
                 </CardContent>
             </Card>
         </a>
-        <a href="/explorer/?searchShowOptions=departments" class="w-80">
+        <!-- Department Map Card -->
+        <a href="/explorer/?searchShowOptions=departments" class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
-            <CardHeader>
-                <CardTitle>Display Map of a Department</CardTitle>
-            </CardHeader>
-            <CardContent>
-                View an interactive map of a department and course relationships to explore course offerings.
-            </CardContent>
+                <CardHeader>
+                    <CardTitle>Display Map of a Department</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    View an interactive map of a department and course relationships to explore course offerings.
+                </CardContent>
             </Card>
         </a>
-        <!-- Card 2: Display Graph of Departments -->
-        <a href="/explorer/?searchShowOptions=courses,instructors" class="w-80">
+        <!-- Course and Instructor Details Card -->
+        <a href="/explorer/?searchShowOptions=courses,instructors" class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Course and Instructor Details</CardTitle>
@@ -51,8 +52,6 @@
                     Dive into detailed information about individual courses and instructors.
                 </CardContent>
             </Card>
-        </a>        
-
-        <!-- Card 3: Course Details -->
+        </a>
     </div>
 </ContentWrapper>
