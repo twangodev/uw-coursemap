@@ -83,6 +83,20 @@ export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" 
                 'overlay-padding': 0,
                 'overlay-opacity': 0,
             }
+        },
+        {
+            selector: '.cy-expand-collapse-collapsed-node',
+            style: {
+                'overlay-opacity': 0,
+                'overlay-color': 'transparent'
+            }
+        },
+        {
+            selector: 'node:parent',
+            style: {
+                'overlay-opacity': 0,
+                'overlay-color': 'transparent'
+            }
         }
     ]
 
