@@ -1,7 +1,7 @@
 services:
 
   elasticsearch:
-    image: elasticsearch:8.17.4
+    image: elasticsearch:8.17.5
     container_name: elasticsearch
     env_file: ".env"
     ports:
