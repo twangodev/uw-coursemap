@@ -40,7 +40,6 @@
     let hasSeenTapGuide = $state(false);
     //load data
     onMount(() => {
-        // console.log("data", getData("takenCourses"));
         takenCourses = getData("takenCourses").map((course: any) => {
             if (course.course_reference === undefined) {
                 return;
@@ -48,10 +47,7 @@
 
             return courseReferenceToString(course.course_reference);
         });
-        // console.log("after", takenCourses);
-        console.log(getData("hasSeenTapGuide"));
         hasSeenTapGuide = getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0 ? false : true;
-        console.log("on mount has seen tap guide", hasSeenTapGuide);
     });
 
     let { url, styleUrl }: Props = $props();
@@ -352,7 +348,6 @@
 </div>
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourseData} {destroyTip}/>
 
-{console.log("hasSeenTapGuide", hasSeenTapGuide)}
 {#if cy && !hasSeenTapGuide}
     <Alert.Root class="absolute {showAlert ? "bottom-55" : "bottom-28"} right-15 z-50 w-96">
         <div class="flex gap-3">
@@ -379,7 +374,6 @@
 {/if}
 
 {#if showAlert}
-    {console.log("no taken courses")}
     <Alert.Root class="absolute bottom-28 right-15 z-50 w-96">
         <FileText class="h-4 w-4" />
         <Alert.Title>Heads up!</Alert.Title>
