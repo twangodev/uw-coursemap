@@ -141,7 +141,7 @@ class Course(JsonSerializable):
             optimized_prerequisites=optimized_prerequisites,
             cumulative_grade_data=cumulative_grade_data,
             term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()},
-            similar_courses={Course.Reference.from_string(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set()
+            similar_courses={Course.Reference.from_json(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set()
         )
 
     def to_dict(self):
@@ -153,7 +153,7 @@ class Course(JsonSerializable):
             "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None,
             "term_data": {term: data.to_dict() for term, data in self.term_data.items()},
-            "similar_courses": [course.get_identifier() for course in self.similar_courses]
+            "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses]
         }
 
     @classmethod
