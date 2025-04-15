@@ -73,8 +73,8 @@
     let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let selectedCourse = $state<cytoscape.NodeSingular | undefined>();
-    let selectedCourseData: Course | undefined = $state(undefined);
+    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
+    let selectedCourse: Course | undefined = $state(undefined);
 
     // Add near your other state declarations
 
@@ -179,29 +179,29 @@
 
         cy.on('mouseout', 'node', function (event) {
             clearPath(cy, destroyTip);
-            if (selectedCourse !== undefined) {
-                highlightPath(cy, selectedCourse)
+            if (highlightedCourse !== undefined) {
+                highlightPath(cy, highlightedCourse)
             }
         });
 
-        cy.on('tap', 'node', async function (event) {
+        // keep course highlighted/unhighlighted when double tapping
+        cy.on('dbltap', function(event) {
             const targetNode = event.target;
-            if (targetNode?.data('type') === 'compound') {
-                return;
+            
+            // If we clicked a node (that isn't a compound node)
+            if (targetNode.isNode && targetNode.data('type') !== 'compound') {
+                highlightedCourse = targetNode;
+                highlightPath(cy, targetNode);
+            } 
+            // If we clicked empty space or a compound node
+            else if (!targetNode.isNode || targetNode.data('type') === 'compound') {
+                highlightedCourse = undefined;
+                clearPath(cy, destroyTip);
             }
-            selectedCourse = targetNode; 
-            highlightPath(cy, targetNode);
         });
-        cy.on('dbltap', async function (event) {
-            const targetNode = event.target;
-            if (targetNode?.data('type') === 'node') {
-                return;
-            }
-            selectedCourse = undefined; 
-            clearPath(cy, destroyTip); 
-        })
 
-        cy.on('dbltap', 'node', async function (event) {
+        // open course sheet when single tapping on course
+        cy.on('onetap', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
                 return;
@@ -209,9 +209,9 @@
 
             if (isDesktop()) {
                 selectedCourse = undefined;
+
+                selectedCourse = await fetchCourse(targetNode.id())
                 sheetOpen = true;
-                selectedCourse = targetNode;
-                selectedCourseData = await fetchCourse(targetNode.id())
                 return;
             }
 
@@ -346,7 +346,7 @@
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
-<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourseData} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
 
 {#if cy && !hasSeenTapGuide}
     <Alert.Root class="absolute {showAlert ? "bottom-55" : "bottom-28"} right-15 z-50 w-96">
@@ -354,8 +354,8 @@
             <div class="flex-1">
                 <Alert.Title>Quick Guide</Alert.Title>
                 <Alert.Description class="space-y-2">
-                    <p><strong>Single tap on course</strong>: Keeps course prerequisites and dependencies highlighted</p>
-                    <p><strong>Double tap on course</strong>: {isDesktop() ? 'Open detailed course information' : 'Show course description'}</p>
+                    <p><strong>Single tap on course</strong>: {isDesktop() ? 'Open detailed course information' : 'Show course description'}</p>
+                    <p><strong>Double tap on course</strong>: Keeps course prerequisites and dependencies highlighted</p>
                     <p><strong>Double tap on empty space</strong>: Clears highlighting</p>
                 </Alert.Description>
             </div>
