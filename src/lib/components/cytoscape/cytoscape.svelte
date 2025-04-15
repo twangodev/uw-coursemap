@@ -272,6 +272,14 @@
                 node.addClass("taken-nodes");
             } else {
                 node.removeClass("taken-nodes");
+                // this is meant to mark courses with no prerequisites
+                // since grad courses don't have prerequisites, we need to check if the course has no incomers and at least one outgoer
+                // this is a bit of a hack, but it works for now
+                if (node.incomers('node').length === 0 && node.outgoers('node').length > 0) {
+                    node.addClass("next-nodes");
+                } else {
+                    node.removeClass("next-nodes");
+                }
             }
         });
 
