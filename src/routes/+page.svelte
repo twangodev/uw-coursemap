@@ -34,10 +34,10 @@
         <a href="/explorer/?searchShowOptions=departments" class="w-80">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
             <CardHeader>
-                <CardTitle>Display Map of Departments</CardTitle>
+                <CardTitle>Display Map of a Department</CardTitle>
             </CardHeader>
             <CardContent>
-                View an interactive map of departments and their relationships to explore course offerings.
+                View an interactive map of a department and course relationships to explore course offerings.
             </CardContent>
             </Card>
         </a>
