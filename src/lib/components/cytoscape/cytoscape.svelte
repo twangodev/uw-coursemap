@@ -23,11 +23,10 @@
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
     import { onMount } from "svelte";
-    import { getData } from "$lib/localStorage.ts";
     import { FileText, Terminal, X } from "lucide-svelte";
     import * as Alert from "$lib/components/ui/alert/index.js"; 
     import { AlertClose } from "$lib/components/ui/alert";
-
+    import { getData, setData, clearData } from "$lib/localStorage.ts";
 
     interface Props {
         url: string;
@@ -38,10 +37,9 @@
 
     let takenCourses: (undefined | string)[] = $state([]);
     let showAlert = $derived(cy && takenCourses.length <= 0);
-
+    let hasSeenTapGuide = $state(false);
     //load data
     onMount(() => {
-        // console.log("mounted")
         // console.log("data", getData("takenCourses"));
         takenCourses = getData("takenCourses").map((course: any) => {
             if (course.course_reference === undefined) {
@@ -51,6 +49,9 @@
             return courseReferenceToString(course.course_reference);
         });
         // console.log("after", takenCourses);
+        console.log(getData("hasSeenTapGuide"));
+        hasSeenTapGuide = getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0 ? false : true;
+        console.log("on mount has seen tap guide", hasSeenTapGuide);
     });
 
     let { url, styleUrl }: Props = $props();
@@ -78,6 +79,8 @@
 
     let selectedCourse = $state<cytoscape.NodeSingular | undefined>();
     let selectedCourseData: Course | undefined = $state(undefined);
+
+    // Add near your other state declarations
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -174,7 +177,6 @@
                 targetNode.panify();
             }
 
-            console.log("mouseover", targetNode.data('id'));
             clearPath(cy, destroyTip);
             highlightPath(cy, targetNode);
         });
@@ -183,9 +185,7 @@
             clearPath(cy, destroyTip);
             if (selectedCourse !== undefined) {
                 highlightPath(cy, selectedCourse)
-                console.log("mouseout", selectedCourse.data('id'));
             }
-            console.log("mouseout", "no selected course");
         });
 
         cy.on('tap', 'node', async function (event) {
@@ -193,7 +193,6 @@
             if (targetNode?.data('type') === 'compound') {
                 return;
             }
-            console.log("tap", targetNode.data('id'));
             selectedCourse = targetNode; 
             highlightPath(cy, targetNode);
         });
@@ -202,7 +201,6 @@
             if (targetNode?.data('type') === 'node') {
                 return;
             }
-            console.log("dbltap", targetNode);
             selectedCourse = undefined; 
             clearPath(cy, destroyTip); 
         })
@@ -277,7 +275,6 @@
             }
         });
 
-        // console.log("actually taken: ", takenCourses);
         markNextCourses(cy);
     })
 
@@ -346,6 +343,32 @@
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourseData} {destroyTip}/>
+
+{console.log("hasSeenTapGuide", hasSeenTapGuide)}
+{#if cy && !hasSeenTapGuide}
+    <Alert.Root class="absolute {showAlert ? "bottom-55" : "bottom-28"} right-15 z-50 w-96">
+        <div class="flex gap-3">
+            <div class="flex-1">
+                <Alert.Title>Quick Guide</Alert.Title>
+                <Alert.Description class="space-y-2">
+                    <p><strong>Single tap on course</strong>: Keeps course prerequisites and dependencies highlighted</p>
+                    <p><strong>Double tap on course</strong>: {isDesktop() ? 'Open detailed course information' : 'Show course description'}</p>
+                    <p><strong>Double tap on empty space</strong>: Clears highlighting</p>
+                </Alert.Description>
+            </div>
+            <AlertClose 
+                class="absolute right-2 top-2 md:right-3 md:top-3 opacity-70 hover:opacity-100 transition-opacity rounded-full p-1 hover:bg-muted" 
+                onclick={() => {
+                    hasSeenTapGuide = true;
+                    setData("hasSeenTapGuide", ["true"]);
+                }}
+            >
+                <X class="h-4 w-4" />
+                <span class="sr-only">Close</span>
+            </AlertClose>
+        </div>
+    </Alert.Root>
+{/if}
 
 {#if showAlert}
     {console.log("no taken courses")}
