@@ -102,7 +102,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
 
     # Update each course with its similar courses.
     for course_ref, course in course_ref_to_course.items():
-        logger.info("Setting similar courses for %s", course_ref.get_identifier())
+        logger.debug("Setting similar courses for %s", course_ref.get_identifier())
         # Use the mapping to update the course; here we assume each course has a .similar_courses attribute.
         course.similar_courses = [
             similar_ref
