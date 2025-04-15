@@ -298,9 +298,9 @@
             'line-color': getTextColor($mode),
             'target-arrow-color': getTextColor($mode),
         }).selector('.taken-nodes').style({
-            'color': "#008450",
+            'color': $mode === 'dark' ? "#4CC38A" : "#007F44"
         }).selector('.next-nodes').style({
-            'color': "#EFB700",
+            'color': $mode === 'dark' ? "#FFD700" : "#B38600",
         }).update()
     })
 
