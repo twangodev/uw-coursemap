@@ -58,41 +58,56 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     # Await tasks concurrently.
     results = await asyncio.gather(*tasks)
 
-    # Build the final embeddings dictionary.
+    # Build the dictionary mapping course references to their embeddings.
     course_embeddings = {course_ref: embedding for course_ref, embedding in results}
-
     logger.info("Course embeddings pulled for %d courses", len(course_embeddings))
 
-    subject_to_course = {}
+    # --- Vectorized Nearest Neighbor Computation ---
+    # Prepare an ordered list of course references and a corresponding NumPy matrix of embeddings.
+    course_refs = list(course_embeddings.keys())
+    embeddings = np.stack([course_embeddings[ref] for ref in course_refs])
 
+    # For filtering purposes, extract the course numbers.
+    # (Assumes each course_ref has an attribute 'course_number'.)
+    course_numbers = np.array([ref.course_number for ref in course_refs])
+    # Define your filtering criteria.
+    min_cc = 0
+    max_cc = 1000
+    k = 5
+
+    # Create a global mask: only consider courses within the [min_cc, max_cc] range.
+    allowed_mask = (course_numbers >= min_cc) & (course_numbers <= max_cc)
+
+    # Compute the full similarity matrix between all courses.
+    # (Assumes the embeddings are normalized so that cosine similarity = dot product.)
+    similarity_matrix = np.dot(embeddings, embeddings.T)
+
+    # For each course, disqualify courses that do not satisfy the filter by setting their similarity to -∞.
+    similarity_matrix[:, ~allowed_mask] = -np.inf
+    # Remove self similarity by setting the diagonal to -∞.
+    np.fill_diagonal(similarity_matrix, -np.inf)
+
+    # For each row in the similarity matrix, use argpartition to get the indices of the top k similar courses.
+    top_k_indices = np.argpartition(similarity_matrix, -k, axis=1)[:, -k:]
+    # Optionally sort these indices to order by descending similarity.
+    sorted_top_k_indices = np.array([
+        indices[np.argsort(similarity_matrix[i, indices])[::-1]]
+        for i, indices in enumerate(top_k_indices)
+    ])
+
+    # Build a mapping from each course reference to its corresponding top k similar course references.
+    similar_courses_mapping = {}
+    for i, course_ref in enumerate(course_refs):
+        similar_courses_mapping[course_ref] = [course_refs[j] for j in sorted_top_k_indices[i]]
+
+    # Update each course with its similar courses.
     for course_ref, course in course_ref_to_course.items():
-
-        subjects = course_ref.subjects
-
-        for subject in subjects:
-
-            if subject not in subject_to_course:
-                subject_to_course[subject] = []
-            subject_to_course[subject].append(course_ref)
-
-    def get_similar_courses_prompt(prompt, min_cc=0, max_cc=1000, length=5):
-
-        existential_crisis = normalize(get_embedding(cache_dir, open_ai_client, model, prompt, logger))
-
-        existential_crisis_similarity = {
-            course_ref: cosine_similarity(existential_crisis, embedding)
-            for course_ref, embedding in course_embeddings.items() if max_cc >= course_ref.course_number >= min_cc
-        }
-
-        sorted_crisis = sorted(existential_crisis_similarity.items(), key=lambda x: x[1], reverse=True)
-
-        return sorted_crisis[:5]
-
-    def get_similar_courses(course: Course, length=5):
-        return get_similar_courses_prompt(
-            course.get_short_summary(),
-            length=length
-        )
+        logger.info("Setting similar courses for %s", course_ref.get_identifier())
+        # Use the mapping to update the course; here we assume each course has a .similar_courses attribute.
+        course.similar_courses = [
+            similar_ref
+            for similar_ref in similar_courses_mapping.get(course_ref, [])
+        ]
 
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, openai_api_key, model, logger):
     qs = quick_statistics(course_ref_to_course, logger)

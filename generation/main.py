@@ -251,6 +251,7 @@ def main():
             logger=logger
         )
 
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
         write_quick_statistics_cache(cache_dir, quick_statistics, logger)
 
