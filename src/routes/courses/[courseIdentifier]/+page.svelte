@@ -332,7 +332,7 @@
                         <Button 
                             variant="outline" 
                             size="sm"
-                            href="/explorer/{course.course_reference.subjects[0].toLowerCase()}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
+                            href="/explorer/{course.course_reference.subjects[0]}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
                             class="flex items-center gap-2"
                         >
                             <BookOpen class="h-4 w-4" />
