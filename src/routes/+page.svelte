@@ -16,6 +16,12 @@
         <p class="text-center text-sm text-primary">
             UW Course Map is not affiliated by the University of Wisconsin-Madison.
         </p>
+
+        <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
+            <Button href="/explorer">
+                Get Started
+            </Button>
+        </div>
     </PageHeader>
 
     <!-- bento grid showcasing features -->

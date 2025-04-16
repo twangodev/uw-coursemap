@@ -21,8 +21,8 @@ export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" 
                 'text-halign': 'center',
                 'background-color': '#757575',
                 'text-wrap': 'wrap',
-                'text-max-width': '200', // i have no clue what the unit is, maybe px
-                'text-margin-y': 5,
+                'text-max-width': '200px', // i have no clue what the unit is, maybe px
+                'text-margin-y': 2,
                 'color': getTextColor(mode)
             }
         },

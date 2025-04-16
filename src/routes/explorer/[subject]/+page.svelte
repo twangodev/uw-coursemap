@@ -12,8 +12,12 @@
     onMount(() => {
         toast.message(`Showing all ${subject} courses`, {
             duration: 5000,
-            class: "bg-secondary text-secondary-foreground text-lg font-medium text-center w-full",
-            position: "top-center"
+            cancel: {
+                label: "Hide",
+                onClick: () => {
+                    toast.dismiss();
+                }
+            }
         });
     });
 
