@@ -27,12 +27,12 @@ This project provides a comprehensive view of course information at the Universi
 ### Features
 
 - Course Requirement DAG: Displays course prerequisites and dependencies in a visual format.
-- Historical Grade Distributions: Cumulative grade distributions for each course.
+- Historical Grade Distributions: Cumulative grade distributions for each course (from Madgrades!)
 - Professor Ratings: Integrates data from Rate My Professor to show professor ratings and comments.
 - Search Functionality: Easily search for courses, professors, and departments.
 
 ### Tech Stack
 - **Frontend**: Svelte, shadcn-svelte, Tailwind CSS
-- **Backend**: Python, NGINX (TODO, currently using GitHub CDN)
+- **Backend**: Python Flask + Gunicorn + Caddy
 
 
