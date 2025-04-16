@@ -197,12 +197,12 @@
 
     
     {#if takenCourses.length == 0 && status == ""}
-        <Button variant="outline" class="w-full h-" style="margin-bottom: 20px;">
-            <ChevronDown class="h-4 w-4"/>
-      </Button>
+        <div style="margin-bottom: 15px;">
+            Click the upload button to autofill courses, or use the course search to manually add courses.
+        </div>
     {:else}
         <Label for="courses">{status}</Label>
-        <Table.Root id="courses" style="margin-bottom: 20px;">
+        <Table.Root id="courses" style="margin-bottom: 15px;">
             <Table.Header>
                 <Table.Row>
                     <Table.Head>Remove</Table.Head>
