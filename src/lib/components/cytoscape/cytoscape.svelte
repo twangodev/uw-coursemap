@@ -53,7 +53,7 @@
 
             return courseReferenceToString(course.course_reference);
         });
-        hasSeenTapGuide = getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0 ? false : true;
+        hasSeenTapGuide = !(getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0);
         
     });
 
@@ -149,7 +149,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType, courseData);
+        let layout = await computeLayout(layoutType, courseData, false);
 
         progress = {
             text: "Graph Loaded",
@@ -165,6 +165,7 @@
             maxZoom: 2,
             motionBlur: true,
         });
+
         if (filter !== undefined) {
             console.log(cy.nodes()[0])
             console.log(courseReferenceToString(filter.course_reference));
@@ -249,7 +250,7 @@
 
             setTip(tip);
         });
-        const focusParam = page.url.searchParams.get('focus'); 
+        const focusParam = page.url.searchParams.get('focus');
         if (focusParam !== null) {
             highlightedCourse = cy?.$id(focusParam.replaceAll("_", " "))[0];
         } else {
@@ -264,21 +265,25 @@
     $effect(() => {
         if (url && styleUrl) {
             loadGraph()
-        }
-    });
-
-    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[]) {
-        if (!cy) {
             return;
         }
 
-        if (layoutType === LayoutType.GROUPED) {
-            cy.layout(generateFcoseLayout(focus)).run();
-        } else {
-            await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
-            })();
+        if (!cy) {
+            return
         }
+
+        hide(hiddenSubject);
+        computeLayout(layoutType, courseData, true);
+    });
+
+    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[], shouldRun: boolean) {
+        let layout = layoutType === LayoutType.GROUPED ? generateFcoseLayout(focus) : await generateLayeredLayout(focus, courseData, showCodeLabels);
+
+        if (cy && shouldRun) {
+            cy.layout(layout).run();
+        }
+
+        return layout;
     }
 
     $effect(() => {
@@ -303,10 +308,6 @@
         });
 
         markNextCourses(cy);
-    })
-
-    $effect(() => {
-        computeLayout(layoutType, courseData);
     })
 
     $effect(() => {
@@ -346,18 +347,7 @@
         if (subject) {
             removedSubjectNodes = cy.nodes(`[parent = "${subject}"]`).remove();
         }
-
-        computeLayout(layoutType, courseData);
     }
-
-    $effect(() => {
-        if (!cy) {
-            return;
-        }
-
-        hide(hiddenSubject);
-    })
-
 
 </script>
 <div class="relative grow">
