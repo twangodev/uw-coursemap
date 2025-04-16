@@ -383,41 +383,31 @@
                     <Card class="h-[600px] flex flex-col">
                         <CardHeader>
                             <div class="flex items-center justify-between">
-                    <div>
-                        <CardTitle>Course Prerequisites Map</CardTitle>
-                        <CardDescription>
-                            Visual representation of course prerequisites and related courses
-                        </CardDescription>
-                    </div>
-                    {#await course then course}
-                        <Button 
-                            variant="outline" 
-                            size="sm"
-                            href="/explorer/{course.course_reference.subjects[0].toLowerCase()}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
-                            class="flex items-center gap-2"
-                        >
-                            <BookOpen class="h-4 w-4" />
-                            View on Department Graph
-                        </Button>
-                {/await}
-            </div>
-
+                            <div>
+                                <CardTitle>Course Prerequisites Map</CardTitle>
+                                <CardDescription>
+                                    Visual representation of course prerequisites and related courses
+                                </CardDescription>
+                            </div>
+                            <Button
+                                    variant="outline"
+                                    size="sm"
+                                    href="/explorer/{course.course_reference.subjects[0].toLowerCase()}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
+                                    class="flex items-center gap-2"
+                            >
+                                <BookOpen class="h-4 w-4" />
+                                View on Department Graph
+                            </Button>
+                            </div>
                         </CardHeader>
-
-                        <CardContent class="flex-1"> 
-                            {#await course}
-                                <p class="text-center">Loading...</p>
-                            {:then course}
-                                <div class="flex h-full w-full">
-                                    <Cytoscape 
-                                        url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json" 
-                                        styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
-                                        filter={course}
-                                    />
-                                </div>
-                            {:catch error}
-                                <p class="text-red-600">Error loading prerequisites map: {error.message}</p>
-                            {/await}
+                        <CardContent class="flex-1">
+                            <div class="flex h-full w-full">
+                                <Cytoscape
+                                    url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json"
+                                    styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
+                                    filter={course}
+                                />
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
