@@ -15,7 +15,7 @@
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseDrawer from "./course-drawer.svelte";
-    import {clearPath, highlightPath, markNextCourses} from "./paths.ts";
+    import {clearPath, getPredecessorsNotTaken, highlightPath, markNextCourses} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -28,6 +28,9 @@
     interface Props {
         url: string;
         styleUrl: string;
+        // dfs backwards from a specific course until it reaches courses that are taken
+        // courses not reached by dfs are hidden
+        filter?: Course;
     }
 
     let takenCourses: (undefined | string)[] = [];
@@ -45,7 +48,7 @@
         // console.log("after", takenCourses);
     });
 
-    let { url, styleUrl }: Props = $props();
+    let { url, styleUrl, filter = undefined }: Props = $props();
     let sheetOpen = $state(false);
     let progress = $state({
         text: "Loading Graph...",
@@ -105,7 +108,7 @@
         }
 
         courseData = await fetchGraphData(url);
-
+        
         progress = {
             text: "Styling Graph...",
             number: 50,
@@ -152,6 +155,18 @@
             maxZoom: 2,
             motionBlur: true,
         });
+        if (filter !== undefined) {
+            console.log(cy.nodes()[0])
+            console.log(courseReferenceToString(filter.course_reference));
+            console.log(cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0]);
+            let keepData = getPredecessorsNotTaken(cy, cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0], takenCourses);
+            const nodesToRemove = cy.nodes().filter((node: cytoscape.NodeSingular) => {
+                return !keepData.includes(node.id()) && node.data('type') !== 'compound';
+            });
+
+            console.log(keepData);
+            cy.remove(nodesToRemove); 
+        }
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;

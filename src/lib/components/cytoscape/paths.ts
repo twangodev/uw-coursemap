@@ -4,6 +4,26 @@ export function getNonCompoundNodes(cy: cytoscape.Core | undefined) {
     });
 }
 
+export function getPredecessorsNotTaken(cy: cytoscape.Core | undefined, node: cytoscape.NodeSingular, takenCourses: (undefined | string)[]): Array<string> {
+    // console.log(node);
+    let visited = new Set<cytoscape.NodeSingular>();
+    dfs(node, visited, takenCourses);
+    console.log("array", Array.from(visited.values()).map((node) => node.data("id")));
+    return Array.from(visited.values().map(node => node.data("id")));
+}
+
+function dfs(node: cytoscape.NodeSingular, visited: Set<cytoscape.NodeSingular>, takenCourses: (undefined | string)[]) {
+    visited.add(node);
+    if (!takenCourses.includes(node.data('id'))) {
+        const incomers = node.incomers('node');
+        incomers.forEach((incomer) => {
+            if (!visited.has(incomer)) {
+                dfs(incomer, visited, takenCourses);
+            }
+        });
+    }
+}
+
 export function markNextCourses(cy: cytoscape.Core | undefined) {
     if (!cy) {
         return;

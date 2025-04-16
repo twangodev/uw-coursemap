@@ -2,7 +2,7 @@
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import {page} from '$app/state';
     import ContentH1 from "$lib/components/content/content-h1.svelte";
-    import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
+    import {type Course, courseReferenceStringToCourse, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {courseReferenceToString} from "$lib/types/course.js";
     import {ArrowUpRight, BookA, BookOpen, BookPlus, CircleCheckBig, Info, Users} from "lucide-svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
@@ -18,6 +18,9 @@
     import TermSelector from "$lib/components/term-selector.svelte";
     import {Tabs, TabsContent, TabsList, TabsTrigger} from "$lib/components/ui/tabs";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card";
+    import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
+    import {env} from "$env/dynamic/public";
+    const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
@@ -131,6 +134,7 @@
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="trends">Trends</TabsTrigger>
                 <TabsTrigger value="instructors">Instructors</TabsTrigger>
+                <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
             </TabsList>
             <div class="grid gap-4 lg:grid-cols-12">
                 <div class="space-y-4 mt-2 lg:col-span-3">
@@ -308,6 +312,33 @@
                         {:catch error}
                             <p class="text-red-600">Error loading instructors: {error.message}</p>
                         {/await}
+                    </Card>
+                </TabsContent>
+                
+                <TabsContent value="prerequisites" class="lg:col-span-9 space-y-4">
+                    <Card class="h-[600px] flex flex-col">
+                        <CardHeader>
+                            <CardTitle>Course Prerequisites Map</CardTitle>
+                            <CardDescription>
+                                Visual representation of course prerequisites and related courses
+                            </CardDescription>
+                        </CardHeader>
+
+                        <CardContent class="flex-1"> 
+                            {#await course}
+                                <p class="text-center">Loading...</p>
+                            {:then course}
+                                <div class="flex h-full w-full">
+                                    <Cytoscape 
+                                        url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json" 
+                                        styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
+                                        filter={course}
+                                    />
+                                </div>
+                            {:catch error}
+                                <p class="text-red-600">Error loading prerequisites map: {error.message}</p>
+                            {/await}
+                        </CardContent>
                     </Card>
                 </TabsContent>
             </div>
