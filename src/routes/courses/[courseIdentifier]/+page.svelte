@@ -20,6 +20,7 @@
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card";
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
     import {env} from "$env/dynamic/public";
+    import { Button } from "$lib/components/ui/button";
     const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
@@ -320,10 +321,26 @@
                 <TabsContent value="prerequisites" class="lg:col-span-9 space-y-4">
                     <Card class="h-[600px] flex flex-col">
                         <CardHeader>
-                            <CardTitle>Course Prerequisites Map</CardTitle>
-                            <CardDescription>
-                                Visual representation of course prerequisites and related courses
-                            </CardDescription>
+                            <div class="flex items-center justify-between">
+                    <div>
+                        <CardTitle>Course Prerequisites Map</CardTitle>
+                        <CardDescription>
+                            Visual representation of course prerequisites and related courses
+                        </CardDescription>
+                    </div>
+                    {#await course then course}
+                        <Button 
+                            variant="outline" 
+                            size="sm"
+                            href="/explorer/{course.course_reference.subjects[0].toLowerCase()}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
+                            class="flex items-center gap-2"
+                        >
+                            <BookOpen class="h-4 w-4" />
+                            View Department Graph
+                        </Button>
+                {/await}
+            </div>
+
                         </CardHeader>
 
                         <CardContent class="flex-1"> 

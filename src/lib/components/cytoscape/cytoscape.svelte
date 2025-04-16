@@ -42,6 +42,8 @@
     let takenCourses: (undefined | string)[] = $state([]);
     let showAlert = $derived(cy && takenCourses.length <= 0);
     let hasSeenTapGuide = $state(false);
+
+    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
     //load data
     onMount(() => {
         takenCourses = getData("takenCourses").map((course: any) => {
@@ -52,6 +54,7 @@
             return courseReferenceToString(course.course_reference);
         });
         hasSeenTapGuide = getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0 ? false : true;
+        
     });
 
     let { url, styleUrl, filter = undefined }: Props = $props();
@@ -77,7 +80,6 @@
     let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
     let selectedCourse: Course | undefined = $state(undefined);
 
     // Add near your other state declarations
@@ -247,7 +249,12 @@
 
             setTip(tip);
         });
-
+        const focusParam = page.url.searchParams.get('focus'); 
+        if (focusParam !== null) {
+            highlightedCourse = cy?.$id(focusParam.replaceAll("_", " "))[0];
+        } else {
+            highlightedCourse = undefined;
+        }
         progress = {
             text: "Graph Loaded",
             number: 100,
