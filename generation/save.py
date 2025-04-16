@@ -139,7 +139,7 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
         write_file(data_dir, ("graphs",), subject, graph, logger)
 
     for course, graph in course_to_graph.items():
-        write_file(data_dir, ("graphs",), course, graph, logger) 
+        write_file(data_dir, ("graphs", "course"), course, graph, logger) 
 
     write_file(data_dir, tuple(), "global_style", global_style, logger)
     for subject, style in subject_to_style.items():
