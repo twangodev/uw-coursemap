@@ -47,7 +47,6 @@ def generate_style(parent, color):
 def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, Course], seen: set[Course],
                   global_graph, subject_graph, course_graph):
     if course.get_identifier() in seen:
-        print(course.get_identifier(), "already seen")
         return
     seen.add(course.get_identifier())
     to_add = set()
