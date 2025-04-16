@@ -357,7 +357,9 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
-    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels layoutRecompute={(layoutType: LayoutType) => {
+        computeLayout(layoutType, courseData, true);
+    }}/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
 
