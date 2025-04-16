@@ -2,7 +2,7 @@
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
     import {page} from '$app/state';
     import ContentH1 from "$lib/components/content/content-h1.svelte";
-    import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
+    import {type Course, courseReferenceStringToCourse, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {courseReferenceToString} from "$lib/types/course.js";
     import {
         ArrowUpRight,
@@ -28,6 +28,10 @@
     import TermSelector from "$lib/components/term-selector.svelte";
     import {Tabs, TabsContent, TabsList, TabsTrigger} from "$lib/components/ui/tabs";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card";
+    import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
+    import {env} from "$env/dynamic/public";
+    import { Button } from "$lib/components/ui/button";
+    const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
@@ -174,6 +178,7 @@
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="trends">Trends</TabsTrigger>
                 <TabsTrigger value="instructors">Instructors</TabsTrigger>
+                <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
             </TabsList>
             <div class="grid gap-4 lg:grid-cols-12">
                 <div class="space-y-4 mt-2 lg:col-span-3">
@@ -315,7 +320,7 @@
                         </Card>
                         <div class="md:col-span-2 lg:col-span-7">
                             <h2 class="text-2xl font-bold my-4">Similar Courses</h2>
-                            <CourseCarousel courseReferences={course.similar_courses}/>
+                            <CourseCarousel courseReferences={course.similar_courses ? course.similar_courses : []}/>
                         </div>
                     </div>
                 </TabsContent>
@@ -371,6 +376,49 @@
                         {:catch error}
                             <p class="text-red-600">Error loading instructors: {error.message}</p>
                         {/await}
+                    </Card>
+                </TabsContent>
+                
+                <TabsContent value="prerequisites" class="lg:col-span-9 space-y-4">
+                    <Card class="h-[600px] flex flex-col">
+                        <CardHeader>
+                            <div class="flex items-center justify-between">
+                    <div>
+                        <CardTitle>Course Prerequisites Map</CardTitle>
+                        <CardDescription>
+                            Visual representation of course prerequisites and related courses
+                        </CardDescription>
+                    </div>
+                    {#await course then course}
+                        <Button 
+                            variant="outline" 
+                            size="sm"
+                            href="/explorer/{course.course_reference.subjects[0].toLowerCase()}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
+                            class="flex items-center gap-2"
+                        >
+                            <BookOpen class="h-4 w-4" />
+                            View on Department Graph
+                        </Button>
+                {/await}
+            </div>
+
+                        </CardHeader>
+
+                        <CardContent class="flex-1"> 
+                            {#await course}
+                                <p class="text-center">Loading...</p>
+                            {:then course}
+                                <div class="flex h-full w-full">
+                                    <Cytoscape 
+                                        url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json" 
+                                        styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
+                                        filter={course}
+                                    />
+                                </div>
+                            {:catch error}
+                                <p class="text-red-600">Error loading prerequisites map: {error.message}</p>
+                            {/await}
+                        </CardContent>
                     </Card>
                 </TabsContent>
             </div>
