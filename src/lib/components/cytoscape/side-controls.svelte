@@ -17,6 +17,7 @@
     let {
         elementsAreDraggable = $bindable<boolean>(),
         layoutType = $bindable<LayoutType>(),
+        layoutRecompute = () => void(LayoutType),
         showCodeLabels = $bindable<boolean>(),
         cy
     } = $props();
@@ -47,6 +48,7 @@
 
     const toggleLayoutType = () => {
         layoutType = layoutType === LayoutType.GROUPED ? LayoutType.LAYERED : LayoutType.GROUPED;
+        layoutRecompute(layoutType);
     }
 
     const toggleShowCodeLabels = () => {
