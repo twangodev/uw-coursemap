@@ -13,6 +13,7 @@
     import { onMount } from 'svelte';
     import XMark from "lucide-svelte/icons/x";
     import CourseSearch from "$lib/components/course-search.svelte";
+	import { ChevronDown } from "lucide-svelte";
     
     let takenCourses = $state(new Array<any>)
     let status = $state("");
@@ -195,29 +196,9 @@
 
     
     {#if takenCourses.length == 0 && status == ""}
-        <div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-:Rv6db:-trigger-basic" id="radix-:Rv6db:-content-basic" tabindex="0" class="ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mt-6" style="">
-            <div class="flex flex-col gap-6">
-                <div class="relative flex flex-col gap-6 overflow-hidden">
-                    <div role="presentation" class="group relative grid h-52 w-full cursor-pointer place-items-center rounded-lg border-2 border-dashed border-muted-foreground/25 px-5 py-2.5 text-center transition hover:bg-muted/25 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                        <input accept="image/*" type="file" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; margin: 0px -1px -1px 0px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" tabindex="-1" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
-                        <div class="flex flex-col items-center justify-center gap-4 sm:px-5">
-                            <div class="rounded-full border border-dashed p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload size-7 text-muted-foreground" aria-hidden="true" style="--darkreader-inline-stroke: currentColor;" data-darkreader-inline-stroke="">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="17 8 12 3 7 8"></polyline>
-                                    <line x1="12" x2="12" y1="3" y2="15"></line>
-                                </svg>
-                            </div>
-                            <div class="flex flex-col gap-px">
-                                <p class="font-medium text-muted-foreground">
-                                    Drag <!-- -->'n'<!-- --> drop transcript here, or click to browse for it
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Button variant="outline" class="w-full h-" style="margin-bottom: 20px;">
+            <ChevronDown class="h-4 w-4"/>
+      </Button>
     {:else}
         <Label for="courses">{status}</Label>
         <Table.Root id="courses" style="margin-bottom: 20px;">
