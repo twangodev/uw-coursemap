@@ -6,7 +6,7 @@
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
-        courseSearchResponseToIdentifier,
+        searchResponseToIdentifier,
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
@@ -27,11 +27,13 @@
     interface Props {
         takenCourses: Array<any>;
         status: string;
+        defaultString?: string;
     }
 
     let { 
         takenCourses = $bindable(),
-        status = $bindable()
+        status = $bindable(),
+        defaultString = "Search courses..."
     }: Props = $props();
 
     let courses = writable<CourseSearchResult[]>([]);
@@ -120,7 +122,7 @@
             searchQuery = "";
         }}
 >
-    <span class="hidden lg:inline-flex">Search courses... </span>
+    <span class="hidden lg:inline-flex">{defaultString}</span>
     <span class="inline-flex lg:hidden">Add course...</span>
 </Button>
 
@@ -142,7 +144,7 @@
                     <Book class="mr-3 h-4 w-4" />
                     <div>
                         <p>{suggestion.course_title}</p>
-                        <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                        <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
                         </div>
                     </Command.Item>
                 {/each}

@@ -141,6 +141,29 @@ class GradeData(JsonSerializable):
         self.other = other
         self.instructors = instructors
 
+    @classmethod
+    def empty(cls):
+        return GradeData(
+            total=0,
+            a=0,
+            ab=0,
+            b=0,
+            bc=0,
+            c=0,
+            d=0,
+            f=0,
+            satisfactory=0,
+            unsatisfactory=0,
+            credit=0,
+            no_credit=0,
+            passed=0,
+            incomplete=0,
+            no_work=0,
+            not_reported=0,
+            other=0,
+            instructors=set()
+        )
+
     def merge_with(self, other: "GradeData") -> "GradeData":
         return GradeData(
             total=self.total + other.total,
@@ -160,7 +183,7 @@ class GradeData(JsonSerializable):
             no_work=self.no_work + other.no_work,
             not_reported=self.not_reported + other.not_reported,
             other=self.other + other.other,
-            instructors=self.instructors.union(other.instructors)
+            instructors=self.instructors.union(other.instructors) if self.instructors and other.instructors else self.instructors or other.instructors
         )
 
     @classmethod

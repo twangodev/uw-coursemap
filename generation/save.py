@@ -152,6 +152,8 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
 
     write_file(data_dir, tuple(), "terms", terms, logger)
 
+    write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
+
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
         "updated_on": updated_on,

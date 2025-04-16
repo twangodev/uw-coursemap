@@ -7,40 +7,99 @@
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {
-        courseSearchResponseToIdentifier,
+        searchResponseToIdentifier,
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {
+        combineSearchResults,
         type CourseSearchResult,
         generateCourseSearchResults,
-        generateInstructorSearchResults,
         generateSubjectSearchResults,
         type InstructorSearchResult,
-        type SubjectSearchResult
+        type SubjectSearchResult, type UnifiedSearchResponse
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
-    import {onMount} from "svelte";
+    import { page } from "$app/stores";
+    import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+    import { Filter } from "lucide-svelte";
 
+    export interface SearchBarOptions {
+        showCourses: boolean;
+        showDepartments: boolean;
+        showInstructors: boolean;
+    }
     interface Props {
         wide?: boolean;
         fake?: boolean;
     }
+    let props: Props = $props();
+    let wide = props.wide ?? false;
+    let fake = props.fake ?? false;
 
-    let { wide = false, fake = false }: Props = $props();
+    const filterOptions = [
+        { id: 'COURSES', label: 'Courses' },
+        { id: 'DEPARTMENTS', label: 'Departments' },
+        { id: 'INSTRUCTORS', label: 'Instructors' }
+    ];
+    // from the url it determines whether to show courses, departments, or instructors
+    // I honestly hate using the url for this but b/c there can be multiple "fake" search bars the
+    // real search bar is not always the first one in the DOM so we can't just use a prop to determine this
+    let showOptionsQuery = $derived($page.url.searchParams.get('searchShowOptions')?.toUpperCase() ?? '');
+    let showOptions = $derived<SearchBarOptions>({
+        showCourses: showOptionsQuery ? showOptionsQuery.includes("COURSES"): true,
+        showDepartments: showOptionsQuery ? showOptionsQuery.includes("DEPARTMENTS") : true,
+        showInstructors: showOptionsQuery ? showOptionsQuery.includes("INSTRUCTORS") : true 
+    })
+    
+    let selectedOptions = $state<string[]>(
+        $page.url.searchParams.get('searchShowOptions')?.split(',')
+            .map(opt => opt.toUpperCase())
+            .filter(opt => ['COURSES', 'DEPARTMENTS', 'INSTRUCTORS'].includes(opt)) ?? 
+        ['COURSES', 'DEPARTMENTS', 'INSTRUCTORS']
+    );
 
-    let courses = writable<CourseSearchResult[]>([]);
-    let subjects = writable<SubjectSearchResult[]>([]);
-    let instructors = writable<InstructorSearchResult[]>([]);
+    function updateSearchOptions(options: string[]) {
+        const params = new URLSearchParams($page.url.searchParams);
+        const currentPath = $page.url.pathname;
 
+        // Prevent removing all options
+        if (options.length === 0) {
+            return;
+        }
+
+        // Update URL with new options
+        params.set('searchShowOptions', options.join(','));
+        goto(`${currentPath}?${params.toString()}`, { keepFocus: true });
+        updateSuggestions(searchQuery);
+    }
+
+    function handleOptionToggle(option: string, checked: boolean) {
+        if (checked && !selectedOptions.includes(option)) {
+            selectedOptions = [...selectedOptions, option];
+        } else if (!checked && selectedOptions.length > 1) {
+            selectedOptions = selectedOptions.filter(opt => opt !== option);
+        }
+        updateSearchOptions(selectedOptions);
+    }
+
+    let placeholderString = $derived((() => {
+        let options = [];
+        if (showOptions.showCourses) options.push("courses")
+        if (showOptions.showDepartments) options.push("departments")
+        if (showOptions.showInstructors) options.push("instructors")
+        return `Search ${options.join(", ")}...`
+    })());
+
+    let results = writable<UnifiedSearchResponse[]>([]);
     let shiftDown = $state(false);
 
     $effect(() => {
         updateSuggestions(searchQuery);
     });
-
+    
     let randomCourses = $derived.by(async () => {
         if ($searchModalOpen && !fake) {
             const response = await getRandomCourses();
@@ -53,7 +112,7 @@
     $effect(() => {
         if ($searchModalOpen && !fake) {
             toast.message("Tip", {
-                description: "Hold shift to open course details directly.",
+                description: "Hold shift to open course graph directly.",
                 duration: 3000,
                 cancel: {
                     label: "Hide",
@@ -76,24 +135,25 @@
         }
 
         if (query.length <= 0) {
-            $courses = [];
-            $subjects = [];
-            $instructors = [];
+            $results = []
             return
         }
 
         const response = await search(searchQuery)
         const data: SearchResponse = await response.json()
 
-        const rawCourses = data.courses
-        const rawSubjects = data.subjects
-        const rawInstructors = data.instructors
+        // Filter results before combining them
+        const rawCourses = showOptions.showCourses ? data.courses : []
+        const rawSubjects = showOptions.showDepartments ? data.subjects : []
+        const rawInstructors = showOptions.showInstructors ? data.instructors : []
 
-        $courses = generateCourseSearchResults(rawCourses)
-        $subjects = generateSubjectSearchResults(rawSubjects)
-        $instructors = generateInstructorSearchResults(rawInstructors)
+        $results = combineSearchResults(
+            rawCourses,
+            rawSubjects,
+            rawInstructors
+        )
+
     }
-
 
     function handleKeydown(e: KeyboardEvent) {
         if (fake) return;
@@ -110,16 +170,57 @@
         shiftDown = e.shiftKey
     }
 
-    function suggestionSelected(href: string) {
-        goto(href);
+    function getCourseTitle(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "course") {
+            const courseSearch = suggestion.data as CourseSearchResult;
+            return courseSearch.course_title;
+        }
+        return "";
+    }
+
+    function getSubjectTitle(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "subject") {
+            const subjectSearch = suggestion.data as SubjectSearchResult;
+            return subjectSearch.name;
+        }
+        return "";
+    }
+
+    function getInstructorName(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "instructor") {
+            const instructorSearch = suggestion.data as InstructorSearchResult;
+            return instructorSearch.name;
+        }
+        return "";
+    }
+
+    function getInstructorDetail(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "instructor") {
+            const instructorSearch = suggestion.data as InstructorSearchResult;
+            return `${instructorSearch.position ?? "Position Unknown"} • ${instructorSearch.department ?? "Department Unknown"}`;
+        }
+        return "";
+    }
+
+    function handleSuggestionSelect(suggestion: UnifiedSearchResponse) {
+        if (suggestion.type === "course") {
+            const courseSearch = suggestion.data as CourseSearchResult;
+            if (shiftDown) {
+                goto(Object.values(courseSearch.explorerHref)[0]);
+            } else {
+                goto(courseSearch.href);
+            }
+        } else {
+            goto(suggestion.data.href);
+        }
         $searchModalOpen = false;
     }
 
     function courseSuggestionSelected(result: CourseSearchResult) {
         if (shiftDown) {
-            goto(result.href);
-        } else {
             goto(Object.values(result.explorerHref)[0]); // TODO change via dialog or something
+        } else {
+            goto(result.href);
         }
         $searchModalOpen = false;
     }
@@ -130,29 +231,56 @@
 
 <svelte:document onkeydown={handleKeydown} onkeyup={handleKeyUp}/>
 
-<Button
+<div class="flex gap-0">
+    <DropdownMenu.Root>
+        <DropdownMenu.Trigger>
+            <Button variant="outline" size="icon" class="shrink-0 rounded-r-none border-r-0">
+                <Filter class="h-4 w-4" />
+                <span class="sr-only">Filter search</span>
+            </Button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content align="start" class="w-48">
+            <DropdownMenu.Label>Filter Search</DropdownMenu.Label>
+                <DropdownMenu.Separator />
+                    {#each filterOptions as option}
+                        <DropdownMenu.CheckboxItem
+                            checked={selectedOptions.includes(option.id)}
+                            onCheckedChange={(checked) => handleOptionToggle(option.id, checked)}
+                        >
+                            {option.label}
+                        </DropdownMenu.CheckboxItem>
+                    {/each}
+        </DropdownMenu.Content>
+    </DropdownMenu.Root>
+
+    <Button
         variant="outline"
         class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", wide ? "lg:w-[45rem] md:w-96" : "lg:w-80 md:w-40"
-	)}
+        "text-muted-foreground relative w-full justify-start text-sm sm:pr-12 rounded-l-none", wide ? "lg:w-[45rem] md:w-96" : "lg:w-90 md:w-40"
+    )}
         onclick={() => {
             $searchModalOpen = true;
             searchQuery = "";
         }}
->
-    <span class="hidden lg:inline-flex">Search courses, departments... </span>
+    >
+    <span class="hidden lg:inline-flex">{placeholderString}</span>
     <span class="inline-flex lg:hidden">Search...</span>
     <kbd
             class="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
     >
         <CtrlCmd />K
     </kbd>
-</Button>
+    </Button>
+</div>
+
 {#if !fake}
-    <Command.Dialog bind:open={$searchModalOpen}>
-        <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
-        <Command.List>
-            {#if $courses.length <= 0 && $subjects.length <= 0 && $instructors.length <= 0}
+<Command.Dialog bind:open={$searchModalOpen}>
+    <CustomSearchInput placeholder={placeholderString} bind:value={searchQuery} />
+    
+    <Command.List>
+        <!-- TODO: Add way to generate random departments and instructors -->
+        {#if $results.length <= 0}
+            {#if showOptions.showCourses}
                 {#await randomCourses}
                     <div class="py-6 text-center text-sm">No results found.</div>
                 {:then randomCourses}
@@ -166,7 +294,10 @@
                             <Book class="mr-3 h-4 w-4" />
                             <div>
                                 <p>{suggestion.course_title}</p>
-                                <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
+                                <p class="text-xs">{searchResponseToIdentifier({
+                                    type: "course",
+                                    data: suggestion
+                                })}</p>
                             </div>
                         </Command.Item>
                     {/each}
@@ -174,57 +305,38 @@
                 {:catch error}
                     <div class="py-6 text-center text-sm">Error loading random courses.</div>
                 {/await}
+                {:else}
+                <div class="py-6 text-center text-sm">No results found.</div>
+                {/if}
             {/if}
-            {#if $courses.length > 0}
-                <Command.Group heading="Courses">
-                    {#each $courses as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    courseSuggestionSelected(suggestion)
-                                }}
-                        >
-                        <Book class="mr-3 h-4 w-4" />
-                        <div>
-                            <p>{suggestion.course_title}</p>
-                            <p class="text-xs">{courseSearchResponseToIdentifier(suggestion)}</p>
-                            </div>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                <Command.Separator />
-            {/if}
-            {#if $subjects.length > 0}
-                <Command.Group heading="Departments">
-                    {#each $subjects as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    suggestionSelected(suggestion.href)
-                                }}
-                        >
+            {#if $results.length > 0}
+            <Command.Group heading="Results">
+                                    {#each $results as suggestion}
+                    <Command.Item onSelect={() => handleSuggestionSelect(suggestion)}>
+                        <!-- Render icon based on type -->
+                        {#if suggestion.type === 'course'}
+                            <Book class="mr-3 h-4 w-4" />
+                        {:else if suggestion.type === 'subject'}
                             <School class="mr-3 h-4 w-4" />
-                            <span>{suggestion.name}</span>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-                <Command.Separator />
-            {/if}
-            {#if $instructors.length > 0}
-                <Command.Group heading="Instructors">
-                    {#each $instructors as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    suggestionSelected(suggestion.href)
-                                }}
-                        >
+                        {:else if suggestion.type === 'instructor'}
                             <User class="mr-3 h-4 w-4" />
-                            <div>
-                                <p class="truncate line-clamp-1">{suggestion.name}</p>
-                                <p class="text-xs">{suggestion.position} &#x2022; {suggestion.department}</p>
-                            </div>
-                        </Command.Item>
-                    {/each}
-                </Command.Group>
-            {/if}
+                        {/if}
+                        <div>
+                            {#if suggestion.type === 'course'}
+                                <p>{getCourseTitle(suggestion)}</p>
+                                <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
+                            {:else if suggestion.type === 'subject'}
+                                <span>{getSubjectTitle(suggestion)}</span>
+                            {:else if suggestion.type === 'instructor'}
+                                <p class="truncate line-clamp-1">{getInstructorName(suggestion)}</p>
+                                <p class="text-xs">{getInstructorDetail(suggestion)}</p>
+                            {/if}
+                        </div>
+                    </Command.Item>
+                {/each}
+            </Command.Group>
+        {/if}
+
         </Command.List>
     </Command.Dialog>
 {/if}

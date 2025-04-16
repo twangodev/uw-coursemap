@@ -101,6 +101,14 @@ def read_instructors_to_rating_cache(cache_dir, logger):
         return {}
     return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
 
+def read_quick_statistics_cache(cache_dir, logger):
+    quick_statistics = read_cache(cache_dir, (), "quick_statistics", logger)
+    if quick_statistics is None:
+        return {}
+    return quick_statistics
+
+def write_quick_statistics_cache(cache_dir, quick_statistics, logger):
+    write_file(cache_dir, (), "quick_statistics", quick_statistics, logger)
 
 def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding, logger: Logger):
     """

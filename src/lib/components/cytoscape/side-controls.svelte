@@ -57,8 +57,8 @@
     <IconTooltipStateWrapper
             state={showCodeLabels}
             onclick={toggleShowCodeLabels}
-            activeTooltip="Show Course Codes"
-            inactiveTooltip="Show Course Titles"
+            activeTooltip="Show Course Titles"
+            inactiveTooltip="Show Course Codes"
     >
         {#snippet active()}
             <LucideHash class="h-5 w-5" />
@@ -86,8 +86,8 @@
     <IconTooltipStateWrapper
             state={layoutType === LayoutType.GROUPED }
             onclick={toggleLayoutType}
-            activeTooltip="Ungroup Elements"
-            inactiveTooltip="Group Elements"
+            activeTooltip="Order Elements By Prerequisites"
+            inactiveTooltip="Group Elements By Department"
     >
         {#snippet active()}
             <Group class="h-5 w-5" />

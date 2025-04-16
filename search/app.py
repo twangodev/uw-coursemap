@@ -11,25 +11,25 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
-ES_HOST = environ.get("ES_HOST")
-ES_USERNAME = environ.get("ES_USERNAME")
-ES_PASSWORD = environ.get("ES_PASSWORD")
-ES_VERIFY_CERTS = environ.get("ES_VERIFY_CERTS")
+ELASTIC_HOST = environ.get("ELASTIC_HOST")
+ELASTIC_USERNAME = environ.get("ELASTIC_USERNAME")
+ELASTIC_PASSWORD = environ.get("ELASTIC_PASSWORD")
+ELASTIC_VERIFY_CERTS = environ.get("ELASTIC_VERIFY_CERTS")
 
-if not ES_HOST:
-    raise EnvironmentError("ES_HOST environment variable not set")
-if not ES_USERNAME:
-    raise EnvironmentError("ES_USERNAME environment variable not set")
-if not ES_PASSWORD:
-    raise EnvironmentError("ES_PASSWORD environment variable not set")
-if ES_VERIFY_CERTS is None:
-    raise EnvironmentError("ES_VERIFY_CERTS environment variable not set")
+if not ELASTIC_HOST:
+    raise EnvironmentError("ELASTIC_HOST environment variable not set")
+if not ELASTIC_USERNAME:
+    raise EnvironmentError("ELASTIC_USERNAME environment variable not set")
+if not ELASTIC_PASSWORD:
+    raise EnvironmentError("ELASTIC_PASSWORD environment variable not set")
+if ELASTIC_VERIFY_CERTS is None:
+    raise EnvironmentError("ELASTIC_VERIFY_CERTS environment variable not set")
 
-verify_certs = ES_VERIFY_CERTS.lower() in ("true", "1", "yes")
+verify_certs = ELASTIC_VERIFY_CERTS.lower() in ("true", "1", "yes")
 
 es = Elasticsearch(
-    ES_HOST,
-    basic_auth=(ES_USERNAME, ES_PASSWORD),
+    ELASTIC_HOST,
+    basic_auth=(ELASTIC_USERNAME, ELASTIC_PASSWORD),
     verify_certs=verify_certs
 )
 
@@ -87,7 +87,12 @@ def get_random_courses():
     random_course_ids = random.sample(list(courses.keys()), num_courses)
 
     # Retrieve the full course details
-    random_courses = [{"id": course_id, **courses[course_id]} for course_id in random_course_ids]
+    random_courses = [
+        {
+        "course_id": course_id,
+        **courses[course_id]
+        } for course_id in random_course_ids
+    ]
 
     return jsonify(random_courses)
 
@@ -100,11 +105,18 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
-parser = generate_parser()
-args = parser.parse_args()
+args = None
+verbose = False
 
-data_dir = str(args.data_dir)
-verbose = bool(args.verbose)
+if __name__ == "__main__":
+    parser = generate_parser()
+    args = parser.parse_args()
+
+    verbose = bool(args.verbose) if args else verbose
+
+    app.run(debug=verbose)
+
+data_dir = args.data_dir if args else data_dir_default
 
 logger = logging.getLogger(__name__)
 logging_level = logging.DEBUG if verbose else logging.INFO
@@ -120,5 +132,3 @@ load_subjects(es, subjects)
 load_courses(es, courses)
 load_instructors(es, instructors)
 
-if __name__ == "__main__":
-    app.run(debug=verbose)
