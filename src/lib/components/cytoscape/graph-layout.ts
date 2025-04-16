@@ -26,7 +26,7 @@ export async function generateLayeredLayout(
                 return {
                     id: node.data.id,
                     width: labelIsCode ? node.data.id.length * 7.5 :node.data.title.length * 7.5,
-                    height: labelIsCode ? 15 : 200
+                    height: labelIsCode ? 15 : 25
                 }
             }),
         edges: getEdgeData(courseData).map((edge: EdgeDefinition) => {
