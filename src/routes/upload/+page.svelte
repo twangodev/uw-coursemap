@@ -152,6 +152,13 @@
 </script>
 
 <ContentWrapper>
+    <p class="text-base text-muted-foreground">
+        Courses added here will appear as <span class="text-green-600 font-semibold">green</span> text in the explorer. This is meant to represent courses you've taken.
+    </p>
+    <p class="text-base text-muted-foreground" style="margin-bottom: 1rem;">
+        Courses whose requisites have been taken (but is not a class you've already took) will appear as <span class="text-yellow-500 font-semibold">yellow</span>. This is meant to represent courses you can take next semester.
+    </p>
+
     <div style="margin-bottom: 1rem; display: flex; gap: .5rem;">
         <div style="display: flex;">
             <Dialog.Root bind:open={getOpen, setOpen}>
@@ -197,12 +204,12 @@
 
     
     {#if takenCourses.length == 0 && status == ""}
-        <div style="margin-bottom: 15px;">
+        <div style="margin-bottom: 1rem;" class="text-base text-muted-foreground">
             Click the upload button to autofill courses, or use the course search to manually add courses.
         </div>
     {:else}
         <Label for="courses">{status}</Label>
-        <Table.Root id="courses" style="margin-bottom: 15px;">
+        <Table.Root id="courses" style="margin-bottom: 1rem;">
             <Table.Header>
                 <Table.Row>
                     <Table.Head>Remove</Table.Head>
