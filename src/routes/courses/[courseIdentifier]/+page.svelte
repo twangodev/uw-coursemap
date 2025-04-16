@@ -1,20 +1,19 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-    import { page } from '$app/state';
+    import {page} from '$app/state';
     import ContentH1 from "$lib/components/content/content-h1.svelte";
-    import {onMount} from "svelte";
-    import {writable} from "svelte/store";
-    import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
+    import {type Course, courseReferenceStringToCourse, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {courseReferenceToString} from "$lib/types/course.js";
-    import * as Tabs from "$lib/components/ui/tabs";
-    import * as Card from "$lib/components/ui/card";
     import {
+        ArrowUpRight,
         BookA,
         BookOpen,
-        BookPlus, CircleCheckBig,
+        BookPlus,
+        CalendarRange,
+        CircleCheckBig,
+        ClipboardCheck,
         Info,
-        Users,
-        ArrowUpRight
+        Users
     } from "lucide-svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/change.svelte";
@@ -24,11 +23,15 @@
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
     import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {apiFetch} from "$lib/api.ts";
-    import {getLatestTermId, getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
+    import {getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
-    import {Row} from "$lib/components/ui/table";
     import TermSelector from "$lib/components/term-selector.svelte";
-    import {theme} from "mode-watcher";
+    import {Tabs, TabsContent, TabsList, TabsTrigger} from "$lib/components/ui/tabs";
+    import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card";
+    import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
+    import {env} from "$env/dynamic/public";
+    import { Button } from "$lib/components/ui/button";
+    const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
@@ -38,6 +41,7 @@
         let termsData = await apiFetch(`/terms.json`)
         return await termsData.json()
     })();
+
     let selectedTerm: string | undefined = $state(undefined)
     let instructors: Promise<FullInstructorInformation[]> = $derived(getFullInstructorInformation(course, terms, selectedTerm))
 
@@ -48,18 +52,40 @@
 
     let currentCourseIdentifier: string | null = null;
 
-    const getLatestTermMadgradesData = (course: Course) => {
-        let allTerms = Object.keys(course?.madgrades_data?.by_term ?? {}).sort()
-        let latestTerm = allTerms[allTerms.length - 1]
-        return course?.madgrades_data?.by_term[latestTerm] ?? null
+    function termsWithEnrollmentData(course: Course) {
+        const allTerms = Object.keys(course?.term_data ?? {}).sort((a, b) => Number(a) - Number(b));
+        return allTerms.filter(term => course.term_data[term]?.enrollment_data != null);
     }
 
-    const getCumulativeGPA = (course: Course) => {
-        return calculateGradePointAverage(course?.madgrades_data?.cumulative)
+    function getLatestEnrollmentData(course: Course) {
+        const validTerms = termsWithEnrollmentData(course);
+        if (!validTerms.length) return null;
+        const latestTerm = validTerms[validTerms.length - 1];
+
+        let candidateTerm = selectedTerm ?? latestTerm;
+        return course.term_data[candidateTerm]?.enrollment_data ?? course.term_data[latestTerm].enrollment_data;
+    }
+    
+    function termsWithGradeData(course: Course) {
+        const allTerms = Object.keys(course?.term_data ?? {}).sort((a, b) => Number(a) - Number(b));
+        return allTerms.filter(term => course.term_data[term]?.grade_data != null);
+    }
+
+    function getTermGradeData(course: Course) {
+        const validTerms = termsWithGradeData(course);
+        if (!validTerms.length) return null;
+        const latestTerm = validTerms[validTerms.length - 1];
+
+        let candidateTerm = selectedTerm ?? latestTerm;
+        return course.term_data[candidateTerm]?.grade_data ?? course.term_data[latestTerm].grade_data;
+    }
+
+    function getCumulativeGPA(course: Course) {
+        return calculateGradePointAverage(course?.cumulative_grade_data)
     }
 
     const getLatestTermGPA = (course: Course) => {
-        return calculateGradePointAverage(getLatestTermMadgradesData(course))
+        return calculateGradePointAverage(getTermGradeData(course))
     }
 
     const getPercentChange = (latest: number | null, cumulative: number | null) => {
@@ -85,34 +111,27 @@
     }
 
     const getCumulativeCompletionRate = (course: Course) => {
-        return calculateCompletionRate(course.madgrades_data?.cumulative)
+        return calculateCompletionRate(course.cumulative_grade_data)
     }
 
     const getLatestCompletionRate = (course: Course) => {
-        return calculateCompletionRate(getLatestTermMadgradesData(course))
+        return calculateCompletionRate(getTermGradeData(course))
     }
 
     const getCumulativeARate = (course: Course) => {
-        return calculateARate(course.madgrades_data?.cumulative)
+        return calculateARate(course.cumulative_grade_data)
     }
 
     const getLatestARate = (course: Course) => {
-        return calculateARate(getLatestTermMadgradesData(course))
+        return calculateARate(getTermGradeData(course))
     }
 
     const getCumulativeClassSize = (course: Course) => {
-        let average = 0;
-        if (!course?.madgrades_data?.by_term) {
-            return 0
-        }
-        for (let term in course.madgrades_data.by_term) {
-            average += course.madgrades_data.by_term[term].total
-        }
-        return average / Object.keys(course.madgrades_data.by_term).length
+        return (course.cumulative_grade_data?.total ?? 0) / termsWithGradeData(course).length;
     }
 
     const getLatestClassSize = (course: Course) => {
-        return getLatestTermMadgradesData(course)?.total ?? 0
+        return getTermGradeData(course)?.total ?? 0
     }
 
     const appendPercent = (value: number | null) => {
@@ -122,8 +141,22 @@
         return `${value.toFixed(2)}%`
     }
 
-    onMount(async () => {
-    })
+    const getCreditCount = (course: Course) => {
+        const creditCount = getLatestEnrollmentData(course)?.credit_count;
+        if (!creditCount) {
+            return "Not Reported";
+        }
+
+        if (creditCount[0] === creditCount[1]) {
+            return `${creditCount[0]}`;
+        } else {
+            return `${creditCount[0]} to ${creditCount[1]}`;
+        }
+    }
+
+    const getNormallyOffered = (course: Course) => {
+        return getLatestEnrollmentData(course)?.typically_offered ?? "Not Reported";
+    }
 
 </script>
 
@@ -140,108 +173,129 @@
             </div>
             <TermSelector bind:selectedTerm={selectedTerm} terms={terms} />
         </div>
-        <Tabs.Root value="overview">
-            <Tabs.List class="my-2">
-                <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-                <Tabs.Trigger value="trends">Trends</Tabs.Trigger>
-                <Tabs.Trigger value="instructors">Instructors</Tabs.Trigger>
-            </Tabs.List>
+        <Tabs value="overview">
+            <TabsList class="my-2">
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="trends">Trends</TabsTrigger>
+                <TabsTrigger value="instructors">Instructors</TabsTrigger>
+                <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
+            </TabsList>
             <div class="grid gap-4 lg:grid-cols-12">
                 <div class="space-y-4 mt-2 lg:col-span-3">
-                    <Card.Root>
-                        <Card.Header
+                    <Card>
+                        <CardHeader
                                 class="flex flex-row items-center justify-between space-y-0 pb-2"
                         >
-                            <Card.Title class="text-base font-medium">Course Description</Card.Title>
+                            <CardTitle class="text-base font-medium">Course Description</CardTitle>
                             <Info class="text-muted-foreground h-4 w-4" />
-                        </Card.Header>
-                        <Card.Content>
+                        </CardHeader>
+                        <CardContent>
                             <p class="text-sm break-words">{course.description}</p>
-                        </Card.Content>
-                        <Card.Header
+                        </CardContent>
+                        <CardHeader
                                 class="flex flex-row items-center justify-between space-y-0 pb-2"
                         >
-                            <Card.Title class="text-base font-medium">Prerequisties</Card.Title>
+                            <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
                             <BookOpen class="text-muted-foreground h-4 w-4" />
-                        </Card.Header>
-                        <Card.Content>
+                        </CardHeader>
+                        <CardContent>
                             <p class="text-sm break-words">{course.prerequisites.prerequisites_text}</p>
-                        </Card.Content>
-                    </Card.Root>
+                        </CardContent>
+                        <div class="flex flex-row space-x-4">
+                            <div class="flex-1">
+                                <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle class="text-base font-medium">Credits</CardTitle>
+                                    <ClipboardCheck class="text-muted-foreground h-4 w-4" />
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-sm break-words">{getCreditCount(course)}</p>
+                                </CardContent>
+                            </div>
+                            <div class="flex-1">
+                                <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+                                    <CardTitle class="text-base font-medium">Offered</CardTitle>
+                                    <CalendarRange class="text-muted-foreground h-4 w-4" />
+                                </CardHeader>
+                                <CardContent>
+                                    <p class="text-sm break-words">{getNormallyOffered(course)}</p>
+                                </CardContent>
+                            </div>
+                        </div>
+                    </Card>
                 </div>
-                <Tabs.Content value="overview" class="lg:col-span-9 space-y-4">
+                <TabsContent value="overview" class="lg:col-span-9 space-y-4">
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                        <Card.Root>
-                            <Card.Header
+                        <Card>
+                            <CardHeader
                                     class="flex flex-row items-center justify-between space-y-0 pb-2"
                             >
-                                <Card.Title class="text-sm font-medium">Grade Point Average</Card.Title>
+                                <CardTitle class="text-sm font-medium">Grade Point Average</CardTitle>
                                 <BookPlus class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
+                            </CardHeader>
+                            <CardContent>
                                 <div class="text-2xl font-bold {calculateColorFromGPA(getLatestTermGPA(course))}">
                                     {getLatestTermGPA(course)?.toFixed(2) ?? "Not Reported"}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA(course), getCumulativeGPA(course))} comparisonKeyword="Historical"/>
-                            </Card.Content>
-                        </Card.Root>
-                        <Card.Root>
-                            <Card.Header
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader
                                     class="flex flex-row items-center justify-between space-y-0 pb-2"
                             >
-                                <Card.Title class="text-sm font-medium">Completion Rate</Card.Title>
+                                <CardTitle class="text-sm font-medium">Completion Rate</CardTitle>
                                 <CircleCheckBig class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
+                            </CardHeader>
+                            <CardContent>
                                 <div class="text-2xl font-bold">
                                     {appendPercent(getLatestCompletionRate(course))}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate(course), getCumulativeCompletionRate(course))} comparisonKeyword="Historical"/>
-                            </Card.Content>
-                        </Card.Root>
-                        <Card.Root>
-                            <Card.Header
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader
                                     class="flex flex-row items-center justify-between space-y-0 pb-2"
                             >
-                                <Card.Title class="text-sm font-medium">A Rate</Card.Title>
+                                <CardTitle class="text-sm font-medium">A Rate</CardTitle>
                                 <BookA class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
+                            </CardHeader>
+                            <CardContent>
                                 <div class="text-2xl font-bold">
                                     {appendPercent(getLatestARate(course))}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate(course), getCumulativeARate(course))} comparisonKeyword="Historical"/>
-                            </Card.Content>
-                        </Card.Root>
-                        <Card.Root>
-                            <Card.Header
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader
                                     class="flex flex-row items-center justify-between space-y-0 pb-2"
                             >
-                                <Card.Title class="text-sm font-medium">Class Size</Card.Title>
+                                <CardTitle class="text-sm font-medium">Class Size</CardTitle>
                                 <Users class="text-muted-foreground h-4 w-4" />
-                            </Card.Header>
-                            <Card.Content>
+                            </CardHeader>
+                            <CardContent>
                                 <div class="text-2xl font-bold">
                                     {getLatestClassSize(course) ?? "Not Reported"}
                                 </div>
                                 <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize(course), getCumulativeClassSize(course))} comparisonKeyword="Historical"/>
-                            </Card.Content>
-                        </Card.Root>
+                            </CardContent>
+                        </Card>
                     </div>
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                        <Card.Root class="lg:col-span-4">
-                            <Card.Content class="pt-6">
-                                {#if course.madgrades_data}
-                                    <GradeDataHorizontalBarChart madgradesData={course.madgrades_data} />
+                        <Card class="lg:col-span-4">
+                            <CardContent class="pt-6">
+                                {#if course.cumulative_grade_data}
+                                    <GradeDataHorizontalBarChart cumulative={course.cumulative_grade_data} termData={course.term_data} />
                                 {:else}
                                     <p class="text-center">No data available</p>
                                 {/if}
-                            </Card.Content>
-                        </Card.Root>
-                        <Card.Root class="lg:col-span-3">
-                            <Card.Header>
-                                <Card.Title>Instructors ({selectedTerm ? terms[selectedTerm] : ""})</Card.Title>
-                                <Card.Description class="flex">
+                            </CardContent>
+                        </Card>
+                        <Card class="lg:col-span-3">
+                            <CardHeader>
+                                <CardTitle>Instructors ({selectedTerm ? terms[selectedTerm] : ""})</CardTitle>
+                                <CardDescription class="flex">
                                     Sorted by ratings from
                                     <a href="https://www.ratemyprofessors.com/"
                                        class="ml-1 flex items-center font-medium hover:underline underline-offset-4"
@@ -250,9 +304,9 @@
                                         Rate My Professors
                                         <ArrowUpRight class="h-4 w-4 inline"/>
                                     </a>
-                                </Card.Description>
-                            </Card.Header>
-                            <Card.Content>
+                                </CardDescription>
+                            </CardHeader>
+                            <CardContent>
                                 {#await instructors}
                                     <p class="text-center">Loading...</p>
                                 {:then instructors}
@@ -262,30 +316,30 @@
                                 {:catch error}
                                     <p class="text-red-600">Error loading instructors: {error.message}</p>
                                 {/await}
-                            </Card.Content>
-                        </Card.Root>
+                            </CardContent>
+                        </Card>
                         <div class="md:col-span-2 lg:col-span-7">
-                            <h2 class="text-2xl font-bold my-4">Related Courses</h2>
-                            <CourseCarousel courseReferences={course.prerequisites.course_references}/>
+                            <h2 class="text-2xl font-bold my-4">Similar Courses</h2>
+                            <CourseCarousel courseReferences={course.similar_courses ? course.similar_courses : []}/>
                         </div>
                     </div>
-                </Tabs.Content>
-                <Tabs.Content value="trends" class="lg:col-span-9 space-y-4">
-                    <Card.Root>
-                        <Card.Content class="pt-6">
-                            {#if course.madgrades_data}
-                            <ComboGradeDataStackedAreaChart madgradesData={course.madgrades_data} {terms} />
+                </TabsContent>
+                <TabsContent value="trends" class="lg:col-span-9 space-y-4">
+                    <Card>
+                        <CardContent class="pt-6">
+                            {#if course.cumulative_grade_data}
+                                <ComboGradeDataStackedAreaChart term_data={course.term_data} {terms} />
                             {:else }
                                 <p class="text-center">No data available</p>
                             {/if}
-                        </Card.Content>
-                    </Card.Root>
-                </Tabs.Content>
-                <Tabs.Content value="instructors" class="lg:col-span-9 space-y-4">
-                    <Card.Root>
-                        <Card.Header>
-                            <Card.Title>Instructors</Card.Title>
-                            <Card.Description class="flex">
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="instructors" class="lg:col-span-9 space-y-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Instructors</CardTitle>
+                            <CardDescription class="flex">
                                 Sorted by ratings from
                                 <a href="https://www.ratemyprofessors.com/"
                                    class="ml-1 flex items-center font-medium hover:underline underline-offset-4"
@@ -294,9 +348,9 @@
                                     Rate My Professors
                                     <ArrowUpRight class="h-4 w-4 inline"/>
                                 </a>
-                            </Card.Description>
-                        </Card.Header>
-                        <Card.Content>
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
                             {#await instructors}
                                 <p class="text-center">Loading...</p>
                             {:then instructors}
@@ -310,22 +364,55 @@
                             {:catch error}
                                 <p class="text-red-600">Error loading instructors: {error.message}</p>
                             {/await}
-                        </Card.Content>
-                    </Card.Root>
-                    <Card.Root>
+                        </CardContent>
+                    </Card>
+                    <Card>
                         {#await instructors}
                             <p class="text-center">Loading...</p>
                         {:then instructors}
-                            <Card.Content>
+                            <CardContent>
                                 <InstructorWordCloud instructors={instructors} />
-                            </Card.Content>
+                            </CardContent>
                         {:catch error}
                             <p class="text-red-600">Error loading instructors: {error.message}</p>
                         {/await}
-                    </Card.Root>
-                </Tabs.Content>
+                    </Card>
+                </TabsContent>
+                
+                <TabsContent value="prerequisites" class="lg:col-span-9 space-y-4">
+                    <Card class="h-[600px] flex flex-col">
+                        <CardHeader>
+                            <div class="flex items-center justify-between">
+                            <div>
+                                <CardTitle>Course Prerequisites Map</CardTitle>
+                                <CardDescription>
+                                    Visual representation of course prerequisites and related courses
+                                </CardDescription>
+                            </div>
+                            <Button
+                                    variant="outline"
+                                    size="sm"
+                                    href="/explorer/{course.course_reference.subjects[0]}?focus={sanitizeCourseToReferenceString(course.course_reference)}"
+                                    class="flex items-center gap-2"
+                            >
+                                <BookOpen class="h-4 w-4" />
+                                View on Department Graph
+                            </Button>
+                            </div>
+                        </CardHeader>
+                        <CardContent class="flex-1">
+                            <div class="flex h-full w-full">
+                                <Cytoscape
+                                    url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json"
+                                    styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
+                                    filter={course}
+                                />
+                            </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
             </div>
-        </Tabs.Root>
+        </Tabs>
     {:catch error}
         <p class="text-red-600">Error loading course: {error.message}</p>
     {/await}

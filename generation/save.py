@@ -3,6 +3,8 @@ import os
 from datetime import datetime, timezone
 from logging import Logger
 
+from pathvalidate import validate_filename, ValidationError
+
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
 
@@ -24,10 +26,10 @@ def recursive_sort_data(data):
     """
     if isinstance(data, dict):
         return {key: recursive_sort_data(data[key]) for key in sorted(data.keys())}
-    elif isinstance(data, (list, set, tuple)):
+    if isinstance(data, (list, set, tuple)):
         return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for
                 item in data]
-    elif isinstance(data, JsonSerializable):
+    if isinstance(data, JsonSerializable):
         return recursive_sort_data(json.loads(data.to_json()))
     else:
         return data
@@ -54,6 +56,11 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     - data: Dictionary or list to be written to the file.
     - logger: Logger instance for logging messages.
     """
+
+    if not data:
+        logger.warning(f"Data is empty for {filename}. Skipping writing to file.")
+        return
+
     if not isinstance(data, (dict, list, set, tuple, JsonSerializable)):
         raise TypeError("Data must be a dictionary, list, set, tuple, or JsonSerializable object")
 
@@ -78,6 +85,12 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
 
     # Sanitize the filename to remove problematic characters
     sanitized_filename = filename.replace("/", "_").replace(" ", "_")
+
+    try:
+        validate_filename(sanitized_filename)
+    except ValidationError as e:
+        logger.warning(f"Invalid filename '{sanitized_filename}': {e}. Not writing file.")
+        return
 
     # Full path to the JSON file
     file_path = os.path.join(directory_path, f"{sanitized_filename}.json")
@@ -108,9 +121,21 @@ def wipe_data(data_dir, logger):
     logger.info("Wiping complete. Only .json files were removed.")
 
 
-def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier_to_course, global_graph,
-               subject_to_graph, global_style, subject_to_style, instructor_to_rating: dict[str, FullInstructor], terms,
-               logger):
+def write_data(
+        data_dir,
+        subject_to_full_subject,
+        subject_to_courses,
+        identifier_to_course,
+        global_graph,
+        subject_to_graph,
+        course_to_graph,
+        global_style,
+        subject_to_style,
+        instructor_to_rating: dict[str, FullInstructor],
+        terms,
+        quick_statistics,
+        logger,
+):
     wipe_data(data_dir, logger)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
@@ -125,6 +150,9 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
     for subject, graph in subject_to_graph.items():
         write_file(data_dir, ("graphs",), subject, graph, logger)
 
+    for course, graph in course_to_graph.items():
+        write_file(data_dir, ("graphs", "course"), course, graph, logger) 
+
     write_file(data_dir, tuple(), "global_style", global_style, logger)
     for subject, style in subject_to_style.items():
         write_file(data_dir, ("styles",), subject, style, logger)
@@ -135,6 +163,8 @@ def write_data(data_dir, subject_to_full_subject, subject_to_courses, identifier
         write_file(data_dir, ("instructors",), instructor, rating, logger)
 
     write_file(data_dir, tuple(), "terms", terms, logger)
+
+    write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {

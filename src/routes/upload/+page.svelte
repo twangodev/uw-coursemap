@@ -18,6 +18,7 @@
     let takenCourses = $state(new Array<any>)
     let status = $state("");
     let browseInput: HTMLInputElement;
+    let infoDialogOpen = $state(false);
     
     //load data
     onMount(() => {

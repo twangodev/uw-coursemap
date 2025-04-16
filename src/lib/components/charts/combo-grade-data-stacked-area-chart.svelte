@@ -1,26 +1,33 @@
 <script lang="ts">
     import {type ChartTabularData, ComboChart, type ComboChartOptions, ScaleTypes} from '@carbon/charts-svelte';
-    import {calculateGradePointAverage, getTotalOtherGrades, type MadgradesData} from "$lib/types/madgrades.ts";
+    import {calculateGradePointAverage, getTotalOtherGrades} from "$lib/types/madgrades.ts";
     import type {Terms} from "$lib/types/terms.ts";
     import {getCarbonTheme} from "$lib/theme.ts";
     import {mode} from "mode-watcher";
+    import type {TermData} from "$lib/types/course.ts";
 
     const selectedGroups = ['a', 'ab', 'b', 'bc', 'c', 'd', 'f'];
     const selectedGroupsWithOther = selectedGroups.map((group) => group.toUpperCase()).concat(['Other']);
 
     interface Props {
-        madgradesData: MadgradesData;
+        term_data: {
+            [key: string]: TermData
+        };
         terms: Terms;
     }
 
-    let { madgradesData, terms }: Props = $props();
+    let { term_data, terms }: Props = $props();
 
-    function madgradesDataToChartTabularData(madgradesData: MadgradesData): ChartTabularData {
+    function madgradesDataToChartTabularData(termData: {[key: string] : TermData}): ChartTabularData {
         const data: ChartTabularData = [];
 
-        for (const [termCode, value] of Object.entries(madgradesData.by_term)) {
+        for (const [termCode, value] of Object.entries(termData)) {
             let term = terms[termCode];
-            for (const [grade, count] of Object.entries(value)) {
+            const gradeData = value.grade_data;
+            if (!gradeData) {
+                continue;
+            }
+            for (const [grade, count] of Object.entries(gradeData)) {
                 if (!selectedGroups.includes(grade)) {
                     continue;
                 }
@@ -33,18 +40,18 @@
             data.push({
                 group: 'Other',
                 term: term,
-                value: getTotalOtherGrades(value)
+                value: getTotalOtherGrades(gradeData)
             })
             data.push({
                 group: 'GPA',
                 term: term,
-                gValue: calculateGradePointAverage(value)
+                gValue: calculateGradePointAverage(gradeData)
             })
         }
         return data;
     }
 
-    let data: ChartTabularData = $derived(madgradesDataToChartTabularData(madgradesData));
+    let data: ChartTabularData = $derived(madgradesDataToChartTabularData(term_data));
 
     let options: ComboChartOptions = $derived({
         title: 'Stacked Grade Distribution + GPA',

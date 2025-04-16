@@ -5,9 +5,11 @@ from logging import Logger
 
 import coloredlogs
 
+from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
-    write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache
+    write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
+    write_quick_statistics_cache, read_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_openai_client
 from enrollment import sync_enrollment_terms, build_from_mega_query
@@ -50,7 +52,7 @@ def generate_parser():
     )
     parser.add_argument(
         "--step",
-        choices=["all", "courses", "madgrades", "instructors", "madgrades", "optimize", "graph"],
+        choices=["all", "courses", "madgrades", "instructors", "aggregate", "optimize", "graph"],
         help="Strategy for generating course map data.",
         required=True,
     )
@@ -113,27 +115,26 @@ def instructors(
 ):
     api_key = scrape_rmp_api_key(logger)
     instructors_emails = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
-    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails,api_key=api_key, logger=logger))
+    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
     return instructor_to_rating, instructors_emails
 
+embedding_model = "text-embedding-3-small"
 
 def optimize(
         cache_dir,
         course_ref_to_course,
         max_prerequisites,
         openai_api_key,
-        verbose,
         logger,
 ):
     open_ai_client = get_openai_client(
         api_key=openai_api_key,
         logger=logger,
-        verbose=verbose
     )
     asyncio.run(optimize_prerequisites(
         cache_dir=cache_dir,
         client=open_ai_client,
-        model="text-embedding-3-small",
+        model=embedding_model,
         course_ref_to_course=course_ref_to_course,
         max_prerequisites=max_prerequisites,
         max_retries=50,
@@ -149,7 +150,7 @@ def graph(
 ):
     subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
 
-    global_graph, subject_to_graph = build_graphs(
+    global_graph, subject_to_graph, course_to_graph = build_graphs(
         course_ref_to_course=course_ref_to_course,
         subject_to_courses=subject_to_courses,
         logger=logger
@@ -158,13 +159,14 @@ def graph(
     cleanup_graphs(
         global_graph=global_graph,
         subject_to_graph=subject_to_graph,
+        course_to_graph=course_to_graph,
         logger=logger
     )
 
     subject_to_style = generate_styles(subject_to_graph=subject_to_graph, color_map=color_map)
     global_style = generate_style_from_graph(global_graph, color_map)
 
-    return global_graph, subject_to_graph, subject_to_style, global_style
+    return global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style
 
 
 def main():
@@ -188,7 +190,7 @@ def main():
     subject_to_full_subject = None
     course_ref_to_course = None
     terms = None
-    global_graph, subject_to_graph, global_style, subject_to_style = None, None, None, None
+    global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = None, None, None, None, None
     instructor_to_rating = None
 
     if filter_step(step, "courses"):
@@ -225,6 +227,37 @@ def main():
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
 
+    quick_statistics = None
+
+    if filter_step(step, "aggregate"):
+        logger.info("Aggregating data")
+
+        if course_ref_to_course is None:
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+
+        if instructor_to_rating is None:
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+
+        aggregate_instructors(
+            course_ref_to_course=course_ref_to_course,
+            instructor_to_rating=instructor_to_rating,
+            logger=logger
+        )
+
+        quick_statistics = aggregate_courses(
+            course_ref_to_course=course_ref_to_course,
+            cache_dir=cache_dir,
+            openai_api_key=openai_api_key,
+            model=embedding_model,
+            logger=logger
+        )
+
+        write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
+        write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+        write_quick_statistics_cache(cache_dir, quick_statistics, logger)
+
+        logger.info("Data aggregated successfully.")
+
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")
         if course_ref_to_course is None:
@@ -235,7 +268,6 @@ def main():
             course_ref_to_course=course_ref_to_course,
             max_prerequisites=max_prerequisites,
             openai_api_key=openai_api_key,
-            verbose=verbose,
             logger=logger
         )
 
@@ -249,13 +281,13 @@ def main():
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         color_map = {}
-        global_graph, subject_to_graph, subject_to_style, global_style = graph(
+        global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style = graph(
             course_ref_to_course=course_ref_to_course,
             color_map=color_map,
             logger=logger
         )
 
-        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger)
+        write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map, logger)
 
         logger.info("Course graph built successfully.")
 
@@ -270,14 +302,18 @@ def main():
         subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
         identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
-        if global_graph is None or subject_to_graph is None or global_style is None or subject_to_style is None:
-            global_graph, subject_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
+        graphs = [global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style] 
+        if graphs.count(None) >= 1: 
+            global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
 
         if instructor_to_rating is None:
             instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
 
         if terms is None:
             terms = read_terms_cache(cache_dir, logger)
+
+        if quick_statistics is None:
+            quick_statistics = read_quick_statistics_cache(cache_dir, logger)
 
         write_data(
             data_dir=data_dir,
@@ -286,10 +322,12 @@ def main():
             identifier_to_course=identifier_to_course,
             global_graph=global_graph,
             subject_to_graph=subject_to_graph,
+            course_to_graph=course_to_graph,
             global_style=global_style,
             subject_to_style=subject_to_style,
             instructor_to_rating=instructor_to_rating,
             terms=terms,
+            quick_statistics=quick_statistics,
             logger=logger
         )
 

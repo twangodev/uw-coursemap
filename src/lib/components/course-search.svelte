@@ -29,11 +29,13 @@
     interface Props {
         takenCourses: Array<any>;
         status: string;
+        defaultString?: string;
     }
 
     let { 
         takenCourses = $bindable(),
-        status = $bindable()
+        status = $bindable(),
+        defaultString = "Search courses..."
     }: Props = $props();
 
     $effect(() => {

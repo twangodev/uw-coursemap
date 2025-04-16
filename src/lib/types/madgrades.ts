@@ -1,4 +1,4 @@
-type GradeData = {
+export type GradeData = {
     total: number,
     a: number,
     ab: number,
@@ -16,13 +16,7 @@ type GradeData = {
     no_work: number,
     not_reported: number,
     other: number,
-}
-
-export type MadgradesData = {
-    cumulative: GradeData,
-    by_term: {
-        [term: string]: GradeData
-    }
+    instructors: string[] | null,
 }
 
 export function getTotalOtherGrades(gradeData: GradeData): number {

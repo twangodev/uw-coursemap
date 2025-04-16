@@ -19,6 +19,7 @@
     import RatingDonutChart from "$lib/components/charts/rating-donut-chart.svelte";
     import AttendanceDonutChart from "$lib/components/charts/attendance-donut-chart.svelte";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
+    import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
 
     async function fetchInstructor(name: string) {
         const response = await apiFetch(`/instructors/${name}.json`)
@@ -69,6 +70,13 @@
             fetchInstructor(name)
         }
     })
+
+    const appendPercent = (value: number | null) => {
+        if (value === null) {
+            return "Not Reported"
+        }
+        return `${value.toFixed(2)}%`
+    }
 
 </script>
 
@@ -133,7 +141,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                Coming Soon
+                                {calculateGradePointAverage($instructor.cumulative_grade_data)?.toFixed(2) ?? "Not Reported"}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -147,7 +155,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                Coming Soon
+                                {appendPercent(calculateCompletionRate($instructor.cumulative_grade_data))}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -161,7 +169,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                Coming Soon
+                                {appendPercent(calculateARate($instructor.cumulative_grade_data))}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -175,7 +183,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                Coming Soon
+                                {$instructor?.cumulative_grade_data?.total ?? 0}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize($course), getCumulativeClassSize($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>

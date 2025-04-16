@@ -82,8 +82,12 @@ def search_subjects(es: Elasticsearch, search_term: str):
             "multi_match": {
                 "query": search_term,
                 "fields": [
-                    "name", "abbreviation", "variations",
-                    "name_normalized", "abbreviation_normalized", "variations_normalized"
+                    "name^20",
+                    "abbreviation^20",
+                    "variations^20",
+                    "name_normalized^20",
+                    "abbreviation_normalized^20",
+                    "variations_normalized^20"
                 ],
                 "fuzziness": "AUTO"
             }
@@ -96,6 +100,7 @@ def search_subjects(es: Elasticsearch, search_term: str):
         {
             "subject_id": hit["_id"],
             "name": hit["_source"]["name"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]
@@ -151,10 +156,10 @@ def search_courses(es: Elasticsearch, search_term: str):
             "multi_match": {
                 "query": word_part,
                 "fields": [
-                    "course_title_normalized^3",
-                    "course_reference_normalized^2",
-                    "subjects_normalized^5",
-                    "departments_normalized"
+                    "course_title_normalized^5",
+                    "course_reference_normalized^5",
+                    "subjects_normalized^8",
+                    "departments_normalized^3"
                 ],
                 "fuzziness": "AUTO"
             }
@@ -208,6 +213,7 @@ def search_courses(es: Elasticsearch, search_term: str):
             "course_number": hit["_source"]["course_number"],
             "subjects": hit["_source"]["subjects"],
             "departments": hit["_source"]["departments"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]
@@ -298,6 +304,7 @@ def search_instructors(es, search_term):
             "email": hit["_source"]["email"],
             "position": hit["_source"]["position"],
             "department": hit["_source"]["department"],
+            "score": hit["_score"]
         }
         for hit in hits
     ]

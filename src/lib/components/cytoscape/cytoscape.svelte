@@ -15,7 +15,7 @@
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseDrawer from "./course-drawer.svelte";
-    import {clearPath, highlightPath, markNextCourses} from "./paths.ts";
+    import {clearPath, getPredecessorsNotTaken, highlightPath, markNextCourses} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -23,18 +23,29 @@
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
     import { onMount } from "svelte";
-    import { getData } from "$lib/localStorage.ts";
+    import { FileText, Terminal, X } from "lucide-svelte";
+    import * as Alert from "$lib/components/ui/alert/index.js"; 
+    import { AlertClose } from "$lib/components/ui/alert";
+    import { getData, setData, clearData } from "$lib/localStorage.ts";
+    import * as Dialog from "$lib/components/ui/dialog";
 
     interface Props {
         url: string;
         styleUrl: string;
+        // dfs backwards from a specific course until it reaches courses that are taken
+        // courses not reached by dfs are hidden
+        filter?: Course;
     }
 
-    let takenCourses: (undefined | string)[] = [];
+    let cy: cytoscape.Core | undefined = $state()
+
+    let takenCourses: (undefined | string)[] = $state([]);
+    let showAlert = $derived(cy && takenCourses.length <= 0);
+    let hasSeenTapGuide = $state(false);
+
+    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
     //load data
     onMount(() => {
-        // console.log("mounted")
-        // console.log("data", getData("takenCourses"));
         takenCourses = getData("takenCourses").map((course: any) => {
             if (course.course_reference === undefined) {
                 return;
@@ -42,10 +53,11 @@
 
             return courseReferenceToString(course.course_reference);
         });
-        // console.log("after", takenCourses);
+        hasSeenTapGuide = !(getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0);
+        
     });
 
-    let { url, styleUrl }: Props = $props();
+    let { url, styleUrl, filter = undefined }: Props = $props();
     let sheetOpen = $state(false);
     let progress = $state({
         text: "Loading Graph...",
@@ -64,12 +76,13 @@
         }
     });
 
-    let cy: cytoscape.Core | undefined = $state()
     let elementsAreDraggable = $state(false);
-    let showCodeLabels = $state(false);
+    let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let selectedCourse = $state<Course | undefined>();
+    let selectedCourse: Course | undefined = $state(undefined);
+
+    // Add near your other state declarations
 
     function tippyFactory(ref: any, content: any) {
         // Since tippy constructor requires DOM element/elements, create a placeholder
@@ -105,7 +118,7 @@
         }
 
         courseData = await fetchGraphData(url);
-
+        
         progress = {
             text: "Styling Graph...",
             number: 50,
@@ -136,7 +149,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType, courseData);
+        let layout = await computeLayout(layoutType, courseData, false);
 
         progress = {
             text: "Graph Loaded",
@@ -153,8 +166,24 @@
             motionBlur: true,
         });
 
+        if (filter !== undefined) {
+            console.log(cy.nodes()[0])
+            console.log(courseReferenceToString(filter.course_reference));
+            console.log(cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0]);
+            let keepData = getPredecessorsNotTaken(cy, cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0], takenCourses);
+            const nodesToRemove = cy.nodes().filter((node: cytoscape.NodeSingular) => {
+                return !keepData.includes(node.id()) && node.data('type') !== 'compound';
+            });
+
+            console.log(keepData);
+            cy.remove(nodesToRemove); 
+        }
+
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
+            if (targetNode?.data('type') === 'compound') {
+                return;
+            }
             if (elementsAreDraggable) {
                 targetNode.removeClass('no-overlay');
                 targetNode.unpanify();
@@ -162,14 +191,36 @@
                 targetNode.addClass('no-overlay');
                 targetNode.panify();
             }
+
+            clearPath(cy, destroyTip);
             highlightPath(cy, targetNode);
         });
 
         cy.on('mouseout', 'node', function (event) {
             clearPath(cy, destroyTip);
+            if (highlightedCourse !== undefined) {
+                highlightPath(cy, highlightedCourse)
+            }
         });
 
-        cy.on('tap', 'node', async function (event) {
+        // keep course highlighted/unhighlighted when double tapping
+        cy.on('dbltap', function(event) {
+            const targetNode = event.target;
+            
+            // If we clicked a node (that isn't a compound node)
+            if (targetNode.isNode && targetNode.data('type') !== 'compound') {
+                highlightedCourse = targetNode;
+                highlightPath(cy, targetNode);
+            } 
+            // If we clicked empty space or a compound node
+            else if (!targetNode.isNode || targetNode.data('type') === 'compound') {
+                highlightedCourse = undefined;
+                clearPath(cy, destroyTip);
+            }
+        });
+
+        // open course sheet when single tapping on course
+        cy.on('onetap', 'node', async function (event) {
             const targetNode = event.target;
             if (targetNode?.data('type') === 'compound') {
                 return;
@@ -177,9 +228,9 @@
 
             if (isDesktop()) {
                 selectedCourse = undefined;
-                sheetOpen = true;
 
                 selectedCourse = await fetchCourse(targetNode.id())
+                sheetOpen = true;
                 return;
             }
 
@@ -199,7 +250,12 @@
 
             setTip(tip);
         });
-
+        const focusParam = page.url.searchParams.get('focus');
+        if (focusParam !== null) {
+            highlightedCourse = cy?.$id(focusParam.replaceAll("_", " "))[0];
+        } else {
+            highlightedCourse = undefined;
+        }
         progress = {
             text: "Graph Loaded",
             number: 100,
@@ -209,21 +265,25 @@
     $effect(() => {
         if (url && styleUrl) {
             loadGraph()
-        }
-    });
-
-    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[]) {
-        if (!cy) {
             return;
         }
 
-        if (layoutType === LayoutType.GROUPED) {
-            cy.layout(generateFcoseLayout(focus)).run();
-        } else {
-            await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
-            })();
+        if (!cy) {
+            return
         }
+
+        hide(hiddenSubject);
+        computeLayout(layoutType, courseData, true);
+    });
+
+    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[], shouldRun: boolean) {
+        let layout = layoutType === LayoutType.GROUPED ? generateFcoseLayout(focus) : await generateLayeredLayout(focus, courseData, showCodeLabels);
+
+        if (cy && shouldRun) {
+            cy.layout(layout).run();
+        }
+
+        return layout;
     }
 
     $effect(() => {
@@ -236,15 +296,18 @@
                 node.addClass("taken-nodes");
             } else {
                 node.removeClass("taken-nodes");
+                // this is meant to mark courses with no prerequisites
+                // since grad courses don't have prerequisites, we need to check if the course has no incomers and at least one outgoer
+                // this is a bit of a hack, but it works for now
+                if (node.incomers('node').length === 0 && node.outgoers('node').length > 0) {
+                    node.addClass("next-nodes");
+                } else {
+                    node.removeClass("next-nodes");
+                }
             }
         });
 
-        // console.log("actually taken: ", takenCourses);
         markNextCourses(cy);
-    })
-
-    $effect(() => {
-        computeLayout(layoutType, courseData);
     })
 
     $effect(() => {
@@ -263,9 +326,9 @@
             'line-color': getTextColor($mode),
             'target-arrow-color': getTextColor($mode),
         }).selector('.taken-nodes').style({
-            'color': "#008450",
+            'color': $mode === 'dark' ? "#4CC38A" : "#007F44"
         }).selector('.next-nodes').style({
-            'color': "#EFB700",
+            'color': $mode === 'dark' ? "#FFD700" : "#B38600",
         }).update()
     })
 
@@ -284,18 +347,7 @@
         if (subject) {
             removedSubjectNodes = cy.nodes(`[parent = "${subject}"]`).remove();
         }
-
-        computeLayout(layoutType, courseData);
     }
-
-    $effect(() => {
-        if (!cy) {
-            return;
-        }
-
-        hide(hiddenSubject);
-    })
-
 
 </script>
 <div class="relative grow">
@@ -305,6 +357,51 @@
     </div> <div id="cy" class={cn("w-full h-full transition-opacity", progress.number !== 100 ? "opacity-0" : "")}></div>
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
-    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels/>
+    <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels layoutRecompute={(layoutType: LayoutType) => {
+        computeLayout(layoutType, courseData, true);
+    }}/>
 </div>
-<CourseDrawer {cy} bind:sheetOpen {selectedCourse} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
+
+{#if cy && !hasSeenTapGuide}
+    <Dialog.Root open={true}>
+        <Dialog.Content class="sm:max-w-md">
+            <Dialog.Header>
+                <Dialog.Title>Quick Guide</Dialog.Title>
+                <Dialog.Description class="space-y-2">
+                    <p><strong>Single tap on course</strong>: {isDesktop() ? 'Open detailed course information' : 'Show course description'}</p>
+                    <p><strong>Double tap on course</strong>: Keeps course prerequisites and dependencies highlighted</p>
+                    <p><strong>Double tap on empty space</strong>: Clears highlighting</p>
+                </Dialog.Description>
+            </Dialog.Header>
+            <Dialog.Footer class="flex justify-end">
+                <Dialog.Close 
+                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                    onclick={() => {
+                        hasSeenTapGuide = true;
+                        setData("hasSeenTapGuide", [true]);
+                    }}
+                >
+                    Got it
+                </Dialog.Close>
+            </Dialog.Footer>
+        </Dialog.Content>
+    </Dialog.Root>
+{/if}
+
+{#if showAlert}
+    <Alert.Root class="absolute bottom-28 right-15 z-50 w-96">
+        <FileText class="h-4 w-4" />
+        <Alert.Title>Heads up!</Alert.Title>
+        <Alert.Description
+            >You can upload your transcript <a href="/upload"
+            class="font-medium text-primary underline decoration-primary underline-offset-4 hover:text-primary/80 transition-colors"
+>here</a> and display courses you've taken in a different color.</Alert.Description
+        >
+        <AlertClose class="absolute right-2 top-2 md:right-3 md:top-3 opacity-70 hover:opacity-100 transition-opacity rounded-full p-1 hover:bg-muted" onclick={() => showAlert = false}>
+            <X class="h-4 w-4" />
+            <span class="sr-only">Close</span>
+        </AlertClose>
+
+    </Alert.Root>
+{/if}

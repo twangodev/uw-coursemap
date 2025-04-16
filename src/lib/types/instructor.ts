@@ -1,6 +1,7 @@
-import type {Course} from "$lib/types/course.ts";
+import {type Course, getInstructorsWithEmail} from "$lib/types/course.ts";
 import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 import {apiFetch} from "$lib/api.ts";
+import type {GradeData} from "$lib/types/madgrades.ts";
 
 export type MandatoryAttendance = {
     neither: number,
@@ -84,6 +85,8 @@ export type FullInstructorInformation = {
     official_name: string | null,
     position: string | null,
     rmp_data: Instructor | null
+    courses_taught: string[],
+    cumulative_grade_data: GradeData | null,
 }
 
 export async function getFullInstructorInformation(course: Promise<Course>, terms: Promise<Terms>, selectedTerm: string | undefined): Promise<FullInstructorInformation[]> {
@@ -91,16 +94,14 @@ export async function getFullInstructorInformation(course: Promise<Course>, term
     let loadedTerms = await terms;
 
     let rawInstructors = [];
-    for (const [name, email] of Object.entries(loadedCourse.enrollment_data[selectedTerm ?? getLatestTermId(loadedTerms)]?.instructors ?? {})) {
+    for (const [name, email] of Object.entries(getInstructorsWithEmail(loadedCourse, selectedTerm ?? getLatestTermId(loadedTerms)))) {
         const response = await apiFetch(
             `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
         );
         const data: FullInstructorInformation =
-            response.status === 200
-                ? await response.json()
-                : {
+            response.status === 200 ? await response.json() : {
                     name,
-                    email,
+                    email: email ?? null,
                     credentials: null,
                     department: null,
                     official_name: null,

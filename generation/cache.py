@@ -58,9 +58,10 @@ def write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger):
     write_file(cache_dir, (), "instructors", instructor_to_rating, logger)
 
 
-def write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger):
+def write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map, logger):
     write_file(cache_dir, ("graphs",), "global_graph", global_graph, logger)
     write_file(cache_dir, ("graphs",), "subject_to_graph", subject_to_graph, logger)
+    write_file(cache_dir, ("graphs",), "course_to_graph", course_to_graph, logger)
 
     write_file(cache_dir, ("graphs",), "global_style", global_style, logger)
     write_file(cache_dir, ("graphs",), "subject_to_style", subject_to_style, logger)
@@ -87,11 +88,11 @@ def read_subject_to_full_subject_cache(cache_dir, logger):
 def read_graphs_cache(cache_dir, logger):
     global_graph = read_cache(cache_dir, ("graphs",), "global_graph", logger)
     subject_to_graph = read_cache(cache_dir, ("graphs",), "subject_to_graph", logger)
-
+    course_to_graph = read_cache(cache_dir, ("graphs",), "course_to_graph", logger)
     global_style = read_cache(cache_dir, ("graphs",), "global_style", logger)
     subject_to_style = read_cache(cache_dir, ("graphs",), "subject_to_style", logger)
 
-    return global_graph, subject_to_graph, global_style, subject_to_style
+    return global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style
 
 
 def read_instructors_to_rating_cache(cache_dir, logger):
@@ -100,6 +101,14 @@ def read_instructors_to_rating_cache(cache_dir, logger):
         return {}
     return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
 
+def read_quick_statistics_cache(cache_dir, logger):
+    quick_statistics = read_cache(cache_dir, (), "quick_statistics", logger)
+    if quick_statistics is None:
+        return {}
+    return quick_statistics
+
+def write_quick_statistics_cache(cache_dir, quick_statistics, logger):
+    write_file(cache_dir, (), "quick_statistics", quick_statistics, logger)
 
 def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding, logger: Logger):
     """

@@ -3,11 +3,16 @@ from logging import Logger
 
 import aiohttp
 import requests
+from requests import JSONDecodeError
 
-from course import Course, MadgradesData
+from course import Course
+from enrollment_data import MadgradesData, EnrollmentData, TermData
+from json_serializable import JsonSerializable
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
 page_size = 100
+
+
 
 
 def get_madgrades_terms(madgrades_api_key, logger: Logger) -> dict[int, str]:
@@ -29,11 +34,18 @@ async def process_course(session, madgrade_course, course_ref_to_course, madgrad
         return
 
     grades_url = madgrade_course["url"] + "/grades"
-    madgrades_data = await MadgradesData.from_madgrades_async(session, grades_url, madgrades_api_key, logger,
-                                                              attempts=10)
-
+    madgrades_data = await MadgradesData.from_madgrades_async(session, grades_url, madgrades_api_key, logger, attempts=10)
     course = course_ref_to_course[course_ref]
-    course.madgrades_data = madgrades_data
+    course.cumulative_grade_data = madgrades_data.cumulative
+
+    for term, grade_data in madgrades_data.by_term.items():
+        term_data = TermData(None, None)
+        if course.term_data.get(term):
+            term_data = course.term_data[term]
+
+        term_data.grade_data = grade_data
+        course.term_data[term] = term_data
+
     logger.debug(f"Adding madgrades data to course {course_ref} of page {current_page}/{total_pages}")
 
 

@@ -1,6 +1,7 @@
 import logging
 import random
 from argparse import ArgumentParser
+from os import environ
 
 import coloredlogs
 from elasticsearch import Elasticsearch
@@ -10,34 +11,54 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 
+ELASTIC_HOST = environ.get("ELASTIC_HOST")
+ELASTIC_USERNAME = environ.get("ELASTIC_USERNAME")
+ELASTIC_PASSWORD = environ.get("ELASTIC_PASSWORD")
+ELASTIC_VERIFY_CERTS = environ.get("ELASTIC_VERIFY_CERTS")
+
+if not ELASTIC_HOST:
+    raise EnvironmentError("ELASTIC_HOST environment variable not set")
+if not ELASTIC_USERNAME:
+    raise EnvironmentError("ELASTIC_USERNAME environment variable not set")
+if not ELASTIC_PASSWORD:
+    raise EnvironmentError("ELASTIC_PASSWORD environment variable not set")
+if ELASTIC_VERIFY_CERTS is None:
+    raise EnvironmentError("ELASTIC_VERIFY_CERTS environment variable not set")
+
+verify_certs = ELASTIC_VERIFY_CERTS.lower() in ("true", "1", "yes")
+
+es = Elasticsearch(
+    ELASTIC_HOST,
+    basic_auth=(ELASTIC_USERNAME, ELASTIC_PASSWORD),
+    verify_certs=verify_certs
+)
+
 app = Flask(__name__)
 cors = CORS(app)
-es = Elasticsearch(
-    "https://localhost:9200",
-    basic_auth=("elastic", "changeme"),
-    verify_certs=False
-)
+
+data_dir_default = environ.get("DATA_DIR", "../generation/data")
 
 def generate_parser():
     """
     Build the argument parser for command line arguments.
     """
-    parser = ArgumentParser(
+    arg_parser = ArgumentParser(
         description="Search for courses"
     )
-    parser.add_argument(
+    arg_parser.add_argument(
         "data_dir",
         type=str,
-        help="Directory to pull generated data.",
-        default="../generation/data"
+        nargs="?",
+        default=data_dir_default,
+        help="Directory to pull generated data."
     )
-    parser.add_argument(
+    arg_parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
         help="Enable verbose logging (DEBUG level). This will also enable Flask debug mode, and should not be used in production.",
     )
-    return parser
+    return arg_parser
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -66,7 +87,12 @@ def get_random_courses():
     random_course_ids = random.sample(list(courses.keys()), num_courses)
 
     # Retrieve the full course details
-    random_courses = [{"id": course_id, **courses[course_id]} for course_id in random_course_ids]
+    random_courses = [
+        {
+        "course_id": course_id,
+        **courses[course_id]
+        } for course_id in random_course_ids
+    ]
 
     return jsonify(random_courses)
 
@@ -79,26 +105,30 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
-if __name__ == "__main__":
+args = None
+verbose = False
 
+if __name__ == "__main__":
     parser = generate_parser()
     args = parser.parse_args()
 
-    data_dir = str(args.data_dir)
-    verbose = bool(args.verbose)
-
-    logger = logging.getLogger(__name__)
-    logging_level = logging.DEBUG if verbose else logging.INFO
-    coloredlogs.install(level=logging_level, logger=logger)
-
-    subjects = get_subjects(data_dir, logger)
-    instructors = get_instructors(data_dir, logger)
-    courses = get_courses(data_dir, subjects, logger)
-
-    clear_elasticsearch()
-
-    load_subjects(es, subjects)
-    load_courses(es, courses)
-    load_instructors(es, instructors)
+    verbose = bool(args.verbose) if args else verbose
 
     app.run(debug=verbose)
+
+data_dir = args.data_dir if args else data_dir_default
+
+logger = logging.getLogger(__name__)
+logging_level = logging.DEBUG if verbose else logging.INFO
+coloredlogs.install(level=logging_level, logger=logger)
+
+subjects = get_subjects(data_dir, logger)
+instructors = get_instructors(data_dir, logger)
+courses = get_courses(data_dir, subjects, logger)
+
+clear_elasticsearch()
+
+load_subjects(es, subjects)
+load_courses(es, courses)
+load_instructors(es, instructors)
+
