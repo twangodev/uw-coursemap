@@ -320,7 +320,7 @@
                         </Card>
                         <div class="md:col-span-2 lg:col-span-7">
                             <h2 class="text-2xl font-bold my-4">Similar Courses</h2>
-                            <CourseCarousel courseReferences={course.similar_courses}/>
+                            <CourseCarousel courseReferences={course.similar_courses ? course.similar_courses : []}/>
                         </div>
                     </div>
                 </TabsContent>
