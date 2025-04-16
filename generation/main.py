@@ -150,7 +150,7 @@ def graph(
 ):
     subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
 
-    global_graph, subject_to_graph = build_graphs(
+    global_graph, subject_to_graph, course_to_graph = build_graphs(
         course_ref_to_course=course_ref_to_course,
         subject_to_courses=subject_to_courses,
         logger=logger
@@ -159,13 +159,14 @@ def graph(
     cleanup_graphs(
         global_graph=global_graph,
         subject_to_graph=subject_to_graph,
+        course_to_graph=course_to_graph,
         logger=logger
     )
 
     subject_to_style = generate_styles(subject_to_graph=subject_to_graph, color_map=color_map)
     global_style = generate_style_from_graph(global_graph, color_map)
 
-    return global_graph, subject_to_graph, subject_to_style, global_style
+    return global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style
 
 
 def main():
@@ -189,7 +190,7 @@ def main():
     subject_to_full_subject = None
     course_ref_to_course = None
     terms = None
-    global_graph, subject_to_graph, global_style, subject_to_style = None, None, None, None
+    global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = None, None, None, None, None
     instructor_to_rating = None
 
     if filter_step(step, "courses"):
@@ -280,13 +281,13 @@ def main():
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         color_map = {}
-        global_graph, subject_to_graph, subject_to_style, global_style = graph(
+        global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style = graph(
             course_ref_to_course=course_ref_to_course,
             color_map=color_map,
             logger=logger
         )
 
-        write_graphs_cache(cache_dir, global_graph, subject_to_graph, global_style, subject_to_style, color_map, logger)
+        write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map, logger)
 
         logger.info("Course graph built successfully.")
 
@@ -301,8 +302,9 @@ def main():
         subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
         identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
-        if global_graph is None or subject_to_graph is None or global_style is None or subject_to_style is None:
-            global_graph, subject_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
+        graphs = [global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style] 
+        if graphs.count(None) >= 1: 
+            global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
 
         if instructor_to_rating is None:
             instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
@@ -320,6 +322,7 @@ def main():
             identifier_to_course=identifier_to_course,
             global_graph=global_graph,
             subject_to_graph=subject_to_graph,
+            course_to_graph=course_to_graph,
             global_style=global_style,
             subject_to_style=subject_to_style,
             instructor_to_rating=instructor_to_rating,

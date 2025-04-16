@@ -15,7 +15,7 @@
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
     import CourseDrawer from "./course-drawer.svelte";
-    import {clearPath, highlightPath, markNextCourses} from "./paths.ts";
+    import {clearPath, getPredecessorsNotTaken, highlightPath, markNextCourses} from "./paths.ts";
     import {searchModalOpen} from "$lib/searchModalStore.ts";
     import {generateFcoseLayout, generateLayeredLayout, LayoutType} from "$lib/components/cytoscape/graph-layout.ts";
     import {page} from "$app/state";
@@ -32,6 +32,9 @@
     interface Props {
         url: string;
         styleUrl: string;
+        // dfs backwards from a specific course until it reaches courses that are taken
+        // courses not reached by dfs are hidden
+        filter?: Course;
     }
 
     let cy: cytoscape.Core | undefined = $state()
@@ -39,6 +42,8 @@
     let takenCourses: (undefined | string)[] = $state([]);
     let showAlert = $derived(cy && takenCourses.length <= 0);
     let hasSeenTapGuide = $state(false);
+
+    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
     //load data
     onMount(() => {
         takenCourses = getData("takenCourses").map((course: any) => {
@@ -48,10 +53,11 @@
 
             return courseReferenceToString(course.course_reference);
         });
-        hasSeenTapGuide = getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0 ? false : true;
+        hasSeenTapGuide = !(getData("hasSeenTapGuide") == undefined || getData("hasSeenTapGuide").length == 0);
+        
     });
 
-    let { url, styleUrl }: Props = $props();
+    let { url, styleUrl, filter = undefined }: Props = $props();
     let sheetOpen = $state(false);
     let progress = $state({
         text: "Loading Graph...",
@@ -74,7 +80,6 @@
     let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
-    let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
     let selectedCourse: Course | undefined = $state(undefined);
 
     // Add near your other state declarations
@@ -113,7 +118,7 @@
         }
 
         courseData = await fetchGraphData(url);
-
+        
         progress = {
             text: "Styling Graph...",
             number: 50,
@@ -144,7 +149,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType, courseData);
+        let layout = await computeLayout(layoutType, courseData, false);
 
         progress = {
             text: "Graph Loaded",
@@ -160,6 +165,19 @@
             maxZoom: 2,
             motionBlur: true,
         });
+
+        if (filter !== undefined) {
+            console.log(cy.nodes()[0])
+            console.log(courseReferenceToString(filter.course_reference));
+            console.log(cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0]);
+            let keepData = getPredecessorsNotTaken(cy, cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0], takenCourses);
+            const nodesToRemove = cy.nodes().filter((node: cytoscape.NodeSingular) => {
+                return !keepData.includes(node.id()) && node.data('type') !== 'compound';
+            });
+
+            console.log(keepData);
+            cy.remove(nodesToRemove); 
+        }
 
         cy.on('mouseover', 'node', function (event) {
             const targetNode = event.target;
@@ -232,7 +250,12 @@
 
             setTip(tip);
         });
-
+        const focusParam = page.url.searchParams.get('focus');
+        if (focusParam !== null) {
+            highlightedCourse = cy?.$id(focusParam.replaceAll("_", " "))[0];
+        } else {
+            highlightedCourse = undefined;
+        }
         progress = {
             text: "Graph Loaded",
             number: 100,
@@ -242,21 +265,25 @@
     $effect(() => {
         if (url && styleUrl) {
             loadGraph()
-        }
-    });
-
-    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[]) {
-        if (!cy) {
             return;
         }
 
-        if (layoutType === LayoutType.GROUPED) {
-            cy.layout(generateFcoseLayout(focus)).run();
-        } else {
-            await (async () => {
-                cy.layout(await generateLayeredLayout(focus, courseData, showCodeLabels)).run();
-            })();
+        if (!cy) {
+            return
         }
+
+        hide(hiddenSubject);
+        computeLayout(layoutType, courseData, true);
+    });
+
+    async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[], shouldRun: boolean) {
+        let layout = layoutType === LayoutType.GROUPED ? generateFcoseLayout(focus) : await generateLayeredLayout(focus, courseData, showCodeLabels);
+
+        if (cy && shouldRun) {
+            cy.layout(layout).run();
+        }
+
+        return layout;
     }
 
     $effect(() => {
@@ -281,10 +308,6 @@
         });
 
         markNextCourses(cy);
-    })
-
-    $effect(() => {
-        computeLayout(layoutType, courseData);
     })
 
     $effect(() => {
@@ -324,18 +347,7 @@
         if (subject) {
             removedSubjectNodes = cy.nodes(`[parent = "${subject}"]`).remove();
         }
-
-        computeLayout(layoutType, courseData);
     }
-
-    $effect(() => {
-        if (!cy) {
-            return;
-        }
-
-        hide(hiddenSubject);
-    })
-
 
 </script>
 <div class="relative grow">
