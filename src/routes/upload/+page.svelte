@@ -69,7 +69,7 @@
             }
             
             //get course subject and numbers
-            const regex = /(\b[A-Z]+(?:\s[A-Z]+)*\b)\s+(X\d{2}|\d{3})/g;
+            const regex = /(\b[A-Z&]+(?:\s[A-Z&]+)*\b)\s+(X\d{2}|\d{3})/g;
             let matches, results = [];
             
             while ((matches = regex.exec(text)) !== null) {
