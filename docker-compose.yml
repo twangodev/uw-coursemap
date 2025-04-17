@@ -22,7 +22,7 @@ services:
 
   web:
     container_name: uw-coursemap-web
-    image: ghcr.io/twangodev/uw-coursemap-web:v1.0.2
+    image: ghcr.io/twangodev/uw-coursemap-web:v1.0.3
     env_file: ".env"
     restart: unless-stopped
     ports:
