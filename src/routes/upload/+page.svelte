@@ -69,7 +69,8 @@
             }
             
             //get course subject and numbers
-            const regex = /(\b[A-Z&]+(?:\s[A-Z&]+)*\b)\s+(X\d{2}|\d{3})/g;
+            //make sure to keep "-" at the start of the subject search otherwise it will be seen as a range
+            const regex = /(\b[-A-Z&]+(?:\s[-A-Z&]+)*\b)\s+(X\d{2}|\d{3})/g;
             let matches, results = [];
             
             while ((matches = regex.exec(text)) !== null) {
