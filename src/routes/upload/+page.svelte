@@ -55,7 +55,7 @@
     async function parseTranscriptPDF(pdfData: ArrayBuffer) {
         //set status to loading
         status = "Loading...";
-        let hadError = false;
+        let errorCourses: string[] = [];
         
         //get new courses
         try{
@@ -69,7 +69,8 @@
             }
             
             //get course subject and numbers
-            const regex = /(\b[A-Z]+(?:\s[A-Z]+)*\b)\s+(X\d{2}|\d{3})/g;
+            //make sure to keep "-" at the start of the subject search otherwise it will be seen as a range
+            const regex = /(\b[-A-Z&]+(?:\s[-A-Z&]+)*\b)\s+(X\d{2}|\d{3})/g;
             let matches, results = [];
             
             while ((matches = regex.exec(text)) !== null) {
@@ -86,7 +87,7 @@
                 
                 //couldnt get course data
                 if(courseData == null){
-                    hadError = true;
+                    errorCourses.push(courseInfo);
                     continue;
                 }
                 
@@ -111,13 +112,16 @@
             }
 
             //set status to succes (only if there wasnt an error)
-            if(!hadError){
+            if(errorCourses.length == 0){
                 status = "";
+            }
+            else{
+                status = "There was an error with " + errorCourses.length + " course(s).<br>Please submit a bug report if any of these are valid courses, or a part of a valid course:<br>" + errorCourses.join("<br>");
             }
         }
         catch(e){
             //set status to error
-            status = "Error parsing pdf";
+            status = "Error parsing pdf, make sure it is a valid unofficial transcript.<br>Please submit and bug report with the error in the console if it is.";
             console.error(e);
         }
     }
@@ -208,7 +212,9 @@
             Click the upload button to autofill courses, or use the course search to manually add courses.
         </div>
     {:else}
-        <Label for="courses">{status}</Label>
+        <p>
+            {@html status}
+        </p>
         <Table.Root id="courses" style="margin-bottom: 1rem;">
             <Table.Header>
                 <Table.Row>
