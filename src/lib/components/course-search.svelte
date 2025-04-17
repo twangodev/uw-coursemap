@@ -1,23 +1,25 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
-    import {cn, sleep} from "$lib/utils.ts";
-    import * as Command from "$lib/components/ui/command/index.js";
+    import {sleep} from "$lib/utils.ts";
+    import {Command, CommandItem, CommandList} from "$lib/components/ui/command";
+    import {CommandEmpty, CommandGroup, CommandInput} from "$lib/components/ui/command/index.js";
     import { search } from "$lib/api";
     import { writable } from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
-    import {
-        searchResponseToIdentifier,
-        type SearchResponse
-    } from "$lib/types/search/searchApiResponse.ts";
-    import {Book, School, User} from "lucide-svelte";
-    import {
-        type CourseSearchResult,
-        generateCourseSearchResults,
-    } from "$lib/types/search/searchResults.ts";
+    import {type SearchResponse} from "$lib/types/search/searchApiResponse.ts";
+    import {type CourseSearchResult, generateCourseSearchResults} from "$lib/types/search/searchResults.ts";
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
+    import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
+    import {ChevronsUpDown} from "lucide-svelte";
+	import { onMount } from "svelte";
 
-    let searchOpen = $state(false);
+    let open = $state(false);
+    let numOptions = 20;
+    let searchQuery = $state("");
+    let triggerRef = $state<HTMLButtonElement>(null!);
+    let selectedCourse: CourseSearchResult;
+    let courses = writable<CourseSearchResult[]>([]);
 
     //save the taken courses
     function saveData(){
@@ -35,8 +37,6 @@
         status = $bindable(),
         defaultString = "Search courses..."
     }: Props = $props();
-
-    let courses = writable<CourseSearchResult[]>([]);
 
     $effect(() => {
         updateSuggestions(searchQuery);
@@ -62,13 +62,16 @@
 
         const rawCourses = data.courses
 
-        $courses = generateCourseSearchResults(rawCourses)
+        $courses = generateCourseSearchResults(rawCourses).slice(0, numOptions);
     }
 
     async function courseSuggestionSelected(result: CourseSearchResult) {
         try{
+            //set status
+            status = "Loading...";
+
             //close search
-            searchOpen = false;
+            open = false;
 
             //parse course ID, compssci_ece_252
             let courseIDParts = result.course_id.split("_");
@@ -96,6 +99,9 @@
         
                 //save to local storage
                 saveData();
+
+                //no errors, done
+                status = "";
             }
             else{
                 status = "course was not added due to being a duplicate";
@@ -107,49 +113,47 @@
         }
     }
 
-    let searchQuery = $state("");
+    function closeAndFocusTrigger() {
+        //close dropdown
+        open = false;
 
+        //add to courses
+        courseSuggestionSelected(selectedCourse);
+    }
 </script>
-
-<Button
-    variant="outline"
-    class={cn(
-		"text-muted-foreground relative w-full justify-start text-sm sm:pr-12", 
-        "lg:w-80 md:w-40"
-	)}
-        onclick={() => {
-            searchOpen = true;
-            searchQuery = "";
-        }}
->
-    <span class="hidden lg:inline-flex">{defaultString}</span>
-    <span class="inline-flex lg:hidden">Add course...</span>
-</Button>
-
-<Command.Dialog bind:open={searchOpen}>
-    <CustomSearchInput placeholder="Search courses, departments..." bind:value={searchQuery} />
-    <Command.List>
-        {#if $courses.length <= 0}
-            <div class="py-6 text-center text-sm">Enter something into the search bar pwetty pweese</div>
-        {/if}
-        
-        {#if $courses.length > 0}
-            <Command.Group heading="Courses">
-                {#each $courses as suggestion }
-                    <Command.Item
-                            onSelect={() => {
-                                courseSuggestionSelected(suggestion)
-                            }}
-                    >
-                    <Book class="mr-3 h-4 w-4" />
-                    <div>
-                        <p>{suggestion.course_title}</p>
-                        <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
-                        </div>
-                    </Command.Item>
-                {/each}
-            </Command.Group>
-            <Command.Separator/>
-        {/if}
-    </Command.List>
-</Command.Dialog>
+<Popover bind:open>
+    <Trigger bind:ref={triggerRef}>
+        {#snippet child({ props })}
+            <Button
+                variant="outline"
+                class="w-[400px] justify-between"
+                {...props}
+                role="combobox"
+                aria-expanded={open}>  
+                Search courses to add...
+                <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
+            </Button>
+        {/snippet}
+    </Trigger>
+    <PopoverContent class="w-[400px] p-0">
+        <Command>
+            <CustomSearchInput placeholder="Search courses..." bind:value={searchQuery} />
+            <CommandList>
+                <CommandEmpty>No course found.</CommandEmpty>
+                <CommandGroup>
+                    {#each $courses as course}
+                        <CommandItem
+                                value={course.course_id}
+                                onSelect={() => {
+                                    selectedCourse = course;
+                                    closeAndFocusTrigger();
+                                }}
+                            >
+                            {course.subjects.join("/") + " " + course.course_number}
+                        </CommandItem>
+                    {/each}
+                </CommandGroup>
+            </CommandList>
+        </Command>
+    </PopoverContent>
+</Popover>
