@@ -3,7 +3,7 @@
     import * as Sheet from "$lib/components/ui/sheet";
     import {Button} from "$lib/components/ui/button";
     import MobileLink from "$lib/components/nav/mobile-link.svelte";
-    import Crest from "$lib/components/crest.svelte";
+    import Logo from "$lib/components/logo.svelte";
     import {navigation} from "$lib/config/navigation.ts";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {Menu} from "lucide-svelte";
@@ -23,7 +23,7 @@
     </Sheet.Trigger>
     <Sheet.Content side="left" class="pr-0">
         <MobileLink href="/" class="flex items-center" bind:open>
-            <Crest/>
+            <Logo/>
             <span class="font-bold">{siteConfig.name}</span>
         </MobileLink>
         <ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">

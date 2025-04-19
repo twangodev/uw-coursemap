@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Crest from "$lib/components/crest.svelte";
+    import Logo from "$lib/components/logo.svelte";
     import {siteConfig} from "$lib/config/site.ts";
     import {navigation} from "$lib/config/navigation.ts";
 
@@ -13,7 +13,7 @@
     <a
             href="/"
             class="flex items-center gap-4 text-lg font-semibold md:text-lg whitespace-nowrap">
-        <Crest/>
+        <Logo/>
         <span class="hidden font-bold xl:inline-block">
 			{siteConfig.name}
 		</span>

@@ -126,7 +126,7 @@
 
 
         cytoscapeStyleData = await getStyleData(styleUrl);
-        cytoscapeStyles = await getStyles(cytoscapeStyleData, $mode, showCodeLabels);
+        cytoscapeStyles = await getStyles(cytoscapeStyleData, mode.current, showCodeLabels);
 
         progress = {
             text: "Loading Layout...",
@@ -315,20 +315,20 @@
             return;
         }
         cy.style().selector('node').style({
-            'color': getTextColor($mode),
-            'text-outline-color': getTextOutlineColor($mode),
+            'color': getTextColor(mode.current),
+            'text-outline-color': getTextOutlineColor(mode.current),
 	        'text-outline-opacity': 1,
 	        'text-outline-width': 1,
             'label': showCodeLabels ? 'data(id)': 'data(title)',
         }).selector('.highlighted-nodes').style({
-            'border-color': getTextColor($mode),
+            'border-color': getTextColor(mode.current),
         }).selector('edge').style({
-            'line-color': getTextColor($mode),
-            'target-arrow-color': getTextColor($mode),
+            'line-color': getTextColor(mode.current),
+            'target-arrow-color': getTextColor(mode.current),
         }).selector('.taken-nodes').style({
-            'color': $mode === 'dark' ? "#4CC38A" : "#007F44"
+            'color': mode.current === 'dark' ? "#4CC38A" : "#007F44"
         }).selector('.next-nodes').style({
-            'color': $mode === 'dark' ? "#FFD700" : "#B38600",
+            'color': mode.current === 'dark' ? "#FFD700" : "#B38600",
         }).update()
     })
 
