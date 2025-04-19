@@ -10,7 +10,7 @@ services:
 
   search:
     container_name: uw-coursemap-search
-    image: ghcr.io/twangodev/uw-coursemap-search:v1.0.3
+    image: ghcr.io/twangodev/uw-coursemap-search:v1.0.4
     restart: unless-stopped
     env_file: ".env"
     ports:
