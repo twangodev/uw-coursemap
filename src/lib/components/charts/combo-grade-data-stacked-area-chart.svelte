@@ -89,7 +89,7 @@
         ],
         curve: 'curveMonotoneX',
         height: '500px',
-        theme: getCarbonTheme($mode)
+        theme: getCarbonTheme(mode.current)
     })
 
 </script>
