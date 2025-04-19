@@ -23,10 +23,10 @@
     </Sheet.Trigger>
     <Sheet.Content side="left" class="pr-0">
         <MobileLink href="/" class="flex items-center" bind:open>
-            <Logo/>
+            <Logo class="mr-4 h-8 w-8"/>
             <span class="font-bold">{siteConfig.name}</span>
         </MobileLink>
-        <ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+        <ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-1">
             <div class="flex flex-col space-y-3">
                 {#each navigation as navItem}
                     {#if navItem.href}
