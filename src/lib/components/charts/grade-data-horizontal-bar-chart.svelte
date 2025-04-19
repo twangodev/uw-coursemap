@@ -82,7 +82,7 @@
         toolbar: {
             enabled: false
         },
-        theme: getCarbonTheme($mode)
+        theme: getCarbonTheme(mode.current)
     })
 
 </script>

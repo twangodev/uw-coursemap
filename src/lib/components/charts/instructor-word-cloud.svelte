@@ -69,7 +69,7 @@
         title: 'Word Cloud',
         resizable: true,
         height: '400px',
-        theme: getCarbonTheme($mode)
+        theme: getCarbonTheme(mode.current)
     })
 
 
