@@ -11,14 +11,17 @@ hero:
       text: Get Started
       link: https://uwcourses.com?utm_source=docs
     - theme: alt
+      text: Understand the Project
+      link: /1-getting-started/1-overview
+    - theme: alt
       text: View on GitHub
       link: https://github.com/twangodev/uw-coursemap
 
 features:
-  - title: Technical Overview
+  - title: Overview
     icon: ⚙️
-    details: Quickly understand how this project works, including its architecture and key components. Feel free to raise issues if you have any questions!
-    link: /technical-overview
+    details: Quickly understand how this project works, its goals, and how to get started running it yourself.
+    link: /1-getting-started/1-overview
   - title: Contributing
     icon: 🤝
     details: This project was built by students, for students. We welcome contributions from anyone who wants to help out! For more information, check out our contributing guide.
