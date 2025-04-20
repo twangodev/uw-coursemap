@@ -4,22 +4,28 @@ layout: home
 
 hero:
   name: "uw-coursemap"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "Documentation"
+  tagline: Explore the courses offered by UW-Madison in a visual and interactive way.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get Started
+      link: /about
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: View on GitHub
+      link: https://github.com/twangodev/uw-coursemap
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Overview
+    icon: ⚙️
+    details: Quickly understand how this project works, its goals, and how to get started running it yourself.
+    link: /about
+  - title: Contributing
+    icon: 🤝
+    details: This project was built by students, for students. We welcome contributions from anyone who wants to help out! For more information, check out our contributing guide.
+    link: /contributing
+  - title: License
+    icon: 📜
+    details: We're open source! This project is licensed under AGPL-3.0, if you want to use our code, redistribute it, or modify it, please check out the license.
+    link: https://github.com/twangodev/uw-coursemap/blob/main/LICENSE
 ---
 
