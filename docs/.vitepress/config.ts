@@ -24,7 +24,8 @@ const vitePressOptions = {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
-  }
+  },
+  lastUpdated: true,
 }
 
 export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
