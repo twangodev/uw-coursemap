@@ -12,8 +12,9 @@
         className = "font-medium underline underline-offset-4",
         children
     }: Props = $props();
+    const processedHref = $derived(href.startsWith('http://') || href.startsWith('https://') ? href : `https://${href}`);
 </script>
 
-<a href="{href}" target="{target}" class="{className}">
+<a href="{processedHref}" target="{target}" class="{className}">
     {@render children?.()}
 </a>
