@@ -14,7 +14,7 @@
 </script>
 
 <a
-        href="https://www.ratemyprofessors.com/"
+        href="https://github.com/twangodev/uw-coursemap"
         target="_blank"
         class={cn(
 		"bg-muted inline-flex items-center rounded-lg px-3 py-1 text-sm font-medium",
@@ -24,6 +24,6 @@
 >
     <Blocks class="size-4" />
     <Separator class="mx-2 h-4" orientation="vertical" />
-    <span>Introducing Rate My Professor Statistics!</span>
+    <span>Drop a star on Github if this helped you!</span>
     <ArrowRight class="ml-1 size-4" />
 </a>
