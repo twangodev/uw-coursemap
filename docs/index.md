@@ -8,7 +8,7 @@ hero:
   tagline: Explore the courses offered by UW-Madison in a visual and interactive way.
   actions:
     - theme: brand
-      text: Understand the Project
+      text: Get Started
       link: /1-getting-started/1-overview
     - theme: alt
       text: View on GitHub
