@@ -4,8 +4,7 @@ title: About
 [
     ![UW Course Map](https://uwcourses.com/uw-coursemap-tagline-dark.svg){.light-only}
     ![UW Course Map](https://uwcourses.com/uw-coursemap-tagline-light.svg){.dark-only}
-](https://uwcourses.com/)
-
+](https://uwcourses.com/ "Visit the UW Course Map homepage"){aria-label="Visit the UW Course Map homepage"}
 **UW Course Map** is an open‑source tool that helps University of Wisconsin–Madison students explore course offerings, plan their academic path, and ultimately leverage data to make informed decisions about their education.
 
 ## Problem Statement
