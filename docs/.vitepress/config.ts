@@ -1,5 +1,6 @@
 import {defineConfig, type UserConfig} from 'vitepress'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
+import {withMermaid} from "vitepress-plugin-mermaid";
 
 const vitePressOptions: UserConfig = {
   lang: 'en-US',
@@ -35,10 +36,6 @@ const vitePressOptions: UserConfig = {
             text: 'Quickstart',
             link: '/getting-started/quickstart'
           },
-          {
-            text: 'Technical Writeup',
-            link: '/getting-started/technical-writeup'
-          }
         ]
       },
       {
@@ -122,6 +119,7 @@ const vitePressOptions: UserConfig = {
     config(md) {
       md.use(groupIconMdPlugin)
     },
+    lineNumbers: true,
   },
   vite: {
     plugins: [
@@ -138,4 +136,4 @@ const vitePressOptions: UserConfig = {
   }
 }
 
-export default defineConfig(vitePressOptions);
+export default withMermaid(vitePressOptions)
