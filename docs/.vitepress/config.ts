@@ -1,5 +1,6 @@
 import {defineConfig, type UserConfig} from 'vitepress'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
+import {withMermaid} from "vitepress-plugin-mermaid";
 
 const vitePressOptions: UserConfig = {
   lang: 'en-US',
@@ -118,6 +119,7 @@ const vitePressOptions: UserConfig = {
     config(md) {
       md.use(groupIconMdPlugin)
     },
+    lineNumbers: true,
   },
   vite: {
     plugins: [
@@ -134,4 +136,4 @@ const vitePressOptions: UserConfig = {
   }
 }
 
-export default defineConfig(vitePressOptions);
+export default withMermaid(vitePressOptions)

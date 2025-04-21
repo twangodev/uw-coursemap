@@ -45,4 +45,4 @@ If you are interested in joining the team and becoming a maintainer, please chec
 
 ## Hackathon Contributors
 
-Special shoutout to [Shyam Patel](https://github.com/yamshpatel), [Ali Al Mezel](https://github.com/AliMezel), and [Muakong Yang](https://github.com/Muakongyang) for their contributions for prototype at Cheesehacks 2024!
+Special shoutout to [Shyam Patel](https://github.com/yamshpatel), [Ali Al Mezel](https://github.com/AliMezel), and [Muakong Yang](https://github.com/Muakongyang) for their contributions for the prototype at Cheesehacks 2024!

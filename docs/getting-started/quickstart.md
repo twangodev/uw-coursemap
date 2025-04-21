@@ -143,5 +143,5 @@ Currently, there isn't enough demand to warrant horizontally scaling the applica
 [docker]: https://www.docker.com/products/docker-desktop
 [elasticsearch]: https://www.elastic.co/elasticsearch
 [pipenv]: https://pipenv.pypa.io/en/latest/
-[docker hub]: https://hub.docker.com/
+[docker hub]: https://hub.docker.com/search?q=twango%2Fuw-coursemap
 [GHCR]: https://github.com/twangodev?tab=packages&repo_name=uw-coursemap
