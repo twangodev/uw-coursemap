@@ -39,9 +39,8 @@ We're a group of students maintaining this project. Say hello to us!
 <!--suppress CheckEmptyScriptTag, HtmlUnknownTag -->
 <VPTeamMembers size="small" :members />
 
-::: tip
-If you are interested in joining the team and becoming a maintainer, please check out our [contributing guide](./contributing.md) for more information on how to get involved.
-:::
+> [!TIP]
+> If you are interested in joining the team and becoming a maintainer, please check out our [contributing guide](./contributing.md) for more information on how to get involved.
 
 ## Hackathon Contributors
 
