@@ -8,6 +8,12 @@ export async function getRandomCourses(): Promise<Response> {
     return await fetch(`${env.PUBLIC_SEARCH_API_URL}/random-courses`);
 }
 
+export async function getLatestUpdateTime(): Promise<string | undefined> {
+    const latestUpdateTimeRes = await fetch(`${env.PUBLIC_API_URL}/update.json`);
+    const latestUpdateTimeJson = await latestUpdateTimeRes.json();
+    return latestUpdateTimeJson?.updated_on;
+}
+
 export async function search(query: string): Promise<Response> {
     return await fetch(`${env.PUBLIC_SEARCH_API_URL}/search`, {
         method: 'POST',
