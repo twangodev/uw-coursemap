@@ -1,4 +1,5 @@
 import {defineConfig, type UserConfig} from 'vitepress'
+import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
 
 const vitePressOptions: UserConfig = {
   lang: 'en-US',
@@ -62,7 +63,7 @@ const vitePressOptions: UserConfig = {
           },
           {
             text: 'Backend',
-            link: '/codebase/backend'
+            link: '/codebase/search'
           },
           {
             text: 'Generation',
@@ -96,6 +97,9 @@ const vitePressOptions: UserConfig = {
         link: 'https://github.com/twangodev/uw-coursemap'
       }
     ],
+    outline: {
+      level: [2, 3],
+    },
     editLink: {
       pattern: 'https://github.com/twangodev/uw-coursemap/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
@@ -109,6 +113,24 @@ const vitePressOptions: UserConfig = {
   sitemap: {
     hostname: 'https://docs.uwcourses.com'
   },
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
+  },
+  vite: {
+    plugins: [
+        groupIconVitePlugin({
+          customIcon: {
+            'docker': 'vscode-icons:file-type-docker',
+            'git': 'vscode-icons:file-type-git',
+            'sh': 'vscode-icons:file-type-shell',
+            'pip': 'vscode-icons:file-type-python',
+            'pipenv': 'vscode-icons:file-type-python',
+          }
+        }) as any,
+    ],
+  }
 }
 
 export default defineConfig(vitePressOptions);

@@ -7,16 +7,15 @@ on:
 permissions:
   contents: read
 
-env:
-  PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-  PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
-
 jobs:
-  build:
+  build-web:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
+      PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
@@ -24,3 +23,15 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
+
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run docs:build --if-present
