@@ -1,5 +1,6 @@
 import {defineConfig, type UserConfig} from 'vitepress'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
+import {withMermaid} from "vitepress-plugin-mermaid";
 
 const vitePressOptions: UserConfig = {
   lang: 'en-US',
@@ -35,10 +36,6 @@ const vitePressOptions: UserConfig = {
             text: 'Quickstart',
             link: '/getting-started/quickstart'
           },
-          {
-            text: 'Technical Writeup',
-            link: '/getting-started/technical-writeup'
-          }
         ]
       },
       {
@@ -62,7 +59,7 @@ const vitePressOptions: UserConfig = {
             link: '/codebase/frontend'
           },
           {
-            text: 'Backend',
+            text: 'Search',
             link: '/codebase/search'
           },
           {
@@ -113,10 +110,16 @@ const vitePressOptions: UserConfig = {
   sitemap: {
     hostname: 'https://docs.uwcourses.com'
   },
+  head: [['script', {
+    src: 'https://analytics.twango.dev/script.js',
+    defer: '',
+    'data-website-id': 'ce631ecc-43f3-44d9-9c70-668d6fa99333'
+  }]],
   markdown: {
     config(md) {
       md.use(groupIconMdPlugin)
     },
+    lineNumbers: true,
   },
   vite: {
     plugins: [
@@ -133,4 +136,4 @@ const vitePressOptions: UserConfig = {
   }
 }
 
-export default defineConfig(vitePressOptions);
+export default withMermaid(vitePressOptions)

@@ -86,8 +86,8 @@ And now you can run the search server:
 pipenv run app.py
 ```
 
-::: tip 
-The search server requires the same environment variables as specified in the `.env` file in the root directory. See [Pipenv Shell](https://pipenv.pypa.io/en/latest/shell.html) for how to bring them into the shell.
+> [!TIP] 
+> The search server requires the same environment variables as specified in the `.env` file in the root directory. See [Pipenv Shell](https://pipenv.pypa.io/en/latest/shell.html) for how to bring them into the shell.
 
 PyCharm users, you can create a run configuration to run the search server with the environment variables from the `.env` file.
 :::
@@ -112,9 +112,8 @@ To deploy the application, you will need to create a `.env` file in the root dir
 cp .env.example .env
 ```
 
-::: warning
-Ensure that you change `ELASTIC_PASSWORD` in the `.env` file to a secure password. This is the password for the `elastic` user in Elasticsearch, and it is used to authenticate the search server to Elasticsearch.
-:::
+> [!CAUTION]
+> Ensure that you change `ELASTIC_PASSWORD` in the `.env` file to a secure password. This is the password for the `elastic` user in Elasticsearch, and it is used to authenticate the search server to Elasticsearch.
 
 To run the application, run the following command:
 
@@ -136,12 +135,14 @@ docker compose down
 
 To expose your application to the internet, you can use a production grade reverse proxy like [NGINX](https://www.nginx.com/), [Caddy](https://caddyserver.com/), or [Traefik](https://traefik.io/).
 
-::: tip Scaling
-Currently, there isn't enough demand to warrant horizontally scaling the application. However, if you would like to scale the application, you can do so by running multiple instances of the frontend and search servers. You can use [Docker Swarm](https://docs.docker.com/engine/swarm/) or [Kubernetes](https://kubernetes.io/) to orchestrate the scaling process, or using an autoscaler group with your cloud provider of choice.
-:::
+### Scaling
+
+This application is designed to be horizontally scalable, meaning you can run multiple instances of the frontend and search servers to handle more traffic. 
+
+Currently, there isn't enough demand to warrant horizontally scaling the application. However, if you would like to scale the application, you can use [Docker Swarm](https://docs.docker.com/engine/swarm/) or [Kubernetes](https://kubernetes.io/) to orchestrate the scaling process, or using an autoscaler group with your cloud provider of choice.
 
 [docker]: https://www.docker.com/products/docker-desktop
 [elasticsearch]: https://www.elastic.co/elasticsearch
 [pipenv]: https://pipenv.pypa.io/en/latest/
-[docker hub]: https://hub.docker.com/
+[docker hub]: https://hub.docker.com/search?q=twango%2Fuw-coursemap
 [GHCR]: https://github.com/twangodev?tab=packages&repo_name=uw-coursemap
