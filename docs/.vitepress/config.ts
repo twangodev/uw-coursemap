@@ -62,7 +62,7 @@ const vitePressOptions: UserConfig = {
             link: '/codebase/frontend'
           },
           {
-            text: 'Backend',
+            text: 'Search',
             link: '/codebase/search'
           },
           {
