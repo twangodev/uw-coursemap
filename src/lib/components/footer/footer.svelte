@@ -15,12 +15,6 @@
 
     let contributorsData: ContributorsData = $state(fallbackContributors);
 
-    const lastUpdated = $derived(contributorsData.timestamp ? new Date(contributorsData.timestamp).toLocaleDateString(undefined, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    }) : undefined);
-
     if (browser) {
         onMount(async () => {
             try {
@@ -45,7 +39,7 @@
             {/each}
             and 
             <FooterLink href="https://docs.uwcourses.com/team.html">others</FooterLink>. 
-            {lastUpdated ? `Last updated on ${lastUpdated}.` : "Failed to get updated timestamp."}
+            {contributorsData.timestamp ? ` Updated ${contributorsData.timestamp}.` : " Update time unavailable"}
             <br />
             The source code is available on{" "}
             <FooterLink href="https://github.com/twangodev/uw-coursemap">GitHub</FooterLink>.
