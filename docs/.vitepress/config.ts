@@ -35,10 +35,6 @@ const vitePressOptions: UserConfig = {
             text: 'Quickstart',
             link: '/getting-started/quickstart'
           },
-          {
-            text: 'Technical Writeup',
-            link: '/getting-started/technical-writeup'
-          }
         ]
       },
       {
