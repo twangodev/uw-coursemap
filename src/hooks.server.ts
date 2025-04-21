@@ -1,7 +1,12 @@
 import type { Handle } from '@sveltejs/kit';
-import { getContributors } from '$lib/github';
+import { getContributors, type Contributor } from '$lib/github';
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+
+export interface ContributorsData {
+    timestamp?: string;
+    contributors: Contributor[];
+}
 
 let initialized = false;
 
@@ -18,7 +23,12 @@ export const handle: Handle = async ({ event, resolve }) => {
                 mkdirSync(dir, { recursive: true });
             }
             
-            writeFileSync(staticPath, JSON.stringify(contributors.slice(0, 5), null, 2));
+            const contributorsData: ContributorsData = {
+                timestamp: new Date().toISOString(),
+                contributors: contributors.slice(0, 3)
+            };
+            
+            writeFileSync(staticPath, JSON.stringify(contributorsData, null, 2));
             initialized = true;
         } catch (error) {
             console.error('Error fetching contributors:', error);
