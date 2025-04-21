@@ -2,11 +2,16 @@ import type { Handle } from '@sveltejs/kit';
 import { getContributors, type Contributor } from '$lib/github';
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import {env} from "$env/dynamic/public";
+import { format } from 'timeago.js';
+import { getLatestUpdateTime } from '$lib/api';
 
 export interface ContributorsData {
     timestamp?: string;
     contributors: Contributor[];
 }
+
+
 
 let initialized = false;
 
@@ -15,19 +20,22 @@ export const handle: Handle = async ({ event, resolve }) => {
     if (!initialized && import.meta.env.SSR) {
         try {
             const contributors = await getContributors();
+            
+            const latestUpdateTime = await getLatestUpdateTime();
+
+            const timestamp = latestUpdateTime ? format(new Date(latestUpdateTime)) : undefined; 
+
+            const contributorsData: ContributorsData = {
+                timestamp: timestamp,
+                contributors: contributors.slice(0, 3)
+            };
+
             const staticPath = join(process.cwd(), 'src', 'lib', 'contributors.json');
             
-            // Ensure static directory exists
             const dir = dirname(staticPath);
             if (!existsSync(dir)) {
                 mkdirSync(dir, { recursive: true });
             }
-            
-            const contributorsData: ContributorsData = {
-                timestamp: new Date().toISOString(),
-                contributors: contributors.slice(0, 3)
-            };
-            
             writeFileSync(staticPath, JSON.stringify(contributorsData, null, 2));
             initialized = true;
         } catch (error) {
