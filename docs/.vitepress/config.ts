@@ -113,6 +113,11 @@ const vitePressOptions: UserConfig = {
   sitemap: {
     hostname: 'https://docs.uwcourses.com'
   },
+  head: [['script', {
+    src: 'https://analytics.twango.dev/script.js',
+    defer: '',
+    'data-website-id': 'ce631ecc-43f3-44d9-9c70-668d6fa99333'
+  }]],
   markdown: {
     config(md) {
       md.use(groupIconMdPlugin)
