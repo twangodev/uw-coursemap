@@ -3,20 +3,29 @@
     import type { Contributor } from "$lib/github";
     import { onMount } from "svelte";
     import { browser } from '$app/environment';
+    import type { ContributorsData } from "../../../hooks.server";
 
-    const fallbackContributors: Contributor[] = [
-        { name: "James Ding", url: "https://twango.dev"},
-        { name: "Charles Ding", url: "https://github.com/ProfessorAtomicManiac"},
-        { name: "Landon Bakken", url: "https://theradest1.github.io/Personal-Website-Github-Pages/"}
-    ]
+    const fallbackContributors: ContributorsData = {
+        contributors: [
+            { name: "James Ding", url: "https://twango.dev"},
+            { name: "Charles Ding", url: "https://github.com/ProfessorAtomicManiac"},
+            { name: "Landon Bakken", url: "https://theradest1.github.io/Personal-Website-Github-Pages/"}
+        ]
+    }
 
-    let contributors: Contributor[] = fallbackContributors;
+    let contributorsData: ContributorsData = $state(fallbackContributors);
+
+    const lastUpdated = $derived(contributorsData.timestamp ? new Date(contributorsData.timestamp).toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }) : undefined);
 
     if (browser) {
         onMount(async () => {
             try {
                 const module = await import('$lib/contributors.json');
-                contributors = module.default;
+                contributorsData = module.default;
             } catch (error) {
                 console.warn('Could not load contributors.json, using fallback contributors.', error);
             }
@@ -29,13 +38,16 @@
     <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
         <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by{" "}
-            {#each contributors as contributor, i}
+            {#each contributorsData.contributors as contributor, i}
                 <FooterLink href={contributor.url}>{contributor.name}</FooterLink>
-                {#if i < contributors.length - 2},{" "}
-                {:else if i < contributors.length - 1},{" "}and{" "}
+                {#if i < contributorsData.contributors.length - 1},{" "}
                 {/if}
             {/each}
-            . The source code is available on{" "}
+            and 
+            <FooterLink href="https://docs.uwcourses.com/team.html">others</FooterLink>. 
+            {lastUpdated ? `Last updated on ${lastUpdated}.` : "Failed to get updated timestamp."}
+            <br />
+            The source code is available on{" "}
             <FooterLink href="https://github.com/twangodev/uw-coursemap">GitHub</FooterLink>.
         </p>
         <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-right">
