@@ -7,13 +7,12 @@ on:
 permissions:
   contents: read
 
-env:
-  PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
-  PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
-
 jobs:
-  build:
+  build-web:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
+      PUBLIC_SEARCH_API_URL: ${{ vars.PUBLIC_SEARCH_API_URL }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js
