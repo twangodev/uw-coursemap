@@ -151,6 +151,8 @@ export default {
       ]
     }));
 
+    console.log('Contributors:', contributors);
+
     return {
       maintainers,
       contributors
