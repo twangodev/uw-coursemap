@@ -40,7 +40,7 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
     try {
       // Implement retry mechanism for 202 responses
       let retries = 0;
-      const maxRetries = 100;
+      const maxRetries = 100; // We can retry up to 100 times (500 seconds)
       let response;
 
       while (retries <= maxRetries) {
