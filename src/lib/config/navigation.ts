@@ -10,11 +10,11 @@ export const navigation: NavItem[] = [
         href: '/explorer',
     },
     {
-        title: 'About',
-        href: '/about',
+        title: 'Upload',
+        href: '/upload',
     },
     {
-        title: 'Upload Courses',
-        href: '/upload',
+        title: 'About',
+        href: 'https://docs.uwcourses.com/about',
     },
 ];
