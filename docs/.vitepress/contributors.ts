@@ -35,15 +35,43 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
 
   try {
     // Make a single API call to get contributor stats
-    console.log('Making a single API call to get contributor stats...');
+    console.log('Retrieving contributor stats...');
     let stats = [];
     try {
-      const response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
-        owner: 'twangodev',
-        repo: 'uw-coursemap',
-      });
-      stats = response.data;
-      console.log(`Successfully fetched stats for ${stats.length} contributors`);
+      // Implement retry mechanism for 202 responses
+      let retries = 0;
+      const maxRetries = 100;
+      let response;
+
+      while (retries <= maxRetries) {
+        response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
+          owner: 'twangodev',
+          repo: 'uw-coursemap',
+        });
+
+        // If we get a 202 status code, GitHub is still computing the stats
+        if (response.status === 202) {
+          retries++;
+          if (retries <= maxRetries) {
+            console.log(`Received 202 status (stats being computed). Retry ${retries}/${maxRetries} after 5 seconds...`);
+            // Wait for 5 seconds before retrying
+            await new Promise(resolve => setTimeout(resolve, 5000));
+          } else {
+            console.warn(`Reached maximum retries (${maxRetries}) for 202 status. Proceeding with available data.`);
+            break;
+          }
+        } else {
+          // If we get a successful response, break out of the loop
+          break;
+        }
+      }
+
+      if (response && response.status !== 202) {
+        stats = response.data;
+        console.log(`Successfully fetched stats for ${stats.length} contributors`);
+      } else {
+        console.warn('Could not fetch contributor stats after retries, proceeding with empty data');
+      }
     } catch (error) {
       console.warn('Could not fetch contributor stats:', error);
       return []; // Return empty array if we can't get stats
