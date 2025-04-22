@@ -1,47 +1,30 @@
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme';
+import { useData } from 'vitepress';
 
-const members = [
-  {
-    avatar: 'https://www.github.com/twangodev.png',
-    name: 'James Ding',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/twangodev' },
-      { icon: 'linkedin', link: 'https://www.linkedin.com/in/jamesding365/' },
-    ]
-  },
-  {
-    avatar: 'https://www.github.com/ProfessorAtomicManiac.png',
-    name: 'Charles Ding',
-    title: 'Developer',
-    links: [
-      { icon: 'github', link: 'https://github.com/ProfessorAtomicManiac' },
-    ]
-  },
-{
-    avatar: 'https://www.github.com/theradest1.png',
-    name: 'Landon Bakken',
-    title: 'Developer',
-    links: [
-      { icon: 'github', link: 'https://github.com/theradest1' },
-    ]
-  },
-];
+// Get the data that was computed at build time
+const { frontmatter } = useData();
+const { maintainers, contributors } = frontmatter.value.teamData || { maintainers: [], contributors: [] };
 </script>
 
 # Meet the Team
 
-## Development Team
+## Maintainers
 
-We're a group of students maintaining this project. Say hello to us!
+Our maintainers steer the project by triaging issues, reviewing and merging pull requests, and keeping documentation up to date.
 
 <!--suppress CheckEmptyScriptTag, HtmlUnknownTag -->
-<VPTeamMembers size="small" :members />
+<VPTeamMembers size="small" :members="maintainers" />
 
 > [!TIP]
-> If you are interested in joining the team and becoming a maintainer, please check out our [contributing guide](./contributing.md) for more information on how to get involved.
+> Interested in helping shape the future of this project? Check out our [contributing guide](./contributing.md) to learn how to become a maintainer.
 
-## Hackathon Contributors
+## Contributors
+
+
+Our contributors power improvements through bug reports, pull requests, documentation updates, and community support—this could be you!
+
+<!--suppress CheckEmptyScriptTag, HtmlUnknownTag -->
+<VPTeamMembers size="small" :members="contributors" />
 
 Special shoutout to [Shyam Patel](https://github.com/yamshpatel), [Ali Al Mezel](https://github.com/AliMezel), and [Muakong Yang](https://github.com/Muakongyang) for their contributions for the prototype at Cheesehacks 2024!
