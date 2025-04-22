@@ -74,6 +74,9 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
           lines = contributorStats.weeks.reduce((sum, week) => sum + week.a - week.d, 0);
         }
 
+        // Log the contributor details including lines and contributions
+        console.log(`Discovered contributor: ${contributor.login} - Lines: ${lines > 0 ? lines : 0}, Commits: ${contributor.contributions}`);
+
         return {
           login: contributor.login,
           avatar_url: contributor.avatar_url,
