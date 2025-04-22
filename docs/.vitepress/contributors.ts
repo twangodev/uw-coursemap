@@ -89,7 +89,7 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
     const maintainerGithubUsernames = maintainers.map(maintainer => {
       // Extract GitHub username from the link
       const githubLink = maintainer.links.find(link => link.icon === 'github')?.link;
-      return githubLink ? githubLink.split('/').pop() : '';
+      return githubLink ? githubLink.replace(/\/+$/, '').split('/').pop() : '';
     });
 
     const filteredContributors = contributorsWithLines.filter(
