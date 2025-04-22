@@ -57,8 +57,8 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
             // Wait for 5 seconds before retrying
             await new Promise(resolve => setTimeout(resolve, 5000));
           } else {
-            console.warn(`Reached maximum retries (${maxRetries}) for 202 status. Proceeding with available data.`);
-            break;
+            console.error(`Reached maximum retries (${maxRetries}) for 202 status. Aborting operation.`);
+            throw new Error(`Failed to fetch contributor stats after ${maxRetries} retries. Aborting.`);
           }
         } else {
           // If we get a successful response, break out of the loop
