@@ -102,8 +102,19 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
       contributor => !maintainerGithubUsernames.includes(contributor.login)
     );
 
-    // Sort by lines contributed (descending)
-    return filteredContributors.sort((a, b) => (b.lines || 0) - (a.lines || 0));
+    // Sort by lines contributed (descending), then by contributions if lines are equal
+    return filteredContributors.sort((a, b) => {
+      const linesA = a.lines || 0;
+      const linesB = b.lines || 0;
+
+      // If lines are equal, sort by contributions
+      if (linesA === linesB) {
+        return (b.contributions || 0) - (a.contributions || 0);
+      }
+
+      // Otherwise, sort by lines
+      return linesB - linesA;
+    });
   } catch (error) {
     console.error('Error fetching GitHub contributors:', error);
     return [];
