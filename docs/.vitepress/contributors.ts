@@ -21,7 +21,7 @@ interface TeamMember {
 
 // This function will be executed only during build time
 async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor[]> {
-  console.log('Fetching GitHub contributors during build time...');
+  console.log('Fetching GitHub contributors during build time (using a single API call)...');
   // Initialize Octokit with GitHub token if available
   const octokit = new Octokit(GITHUB_TOKEN ? {
     auth: GITHUB_TOKEN
@@ -34,59 +34,62 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
   }
 
   try {
-    // Get contributors from GitHub API
-    const { data: contributors } = await octokit.repos.listContributors({
-      owner: 'twangodev',
-      repo: 'uw-coursemap',
-      per_page: 100,
+    // Make a single API call to get contributor stats
+    console.log('Making a single API call to get contributor stats...');
+    let stats = [];
+    try {
+      const response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
+        owner: 'twangodev',
+        repo: 'uw-coursemap',
+      });
+      stats = response.data;
+      console.log(`Successfully fetched stats for ${stats.length} contributors`);
+    } catch (error) {
+      console.warn('Could not fetch contributor stats:', error);
+      return []; // Return empty array if we can't get stats
+    }
+
+    // Ensure stats is an array before processing
+    if (!Array.isArray(stats)) {
+      console.warn('Stats is not an array, returning empty array');
+      return [];
+    }
+
+    // Process each contributor from the stats
+    const contributors = stats.map((stat) => {
+      if (!stat.author) {
+        console.warn('Stat has no author, skipping');
+        return null;
+      }
+
+      const contributor = stat.author;
+      // Calculate lines from weeks data
+      let lines = 0;
+      if (stat.weeks) {
+        // Sum up additions and subtract deletions across all weeks
+        lines = stat.weeks.reduce((sum, week) => sum + week.a - week.d, 0);
+      }
+
+      // Ensure lines is not negative
+      lines = lines > 0 ? lines : 0;
+
+      // Use login as the name - we're only making one API call total
+      const userName = contributor.login;
+
+      // Log the contributor details including lines and contributions
+      console.log(`Discovered contributor: ${contributor.login} - Lines: ${lines}, Commits: ${stat.total}`);
+
+      return {
+        login: contributor.login,
+        avatar_url: contributor.avatar_url,
+        html_url: contributor.html_url,
+        contributions: stat.total,
+        name: userName,
+        lines: lines, // Don't allow negative lines
+      };
     });
 
-    // Get additional data for each contributor to calculate lines
-    const contributorsWithLines = await Promise.all(
-      contributors.map(async (contributor) => {
-        // Get user details to get the name
-        const { data: user } = await octokit.users.getByUsername({
-          username: contributor.login,
-        });
-
-        // Get commit stats to calculate lines
-        // Note: This endpoint might return 202 if stats are not cached
-        // In a production environment, you might want to handle this case
-        let stats = [];
-        try {
-          const response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
-            owner: 'twangodev',
-            repo: 'uw-coursemap',
-          });
-          stats = response.data;
-        } catch (error) {
-          console.warn('Could not fetch contributor stats:', error);
-        }
-
-        // Ensure stats is an array before using find
-        const contributorStats = Array.isArray(stats) 
-          ? stats.find(stat => stat.author && stat.author.login === contributor.login)
-          : undefined;
-        let lines = 0;
-
-        if (contributorStats && contributorStats.weeks) {
-          // Sum up additions and subtract deletions across all weeks
-          lines = contributorStats.weeks.reduce((sum, week) => sum + week.a - week.d, 0);
-        }
-
-        // Log the contributor details including lines and contributions
-        console.log(`Discovered contributor: ${contributor.login} - Lines: ${lines > 0 ? lines : 0}, Commits: ${contributor.contributions}`);
-
-        return {
-          login: contributor.login,
-          avatar_url: contributor.avatar_url,
-          html_url: contributor.html_url,
-          contributions: contributor.contributions,
-          name: user.name || contributor.login,
-          lines: lines > 0 ? lines : 0, // Ensure lines is not negative
-        };
-      })
-    );
+    const contributorsWithLines = contributors.filter(Boolean) as Contributor[];
 
     // Filter out maintainers from the contributors list
     const maintainerGithubUsernames = maintainers.map(maintainer => {
@@ -150,8 +153,6 @@ export default {
         { icon: 'github', link: contributor.html_url }
       ]
     }));
-
-    console.log('Contributors:', contributors);
 
     return {
       maintainers,
