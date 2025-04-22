@@ -1,11 +1,23 @@
 import {defineConfig, type UserConfig} from 'vitepress'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
 import {withMermaid} from "vitepress-plugin-mermaid";
+import teamData from './contributors';
 
 const vitePressOptions: UserConfig = {
   lang: 'en-US',
   title: "uw-coursemap",
   description: "Explore the courses offered by the UW-Madison in a visual and interactive way.",
+  async buildEnd() {
+    console.log('Build completed. GitHub API calls were made only during build time.');
+  },
+  async transformPageData(pageData) {
+    // Only load the data once during build time
+    if (pageData.relativePath === 'team.md') {
+      const data = await teamData.load();
+      pageData.frontmatter.teamData = data;
+    }
+    return pageData;
+  },
   themeConfig: {
     logo: 'https://uwcourses.com/uw-coursemap-logo.svg',
     siteTitle: 'UW Course Map',
@@ -80,10 +92,6 @@ const vitePressOptions: UserConfig = {
         text: 'Branding',
         link: '/branding'
       },
-      {
-        text: 'Advanced',
-        link: '/advanced'
-      }
     ],
     search: {
       provider: 'local'

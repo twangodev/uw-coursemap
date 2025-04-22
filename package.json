@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@carbon/charts-svelte": "^1.23.5",
+    "@octokit/rest": "^21.1.1",
     "@sveltejs/adapter-node": "^5.2.12",
     "@sveltejs/kit": "^2.20.7",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
@@ -47,7 +48,7 @@
     "vitepress-plugin-group-icons": "^1.5.2",
     "vitepress-plugin-mermaid": "^2.0.17",
     "vitepress-sidebar": "^1.31.1",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.2"
   },
   "dependencies": {
     "cytoscape": "^3.31.2",
