@@ -92,10 +92,6 @@ const vitePressOptions: UserConfig = {
         text: 'Branding',
         link: '/branding'
       },
-      {
-        text: 'Advanced',
-        link: '/advanced'
-      }
     ],
     search: {
       provider: 'local'
