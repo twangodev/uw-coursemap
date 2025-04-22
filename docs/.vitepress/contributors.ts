@@ -35,15 +35,46 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
 
   try {
     // Make a single API call to get contributor stats
-    console.log('Making a single API call to get contributor stats...');
+    console.log('Retrieving contributor stats...');
     let stats = [];
     try {
-      const response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
-        owner: 'twangodev',
-        repo: 'uw-coursemap',
-      });
-      stats = response.data;
-      console.log(`Successfully fetched stats for ${stats.length} contributors`);
+      // Implement retry mechanism for 202 responses
+      let retries = 0;
+      // The maximum number of retries (100) was chosen to balance waiting for the GitHub API to compute
+      // contributor stats (which can take time) and avoiding excessive delays. Each retry waits for 5 seconds,
+      // resulting in a maximum wait time of approximately 8 minutes and 20 seconds. Adjust this value if API
+      // response times change significantly.
+      let response;
+
+      while (retries <= maxRetries) {
+        response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
+          owner: 'twangodev',
+          repo: 'uw-coursemap',
+        });
+
+        // If we get a 202 status code, GitHub is still computing the stats
+        if (response.status === 202) {
+          retries++;
+          if (retries <= maxRetries) {
+            console.log(`Received 202 status (stats being computed). Retry ${retries}/${maxRetries} after 5 seconds...`);
+            // Wait for 5 seconds before retrying
+            await new Promise(resolve => setTimeout(resolve, 5000));
+          } else {
+            console.error(`Reached maximum retries (${maxRetries}) for 202 status. Aborting operation.`);
+            throw new Error(`Failed to fetch contributor stats after ${maxRetries} retries. Aborting.`);
+          }
+        } else {
+          // If we get a successful response, break out of the loop
+          break;
+        }
+      }
+
+      if (response && response.status !== 202) {
+        stats = response.data;
+        console.log(`Successfully fetched stats for ${stats.length} contributors`);
+      } else {
+        console.warn('Could not fetch contributor stats after retries, proceeding with empty data');
+      }
     } catch (error) {
       console.warn('Could not fetch contributor stats:', error);
       return []; // Return empty array if we can't get stats
@@ -102,8 +133,19 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
       contributor => !maintainerGithubUsernames.includes(contributor.login)
     );
 
-    // Sort by lines contributed (descending)
-    return filteredContributors.sort((a, b) => (b.lines || 0) - (a.lines || 0));
+    // Sort by lines contributed (descending), then by contributions if lines are equal
+    return filteredContributors.sort((a, b) => {
+      const linesA = a.lines || 0;
+      const linesB = b.lines || 0;
+
+      // If lines are equal, sort by contributions
+      if (linesA === linesB) {
+        return (b.contributions || 0) - (a.contributions || 0);
+      }
+
+      // Otherwise, sort by lines
+      return linesB - linesA;
+    });
   } catch (error) {
     console.error('Error fetching GitHub contributors:', error);
     return [];
