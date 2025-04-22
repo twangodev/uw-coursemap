@@ -40,10 +40,7 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
     try {
       // Implement retry mechanism for 202 responses
       let retries = 0;
-      // The maximum number of retries (100) was chosen to balance waiting for the GitHub API to compute
-      // contributor stats (which can take time) and avoiding excessive delays. Each retry waits for 5 seconds,
-      // resulting in a maximum wait time of approximately 8 minutes and 20 seconds. Adjust this value if API
-      // response times change significantly.
+      const maxRetries = 100; // We can retry up to 100 times (500 seconds)
       let response;
 
       while (retries <= maxRetries) {
