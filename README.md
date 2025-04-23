@@ -1,8 +1,10 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./static/uw-coursemap-tagline-light.svg">
-    <img alt="uw-coursemap" src="./static/uw-coursemap-tagline-dark.svg" width="75%">
-  </picture>
+  <a href="https://uwcourses.com" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./static/uw-coursemap-tagline-light.svg">
+      <img alt="uw-coursemap" src="./static/uw-coursemap-tagline-dark.svg" width="75%">
+    </picture>
+  </a>
 </div>
 
 <p align="center">
