@@ -5,6 +5,9 @@
       <img alt="uw-coursemap" src="./static/uw-coursemap-tagline-dark.svg" width="75%">
     </picture>
   </a>
+  <p>
+    Check it out live at <a href="https://uwcourses.com" target="_blank">uwcourses.com</a>
+  </p>
 </div>
 
 <p align="center">
