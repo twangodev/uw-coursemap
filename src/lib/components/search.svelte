@@ -10,7 +10,7 @@
         searchResponseToIdentifier,
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
-    import {Book, School, User} from "lucide-svelte";
+    import {Book, School, User} from "@lucide/svelte";
     import {allOptionsAreDisabled, filterOptions, searchModalOpen, searchOptions, type SearchBarOptions} from "$lib/searchModalStore.ts";
     import {
         combineSearchResults,
@@ -24,7 +24,7 @@
     import {toast} from "svelte-sonner";
     import { page } from "$app/stores";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
-    import { Filter } from "lucide-svelte";
+    import { Filter } from "@lucide/svelte";
 
     
     interface Props {

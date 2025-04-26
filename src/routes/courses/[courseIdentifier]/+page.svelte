@@ -14,7 +14,7 @@
         ClipboardCheck,
         Info,
         Users
-    } from "lucide-svelte";
+    } from "@lucide/svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import Change from "$lib/components/change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
