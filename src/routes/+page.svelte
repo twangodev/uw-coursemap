@@ -4,6 +4,7 @@
     import {Button} from "$lib/components/ui/button";
     import Announcement from "$lib/components/announcement.svelte";
     import {Card, CardHeader, CardTitle, CardContent} from "$lib/components/ui/card";
+    import { setSearchFilters } from "$lib/searchModalStore";
 </script>
 
 <ContentWrapper>
@@ -38,7 +39,7 @@
             </Card>
         </a>
         <!-- Department Map Card -->
-        <a href="/explorer" class="col-span-1">
+        <a href="/explorer" onclick={() => setSearchFilters(['showDepartments'])} class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Display Map of a Department</CardTitle>
@@ -49,7 +50,7 @@
             </Card>
         </a>
         <!-- Course and Instructor Details Card -->
-        <a href="/explorer" class="col-span-1">
+        <a href="/explorer" onclick={() => setSearchFilters(['showCourses', 'showInstructors'])} class="col-span-1">
             <Card class="w-full h-full hover:shadow-lg hover:scale-105 transition-transform">
                 <CardHeader>
                     <CardTitle>Course and Instructor Details</CardTitle>
