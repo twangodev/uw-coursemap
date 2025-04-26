@@ -26,6 +26,7 @@
     import type {Terms} from "$lib/types/terms.js";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
+    import CourseDetails from "./course-details.svelte";
 
     const { PUBLIC_API_URL } = env;
 
@@ -132,22 +133,6 @@
         return `${value.toFixed(2)}%`
     }
 
-    const getCreditCount = (course: Course) => {
-        const creditCount = getLatestEnrollmentData(course)?.credit_count;
-        if (!creditCount) {
-            return "Not Reported";
-        }
-
-        if (creditCount[0] === creditCount[1]) {
-            return `${creditCount[0]}`;
-        } else {
-            return `${creditCount[0]} to ${creditCount[1]}`;
-        }
-    }
-
-    const getNormallyOffered = (course: Course) => {
-        return getLatestEnrollmentData(course)?.typically_offered ?? "Not Reported";
-    }
 
 </script>
 
@@ -159,48 +144,7 @@
         <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
     </TabsList>
     <div class="grid gap-4 lg:grid-cols-12">
-        <div class="space-y-4 mt-2 lg:col-span-3">
-            <Card>
-                <CardHeader
-                        class="flex flex-row items-center justify-between space-y-0 pb-2"
-                >
-                    <CardTitle class="text-base font-medium">Course Description</CardTitle>
-                    <Info class="text-muted-foreground h-4 w-4"/>
-                </CardHeader>
-                <CardContent>
-                    <p class="text-sm break-words">{course.description}</p>
-                </CardContent>
-                <CardHeader
-                        class="flex flex-row items-center justify-between space-y-0 pb-2"
-                >
-                    <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
-                    <BookOpen class="text-muted-foreground h-4 w-4"/>
-                </CardHeader>
-                <CardContent>
-                    <p class="text-sm break-words">{course.prerequisites.prerequisites_text}</p>
-                </CardContent>
-                <div class="flex flex-row space-x-4">
-                    <div class="flex-1">
-                        <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle class="text-base font-medium">Credits</CardTitle>
-                            <ClipboardCheck class="text-muted-foreground h-4 w-4"/>
-                        </CardHeader>
-                        <CardContent>
-                            <p class="text-sm break-words">{getCreditCount(course)}</p>
-                        </CardContent>
-                    </div>
-                    <div class="flex-1">
-                        <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle class="text-base font-medium">Offered</CardTitle>
-                            <CalendarRange class="text-muted-foreground h-4 w-4"/>
-                        </CardHeader>
-                        <CardContent>
-                            <p class="text-sm break-words">{getNormallyOffered(course)}</p>
-                        </CardContent>
-                    </div>
-                </div>
-            </Card>
-        </div>
+        <CourseDetails {course} {selectedTerm} />
         <TabsContent class="lg:col-span-9 space-y-4" value="overview">
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
