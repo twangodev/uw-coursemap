@@ -1,7 +1,6 @@
 import {writable} from "svelte/store";
 import { Book, School, User } from '@lucide/svelte';
-import type { Icon } from '@lucide/svelte';
-import type { Component, ComponentType } from 'svelte';
+import type { Component } from 'svelte';
 
 export interface SearchBarOptions {
     showCourses: boolean;
@@ -39,10 +38,7 @@ export function allOptionsAreDisabled(options: SearchBarOptions): boolean {
 export interface FilterOptionDisplay {
     id: keyof SearchBarOptions;
     label: string;
-    // TODO: Update lucide-svelte to use Component instead of ComponentType<Icon>
-    // I suspect lucide-svelte is written for Svelte 4, not Svelte 5 so its component
-    // type is not compatible with Svelte 5's component type
-    icon?: Component | ComponentType<Icon>; 
+    icon?: Component; 
 }
 
 export const filterOptions: FilterOptionDisplay[] = [
