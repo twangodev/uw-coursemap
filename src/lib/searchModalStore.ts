@@ -8,11 +8,27 @@ export interface SearchBarOptions {
     showDepartments: boolean;
     showInstructors: boolean;
 }
+
 export const searchOptions = writable<SearchBarOptions>({
     showCourses: true,
     showDepartments: true,
     showInstructors: true,
 })
+
+export function setSearchFilters(enabledFilters: (keyof SearchBarOptions)[]) {
+    searchOptions.update(current => {
+        const newOptions = { ...current };
+        // First, set all options to false
+        (Object.keys(current) as (keyof SearchBarOptions)[]).forEach(key => {
+            newOptions[key] = false;
+        });
+        // Then enable only the specified filters
+        enabledFilters.forEach(filter => {
+            newOptions[filter] = true;
+        });
+        return newOptions;
+    });
+}
 
 export function allOptionsAreDisabled(options: SearchBarOptions): boolean {
     return !options.showCourses && 
