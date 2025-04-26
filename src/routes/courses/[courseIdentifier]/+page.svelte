@@ -31,6 +31,8 @@
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
     import {env} from "$env/dynamic/public";
     import { Button } from "$lib/components/ui/button";
+    import CourseHeader from "$lib/components/course/course-header.svelte";
+
     const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
@@ -164,15 +166,11 @@
     {#await Promise.all([course, terms, latestTerm])}
         <p class="text-center">Loading...</p>
     {:then [course, terms]}
-        <div class="flex justify-between items-center">
-            <div>
-                <ContentH1>{course.course_title}</ContentH1>
-                <div class="text-xl font-bold my-2">
-                    {courseReferenceToString(course.course_reference)}
-                </div>
-            </div>
-            <TermSelector bind:selectedTerm={selectedTerm} terms={terms} />
-        </div>
+        <CourseHeader
+            course={course}
+            terms={terms}
+            bind:selectedTerm={selectedTerm}
+        />
         <Tabs value="overview">
             <TabsList class="my-2">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
