@@ -16,7 +16,7 @@
     let {
         course,
         terms,
-        selectedTerm = $bindable()
+        selectedTerm
     }: Props = $props();
 
     let instructors: Promise<FullInstructorInformation[]> = $derived(getFullInstructorInformation(course, terms, selectedTerm))
