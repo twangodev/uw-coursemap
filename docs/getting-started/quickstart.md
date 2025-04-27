@@ -83,7 +83,7 @@ pipenv install
 And now you can run the search server:
 
 ```sh [pipenv]
-pipenv run app.py
+pipenv run python app.py
 ```
 
 > [!TIP] 
