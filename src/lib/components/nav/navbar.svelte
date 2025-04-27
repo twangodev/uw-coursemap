@@ -7,7 +7,7 @@
     import Search from "$lib/components/search.svelte";
     import MobileNav from "$lib/components/nav/mobile-nav.svelte";
     import ModeToggle from "$lib/components/mode-toggle.svelte";
-    import {Github, GithubIcon} from "lucide-svelte";
+    import {Github, GithubIcon} from "@lucide/svelte";
 </script>
 
 <header

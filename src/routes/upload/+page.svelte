@@ -11,9 +11,9 @@
     import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
     import * as Dialog from "$lib/components/ui/dialog/index.js";
     import { onMount } from 'svelte';
-    import XMark from "lucide-svelte/icons/x";
+    import XMark from "@lucide/svelte/icons/x";
     import CourseSearch from "$lib/components/course-search.svelte";
-	import { ChevronDown } from "lucide-svelte";
+	import { ChevronDown } from "@lucide/svelte";
     
     let takenCourses = $state(new Array<any>)
     let status = $state("");

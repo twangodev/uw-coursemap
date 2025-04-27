@@ -11,7 +11,7 @@
     import {getCourse} from "$lib/api.ts";
     import {setData} from "$lib/localStorage.ts";
     import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
-    import {ChevronsUpDown} from "lucide-svelte";
+    import {ChevronsUpDown} from "@lucide/svelte";
 	import { onMount } from "svelte";
 
     let open = $state(false);

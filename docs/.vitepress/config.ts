@@ -128,6 +128,9 @@ const vitePressOptions: UserConfig = {
       md.use(groupIconMdPlugin)
     },
     lineNumbers: true,
+    image: {
+      lazyLoading: true
+    }
   },
   vite: {
     plugins: [

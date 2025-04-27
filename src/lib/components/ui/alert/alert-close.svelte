@@ -2,7 +2,7 @@
 <script lang="ts">
     import type { HTMLButtonAttributes } from "svelte/elements";
     import { cn } from "$lib/utils";
-    import { X } from "lucide-svelte";
+    import { X } from "@lucide/svelte";
 
     type $$Props = HTMLButtonAttributes;
     let className: $$Props["class"] = undefined;

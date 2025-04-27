@@ -89,12 +89,9 @@ export type FullInstructorInformation = {
     cumulative_grade_data: GradeData | null,
 }
 
-export async function getFullInstructorInformation(course: Promise<Course>, terms: Promise<Terms>, selectedTerm: string | undefined): Promise<FullInstructorInformation[]> {
-    let loadedCourse = await course;
-    let loadedTerms = await terms;
-
+export async function getFullInstructorInformation(course: Course, terms: Terms, selectedTerm: string | undefined): Promise<FullInstructorInformation[]> {
     let rawInstructors = [];
-    for (const [name, email] of Object.entries(getInstructorsWithEmail(loadedCourse, selectedTerm ?? getLatestTermId(loadedTerms)))) {
+    for (const [name, email] of Object.entries(getInstructorsWithEmail(course, selectedTerm ?? getLatestTermId(terms)))) {
         const response = await apiFetch(
             `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
         );

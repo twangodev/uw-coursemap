@@ -9,7 +9,7 @@
         LucideHash,
         LucideCaseUpper,
         Ungroup,
-    } from "lucide-svelte";
+    } from "@lucide/svelte";
     import IconTooltipStateWrapper from "../icon-toolips/icon-tooltip-state-wrapper.svelte";
     import IconTootipWrapper from "../icon-toolips/icon-tootip-wrapper.svelte";
     import {LayoutType} from "$lib/components/cytoscape/graph-layout.ts";

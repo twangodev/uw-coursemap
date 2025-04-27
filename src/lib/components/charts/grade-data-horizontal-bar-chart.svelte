@@ -88,5 +88,5 @@
 </script>
 
 <div class="h-full">
-    <BarChartSimple {data} {options} class="h-full"/>
+    <BarChartSimple {data} {options}/>
 </div>

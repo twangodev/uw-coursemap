@@ -14,6 +14,9 @@ hero:
     - theme: alt
       text: View on GitHub
       link: https://github.com/twangodev/uw-coursemap
+  image:
+    src: https://uwcourses.com/uw-coursemap-logo.svg
+    alt: UW Course Map
 
 features:
   - title: Overview
