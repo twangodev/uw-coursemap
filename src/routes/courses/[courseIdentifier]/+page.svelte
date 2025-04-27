@@ -21,7 +21,6 @@
         selectedTerm = String(await getLatestTermIdPromise(terms))
         return selectedTerm
     });
-
 </script>
 
 <ContentWrapper>
