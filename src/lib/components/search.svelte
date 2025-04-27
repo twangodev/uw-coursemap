@@ -11,7 +11,7 @@
         type SearchResponse
     } from "$lib/types/search/searchApiResponse.ts";
     import {Book, School, User} from "lucide-svelte";
-    import {searchModalOpen} from "$lib/searchModalStore.ts";
+    import {allOptionsAreDisabled, filterOptions, searchModalOpen, searchOptions, type SearchBarOptions} from "$lib/searchModalStore.ts";
     import {
         combineSearchResults,
         type CourseSearchResult,
@@ -26,11 +26,7 @@
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
     import { Filter } from "lucide-svelte";
 
-    export interface SearchBarOptions {
-        showCourses: boolean;
-        showDepartments: boolean;
-        showInstructors: boolean;
-    }
+    
     interface Props {
         wide?: boolean;
         fake?: boolean;
@@ -39,57 +35,40 @@
     let wide = props.wide ?? false;
     let fake = props.fake ?? false;
 
-    const filterOptions = [
-        { id: 'COURSES', label: 'Courses' },
-        { id: 'DEPARTMENTS', label: 'Departments' },
-        { id: 'INSTRUCTORS', label: 'Instructors' }
-    ];
-    // from the url it determines whether to show courses, departments, or instructors
-    // I honestly hate using the url for this but b/c there can be multiple "fake" search bars the
-    // real search bar is not always the first one in the DOM so we can't just use a prop to determine this
-    let showOptionsQuery = $derived($page.url.searchParams.get('searchShowOptions')?.toUpperCase() ?? '');
-    let showOptions = $derived<SearchBarOptions>({
-        showCourses: showOptionsQuery ? showOptionsQuery.includes("COURSES"): true,
-        showDepartments: showOptionsQuery ? showOptionsQuery.includes("DEPARTMENTS") : true,
-        showInstructors: showOptionsQuery ? showOptionsQuery.includes("INSTRUCTORS") : true 
-    })
-    
-    let selectedOptions = $state<string[]>(
-        $page.url.searchParams.get('searchShowOptions')?.split(',')
-            .map(opt => opt.toUpperCase())
-            .filter(opt => ['COURSES', 'DEPARTMENTS', 'INSTRUCTORS'].includes(opt)) ?? 
-        ['COURSES', 'DEPARTMENTS', 'INSTRUCTORS']
-    );
-
-    function updateSearchOptions(options: string[]) {
-        const params = new URLSearchParams($page.url.searchParams);
-        const currentPath = $page.url.pathname;
-
+    function updateSearchOptions(options: SearchBarOptions) {
         // Prevent removing all options
-        if (options.length === 0) {
+        if (allOptionsAreDisabled(options)) {
+            toast.message("At least one option must be selected", {
+                description: "Please select at least one search option.",
+                duration: 3000,
+                cancel: {
+                    label: "Hide",
+                    onClick: () => {
+                        toast.dismiss();
+                    }
+                }
+            });
             return;
         }
 
-        // Update URL with new options
-        params.set('searchShowOptions', options.join(','));
-        goto(`${currentPath}?${params.toString()}`, { keepFocus: true });
+        // update the selected options
+        $searchOptions = options;
         updateSuggestions(searchQuery);
     }
 
-    function handleOptionToggle(option: string, checked: boolean) {
-        if (checked && !selectedOptions.includes(option)) {
-            selectedOptions = [...selectedOptions, option];
-        } else if (!checked && selectedOptions.length > 1) {
-            selectedOptions = selectedOptions.filter(opt => opt !== option);
-        }
-        updateSearchOptions(selectedOptions);
+    function handleOptionToggle(option: keyof SearchBarOptions, checked: boolean) {
+        const updatedOptions: SearchBarOptions = {
+            ...$searchOptions,
+            [option]: checked
+        };
+        updateSearchOptions(updatedOptions);
     }
 
     let placeholderString = $derived((() => {
         let options = [];
-        if (showOptions.showCourses) options.push("courses")
-        if (showOptions.showDepartments) options.push("departments")
-        if (showOptions.showInstructors) options.push("instructors")
+        if ($searchOptions.showCourses) options.push("courses")
+        if ($searchOptions.showDepartments) options.push("departments")
+        if ($searchOptions.showInstructors) options.push("instructors")
         return `Search ${options.join(", ")}...`
     })());
 
@@ -143,9 +122,9 @@
         const data: SearchResponse = await response.json()
 
         // Filter results before combining them
-        const rawCourses = showOptions.showCourses ? data.courses : []
-        const rawSubjects = showOptions.showDepartments ? data.subjects : []
-        const rawInstructors = showOptions.showInstructors ? data.instructors : []
+        const rawCourses = $searchOptions.showCourses ? data.courses : []
+        const rawSubjects = $searchOptions.showDepartments ? data.subjects : []
+        const rawInstructors = $searchOptions.showInstructors ? data.instructors : []
 
         $results = combineSearchResults(
             rawCourses,
@@ -244,7 +223,7 @@
                 <DropdownMenu.Separator />
                     {#each filterOptions as option}
                         <DropdownMenu.CheckboxItem
-                            checked={selectedOptions.includes(option.id)}
+                            checked={$searchOptions[option.id]}
                             onCheckedChange={(checked) => handleOptionToggle(option.id, checked)}
                         >
                             {option.label}
@@ -280,7 +259,7 @@
     <Command.List>
         <!-- TODO: Add way to generate random departments and instructors -->
         {#if $results.length <= 0}
-            {#if showOptions.showCourses}
+            {#if $searchOptions.showCourses}
                 {#await randomCourses}
                     <div class="py-6 text-center text-sm">No results found.</div>
                 {:then randomCourses}
