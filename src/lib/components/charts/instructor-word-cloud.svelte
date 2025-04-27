@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import {type ChartTabularData, WordCloudChart, type WordCloudChartOptions} from '@carbon/charts-svelte'
-    import { removeStopwords } from 'stopword'
+    import {removeStopwords} from 'stopword'
     import '@carbon/charts-svelte/styles.css'
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import {getCarbonTheme} from "$lib/theme.ts";
@@ -11,7 +11,7 @@
         instructors: FullInstructorInformation[];
     }
 
-    let { instructors }: Props = $props();
+    let {instructors}: Props = $props();
 
     function commentsToChartTabularData(instructors: FullInstructorInformation[]): ChartTabularData {
         const wordCounts = new Map();
@@ -47,7 +47,7 @@
         const tabularData: ChartTabularData = [];
         wordCounts.forEach((instructorCounts, word) => {
             instructorCounts.forEach((count: number, instructorName: string) => {
-                tabularData.push({ word, value: count, group: instructorName });
+                tabularData.push({word, value: count, group: instructorName});
             });
         });
 
@@ -55,7 +55,7 @@
     }
 
 
-    let currentData : ChartTabularData = [];
+    let currentData: ChartTabularData = [];
     let data: ChartTabularData = $derived.by(() => {
         if (instructors != currentData) {
             currentData = instructors;
@@ -63,7 +63,7 @@
         }
         return currentData;
     })
-    
+
 
     let options: WordCloudChartOptions = $derived({
         title: 'Word Cloud',
@@ -75,6 +75,6 @@
 
 </script>
 
-<div class="h-full">
-    <WordCloudChart {data} {options} class="py-4" />
+<div class="h-full py-4">
+    <WordCloudChart {data} {options}/>
 </div>
