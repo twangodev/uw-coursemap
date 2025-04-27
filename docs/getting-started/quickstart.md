@@ -38,6 +38,12 @@ npm run dev
 
 You can now access the application with your browser at the specified URL.
 
+> [!TIP]
+> To preview the documentation run 
+> ```sh [npm]
+> npm run docs:dev
+> ``` 
+
 ### Search
 The search is a little more tricky to set up, as it uses [Pipenv] and [Elasticsearch].
 
