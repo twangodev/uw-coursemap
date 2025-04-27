@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {page} from "$app/state";
-    import {cn} from "$lib/utils.js";
+    import { page } from "$app/state";
+    import { cn } from "$lib/utils.js";
 
 
     interface Props {

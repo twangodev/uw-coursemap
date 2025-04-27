@@ -1,5 +1,5 @@
 import {writable} from "svelte/store";
-import type {Component} from 'svelte';
+import type { Component } from 'svelte';
 import {Book, School, User} from "@lucide/svelte";
 
 export interface SearchBarOptions {

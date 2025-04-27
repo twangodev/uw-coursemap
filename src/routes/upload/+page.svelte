@@ -1,13 +1,20 @@
 <script lang="ts">
-    import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-    import {Button} from "$lib/components/ui/button/index.js";
-    import {getDocument, type PDFDocumentProxy} from "pdfjs-dist";
+	import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
+    import { Input } from "$lib/components/ui/input/index.ts";
+    import { Label } from "$lib/components/ui/label/index.ts";
+    import {Button, buttonVariants} from "$lib/components/ui/button/index.js";
+	import { getDocument, type PDFDocumentProxy } from "pdfjs-dist";
     import "pdfjs-dist/build/pdf.worker.mjs"; // Ensure the worker is bundled
     import {getCourse} from "$lib/api.ts";
     import {getData, setData} from "$lib/localStorage.ts";
-    import {onMount} from 'svelte';
+    import * as Table from "$lib/components/ui/table/index.ts";
+    import * as AlertDialog from "$lib/components/ui/alert-dialog/index.js";
+    import * as Dialog from "$lib/components/ui/dialog/index.js";
+    import { onMount } from 'svelte';
+    import XMark from "@lucide/svelte/icons/x";
     import CourseSearch from "$lib/components/course-search.svelte";
-
+	import { ChevronDown } from "@lucide/svelte";
+    
     let takenCourses = $state(new Array<any>)
     let status = $state("");
     let browseInput: HTMLInputElement;

@@ -1,6 +1,10 @@
 <script lang="ts">
 
-    import {type ChartTabularData, DonutChart, type DonutChartOptions} from '@carbon/charts-svelte'
+    import {
+        type ChartTabularData,
+        DonutChart,
+        type DonutChartOptions
+    } from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {MandatoryAttendance} from "$lib/types/instructor.ts";
     import {getCarbonTheme} from "$lib/theme.ts";

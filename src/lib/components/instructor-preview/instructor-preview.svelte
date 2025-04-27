@@ -2,6 +2,7 @@
     import {LucideMail} from "@lucide/svelte";
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
+    import * as Tooltip from "$lib/components/ui/tooltip";
     import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
 
     interface Props {

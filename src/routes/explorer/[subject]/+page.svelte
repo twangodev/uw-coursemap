@@ -1,10 +1,10 @@
 <script lang="ts">
 
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
-    import {page} from '$app/state';
+    import { page } from '$app/state';
     import {env} from "$env/dynamic/public";
-    import {onMount} from "svelte";
-    import {toast} from "svelte-sonner";
+    import { onMount } from "svelte";
+    import { toast } from "svelte-sonner";
 
     let subject = $derived(page.params.subject.toUpperCase());
 
