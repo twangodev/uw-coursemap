@@ -33,7 +33,7 @@
             <p class="text-center">Loading...</p>
         {:then instructors}
             {#if instructors.length == 0}
-            No instructors found.
+             <p class = "text-center">No instructors found.</p>
             {/if}
             {#each instructors as instructor}
                 <InstructorPreview
