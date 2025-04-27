@@ -1,4 +1,4 @@
-import { Dialog as SheetPrimitive } from "bits-ui";
+import {Dialog as SheetPrimitive} from "bits-ui";
 import Overlay from "./sheet-overlay.svelte";
 import Content from "./sheet-content.svelte";
 import Header from "./sheet-header.svelte";

@@ -3,11 +3,11 @@
         Group,
         LockKeyhole,
         LockKeyholeOpen,
+        LucideCaseUpper,
         LucideFullscreen,
+        LucideHash,
         LucideMinus,
         LucidePlus,
-        LucideHash,
-        LucideCaseUpper,
         Ungroup,
     } from "@lucide/svelte";
     import IconTooltipStateWrapper from "../icon-toolips/icon-tooltip-state-wrapper.svelte";

@@ -1,16 +1,11 @@
 <script lang="ts">
-    import cytoscape, {
-        type Collection,
-        type EdgeCollection,
-        type ElementDefinition,
-        type StylesheetStyle
-    } from "cytoscape";
+    import cytoscape, {type Collection, type ElementDefinition, type StylesheetStyle} from "cytoscape";
     import cytoscapeFcose from "cytoscape-fcose"
     import tippy from "tippy.js";
     import cytoscapePopper from "cytoscape-popper";
     import {Progress} from "$lib/components/ui/progress";
     import {cn} from "$lib/utils.ts";
-    import {courseReferenceToString, sanitizeCourseToReferenceString, type Course} from "$lib/types/course.ts";
+    import {type Course, courseReferenceToString} from "$lib/types/course.ts";
     import {fetchCourse, fetchGraphData} from "./graph-data.ts";
     import {getStyleData, getStyles, type StyleEntry} from "./graph-styles.ts";
     import SideControls from "./side-controls.svelte";
@@ -22,12 +17,10 @@
     import {mode} from "mode-watcher";
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
-    import { onMount } from "svelte";
-    import { FileText, Terminal, X } from "@lucide/svelte";
-    import * as Alert from "$lib/components/ui/alert/index.js"; 
-    import { AlertClose } from "$lib/components/ui/alert";
-    import { getData, setData, clearData } from "$lib/localStorage.ts";
-    import * as Dialog from "$lib/components/ui/dialog";
+    import {onMount} from "svelte";
+    import {FileText, X} from "@lucide/svelte";
+    import {AlertClose} from "$lib/components/ui/alert";
+    import {getData, setData} from "$lib/localStorage.ts";
 
     interface Props {
         url: string;

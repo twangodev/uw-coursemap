@@ -1,10 +1,10 @@
 <script lang="ts">
-    import  {Button} from "$lib/components/ui/button";
+    import {Button} from "$lib/components/ui/button";
     import {sleep} from "$lib/utils.ts";
     import {Command, CommandItem, CommandList} from "$lib/components/ui/command";
-    import {CommandEmpty, CommandGroup, CommandInput} from "$lib/components/ui/command/index.js";
-    import { search } from "$lib/api";
-    import { writable } from "svelte/store";
+    import {CommandEmpty, CommandGroup} from "$lib/components/ui/command/index.js";
+    import {search} from "$lib/api";
+    import {writable} from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
     import {type SearchResponse} from "$lib/types/search/searchApiResponse.ts";
     import {type CourseSearchResult, generateCourseSearchResults} from "$lib/types/search/searchResults.ts";
@@ -12,7 +12,6 @@
     import {setData} from "$lib/localStorage.ts";
     import {Popover, PopoverContent, Trigger} from "$lib/components/ui/popover";
     import {ChevronsUpDown} from "@lucide/svelte";
-	import { onMount } from "svelte";
 
     let open = $state(false);
     let numOptions = 20;

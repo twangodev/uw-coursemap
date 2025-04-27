@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { WithElementRef } from "bits-ui";
-	import type { HTMLAttributes } from "svelte/elements";
-	import { getEmblaContext } from "./context.js";
-	import { cn } from "$lib/utils.js";
+    import type {WithElementRef} from "bits-ui";
+    import type {HTMLAttributes} from "svelte/elements";
+    import {getEmblaContext} from "./context.js";
+    import {cn} from "$lib/utils.js";
 
-	let {
+    let {
 		ref = $bindable(null),
 		class: className,
 		children,
