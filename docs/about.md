@@ -5,6 +5,28 @@ title: About
     ![UW Course Map](https://uwcourses.com/uw-coursemap-tagline-dark.svg){.light-only}
     ![UW Course Map](https://uwcourses.com/uw-coursemap-tagline-light.svg){.dark-only}
 ](https://uwcourses.com/ "Visit the UW Course Map homepage"){aria-label="Visit the UW Course Map homepage"}
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 4px; flex-wrap: wrap;">
+  <a href="https://github.com/twangodev/uw-coursemap/actions/workflows/node.js.yml">
+    <img alt="Node.js CI" src="https://github.com/twangodev/uw-coursemap/actions/workflows/node.js.yml/badge.svg" />
+  </a>
+  <a href="https://github.com/twangodev/uw-coursemap/releases/latest">
+    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/twangodev/uw-coursemap" />
+  </a>
+  <a href="https://www.gnu.org/licenses/agpl-3.0">
+    <img alt="License" src="https://img.shields.io/github/license/twangodev/uw-coursemap" />
+  </a>
+  <img alt="Repo Size" src="https://img.shields.io/github/repo-size/twangodev/uw-coursemap" />
+  <a href="https://cheesehacks.webdevuw.com/">
+    <img alt="Cheesehacks-2024" src="https://img.shields.io/badge/Cheesehacks-2024-fec732" />
+  </a>
+</div>
+
+<p align="center">
+  Check it out live at <a href="https://uwcourses.com">uwcourses.com</a>
+</p>
+
+
 **UW Course Map** is an open‑source tool that helps University of Wisconsin–Madison students explore course offerings, plan their academic path, and ultimately leverage data to make informed decisions about their education.
 
 ## Problem Statement
