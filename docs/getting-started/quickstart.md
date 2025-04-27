@@ -38,11 +38,12 @@ npm run dev
 
 You can now access the application with your browser at the specified URL.
 
-> [!TIP]
-> To preview the documentation run 
-> ```sh [npm]
-> npm run docs:dev
-> ``` 
+::: details How do I preview documentation?
+We use [VitePress](https://vitepress.dev/) to generate the documentation for this project, as it runs alongside the frontend. To preview the documentation, you can run the following command:
+```sh [npm]
+npm run docs:dev
+``` 
+:::
 
 ### Search
 The search is a little more tricky to set up, as it uses [Pipenv] and [Elasticsearch].
