@@ -31,7 +31,7 @@
         {#await instructors}
             <p class="text-center">Loading...</p>
         {:then instructors}
-            {#if instructors.length == 0}
+            {#if instructors.length === 0}
              <p class = "text-center">No instructors found.</p>
             {/if}
             {#each instructors as instructor}
