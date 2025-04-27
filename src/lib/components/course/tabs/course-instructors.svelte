@@ -32,7 +32,7 @@
             {$inspect(instructors)}
             <p class="text-center">Loading...</p>
         {:then instructors}
-            {#if instructors.length == 0}
+            {#if instructors.length === 0}
             No instructors found.
             {/if}
             {#each instructors as instructor}
