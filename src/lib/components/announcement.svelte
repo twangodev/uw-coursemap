@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Blocks from "lucide-svelte/icons/blocks";
+    import Blocks from "@lucide/svelte/icons/blocks";
     import { cn } from "$lib/utils.js";
-    import {ArrowRight} from "lucide-svelte";
+    import {ArrowRight} from "@lucide/svelte";
     import {Separator} from "$lib/components/ui/separator";
 
     interface Props {

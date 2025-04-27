@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {ArrowUpRight, BookA, BookPlus, CircleCheckBig, Users} from "lucide-svelte";
+    import {ArrowUpRight, BookA, BookPlus, CircleCheckBig, Users} from "@lucide/svelte";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";

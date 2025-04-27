@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import {MoveRight, TrendingDown, TrendingUp} from "lucide-svelte";
+    import {MoveRight, TrendingDown, TrendingUp} from "@lucide/svelte";
     import {cn} from "$lib/utils.ts";
 
 
