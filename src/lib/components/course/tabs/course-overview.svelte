@@ -7,22 +7,23 @@
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import type {Course} from "$lib/types/course.ts";
     import type {Terms} from "$lib/types/terms.ts";
-    import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
+    import {type FullInstructorInformation} from "$lib/types/instructor.ts";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
 
     interface Props {
         course: Course;
         terms: Terms;
         selectedTerm: string | undefined;
+        instructors: Promise<FullInstructorInformation[]>;
     }
 
     let {
         course,
         terms,
         selectedTerm,
+        instructors,
     }: Props = $props();
 
-    let instructors: Promise<FullInstructorInformation[]> = $derived(getFullInstructorInformation(course, terms, selectedTerm))
     function termsWithGradeData(course: Course) {
         const allTerms = Object.keys(course?.term_data ?? {}).sort((a, b) => Number(a) - Number(b));
         return allTerms.filter(term => course.term_data[term]?.grade_data != null);
