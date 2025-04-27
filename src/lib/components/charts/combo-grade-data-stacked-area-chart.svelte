@@ -16,9 +16,9 @@
         terms: Terms;
     }
 
-    let { term_data, terms }: Props = $props();
+    let {term_data, terms}: Props = $props();
 
-    function madgradesDataToChartTabularData(termData: {[key: string] : TermData}): ChartTabularData {
+    function madgradesDataToChartTabularData(termData: { [key: string]: TermData }): ChartTabularData {
         const data: ChartTabularData = [];
 
         for (const [termCode, value] of Object.entries(termData)) {

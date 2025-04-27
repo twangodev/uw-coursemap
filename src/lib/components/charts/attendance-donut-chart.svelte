@@ -1,10 +1,6 @@
 <script lang="ts">
 
-    import {
-        type ChartTabularData,
-        DonutChart,
-        type DonutChartOptions
-    } from '@carbon/charts-svelte'
+    import {type ChartTabularData, DonutChart, type DonutChartOptions} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {MandatoryAttendance} from "$lib/types/instructor.ts";
     import {getCarbonTheme} from "$lib/theme.ts";
@@ -14,7 +10,7 @@
         attendanceData: MandatoryAttendance | undefined;
     }
 
-    let { attendanceData }: Props = $props();
+    let {attendanceData}: Props = $props();
 
     let data: ChartTabularData = $derived(attendanceData ? [
         {
@@ -53,5 +49,5 @@
 </script>
 
 <div class="h-full">
-    <DonutChart {data} {options} class="h-full"/>
+    <DonutChart {data} {options}/>
 </div>

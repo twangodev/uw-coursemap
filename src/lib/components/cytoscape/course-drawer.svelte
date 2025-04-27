@@ -1,17 +1,17 @@
 <script lang="ts">
     import {Skeleton} from "$lib/components/ui/skeleton";
-    import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {
+        type Course,
         courseReferenceToString,
-        sanitizeCourseToReferenceString,
-        type Course, getInstructorsWithEmail
+        getInstructorsWithEmail,
+        sanitizeCourseToReferenceString
     } from "$lib/types/course.ts";
     import {Separator} from "$lib/components/ui/separator";
     import {Button} from "$lib/components/ui/button";
     import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
-    import { ArrowUpRight } from "@lucide/svelte";
-    import { apiFetch } from "$lib/api";
-    import { clearPath, highlightPath } from "./paths.ts";
+    import {ArrowUpRight} from "@lucide/svelte";
+    import {apiFetch} from "$lib/api";
+    import {clearPath, highlightPath} from "./paths.ts";
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
     import type {Terms} from "$lib/types/terms.ts";
@@ -25,7 +25,8 @@
         selectedCourse: Course | undefined;
         destroyTip: () => void;
     }
-    let { sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip }: Props = $props();
+
+    let {sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip}: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
 
     let terms: Terms = $state({});
@@ -84,7 +85,6 @@
     });
 
 
-
 </script>
 
 <Drawer bind:open={sheetOpen} shouldScaleBackground>
@@ -117,7 +117,7 @@
                 {#each instructors as [name, email], index}
                     {#if index === 0}
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
-                        <Separator class="my-1" />
+                        <Separator class="my-1"/>
                     {/if}
                     <InstructorPreview instructor={{
                     name: name,
@@ -126,7 +126,9 @@
                     rmp_data: null,
                     department: null,
                     official_name: null,
-                    position: null
+                    position: null,
+                    courses_taught: [],
+                    cumulative_grade_data: null,
                 }}/>
                 {/each}
             {/if}
@@ -134,7 +136,8 @@
 
         {#if selectedCourse}
             <DrawerFooter>
-                <Button href="/courses/{sanitizeCourseToReferenceString(selectedCourse.course_reference)}" target="_blank">
+                <Button href="/courses/{sanitizeCourseToReferenceString(selectedCourse.course_reference)}"
+                        target="_blank">
                     View Course Page
                     <ArrowUpRight class="h-4 w-4"/>
                 </Button>
