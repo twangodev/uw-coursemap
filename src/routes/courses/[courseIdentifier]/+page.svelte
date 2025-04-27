@@ -21,7 +21,7 @@
         selectedTerm = String(await getLatestTermIdPromise(terms))
         return selectedTerm
     });
-
+    $inspect(course)
 </script>
 
 <ContentWrapper>
