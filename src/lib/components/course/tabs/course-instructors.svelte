@@ -29,7 +29,6 @@
     </CardHeader>
     <CardContent>
         {#await instructors}
-            {$inspect(instructors)}
             <p class="text-center">Loading...</p>
         {:then instructors}
             {#if instructors.length === 0}
