@@ -56,7 +56,6 @@
 {:then instructors}
     {#if instructors.length > 0}
     <Card>
-
         <CardContent>
             <InstructorWordCloud instructors={instructors}/>
         </CardContent>
