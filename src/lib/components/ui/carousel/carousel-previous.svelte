@@ -1,11 +1,10 @@
 <script lang="ts">
-	import ArrowLeft from "@lucide/svelte/icons/arrow-left";
-	import type { WithoutChildren } from "bits-ui";
-	import { getEmblaContext } from "./context.js";
-	import { cn } from "$lib/utils.js";
-	import { Button, type Props } from "$lib/components/ui/button/index.js";
+    import type {WithoutChildren} from "bits-ui";
+    import {getEmblaContext} from "./context.js";
+    import {cn} from "$lib/utils.js";
+    import {Button, type Props} from "$lib/components/ui/button/index.js";
 
-	let {
+    let {
 		ref = $bindable(null),
 		class: className,
 		variant = "outline",

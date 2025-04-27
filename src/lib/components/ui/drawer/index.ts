@@ -1,4 +1,4 @@
-import { Drawer as DrawerPrimitive } from "vaul-svelte";
+import {Drawer as DrawerPrimitive} from "vaul-svelte";
 
 import Root from "./drawer.svelte";
 import Content from "./drawer-content.svelte";

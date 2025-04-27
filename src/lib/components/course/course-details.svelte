@@ -2,7 +2,6 @@
     import {BookOpen, CalendarRange, ClipboardCheck, Info} from "@lucide/svelte";
     import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import type {Course} from "$lib/types/course.ts";
-    import type {Terms} from "$lib/types/terms.ts";
 
     interface Props {
         course: Course;

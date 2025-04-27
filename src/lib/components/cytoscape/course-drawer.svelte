@@ -1,17 +1,17 @@
 <script lang="ts">
     import {Skeleton} from "$lib/components/ui/skeleton";
-    import {ScrollArea} from "$lib/components/ui/scroll-area";
     import {
+        type Course,
         courseReferenceToString,
-        sanitizeCourseToReferenceString,
-        type Course, getInstructorsWithEmail
+        getInstructorsWithEmail,
+        sanitizeCourseToReferenceString
     } from "$lib/types/course.ts";
     import {Separator} from "$lib/components/ui/separator";
     import {Button} from "$lib/components/ui/button";
     import InstructorPreview from "../instructor-preview/instructor-preview.svelte";
-    import { ArrowUpRight } from "@lucide/svelte";
-    import { apiFetch } from "$lib/api";
-    import { clearPath, highlightPath } from "./paths.ts";
+    import {ArrowUpRight} from "@lucide/svelte";
+    import {apiFetch} from "$lib/api";
+    import {clearPath, highlightPath} from "./paths.ts";
     import {page} from "$app/state";
     import {pushState} from "$app/navigation";
     import type {Terms} from "$lib/types/terms.ts";

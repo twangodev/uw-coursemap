@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Search from "@lucide/svelte/icons/search";
-	import { cn } from "$lib/utils.js";
-    import { Input } from "./ui/input";
-	
+	import {cn} from "$lib/utils.js";
+	import {Input} from "./ui/input";
+
 	interface Props {
 		class?: string | undefined | null;
 		value?: string;

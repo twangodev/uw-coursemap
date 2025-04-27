@@ -1,8 +1,4 @@
 <script lang="ts">
-    import * as Card from "$lib/components/ui/card/index.js";
-    import type { StylesheetStyle } from "cytoscape";
-    import { Badge } from "../ui/badge";
-    import { Button } from "../ui/button";
     import ColorDot from "./color-dot.svelte";
     import type {StyleEntry} from "$lib/components/cytoscape/graph-styles.ts";
 

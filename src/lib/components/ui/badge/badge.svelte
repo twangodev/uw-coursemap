@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import { type VariantProps, tv } from "tailwind-variants";
+    import {tv, type VariantProps} from "tailwind-variants";
 
-	export const badgeVariants = tv({
+    export const badgeVariants = tv({
 		base: "focus:ring-ring inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-offset-2",
 		variants: {
 			variant: {

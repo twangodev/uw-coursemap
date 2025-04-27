@@ -6,7 +6,6 @@
     import {Command, CommandItem, CommandList} from "$lib/components/ui/command";
     import {CommandEmpty, CommandGroup, CommandInput} from "$lib/components/ui/command/index.js";
     import {tick} from "svelte";
-    import Check from "@lucide/svelte/icons/check";
     import {cn} from "$lib/utils.ts";
     import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 

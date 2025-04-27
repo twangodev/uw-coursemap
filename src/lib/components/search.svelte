@@ -1,32 +1,31 @@
 <script lang="ts">
-    import  {Button} from "$lib/components/ui/button";
+    import {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
-    import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
     import {getRandomCourses, search} from "$lib/api";
-    import { writable } from "svelte/store";
+    import {writable} from "svelte/store";
     import CustomSearchInput from "$lib/components/custom-search-input.svelte";
+    import {type SearchResponse, searchResponseToIdentifier} from "$lib/types/search/searchApiResponse.ts";
+    import {Book, Filter, School, User} from "@lucide/svelte";
     import {
-        searchResponseToIdentifier,
-        type SearchResponse
-    } from "$lib/types/search/searchApiResponse.ts";
-    import {Book, School, User} from "@lucide/svelte";
-    import {allOptionsAreDisabled, filterOptions, searchModalOpen, searchOptions, type SearchBarOptions} from "$lib/searchModalStore.ts";
+        allOptionsAreDisabled,
+        filterOptions,
+        type SearchBarOptions,
+        searchModalOpen,
+        searchOptions
+    } from "$lib/searchModalStore.ts";
     import {
         combineSearchResults,
         type CourseSearchResult,
         generateCourseSearchResults,
-        generateSubjectSearchResults,
         type InstructorSearchResult,
-        type SubjectSearchResult, type UnifiedSearchResponse
+        type SubjectSearchResult,
+        type UnifiedSearchResponse
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
-    import { page } from "$app/stores";
-    import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
-    import { Filter } from "@lucide/svelte";
 
-    
+
     interface Props {
         wide?: boolean;
         fake?: boolean;

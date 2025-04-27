@@ -1,5 +1,5 @@
-import type { Course } from "$lib/types/course";
-import type { EdgeDefinition, ElementDefinition, NodeDefinition } from "cytoscape"
+import type {Course} from "$lib/types/course";
+import type {EdgeDefinition, ElementDefinition, NodeDefinition} from "cytoscape"
 import {apiFetch} from "$lib/api.ts";
 
 export async function fetchGraphData(url: string): Promise<ElementDefinition[]> {

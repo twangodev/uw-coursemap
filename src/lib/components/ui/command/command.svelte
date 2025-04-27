@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Command as CommandPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
+    import {Command as CommandPrimitive} from "bits-ui";
+    import {cn} from "$lib/utils.js";
 
-	let {
+    let {
 		ref = $bindable(null),
 		value = $bindable(""),
 		class: className,
