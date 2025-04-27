@@ -12,7 +12,7 @@
         GraduationCap, Mail, PencilRuler, Repeat, Star,
         University,
         Users
-    } from "lucide-svelte";
+    } from "@lucide/svelte";
     import {Card, CardContent, CardHeader} from "$lib/components/ui/card";
     import {CardDescription, CardTitle} from "$lib/components/ui/card/index.js";
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";

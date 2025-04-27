@@ -6,7 +6,7 @@
     import Logo from "$lib/components/logo.svelte";
     import {navigation} from "$lib/config/navigation.ts";
     import {ScrollArea} from "$lib/components/ui/scroll-area";
-    import {Menu} from "lucide-svelte";
+    import {Menu} from "@lucide/svelte";
 
     let open = $state(false);
 </script>

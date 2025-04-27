@@ -2,7 +2,7 @@
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
-    import {ArrowUpRight} from "lucide-svelte";
+    import {ArrowUpRight} from "@lucide/svelte";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
 
     interface Props {

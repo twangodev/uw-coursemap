@@ -2,7 +2,7 @@
     import {type Course, sanitizeCourseToReferenceString} from "$lib/types/course.js";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
-    import {BookOpen} from "lucide-svelte";
+    import {BookOpen} from "@lucide/svelte";
     import {Button} from "$lib/components/ui/button/index.js";
     import {env} from "$env/dynamic/public";
 

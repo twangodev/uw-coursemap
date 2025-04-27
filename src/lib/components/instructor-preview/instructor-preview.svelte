@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {LucideMail} from "lucide-svelte";
+    import {LucideMail} from "@lucide/svelte";
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import * as Tooltip from "$lib/components/ui/tooltip";

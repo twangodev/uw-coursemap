@@ -23,7 +23,7 @@
     import {getTextColor, getTextOutlineColor} from "$lib/theme.ts";
     import Legend from "./legend.svelte";
     import { onMount } from "svelte";
-    import { FileText, Terminal, X } from "lucide-svelte";
+    import { FileText, Terminal, X } from "@lucide/svelte";
     import * as Alert from "$lib/components/ui/alert/index.js"; 
     import { AlertClose } from "$lib/components/ui/alert";
     import { getData, setData, clearData } from "$lib/localStorage.ts";
