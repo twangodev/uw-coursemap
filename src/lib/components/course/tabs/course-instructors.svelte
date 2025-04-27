@@ -50,7 +50,6 @@
 {#await instructors}
     <Card>
         <CardContent>
-
             <p class="text-center">Loading...</p>
         </CardContent>
     </Card>
