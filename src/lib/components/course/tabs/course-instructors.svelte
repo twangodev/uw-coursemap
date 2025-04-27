@@ -29,7 +29,6 @@
     </CardHeader>
     <CardContent>
         {#await instructors}
-            {$inspect(instructors)}
             <p class="text-center">Loading...</p>
         {:then instructors}
             {#if instructors.length == 0}
@@ -50,17 +49,14 @@
 {#await instructors}
     <Card>
         <CardContent>
-
             <p class="text-center">Loading...</p>
         </CardContent>
     </Card>
 {:then instructors}
     {#if instructors.length > 0}
     <Card>
-
         <CardContent>
             <InstructorWordCloud instructors={instructors}/>
-            
         </CardContent>
     </Card>
     {/if}
