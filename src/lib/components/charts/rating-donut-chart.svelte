@@ -1,10 +1,6 @@
 <script lang="ts">
 
-    import {
-        type ChartTabularData,
-        DonutChart,
-        type DonutChartOptions
-    } from '@carbon/charts-svelte'
+    import {type ChartTabularData, DonutChart, type DonutChartOptions} from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {RatingsDistribution} from "$lib/types/instructor.ts";
     import {mode} from "mode-watcher";
@@ -14,7 +10,7 @@
         ratingData: RatingsDistribution | undefined;
     }
 
-    let { ratingData }: Props = $props();
+    let {ratingData}: Props = $props();
 
     let data: ChartTabularData = $derived(ratingData ? [
         {
@@ -61,5 +57,5 @@
 </script>
 
 <div class="h-full">
-    <DonutChart {data} {options} class="h-full"/>
+    <DonutChart {data} {options}/>
 </div>
