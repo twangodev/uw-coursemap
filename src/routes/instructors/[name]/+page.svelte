@@ -1,19 +1,15 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-    import {page} from '$app/state';
+    import { page } from '$app/state';
     import {type Writable, writable} from "svelte/store";
-    import {type FullInstructorInformation, getAttendanceRequirement} from "$lib/types/instructor.ts";
+    import {type FullInstructorInformation, getAttendanceRequirement, type Instructor} from "$lib/types/instructor.ts";
     import {apiFetch} from "$lib/api.ts";
     import {
         BookA,
         BookPlus,
         BriefcaseBusiness,
         CircleCheckBig,
-        GraduationCap,
-        Mail,
-        PencilRuler,
-        Repeat,
-        Star,
+        GraduationCap, Mail, PencilRuler, Repeat, Star,
         University,
         Users
     } from "@lucide/svelte";

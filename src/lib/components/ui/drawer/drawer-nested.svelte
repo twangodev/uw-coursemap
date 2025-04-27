@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {Drawer as DrawerPrimitive} from "vaul-svelte";
+	import { Drawer as DrawerPrimitive } from "vaul-svelte";
 
-    let {
+	let {
 		shouldScaleBackground = true,
 		open = $bindable(false),
 		activeSnapPoint = $bindable(null),

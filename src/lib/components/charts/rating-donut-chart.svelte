@@ -1,6 +1,10 @@
 <script lang="ts">
 
-    import {type ChartTabularData, DonutChart, type DonutChartOptions} from '@carbon/charts-svelte'
+    import {
+        type ChartTabularData,
+        DonutChart,
+        type DonutChartOptions
+    } from '@carbon/charts-svelte'
     import '@carbon/charts-svelte/styles.css'
     import type {RatingsDistribution} from "$lib/types/instructor.ts";
     import {mode} from "mode-watcher";

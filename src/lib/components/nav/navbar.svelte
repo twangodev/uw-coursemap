@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {cn} from "$lib/utils.js";
+    import { cn } from "$lib/utils.js";
     import Banner from "$lib/components/banner.svelte";
     import MainNav from "$lib/components/nav/main-nav.svelte";
     import {siteConfig} from "$lib/config/site.ts";
@@ -7,7 +7,7 @@
     import Search from "$lib/components/search.svelte";
     import MobileNav from "$lib/components/nav/mobile-nav.svelte";
     import ModeToggle from "$lib/components/mode-toggle.svelte";
-    import {GithubIcon} from "@lucide/svelte";
+    import {Github, GithubIcon} from "@lucide/svelte";
 </script>
 
 <header

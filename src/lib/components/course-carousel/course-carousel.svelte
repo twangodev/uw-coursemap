@@ -1,5 +1,10 @@
 <script lang="ts">
-    import {type Course, type CourseReference, courseReferenceToCourse} from "$lib/types/course.ts";
+    import * as Carousel from "$lib/components/ui/carousel/index.js";
+    import {
+        type Course,
+        type CourseReference,
+        courseReferenceToCourse
+    } from "$lib/types/course.ts";
     import CourseCard from "$lib/components/course-carousel/course-card.svelte";
     import CourseCardSkeleton from "$lib/components/course-carousel/course-card-skeleton.svelte";
 

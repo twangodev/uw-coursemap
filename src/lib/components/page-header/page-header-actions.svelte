@@ -1,6 +1,5 @@
 <script lang="ts">
-    import {cn} from "$lib/utils.js";
-
+    import { cn } from "$lib/utils.js";
     interface Props {
         class?: string | undefined | null;
         children?: import('svelte').Snippet;

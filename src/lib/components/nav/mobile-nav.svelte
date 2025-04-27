@@ -1,5 +1,6 @@
 <script lang="ts">
-    import {siteConfig} from "$lib/config/site.js";
+    import { siteConfig } from "$lib/config/site.js";
+    import * as Sheet from "$lib/components/ui/sheet";
     import {Button} from "$lib/components/ui/button";
     import MobileLink from "$lib/components/nav/mobile-link.svelte";
     import Logo from "$lib/components/logo.svelte";

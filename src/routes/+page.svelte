@@ -3,8 +3,8 @@
     import {PageHeader, PageHeaderDescription, PageHeaderHeading} from "$lib/components/page-header/index.js";
     import {Button} from "$lib/components/ui/button";
     import Announcement from "$lib/components/announcement.svelte";
-    import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card";
-    import {setSearchFilters} from "$lib/searchModalStore";
+    import {Card, CardHeader, CardTitle, CardContent} from "$lib/components/ui/card";
+    import { setSearchFilters } from "$lib/searchModalStore";
 </script>
 
 <ContentWrapper>

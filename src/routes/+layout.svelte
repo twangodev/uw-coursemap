@@ -1,11 +1,10 @@
 <script lang="ts">
-    import '../app.css';
+	import '../app.css';
     import Navbar from "$lib/components/nav/navbar.svelte";
     import Footer from "$lib/components/footer/footer.svelte";
     import {ModeWatcher} from "mode-watcher";
     import {Toaster} from "$lib/components/ui/sonner";
-
-    let { children } = $props();
+	let { children } = $props();
 </script>
 
 <svelte:head>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ArrowUpRight from "@lucide/svelte/icons/arrow-up-right";
     import {bannerContents} from "$lib/config/banner.ts";
 </script>
 

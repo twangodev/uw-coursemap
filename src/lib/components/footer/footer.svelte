@@ -1,4 +1,5 @@
 <script>
+	import FooterLink from '$lib/components/footer/footer-link.svelte';
     import FooterSource from './footer-source.svelte';
 </script>
 
