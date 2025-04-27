@@ -1,35 +1,21 @@
 <script lang="ts">
+    import type {Course} from "$lib/types/course.js";
     import {sanitizeCourseToReferenceString} from "$lib/types/course.js";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
-    import {
-        ArrowUpRight,
-        BookA,
-        BookOpen,
-        BookPlus,
-        CalendarRange,
-        CircleCheckBig,
-        ClipboardCheck,
-        Info,
-        Users
-    } from "lucide-svelte";
+    import {ArrowUpRight, BookOpen} from "lucide-svelte";
     import {Tabs, TabsContent, TabsList, TabsTrigger} from "$lib/components/ui/tabs/index.js";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
-    import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
-    import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
-    import Change from "$lib/components/change.svelte";
     import {Button} from "$lib/components/ui/button/index.js";
-    import ComboGradeDataStackedAreaChart from "$lib/components/charts/combo-grade-data-stacked-area-chart.svelte";
     import {env} from "$env/dynamic/public";
-    import type {Course} from "$lib/types/course.js";
     import type {Terms} from "$lib/types/terms.js";
-    import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
     import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
     import CourseDetails from "./course-details.svelte";
     import {CourseOverview} from "$lib/components/course/tabs";
+    import {CourseTrends} from "$lib/components/course/tabs/index.js";
 
-    const { PUBLIC_API_URL } = env;
+    const {PUBLIC_API_URL} = env;
 
     interface Props {
         course: Course;
@@ -55,20 +41,12 @@
         <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
     </TabsList>
     <div class="grid gap-4 lg:grid-cols-12">
-        <CourseDetails {course} {selectedTerm} />
+        <CourseDetails {course} {selectedTerm}/>
         <TabsContent class="lg:col-span-9 space-y-4" value="overview">
-            <CourseOverview {course} {terms} {selectedTerm}/>
+            <CourseOverview {course} {selectedTerm} {terms}/>
         </TabsContent>
         <TabsContent class="lg:col-span-9 space-y-4" value="trends">
-            <Card>
-                <CardContent class="pt-6">
-                    {#if course.cumulative_grade_data}
-                        <ComboGradeDataStackedAreaChart term_data={course.term_data} {terms}/>
-                    {:else }
-                        <p class="text-center">No data available</p>
-                    {/if}
-                </CardContent>
-            </Card>
+            <CourseTrends {course} {terms}/>
         </TabsContent>
         <TabsContent class="lg:col-span-9 space-y-4" value="instructors">
             <Card>
@@ -113,7 +91,6 @@
                 {/await}
             </Card>
         </TabsContent>
-
         <TabsContent class="lg:col-span-9 space-y-4" value="prerequisites">
             <Card class="h-[600px] flex flex-col">
                 <CardHeader>
