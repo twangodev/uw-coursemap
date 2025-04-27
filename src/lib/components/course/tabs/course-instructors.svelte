@@ -59,7 +59,6 @@
 
         <CardContent>
             <InstructorWordCloud instructors={instructors}/>
-            
         </CardContent>
     </Card>
     {/if}
