@@ -6,7 +6,7 @@
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
 
     interface Props {
-        instructors: Promise<FullInstructorInformation[]>;
+        instructors: FullInstructorInformation[];
     }
 
     let {instructors}: Props = $props();
@@ -28,42 +28,22 @@
         </CardDescription>
     </CardHeader>
     <CardContent>
-        {#await instructors}
-            <p class="text-center">Loading...</p>
-        {:then instructors}
-            {#if instructors.length === 0}
-             <p class = "text-center">No instructors found.</p>
-            {/if}
-            {#each instructors as instructor}
-                <InstructorPreview
-                        {instructor}
-                        showRating={true}
-                        showOtherDetails={true}
-                />
-            {/each}
-        {:catch error}
-            <p class="text-red-600">Error loading instructors: {error.message}</p>
-        {/await}
+        {#if instructors.length === 0}
+            <p class="text-center">No instructors found.</p>
+        {/if}
+        {#each instructors as instructor}
+            <InstructorPreview
+                    {instructor}
+                    showRating={true}
+                    showOtherDetails={true}
+            />
+        {/each}
     </CardContent>
 </Card>
-{#await instructors}
-    <Card>
-        <CardContent>
-            <p class="text-center">Loading...</p>
-        </CardContent>
-    </Card>
-{:then instructors}
-    {#if instructors.length > 0}
+{#if instructors.length > 0}
     <Card>
         <CardContent>
             <InstructorWordCloud instructors={instructors}/>
         </CardContent>
     </Card>
-    {/if}
-{:catch error}
-    <Card>
-        <CardContent>
-            <p class="text-red-600">Error loading instructors: {error.message}</p>
-        </CardContent>
-    </Card>
-{/await}
+{/if}

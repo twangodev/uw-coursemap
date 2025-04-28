@@ -5,6 +5,7 @@
     import {apiFetch} from "$lib/api.ts";
     import {getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
     import {CourseHeader, CourseTabs} from "$lib/components/course";
+    import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
 
     let courseIdentifier = $derived(page.params.courseIdentifier);
 
@@ -21,22 +22,18 @@
         selectedTerm = String(await getLatestTermIdPromise(terms))
         return selectedTerm
     });
+
+    let instructors: Promise<FullInstructorInformation[]> = $derived.by(async () => {
+        return getFullInstructorInformation(await course, await terms, selectedTerm)
+    });
 </script>
 
 <ContentWrapper>
-    {#await Promise.all([course, terms, latestTerm])}
+    {#await Promise.all([course, terms, instructors])}
         <p class="text-center">Loading...</p>
-    {:then [course, terms]}
-        <CourseHeader
-                course={course}
-                terms={terms}
-                bind:selectedTerm={selectedTerm}
-        />
-        <CourseTabs
-                course={course}
-                terms={terms}
-                selectedTerm={selectedTerm}
-        />
+    {:then [course, terms, instructors]}
+        <CourseHeader course={course} terms={terms} bind:selectedTerm={selectedTerm}/>
+        <CourseTabs {course} {terms} {selectedTerm} {instructors}/>
     {:catch error}
         <p class="text-red-600">Error loading course: {error.message}</p>
     {/await}
