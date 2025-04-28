@@ -29,7 +29,7 @@
     </CardHeader>
     <CardContent>
         {#if instructors.length === 0}
-         <p class = "text-center">No instructors found.</p>
+            <p class="text-center">No instructors found.</p>
         {/if}
         {#each instructors as instructor}
             <InstructorPreview
@@ -41,9 +41,9 @@
     </CardContent>
 </Card>
 {#if instructors.length > 0}
-<Card>
-    <CardContent>
-        <InstructorWordCloud instructors={instructors}/>
-    </CardContent>
-</Card>
+    <Card>
+        <CardContent>
+            <InstructorWordCloud instructors={instructors}/>
+        </CardContent>
+    </Card>
 {/if}
