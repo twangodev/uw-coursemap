@@ -6,19 +6,23 @@ import {type FullInstructorInformation, getFullInstructorInformation} from "$lib
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
-export const load = async ({ params, fetch }) => {
+export const load = async ({ params, url, fetch }) => {
 
     let termsResponse = await fetch(`${PUBLIC_API_URL}/terms.json`)
     let terms: Terms = await termsResponse.json()
     let latestTermId = getLatestTermId(terms)
+    let selectedTermId = url.searchParams.get('term') || latestTermId
 
     let courseResponse = await fetch(`${PUBLIC_API_URL}/course/${params.courseIdentifier}.json`)
     let course = await courseResponse.json()
 
+    let instructors = await getFullInstructorInformation(course, terms, selectedTermId, fetch)
+
     return {
         terms: terms,
-        selectedTermId: latestTermId,
+        selectedTermId: selectedTermId,
         course: course,
+        instructors: instructors,
     }
 
 }

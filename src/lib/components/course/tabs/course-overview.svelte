@@ -193,9 +193,11 @@
             </CardDescription>
         </CardHeader>
         <CardContent>
-            {#each instructors as instructor}
-                <InstructorPreview {instructor} showRating={true}/>
-            {/each}
+            {#key instructors}
+                {#each instructors as instructor}
+                    <InstructorPreview {instructor} showRating={true}/>
+                {/each}
+            {/key}
         </CardContent>
     </Card>
     <div class="md:col-span-2 lg:col-span-7">
