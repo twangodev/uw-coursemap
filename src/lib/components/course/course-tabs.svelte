@@ -11,15 +11,16 @@
         course: Course;
         terms: Terms;
         selectedTerm: string | undefined;
+        instructors: FullInstructorInformation[]
     }
 
     let {
         course,
         terms,
-        selectedTerm
+        selectedTerm,
+        instructors
     }: Props = $props();
 
-    let instructors: Promise<FullInstructorInformation[]> = $derived(getFullInstructorInformation(course, terms, selectedTerm))
 
 </script>
 

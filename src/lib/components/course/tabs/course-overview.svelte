@@ -14,7 +14,7 @@
         course: Course;
         terms: Terms;
         selectedTerm: string | undefined;
-        instructors: Promise<FullInstructorInformation[]>;
+        instructors: FullInstructorInformation[];
     }
 
     let {
@@ -193,15 +193,9 @@
             </CardDescription>
         </CardHeader>
         <CardContent>
-            {#await instructors}
-                <p class="text-center">Loading...</p>
-            {:then instructors}
-                {#each instructors as instructor}
-                    <InstructorPreview {instructor} showRating={true}/>
-                {/each}
-            {:catch error}
-                <p class="text-red-600">Error loading instructors: {error.message}</p>
-            {/await}
+            {#each instructors as instructor}
+                <InstructorPreview {instructor} showRating={true}/>
+            {/each}
         </CardContent>
     </Card>
     <div class="md:col-span-2 lg:col-span-7">
