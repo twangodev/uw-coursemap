@@ -9,10 +9,20 @@
     let course = $derived(data.course);
     let similarCourses = $derived(data.similarCourses);
     let instructors = $derived(data.instructors);
+    let prerequisiteElementDefinitions = $derived(data.prerequisiteElementDefinitions);
+    let prerequisiteStyleEntries = $derived(data.prerequisiteStyleEntries);
 
 </script>
 
 <ContentWrapper>
     <CourseHeader {course} {selectedTerm} {terms}/>
-    <CourseTabs {course} {similarCourses} {instructors} {selectedTerm} {terms}/>
+    <CourseTabs
+            {course}
+            {similarCourses}
+            {instructors}
+            {selectedTerm}
+            {terms}
+            {prerequisiteElementDefinitions}
+            {prerequisiteStyleEntries}
+    />
 </ContentWrapper>

@@ -4,17 +4,21 @@
     import Cytoscape from "$lib/components/cytoscape/cytoscape.svelte";
     import {BookOpen} from "@lucide/svelte";
     import {Button} from "$lib/components/ui/button/index.js";
-    import {env} from "$env/dynamic/public";
-
-    const {PUBLIC_API_URL} = env;
+    import type {ElementDefinition} from "cytoscape";
+    import type {StyleEntry} from "$lib/components/cytoscape/graph-styles.ts";
 
     interface Props {
         course: Course;
+        prerequisiteElementDefinitions: ElementDefinition[],
+        prerequisiteStyleEntries: StyleEntry[]
     }
 
     let {
-        course
+        course,
+        prerequisiteElementDefinitions,
+        prerequisiteStyleEntries
     }: Props = $props();
+
 </script>
 
 <Card class="h-[600px] flex flex-col">
@@ -39,11 +43,13 @@
     </CardHeader>
     <CardContent class="flex-1">
         <div class="flex h-full w-full">
-            <Cytoscape
-                    filter={course}
-                    styleUrl="{PUBLIC_API_URL}/styles/{course.course_reference.subjects[0]}.json"
-                    url="{PUBLIC_API_URL}/graphs/course/{sanitizeCourseToReferenceString(course.course_reference)}.json"
-            />
+            {#key course}
+                <Cytoscape
+                        elementDefinitions={prerequisiteElementDefinitions}
+                        styleEntries={prerequisiteStyleEntries}
+                        filter={course}
+                />
+            {/key}
         </div>
     </CardContent>
 </Card>

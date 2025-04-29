@@ -8,6 +8,7 @@ import {
 import {apiFetch} from "$lib/api.ts";
 import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
 import {error} from "@sveltejs/kit";
+import type {ElementDefinition} from "cytoscape";
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
@@ -34,12 +35,29 @@ export const load = async ({ params, url, fetch }) => {
 
     let instructors = await getFullInstructorInformation(course, terms, selectedTermId, fetch)
 
+    const prerequisiteElementDefinitionsResponse = await fetch(`${PUBLIC_API_URL}/graphs/course/${sanitizeCourseToReferenceString(course.course_reference)}.json`)
+    if (!prerequisiteElementDefinitionsResponse.ok) throw error(prerequisiteElementDefinitionsResponse.status, `Failed to fetch prerequisite graph data: ${prerequisiteElementDefinitionsResponse.statusText}`)
+    const prerequisiteElementDefinitions: ElementDefinition[] = await prerequisiteElementDefinitionsResponse.json()
+
+    prerequisiteElementDefinitions.forEach((item: any) => {
+        item['pannable'] = true;
+        if (!Object.hasOwn(item.data, 'title')) {
+            item.data['title'] = "";
+        }
+    });
+
+    const styleEntriesResponse = await fetch(`${PUBLIC_API_URL}/styles/${course.course_reference.subjects[0]}.json`)
+    if (!styleEntriesResponse.ok) throw error(styleEntriesResponse.status, `Failed to fetch prerequisite style data: ${styleEntriesResponse.statusText}`)
+    const prerequisiteStyleEntries = await styleEntriesResponse.json()
+
     return {
         terms: terms,
         selectedTermId: selectedTermId,
         course: course,
         similarCourses: similarCourses,
         instructors: instructors,
+        prerequisiteElementDefinitions: prerequisiteElementDefinitions,
+        prerequisiteStyleEntries: prerequisiteStyleEntries,
     }
 
 }
