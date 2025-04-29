@@ -6,40 +6,23 @@
         courseReferenceToCourse
     } from "$lib/types/course.ts";
     import CourseCard from "$lib/components/course-carousel/course-card.svelte";
-    import CourseCardSkeleton from "$lib/components/course-carousel/course-card-skeleton.svelte";
 
     interface Props {
-        courseReferences: CourseReference[];
+        courses: Course[];
     }
 
-    let { courseReferences }: Props = $props();
-
-    let courses: Promise<Course[]> = $derived.by(() => {
-        return Promise.all(courseReferences.map(courseReferenceToCourse));
-    })
-
+    let { courses }: Props = $props();
 </script>
-{#if courseReferences.length === 0}
+{#if courses.length === 0}
     <p>No courses found</p>
 {:else}
     <Carousel.Root>
         <Carousel.Content>
-            {#await courses}
-                {#each courseReferences as _}
-                    <Carousel.Item class="basis-1/2 md:basis-1/3 lg:basis-1/4">
-                            <CourseCardSkeleton />
-                    </Carousel.Item>
-                {/each}
-            {:then courses}
-                {#each courses as course}
-                    <Carousel.Item class="basis-1/2 md:basis-1/3 lg:basis-1/4">
-                        <CourseCard {course} />
-                    </Carousel.Item>
-                {/each}
-
-            {:catch error}
-                <p>{error.message}</p>
-            {/await}
+            {#each courses as course}
+                <Carousel.Item class="basis-1/2 md:basis-1/3 lg:basis-1/4">
+                    <CourseCard {course} />
+                </Carousel.Item>
+            {/each}
         </Carousel.Content>
         <Carousel.Previous />
         <Carousel.Next />

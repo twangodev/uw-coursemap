@@ -2,6 +2,8 @@ import {type Course, getInstructorsWithEmail} from "$lib/types/course.ts";
 import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 import {apiFetch} from "$lib/api.ts";
 import type {GradeData} from "$lib/types/madgrades.ts";
+import {env} from "$env/dynamic/public";
+import {error} from "@sveltejs/kit";
 
 export type MandatoryAttendance = {
     neither: number,
@@ -89,12 +91,16 @@ export type FullInstructorInformation = {
     cumulative_grade_data: GradeData | null,
 }
 
-export async function getFullInstructorInformation(course: Course, terms: Terms, selectedTerm: string | undefined): Promise<FullInstructorInformation[]> {
+export async function getFullInstructorInformation(course: Course, terms: Terms, selectedTerm: string | undefined, fetch: (url: string) => Promise<Response>): Promise<FullInstructorInformation[]> {
     let rawInstructors = [];
     for (const [name, email] of Object.entries(getInstructorsWithEmail(course, selectedTerm ?? getLatestTermId(terms)))) {
-        const response = await apiFetch(
-            `/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
+        const response = await fetch(
+            `${env.PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
         );
+        if (!response.ok) {
+            console.error(`Failed to fetch instructor data for ${name}: ${response.statusText}`);
+            continue;
+        }
         const data: FullInstructorInformation =
             response.status === 200 ? await response.json() : {
                     name,

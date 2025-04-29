@@ -31,13 +31,15 @@
         {#if instructors.length === 0}
             <p class="text-center">No instructors found.</p>
         {/if}
-        {#each instructors as instructor}
-            <InstructorPreview
-                    {instructor}
-                    showRating={true}
-                    showOtherDetails={true}
-            />
-        {/each}
+        {#key instructors}
+            {#each instructors as instructor}
+                <InstructorPreview
+                        {instructor}
+                        showRating={true}
+                        showOtherDetails={true}
+                />
+            {/each}
+        {/key}
     </CardContent>
 </Card>
 {#if instructors.length > 0}
