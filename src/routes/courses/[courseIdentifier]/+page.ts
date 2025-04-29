@@ -15,8 +15,8 @@ export const load = async ({ params, url, fetch }) => {
 
     let termsResponse = await fetch(`${PUBLIC_API_URL}/terms.json`)
     if (!termsResponse.ok) throw error(termsResponse.status, `Failed to fetch terms: ${termsResponse.statusText}`)
-
     let terms: Terms = await termsResponse.json()
+
     let latestTermId = getLatestTermId(terms)
     let selectedTermId = url.searchParams.get('term') || latestTermId
 
