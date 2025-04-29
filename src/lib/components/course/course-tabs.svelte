@@ -6,13 +6,17 @@
     import CourseDetails from "./course-details.svelte";
     import {CourseOverview} from "$lib/components/course/tabs";
     import {CourseInstructors, CoursePrerequisites, CourseTrends} from "$lib/components/course/tabs/index.js";
+    import type {ElementDefinition} from "cytoscape";
+    import type {StyleEntry} from "$lib/components/cytoscape/graph-styles.ts";
 
     interface Props {
         course: Course;
         similarCourses: Course[];
         terms: Terms;
         selectedTerm: string | undefined;
-        instructors: FullInstructorInformation[]
+        instructors: FullInstructorInformation[],
+        prerequisiteElementDefinitions: ElementDefinition[],
+        prerequisiteStyleEntries: StyleEntry[],
     }
 
     let {
@@ -20,9 +24,10 @@
         similarCourses,
         terms,
         selectedTerm,
-        instructors
+        instructors,
+        prerequisiteElementDefinitions,
+        prerequisiteStyleEntries,
     }: Props = $props();
-
 
 </script>
 
@@ -45,7 +50,7 @@
             <CourseInstructors {instructors}/>
         </TabsContent>
         <TabsContent class="lg:col-span-9 space-y-4" value="prerequisites">
-            <CoursePrerequisites {course}/>
+            <CoursePrerequisites {course} {prerequisiteElementDefinitions} {prerequisiteStyleEntries}/>
         </TabsContent>
     </div>
 </Tabs>
