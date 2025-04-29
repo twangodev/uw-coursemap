@@ -9,6 +9,7 @@
 
     interface Props {
         course: Course;
+        similarCourses: Course[];
         terms: Terms;
         selectedTerm: string | undefined;
         instructors: FullInstructorInformation[]
@@ -16,6 +17,7 @@
 
     let {
         course,
+        similarCourses,
         terms,
         selectedTerm,
         instructors
@@ -34,7 +36,7 @@
     <div class="grid gap-4 lg:grid-cols-12">
         <CourseDetails {course} {selectedTerm}/>
         <TabsContent class="lg:col-span-9 space-y-4" value="overview">
-            <CourseOverview {course} {instructors} {selectedTerm} {terms}/>
+            <CourseOverview {course} {similarCourses} {instructors} {selectedTerm} {terms}/>
         </TabsContent>
         <TabsContent class="lg:col-span-9 space-y-4" value="trends">
             <CourseTrends {course} {terms}/>

@@ -7,11 +7,12 @@
     let terms = $derived(data.terms);
     let selectedTerm = $derived(data.selectedTermId);
     let course = $derived(data.course);
+    let similarCourses = $derived(data.similarCourses);
     let instructors = $derived(data.instructors);
 
 </script>
 
 <ContentWrapper>
     <CourseHeader {course} {selectedTerm} {terms}/>
-    <CourseTabs {course} {instructors} {selectedTerm} {terms}/>
+    <CourseTabs {course} {similarCourses} {instructors} {selectedTerm} {terms}/>
 </ContentWrapper>
