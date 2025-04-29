@@ -3,6 +3,7 @@ import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 import {apiFetch} from "$lib/api.ts";
 import type {GradeData} from "$lib/types/madgrades.ts";
 import {env} from "$env/dynamic/public";
+import {error} from "@sveltejs/kit";
 
 export type MandatoryAttendance = {
     neither: number,
@@ -96,6 +97,10 @@ export async function getFullInstructorInformation(course: Course, terms: Terms,
         const response = await fetch(
             `${env.PUBLIC_API_URL}/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}.json`
         );
+        if (!response.ok) {
+            console.error(`Failed to fetch instructor data for ${name}: ${response.statusText}`);
+            continue;
+        }
         const data: FullInstructorInformation =
             response.status === 200 ? await response.json() : {
                     name,
