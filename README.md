@@ -40,4 +40,4 @@ The University of Wisconsin–Madison has 10,000+ courses spanning 190+ departme
 
 ## Contributions
 
-![Alt](https://repobeats.axiom.co/api/embed/6cef9c41661d58138630347f2b67a57c7872fe3a.svg "Repobeats analytics image")
+![Repobeats analytics visualization](https://repobeats.axiom.co/api/embed/6cef9c41661d58138630347f2b67a57c7872fe3a.svg "Repobeats analytics image")
