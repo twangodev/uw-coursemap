@@ -169,11 +169,11 @@ const maintainers = [
     ]
   },
   {
-    avatar: 'https://www.github.com/theradest1.png',
+    avatar: 'https://www.github.com/landonbakken.png',
     name: 'Landon Bakken',
     title: 'Maintainer',
     links: [
-      { icon: 'github', link: 'https://github.com/theradest1' },
+      { icon: 'github', link: 'https://github.com/landonbakken' },
     ]
   },
 ];
