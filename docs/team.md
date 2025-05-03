@@ -11,18 +11,15 @@ const { maintainers, contributors } = frontmatter.value.teamData || { maintainer
 
 ## Maintainers
 
-Our maintainers steer the project by triaging issues, reviewing and merging pull requests, and keeping documentation up to date.
-
 <!--suppress CheckEmptyScriptTag, HtmlUnknownTag -->
 <VPTeamMembers size="small" :members="maintainers" />
 
 > [!TIP]
 > Interested in helping shape the future of this project? Check out our [contributing guide](./contributing.md) to learn how to become a maintainer.
 
-## Contributors
+## Contributions
 
-
-Our contributors power improvements through bug reports, pull requests, documentation updates, and community support—this could be you!
+![Alt](https://repobeats.axiom.co/api/embed/6cef9c41661d58138630347f2b67a57c7872fe3a.svg "Repobeats analytics image")
 
 <!--suppress CheckEmptyScriptTag, HtmlUnknownTag -->
 <VPTeamMembers size="small" :members="contributors" />

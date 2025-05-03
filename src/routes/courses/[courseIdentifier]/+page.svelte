@@ -1,40 +1,28 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-    import {page} from '$app/state';
-    import {type Course, courseReferenceStringToCourse} from "$lib/types/course.ts";
-    import {apiFetch} from "$lib/api.ts";
-    import {getLatestTermIdPromise, type Terms} from "$lib/types/terms.ts";
     import {CourseHeader, CourseTabs} from "$lib/components/course";
-    import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
 
-    let courseIdentifier = $derived(page.params.courseIdentifier);
+    let {data} = $props();
 
-    let course: Promise<Course> = $derived(courseReferenceStringToCourse(courseIdentifier));
+    let terms = $derived(data.terms);
+    let selectedTerm = $derived(data.selectedTermId);
+    let course = $derived(data.course);
+    let similarCourses = $derived(data.similarCourses);
+    let instructors = $derived(data.instructors);
+    let prerequisiteElementDefinitions = $derived(data.prerequisiteElementDefinitions);
+    let prerequisiteStyleEntries = $derived(data.prerequisiteStyleEntries);
 
-    let terms: Promise<Terms> = (async () => {
-        let termsData = await apiFetch(`/terms.json`)
-        return await termsData.json()
-    })();
-
-    let selectedTerm: string | undefined = $state(undefined)
-
-    let latestTerm = $derived.by(async () => {
-        selectedTerm = String(await getLatestTermIdPromise(terms))
-        return selectedTerm
-    });
-
-    let instructors: Promise<FullInstructorInformation[]> = $derived.by(async () => {
-        return getFullInstructorInformation(await course, await terms, selectedTerm)
-    });
 </script>
 
 <ContentWrapper>
-    {#await Promise.all([course, terms, instructors])}
-        <p class="text-center">Loading...</p>
-    {:then [course, terms, instructors]}
-        <CourseHeader course={course} terms={terms} bind:selectedTerm={selectedTerm}/>
-        <CourseTabs {course} {terms} {selectedTerm} {instructors}/>
-    {:catch error}
-        <p class="text-red-600">Error loading course: {error.message}</p>
-    {/await}
+    <CourseHeader {course} {selectedTerm} {terms}/>
+    <CourseTabs
+            {course}
+            {similarCourses}
+            {instructors}
+            {selectedTerm}
+            {terms}
+            {prerequisiteElementDefinitions}
+            {prerequisiteStyleEntries}
+    />
 </ContentWrapper>

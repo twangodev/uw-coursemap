@@ -12,6 +12,7 @@
 
     interface Props {
         course: Course;
+        similarCourses: Course[];
         terms: Terms;
         selectedTerm: string | undefined;
         instructors: FullInstructorInformation[];
@@ -19,6 +20,7 @@
 
     let {
         course,
+        similarCourses,
         terms,
         selectedTerm,
         instructors,
@@ -193,13 +195,15 @@
             </CardDescription>
         </CardHeader>
         <CardContent>
-            {#each instructors as instructor}
-                <InstructorPreview {instructor} showRating={true}/>
-            {/each}
+            {#key instructors}
+                {#each instructors as instructor}
+                    <InstructorPreview {instructor} showRating={true}/>
+                {/each}
+            {/key}
         </CardContent>
     </Card>
     <div class="md:col-span-2 lg:col-span-7">
         <h2 class="text-2xl font-bold my-4">Similar Courses</h2>
-        <CourseCarousel courseReferences={course.similar_courses ? course.similar_courses : []}/>
+        <CourseCarousel courses={similarCourses} />
     </div>
 </div>

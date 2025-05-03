@@ -13,7 +13,7 @@
     let {
         course,
         terms,
-        selectedTerm = $bindable()
+        selectedTerm
     }: Props = $props();
 
 </script>
@@ -25,5 +25,5 @@
             {courseReferenceToString(course.course_reference)}
         </div>
     </div>
-    <TermSelector bind:selectedTerm={selectedTerm} terms={terms} />
+    <TermSelector {selectedTerm} terms={terms} />
 </div>

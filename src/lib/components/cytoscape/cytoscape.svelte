@@ -30,8 +30,8 @@
     import * as Dialog from "$lib/components/ui/dialog";
 
     interface Props {
-        url: string;
-        styleUrl: string;
+        elementDefinitions: ElementDefinition[]
+        styleEntries: StyleEntry[],
         // dfs backwards from a specific course until it reaches courses that are taken
         // courses not reached by dfs are hidden
         filter?: Course;
@@ -44,8 +44,9 @@
     let hasSeenTapGuide = $state(false);
 
     let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
-    //load data
+
     onMount(() => {
+        loadGraph();
         takenCourses = getData("takenCourses").map((course: any) => {
             if (course.course_reference === undefined) {
                 return;
@@ -57,16 +58,20 @@
         
     });
 
-    let { url, styleUrl, filter = undefined }: Props = $props();
+    let { elementDefinitions, styleEntries, filter = undefined }: Props = $props();
+
+    let showCodeLabels = $state(true);
+    let styleData = $derived(getStyles(styleEntries, mode.current, showCodeLabels))
+
     let sheetOpen = $state(false);
     let progress = $state({
         text: "Loading Graph...",
         number: 10,
     })
-    let focus = $derived(page.url.searchParams.get('focus'));
-    let courseData: ElementDefinition[] = $state([]);
+
+    let focus = $state(page.url.searchParams.get('focus'));
+
     let cytoscapeStyleData: StyleEntry[] = $state([]);
-    let cytoscapeStyles: StylesheetStyle[] = $state([]);
 
     let layoutType : LayoutType = $state(LayoutType.LAYERED);
 
@@ -77,7 +82,6 @@
     });
 
     let elementsAreDraggable = $state(false);
-    let showCodeLabels = $state(true);
     const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
 
     let selectedCourse: Course | undefined = $state(undefined);
@@ -110,23 +114,17 @@
     function destroyTip() {
         myTip?.destroy();
     }
-    const loadGraph = async () => {
+    const loadGraph = $derived(async () => {
 
         progress = {
             text: "Fetching Graph Data...",
             number: 25,
         }
 
-        courseData = await fetchGraphData(url);
-        
         progress = {
             text: "Styling Graph...",
             number: 50,
         }
-
-
-        cytoscapeStyleData = await getStyleData(styleUrl);
-        cytoscapeStyles = await getStyles(cytoscapeStyleData, mode.current, showCodeLabels);
 
         progress = {
             text: "Loading Layout...",
@@ -149,7 +147,7 @@
 
         // if you want to use the other layout, just uncomment the one below and comment the other one
         // let newCytoscapeLayout = await generateLayeredLayout(courseData);
-        let layout = await computeLayout(layoutType, courseData, false);
+        let layout = await computeLayout(layoutType, elementDefinitions, false);
 
         progress = {
             text: "Graph Loaded",
@@ -158,8 +156,8 @@
 
         cy = cytoscape({
             container: document.getElementById('cy'),
-            elements: courseData,
-            style: cytoscapeStyles,
+            elements: elementDefinitions,
+            style: styleData,
             layout: layout,
             minZoom: 0.01,
             maxZoom: 2,
@@ -167,16 +165,12 @@
         });
 
         if (filter !== undefined) {
-            console.log(cy.nodes()[0])
-            console.log(courseReferenceToString(filter.course_reference));
-            console.log(cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0]);
             let keepData = getPredecessorsNotTaken(cy, cy.$id(`${courseReferenceToString(filter.course_reference)}`)[0], takenCourses);
             const nodesToRemove = cy.nodes().filter((node: cytoscape.NodeSingular) => {
                 return !keepData.includes(node.id()) && node.data('type') !== 'compound';
             });
 
-            console.log(keepData);
-            cy.remove(nodesToRemove); 
+            cy.remove(nodesToRemove);
         }
 
         cy.on('mouseover', 'node', function (event) {
@@ -260,20 +254,17 @@
             text: "Graph Loaded",
             number: 100,
         }
-    };
+    });
 
     $effect(() => {
-        if (url && styleUrl) {
-            loadGraph()
-            return;
+        if (!sheetOpen) {
+            focus = null;
         }
 
         if (!cy) {
             return
         }
-
         hide(hiddenSubject);
-        computeLayout(layoutType, courseData, true);
     });
 
     async function computeLayout(layoutType: LayoutType, courseData: ElementDefinition[], shouldRun: boolean) {
@@ -358,7 +349,7 @@
 
     <Legend styleEntries={cytoscapeStyleData} bind:hiddenSubject />
     <SideControls {cy} bind:elementsAreDraggable bind:layoutType bind:showCodeLabels layoutRecompute={(layoutType: LayoutType) => {
-        computeLayout(layoutType, courseData, true);
+        computeLayout(layoutType, elementDefinitions, true);
     }}/>
 </div>
 <CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>

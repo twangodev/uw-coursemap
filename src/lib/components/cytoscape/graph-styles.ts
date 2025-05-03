@@ -10,7 +10,7 @@ export async function getStyleData(styleUrl: string): Promise<StyleEntry[]> {
     return await response.json();
 }
 
-export async function getStyles(styleData: StyleEntry[], mode: "light" | "dark" | undefined, showCode: boolean): Promise<StylesheetStyle[]> {
+export function getStyles(styleData: StyleEntry[], mode: "light" | "dark" | undefined, showCode: boolean): StylesheetStyle[] {
 
     let defaultStyles: StylesheetStyle[] = [
         {

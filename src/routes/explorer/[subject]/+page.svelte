@@ -8,7 +8,11 @@
 
     let subject = $derived(page.params.subject.toUpperCase());
 
-    const PUBLIC_API_URL = env.PUBLIC_API_URL;
+    let { data } = $props();
+
+    let elementDefinitions = $derived(data.elementDefinitions);
+    let styleEntries = $derived(data.styleEntries);
+
     onMount(() => {
         toast.message(`Showing all ${subject} courses`, {
             duration: 5000,
@@ -23,4 +27,6 @@
 
 </script>
 
-<Cytoscape url="{PUBLIC_API_URL}/graphs/{subject}.json" styleUrl="{PUBLIC_API_URL}/styles/{subject}.json" />
+{#key [subject]}
+    <Cytoscape {elementDefinitions} {styleEntries} />
+{/key}
