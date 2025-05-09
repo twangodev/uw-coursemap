@@ -27,16 +27,16 @@ def generate_parser():
         description="Generates course map data for UW-Madison courses.",
     )
     parser.add_argument(
-        "data_dir",
+        "-d", "--data_dir",
         type=str,
         help="Directory to save the generated data.",
-        default="data"
+        default="./data"
     )
     parser.add_argument(
         "-c", "--cache_dir",
         type=str,
         help="Directory to save the cached data.",
-        default=".cache"
+        default="./generation/.cache"
     )
     parser.add_argument(
         "--openai_key",
