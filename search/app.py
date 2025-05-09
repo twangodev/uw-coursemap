@@ -36,7 +36,7 @@ es = Elasticsearch(
 app = Flask(__name__)
 cors = CORS(app)
 
-data_dir_default = environ.get("DATA_DIR", "../generation/data")
+data_dir_default = environ.get("DATA_DIR", "./data")
 
 def generate_parser():
     """
