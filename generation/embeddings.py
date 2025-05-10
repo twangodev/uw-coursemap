@@ -121,7 +121,7 @@ async def optimize_prerequisite(cache_dir, course, client, model, course_ref_to_
             logger.warning(f"Retry {retries} for course {course.get_identifier()} failed: {e}")
             if retries >= max_retries:
                 logger.error(f"Optimization for course {course.get_identifier()} failed completely.")
-                return None
+                return
 
 
 async def optimize_prerequisites(
