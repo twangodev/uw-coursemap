@@ -84,13 +84,13 @@ pip install pipenv --user
 Next, navigate into the `search` directory and install the dependencies:
 
 ```sh [pipenv]
-pipenv install
+pipenv sync
 ```
 
-And now you can run the search server:
+Change directories back to the project root directory, and now you can run the search server:
 
 ```sh [pipenv]
-pipenv run python app.py
+pipenv run python ./search/app.py
 ```
 
 > [!TIP] 
