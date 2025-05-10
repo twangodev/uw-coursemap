@@ -98,10 +98,13 @@ pipenv run python ./search/app.py
 
 ### Generation
 
-The generation process requires the same Python setup as the search. Install [Pipenv] and the dependencies as specified above. Then, navigate into the `generation` directory and run the following command:
+The generation process requires the same Python setup as the search. Install [Pipenv] and the dependencies as specified above, just in the `generation` directory.
+
+> [!TIP]
+> Ideally, you should create separate virtual environments for the search and generation processes.
 
 ```sh [pipenv]
-pipenv run python main.py --help
+pipenv run python ./search/main.py --help
 ```
 
 For full details on how to run the generation process, see the [Generation](../codebase/generation.md) documentation.
