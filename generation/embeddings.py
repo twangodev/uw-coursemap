@@ -1,34 +1,43 @@
 import asyncio
 import hashlib
+import os
 import re
 from logging import Logger
 
 import numpy as np
-from openai import OpenAI
+from sentence_transformers import SentenceTransformer
 
 from cache import read_embedding_cache, write_embedding_cache
 from course import Course
 
+initialized_model = None
 
-def get_openai_client(api_key: str, logger: Logger):
-    """
-    Returns an OpenAI client object.
-    """
-    if api_key is None or api_key == "REPLACE_WITH_OPENAI_API_KEY":
-        logger.warning("No OpenAI API key provided.")
-        return None
-    return OpenAI(api_key=api_key)
+def get_model(cache_dir, logger: Logger):
+    model_cache_dir = os.path.join(cache_dir, "model")
+    model =  SentenceTransformer(
+        model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
+        cache_folder=model_cache_dir,
+        trust_remote_code=True,
+    )
+
+    global initialized_model
+    if initialized_model is None:
+        logger.info("Loading model...")
+        initialized_model = model
+    else:
+        logger.info("Model already loaded. Reusing the existing model.")
+
+    return initialized_model
 
 
-def get_embedding(cache_dir, client: OpenAI, model, text, logger):
+def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
 
     # Check if the embedding already exists
     embedding = read_embedding_cache(cache_dir, sha256, logger)
 
     if embedding is None:
-        response = client.embeddings.create(model=model, input=text)
-        embedding = response.data[0].embedding
+        embedding = model.encode(text)
 
         logger.debug(f"Embedding for '{text}' not found in cache. Caching it now.")
         write_embedding_cache(cache_dir, sha256, embedding, logger)
@@ -52,14 +61,14 @@ def average_embedding(embeddings):
         return None
     return np.mean(embeddings, axis=0)
 
-def find_best_prerequisite(cache_dir, client, model, course: Course, prerequisites, max_prerequisites, logger) -> list[Course]:
+def find_best_prerequisite(cache_dir, model, course: Course, prerequisites, max_prerequisites, logger) -> list[Course]:
     prerequisite_text = course.prerequisites.prerequisites_text
     and_count = len(re.findall(r"\d*and\d*", prerequisite_text))
     max_prerequisites += and_count
 
-    course_embedding = get_embedding(cache_dir, client, model, course.get_full_summary(), logger)
+    course_embedding = get_embedding(cache_dir, model, course.get_full_summary(), logger)
     prerequisite_embeddings = [
-        (prereq, get_embedding(cache_dir, client, model, prereq.get_short_summary(), logger)) for prereq in
+        (prereq, get_embedding(cache_dir, model, prereq.get_short_summary(), logger)) for prereq in
         prerequisites
     ]
 
@@ -76,7 +85,7 @@ def find_best_prerequisite(cache_dir, client, model, course: Course, prerequisit
     return [req[0] for req in best_prerequisite]
 
 
-def prune_prerequisites(cache_dir, client, model, course: Course, course_ref_to_course, max_prerequisites,
+def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, max_prerequisites,
                         logger: Logger):
     if len(course.prerequisites.course_references) <= max_prerequisites:
         logger.debug(
@@ -94,7 +103,6 @@ def prune_prerequisites(cache_dir, client, model, course: Course, course_ref_to_
 
     best = find_best_prerequisite(
         cache_dir=cache_dir,
-        client=client,
         model=model,
         course=course,
         prerequisites=prerequisites,
@@ -109,25 +117,24 @@ def prune_prerequisites(cache_dir, client, model, course: Course, course_ref_to_
     )
 
 
-async def optimize_prerequisite(cache_dir, course, client, model, course_ref_to_course, max_prerequisites, max_retries,
+async def optimize_prerequisite(cache_dir, course, model: SentenceTransformer, course_ref_to_course, max_prerequisites, max_retries,
                                 logger):
     retries = 0
     while retries < max_retries:
         try:
-            prune_prerequisites(cache_dir, client, model, course, course_ref_to_course, max_prerequisites, logger)
+            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_prerequisites, logger)
             return
         except Exception as e:
             retries += 1
             logger.warning(f"Retry {retries} for course {course.get_identifier()} failed: {e}")
             if retries >= max_retries:
                 logger.error(f"Optimization for course {course.get_identifier()} failed completely.")
-                return None
+                return
 
 
 async def optimize_prerequisites(
         cache_dir: str,
-        client: OpenAI,
-        model: str,
+        model: SentenceTransformer,
         course_ref_to_course: dict[Course.Reference, Course],
         max_prerequisites: int | float,
         max_retries: int,
@@ -142,7 +149,7 @@ async def optimize_prerequisites(
     async def optimize_course(course):
         nonlocal completed_courses
         async with semaphore:
-            await optimize_prerequisite(cache_dir, course, client, model, course_ref_to_course, max_prerequisites,
+            await optimize_prerequisite(cache_dir, course, model, course_ref_to_course, max_prerequisites,
                                         max_retries, logger)
             completed_courses += 1
             remaining_courses = total_courses - completed_courses

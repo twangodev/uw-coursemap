@@ -3,7 +3,7 @@ import asyncio
 import numpy as np
 
 from course import Course
-from embeddings import get_openai_client, get_embedding, cosine_similarity, normalize
+from embeddings import get_model, get_embedding, cosine_similarity, normalize
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
@@ -25,12 +25,9 @@ def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], logge
         "total_grades_given": school_cumulative_grades,
     }
 
-async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, openai_api_key, model, logger):
+async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
 
-    open_ai_client = get_openai_client(
-        api_key=openai_api_key,
-        logger=logger,
-    )
+    model = get_model(cache_dir, logger)
 
     total_courses = len(course_ref_to_course)
     # Use a mutable dictionary to track progress.
@@ -41,7 +38,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     async def embed_course(course_ref, course):
         summary = course.get_short_summary()
         # Wrap the synchronous get_embedding call in asyncio.to_thread if necessary.
-        embedding = await asyncio.to_thread(get_embedding, cache_dir, open_ai_client, model, summary, logger)
+        embedding = await asyncio.to_thread(get_embedding, cache_dir, model, summary, logger)
 
         # Update progress safely using the lock.
         async with lock:
@@ -109,10 +106,10 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
             for similar_ref in similar_courses_mapping.get(course_ref, [])
         ]
 
-def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, openai_api_key, model, logger):
+def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
     qs = quick_statistics(course_ref_to_course, logger)
 
-    asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, openai_api_key, model, logger))
+    asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
 
     return qs
 
