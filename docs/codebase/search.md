@@ -2,7 +2,7 @@
 
 A search engine for courses, instructors, and departments at the University of Wisconsin-Madison, powered by [Elasticsearch](https://www.elastic.co/).
 
-The dataset used for this project is from [generation](../generation). The dataset is then indexed into Elasticsearch for searching.
+The dataset used for this project is from [generation](generation.md). The dataset is then indexed into Elasticsearch for searching.
 
 ## Usage
 
