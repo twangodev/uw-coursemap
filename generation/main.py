@@ -2,8 +2,10 @@ import asyncio
 import logging
 from argparse import ArgumentParser
 from logging import Logger
+from os import environ
 
 import coloredlogs
+from dotenv import load_dotenv
 
 from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
@@ -12,11 +14,13 @@ from cache import read_course_ref_to_course_cache, write_course_ref_to_course_ca
     write_quick_statistics_cache, read_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
-from enrollment import sync_enrollment_terms, build_from_mega_query
+from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
+
+load_dotenv()
 
 def generate_parser():
     """
@@ -26,22 +30,10 @@ def generate_parser():
         description="Generates course map data for UW-Madison courses.",
     )
     parser.add_argument(
-        "-d", "--data_dir",
-        type=str,
-        help="Directory to save the generated data.",
-        default="./data"
-    )
-    parser.add_argument(
         "-c", "--cache_dir",
         type=str,
         help="Directory to save the cached data.",
         default="./generation/.cache"
-    )
-    parser.add_argument(
-        "--madgrades_key",
-        type=str,
-        help="Madgrades API key for course data.",
-        required=True,
     )
     parser.add_argument(
         "--step",
@@ -157,14 +149,20 @@ def graph(
 
     return global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style
 
+def raise_missing_env_var(var_name):
+    raise ValueError(f"{var_name} environment variable is not set.")
 
 def main():
     parser = generate_parser()
     args = parser.parse_args()
 
-    data_dir = str(args.data_dir)
+    data_dir = environ.get("DATA_DIR", None)
+    if data_dir is None:
+        raise_missing_env_var("DATA_DIR")
+
     cache_dir = str(args.cache_dir)
-    madgrades_api_key = str(args.madgrades_key)
+    madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
+
     step = str(args.step).lower()
     max_prerequisites = int(args.max_prerequisites)
     verbose = bool(args.verbose)
@@ -190,6 +188,10 @@ def main():
         logger.info("Course data fetched successfully.")
 
     if filter_step(step, "madgrades"):
+
+        if not madgrades_api_key:
+            raise_missing_env_var("MADGRADES_API_KEY")
+
         logger.info("Fetching madgrades data...")
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
