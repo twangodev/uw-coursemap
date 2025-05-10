@@ -11,13 +11,12 @@ from cache import read_course_ref_to_course_cache, write_course_ref_to_course_ca
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
     write_quick_statistics_cache, read_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
-from embeddings import optimize_prerequisites, get_openai_client
+from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms, build_from_mega_query
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
-
 
 def generate_parser():
     """
@@ -37,12 +36,6 @@ def generate_parser():
         type=str,
         help="Directory to save the cached data.",
         default="./generation/.cache"
-    )
-    parser.add_argument(
-        "--openai_key",
-        type=str,
-        help="OpenAI API key for embeddings.",
-        required=True,
     )
     parser.add_argument(
         "--madgrades_key",
@@ -118,23 +111,19 @@ def instructors(
     instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
     return instructor_to_rating, instructors_emails
 
-embedding_model = "text-embedding-3-small"
-
 def optimize(
         cache_dir,
         course_ref_to_course,
         max_prerequisites,
-        openai_api_key,
         logger,
 ):
-    open_ai_client = get_openai_client(
-        api_key=openai_api_key,
+    model = get_model(
+        cache_dir=cache_dir,
         logger=logger,
     )
     asyncio.run(optimize_prerequisites(
         cache_dir=cache_dir,
-        client=open_ai_client,
-        model=embedding_model,
+        model=model,
         course_ref_to_course=course_ref_to_course,
         max_prerequisites=max_prerequisites,
         max_retries=50,
@@ -175,7 +164,6 @@ def main():
 
     data_dir = str(args.data_dir)
     cache_dir = str(args.cache_dir)
-    openai_api_key = str(args.openai_key)
     madgrades_api_key = str(args.madgrades_key)
     step = str(args.step).lower()
     max_prerequisites = int(args.max_prerequisites)
@@ -247,8 +235,6 @@ def main():
         quick_statistics = aggregate_courses(
             course_ref_to_course=course_ref_to_course,
             cache_dir=cache_dir,
-            openai_api_key=openai_api_key,
-            model=embedding_model,
             logger=logger
         )
 
@@ -267,7 +253,6 @@ def main():
             cache_dir=cache_dir,
             course_ref_to_course=course_ref_to_course,
             max_prerequisites=max_prerequisites,
-            openai_api_key=openai_api_key,
             logger=logger
         )
 
