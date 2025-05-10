@@ -104,7 +104,7 @@ The generation process requires the same Python setup as the search. Install [Pi
 > Ideally, you should create separate virtual environments for the search and generation processes.
 
 ```sh [pipenv]
-pipenv run python ./search/main.py --help
+pipenv run python ./generation/main.py --help
 ```
 
 For full details on how to run the generation process, see the [Generation](../codebase/generation.md) documentation.
