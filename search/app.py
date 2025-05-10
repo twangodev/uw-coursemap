@@ -4,12 +4,15 @@ from argparse import ArgumentParser
 from os import environ
 
 import coloredlogs
+from dotenv import load_dotenv
 from elasticsearch import Elasticsearch
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
+
+load_dotenv()
 
 ELASTIC_HOST = environ.get("ELASTIC_HOST")
 ELASTIC_USERNAME = environ.get("ELASTIC_USERNAME")
