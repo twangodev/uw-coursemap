@@ -111,14 +111,6 @@ def clear_elasticsearch():
 args = None
 verbose = False
 
-if __name__ == "__main__":
-    parser = generate_parser()
-    args = parser.parse_args()
-
-    verbose = bool(args.verbose) if args else verbose
-
-    app.run(debug=verbose)
-
 data_dir = args.data_dir if args else data_dir_default
 
 logger = logging.getLogger(__name__)
@@ -135,3 +127,10 @@ load_subjects(es, subjects)
 load_courses(es, courses)
 load_instructors(es, instructors)
 
+if __name__ == "__main__":
+    parser = generate_parser()
+    args = parser.parse_args()
+
+    verbose = bool(args.verbose) if args else verbose
+
+    app.run(debug=verbose)
