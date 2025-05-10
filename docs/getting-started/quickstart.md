@@ -84,27 +84,27 @@ pip install pipenv --user
 Next, navigate into the `search` directory and install the dependencies:
 
 ```sh [pipenv]
-pipenv install
+pipenv sync
 ```
 
-And now you can run the search server:
+Change directories back to the project root directory, and now you can run the search server:
 
 ```sh [pipenv]
-pipenv run python app.py
+pipenv run python ./search/app.py
 ```
 
-> [!TIP] 
-> The search server requires the same environment variables as specified in the `.env` file in the root directory. See [Pipenv Shell](https://pipenv.pypa.io/en/latest/shell.html) for how to bring them into the shell.
-
-PyCharm users, you can create a run configuration to run the search server with the environment variables from the `.env` file.
-:::
+> [!IMPORTANT] 
+> The search server pulls the same environment variables as specified in the `.env` file in the project root directory.
 
 ### Generation
 
-The generation process requires the same Python setup as the search. Install [Pipenv] and the dependencies as specified above. Then, navigate into the `generation` directory and run the following command:
+The generation process requires the same Python setup as the search. Install [Pipenv] and the dependencies as specified above, just in the `generation` directory.
+
+> [!TIP]
+> Ideally, you should create separate virtual environments for the search and generation processes.
 
 ```sh [pipenv]
-pipenv run python main.py --help
+pipenv run python ./generation/main.py --help
 ```
 
 For full details on how to run the generation process, see the [Generation](../codebase/generation.md) documentation.
