@@ -93,11 +93,8 @@ Change directories back to the project root directory, and now you can run the s
 pipenv run python ./search/app.py
 ```
 
-> [!TIP] 
-> The search server requires the same environment variables as specified in the `.env` file in the root directory. See [Pipenv Shell](https://pipenv.pypa.io/en/latest/shell.html) for how to bring them into the shell.
-
-PyCharm users, you can create a run configuration to run the search server with the environment variables from the `.env` file.
-:::
+> [!IMPORTANT] 
+> The search server pulls the same environment variables as specified in the `.env` file in the project root directory.
 
 ### Generation
 
