@@ -50,12 +50,21 @@ def infer_commas(tokens):
 
 def collapse_operators(tokens):
     """
-    Collapses consecutive AND/OR operators into a single operator.
-    For example, if the tokens are:
-    [('AND', 'AND'), ('AND', 'AND'), ('COURSE', 'CS101')],
-    it will collapse the ANDs into a single AND.
-    The output will be:
-    [('AND', 'AND'), ('COURSE', 'CS101')].
+    Processes a list of tokens, collapsing consecutive identical logical operators
+    ('AND', 'OR') into a single occurrence while retaining their order.
+
+    The function iterates through the input tokens and ensures that consecutive
+    logical operators of the same type do not appear more than once in the sequence.
+    Other tokens are added to the output verbatim.
+
+    Args:
+        tokens (list[tuple[str, str]]): List of tokens where each token is a tuple
+            containing the type of the token (e.g., 'AND', 'OR', or others) and its
+            associated value.
+
+    Returns:
+        list[tuple[str, str]]: A new list of tokens with consecutive occurrences of
+        the same logical operator collapsed.
     """
     out = []
     last_operator = None
@@ -71,7 +80,22 @@ def collapse_operators(tokens):
 
     return out
 
-def hoist_group_operators(tokens):
+def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    """
+    Transforms a list of tokens by hoisting group operators (`AND`, `OR`) when applicable.
+
+    In the case where a group operator is followed by a token of type `LPAREN`, we need to hoist the group operator
+    before the `LPAREN` token, as the AST parser expects leaf-like tokens to precede the parentheses.
+
+    Args:
+        tokens (list[tuple[str, str]]): A list of tokens, where each token is a tuple
+            containing a string type (e.g., 'LPAREN', 'AND', 'OR') and its corresponding
+            value.
+
+    Returns:
+        list[tuple[str, str]]: A list of tokens transformed according to the logic
+            specified, with group operators correctly hoisted for further processing.
+    """
     out = []
     i = 0
     while i < len(tokens):
