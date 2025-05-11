@@ -1,7 +1,10 @@
 import re
 
-from enrollment_data import EnrollmentData, GradeData, TermData
+from bs4 import NavigableString
+
+from enrollment_data import GradeData, TermData
 from json_serializable import JsonSerializable
+from requirement_ast import RequirementAbstractSyntaxTree, tokenize_requisites
 
 
 def remove_extra_spaces(text: str):
@@ -76,22 +79,27 @@ class Course(JsonSerializable):
 
     class Prerequisites(JsonSerializable):
 
-        def __init__(self, prerequisites_text, course_references):
+        def __init__(self, prerequisites_text, linked_requisite_text, course_references, abstract_syntax_tree):
             self.prerequisites_text = prerequisites_text
+            self.linked_requisite_text = linked_requisite_text
             self.course_references = course_references
+            self.abstract_syntax_tree = abstract_syntax_tree
 
         @classmethod
         def from_json(cls, json_data) -> "Course.Prerequisites":
             return Course.Prerequisites(
                 prerequisites_text=json_data["prerequisites_text"],
+                linked_requisite_text=json_data["linked_requisite_text"],
                 course_references=[
                     Course.Reference.from_json(course_ref) for course_ref in json_data["course_references"]
                 ],
+                abstract_syntax_tree=RequirementAbstractSyntaxTree.from_json(json_data["abstract_syntax_tree"]),
             )
 
         def to_dict(self):
             return {
                 "prerequisites_text": self.prerequisites_text,
+                "linked_requisite_text": self.linked_requisite_text,
                 "course_references": [course_ref.to_dict() for course_ref in self.course_references],
             }
 
@@ -179,7 +187,7 @@ class Course(JsonSerializable):
             course_reference,
             course_title,
             description,
-            Course.Prerequisites("", set()),
+            Course.Prerequisites("", [], set(), None),
             None,
             None,
             {}
@@ -192,16 +200,28 @@ class Course(JsonSerializable):
             return basic_course
 
         requisites_data = requisites_header.find_next("span", class_="cbextra-data")
-        requisites_text = requisites_data.get_text(strip=True)
-        requisites_links = requisites_data.find_all("a")
+
         requisites_courses = set()
-        for link in requisites_links:
-            title = link.get("title", "").strip()
-            requisites_courses.add(Course.Reference.from_string(title))
+        linked_requisite_text = []
+
+        for node in requisites_data.contents:
+            if isinstance(node, NavigableString):
+                linked_requisite_text.append(node.get_text())
+            elif node.name == "a":
+                title = node.get("title", "").strip()
+                reference = Course.Reference.from_string(title)
+
+                requisites_courses.add(reference)
+                linked_requisite_text.append(reference)
+            else:
+                linked_requisite_text.append(node.get_text(strip=True))
+
+        requisites_text = requisites_data.get_text(strip=True)
+        tokens = tokenize_requisites(linked_requisite_text)
 
         requisites_courses.discard(course_reference)  # Remove self-reference
 
-        course_prerequisite = Course.Prerequisites(requisites_text, requisites_courses)
+        course_prerequisite = Course.Prerequisites(requisites_text, linked_requisite_text, requisites_courses, None)
         return Course(course_reference, course_title, description, course_prerequisite, None, None,{})
 
     def determine_parent(self):

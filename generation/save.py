@@ -20,19 +20,34 @@ def convert_keys_to_str(data):
 
 def recursive_sort_data(data):
     """
-    Recursively sorts dictionaries and lists.
-    - For dictionaries, it sorts by keys.
-    - For lists, it sorts the elements (and sorts nested structures recursively).
+    Recursively sorts only dictionary keys.
+    - For dicts, returns a new dict with keys in sorted order and values recursively processed.
+    - For lists, tuples or sets, preserves the original order/structure but recurses into elements.
+    - For JsonSerializable, converts to JSON and then sorts keys.
     """
+    # If it's a dict, sort its keys
     if isinstance(data, dict):
-        return {key: recursive_sort_data(data[key]) for key in sorted(data.keys())}
-    if isinstance(data, (list, set, tuple)):
-        return [recursive_sort_data(item) if isinstance(item, (dict, list, set, tuple, JsonSerializable)) else item for
-                item in data]
+        return {
+            key: recursive_sort_data(data[key])
+            for key in sorted(data.keys())
+        }
+
+    # If it's a list or tuple, preserve order but recurse
+    if isinstance(data, list):
+        return [recursive_sort_data(item) for item in data]
+    if isinstance(data, tuple):
+        return tuple(recursive_sort_data(item) for item in data)
+
+    # Sets have no inherent order—just recurse and rebuild
+    if isinstance(data, set):
+        return {recursive_sort_data(item) for item in data}
+
+    # If it's JsonSerializable, convert to a dict and sort that
     if isinstance(data, JsonSerializable):
-        return recursive_sort_data(json.loads(data.to_json()))
-    else:
-        return data
+        return recursive_sort_data(data.to_dict())
+
+    # Anything else (int, str, etc.) just return as-is
+    return data
 
 
 def format_file_size(size_in_bytes):

@@ -32,9 +32,8 @@ async def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSe
             return subject_title, results
         except Exception as e:
             logger.error(f"Attempt {attempt} failed for URL {url}: {e}")
-            if attempt == attempts:
-                raise
             await asyncio.sleep(1)  # Wait 1 second before retrying
+    raise Exception(f"Failed to fetch data from {url} after {attempts} attempts.")
 
 
 def add_data(subjects, course_ref_course, full_subject, blocks):
