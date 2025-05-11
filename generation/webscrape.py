@@ -36,7 +36,7 @@ async def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSe
     raise Exception(f"Failed to fetch data from {url} after {attempts} attempts.")
 
 
-def add_data(subjects, course_ref_course, full_subject, blocks):
+def add_data(subjects, course_ref_course, full_subject, blocks, logger):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
     full_name = full_subject.group(1).strip()
     abbreviation = full_subject.group(2).replace(" ", "")
@@ -44,7 +44,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks):
     subjects[abbreviation] = full_name
 
     for block in blocks:
-        course = Course.from_block(block)
+        course = Course.from_block(block, logger)
         if not course:
             continue
         course_ref_course[course.course_reference] = course
@@ -90,7 +90,7 @@ async def scrape_all(urls: set[str], logger: Logger):
         tasks = [get_course_blocks(session, url, logger) for url in urls]
         results = await asyncio.gather(*tasks, return_exceptions=False)
         for full_subject, blocks in results:
-            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
+            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")

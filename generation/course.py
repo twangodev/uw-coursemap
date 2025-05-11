@@ -4,7 +4,7 @@ from bs4 import NavigableString
 
 from enrollment_data import GradeData, TermData
 from json_serializable import JsonSerializable
-from requirement_ast import RequirementAbstractSyntaxTree, tokenize_requisites
+from requirement_ast import RequirementAbstractSyntaxTree, tokenize_requisites, RequirementParser, Node, Leaf
 
 
 def remove_extra_spaces(text: str):
@@ -165,7 +165,7 @@ class Course(JsonSerializable):
         }
 
     @classmethod
-    def from_block(cls, block):
+    def from_block(cls, block, logger):
         html_title = block.find("p", class_="courseblocktitle noindent")
 
         if not html_title:
@@ -219,9 +219,16 @@ class Course(JsonSerializable):
         requisites_text = requisites_data.get_text(strip=True)
         tokens = tokenize_requisites(linked_requisite_text)
 
+        parser = RequirementParser(tokens)
+        tree = None
+        try:
+            tree = parser.parse()
+        except SyntaxError as se:
+            logger.error(f"Syntax error in course {course_reference}: {se}. See text: {requisites_text}")
+
         requisites_courses.discard(course_reference)  # Remove self-reference
 
-        course_prerequisite = Course.Prerequisites(requisites_text, linked_requisite_text, requisites_courses, None)
+        course_prerequisite = Course.Prerequisites(requisites_text, linked_requisite_text, requisites_courses, tree)
         return Course(course_reference, course_title, description, course_prerequisite, None, None,{})
 
     def determine_parent(self):
