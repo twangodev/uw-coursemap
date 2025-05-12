@@ -193,6 +193,15 @@ class Leaf(JsonSerializable):
     def to_tree_print(self):
         return _tree_repr(self, is_root=True)
 
+    @classmethod
+    def from_json(cls, json_data):
+        if isinstance(json_data, str):
+            return cls(json_data)
+        elif isinstance(json_data, dict):
+            return cls(JsonSerializable.from_json(json_data))
+        else:
+            raise ValueError("Invalid JSON data for Leaf")
+
     def to_dict(self):
         if isinstance(self.payload, JsonSerializable):
             return self.payload.to_dict()
@@ -202,6 +211,17 @@ class Node(JsonSerializable):
     def __init__(self, operator: str, children: list[Union['Node', Leaf]]):
         self.operator = operator
         self.children = children
+
+    @classmethod
+    def from_json(cls, json_data) -> 'Union[Node, Leaf]':
+        if isinstance(json_data, dict):
+            operator = json_data.get("operator")
+            children = [cls.from_json(child) for child in json_data.get("children", [])]
+            return cls(operator, children)
+        elif isinstance(json_data, str):
+            return Leaf(json_data)
+        else:
+            raise ValueError("Invalid JSON data for Node")
 
     def to_dict(self):
         return {
@@ -247,7 +267,7 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
         elif isinstance(json_data, str):
             return cls(Leaf(json_data))
         else:
-            raise ValueError("Invalid JSON data for RequirementAbstractSyntaxTree")
+            return None
 
     def to_dict(self):
         return self.root.to_dict() if isinstance(self.root, JsonSerializable) else str(self.root)
