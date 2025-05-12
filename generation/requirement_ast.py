@@ -16,6 +16,51 @@ leaf_like = {'TEXT', 'COURSE'}
 tokenizer_regex = '|'.join(f'(?P<{name}>{pattern})' for pattern, name in token_specs)
 tokenizer_re = re.compile(tokenizer_regex, re.IGNORECASE)
 
+def wrap_sentences(linked_requisite_text):
+    output = []
+    need_open_paren = True
+
+    for token in linked_requisite_text:
+        if isinstance(token, str):
+            parts = re.split(r'([.!?])', token)
+            for i, part in enumerate(parts):
+                if not part:
+                    continue
+
+                if i % 2 == 0:
+                    text = part
+                    if need_open_paren:
+                        stripped = text.lstrip()
+                        if not stripped:
+                            continue
+                        text = '(' + stripped
+                        need_open_paren = False
+                    output.append(text)
+
+                else:
+                    if output and isinstance(output[-1], str):
+                        output[-1] += part + ')'
+                    else:
+                        if need_open_paren:
+                            output.append('(' + part + ')')
+                        else:
+                            output.append(part + ')')
+                    need_open_paren = True
+
+        else:
+            if need_open_paren:
+                output.append('(')
+                need_open_paren = False
+            output.append(token)
+
+    if not need_open_paren:
+        if output and isinstance(output[-1], str):
+            output[-1] += ')'
+        else:
+            output.append(')')
+
+    return output
+
 def infer_commas(tokens):
     """
     Infers the commas in the tokenized list of requisites.
@@ -113,6 +158,8 @@ def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]
 
 def tokenize_requisites(linked_requisite_text):
     from course import Course
+
+    linked_requisite_text = wrap_sentences(linked_requisite_text)
     tokens = []
 
     for piece in linked_requisite_text:
