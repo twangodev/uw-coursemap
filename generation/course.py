@@ -101,6 +101,7 @@ class Course(JsonSerializable):
                 "prerequisites_text": self.prerequisites_text,
                 "linked_requisite_text": self.linked_requisite_text,
                 "course_references": [course_ref.to_dict() for course_ref in self.course_references],
+                "abstract_syntax_tree": self.abstract_syntax_tree.to_dict() if self.abstract_syntax_tree else None,
             }
 
         def __eq__(self, other):
@@ -200,6 +201,7 @@ class Course(JsonSerializable):
             return basic_course
 
         requisites_data = requisites_header.find_next("span", class_="cbextra-data")
+        requisites_text = requisites_data.get_text(strip=True)
 
         requisites_courses = set()
         linked_requisite_text = []
@@ -216,7 +218,6 @@ class Course(JsonSerializable):
             else:
                 linked_requisite_text.append(node.get_text(strip=True))
 
-        requisites_text = requisites_data.get_text(strip=True)
         tokens = tokenize_requisites(linked_requisite_text)
 
         parser = RequirementParser(tokens)
