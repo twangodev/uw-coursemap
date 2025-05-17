@@ -5,6 +5,7 @@ on:
       - main
 
 jobs:
+
   generate:
     name: Generate Data
     runs-on: ubuntu-latest
@@ -26,4 +27,3 @@ jobs:
         run: pipenv sync
       - name: Generate Data
         run: pipenv run python main.py --step all
-
