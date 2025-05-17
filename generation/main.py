@@ -156,7 +156,8 @@ def env_debug() -> bool:
     env_debug_flag = environ.get("DEBUG", None)
     action_debug_flag = environ.get("ACTIONS_RUNNER_DEBUG", None)
 
-    return env_debug_flag == "true" or action_debug_flag == "true"
+    return (env_debug_flag and env_debug_flag.lower() == "true") or \
+           (action_debug_flag and action_debug_flag.lower() == "true")
 
 def main():
     parser = generate_parser()
