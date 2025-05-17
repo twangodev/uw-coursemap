@@ -3,6 +3,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url  = "https://download.pytorch.org/whl/cpu"
+verify_ssl = true
+name = "pytorch_cpu"
+
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
@@ -19,6 +24,9 @@ sentence-transformers = "*"
 python-dotenv = "*"
 
 [dev-packages]
+
+[torch_cpu]
+torch = {index="pytorch_cpu"}
 
 [requires]
 python_version = "3.12"
