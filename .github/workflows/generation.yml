@@ -9,6 +9,9 @@ jobs:
   generate:
     name: Generate Data
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./generation
     permissions:
       contents: read
       pull-requests: write
@@ -22,6 +25,5 @@ jobs:
         run: python3 -m pip install --upgrade pip pipenv
       - name: Install Dependencies
         run: pipenv sync
-        working-directory: ./generation
       - name: Generate Data
-        run: pipenv run python ./generation/main.py --step all
+        run: pipenv run python main.py --step all
