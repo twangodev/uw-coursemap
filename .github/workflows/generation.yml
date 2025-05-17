@@ -25,4 +25,3 @@ jobs:
         working-directory: ./generation
       - name: Generate Data
         run: pipenv run python ./generation/main.py --step all
-
