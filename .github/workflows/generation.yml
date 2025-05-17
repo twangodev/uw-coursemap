@@ -24,6 +24,6 @@ jobs:
       - name: Install pipenv
         run: python3 -m pip install --upgrade pip pipenv
       - name: Install Dependencies
-        run: pipenv sync --categories default,torch_cpu
+        run: pipenv sync
       - name: Generate Data
         run: pipenv run python main.py --step all
