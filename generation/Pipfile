@@ -22,11 +22,11 @@ nameparser = "*"
 pathvalidate = "*"
 sentence-transformers = "*"
 python-dotenv = "*"
+torch = {version = "*", index = "pytorch_cpu"}
+torchvision = {version = "*", index = "pytorch_cpu"}
+torchaudio = {version = "*", index = "pytorch_cpu"}
 
 [dev-packages]
-
-[torch_cpu]
-torch = {index="pytorch_cpu"}
 
 [requires]
 python_version = "3.12"
