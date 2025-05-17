@@ -13,8 +13,7 @@ jobs:
       run:
         working-directory: ./generation
     permissions:
-      contents: read
-      pull-requests: write
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
@@ -27,3 +26,6 @@ jobs:
         run: pipenv sync
       - name: Generate Data
         run: pipenv run python main.py --step all
+        env:
+          DATA_DIR: "../data"
+          MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
