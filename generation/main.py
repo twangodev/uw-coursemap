@@ -152,6 +152,12 @@ def graph(
 def raise_missing_env_var(var_name):
     raise ValueError(f"{var_name} environment variable is not set.")
 
+def env_debug() -> bool:
+    env_debug_flag = environ.get("DEBUG", None)
+    action_debug_flag = environ.get("ACTIONS_RUNNER_DEBUG", None)
+
+    return env_debug_flag == "true" or action_debug_flag == "true"
+
 def main():
     parser = generate_parser()
     args = parser.parse_args()
@@ -165,7 +171,7 @@ def main():
 
     step = str(args.step).lower()
     max_prerequisites = int(args.max_prerequisites)
-    verbose = bool(args.verbose)
+    verbose = bool(args.verbose) or env_debug()
     no_build = bool(args.no_build)
 
     logger = logging.getLogger(__name__)

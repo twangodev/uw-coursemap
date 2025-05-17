@@ -25,3 +25,5 @@ jobs:
         run: python3 -m pip install --upgrade pip pipenv
       - name: Install Dependencies
         run: pipenv sync
+      - name: Generate Data
+        run: pipenv run python main.py --step all
