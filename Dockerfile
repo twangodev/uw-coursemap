@@ -1,4 +1,4 @@
-FROM node:23-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 RUN npm prune --production
 
-FROM node:23-alpine AS runtime
+FROM node:24-alpine AS runtime
 
 WORKDIR /app
 
