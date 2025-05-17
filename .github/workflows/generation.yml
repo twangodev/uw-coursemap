@@ -1,0 +1,27 @@
+name: Data Generation
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  generate:
+    name: Generate Data
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./generation
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3
+          cache: pipenv
+      - name: Install pipenv
+        run: python3 -m pip install --upgrade pip pipenv
+      - name: Install Dependencies
+        run: pipenv sync
