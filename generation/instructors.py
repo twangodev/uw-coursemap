@@ -316,7 +316,7 @@ def match_name(student_name, official_names, threshold=80):
 
 async def merge_instructors(instructor: str,
                             instructors: dict[str, str | None],
-                            course_ref_to_course: dict,
+                            course_ref_to_course: dict[Course.Reference, Course],
                             logger: Logger) -> None:
     # Call the synchronous match_name function.
     match = match_name(instructor, set(instructors.keys()))
@@ -333,7 +333,7 @@ async def merge_instructors(instructor: str,
                     continue
                 if instructor in term_data.grade_data.instructors:
                     term_data.grade_data.instructors.remove(instructor)
-                    term_data.grade_data.instructors.append(match)
+                    term_data.grade_data.instructors.add(match)
     else:
         logger.debug(f"Could not find existing instructor match for {instructor}. Adding to list of instructors to fetch.")
         instructors[instructor] = None

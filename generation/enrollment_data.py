@@ -290,7 +290,7 @@ class MadgradesData:
                 for instructor in section["instructors"]:
                     instructors.add(instructor["name"])
 
-            grade_data.instructors = list(instructors)
+            grade_data.instructors = set(instructors)
 
             by_term[term_code] = grade_data
 
