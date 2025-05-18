@@ -96,7 +96,6 @@ def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, 
     original_prerequisites = course.prerequisites
 
     prerequisites = set()
-
     for reference in original_prerequisites.course_references:
         if reference not in course_ref_to_course:
             logger.error(f"Prerequisite not found in courses: {reference}")
