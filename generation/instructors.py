@@ -411,7 +411,8 @@ async def gather_instructor_emails(terms, course_ref_to_course, logger):
     # Create a list of tasks, one per term
     tasks = [
         build_from_mega_query(
-            selected_term=term,
+            selected_term=str(term),
+            term_name=terms[term],
             terms=terms,
             course_ref_to_course=course_ref_to_course,
             logger=logger

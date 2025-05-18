@@ -35,7 +35,7 @@ def sync_enrollment_terms(terms, logger: Logger):
         terms[term_code] = short_description
 
 
-async def build_from_mega_query(selected_term, terms, course_ref_to_course, logger: Logger):
+async def build_from_mega_query(selected_term: str, term_name, terms, course_ref_to_course, logger: Logger):
     post_data = {
         "selectedTerm": selected_term,
         "queryString": "",
@@ -45,17 +45,17 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
     }
 
     async with aiohttp.ClientSession() as session:
-        logger.debug(f"Building enrollment package for {terms[selected_term]}...")
+        logger.debug(f"Building enrollment package for {term_name}...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
         course_count = data["found"]
 
         if not course_count:
-            logger.warning(f"No courses found in the {terms[selected_term]} term")
+            logger.warning(f"No courses found in the {term_name} term")
             return {}
 
         post_data["pageSize"] = course_count
-        logger.debug(f"Discovered {course_count} courses in the {terms[selected_term]} term. Syncing terms...")
+        logger.debug(f"Discovered {course_count} courses in the {term_name} term. Syncing terms...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
 
@@ -64,7 +64,7 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
 
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
-            process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session)
+            process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, logger, session)
             for i, hit in enumerate(hits)
         ]
         results = await asyncio.gather(*tasks)
@@ -74,11 +74,11 @@ async def build_from_mega_query(selected_term, terms, course_ref_to_course, logg
             for full_name, email in instructors.items():
                 all_instructors.setdefault(full_name, email)
 
-        logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {terms[selected_term]}")
+        logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}")
         return all_instructors
 
 
-async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session, attempts=10):
+async def process_hit(hit, i, course_count, selected_term: str, term_name: str, terms, course_ref_to_course, logger, session, attempts=10):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
         enrollment_subjects = hit["allCrossListedSubjects"]
@@ -108,7 +108,7 @@ async def process_hit(hit, i, course_count, selected_term, terms, course_ref_to_
         if attempts > 0:
             logger.info(f"Retrying {attempts} more times...")
             await asyncio.sleep(1)
-            return await process_hit(hit, i, course_count, selected_term, terms, course_ref_to_course, logger, session,
+            return await process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, logger, session,
                                      attempts - 1)
         return None
 
