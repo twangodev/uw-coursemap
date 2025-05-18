@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import sys
 from argparse import ArgumentParser
 from logging import Logger
 from os import environ
@@ -178,7 +179,12 @@ def main():
     logger = logging.getLogger(__name__)
     logging_level = logging.DEBUG if verbose else logging.INFO
     logger.setLevel(logging_level)
-    coloredlogs.install(level=logging_level, logger=logger)
+
+    is_a_tty = sys.stdout.isatty()
+    is_ci = environ.get("CI", None)
+
+    show_color = is_a_tty or is_ci
+    coloredlogs.install(level=logging_level, logger=logger, isatty=show_color)
 
     subject_to_full_subject = None
     course_ref_to_course = None
