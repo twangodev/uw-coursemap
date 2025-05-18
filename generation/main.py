@@ -34,7 +34,7 @@ def generate_parser():
         "-c", "--cache_dir",
         type=str,
         help="Directory to save the cached data.",
-        default="./generation/.cache"
+        default="./.cache"
     )
     parser.add_argument(
         "--step",
