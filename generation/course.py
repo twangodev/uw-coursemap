@@ -1,4 +1,5 @@
 import re
+from logging import Logger
 
 from bs4 import NavigableString
 
@@ -166,7 +167,7 @@ class Course(JsonSerializable):
         }
 
     @classmethod
-    def from_block(cls, block, logger):
+    def from_block(cls, block, logger: Logger):
         html_title = block.find("p", class_="courseblocktitle noindent")
 
         if not html_title:
@@ -225,7 +226,7 @@ class Course(JsonSerializable):
         try:
             tree = parser.parse()
         except SyntaxError as se:
-            logger.error(f"Syntax error in course {course_reference}: {se}. See text: {requisites_text}")
+            logger.warning(f"Syntax error in course {course_reference}: {se}. See text: {requisites_text}")
 
         requisites_courses.discard(course_reference)  # Remove self-reference
 
