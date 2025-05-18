@@ -93,8 +93,10 @@ def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, 
         course.optimized_prerequisites = course.prerequisites
         return
 
+    original_prerequisites = course.prerequisites
+
     prerequisites = set()
-    for reference in course.prerequisites.course_references:
+    for reference in original_prerequisites.course_references:
         if reference not in course_ref_to_course:
             logger.error(f"Prerequisite not found in courses: {reference}")
             continue
@@ -111,9 +113,13 @@ def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, 
     )
     logger.debug(
         f"Selected {([c.get_identifier() for c in best])} as the best prerequisite(s) for {course.get_identifier()} out of {len(prerequisites)} options")
+
+
     course.optimized_prerequisites = Course.Prerequisites(
+        prerequisites_text=original_prerequisites.prerequisites_text,
+        linked_requisite_text=original_prerequisites.linked_requisite_text,
         course_references=[c.course_reference for c in best],
-        prerequisites_text=course.prerequisites.prerequisites_text
+        abstract_syntax_tree=original_prerequisites.abstract_syntax_tree
     )
 
 
