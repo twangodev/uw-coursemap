@@ -40,7 +40,7 @@ def recursive_sort_data(data):
 
     # Sets have no inherent order—just recurse and rebuild
     if isinstance(data, set):
-        return {recursive_sort_data(item) for item in data}
+        return sorted([recursive_sort_data(item) for item in data], key=str)
 
     # If it's JsonSerializable, convert to a dict and sort that
     if isinstance(data, JsonSerializable):
