@@ -213,11 +213,11 @@ async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.C
         async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
             data = await response.json()
     except (aiohttp.ClientError, JSONDecodeError) as e:
-        logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         if attempts > 0:
-            logger.info(f"Retrying {attempts} more times for {name}...")
+            logger.warning(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
             return await get_rating(name, api_key, logger, session, attempts - 1)
+        logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
     # Parse the results to find a matching teacher
