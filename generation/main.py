@@ -181,7 +181,7 @@ def main():
     logger.setLevel(logging_level)
 
     is_a_tty = sys.stdout.isatty()
-    is_ci = environ.get("CI", None)
+    is_ci = environ.get("CI", "").strip().lower() == "true"
 
     show_color = is_a_tty or is_ci
     coloredlogs.install(level=logging_level, logger=logger, isatty=show_color)
