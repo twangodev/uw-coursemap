@@ -217,6 +217,7 @@ def main():
 
     if filter_step(step, "instructors"):
         logger.info("Fetching instructor data...")
+
         if course_ref_to_course is None:
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
