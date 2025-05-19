@@ -6,6 +6,7 @@ from logging import Logger
 from os import environ
 
 import coloredlogs
+import requests_cache
 from dotenv import load_dotenv
 
 from aggregate import aggregate_instructors, aggregate_courses
@@ -19,6 +20,7 @@ from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
+from os import path
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
@@ -169,6 +171,10 @@ def main():
         raise_missing_env_var("DATA_DIR")
 
     cache_dir = str(args.cache_dir)
+    os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
+    requests_cache_location = path.join(cache_dir, "requests_cache")
+    requests_cache.install_cache(requests_cache_location)
+
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
     step = str(args.step).lower()
