@@ -32,7 +32,7 @@ jobs:
       - name: Cache Generation
         uses: actions/cache@v4
         with:
-          path: .cache
+          path: generation/.cache
           key: ${{ runner.os }}-generation-${{ env.cache_id }}
           restore-keys: |
             ${{ runner.os }}-generation--
