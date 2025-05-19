@@ -8,6 +8,7 @@ from os import environ
 import coloredlogs
 import requests_cache
 from dotenv import load_dotenv
+from joblib import expires_after
 
 from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
@@ -173,7 +174,7 @@ def main():
     cache_dir = str(args.cache_dir)
     os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
     requests_cache_location = path.join(cache_dir, "requests_cache")
-    requests_cache.install_cache(requests_cache_location)
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
