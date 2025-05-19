@@ -5,6 +5,7 @@ import re
 from logging import Logger
 
 import numpy as np
+import requests_cache
 from sentence_transformers import SentenceTransformer
 
 from cache import read_embedding_cache, write_embedding_cache
@@ -13,21 +14,22 @@ from course import Course
 initialized_model = None
 
 def get_model(cache_dir, logger: Logger):
-    model_cache_dir = os.path.join(cache_dir, "model")
-    model =  SentenceTransformer(
-        model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
-        cache_folder=model_cache_dir,
-        trust_remote_code=True,
-    )
+    with requests_cache.disabled():
+        model_cache_dir = os.path.join(cache_dir, "model")
+        model =  SentenceTransformer(
+            model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
+            cache_folder=model_cache_dir,
+            trust_remote_code=True,
+        )
 
-    global initialized_model
-    if initialized_model is None:
-        logger.info("Loading model...")
-        initialized_model = model
-    else:
-        logger.info("Model already loaded. Reusing the existing model.")
+        global initialized_model
+        if initialized_model is None:
+            logger.info("Loading model...")
+            initialized_model = model
+        else:
+            logger.info("Model already loaded. Reusing the existing model.")
 
-    return initialized_model
+        return initialized_model
 
 
 def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
