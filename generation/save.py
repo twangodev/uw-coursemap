@@ -40,7 +40,7 @@ def recursive_sort_data(data):
 
     # Sets have no inherent order—just recurse and rebuild
     if isinstance(data, set):
-        return {recursive_sort_data(item) for item in data}
+        return sorted([recursive_sort_data(item) for item in data], key=str)
 
     # If it's JsonSerializable, convert to a dict and sort that
     if isinstance(data, JsonSerializable):
@@ -87,7 +87,7 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     if isinstance(data, (set, tuple)):
         data = list(data)
     elif isinstance(data, JsonSerializable):
-        data = json.loads(data.to_json())
+        data = data.to_dict()
 
     # Sort the data
     sorted_data = recursive_sort_data(data)

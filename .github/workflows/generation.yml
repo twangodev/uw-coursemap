@@ -16,6 +16,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
       - uses: actions/setup-python@v4
         with:
           python-version: 3
@@ -24,8 +27,22 @@ jobs:
         run: python3 -m pip install --upgrade pip pipenv
       - name: Install Dependencies
         run: pipenv sync
+      - name: Setup Cache Environment
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Cache Generation
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ${{ runner.os }}-generation-${{ env.cache_id }}
+          restore-keys: |
+            ${{ runner.os }}-generation--
       - name: Generate Data
         run: pipenv run python main.py --step all
         env:
           DATA_DIR: "../data"
           MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
+      - name: Upload Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: uw-coursemap-data-snapshot-${{ github.run_id }}
+          path: data/

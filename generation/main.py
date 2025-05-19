@@ -1,11 +1,14 @@
 import asyncio
 import logging
+import os
 import sys
 from argparse import ArgumentParser
 from logging import Logger
 from os import environ
+from os import path
 
 import coloredlogs
+import requests_cache
 from dotenv import load_dotenv
 
 from aggregate import aggregate_instructors, aggregate_courses
@@ -34,7 +37,7 @@ def generate_parser():
         "-c", "--cache_dir",
         type=str,
         help="Directory to save the cached data.",
-        default="./generation/.cache"
+        default="./.cache"
     )
     parser.add_argument(
         "--step",
@@ -169,6 +172,10 @@ def main():
         raise_missing_env_var("DATA_DIR")
 
     cache_dir = str(args.cache_dir)
+    os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
+    requests_cache_location = path.join(cache_dir, "requests_cache")
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5 days
+
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
     step = str(args.step).lower()
@@ -186,12 +193,6 @@ def main():
     show_color = is_a_tty or is_ci
     coloredlogs.install(level=logging_level, logger=logger, isatty=show_color)
 
-    subject_to_full_subject = None
-    course_ref_to_course = None
-    terms = None
-    global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = None, None, None, None, None
-    instructor_to_rating = None
-
     if filter_step(step, "courses"):
         logger.info("Fetching course data...")
         subject_to_full_subject, course_ref_to_course = courses(logger=logger)
@@ -206,8 +207,7 @@ def main():
             raise_missing_env_var("MADGRADES_API_KEY")
 
         logger.info("Fetching madgrades data...")
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
         terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key,
                                        logger=logger)
 
@@ -218,11 +218,8 @@ def main():
     if filter_step(step, "instructors"):
         logger.info("Fetching instructor data...")
 
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-
-        if terms is None:
-            terms = read_terms_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        terms = read_terms_cache(cache_dir, logger)
 
         instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms,
                                                                logger=logger)
@@ -231,16 +228,12 @@ def main():
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
         logger.info("Instructor data fetched successfully.")
 
-    quick_statistics = None
-
     if filter_step(step, "aggregate"):
         logger.info("Aggregating data")
 
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
-        if instructor_to_rating is None:
-            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+        instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
 
         aggregate_instructors(
             course_ref_to_course=course_ref_to_course,
@@ -262,8 +255,7 @@ def main():
 
     if filter_step(step, "optimize"):
         logger.info("Optimizing course data...")
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         optimize(
             cache_dir=cache_dir,
@@ -278,8 +270,7 @@ def main():
     if filter_step(step, "graph"):
         logger.info("Building course graph...")
 
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         color_map = {}
         global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style = graph(
@@ -294,27 +285,19 @@ def main():
 
     if not no_build:
 
-        if subject_to_full_subject is None:
-            subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir, logger)
-
-        if course_ref_to_course is None:
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+        subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir, logger)
+        course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
 
         subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
         identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
-        graphs = [global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style] 
-        if graphs.count(None) >= 1: 
-            global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
+        global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
 
-        if instructor_to_rating is None:
-            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+        instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
 
-        if terms is None:
-            terms = read_terms_cache(cache_dir, logger)
+        terms = read_terms_cache(cache_dir, logger)
 
-        if quick_statistics is None:
-            quick_statistics = read_quick_statistics_cache(cache_dir, logger)
+        quick_statistics = read_quick_statistics_cache(cache_dir, logger)
 
         write_data(
             data_dir=data_dir,
