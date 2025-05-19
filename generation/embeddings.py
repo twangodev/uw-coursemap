@@ -14,6 +14,7 @@ from course import Course
 initialized_model = None
 
 def get_model(cache_dir, logger: Logger):
+    # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
     with requests_cache.disabled():
         model_cache_dir = os.path.join(cache_dir, "model")
         model =  SentenceTransformer(
