@@ -171,6 +171,7 @@ def main():
         raise_missing_env_var("DATA_DIR")
 
     cache_dir = str(args.cache_dir)
+    os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
     requests_cache_location = path.join(cache_dir, "requests_cache")
     requests_cache.install_cache(requests_cache_location)
 
