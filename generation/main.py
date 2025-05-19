@@ -208,8 +208,11 @@ def main():
 
         logger.info("Fetching madgrades data...")
         course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-        terms, latest_term = madgrades(course_ref_to_course=course_ref_to_course, madgrades_api_key=madgrades_api_key,
-                                       logger=logger)
+        terms, latest_term = madgrades(
+            course_ref_to_course=course_ref_to_course,
+            madgrades_api_key=madgrades_api_key,
+            logger=logger
+        )
 
         write_terms_cache(cache_dir, terms, logger)
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
@@ -221,8 +224,11 @@ def main():
         course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
         terms = read_terms_cache(cache_dir, logger)
 
-        instructor_to_rating, instructors_emails = instructors(course_ref_to_course=course_ref_to_course, terms=terms,
-                                                               logger=logger)
+        instructor_to_rating, instructors_emails = instructors(
+            course_ref_to_course=course_ref_to_course,
+            terms=terms,
+            logger=logger
+        )
 
         write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
         write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
