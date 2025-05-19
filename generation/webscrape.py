@@ -6,10 +6,10 @@ from logging import Logger
 import aiohttp
 import requests
 from bs4 import BeautifulSoup, ResultSet
-from requests.adapters import HTTPAdapter
+from tqdm.asyncio import tqdm
+from tqdm.contrib.logging import logging_redirect_tqdm
 
 from course import Course
-from request_util import get_prefix, get_global_retry_strategy
 from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
@@ -81,14 +81,13 @@ async def scrape_all(urls: set[str], logger: Logger):
     subject_to_full_subject = {}
     course_ref_to_course = {}
 
-    prefix = get_prefix(list(urls)[0])
-
     timeout = aiohttp.ClientTimeout(total=60)
     connector = aiohttp.TCPConnector(limit=10)
 
     async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
         tasks = [get_course_blocks(session, url, logger) for url in urls]
-        results = await asyncio.gather(*tasks, return_exceptions=False)
+        with logging_redirect_tqdm():
+            results = await tqdm.gather(*tasks)
         for full_subject, blocks in results:
             add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 
