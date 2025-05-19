@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+import socket
 import sys
 from argparse import ArgumentParser
 from logging import Logger
@@ -163,6 +164,15 @@ def env_debug() -> bool:
     return (env_debug_flag and env_debug_flag.lower() == "true") or \
            (action_debug_flag and action_debug_flag.lower() == "true")
 
+
+old_factory = logging.getLogRecordFactory()
+def record_factory(*args, **kwargs):
+    record = old_factory(*args, **kwargs)
+    record.hostname = socket.gethostname()
+    return record
+
+logging.setLogRecordFactory(record_factory)
+
 def main():
     parser = generate_parser()
     args = parser.parse_args()
@@ -183,15 +193,23 @@ def main():
     verbose = bool(args.verbose) or env_debug()
     no_build = bool(args.no_build)
 
-    logger = logging.getLogger(__name__)
-    logging_level = logging.DEBUG if verbose else logging.INFO
-    logger.setLevel(logging_level)
 
     is_a_tty = sys.stdout.isatty()
     is_ci = environ.get("CI", "").strip().lower() == "true"
 
     show_color = is_a_tty or is_ci
-    coloredlogs.install(level=logging_level, logger=logger, isatty=show_color)
+
+    logging_level = logging.DEBUG if verbose else logging.INFO
+
+    coloredlogs.install(
+        level=logging_level,
+        isatty=show_color,
+        fmt="%(asctime)s.%(msecs)03d %(hostname)s %(name)s[%(process)d] %(levelname)5s %(message)s",
+        milliseconds=True,
+    )
+
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging_level)
 
     if filter_step(step, "courses"):
         logger.info("Fetching course data...")
