@@ -87,7 +87,7 @@ async def scrape_all(urls: set[str], logger: Logger):
     async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
         tasks = [get_course_blocks(session, url, logger) for url in urls]
         with logging_redirect_tqdm():
-            results = await tqdm.gather(*tasks)
+            results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
         for full_subject, blocks in results:
             add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 
@@ -95,8 +95,6 @@ async def scrape_all(urls: set[str], logger: Logger):
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
 
     return subject_to_full_subject, course_ref_to_course
-
-
 
 def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:
     subject_to_courses = dict()
