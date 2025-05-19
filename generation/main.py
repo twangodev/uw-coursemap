@@ -174,7 +174,7 @@ def main():
     cache_dir = str(args.cache_dir)
     os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
     requests_cache_location = path.join(cache_dir, "requests_cache")
-    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5 days
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
