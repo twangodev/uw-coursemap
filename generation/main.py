@@ -1,9 +1,11 @@
 import asyncio
 import logging
+import os
 import sys
 from argparse import ArgumentParser
 from logging import Logger
 from os import environ
+from os import path
 
 import coloredlogs
 import requests_cache
@@ -20,7 +22,6 @@ from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
-from os import path
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
@@ -173,7 +174,7 @@ def main():
     cache_dir = str(args.cache_dir)
     os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
     requests_cache_location = path.join(cache_dir, "requests_cache")
-    requests_cache.install_cache(requests_cache_location)
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5 days
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
