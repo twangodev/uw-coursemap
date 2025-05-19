@@ -1,14 +1,15 @@
 import asyncio
 import logging
+import os
 import sys
 from argparse import ArgumentParser
 from logging import Logger
 from os import environ
+from os import path
 
 import coloredlogs
 import requests_cache
 from dotenv import load_dotenv
-from joblib import expires_after
 
 from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
@@ -21,7 +22,6 @@ from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
 from save import write_data
-from os import path
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
