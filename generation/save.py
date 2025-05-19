@@ -87,7 +87,7 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     if isinstance(data, (set, tuple)):
         data = list(data)
     elif isinstance(data, JsonSerializable):
-        data = json.loads(data.to_json())
+        data = data.to_dict()
 
     # Sort the data
     sorted_data = recursive_sort_data(data)
