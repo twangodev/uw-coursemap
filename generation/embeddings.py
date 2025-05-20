@@ -7,6 +7,7 @@ from logging import Logger
 import numpy as np
 import requests_cache
 from sentence_transformers import SentenceTransformer
+from tqdm.asyncio import tqdm
 
 from cache import read_embedding_cache, write_embedding_cache
 from course import Course
@@ -126,8 +127,15 @@ def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, 
     )
 
 
-async def optimize_prerequisite(cache_dir, course, model: SentenceTransformer, course_ref_to_course, max_prerequisites, max_retries,
-                                logger):
+def optimize_prerequisite(
+        cache_dir,
+        course,
+        model: SentenceTransformer,
+        course_ref_to_course,
+        max_prerequisites,
+        max_retries,
+        logger
+):
     retries = 0
     while retries < max_retries:
         try:
@@ -147,25 +155,22 @@ async def optimize_prerequisites(
         course_ref_to_course: dict[Course.Reference, Course],
         max_prerequisites: int | float,
         max_retries: int,
-        max_threads: int,
         logger: Logger
 ):
     total_courses = len(course_ref_to_course)
     logger.info(f"Optimizing prerequisites for {total_courses} courses...")
-    completed_courses = 0
-    semaphore = asyncio.Semaphore(max_threads)
-
-    async def optimize_course(course):
-        nonlocal completed_courses
-        async with semaphore:
-            await optimize_prerequisite(cache_dir, course, model, course_ref_to_course, max_prerequisites,
-                                        max_retries, logger)
-            completed_courses += 1
-            remaining_courses = total_courses - completed_courses
-            logger.debug(
-                f"Optimization completed for course {course.get_identifier()}. {remaining_courses} courses remaining. ({(completed_courses * 100 / total_courses):.2f}% complete)")
 
     # Create tasks for each course and wait for them all to complete.
-    tasks = [asyncio.create_task(optimize_course(course)) for course in course_ref_to_course.values()]
-    await asyncio.gather(*tasks)
+    tasks = [
+        asyncio.to_thread(optimize_prerequisite,
+            cache_dir,
+            course,
+            model,
+            course_ref_to_course,
+            max_prerequisites,
+            max_retries,
+            logger
+        ) for course in course_ref_to_course.values()
+    ]
+    await tqdm.gather(*tasks, desc="Optimizing Prerequisites", unit="course")
     logger.info("Optimization completed.")
