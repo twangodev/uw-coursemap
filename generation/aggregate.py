@@ -1,6 +1,7 @@
 import asyncio
 
 import numpy as np
+from tqdm.asyncio import tqdm
 
 from course import Course
 from embeddings import get_model, get_embedding, cosine_similarity, normalize
@@ -29,21 +30,12 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
 
     model = get_model(cache_dir, logger)
 
-    total_courses = len(course_ref_to_course)
-    # Use a mutable dictionary to track progress.
-    progress = {"completed": 0}
-    # Create a lock to ensure that updates to the progress counter are thread-safe.
-    lock = asyncio.Lock()
-
     async def embed_course(course_ref, course):
         summary = course.get_short_summary()
         # Wrap the synchronous get_embedding call in asyncio.to_thread if necessary.
         embedding = await asyncio.to_thread(get_embedding, cache_dir, model, summary, logger)
 
         # Update progress safely using the lock.
-        async with lock:
-            progress["completed"] += 1
-            logger.debug("Progress: %d/%d courses completed", progress["completed"], total_courses)
         return course_ref, embedding
 
     # Create tasks for all courses.
@@ -53,7 +45,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     ]
 
     # Await tasks concurrently.
-    results = await asyncio.gather(*tasks)
+    results = await tqdm.gather(*tasks, position=0, desc="Course Embedding Analysis", unit="course")
 
     # Build the dictionary mapping course references to their embeddings.
     course_embeddings = {course_ref: embedding for course_ref, embedding in results}

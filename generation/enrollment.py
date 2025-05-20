@@ -2,9 +2,11 @@ import asyncio
 from json import JSONDecodeError
 from logging import Logger
 
-import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
+from tqdm.asyncio import tqdm
 
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import EnrollmentData, TermData
 
@@ -44,7 +46,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
         "pageSize": 1
     }
 
-    async with aiohttp.ClientSession() as session:
+    async with CachedSession(cache=get_aio_cache()) as session:
         logger.debug(f"Building enrollment package for {term_name}...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
@@ -67,7 +69,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
             process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, logger, session)
             for i, hit in enumerate(hits)
         ]
-        results = await asyncio.gather(*tasks)
+        results = await tqdm.gather(*tasks, desc=f"Courses in {term_name}", unit="course")
         for instructors in results:
             if instructors is None:
                 continue
@@ -89,7 +91,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
     course_ref = Course.Reference(subjects, course_code)
 
     if course_ref not in course_ref_to_course:
-        logger.info(f"Skipping unknown course: {course_ref}")
+        logger.debug(f"Skipping unknown course: {course_ref}")
         return None
 
     logger.debug(f"Processing course: {course_ref} ({i + 1}/{course_count})")

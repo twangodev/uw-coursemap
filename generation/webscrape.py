@@ -5,11 +5,12 @@ from logging import Logger
 
 import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup, ResultSet
-from requests.adapters import HTTPAdapter
+from tqdm.asyncio import tqdm
 
+from aio_cache import get_aio_cache
 from course import Course
-from request_util import get_prefix, get_global_retry_strategy
 from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
@@ -81,14 +82,12 @@ async def scrape_all(urls: set[str], logger: Logger):
     subject_to_full_subject = {}
     course_ref_to_course = {}
 
-    prefix = get_prefix(list(urls)[0])
-
     timeout = aiohttp.ClientTimeout(total=60)
     connector = aiohttp.TCPConnector(limit=10)
 
-    async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
+    async with CachedSession(cache=get_aio_cache(), timeout=timeout, connector=connector) as session:
         tasks = [get_course_blocks(session, url, logger) for url in urls]
-        results = await asyncio.gather(*tasks, return_exceptions=False)
+        results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
         for full_subject, blocks in results:
             add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 
@@ -96,8 +95,6 @@ async def scrape_all(urls: set[str], logger: Logger):
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
 
     return subject_to_full_subject, course_ref_to_course
-
-
 
 def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:
     subject_to_courses = dict()

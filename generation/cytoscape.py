@@ -1,6 +1,7 @@
 from logging import Logger
 
 from frozendict import frozendict
+from tqdm import tqdm
 
 from color import generate_random_hex_colors
 from course import Course
@@ -77,8 +78,8 @@ def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_t
     subject_to_graph = dict()
     course_to_graph = dict()
 
-    for subject, course_set in subject_to_courses.items():
-        for course in course_set:
+    for subject, course_set in tqdm(subject_to_courses.items(), desc="Building graphs", unit="subject"):
+        for course in tqdm(course_set, desc=f"Building graphs for {subject}", unit="course"):
             if subject not in subject_to_graph:
                 subject_to_graph[subject] = set()
             if course.get_identifier() not in course_to_graph:

@@ -16,7 +16,6 @@ frozendict = "*"
 numpy = "*"
 coloredlogs = "*"
 argparse = "*"
-aiohttp = "*"
 rapidfuzz = "*"
 nameparser = "*"
 pathvalidate = "*"
@@ -27,6 +26,9 @@ torchvision = {version = "*", index = "pytorch_cpu"}
 torchaudio = {version = "*", index = "pytorch_cpu"}
 requests-cache = "*"
 hf-xet = "*"
+tqdm = "*"
+aiohttp-client-cache = {version = "*", extras = ["sqlite"]}
+diskcache = "*"
 
 [dev-packages]
 

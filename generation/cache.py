@@ -8,7 +8,6 @@ from course import Course
 from instructors import FullInstructor
 from save import write_file, format_file_size
 
-
 def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, logger):
     """
     Reads data from a JSON cache file.
