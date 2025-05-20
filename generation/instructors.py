@@ -207,14 +207,14 @@ def produce_query(instructor_name):
     }
 
 
-async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.ClientSession, attempts: int = 3):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 3):
     auth_header = {"Authorization": f"Basic {api_key}"}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
         async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
             data = await response.json()
-    except (aiohttp.ClientError, JSONDecodeError) as e:
+    except Exception as e:
         if attempts > 0:
             logger.warning(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
