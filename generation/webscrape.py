@@ -5,10 +5,11 @@ from logging import Logger
 
 import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup, ResultSet
 from tqdm.asyncio import tqdm
-from tqdm.contrib.logging import logging_redirect_tqdm
 
+from aio_cache import get_aio_cache
 from course import Course
 from timer import get_ms
 
@@ -84,10 +85,9 @@ async def scrape_all(urls: set[str], logger: Logger):
     timeout = aiohttp.ClientTimeout(total=60)
     connector = aiohttp.TCPConnector(limit=10)
 
-    async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
+    async with CachedSession(cache=get_aio_cache(), timeout=timeout, connector=connector) as session:
         tasks = [get_course_blocks(session, url, logger) for url in urls]
-        with logging_redirect_tqdm():
-            results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
+        results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
         for full_subject, blocks in results:
             add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 

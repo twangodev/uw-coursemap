@@ -2,9 +2,10 @@ import asyncio
 from json import JSONDecodeError
 from logging import Logger
 
-import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
 
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import EnrollmentData, TermData
 
@@ -44,7 +45,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
         "pageSize": 1
     }
 
-    async with aiohttp.ClientSession() as session:
+    async with CachedSession(cache=get_aio_cache()) as session:
         logger.debug(f"Building enrollment package for {term_name}...")
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()

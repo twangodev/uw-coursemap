@@ -3,12 +3,13 @@ import re
 from json import JSONDecodeError
 from logging import Logger
 
-import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from nameparser import HumanName
 from rapidfuzz import fuzz
 
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
@@ -205,14 +206,14 @@ def produce_query(instructor_name):
     }
 
 
-async def get_rating(name: str, api_key: str, logger: Logger, session: aiohttp.ClientSession, attempts: int = 3):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 3):
     auth_header = {"Authorization": f"Basic {api_key}"}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
         async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
             data = await response.json()
-    except (aiohttp.ClientError, JSONDecodeError) as e:
+    except Exception as e:
         if attempts > 0:
             logger.warning(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
@@ -368,7 +369,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
     logger.info(f"Fetching ratings for {total} instructors...")
 
-    async with aiohttp.ClientSession() as session:
+    async with CachedSession(cache=get_aio_cache()) as session:
         tasks = []
         names_emails = list(instructors.items())
         for i, (name, email) in enumerate(names_emails):
