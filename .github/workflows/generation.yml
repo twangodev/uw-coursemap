@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
 
@@ -19,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3
           cache: pipenv
@@ -32,7 +33,7 @@ jobs:
       - name: Cache Generation
         uses: actions/cache@v4
         with:
-          path: .cache
+          path: generation/.cache
           key: ${{ runner.os }}-generation-${{ env.cache_id }}
           restore-keys: |
             ${{ runner.os }}-generation--
