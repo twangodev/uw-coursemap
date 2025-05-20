@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from logging import Logger
 
 from pathvalidate import validate_filename, ValidationError
+from tqdm import tqdm
 
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
@@ -155,24 +156,26 @@ def write_data(
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
 
-    for subject, courses in subject_to_courses.items():
+    for subject, courses in tqdm(subject_to_courses.items(), desc="Courses by Subject", unit="subject"):
         write_file(data_dir, ("courses",), subject, courses, logger)
 
-    for identifier, course in identifier_to_course.items():
+    for identifier, course in tqdm(identifier_to_course.items(), desc="Courses", unit="course"):
         write_file(data_dir, ("course",), identifier, course, logger)
 
     write_file(data_dir, tuple(), "global_graph", global_graph, logger)
-    for subject, graph in subject_to_graph.items():
+
+    for subject, graph in tqdm(subject_to_graph.items(), desc="Graphs by Subject", unit="subject"):
         write_file(data_dir, ("graphs",), subject, graph, logger)
 
-    for course, graph in course_to_graph.items():
+    for course, graph in tqdm(course_to_graph.items(), desc="Graphs by Course", unit="course"):
         write_file(data_dir, ("graphs", "course"), course, graph, logger) 
 
     write_file(data_dir, tuple(), "global_style", global_style, logger)
-    for subject, style in subject_to_style.items():
+
+    for subject, style in tqdm(subject_to_style.items(), desc="Styles by Subject", unit="subject"):
         write_file(data_dir, ("styles",), subject, style, logger)
 
-    for instructor, rating in instructor_to_rating.items():
+    for instructor, rating in tqdm(instructor_to_rating.items(), desc="Instructors", unit="instructor"):
         if rating is None:
             continue
         write_file(data_dir, ("instructors",), instructor, rating, logger)
