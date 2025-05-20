@@ -50,6 +50,8 @@ jobs:
     name: Deploy Data Snapshot
     needs: generate
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     environment:
       name: static-deployment
       url: ${{ env.DEPLOY_URL }}
