@@ -317,9 +317,6 @@ def match_name(student_name, official_names, threshold=80):
 
     return best_match if best_score >= threshold else None
 
-instructors_lock = Lock()
-course_lock = Lock()
-
 def generate_instructor_merge_diff(
         instructor: str,
         instructors: dict[str, str | None],
