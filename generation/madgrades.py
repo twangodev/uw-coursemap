@@ -3,8 +3,10 @@ from logging import Logger
 
 import aiohttp
 import requests
+from aiohttp_client_cache import CachedSession
 from requests import JSONDecodeError
 
+from cache import get_aio_cache
 from course import Course
 from enrollment_data import MadgradesData, EnrollmentData, TermData
 from json_serializable import JsonSerializable
@@ -57,7 +59,7 @@ async def build_from_pagination_async(course_ref_to_course, url, madgrades_api_k
 
     auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
     if session is None:
-        session = aiohttp.ClientSession()
+        session = CachedSession(cache=get_aio_cache())
 
     async with session.get(url, headers=auth_header) as response:
         data = await response.json()
