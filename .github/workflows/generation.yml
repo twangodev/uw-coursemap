@@ -34,9 +34,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: generation/.cache
-          key: ${{ runner.os }}-generation-${{ env.cache_id }}
-          restore-keys: |
-            ${{ runner.os }}-generation--
+          key: generation-${{ runner.os }}-${{ env.cache_id }}
       - name: Generate Data
         run: pipenv run python main.py --step all
         env:
