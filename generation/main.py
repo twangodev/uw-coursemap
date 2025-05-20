@@ -269,7 +269,6 @@ def main():
             logger.info("Aggregating data")
 
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-
             instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
 
             aggregate_instructors(
