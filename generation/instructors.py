@@ -2,12 +2,14 @@ import asyncio
 import re
 from json import JSONDecodeError
 from logging import Logger
+from threading import Lock
 
 import requests
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from nameparser import HumanName
 from rapidfuzz import fuzz
+from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
 from course import Course
@@ -315,29 +317,60 @@ def match_name(student_name, official_names, threshold=80):
 
     return best_match if best_score >= threshold else None
 
-async def merge_instructors(instructor: str,
-                            instructors: dict[str, str | None],
-                            course_ref_to_course: dict[Course.Reference, Course],
-                            logger: Logger) -> None:
-    # Call the synchronous match_name function.
+instructors_lock = Lock()
+course_lock = Lock()
+
+def generate_instructor_merge_diff(
+        instructor: str,
+        instructors: dict[str, str | None],
+        course_ref_to_course: dict[Course.Reference, Course]
+) -> None:
+    diffs = []
     match = match_name(instructor, set(instructors.keys()))
 
     if match:
-        logger.debug(f"Found existing instructor match for {instructor}: {match}.")
-        if match == instructor:
-            return
-
-        # Update each course where the instructor appears.
-        for course in course_ref_to_course.values():
-            for term_data in course.term_data.values():
-                if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
-                    continue
-                if instructor in term_data.grade_data.instructors:
-                    term_data.grade_data.instructors.remove(instructor)
-                    term_data.grade_data.instructors.add(match)
+        if match != instructor:
+            for course_ref, course in course_ref_to_course.items():
+                for term, term_data in course.term_data.items():
+                    gd = term_data.grade_data
+                    if gd and instructor in gd.instructors:
+                        diffs.append({
+                            "type": "replace_in_course",
+                            "course_ref": course_ref,
+                            "term": term,
+                            "old": instructor,
+                            "new": match,
+                        })
     else:
-        logger.debug(f"Could not find existing instructor match for {instructor}. Adding to list of instructors to fetch.")
-        instructors[instructor] = None
+        diffs.append({"type": "add_instructor", "instructor": instructor})
+
+    return diffs
+
+async def merge_all(additional_instructors, instructors, course_ref_to_course):
+    tasks = [
+        asyncio.to_thread(
+            generate_instructor_merge_diff,
+            inst, instructors, course_ref_to_course
+        )
+        for inst in additional_instructors
+    ]
+    # runs them “in parallel” (threads) and shows progress as each thread finishes
+    all_diffs = await tqdm.gather(
+        *tasks,
+        desc="Generate Instructor Diff",
+        unit="instructor"
+    )
+
+    for difflist in tqdm(all_diffs, desc="Merge Instructor Diff", unit="diff"):
+        for diff in difflist:
+            if diff["type"] == "add_instructor":
+                instructors[diff["instructor"]] = None
+            elif diff["type"] == "replace_in_course":
+                cr = diff["course_ref"]
+                term = diff["term"]
+                gd = course_ref_to_course[cr].term_data[term].grade_data
+                gd.instructors.remove(diff["old"])
+                gd.instructors.add(diff["new"])
 
 async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
@@ -353,15 +386,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
                 if instructor:
                     additional_instructors.add(instructor)
 
-    # Create and schedule a task for each instructor.
-    tasks = [
-        asyncio.create_task(
-            merge_instructors(instructor, instructors, course_ref_to_course, logger)
-        )
-        for instructor in additional_instructors
-    ]
-    # Wait for all instructor tasks to complete.
-    await asyncio.gather(*tasks)
+    await merge_all(additional_instructors, instructors, course_ref_to_course)
 
     instructor_data = {}
     total = len(instructors)
@@ -421,7 +446,7 @@ async def gather_instructor_emails(terms, course_ref_to_course, logger):
         for term in sorted_terms
     ]
     # Run all tasks concurrently
-    results = await asyncio.gather(*tasks)
+    results = await tqdm.gather(*tasks, desc="Term Query", unit="term")
     # Merge dictionaries; later ones override earlier ones for duplicate keys
     for term, emails in zip(sorted_terms, results):
         combined_emails.update(emails)
