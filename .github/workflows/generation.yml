@@ -14,7 +14,7 @@ jobs:
       run:
         working-directory: ./generation
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,3 +45,43 @@ jobs:
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: data/
+
+  deployment:
+    name: Deploy Data Snapshot
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    environment:
+      name: static-deployment
+      url: ${{ env.DEPLOY_URL }}
+    steps:
+      - name: Checkout Deployment Repo
+        uses: actions/checkout@v4
+        with:
+          repository: twangodev/uw-coursemap-data
+          token: ${{ secrets.PAT }}
+          path: deploy
+
+      - name: Download Generated Snapshot
+        uses: actions/download-artifact@v4
+        with:
+          name: uw-coursemap-data-snapshot-${{ github.run_id }}
+          path: deploy
+
+      - name: Replace with Snapshot
+        run: |
+          cd deploy
+          find . -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} +
+          cp -R data/* .
+          rm -rf data
+
+      - name: Auto-commit only selected filetypes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: '**/*.json'
+          commit_message: "Deploy Snapshot #${{ github.run_id }}"
+          branch: main
+          push_options: '--force'
+
+      
