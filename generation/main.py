@@ -127,7 +127,6 @@ def optimize(
         course_ref_to_course=course_ref_to_course,
         max_prerequisites=max_prerequisites,
         max_retries=50,
-        max_threads=10,
         logger=logger
     ))
 
