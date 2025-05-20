@@ -75,7 +75,8 @@ jobs:
           find . -mindepth 1 -maxdepth 1 \
             ! -name .git \
             -exec rm -rf {} +
-          mv ../snapshot/. .
+          # Move all files (including hidden ones) from the snapshot directory to the current directory
+          mv ../snapshot/* ../snapshot/.[!.]* .
           rm -rf ../snapshot
 
       - name: Auto-commit only selected filetypes
