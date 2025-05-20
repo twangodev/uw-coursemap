@@ -71,7 +71,7 @@ async def fetch_and_process_page(session, url, course_ref_to_course, key, logger
         process_course(session, course, course_ref_to_course, key, logger,
                     current_page, total_pages)
         for course in data["results"]
-    ], desc=f"Madgrades Data Worker ({current_page}/{total_pages})", unit="courses")
+    ], desc=f"Madgrades Data Worker ({current_page}/{total_pages})", unit="course")
     logger.debug(f"Courses from  {data['currentPage']}/{data['totalPages']} fully loaded.")
 
 
@@ -87,6 +87,6 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key, logger):
         urls = [f"{base}{params}&page={i}" for i in range(1, total+1)]
         [
             await fetch_and_process_page(session, url, course_ref_to_course, madgrades_api_key, logger)
-            for url in tqdm(urls, desc="Madgrades Data Worker", unit="pages")
+            for url in tqdm(urls, desc="Madgrades Data Worker", unit="page")
         ]
     return get_madgrades_terms(madgrades_api_key, logger)

@@ -87,7 +87,7 @@ async def scrape_all(urls: set[str], logger: Logger):
 
     async with CachedSession(cache=get_aio_cache(), timeout=timeout, connector=connector) as session:
         tasks = [get_course_blocks(session, url, logger) for url in urls]
-        results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="departments")
+        results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
         for full_subject, blocks in results:
             add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
 
