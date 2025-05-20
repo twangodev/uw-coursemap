@@ -405,26 +405,46 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
         # Run all rating requests concurrently
         ratings = await tqdm.gather(*tasks, desc="RMP Query", unit="instructor")
 
-        # Process results
-        for (name, email), rating in tqdm(zip(names_emails, ratings), desc="Process Ratings", unit="instructor"):
-            if rating:
-                with_ratings += 1
+        faculty_names = set(faculty.keys())
 
-            match = match_name(name, set(faculty.keys()))
-            position, department, credentials = None, None, None
+        async def _process_one(name_email, rating):
+            instructor_name, instructor_email = name_email
+            match = await asyncio.to_thread(match_name, instructor_name, faculty_names)
+
             if match:
                 position, department, credentials = faculty[match]
-                logger.debug(f"Matched {name} to {match} ({position}, {department}, {credentials})")
+                logger.debug(f"Matched {instructor_name} to {match} ({position}, {department}, {credentials})")
+            else:
+                position = department = credentials = None
 
-            instructor_data[name] = FullInstructor(
-                name=name,
-                email=email,
+            inst = FullInstructor(
+                name=instructor_name,
+                email=instructor_email,
                 rmp_data=rating,
                 position=position,
                 department=department,
                 credentials=credentials,
                 official_name=match
             )
+            return instructor_name, inst, bool(rating)
+
+        process_tasks = [
+            _process_one(ne, r)
+            for ne, r in zip(names_emails, ratings)
+        ]
+
+        # run them all in parallel, with a tqdm progress bar
+        results = await tqdm.gather(
+            *process_tasks,
+            desc="Process Ratings",
+            unit="instructor",
+        )
+
+        # collect your results
+        for name, inst, had_rating in results:
+            if had_rating:
+                with_ratings += 1
+            instructor_data[name] = inst
 
     logger.info(
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
