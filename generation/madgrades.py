@@ -84,6 +84,6 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key, logger):
         urls = [f"{base}{params}&page={i}" for i in range(1, total+1)]
         [
             await fetch_and_process_page(session, url, course_ref_to_course, madgrades_api_key, logger)
-            for url in urls
+            for url in tqdm(urls, desc="Madgrades Data Worker", unit="pages")
         ]
     return get_madgrades_terms(madgrades_api_key, logger)
