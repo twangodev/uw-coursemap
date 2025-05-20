@@ -40,7 +40,7 @@ def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
     embedding = read_embedding_cache(cache_dir, sha256, logger)
 
     if embedding is None:
-        embedding = model.encode(text)
+        embedding = model.encode(text, show_progress_bar=False)
 
         logger.debug(f"Embedding for '{text}' not found in cache. Caching it now.")
         write_embedding_cache(cache_dir, sha256, embedding, logger)
