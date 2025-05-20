@@ -403,10 +403,10 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
             tasks.append(get_rating(name, api_key, logger, session))
 
         # Run all rating requests concurrently
-        ratings = await asyncio.gather(*tasks)
+        ratings = await tqdm.gather(*tasks, desc="RMP Query", unit="instructor")
 
         # Process results
-        for (name, email), rating in zip(names_emails, ratings):
+        for (name, email), rating in tqdm(zip(names_emails, ratings), desc="Process Ratings", unit="instructor"):
             if rating:
                 with_ratings += 1
 
