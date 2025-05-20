@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 from aggregate import aggregate_instructors, aggregate_courses
-from aio_cache import set_aio_cache
+from aio_cache import set_aio_cache, set_aio_cache_location, set_aio_cache_expiration
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
@@ -192,9 +192,8 @@ def main():
     requests_cache_location = path.join(cache_dir, "requests_cache")
     requests_cache.install_cache(cache_name=requests_cache_location, expires_after=cache_expiration)
 
-    aio_cache_location = path.join(cache_dir, "aio_cache")
-    backend = SQLiteBackend(cache_name=aio_cache_location, expire_after=cache_expiration)
-    set_aio_cache(backend)
+    set_aio_cache_location(path.join(cache_dir, "aio_cache"))
+    set_aio_cache_expiration(cache_expiration)
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
