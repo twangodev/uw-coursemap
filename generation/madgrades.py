@@ -68,7 +68,7 @@ async def fetch_and_process_page(session, url, course_ref_to_course, key, logger
         process_course(session, course, course_ref_to_course, key, logger,
                     current_page, total_pages)
         for course in data["results"]
-    ], desc=f"Madgrades Data Worker ({current_page}/{total_pages})", unit="course")
+    ], desc=f"Madgrades Data Worker ({current_page}/{total_pages})", unit="courses")
     logger.debug(f"Courses from  {data['currentPage']}/{data['totalPages']} fully loaded.")
 
 
