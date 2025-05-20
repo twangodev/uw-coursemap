@@ -67,14 +67,17 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
-          path: deploy
+          path: snapshot
 
       - name: Replace with Snapshot
         run: |
           cd deploy
-          find . -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} +
-          cp -R data/* .
-          rm -rf data
+          find . -mindepth 1 -maxdepth 1 \
+            ! -name .git \
+            -exec rm -rf {} +
+          # Move all files (including hidden ones) from the snapshot directory to the current directory
+          mv ../snapshot/* ../snapshot/.[!.]* .
+          rm -rf ../snapshot
 
       - name: Auto-commit only selected filetypes
         uses: stefanzweifel/git-auto-commit-action@v5
