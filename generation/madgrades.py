@@ -1,6 +1,6 @@
 import asyncio
 
-from requests_cache import CachedSession
+from aiohttp_client_cache import CachedSession
 from tqdm.asyncio import tqdm
 from logging import Logger
 
