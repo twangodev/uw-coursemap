@@ -1,12 +1,15 @@
 import asyncio
+
+from requests_cache import CachedSession
+from tqdm.asyncio import tqdm
 from logging import Logger
 
 import aiohttp
 import requests
-from tqdm.asyncio import tqdm
 
+from cache import get_aio_cache
 from course import Course
-from enrollment_data import MadgradesData, EnrollmentData, TermData
+from enrollment_data import MadgradesData, TermData
 
 madgrades_api_endpoint = "https://api.madgrades.com/v1/"
 page_size = 100
@@ -76,7 +79,7 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key, logger):
     base = madgrades_api_endpoint + "courses"
     params = f"?per_page={page_size}"
     connector = aiohttp.TCPConnector(limit_per_host=10)
-    async with aiohttp.ClientSession(connector=connector) as session:
+    async with CachedSession(cache=get_aio_cache(), connector=connector) as session:
         first_url = base + params
         async with session.get(first_url, headers={"Authorization": f"Token token={madgrades_api_key}"}) as resp:
             first = await resp.json()

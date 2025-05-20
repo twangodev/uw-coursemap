@@ -8,6 +8,16 @@ from course import Course
 from instructors import FullInstructor
 from save import write_file, format_file_size
 
+aio_backend_cache = None
+
+def get_aio_cache():
+    if aio_backend_cache is None:
+        raise ValueError("aio_backend_cache is not initialized")
+    return aio_backend_cache
+
+def set_aio_cache(cache):
+    global aio_backend_cache
+    aio_backend_cache = cache
 
 def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str, logger):
     """

@@ -10,6 +10,7 @@ from os import path
 
 import coloredlogs
 import requests_cache
+from aiohttp_client_cache import SQLiteBackend
 from dotenv import load_dotenv
 from tqdm.contrib.logging import logging_redirect_tqdm
 
@@ -17,7 +18,7 @@ from aggregate import aggregate_instructors, aggregate_courses
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
-    write_quick_statistics_cache, read_quick_statistics_cache
+    write_quick_statistics_cache, read_quick_statistics_cache, set_aio_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
@@ -184,8 +185,15 @@ def main():
 
     cache_dir = str(args.cache_dir)
     os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
+
+    cache_expiration = 60 * 60 * 24 * 5 # 5 days
+
     requests_cache_location = path.join(cache_dir, "requests_cache")
-    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=60 * 60 * 24 * 5) # 5 days
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=cache_expiration)
+
+    aio_cache_location = path.join(cache_dir, "aio_cache")
+    backend = SQLiteBackend(cache_name=aio_cache_location, expire_after=cache_expiration)
+    set_aio_cache(backend)
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
