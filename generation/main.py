@@ -24,6 +24,7 @@ from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
+from memoizer import memoize_functions
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
@@ -193,6 +194,8 @@ def main():
 
     set_aio_cache_location(path.join(cache_dir, "aio_cache"))
     set_aio_cache_expiration(cache_expiration)
+
+    memoize_functions(cache_dir)
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
