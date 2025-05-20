@@ -208,7 +208,7 @@ def produce_query(instructor_name):
     }
 
 
-async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 3):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10):
     auth_header = {"Authorization": f"Basic {api_key}"}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
