@@ -60,9 +60,9 @@ async def fetch_and_process_page(session, url, course_ref_to_course, key, logger
                 logger.warning(f"Failed to fetch page {url}: {e}. Retrying...")
                 await asyncio.sleep(1)
                 await fetch_and_process_page(session, url, course_ref_to_course, key, logger, attempts - 1)
-            logger.warning(f"Failed to fetch page {url}: {e}")
-
-    logger.debug(f"Page {data['currentPage']}/{data['totalPages']} fetched.")
+            else:
+                logger.warning(f"Failed to fetch page {url}: {e}")
+            return
 
     current_page = data["currentPage"]
     total_pages = data["totalPages"]
