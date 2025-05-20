@@ -346,7 +346,7 @@ def generate_instructor_merge_diff(
 
     return diffs
 
-async def merge_all(additional_instructors, instructors, course_ref_to_course):
+async def merge_instructors(additional_instructors, instructors, course_ref_to_course):
     tasks = [
         asyncio.to_thread(
             generate_instructor_merge_diff,
@@ -386,7 +386,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
                 if instructor:
                     additional_instructors.add(instructor)
 
-    await merge_all(additional_instructors, instructors, course_ref_to_course)
+    await merge_instructors(additional_instructors, instructors, course_ref_to_course)
 
     instructor_data = {}
     total = len(instructors)
