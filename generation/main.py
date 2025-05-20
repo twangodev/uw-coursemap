@@ -10,12 +10,11 @@ from os import path
 
 import coloredlogs
 import requests_cache
-from aiohttp_client_cache import SQLiteBackend
 from dotenv import load_dotenv
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 from aggregate import aggregate_instructors, aggregate_courses
-from aio_cache import set_aio_cache, set_aio_cache_location, set_aio_cache_expiration
+from aio_cache import set_aio_cache_location, set_aio_cache_expiration
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
