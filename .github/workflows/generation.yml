@@ -78,7 +78,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: '**/*.json'
-          commit_message: "Deploy data snapshot #${{ github.run_id }}"
+          commit_message: "Deploy Snapshot #${{ github.run_id }}"
           branch: main
           push_options: '--force'
 
