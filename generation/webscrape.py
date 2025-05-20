@@ -8,9 +8,8 @@ import requests
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup, ResultSet
 from tqdm.asyncio import tqdm
-from tqdm.contrib.logging import logging_redirect_tqdm
 
-from cache import get_aio_cache
+from aio_cache import get_aio_cache
 from course import Course
 from timer import get_ms
 

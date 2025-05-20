@@ -2,11 +2,10 @@ import asyncio
 from json import JSONDecodeError
 from logging import Logger
 
-import aiohttp
 import requests
 from aiohttp_client_cache import CachedSession
 
-from cache import get_aio_cache
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import EnrollmentData, TermData
 

@@ -15,10 +15,11 @@ from dotenv import load_dotenv
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 from aggregate import aggregate_instructors, aggregate_courses
+from aio_cache import set_aio_cache
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
-    write_quick_statistics_cache, read_quick_statistics_cache, set_aio_cache
+    write_quick_statistics_cache, read_quick_statistics_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms

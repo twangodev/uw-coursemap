@@ -7,7 +7,7 @@ from logging import Logger
 import aiohttp
 import requests
 
-from cache import get_aio_cache
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment_data import MadgradesData, TermData
 

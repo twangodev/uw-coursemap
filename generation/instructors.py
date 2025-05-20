@@ -3,14 +3,13 @@ import re
 from json import JSONDecodeError
 from logging import Logger
 
-import aiohttp
 import requests
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from nameparser import HumanName
 from rapidfuzz import fuzz
 
-from cache import get_aio_cache
+from aio_cache import get_aio_cache
 from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
