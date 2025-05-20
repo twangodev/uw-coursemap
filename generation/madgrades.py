@@ -81,9 +81,8 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key, logger):
             first = await resp.json()
         total = first["totalPages"]
         urls = [f"{base}{params}&page={i}" for i in range(1, total+1)]
-        tasks = [
-            fetch_and_process_page(session, url, course_ref_to_course, madgrades_api_key, logger)
+        [
+            await fetch_and_process_page(session, url, course_ref_to_course, madgrades_api_key, logger)
             for url in urls
         ]
-        await tqdm.gather(*tasks, desc="Madgrades Data", unit="page")
     return get_madgrades_terms(madgrades_api_key, logger)
