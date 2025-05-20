@@ -38,7 +38,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-generation--
       - name: Generate Data
-        shell: 'script -q -e -c "bash {0}"' # Allows GitHub Actions to run a TTY session
         run: pipenv run python main.py --step all
         env:
           DATA_DIR: "../data"
