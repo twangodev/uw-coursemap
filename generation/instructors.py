@@ -217,7 +217,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
             data = await response.json()
     except Exception as e:
         if attempts > 0:
-            logger.warning(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
+            logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
             return await get_rating(name, api_key, logger, session, attempts - 1)
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
