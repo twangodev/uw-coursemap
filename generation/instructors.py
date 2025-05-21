@@ -210,8 +210,13 @@ def produce_query(instructor_name):
     }
 
 
+mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
 async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10):
-    auth_header = {"Authorization": f"Basic {api_key}"}
+    auth_header = {
+        "Authorization": f"Basic {api_key}",
+        "User-Agent": mock_user_agent
+    }
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
@@ -247,6 +252,8 @@ def scrape_rmp_api_key(logger):
         logger.error("Failed to scrape the RMP API key from the response.")
         logger.debug(response.text)
         raise RuntimeError("Failed to scrape the RMP API key from the response.")
+
+    logger.info(f"Scraped RMP API key: {graphql_auth}")
 
     return graphql_auth
 
