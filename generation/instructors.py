@@ -248,6 +248,8 @@ def scrape_rmp_api_key(logger):
         logger.debug(response.text)
         raise RuntimeError("Failed to scrape the RMP API key from the response.")
 
+    logger.info(f"Scraped RMP API key: {graphql_auth}")
+
     return graphql_auth
 
 
