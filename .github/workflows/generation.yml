@@ -71,7 +71,7 @@ jobs:
     permissions:
       contents: write
     environment:
-      name: static-deployment
+      name: static-data
       url: ${{ env.DEPLOY_URL }}
     steps:
       - name: Checkout Deployment Repo
