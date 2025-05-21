@@ -272,7 +272,7 @@ class MadgradesData:
                 data = await response.json()
         except (JSONDecodeError, Exception) as e:
             if attempts > 0:
-                logger.warning(f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times...")
+                logger.debug(f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times...")
                 await asyncio.sleep(1)
                 return await cls.from_madgrades_async(session, url, madgrades_api_key, current_page, logger, attempts - 1)
             logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
