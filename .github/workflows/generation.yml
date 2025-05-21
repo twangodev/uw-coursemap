@@ -49,11 +49,12 @@ jobs:
   deployment:
     name: Deploy Data Snapshot
     needs: generate
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     environment:
-      name: static-deployment
+      name: static-data
       url: ${{ env.DEPLOY_URL }}
     steps:
       - name: Checkout Deployment Repo
@@ -72,17 +73,14 @@ jobs:
       - name: Replace with Snapshot
         run: |
           cd deploy
-          find . -mindepth 1 -maxdepth 1 \
-            ! -name .git \
-            -exec rm -rf {} +
-          # Move all files (including hidden ones) from the snapshot directory to the current directory
-          mv ../snapshot/* ../snapshot/.[!.]* .
+          rsync -a --delete --exclude='.git' ../snapshot/ .
           rm -rf ../snapshot
 
       - name: Auto-commit only selected filetypes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: '**/*.json'
+          repository: 'deploy'
+          disable_globbing: true
           commit_message: "Deploy Snapshot #${{ github.run_id }}"
           branch: main
           push_options: '--force'
