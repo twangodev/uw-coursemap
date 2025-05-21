@@ -105,6 +105,7 @@ jobs:
         with:
           repository: 'deploy'
           file_pattern: '**/*.json'
+          add_options: '--all'
           disable_globbing: true
           commit_message: "Deploy Snapshot #${{ github.run_id }}"
           branch: main
