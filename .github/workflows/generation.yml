@@ -76,7 +76,7 @@ jobs:
           rsync -a --delete --exclude='.git' ../snapshot/ .
           rm -rf ../snapshot
 
-      - name: Auto-commit only selected filetypes
+      - name: Commit Snapshot
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           repository: 'deploy'
