@@ -72,14 +72,7 @@ jobs:
       - name: Replace with Snapshot
         run: |
           cd deploy
-
-          find . -maxdepth 1 \
-            ! -name .git \
-            ! -name . \
-            -exec rm -rf {} +
-
-          rsync -a ../snapshot/ .
-
+          rsync -a --delete --exclude='.git' ../snapshot/ .
           rm -rf ../snapshot
 
       - name: Auto-commit only selected filetypes
