@@ -24,7 +24,6 @@ from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
 from instructors import get_ratings, gather_instructor_emails, scrape_rmp_api_key
 from madgrades import add_madgrades_data
-from memoizer import memoize_functions
 from save import write_data
 from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
@@ -104,11 +103,12 @@ def madgrades(
 def instructors(
         course_ref_to_course,
         terms,
+        cache_dir,
         logger
 ):
     api_key = scrape_rmp_api_key(logger)
     instructors_emails = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course, logger=logger))
-    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, logger=logger))
+    instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, cache_dir=cache_dir, logger=logger))
     return instructor_to_rating, instructors_emails
 
 def optimize(
@@ -194,8 +194,6 @@ def main():
     set_aio_cache_location(path.join(cache_dir, "aio_cache"))
     set_aio_cache_expiration(cache_expiration)
 
-    memoize_functions(cache_dir)
-
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
     step = str(args.step).lower()
@@ -257,6 +255,7 @@ def main():
             instructor_to_rating, instructors_emails = instructors(
                 course_ref_to_course=course_ref_to_course,
                 terms=terms,
+                cache_dir=cache_dir,
                 logger=logger
             )
 

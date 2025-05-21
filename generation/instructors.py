@@ -1,12 +1,14 @@
 import asyncio
+import os
 import re
-from json import JSONDecodeError
+import threading
+from collections import defaultdict
 from logging import Logger
-from threading import Lock
 
 import requests
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
+from diskcache import Cache
 from nameparser import HumanName
 from rapidfuzz import fuzz
 from tqdm.asyncio import tqdm
@@ -274,24 +276,32 @@ def get_faculty():
     return faculty
 
 
-def match_name(student_name, official_names, threshold=80):
-    """
-    Matches a student name to an official name using robust name parsing and fuzzy matching.
+_caches: dict[str, Cache] = {}
+_caches_lock = threading.Lock()
 
-    Steps:
-      1. Parse and normalize the student and official names.
-      2. Filter candidates based on an exact match for the last name.
-      3. Compute a fuzzy match score on the first names.
-      4. Return the best candidate if the score meets the threshold.
+def get_match_cache(cache_dir: str) -> Cache:
+    # build one canonical directory for your cache
+    path = os.path.abspath(os.path.join(cache_dir, "name_cache"))
+    os.makedirs(path, exist_ok=True)
 
-    Args:
-        student_name (str): The name provided by the student.
-        official_names (set of str): The list of official names.
-        threshold (int): The minimum fuzzy score required for a match.
+    with _caches_lock:
+        cache = _caches.get(path)
+        if cache is None:
+            cache = Cache(path)
+            _caches[path] = cache
+    return cache
 
-    Returns:
-        str: The matched official name or None if no match is found.
-    """
+null_sentinel = object()
+
+def match_name(student_name, official_names, cache_dir, query_cache_group, threshold=80):
+
+    cache = get_match_cache(cache_dir)
+    cache_key = f"{query_cache_group}:{student_name.strip().upper()}"
+
+    cache_entry = cache.get(cache_key, default=null_sentinel)
+    if cache_entry is not null_sentinel:
+        return cache_entry
+
     # Parse and normalize the student name.
     student_parsed = HumanName(student_name)
     student_first = student_parsed.first.upper().strip()
@@ -315,43 +325,59 @@ def match_name(student_name, official_names, threshold=80):
             best_score = score
             best_match = candidate
 
-    return best_match if best_score >= threshold else None
+    result = best_match if best_score >= threshold else None
+
+    cache.set(cache_key, result)
+    return result
 
 def generate_instructor_merge_diff(
         instructor: str,
         instructors: dict[str, str | None],
-        course_ref_to_course: dict[Course.Reference, Course]
-) -> None:
+        appearances: dict[str, list[tuple[Course.Reference, str]]],
+        cache_dir: str
+) -> list[dict]:
     diffs = []
-    match = match_name(instructor, set(instructors.keys()))
+    match = match_name(instructor, set(instructors.keys()), cache_dir, "instructors")
 
-    if match:
-        if match != instructor:
-            for course_ref, course in course_ref_to_course.items():
-                for term, term_data in course.term_data.items():
-                    gd = term_data.grade_data
-                    if gd and instructor in gd.instructors:
-                        diffs.append({
-                            "type": "replace_in_course",
-                            "course_ref": course_ref,
-                            "term": term,
-                            "old": instructor,
-                            "new": match,
-                        })
-    else:
-        diffs.append({"type": "add_instructor", "instructor": instructor})
+    if match and match != instructor:
+        # only iterate the courses/terms where this instructor actually shows up
+        for course_ref, term in appearances.get(instructor, []):
+            diffs.append({
+                "type":       "replace_in_course",
+                "course_ref": course_ref,
+                "term":       term,
+                "old":        instructor,
+                "new":        match,
+            })
+    elif match is None:
+        diffs.append({
+            "type":       "add_instructor",
+            "instructor": instructor,
+        })
 
     return diffs
 
-async def merge_instructors(additional_instructors, instructors, course_ref_to_course):
+
+async def merge_instructors(additional_instructors, instructors, course_ref_to_course, cache_dir):
+
+    instructor_appearances: dict[str, list[tuple[Course.Reference, str]]] = defaultdict(list)
+    for course_ref, course in course_ref_to_course.items():
+        for term, term_data in course.term_data.items():
+            if term_data.grade_data:
+                for instr in term_data.grade_data.instructors:
+                    instructor_appearances[instr].append((course_ref, term))
+
     tasks = [
         asyncio.to_thread(
             generate_instructor_merge_diff,
-            inst, instructors, course_ref_to_course
+            inst,
+            instructors,
+            instructor_appearances,
+            cache_dir,
         )
         for inst in additional_instructors
     ]
-    # runs them “in parallel” (threads) and shows progress as each thread finishes
+
     all_diffs = await tqdm.gather(
         *tasks,
         desc="Generate Instructor Diff",
@@ -369,7 +395,7 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
                 gd.instructors.remove(diff["old"])
                 gd.instructors.add(diff["new"])
 
-async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
+async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
     additional_instructors = set()
@@ -383,7 +409,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
                 if instructor:
                     additional_instructors.add(instructor)
 
-    await merge_instructors(additional_instructors, instructors, course_ref_to_course)
+    await merge_instructors(additional_instructors, instructors, course_ref_to_course, cache_dir)
 
     instructor_data = {}
     total = len(instructors)
@@ -406,7 +432,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
         async def _process_one(name_email, rating):
             instructor_name, instructor_email = name_email
-            match = await asyncio.to_thread(match_name, instructor_name, faculty_names)
+            match = await asyncio.to_thread(match_name, instructor_name, faculty_names, cache_dir, "rmp")
 
             if match:
                 position, department, credentials = faculty[match]
