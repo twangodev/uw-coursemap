@@ -7,66 +7,48 @@ on:
 
 jobs:
 
-#  generate:
-#    name: Generate Data
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./generation
-#    permissions:
-#      contents: read
-#    steps:
-#      - uses: actions/checkout@v4
-#        with:
-#          fetch-depth: 0
-#          submodules: true
-#      - uses: actions/setup-python@v5
-#        with:
-#          python-version: 3
-#          cache: pipenv
-#      - name: Install pipenv
-#        run: python3 -m pip install --upgrade pip pipenv
-#      - name: Install Dependencies
-#        run: pipenv sync
-#      - name: Setup Cache Environment
-#        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-#      - name: Cache Generation
-#        uses: actions/cache@v4
-#        with:
-#          path: generation/.cache
-#          key: generation-${{ runner.os }}-${{ env.cache_id }}
-#      - name: Generate Data
-#        run: pipenv run python main.py --step all
-#        env:
-#          DATA_DIR: "../data"
-#          MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
-#      - name: Upload Data
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: uw-coursemap-data-snapshot-${{ github.run_id }}
-#          path: data/
-
-
-  test-upload:
-    name: Create & Upload Test Artifact
+  generate:
+    name: Generate Data
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./generation
     permissions:
       contents: read
     steps:
-      - name: Make a dummy JSON
-        run: |
-          mkdir snapshot
-          echo '{"hello":"world"}' > snapshot/hello.json
-
-      - name: Upload dummy snapshot
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3
+          cache: pipenv
+      - name: Install pipenv
+        run: python3 -m pip install --upgrade pip pipenv
+      - name: Install Dependencies
+        run: pipenv sync
+      - name: Setup Cache Environment
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Cache Generation
+        uses: actions/cache@v4
+        with:
+          path: generation/.cache
+          key: generation-${{ runner.os }}-${{ env.cache_id }}
+      - name: Generate Data
+        run: pipenv run python main.py --step all
+        env:
+          DATA_DIR: "../data"
+          MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }}
+      - name: Upload Data
         uses: actions/upload-artifact@v4
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
-          path: snapshot/
+          path: data/
 
   deployment:
     name: Deploy Data Snapshot
-    needs: test-upload
+    needs: generate
     runs-on: ubuntu-latest
     permissions:
       contents: write
