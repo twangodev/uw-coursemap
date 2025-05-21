@@ -57,7 +57,6 @@ jobs:
         run: |
           mkdir snapshot
           echo '{"hello":"world"}' > snapshot/hello.json
-          echo '{"foo":"bar"}' > snapshot/a/foo.json
 
       - name: Upload dummy snapshot
         uses: actions/upload-artifact@v4
