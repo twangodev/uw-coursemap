@@ -17,6 +17,9 @@ jobs:
         working-directory: ./generation
     permissions:
       contents: read
+    concurrency:
+      group: 'generation'
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
