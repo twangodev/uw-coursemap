@@ -55,7 +55,7 @@ jobs:
       contents: write
     environment:
       name: static-data
-      url: ${{ env.DEPLOY_URL }}
+      url: ${{ vars.DEPLOY_URL }}
     steps:
       - name: Checkout Deployment Repo
         uses: actions/checkout@v4
