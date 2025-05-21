@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'data'
   workflow_dispatch:
 
 jobs:
@@ -15,6 +17,9 @@ jobs:
         working-directory: ./generation
     permissions:
       contents: read
+    concurrency:
+      group: 'generation'
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -77,6 +82,7 @@ jobs:
           rm -rf ../snapshot
 
       - name: Commit Snapshot
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           repository: 'deploy'
@@ -85,4 +91,25 @@ jobs:
           branch: main
           push_options: '--force'
 
-      
+  bump:
+    name: Bump Submodule
+    needs: deployment
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Bump Submodule
+        run: git submodule update --remote
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
+          base: main
+          branch: 'data-bump'
+          sign-commits: 'true'
+          commit-message: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
+          reviewers: ${{ github.repository_owner }}
