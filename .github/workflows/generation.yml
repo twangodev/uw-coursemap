@@ -46,9 +46,27 @@ jobs:
 #          name: uw-coursemap-data-snapshot-${{ github.run_id }}
 #          path: data/
 
+
+  test-upload:
+    name: Create & Upload Test Artifact
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Make a dummy JSON
+        run: |
+          mkdir snapshot
+          echo '{"hello":"world"}' > snapshot/hello.json
+
+      - name: Upload dummy snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: uw-coursemap-data-snapshot-${{ github.run_id }}
+          path: snapshot/
+
   deployment:
     name: Deploy Data Snapshot
-#    needs: generate
+    needs: test-upload
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -66,7 +84,7 @@ jobs:
       - name: Download Generated Snapshot
         uses: actions/download-artifact@v4
         with:
-          name: uw-coursemap-data-snapshot-15149848838
+          name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: snapshot
 
       - name: Replace with Snapshot
