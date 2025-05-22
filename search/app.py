@@ -69,12 +69,10 @@ def search():
     data = request.get_json()
     search_term = data.get("query")
 
-    normalized_search_term = normalize_text(search_term)
-
     return {
-        "courses": search_courses(es, normalized_search_term),
-        "instructors": search_instructors(es, normalized_search_term),
-        "subjects": search_subjects(es, normalized_search_term),
+        "courses": search_courses(es, search_term),
+        "instructors": search_instructors(es, search_term),
+        "subjects": search_subjects(es, search_term),
     }
 
 @app.route('/random-courses', methods=['GET'])
