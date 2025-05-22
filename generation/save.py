@@ -190,9 +190,9 @@ def write_data(
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
 
-    subject_names = subject_to_courses.keys()
-    course_names = identifier_to_course.keys()
-    instructor_names = instructor_to_rating.keys()
+    subject_names = list(subject_to_courses.keys())
+    course_names = list(identifier_to_course.keys())
+    instructor_names = [key for key, entry in instructor_to_rating.items() if entry is not None]
 
     generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names, logger)
 

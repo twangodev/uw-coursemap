@@ -16,14 +16,14 @@ def sanitize_entry(entry: str, logger) -> Union[str, None]:
         return None
     return result
 
-def create_url_entry(base_url: str, url_str: str, logger,
+def create_url_entry(base_url: str, prefix: str, url_str: str, logger,
                      changefreq: str = 'weekly',
                      priority: float = 0.5) -> Union[Dict[str, Union[str, float]], None]:
     sanitized = sanitize_entry(url_str, logger)
     if not sanitized:
         return None
     return {
-        'loc': f"{base_url}/{sanitized}",
+        'loc': f"{base_url}/{prefix}/{sanitized}",
         'changefreq': changefreq,
         'priority': priority
     }
@@ -77,17 +77,17 @@ def generate_sitemap(data_dir: str, base_url: str,
 
     subj_entries = []
     for subj in tqdm(subjects, desc="Explorer Sitemap", unit="subject"):
-        entry = create_url_entry(base_url, f"explorer/{subj}", logger, priority=0.9)
+        entry = create_url_entry(base_url, "explorer", subj, logger, priority=0.9)
         if entry: subj_entries.append(entry)
 
     course_entries = []
     for crs in tqdm(courses, desc="Course Sitemap", unit="course"):
-        entry = create_url_entry(base_url, f"courses/{crs}", logger, priority=1.0)
+        entry = create_url_entry(base_url, "courses", crs, logger, priority=1.0)
         if entry: course_entries.append(entry)
 
     instr_entries = []
     for inst in tqdm(instructors, desc="Instructor Sitemap", unit="instructor"):
-        entry = create_url_entry(base_url, f"instructors/{inst}", logger, priority=0.8)
+        entry = create_url_entry(base_url, "instructors", inst, logger, priority=0.8)
         if entry: instr_entries.append(entry)
 
     url_sets = {
