@@ -32,9 +32,12 @@ def generate_sitemap_xml(urls: List[Dict[str, Union[str, float]]]) -> str:
     urlset = Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for entry in urls:
         url_el = SubElement(urlset, 'url')
-        loc = SubElement(url_el, 'loc');        loc.text = entry['loc']
-        cf  = SubElement(url_el, 'changefreq'); cf.text  = entry['changefreq']
-        pr  = SubElement(url_el, 'priority');   pr.text  = f"{entry['priority']:.1f}"
+        loc = SubElement(url_el, 'loc')
+        loc.text = entry['loc']
+        cf = SubElement(url_el, 'changefreq')
+        cf.text = entry['changefreq']
+        pr = SubElement(url_el, 'priority')
+        pr.text = f"{entry['priority']:.1f}"
     raw_xml = tostring(urlset, encoding='utf-8')
     return parseString(raw_xml).toprettyxml(indent="  ")
 
