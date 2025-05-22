@@ -278,6 +278,50 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
     def to_tree_print(self):
         return _tree_repr(self.root, is_root=True)
 
+    def course_combinations(self):
+        def _recurse(node):
+            # Leaf case
+            if isinstance(node, Leaf):
+                if not isinstance(node.payload, str):
+                    # it's a Course.Reference
+                    return [[node.payload]]
+                else:
+                    # a TEXT leaf: contributes no courses
+                    return [[]]
+
+            # Node case
+            assert isinstance(node, Node)
+            if node.operator == 'AND':
+                combos = [[]]  # start with an “empty” combo
+                for child in node.children:
+                    child_combos = _recurse(child)
+                    # Cartesian product: append every child-combo to every existing combo
+                    combos = [prev + curr for prev in combos for curr in child_combos]
+                return combos
+
+            elif node.operator == 'OR':
+                # any one child’s combos will do
+                combos = []
+                for child in node.children:
+                    combos.extend(_recurse(child))
+                return combos
+
+            else:
+                raise ValueError(f"Unknown operator {node.operator!r}")
+
+        raw = _recurse(self.root)
+        # option 1: drop any empty combos (if you only want actual course sets)
+        nonempty = [combo for combo in raw if combo]
+        # option 2: dedupe (set of tuples) and preserve order
+        seen = set()
+        unique = []
+        for combo in nonempty:
+            key = tuple(sorted(combo, key=lambda cr: str(cr)))
+            if key not in seen:
+                seen.add(key)
+                unique.append(combo)
+        return unique
+
 class RequirementParser:
 
     def __init__(self, tokens):
