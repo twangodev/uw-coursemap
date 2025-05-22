@@ -13,7 +13,6 @@ def generate_variations(subject_name: str, abbreviation: str):
       - Subject name without punctuation
       - Acronym (first letters of each word)
       - A shortened form (first 4 letters of each word)
-      - Lowercase and capitalized versions of each variation
     """
     variations = set()
     subject_name = subject_name.strip()
@@ -44,13 +43,6 @@ def generate_variations(subject_name: str, abbreviation: str):
             short_form_words.append(word.upper())
     short_form = " ".join(short_form_words)
     variations.add(short_form)
-
-    # Add additional variations: all lowercase and capitalized versions
-    additional = set()
-    for var in variations:
-        additional.add(var.lower())
-        additional.add(var.capitalize())
-    variations.update(additional)
 
     return list(variations)
 
