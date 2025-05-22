@@ -222,6 +222,17 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
     try:
         async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
             data = await response.json()
+
+        # Parse the results to find a matching teacher
+        results = data["data"]["newSearch"]["teachers"]["edges"]
+        for item in results:
+            result = item["node"]
+            # Simple matching: check if both first and last names appear in the name string
+            if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
+                return RMPData.from_rmp_data(result)
+
+        logger.debug(f"Failed to find rating for {name}")
+        return None
     except Exception as e:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
@@ -230,16 +241,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
-    # Parse the results to find a matching teacher
-    results = data["data"]["newSearch"]["teachers"]["edges"]
-    for item in results:
-        result = item["node"]
-        # Simple matching: check if both first and last names appear in the name string
-        if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
-            return RMPData.from_rmp_data(result)
 
-    logger.debug(f"Failed to find rating for {name}")
-    return None
 
 
 def scrape_rmp_api_key(logger):
