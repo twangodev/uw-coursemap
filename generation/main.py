@@ -201,6 +201,9 @@ def main():
     verbose = bool(args.verbose) or env_debug()
     no_build = bool(args.no_build)
 
+    sitemap_base_url = environ.get("SITEMAP_BASE", None)
+    if sitemap_base_url is None:
+        raise_missing_env_var("SITEMAP_BASE")
 
     is_a_tty = sys.stdout.isatty()
     is_ci = environ.get("CI", "").strip().lower() == "true"
@@ -335,6 +338,7 @@ def main():
 
             write_data(
                 data_dir=data_dir,
+                base_url=sitemap_base_url,
                 subject_to_full_subject=subject_to_full_subject,
                 subject_to_courses=subject_to_courses,
                 identifier_to_course=identifier_to_course,
