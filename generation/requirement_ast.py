@@ -194,11 +194,12 @@ class Leaf(JsonSerializable):
         return _tree_repr(self, is_root=True)
 
     @classmethod
-    def from_json(cls, json_data):
+    def from_json(cls, json_data) -> "Leaf":
+        from course import Course
         if isinstance(json_data, str):
             return cls(json_data)
         elif isinstance(json_data, dict):
-            return cls(JsonSerializable.from_json(json_data))
+            return cls(Course.Reference.from_json(json_data))
         else:
             raise ValueError("Invalid JSON data for Leaf")
 
@@ -216,10 +217,12 @@ class Node(JsonSerializable):
     def from_json(cls, json_data) -> 'Union[Node, Leaf]':
         if isinstance(json_data, dict):
             operator = json_data.get("operator")
+            if operator is None:
+                return Leaf.from_json(json_data)
             children = [cls.from_json(child) for child in json_data.get("children", [])]
             return cls(operator, children)
         elif isinstance(json_data, str):
-            return Leaf(json_data)
+            return Leaf.from_json(json_data)
         else:
             raise ValueError("Invalid JSON data for Node")
 
