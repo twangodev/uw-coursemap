@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
+from sitemap_generation import generate_sitemap, sanitize_entry
 
 
 def convert_keys_to_str(data):
@@ -100,12 +101,9 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     os.makedirs(directory_path, exist_ok=True)
 
     # Sanitize the filename to remove problematic characters
-    sanitized_filename = filename.replace("/", "_").replace(" ", "_")
+    sanitized_filename = sanitize_entry(filename, logger)
 
-    try:
-        validate_filename(sanitized_filename)
-    except ValidationError as e:
-        logger.warning(f"Invalid filename '{sanitized_filename}': {e}. Not writing file.")
+    if sanitized_filename is None:
         return
 
     # Full path to the JSON file
@@ -139,6 +137,7 @@ def wipe_data(data_dir, logger):
 
 def write_data(
         data_dir,
+        base_url,
         subject_to_full_subject,
         subject_to_courses,
         identifier_to_course,
@@ -190,6 +189,12 @@ def write_data(
     }
 
     write_file(data_dir, tuple(), "update", updated_json, logger)
+
+    subject_names = subject_to_courses.keys()
+    course_names = identifier_to_course.keys()
+    instructor_names = instructor_to_rating.keys()
+
+    generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names, logger)
 
 
 def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...], logger) -> list[str]:
