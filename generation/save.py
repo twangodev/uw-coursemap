@@ -192,7 +192,7 @@ def write_data(
 
     subject_names = list(subject_to_courses.keys())
     course_names = list(identifier_to_course.keys())
-    instructor_names = [key for key, entry in instructor_to_rating.items() if entry is not None]
+    instructor_names = [key for key, value in instructor_to_rating.items() if value is not None]
 
     generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names, logger)
 
