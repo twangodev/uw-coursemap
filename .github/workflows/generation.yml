@@ -51,6 +51,7 @@ jobs:
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: data/
+          include-hidden-files: 'true'
 
   deployment:
     name: Deploy Data Snapshot
@@ -87,7 +88,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           repository: 'deploy'
-          file_pattern: '**/*'
           disable_globbing: true
           commit_message: "Deploy Snapshot #${{ github.run_id }}"
           branch: main
