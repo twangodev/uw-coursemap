@@ -77,6 +77,7 @@ def load_subjects(es: Elasticsearch, subjects: dict):
     helpers.bulk(es, actions)
 
 def search_subjects(es: Elasticsearch, search_term: str):
+    search_term = normalize_text(search_term)
     es_query = {
         "query": {
             "multi_match": {
@@ -144,10 +145,9 @@ def search_courses(es: Elasticsearch, search_term: str):
     Splits the search term into numeric and word parts to support queries like "COMP SCI 300".
     Instead of enforcing the numeric part, this version boosts courses that match the numeric component.
     """
-    search_term = search_term.strip()
+    search_term = normalize_text(search_term)
     numeric_part = "".join(re.findall(r"\d+", search_term))
     word_part = "".join(re.findall(r"\D+", search_term)).strip()
-    normalized_search_term = normalize_text(search_term)
 
     should_queries = []
 
@@ -165,20 +165,14 @@ def search_courses(es: Elasticsearch, search_term: str):
             }
         })
         should_queries.extend([
-            {"wildcard": {"course_title": f"*{word_part}*"}},
-            {"wildcard": {"subjects": f"*{word_part}*"}},
-            {"wildcard": {"departments": f"*{word_part}*"}},
-            {"wildcard": {"course_title_normalized": f"*{normalized_search_term}*"}},
-            {"wildcard": {"subjects_normalized": f"*{normalized_search_term}*"}},
-            {"wildcard": {"departments_normalized": f"*{normalized_search_term}*"}},
+            {"wildcard": {"course_title_normalized": f"*{word_part}*"}},
+            {"wildcard": {"subjects_normalized": f"*{word_part}*"}},
+            {"wildcard": {"departments_noramlized": f"*{word_part}*"}},
         ])
 
     # Wildcard matching on course_reference fields for the full search term.
     should_queries.append({
-        "wildcard": {"course_reference": f"*{search_term}*"}
-    })
-    should_queries.append({
-        "wildcard": {"course_reference_normalized": f"*{normalized_search_term}*"}
+        "wildcard": {"course_reference_normalized": f"*{search_term}*"}
     })
 
     # If numeric part exists, add a boosted term query on course_number.
@@ -248,6 +242,7 @@ def load_instructors(es, instructors):
     helpers.bulk(es, actions)
 
 def search_instructors(es, search_term):
+    search_term = normalize_text(search_term)
     es_query = {
         "query": {
             "bool": {
