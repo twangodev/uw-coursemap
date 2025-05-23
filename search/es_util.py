@@ -62,7 +62,8 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
         "mappings": {
             "dynamic": "false",
             "properties": {
-                "name": { "type": "text" },
+                "id": { "type": "keyword" },
+                "synonyms": { "type": "array" },
             }
         }
     }
@@ -75,12 +76,8 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             "_index": "subjects",
             "_id": subject_id,
             "_source": {
-                "abbreviation": subject_id,
-                "abbreviation_normalized": normalize_text(subject_id),
-                "name": subject_data,
-                "name_normalized": normalize_text(subject_data),
-                "variations": generate_variations(subject_data, subject_id),
-                "variations_normalized": [normalize_text(v) for v in generate_variations(subject_data, subject_id)]
+                "id": normalize_text(subject_id),
+                "synonyms": generate_variations(normalize_text(subject_data), normalize_text(subject_id)),
             }
         }
         for subject_id, subject_data in subjects.items()
