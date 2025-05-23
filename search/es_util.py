@@ -59,17 +59,16 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
         return
 
     doc_mapping = {
-        "mappings": {
-            "dynamic": "false",
-            "properties": {
-                "id": { "type": "keyword" },
-                "synonyms": { "type": "array" },
-            }
+        "properties": {
+            "id": { "type": "keyword" },
+            "variations": { "type": "text" }, # type is specified as text, but it is intended to be a list of strings
         }
     }
 
     es.indices.delete(index="subjects", ignore_unavailable=True)
-    es.indices.create(index="subjects", mappings=doc_mapping)
+    resp = es.indices.create(index="subjects", mappings=doc_mapping)
+    if logger:
+        logger.debug(f"Index exists: {resp}")
 
     actions = [
         {
@@ -77,7 +76,7 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             "_id": subject_id,
             "_source": {
                 "id": normalize_text(subject_id),
-                "synonyms": generate_variations(normalize_text(subject_data), normalize_text(subject_id)),
+                "variations": generate_variations(normalize_text(subject_data), normalize_text(subject_id)),
             }
         }
         for subject_id, subject_data in subjects.items()
@@ -86,6 +85,7 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
     if logger:
         logger.info(f"Indexing {len(actions)} subjects into Elasticsearch.")
         logger.debug(f"All subjects: {str(subjects.keys())}")
+        logger.debug(f"All subject names: {str(subjects.values())}")
 
     helpers.bulk(es, actions)
 
@@ -93,16 +93,10 @@ def search_subjects(es: Elasticsearch, search_term: str):
     search_term = normalize_text(search_term)
     es_query = {
         "query": {
-            "multi_match": {
-                "query": search_term,
-                "fields": [
-                    "name^20",
-                    "abbreviation^20",
-                    "variations^20",
-                    "name_normalized^20",
-                    "abbreviation_normalized^20",
-                    "variations_normalized^20"
-                ],
+            "match": {
+                "variations": {
+                    "query": search_term,
+                },
                 "fuzziness": "AUTO"
             }
         },
