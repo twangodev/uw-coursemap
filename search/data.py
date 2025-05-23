@@ -63,7 +63,9 @@ def read_json_directory(directory_path):
 
 def get_subjects(data_dir, logger):
     subjects = read_json_file(os.path.join(data_dir, "subjects.json"))
-
+    if subjects is None:
+        logger.error("Failed to load subjects.json")
+        return {}
     logger.info(f"Loaded {len(subjects)} subjects.")
     return subjects
 
