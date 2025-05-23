@@ -14,7 +14,7 @@ def normalize_text(text: str) -> str:
     text = unicodedata.normalize('NFKD', text)
     text = text.encode('ascii', 'ignore').decode('ascii')
     # Remove punctuation and extra whitespace, then lowercase
-    text = re.sub(r'[^\w\s]', '', text)
+    text = re.sub(r'[^\w\s&-]', '', text)
     text = text.lower().strip()
     return text
 
