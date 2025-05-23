@@ -25,8 +25,10 @@ def generate_variations(subject_name: str, abbreviation: str):
     variations.add(abbreviation)
 
     # Variation 3: Subject name with punctuation removed
-    no_punct = re.sub(r"[^\w\s]", "", subject_name)
-    variations.add(no_punct)
+    no_punct_name = re.sub(r"[^\w\s]", "", subject_name)
+    no_punct_abbre = re.sub(r"[^\w\s]", "", abbreviation)
+    variations.add(no_punct_name)
+    variations.add(no_punct_abbre)
 
     # Variation 4: Acronym from first letters of each word
     words = subject_name.split()
