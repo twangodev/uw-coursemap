@@ -1,9 +1,9 @@
+from logging import Logger
 import re
 
 from elasticsearch import helpers, Elasticsearch
 
 from data import normalize_text
-
 
 def generate_variations(subject_name: str, abbreviation: str):
     """
@@ -46,7 +46,7 @@ def generate_variations(subject_name: str, abbreviation: str):
 
     return list(variations)
 
-def load_subjects(es: Elasticsearch, subjects: dict):
+def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = None):
     """
     Index subjects into Elasticsearch.
     Generates normalized fields for both the subject name and abbreviation, plus variations.
@@ -66,6 +66,11 @@ def load_subjects(es: Elasticsearch, subjects: dict):
         }
         for subject_id, subject_data in subjects.items()
     ]
+
+    if logger:
+        logger.info(f"Indexing {len(actions)} subjects into Elasticsearch.")
+        logger.debug(f"All subjects: {str(subjects.keys())}")
+
     helpers.bulk(es, actions)
 
 def search_subjects(es: Elasticsearch, search_term: str):
