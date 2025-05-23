@@ -46,11 +46,16 @@ def generate_variations(subject_name: str, abbreviation: str):
 
     return list(variations)
 
-def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = None):
+def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | None = None):
     """
     Index subjects into Elasticsearch.
     Generates normalized fields for both the subject name and abbreviation, plus variations.
     """
+    if (subjects is None) or (len(subjects) == 0):
+        if logger:
+            logger.warning("No subjects to load into Elasticsearch.")
+        return
+
     es.indices.delete(index="subjects", ignore_unavailable=True)
     es.indices.create(index="subjects")
     actions = [
