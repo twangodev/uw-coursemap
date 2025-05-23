@@ -56,8 +56,18 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             logger.warning("No subjects to load into Elasticsearch.")
         return
 
+    doc_mapping = {
+        "mappings": {
+            "dynamic": "false",
+            "properties": {
+                "name": { "type": "text" },
+            }
+        }
+    }
+
     es.indices.delete(index="subjects", ignore_unavailable=True)
-    es.indices.create(index="subjects")
+    es.indices.create(index="subjects", mappings=doc_mapping)
+
     actions = [
         {
             "_index": "subjects",
