@@ -55,7 +55,11 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
     to_add.add(create_node(course))
     to_add.add(create_compound(course.determine_parent()))
 
-    for reference in course.optimized_prerequisites.course_references:
+    optimized_prerequisites = []
+    if course.optimized_prerequisites:
+        optimized_prerequisites = course.optimized_prerequisites
+
+    for reference in optimized_prerequisites:
         if reference not in course_ref_to_course:
             print(f"Prerequisite not found in courses: {reference}")
             continue

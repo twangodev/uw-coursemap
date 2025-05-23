@@ -9,7 +9,7 @@ import requests_cache
 from sentence_transformers import SentenceTransformer
 from tqdm.asyncio import tqdm
 
-from cache import read_embedding_cache, write_embedding_cache
+from cache import read_embedding_cache, write_embedding_cache, write_course_ref_to_course_cache
 from course import Course
 
 initialized_model = None
@@ -88,50 +88,108 @@ def find_best_prerequisite(cache_dir, model, course: Course, prerequisites, max_
     # Return the course object of the best prerequisite
     return [req[0] for req in best_prerequisite]
 
+def score_branch(
+        cache_dir,
+        model,
+        course: Course,
+        course_ref_to_course,
+        total_enrollment,
+        branch: list[Course.Reference],
+        semantic_similarity_weight,
+        popularity_weight,
+        logger
+):
+    if not branch:
+        return 0
 
-def prune_prerequisites(cache_dir, model, course: Course, course_ref_to_course, max_prerequisites,
-                        logger: Logger):
+    course_embedding = get_embedding(cache_dir, model, course.get_full_summary(), logger)
+    branch_as_courses = [course_ref_to_course[cr] for cr in branch if cr in course_ref_to_course if cr != course.course_reference]
+    if not branch_as_courses:
+        return 0
+    branch_embeddings = [get_embedding(cache_dir, model, course.get_full_summary(), logger) for course in branch_as_courses]
+    branch_embedding = average_embedding(branch_embeddings)
+
+    # Calculate the cosine similarity between the course and the branch
+    similarity = cosine_similarity(course_embedding, branch_embedding)
+
+    enrollment_count = 0
+    if course.cumulative_grade_data:
+        enrollment_count = course.cumulative_grade_data.total
+
+    enrollment_score = enrollment_count / total_enrollment
+
+    score = semantic_similarity_weight * similarity + popularity_weight * enrollment_score
+    return score
+
+
+def prune_prerequisites(
+        cache_dir,
+        model,
+        course: Course,
+        course_ref_to_course,
+        total_enrollment,
+        max_prerequisites,
+        logger: Logger
+):
+
     if len(course.prerequisites.course_references) <= max_prerequisites:
         logger.debug(
             f"Skipping optimization for {course.get_identifier()} as it has {len(course.prerequisites.course_references)} prerequisites")
-        course.optimized_prerequisites = course.prerequisites
+        course.optimized_prerequisites = course.prerequisites.course_references
         return
 
-    original_prerequisites = course.prerequisites
+    branches = course.prerequisites.abstract_syntax_tree.course_combinations()
+    semantic_similarity_weight = 0.5
+    popularity_weight = 0.5
+    best_score = -1
+    best_branch = None
+    for branch in branches:
+        score = score_branch(
+            cache_dir=cache_dir,
+            model=model,
+            course=course,
+            course_ref_to_course=course_ref_to_course,
+            total_enrollment=total_enrollment,
+            branch=branch,
+            semantic_similarity_weight=semantic_similarity_weight,
+            popularity_weight=popularity_weight,
+            logger=logger
+        )
+        if score > best_score:
+            best_score = score
+            best_branch = branch
 
-    prerequisites = set()
-    for reference in original_prerequisites.course_references:
-        if reference not in course_ref_to_course:
-            logger.error(f"Prerequisite not found in courses: {reference}")
-            continue
-        c = course_ref_to_course[reference]
-        prerequisites.add(c)
+    course.optimized_prerequisites = best_branch
 
-    best = find_best_prerequisite(
-        cache_dir=cache_dir,
-        model=model,
-        course=course,
-        prerequisites=prerequisites,
-        max_prerequisites=max_prerequisites,
-        logger=logger
-    )
-    logger.debug(
-        f"Selected {([c.get_identifier() for c in best])} as the best prerequisite(s) for {course.get_identifier()} out of {len(prerequisites)} options")
+    if best_branch is None:
 
+        original_prerequisites = course.prerequisites
 
-    course.optimized_prerequisites = Course.Prerequisites(
-        prerequisites_text=original_prerequisites.prerequisites_text,
-        linked_requisite_text=original_prerequisites.linked_requisite_text,
-        course_references=[c.course_reference for c in best],
-        abstract_syntax_tree=original_prerequisites.abstract_syntax_tree
-    )
+        prerequisites = set()
+        for reference in original_prerequisites.course_references:
+            if reference not in course_ref_to_course:
+                logger.error(f"Prerequisite not found in courses: {reference}")
+                continue
+            c = course_ref_to_course[reference]
+            prerequisites.add(c)
 
+        best = find_best_prerequisite(
+            cache_dir=cache_dir,
+            model=model,
+            course=course,
+            prerequisites=prerequisites,
+            max_prerequisites=max_prerequisites,
+            logger=logger
+        )
+
+        course.optimized_prerequisites = best
 
 def optimize_prerequisite(
         cache_dir,
         course,
         model: SentenceTransformer,
         course_ref_to_course,
+        total_enrollment,
         max_prerequisites,
         max_retries,
         logger
@@ -139,7 +197,7 @@ def optimize_prerequisite(
     retries = 0
     while retries < max_retries:
         try:
-            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_prerequisites, logger)
+            prune_prerequisites(cache_dir, model, course, course_ref_to_course, total_enrollment, max_prerequisites, logger)
             return
         except Exception as e:
             retries += 1
@@ -153,6 +211,7 @@ async def optimize_prerequisites(
         cache_dir: str,
         model: SentenceTransformer,
         course_ref_to_course: dict[Course.Reference, Course],
+        quick_statistics,
         max_prerequisites: int | float,
         max_retries: int,
         logger: Logger
@@ -167,6 +226,7 @@ async def optimize_prerequisites(
             course,
             model,
             course_ref_to_course,
+            quick_statistics['total_grades_given']['total'],
             max_prerequisites,
             max_retries,
             logger

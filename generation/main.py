@@ -114,6 +114,7 @@ def instructors(
 def optimize(
         cache_dir,
         course_ref_to_course,
+        quick_statistics,
         max_prerequisites,
         logger,
 ):
@@ -125,6 +126,7 @@ def optimize(
         cache_dir=cache_dir,
         model=model,
         course_ref_to_course=course_ref_to_course,
+        quick_statistics=quick_statistics,
         max_prerequisites=max_prerequisites,
         max_retries=50,
         logger=logger
@@ -292,11 +294,14 @@ def main():
 
         if filter_step(step, "optimize"):
             logger.info("Optimizing course data...")
+
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+            quick_statistics = read_quick_statistics_cache(cache_dir, logger)
 
             optimize(
                 cache_dir=cache_dir,
                 course_ref_to_course=course_ref_to_course,
+                quick_statistics=quick_statistics,
                 max_prerequisites=max_prerequisites,
                 logger=logger
             )
