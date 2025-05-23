@@ -116,7 +116,7 @@ class Course(JsonSerializable):
             course_title: str,
             description: str,
             prerequisites: Prerequisites,
-            optimized_prerequisites: Prerequisites | None,
+            optimized_prerequisites: list[Reference] | None,
             cumulative_grade_data: "GradeData | None",
             term_data: dict[str, TermData],
             similar_courses=None
@@ -137,7 +137,7 @@ class Course(JsonSerializable):
     def from_json(cls, json_data) -> "Course":
         optimized_prerequisites = None
         if json_data["optimized_prerequisites"]:
-            optimized_prerequisites = Course.Prerequisites.from_json(json_data["optimized_prerequisites"])
+            optimized_prerequisites = [Course.Reference.from_json(json) for json in json_data["optimized_prerequisites"]]
 
         cumulative_grade_data = None
         if json_data["cumulative_grade_data"]:
@@ -160,7 +160,7 @@ class Course(JsonSerializable):
             "course_title": self.course_title,
             "description": self.description,
             "prerequisites": self.prerequisites.to_dict(),
-            "optimized_prerequisites": self.optimized_prerequisites.to_dict() if self.optimized_prerequisites else None,
+            "optimized_prerequisites": [course_ref.to_dict() for course_ref in self.optimized_prerequisites] if self.optimized_prerequisites else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None,
             "term_data": {term: data.to_dict() for term, data in self.term_data.items()},
             "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses]
@@ -255,6 +255,15 @@ class Course(JsonSerializable):
         return f"""{self.get_short_summary()}
         Prerequisites: {req}
         """
+
+    def get_latest_term_data(self):
+        """
+        Get the latest term data for the course.
+        """
+        if not self.term_data:
+            return None
+        latest_term = max(self.term_data.keys(), key=lambda x: int(x))
+        return self.term_data[latest_term]
 
     def __eq__(self, other):
         return self.get_identifier() == other.get_identifier() and self.course_title == other.course_title and self.description == other.description
