@@ -51,6 +51,8 @@ def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = Non
     Index subjects into Elasticsearch.
     Generates normalized fields for both the subject name and abbreviation, plus variations.
     """
+    es.indices.delete(index="subjects", ignore_unavailable=True)
+    es.indices.create(index="subjects")
     actions = [
         {
             "_index": "subjects",
@@ -108,6 +110,9 @@ def load_courses(es, courses):
     Index courses into Elasticsearch.
     Adds normalized versions for key text fields.
     """
+    es.indices.delete(index="courses", ignore_unavailable=True)
+    es.indices.create(index="courses")
+
     actions = []
     for course_id, course_data in courses.items():
         # Original fields
@@ -215,6 +220,9 @@ def load_instructors(es, instructors):
     Index instructors into Elasticsearch.
     Adds normalized versions for all text fields.
     """
+    es.indices.delete(index="instructors", ignore_unavailable=True)
+    es.indices.create(index="instructors")
+
     actions = []
     for instructor_id, instructor_data in instructors.items():
         name = instructor_data["name"]

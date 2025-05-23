@@ -97,15 +97,6 @@ def get_random_courses():
 
     return jsonify(random_courses)
 
-
-def clear_elasticsearch():
-
-    indexes = ["courses", "instructors", "subjects"]
-
-    for index in indexes:
-        if es.indices.exists(index=index):
-            es.indices.delete(index=index)
-
 args = None
 verbose = False
 
@@ -124,8 +115,6 @@ coloredlogs.install(level=logging_level, logger=logger)
 subjects = get_subjects(data_dir, logger)
 instructors = get_instructors(data_dir, logger)
 courses = get_courses(data_dir, subjects, logger)
-
-clear_elasticsearch()
 
 load_subjects(es, subjects)
 load_courses(es, courses)
