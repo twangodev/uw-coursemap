@@ -93,7 +93,7 @@ def score_branch(
         model,
         course: Course,
         course_ref_to_course,
-        total_enrollment,
+        max_enrollment,
         branch: list[Course.Reference],
         semantic_similarity_weight,
         popularity_weight,
@@ -116,7 +116,7 @@ def score_branch(
     if course.cumulative_grade_data:
         enrollment_count = course.cumulative_grade_data.total
 
-    enrollment_score = enrollment_count / total_enrollment
+    enrollment_score = enrollment_count / max_enrollment
 
     score = semantic_similarity_weight * similarity + popularity_weight * enrollment_score
     return score
@@ -127,7 +127,7 @@ def prune_prerequisites(
         model,
         course: Course,
         course_ref_to_course,
-        total_enrollment,
+        max_enrollment,
         max_prerequisites,
         logger: Logger
 ):
@@ -149,7 +149,7 @@ def prune_prerequisites(
             model=model,
             course=course,
             course_ref_to_course=course_ref_to_course,
-            total_enrollment=total_enrollment,
+            max_enrollment=max_enrollment,
             branch=branch,
             semantic_similarity_weight=semantic_similarity_weight,
             popularity_weight=popularity_weight,
@@ -189,7 +189,7 @@ def optimize_prerequisite(
         course,
         model: SentenceTransformer,
         course_ref_to_course,
-        total_enrollment,
+        max_enrollment,
         max_prerequisites,
         max_retries,
         logger
@@ -197,7 +197,7 @@ def optimize_prerequisite(
     retries = 0
     while retries < max_retries:
         try:
-            prune_prerequisites(cache_dir, model, course, course_ref_to_course, total_enrollment, max_prerequisites, logger)
+            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_enrollment, max_prerequisites, logger)
             return
         except Exception as e:
             retries += 1
@@ -211,13 +211,18 @@ async def optimize_prerequisites(
         cache_dir: str,
         model: SentenceTransformer,
         course_ref_to_course: dict[Course.Reference, Course],
-        quick_statistics,
         max_prerequisites: int | float,
         max_retries: int,
         logger: Logger
 ):
     total_courses = len(course_ref_to_course)
     logger.info(f"Optimizing prerequisites for {total_courses} courses...")
+
+    max_enrollment = max(
+        c.cumulative_grade_data.total
+        for c in course_ref_to_course.values()
+        if c.cumulative_grade_data
+    )
 
     # Create tasks for each course and wait for them all to complete.
     tasks = [
@@ -226,7 +231,7 @@ async def optimize_prerequisites(
             course,
             model,
             course_ref_to_course,
-            quick_statistics['total_grades_given']['total'],
+            max_enrollment,
             max_prerequisites,
             max_retries,
             logger
