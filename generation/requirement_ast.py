@@ -16,6 +16,9 @@ leaf_like = {'TEXT', 'COURSE'}
 tokenizer_regex = '|'.join(f'(?P<{name}>{pattern})' for pattern, name in token_specs)
 tokenizer_re = re.compile(tokenizer_regex, re.IGNORECASE)
 
+exclusion_regex = r'\bnot\b'
+exclusion_re = re.compile(exclusion_regex, re.IGNORECASE)
+
 def wrap_sentences(linked_requisite_text):
     output = []
     need_open_paren = True
@@ -156,6 +159,43 @@ def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]
             i += 1
     return out
 
+def filter_tokens(tokens):
+    res, i = [], 0
+    while i < len(tokens):
+        typ, lit = tokens[i]
+
+        if typ == 'LPAREN':
+            # explicitly initialize j so it's always in scope
+            j = i + 1
+            depth = 1
+            # walk forward until we close this group
+            while j < len(tokens) and depth:
+                if   tokens[j][0] == 'LPAREN':   depth += 1
+                elif tokens[j][0] == 'RPAREN':   depth -= 1
+                j += 1
+            # now tokens[i] is 'LPAREN' and tokens[j-1] is its matching 'RPAREN'
+            inner = tokens[i+1 : j-1]
+            # only consider TEXT tokens for "not"
+            has_not = any(exclusion_re.search(l) for t, l in inner if t == 'TEXT')
+            if not has_not:
+                res.append(tokens[i])               # keep LPAREN
+                res += filter_tokens(inner)        # recurse inside
+                res.append(tokens[j-1])            # keep RPAREN
+            i = j  # jump past this group
+
+        else:
+            # plain run up to next LPAREN
+            j = i
+            while j < len(tokens) and tokens[j][0] != 'LPAREN':
+                j += 1
+            run = tokens[i:j]
+            has_not = any(exclusion_re.search(l) for t, l in run if t == 'TEXT')
+            if not has_not:
+                res.extend(run)
+            i = j
+
+    return res
+
 def tokenize_requisites(linked_requisite_text):
     from course import Course
 
@@ -184,6 +224,7 @@ def tokenize_requisites(linked_requisite_text):
     tokens = infer_commas(tokens)
     tokens = hoist_group_operators(tokens)
     tokens = collapse_operators(tokens)
+    tokens = filter_tokens(tokens)
     return tokens
 
 class Leaf(JsonSerializable):
@@ -369,6 +410,9 @@ class RequirementParser:
             _, val = self.tokens[self.pos]
             self.pos += 1
             return Leaf(val)
+
+        if kind == 'EOF':
+            return Leaf('')
 
         raise SyntaxError(f"Unexpected token {kind!r}")
 
