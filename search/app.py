@@ -97,6 +97,21 @@ def get_random_courses():
 
     return jsonify(random_courses)
 
+# this endpoint is used to analyze a search term for purely testing purposes
+# should not be used in production
+# see https://www.elastic.co/docs/manage-data/data-store/text-analysis/test-an-analyzer
+@app.route('/analyze', methods=['POST'])
+def analyze():
+    # Expecting a JSON body like { "query": "Python" }
+    data = request.get_json()
+    search_term = data.get("query")
+
+    result = es.indices.analyze(index="subjects", body={
+        "analyzer": "standard",
+        "text": search_term 
+    })
+    return jsonify(result.body)
+
 args = None
 verbose = False
 
