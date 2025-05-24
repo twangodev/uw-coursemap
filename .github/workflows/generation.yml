@@ -116,4 +116,5 @@ jobs:
           branch: 'data-bump'
           sign-commits: 'true'
           commit-message: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
+          labels: submodules, cicd, generation
           reviewers: ${{ github.repository_owner }}
