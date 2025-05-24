@@ -182,7 +182,7 @@ def prune_prerequisites(
             logger=logger
         )
 
-        course.optimized_prerequisites = [c.course_reference for c in best],
+        course.optimized_prerequisites = [c.course_reference for c in best]
 
 def optimize_prerequisite(
         cache_dir,
