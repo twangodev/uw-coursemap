@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '0 0 * * 0'
 
+concurrency:
+  group: 'generation'
+  cancel-in-progress: true
+
 jobs:
 
   generate:
@@ -19,9 +23,6 @@ jobs:
         working-directory: ./generation
     permissions:
       contents: read
-    concurrency:
-      group: 'generation'
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
         with:
