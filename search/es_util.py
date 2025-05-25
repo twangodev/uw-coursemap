@@ -5,6 +5,37 @@ from elasticsearch import helpers, Elasticsearch
 
 from data import normalize_text
 
+def update_subject_synonyms(es: Elasticsearch, subjects: dict, logger: Logger | None = None) -> None:
+    """
+    Updates the subject synonyms filter in Elasticsearch with new synonyms.
+    """
+    synonyms = []
+    for subject_id, subject_name in subjects.items():
+        subject_id = normalize_text(subject_id)
+        subject_name = normalize_text(subject_name)
+        variations = generate_variations(subject_name, subject_id) 
+        synonyms.append(" => ".join([variations[0], ", ".join(variations)]))
+
+    es.indices.close(index="subjects")
+        
+    # Update the synonyms filter
+    es.indices.put_settings(
+        index="subjects",
+        body={
+            "analysis": {
+                "filter": {
+                    "subject_synonyms": {
+                        "type": "synonym_graph",
+                        "synonyms": synonyms
+                    }
+                }
+            }
+        }
+    )
+    
+    # Reopen the index
+    es.indices.open(index="subjects")
+        
 def generate_variations(subject_name: str, abbreviation: str):
     """
     Generate variations for a subject name. Variations include:
@@ -92,7 +123,7 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
 
     es.indices.delete(index="subjects", ignore_unavailable=True)
     resp = es.indices.create(index="subjects", body=settings)
-    
+
     if logger:
         logger.debug(f"Index exists: {resp}")
 
@@ -111,6 +142,8 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             }
         }
         actions.append(action)
+
+    update_subject_synonyms(es, subjects, logger)
 
     if logger:
         logger.info(f"Indexing {len(actions)} subjects into Elasticsearch.")
