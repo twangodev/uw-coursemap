@@ -223,7 +223,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
 
     try:
         if disable_cache:
-            with session.disable_cache():
+            async with session.disabled():
                 async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
                     data = await response.json()
         else:
