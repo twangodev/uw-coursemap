@@ -96,18 +96,21 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
     if logger:
         logger.debug(f"Index exists: {resp}")
 
-    actions = [
-        {
+    actions = []
+
+    for subject_id, subject_name in subjects.items():
+        subject_id = normalize_text(subject_id)
+        subject_name = normalize_text(subject_name)
+        action = {
             "_index": "subjects",
             "_id": subject_id,
             "_source": {
                 # strings are normalized by the analyzer when indexed
                 "id": subject_id,
-                "variations": generate_variations(subject_data, subject_id),
+                "variations": generate_variations(subject_name, subject_id),
             }
         }
-        for subject_id, subject_data in subjects.items()
-    ]
+        actions.append(action)
 
     if logger:
         logger.info(f"Indexing {len(actions)} subjects into Elasticsearch.")
