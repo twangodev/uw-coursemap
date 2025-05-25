@@ -76,8 +76,9 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             "_index": "subjects",
             "_id": subject_id,
             "_source": {
-                "id": normalize_text(subject_id),
-                "variations": generate_variations(normalize_text(subject_data), normalize_text(subject_id)),
+                # strings are normalized by the analyzer when indexed
+                "id": subject_id,
+                "variations": generate_variations(subject_data, subject_id),
             }
         }
         for subject_id, subject_data in subjects.items()
