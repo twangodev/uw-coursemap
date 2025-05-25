@@ -46,16 +46,53 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             logger.warning("No subjects to load into Elasticsearch.")
         return
 
-    # mapping docs: https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/
-    doc_mapping = {
-        "properties": {
-            "id": { "type": "keyword" },
-            "variations": { "type": "text" }, # type is specified as text, but it is intended to be a list of strings
+    settings = {
+        "settings": {
+            "analysis": {
+                "filter": {
+                    "subject_synonyms": {
+                        "type": "synonym_graph",
+                        "updateable": True,
+                        "synonyms": []
+                    }
+                },
+                "analyzer": {
+                    "subject_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "char_filter": [
+                            {
+                                "type": "pattern_replace",
+                                "pattern": "-&",
+                                # Note: modifying length of string may affect highlighting in search results
+                                "replacement": "",
+                            }
+                        ],
+                        "filter": [
+                            "asciifolding",  
+                            "lowercase",
+                            "subject_synonyms",
+                            "english_stop"
+                        ]
+                    }
+                }
+            }
+        },
+        "mappings": {
+            "properties": {
+                "id": { "type": "keyword" },
+                "variations": { 
+                    "type": "text", # type is specified as text, but it is intended to be a list of strings
+                    "analyzer": "subject_analyzer",     
+                    "search_analyzer": "subject_analyzer"
+                }
+            }
         }
     }
 
     es.indices.delete(index="subjects", ignore_unavailable=True)
-    resp = es.indices.create(index="subjects", mappings=doc_mapping)
+    resp = es.indices.create(index="subjects", body=settings)
+    
     if logger:
         logger.debug(f"Index exists: {resp}")
 
