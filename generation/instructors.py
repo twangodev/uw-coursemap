@@ -6,6 +6,7 @@ from collections import defaultdict
 from logging import Logger
 
 import requests
+from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
@@ -212,7 +213,7 @@ def produce_query(instructor_name):
 
 mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, should_disable_cache=False):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, ratelimited_count: int = 0,):
     auth_header = {
         "Authorization": f"Basic {api_key}",
         "User-Agent": mock_user_agent
@@ -220,24 +221,15 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
-        if should_disable_cache:
-            async with session.disabled():
-                async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
-                    data = await response.json()
-        else:
-            async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
-                data = await response.json()
+        async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+            data = await response.json()
 
-        # Parse the results to find a matching teacher
-        results = data["data"]["newSearch"]["teachers"]["edges"]
-        for item in results:
-            result = item["node"]
-            # Simple matching: check if both first and last names appear in the name string
-            if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
-                return RMPData.from_rmp_data(result)
+        if response.status == 429:
+            backoff = min(30, 2 ** ratelimited_count)
+            logger.debug(f"Rate limited, retrying after {backoff} seconds.")
+            await asyncio.sleep(backoff)
+            return await get_rating(name, api_key, logger, session, attempts, ratelimited_count + 1)
 
-        logger.debug(f"Failed to find rating for {name}")
-        return None
     except Exception as e:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
@@ -246,8 +238,16 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
+    # Parse the results to find a matching teacher
+    results = data["data"]["newSearch"]["teachers"]["edges"]
+    for item in results:
+        result = item["node"]
+        # Simple matching: check if both first and last names appear in the name string
+        if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
+            return RMPData.from_rmp_data(result)
 
-
+    logger.debug(f"Failed to find rating for {name}")
+    return None
 
 def scrape_rmp_api_key(logger):
     response = requests.get(rmp_url, headers={"User-Agent": "Mozilla/5.0"}) # Some sites require a user-agent to avoid blocking
@@ -431,7 +431,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
     logger.info(f"Fetching ratings for {total} instructors...")
 
-    async with CachedSession(cache=get_aio_cache()) as session:
+    async with CachedSession(cache=get_aio_cache(), cookie_jar=DummyCookieJar()) as session:
         tasks = []
         names_emails = list(instructors.items())
         for i, (name, email) in enumerate(names_emails):
