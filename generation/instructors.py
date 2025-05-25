@@ -214,7 +214,7 @@ def produce_query(instructor_name):
 
 mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, ratelimited_count: int = 0,):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, rate_limited_count: int = 0, disable_cache=False):
     auth_header = {
         "Authorization": f"Basic {api_key}",
         "User-Agent": mock_user_agent
@@ -222,14 +222,19 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
-        async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
-            data = await response.json()
+        if disable_cache:
+            with session.disable_cache():
+                async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+                    data = await response.json()
+        else:
+            async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+                data = await response.json()
 
         if response.status == 429:
-            backoff = min(30, 2 ** ratelimited_count)
+            backoff = min(30, 2 ** rate_limited_count)
             logger.debug(f"Rate limited, retrying after {backoff} seconds.")
             await asyncio.sleep(backoff)
-            return await get_rating(name, api_key, logger, session, attempts, ratelimited_count + 1)
+            return await get_rating(name, api_key, logger, session, attempts, rate_limited_count + 1)
 
         if data.get("errors"):
             raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
@@ -238,7 +243,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
-            return await get_rating(name, api_key, logger, session, attempts - 1, True)
+            return await get_rating(name, api_key, logger, session, attempts - 1, rate_limited_count, True)
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
