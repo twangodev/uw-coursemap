@@ -2,7 +2,8 @@ from aiohttp_client_cache import SQLiteBackend
 
 _aio_cache_config = {
     "cache_name": None,
-    "expire_after": 60 * 60 * 24 * 5
+    "expire_after": 60 * 60 * 24 * 5,
+    "allowed_methods": ('GET', 'POST')
 }
 
 def set_aio_cache_location(location):

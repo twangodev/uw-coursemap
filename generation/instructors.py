@@ -4,6 +4,7 @@ import re
 import threading
 from collections import defaultdict
 from logging import Logger
+from asyncio import Semaphore
 
 import requests
 from aiohttp import DummyCookieJar
@@ -230,6 +231,9 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
             await asyncio.sleep(backoff)
             return await get_rating(name, api_key, logger, session, attempts, ratelimited_count + 1)
 
+        if data.get("errors"):
+            raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
+
     except Exception as e:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
@@ -409,6 +413,10 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
                 gd.instructors.remove(diff["old"])
                 gd.instructors.add(diff["new"])
 
+async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, logger, session):
+    async with sem:
+        return await get_rating(name, api_key, logger, session)
+
 async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
@@ -432,12 +440,13 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
     logger.info(f"Fetching ratings for {total} instructors...")
 
     async with CachedSession(cache=get_aio_cache(), cookie_jar=DummyCookieJar()) as session:
+        semaphore = Semaphore(10)
         tasks = []
         names_emails = list(instructors.items())
         for i, (name, email) in enumerate(names_emails):
             logger.debug(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
             # Create a task to get the rating for each instructor
-            tasks.append(get_rating(name, api_key, logger, session))
+            tasks.append(sem_get_rating(semaphore, name, api_key, logger, session))
 
         # Run all rating requests concurrently
         ratings = await tqdm.gather(*tasks, desc="RMP Query", unit="instructor")
