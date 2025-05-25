@@ -1,9 +1,6 @@
 <script lang="ts">
     import ContentWrapper from "$lib/components/content/content-wrapper.svelte";
-    import { page } from '$app/state';
-    import {type Writable, writable} from "svelte/store";
-    import {type FullInstructorInformation, getAttendanceRequirement, type Instructor} from "$lib/types/instructor.ts";
-    import {apiFetch} from "$lib/api.ts";
+    import { getAttendanceRequirement} from "$lib/types/instructor.ts";
     import {
         BookA,
         BookPlus,
@@ -21,15 +18,11 @@
     import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
 
-    async function fetchInstructor(name: string) {
-        const response = await apiFetch(`/instructors/${name}.json`)
-        const data: FullInstructorInformation = await response.json()
-        instructor.set(data)
-    }
+    let { data } = $props();
+    let instructor = $derived(data.instructor)
+    let instructorName = $derived(instructor.name)
 
-    let instructor: Writable<FullInstructorInformation | null> = writable(null)
-    let instructorName = $derived($instructor?.name)
-    let attendanceRequirement = $derived(getAttendanceRequirement($instructor?.rmp_data?.mandatory_attendance))
+    let attendanceRequirement = $derived(getAttendanceRequirement(instructor?.rmp_data?.mandatory_attendance))
 
     const calculateRatingColor = (rating: number | undefined) => {
         if (!rating) {
@@ -61,16 +54,6 @@
         }
     };
 
-    let name = $derived(page.params.name)
-    let currentName: string | null = null
-
-    $effect(() => {
-        if (name && name !== currentName) {
-            currentName = name
-            fetchInstructor(name)
-        }
-    })
-
     const appendPercent = (value: number | null) => {
         if (value === null) {
             return "Not Reported"
@@ -81,7 +64,7 @@
 </script>
 
 <ContentWrapper>
-    {#if $instructor}
+    {#if instructor}
         <div class="grid gap-4 lg:grid-cols-12">
             <div class="space-y-4 mt-2 lg:col-span-3">
                 <Card>
@@ -90,7 +73,7 @@
                             <AvatarFallback class="text-2xl">{instructorName?.at(0)}</AvatarFallback>
                         </Avatar>
                         <CardTitle class="text-2xl font-bold">{instructorName}</CardTitle>
-                        <CardTitle class="text-sm text-muted-foreground">{$instructor.official_name}</CardTitle>
+                        <CardTitle class="text-sm text-muted-foreground">{instructor.official_name}</CardTitle>
                     </CardHeader>
                     <CardHeader
                             class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -99,7 +82,7 @@
                         <Mail class="text-muted-foreground h-4 w-4" />
                     </CardHeader>
                     <CardContent>
-                        <a href={`mailto:${$instructor.email}`} class="font-medium text-sm break-words underline underline-offset-4">{$instructor.email}</a>
+                        <a href={`mailto:${instructor.email}`} class="font-medium text-sm break-words underline underline-offset-4">{instructor.email}</a>
                     </CardContent>
                     <CardHeader
                             class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -108,7 +91,7 @@
                         <BriefcaseBusiness class="text-muted-foreground h-4 w-4" />
                     </CardHeader>
                     <CardContent>
-                        <p class="text-sm break-words">{$instructor.position}</p>
+                        <p class="text-sm break-words">{instructor.position}</p>
                     </CardContent>
                     <CardHeader
                             class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -117,7 +100,7 @@
                         <University class="text-muted-foreground h-4 w-4" />
                     </CardHeader>
                     <CardContent>
-                        <p class="text-sm break-words">{$instructor.department}</p>
+                        <p class="text-sm break-words">{instructor.department}</p>
                     </CardContent>
                     <CardHeader
                             class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -126,7 +109,7 @@
                         <GraduationCap class="text-muted-foreground h-4 w-4" />
                     </CardHeader>
                     <CardContent>
-                        <p class="text-sm break-words">{$instructor.credentials}</p>
+                        <p class="text-sm break-words">{instructor.credentials}</p>
                     </CardContent>
                 </Card>
             </div>
@@ -141,7 +124,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                {calculateGradePointAverage($instructor.cumulative_grade_data)?.toFixed(2) ?? "Not Reported"}
+                                {calculateGradePointAverage(instructor.cumulative_grade_data)?.toFixed(2) ?? "Not Reported"}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -155,7 +138,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                {appendPercent(calculateCompletionRate($instructor.cumulative_grade_data))}
+                                {appendPercent(calculateCompletionRate(instructor.cumulative_grade_data))}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -169,7 +152,7 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                {appendPercent(calculateARate($instructor.cumulative_grade_data))}
+                                {appendPercent(calculateARate(instructor.cumulative_grade_data))}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
@@ -183,13 +166,13 @@
                         </CardHeader>
                         <CardContent>
                             <div class="text-2xl font-bold">
-                                {$instructor?.cumulative_grade_data?.total ?? 0}
+                                {instructor?.cumulative_grade_data?.total ?? 0}
                             </div>
                             <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestClassSize($course), getCumulativeClassSize($course))} comparisonKeyword="Historical"/>-->
                         </CardContent>
                     </Card>
                 </div>
-                {#if $instructor.rmp_data}
+                {#if instructor.rmp_data}
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                         <Card>
                             <CardHeader
@@ -199,8 +182,8 @@
                                 <Star class="text-muted-foreground h-4 w-4" />
                             </CardHeader>
                             <CardContent>
-                                <div class="text-2xl font-bold {calculateRatingColor($instructor.rmp_data.average_rating)}">
-                                    {$instructor.rmp_data.average_rating.toFixed(1)}
+                                <div class="text-2xl font-bold {calculateRatingColor(instructor.rmp_data.average_rating)}">
+                                    {instructor.rmp_data.average_rating.toFixed(1)}
                                 </div>
                                 <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestTermGPA($course), getCumulativeGPA($course))} comparisonKeyword="Historical"/>-->
                             </CardContent>
@@ -213,8 +196,8 @@
                                 <PencilRuler class="text-muted-foreground h-4 w-4" />
                             </CardHeader>
                             <CardContent>
-                                <div class="text-2xl font-bold {calculateDifficultyColor($instructor.rmp_data.average_difficulty)}">
-                                    {$instructor.rmp_data.average_difficulty.toFixed(1)}
+                                <div class="text-2xl font-bold {calculateDifficultyColor(instructor.rmp_data.average_difficulty)}">
+                                    {instructor.rmp_data.average_difficulty.toFixed(1)}
                                 </div>
                                 <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestCompletionRate($course), getCumulativeCompletionRate($course))} comparisonKeyword="Historical"/>-->
                             </CardContent>
@@ -228,7 +211,7 @@
                             </CardHeader>
                             <CardContent>
                                 <div class="text-2xl font-bold">
-                                    {$instructor.rmp_data?.would_take_again_percent.toFixed(1)}%
+                                    {instructor.rmp_data?.would_take_again_percent.toFixed(1)}%
                                 </div>
                                 <!--                            <Change class="mt-0.5 text-xs" points={getPercentChange(getLatestARate($course), getCumulativeARate($course))} comparisonKeyword="Historical"/>-->
                             </CardContent>
@@ -251,12 +234,12 @@
                     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
                         <Card>
                             <CardContent class="pt-6">
-                                <RatingDonutChart ratingData={$instructor.rmp_data?.ratings_distribution} />
+                                <RatingDonutChart ratingData={instructor.rmp_data?.ratings_distribution} />
                             </CardContent>
                         </Card>
                         <Card>
                             <CardContent class="pt-6">
-                                <AttendanceDonutChart attendanceData={$instructor.rmp_data?.mandatory_attendance} />
+                                <AttendanceDonutChart attendanceData={instructor.rmp_data?.mandatory_attendance} />
                             </CardContent>
                         </Card>
                     </div>
@@ -270,7 +253,7 @@
                 {/if}
                 <Card>
                     <CardContent>
-                        <InstructorWordCloud instructors={[$instructor]} />
+                        <InstructorWordCloud instructors={[instructor]} />
                     </CardContent>
                 </Card>
             </div>
