@@ -58,6 +58,7 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             logger.warning("No subjects to load into Elasticsearch.")
         return
 
+    # mapping docs: https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/
     doc_mapping = {
         "properties": {
             "id": { "type": "keyword" },
