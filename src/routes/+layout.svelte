@@ -41,6 +41,7 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="description" content={description} />
     <meta name="keywords" content="UW-Madison, University of Wisconsin-Madison, course map, course explorer, university courses" />
+    <meta name="theme-color" content="#c5050c" />
     <script defer src="https://analytics.twango.dev/script.js" data-website-id="e9ccd1f1-8138-4a41-a59b-dfedd30b4744"></script>
     {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
     <meta property="og:site_name" content={siteName}>
