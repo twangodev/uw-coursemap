@@ -31,7 +31,7 @@ def generate_variations(subject_name: str, abbreviation: str):
 
     # Variation 4: Acronym from first letters of each word
     words = subject_name.split()
-    if words:
+    if len(words) > 1:
         acronym = "".join(word[0].upper() for word in words)
         variations.add(acronym)
     return list(variations)
