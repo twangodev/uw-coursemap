@@ -112,7 +112,7 @@ jobs:
         with:
           title: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
           base: main
-          branch: 'data-bump'
+          branch: 'github-actions/data-bump'
           sign-commits: 'true'
           commit-message: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
           labels: submodules, cicd, generation
