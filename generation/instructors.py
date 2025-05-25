@@ -234,7 +234,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
             backoff = min(30, 2 ** rate_limited_count)
             logger.debug(f"Rate limited, retrying after {backoff} seconds.")
             await asyncio.sleep(backoff)
-            return await get_rating(name, api_key, logger, session, attempts, rate_limited_count + 1)
+            return await get_rating(name, api_key, logger, session, attempts, rate_limited_count + 1, disable_cache)
 
         if data.get("errors"):
             raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
