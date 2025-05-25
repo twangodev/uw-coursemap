@@ -6,14 +6,13 @@ from collections import defaultdict
 from logging import Logger
 
 import requests
-from aiohttp_client_cache import CachedSession
+from aiohttp import ClientSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
 from nameparser import HumanName
 from rapidfuzz import fuzz
 from tqdm.asyncio import tqdm
 
-from aio_cache import get_aio_cache
 from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
@@ -426,7 +425,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
     logger.info(f"Fetching ratings for {total} instructors...")
 
-    async with CachedSession(cache=get_aio_cache()) as session:
+    async with ClientSession() as session:
         tasks = []
         names_emails = list(instructors.items())
         for i, (name, email) in enumerate(names_emails):
