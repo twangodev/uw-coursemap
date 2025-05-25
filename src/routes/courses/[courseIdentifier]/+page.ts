@@ -2,11 +2,10 @@ import {getLatestTermId, type Terms} from "$lib/types/terms.ts";
 import {env} from "$env/dynamic/public";
 import {
     type Course,
-    courseReferenceToString,
+    courseReferenceToString, courseToJsonLd,
     sanitizeCourseToReferenceString
 } from "$lib/types/course.ts";
-import {apiFetch} from "$lib/api.ts";
-import {type FullInstructorInformation, getFullInstructorInformation} from "$lib/types/instructor.ts";
+import {getFullInstructorInformation} from "$lib/types/instructor.ts";
 import {error} from "@sveltejs/kit";
 import type {ElementDefinition} from "cytoscape";
 
@@ -50,7 +49,14 @@ export const load = async ({ params, url, fetch }) => {
     if (!styleEntriesResponse.ok) throw error(styleEntriesResponse.status, `Failed to fetch prerequisite style data: ${styleEntriesResponse.statusText}`)
     const prerequisiteStyleEntries = await styleEntriesResponse.json()
 
+    const courseCode = courseReferenceToString(course.course_reference)
+    const courseDescription = course.description
+
+    const jsonLd = courseToJsonLd(course)
+
     return {
+        subtitle: courseCode,
+        description: courseDescription,
         terms: terms,
         selectedTermId: selectedTermId,
         course: course,
@@ -58,6 +64,7 @@ export const load = async ({ params, url, fetch }) => {
         instructors: instructors,
         prerequisiteElementDefinitions: prerequisiteElementDefinitions,
         prerequisiteStyleEntries: prerequisiteStyleEntries,
+        jsonLd: [jsonLd]
     }
 
 }
