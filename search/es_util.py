@@ -43,6 +43,7 @@ def generate_variations(subject_name: str, abbreviation: str):
       - Provided abbreviation
       - Subject name without punctuation
       - Acronym (first letters of each word)
+      - A shortened form (first 4 letters of each word)
     """
     variations = set()
     subject_name = subject_name.strip()
@@ -65,6 +66,17 @@ def generate_variations(subject_name: str, abbreviation: str):
     if len(words) > 1:
         acronym = "".join(word[0].upper() for word in words)
         variations.add(acronym)
+
+    # Variation 5: Shortened form: first 4 letters (if available) for each word
+    short_form_words = []
+    for word in words:
+        if len(word) > 4:
+            short_form_words.append(word[:4].upper())
+        else:
+            short_form_words.append(word.upper())
+    short_form = " ".join(short_form_words)
+    variations.add(short_form)
+
     return list(variations)
 
 def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | None = None):
