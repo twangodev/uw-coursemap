@@ -341,7 +341,7 @@
     }
 
 </script>
-<div class="relative grow">
+<div class="relative grow" id="cy-container">
     <div class={cn("absolute inset-0 flex flex-col justify-center items-center space-y-4 transition-opacity", progress.number === 100 ? "opacity-0" : "")}>
         <p class="text-lg font-semibold">{progress.text}</p>
         <Progress class="w-[80%] md:w-[75%] lg:w-[30%]" value={progress.number}/>
