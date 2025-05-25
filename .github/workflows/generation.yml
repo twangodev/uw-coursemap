@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - generation/**
+      - 'generation/**'
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'
