@@ -4,6 +4,7 @@ import re
 import threading
 from collections import defaultdict
 from logging import Logger
+from asyncio import Semaphore
 
 import requests
 from aiohttp import DummyCookieJar
@@ -213,7 +214,7 @@ def produce_query(instructor_name):
 
 mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, ratelimited_count: int = 0,):
+async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, rate_limited_count: int = 0, disable_cache=False):
     auth_header = {
         "Authorization": f"Basic {api_key}",
         "User-Agent": mock_user_agent
@@ -221,20 +222,28 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
-        async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
-            data = await response.json()
+        if disable_cache:
+            async with session.disabled():
+                async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+                    data = await response.json()
+        else:
+            async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+                data = await response.json()
 
         if response.status == 429:
-            backoff = min(30, 2 ** ratelimited_count)
+            backoff = min(30, 2 ** rate_limited_count)
             logger.debug(f"Rate limited, retrying after {backoff} seconds.")
             await asyncio.sleep(backoff)
-            return await get_rating(name, api_key, logger, session, attempts, ratelimited_count + 1)
+            return await get_rating(name, api_key, logger, session, attempts, rate_limited_count + 1)
+
+        if data.get("errors"):
+            raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
 
     except Exception as e:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
-            return await get_rating(name, api_key, logger, session, attempts - 1, True)
+            return await get_rating(name, api_key, logger, session, attempts - 1, rate_limited_count, True)
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
@@ -409,6 +418,10 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
                 gd.instructors.remove(diff["old"])
                 gd.instructors.add(diff["new"])
 
+async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, logger, session):
+    async with sem:
+        return await get_rating(name, api_key, logger, session)
+
 async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger: Logger):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
@@ -432,12 +445,13 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
     logger.info(f"Fetching ratings for {total} instructors...")
 
     async with CachedSession(cache=get_aio_cache(), cookie_jar=DummyCookieJar()) as session:
+        semaphore = Semaphore(10)
         tasks = []
         names_emails = list(instructors.items())
         for i, (name, email) in enumerate(names_emails):
             logger.debug(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
             # Create a task to get the rating for each instructor
-            tasks.append(get_rating(name, api_key, logger, session))
+            tasks.append(sem_get_rating(semaphore, name, api_key, logger, session))
 
         # Run all rating requests concurrently
         ratings = await tqdm.gather(*tasks, desc="RMP Query", unit="instructor")
