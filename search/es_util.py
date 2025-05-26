@@ -139,78 +139,79 @@ def load_courses(es, courses):
     helpers.bulk(es, actions)
 
 def search_courses(es: Elasticsearch, search_term: str):
-    """
-    Searches courses using both the original and normalized fields.
-    Splits the search term into numeric and word parts to support queries like "COMP SCI 300".
-    Instead of enforcing the numeric part, this version boosts courses that match the numeric component.
-    """
-    search_term = normalize_text(search_term)
-    numeric_part = "".join(re.findall(r"\d+", search_term))
-    word_part = "".join(re.findall(r"\D+", search_term)).strip()
+    # Normalize and split
+    norm = normalize_text(search_term)
+    numeric_part = "".join(re.findall(r"\d+", norm))
+    word_part = "".join(re.findall(r"\D+", norm)).strip()
 
     should_queries = []
 
+    # 1) If we have a word part, resolve it to subjects first
     if word_part:
-        should_queries.append({
+        # hit_subjects: e.g. [{"subject_id":"MATH",...}, {"subject_id":"COMPSCI",...}]
+        hit_subjects = search_subjects(es, word_part)
+        subject_ids = [h["subject_id"] for h in hit_subjects]
+
+        # for each subject match the numeric part
+        if numeric_part:
+            for subj in subject_ids:
+                should_queries.append({
+                    "bool": {
+                        "must": [
+                            # require that the course lists this subject
+                            {"term": {"subjects_normalized": normalize_text(subj)}},
+                            # and also has the right number
+                            {"term": {
+                                "course_number": {
+                                    "value": int(numeric_part),
+                                    "boost": 8.0
+                                }
+                            }}
+                        ]
+                    }
+                })
+
+    # 2) Always include a fallback on the full text
+    should_queries.extend([
+        # exact-ish on reference
+        {"wildcard": {"course_reference_normalized": f"*{norm}*"}},
+        # fuzzy on title
+        {
             "multi_match": {
-                "query": word_part,
+                "query": norm,
                 "fields": [
                     "course_title_normalized^5",
-                    "course_reference_normalized^5",
-                    "subjects_normalized^8",
-                    "departments_normalized^3"
+                    "course_reference_normalized^4"
                 ],
                 "fuzziness": "AUTO"
             }
-        })
-        should_queries.extend([
-            {"wildcard": {"course_title_normalized": f"*{word_part}*"}},
-            {"wildcard": {"subjects_normalized": f"*{word_part}*"}},
-            {"wildcard": {"departments_noramlized": f"*{word_part}*"}},
-        ])
+        }
+    ])
 
-    # Wildcard matching on course_reference fields for the full search term.
-    should_queries.append({
-        "wildcard": {"course_reference_normalized": f"*{search_term}*"}
-    })
-
-    # If numeric part exists, add a boosted term query on course_number.
-    if numeric_part:
-        should_queries.append({
-            "term": {
-                "course_number": {
-                    "value": int(numeric_part),
-                    "boost": 7.5  # Boost factor can be adjusted as needed.
-                }
-            }
-        })
-
-    bool_query = {
-        "must": [],
-        "should": should_queries,
-        "minimum_should_match": 1
-    }
-
+    # 3) Wrap it up
     es_query = {
         "query": {
-            "bool": bool_query
+            "bool": {
+                "should": should_queries,
+                "minimum_should_match": 1
+            }
         },
         "size": 10
     }
-    results = es.search(index="courses", body=es_query)
-    hits = results.get("hits", {}).get("hits", [])
+
+    resp = es.search(index="courses", body=es_query)
+    hits = resp.get("hits", {}).get("hits", [])
     return [
         {
-            "course_id": hit["_id"],
-            "course_title": hit["_source"]["course_title"],
-            "course_number": hit["_source"]["course_number"],
-            "subjects": hit["_source"]["subjects"],
-            "departments": hit["_source"]["departments"],
-            "score": hit["_score"]
+            "course_id": h["_id"],
+            "course_title": h["_source"]["course_title"],
+            "course_number": h["_source"]["course_number"],
+            "subjects": h["_source"]["subjects"],
+            "departments": h["_source"]["departments"],
+            "score": h["_score"]
         }
-        for hit in hits
+        for h in hits
     ]
-
 
 def load_instructors(es, instructors):
     """
