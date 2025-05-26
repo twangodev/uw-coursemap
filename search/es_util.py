@@ -164,7 +164,7 @@ def search_courses(es: Elasticsearch, search_term: str):
                             {"term": {
                                 "course_number": {
                                     "value": int(numeric_part),
-                                    "boost": 8.0
+                                    "boost": 10.0
                                 }
                             }}
                         ]
