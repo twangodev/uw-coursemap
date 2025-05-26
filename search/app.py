@@ -107,7 +107,7 @@ def analyze():
     search_term = data.get("query")
 
     result = es.indices.analyze(index="subjects", body={
-        "analyzer": "standard",
+        "analyzer": "subject_analyzer",
         "text": search_term 
     })
     return jsonify(result.body)
