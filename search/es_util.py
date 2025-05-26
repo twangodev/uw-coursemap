@@ -99,23 +99,25 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
                         "synonyms": []
                     }
                 },
+                "char_filter": {
+                    "subject_char_filter": {
+                        "type": "pattern_replace",
+                        "pattern": r"[-&]",
+                        # Note: modifying length of string may affect highlighting in search results
+                        "replacement": "",
+                    }
+                },
                 "analyzer": {
                     "subject_analyzer": {
                         "type": "custom",
                         "tokenizer": "standard",
                         "char_filter": [
-                            {
-                                "type": "pattern_replace",
-                                "pattern": "-&",
-                                # Note: modifying length of string may affect highlighting in search results
-                                "replacement": "",
-                            }
+                            "subject_char_filter"
                         ],
                         "filter": [
                             "asciifolding",  
                             "lowercase",
-                            "subject_synonyms",
-                            "english_stop"
+                            # "subject_synonyms",
                         ]
                     }
                 }
@@ -124,6 +126,9 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
         "mappings": {
             "properties": {
                 "id": { "type": "keyword" },
+                "name": {
+                    "type": "text",
+                },
                 "variations": { 
                     "type": "text", # type is specified as text, but it is intended to be a list of strings
                     "analyzer": "subject_analyzer",     
@@ -132,7 +137,6 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             }
         }
     }
-
     es.indices.delete(index="subjects", ignore_unavailable=True)
     resp = es.indices.create(index="subjects", body=settings)
 
@@ -150,6 +154,7 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
             "_source": {
                 # strings are normalized by the analyzer when indexed
                 "id": subject_id,
+                "name": subject_name,
                 "variations": generate_variations(subject_name, subject_id),
             }
         }
@@ -165,18 +170,34 @@ def load_subjects(es: Elasticsearch, subjects: dict | None, logger: Logger | Non
     helpers.bulk(es, actions)
 
 def search_subjects(es: Elasticsearch, search_term: str):
-    search_term = normalize_text(search_term)
     es_query = {
         "query": {
-            "match": {
-                "variations": {
-                    "query": search_term,
-                },
-                "fuzziness": "AUTO"
+            "bool": {
+                "should": [
+                    {
+                        "match": {
+                            "variations": {
+                                "query": search_term,
+                                "fuzziness": "AUTO",
+                                "operator": "OR"
+                            }
+                        }
+                    },
+                    {
+                        "match_phrase": {
+                            "variations": {
+                                "query": search_term,
+                                "boost": 2.0
+                            }
+                        }
+                    }
+                ],
+                #"minimum_should_match": 1
             }
         },
-        "size": 5
+        "size": 5,
     }
+
     results = es.search(index="subjects", body=es_query)
     hits = results.get("hits", {}).get("hits", [])
     return [
@@ -193,29 +214,26 @@ def load_courses(es, courses):
     Index courses into Elasticsearch.
     Adds normalized versions for key text fields.
     """
+    doc_mapping = {
+        "properties": {
+            "course_codes": { "type": "text" }, # type is specified as text, but it is intended to be a list of strings
+            "course_title": { "type": "text" },
+            "course_desc": { "type": "text" },
+        }
+    }
+
     es.indices.delete(index="courses", ignore_unavailable=True)
-    es.indices.create(index="courses")
+    es.indices.create(index="courses", mappings=doc_mapping)
 
     actions = []
     for course_id, course_data in courses.items():
         # Original fields
         course_reference = course_data["course_reference"]
-        course_title = course_data["course_title"]
-        subjects_list = course_data["subjects"]
-        departments_list = course_data["departments"]
-
-        # Normalized versions
-        normalized_course_reference = normalize_text(course_reference)
-        normalized_course_title = normalize_text(course_title)
-        normalized_subjects = [normalize_text(s) for s in subjects_list]
-        normalized_departments = [normalize_text(d) for d in departments_list]
 
         course_doc = {
             **course_data,
-            "course_reference_normalized": normalized_course_reference,
-            "course_title_normalized": normalized_course_title,
-            "subjects_normalized": normalized_subjects,
-            "departments_normalized": normalized_departments
+            # TODO: need to convert course_reference to a list of strings representing course codes
+            "course_codes": normalized_course_reference,
         }
         actions.append({
             "_index": "courses",
