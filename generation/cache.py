@@ -162,10 +162,13 @@ def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: s
         logger.debug(f"Embedding file {file_path} does not exist.")
         return None
 
-    # Load and return the numpy array.
-    embedding = np.load(file_path)
-    logger.debug(f"Embedding read from {file_path}")
-    return embedding
+    try:
+        embedding = np.load(file_path)
+        logger.debug(f"Embedding read from {file_path}")
+        return embedding
+    except Exception as e:
+        logger.warning(f"Failed to load embedding from {file_path}: {e}")
+        return None
 
 
 def read_embedding_cache(cache_dir, sha256hash: str, logger: Logger):
