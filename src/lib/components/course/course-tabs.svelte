@@ -29,9 +29,17 @@
         prerequisiteStyleEntries,
     }: Props = $props();
 
+    let value = $state("overview");
+
+    function goToTab(tab: string) {
+        return () => {
+            value = tab;
+        };
+    }
+
 </script>
 
-<Tabs value="overview">
+<Tabs bind:value>
     <TabsList class="my-2">
         <TabsTrigger value="overview">Overview</TabsTrigger>
         <TabsTrigger value="trends">Trends</TabsTrigger>
@@ -41,7 +49,14 @@
     <div class="grid gap-4 lg:grid-cols-12">
         <CourseDetails {course} {selectedTerm}/>
         <TabsContent class="lg:col-span-9 space-y-4" value="overview">
-            <CourseOverview {course} {similarCourses} {instructors} {selectedTerm} {terms}/>
+            <CourseOverview
+                {course}
+                {similarCourses}
+                {instructors}
+                {selectedTerm}
+                {terms}
+                goToInstructors={goToTab("instructors")}
+            />
         </TabsContent>
         <TabsContent class="lg:col-span-9 space-y-4" value="trends">
             <CourseTrends {course} {terms}/>

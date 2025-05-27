@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {ArrowUpRight, BookA, BookPlus, CircleCheckBig, Users} from "@lucide/svelte";
+    import {ArrowUpRight} from "@lucide/svelte";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
@@ -16,11 +16,12 @@
     } from "$lib/components/data-card/index.js";
 
     interface Props {
-        course: Course;
-        similarCourses: Course[];
-        terms: Terms;
-        selectedTerm: string | undefined;
-        instructors: FullInstructorInformation[];
+        course: Course,
+        similarCourses: Course[],
+        terms: Terms,
+        selectedTerm: string | undefined,
+        instructors: FullInstructorInformation[],
+        goToInstructors: () => void
     }
 
     let {
@@ -29,6 +30,7 @@
         terms,
         selectedTerm,
         instructors,
+        goToInstructors
     }: Props = $props();
 
     function termsWithGradeData(course: Course) {
@@ -77,13 +79,6 @@
         return calculateCompletionRate(course.cumulative_grade_data)
     }
 
-    const appendPercent = (value: number | null) => {
-        if (value === null) {
-            return "Not Reported"
-        }
-        return `${value.toFixed(2)}%`
-    }
-
     let termGPA = $derived(getLatestTermGPA(course));
     let cumulativeGPA = $derived(getCumulativeGPA(course));
     let termCompletionRate = $derived(getLatestCompletionRate(course));
@@ -128,10 +123,21 @@
         </CardHeader>
         <CardContent>
             {#key instructors}
-                {#each instructors as instructor}
-                    <InstructorPreview {instructor} showRating={true}/>
+                {#each instructors.slice(0, 3) as instructor}
+                    <InstructorPreview {instructor} showRating={true} />
                 {/each}
             {/key}
+            {#if instructors.length > 3}
+                <div class="flex justify-center">
+                    <button
+                        class="text-center text-xs text-muted-foreground flex items-center space-x-1 hover:underline hover:cursor-pointer"
+                        onclick={goToInstructors}
+                    >
+                        <span>Showing 3 of {instructors.length} instructors.</span>
+                        <ArrowUpRight class="h-3.5 w-3.5"/>
+                    </button>
+                </div>
+            {/if}
         </CardContent>
     </Card>
     <div class="md:col-span-2 lg:col-span-7">
