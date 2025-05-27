@@ -11,6 +11,12 @@
 
     let {instructors}: Props = $props();
 
+    let showMax = $state(6);
+
+    function showMore() {
+        showMax = Math.min(showMax + 3, instructors.length);
+    }
+
 </script>
 
 <Card>
@@ -32,7 +38,7 @@
             <p class="text-center">No instructors found.</p>
         {/if}
         {#key instructors}
-            {#each instructors as instructor}
+            {#each instructors.slice(0, showMax) as instructor}
                 <InstructorPreview
                         {instructor}
                         showRating={true}
@@ -40,6 +46,17 @@
                 />
             {/each}
         {/key}
+        {#if showMax < instructors.length}
+            <div class="flex justify-center">
+                <button
+                        class="text-center text-sm hover:underline hover:cursor-pointer"
+                        onclick={showMore}
+                >
+                    Show more ({instructors.length - showMax})
+                </button>
+            </div>
+        {/if}
+
     </CardContent>
 </Card>
 {#if instructors.length > 0}
