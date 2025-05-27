@@ -12,10 +12,18 @@
     let {instructors}: Props = $props();
 
     let showMax = $state(6);
+    let safeShowMax = $derived(Math.min(showMax, instructors.length));
 
     function showMore() {
-        showMax = Math.min(showMax + 3, instructors.length);
+        showMax += 3
     }
+
+    $effect(() => {
+        if (instructors) {
+            showMax = 6
+        }
+    })
+
 
 </script>
 
@@ -38,7 +46,7 @@
             <p class="text-center">No instructors found.</p>
         {/if}
         {#key instructors}
-            {#each instructors.slice(0, showMax) as instructor}
+            {#each instructors.slice(0, safeShowMax) as instructor}
                 <InstructorPreview
                         {instructor}
                         showRating={true}
