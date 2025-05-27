@@ -105,8 +105,14 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
     )
 
     def set_keywords(course: Course):
+        description = course.description.strip()
+
+        if not description:
+            return
+
+
         keywords = kw_model.extract_keywords(
-            course.description,
+            description,
             keyphrase_ngram_range=(1, 2),
             stop_words="english",
             top_n=5,
