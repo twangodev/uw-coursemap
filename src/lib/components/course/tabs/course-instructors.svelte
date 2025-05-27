@@ -47,12 +47,19 @@
             {/each}
         {/key}
         {#if showMax < instructors.length}
-            <div class="flex justify-center">
+            <div class="flex justify-center text-sm text-muted-foreground">
                 <button
-                        class="text-center text-sm hover:underline hover:cursor-pointer"
+                        class="text-center hover:underline hover:cursor-pointer"
                         onclick={showMore}
                 >
                     Show more ({instructors.length - showMax})
+                </button>
+                <span class="px-1">or</span>
+                <button
+                        class="text-center hover:underline hover:cursor-pointer"
+                        onclick={() => showMax = instructors.length}
+                >
+                    Show all
                 </button>
             </div>
         {/if}
