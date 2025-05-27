@@ -3,13 +3,11 @@
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
-    import Change from "$lib/components/data-card/change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import type {Course} from "$lib/types/course.ts";
     import type {Terms} from "$lib/types/terms.ts";
     import {type FullInstructorInformation} from "$lib/types/instructor.ts";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
-    import NumberFlow from "@number-flow/svelte";
     import {
         ARateDataCard,
         ClassSizeDataCard,
@@ -49,13 +47,6 @@
 
     const getLatestTermGPA = (course: Course) => {
         return calculateGradePointAverage(getTermGradeData(course))
-    }
-
-    const getPercentChange = (latest: number | null, cumulative: number | null) => {
-        if (cumulative !== null && latest !== null) {
-            return ((latest - cumulative) / cumulative)
-        }
-        return null
     }
 
     function getCumulativeGPA(course: Course) {

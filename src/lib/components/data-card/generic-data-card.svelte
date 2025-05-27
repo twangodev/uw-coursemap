@@ -1,8 +1,8 @@
 <script lang="ts">
-    import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
+    import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.ts";
     import {cn} from "$lib/utils.ts";
     import {Change} from "$lib/components/data-card/index.ts";
-    import type {Component, SvelteComponent} from "svelte";
+    import type {Component} from "svelte";
     import NumberFlow from "@number-flow/svelte";
 
     interface Props {
