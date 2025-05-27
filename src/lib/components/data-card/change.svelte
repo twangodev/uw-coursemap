@@ -2,7 +2,7 @@
 
     import {MoveRight, TrendingDown, TrendingUp} from "@lucide/svelte";
     import {cn} from "$lib/utils.ts";
-
+    import NumberFlow from "@number-flow/svelte";
 
     const calculateColorFromChange = (points: number | null) => {
         if (points === null || points === 0) {
@@ -15,15 +15,10 @@
         }
     }
 
-    const formatChange = (points: number | null) => {
-        if (points === null) {
-            return "Could not calculate change"
-        }
-        const formatted = points.toFixed(2)
-        if (points == 0) {
-            return `No change from ${comparisonKeyword}`
-        }
-        return `${Math.abs(points).toFixed(2)}% from ${comparisonKeyword}`
+    const percentFormat: Intl.NumberFormatOptions = {
+        style: "percent",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
     }
 
     interface Props {
@@ -40,7 +35,6 @@
         trendSize = 14
     }: Props = $props();
     
-
 </script>
 
 <p class={cn("flex items-center", className, calculateColorFromChange(points))}>
@@ -56,5 +50,13 @@
         {/if}
     </span>
 
-    {formatChange(points)}
+    {#if points !== null}
+        {#if points}
+            <NumberFlow value={points} suffix=" from {comparisonKeyword}" format={percentFormat}/>
+        {:else}
+            No change from {comparisonKeyword}
+        {/if}
+    {:else}
+         Could not calculate change
+    {/if}
 </p>
