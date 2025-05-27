@@ -3,10 +3,14 @@ import hashlib
 import os
 import re
 from logging import Logger
+from os import environ
+from typing import List
 
 import numpy as np
 import requests_cache
+from keybert.backend import BaseEmbedder
 from sentence_transformers import SentenceTransformer
+from torch import cuda
 from tqdm.asyncio import tqdm
 
 from cache import read_embedding_cache, write_embedding_cache, write_course_ref_to_course_cache
@@ -18,10 +22,27 @@ def get_model(cache_dir, logger: Logger):
     # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
     with requests_cache.disabled():
         model_cache_dir = os.path.join(cache_dir, "model")
+
+        device = "cpu"
+
+        if cuda.is_available():
+            logger.info("CUDA is available. Using GPU for model inference.")
+            cuda_device = 0
+
+            selected_cuda_device = environ.get("CUDA_DEVICE", None)
+            if selected_cuda_device:
+                cuda_device = selected_cuda_device
+                logger.info(f"CUDA device selected: {selected_cuda_device}")
+            else:
+                logger.info(f"No specific CUDA device selected. Using default device {cuda_device}.")
+
+            device = f"cuda:{cuda_device}"
+
         model =  SentenceTransformer(
             model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
             cache_folder=model_cache_dir,
             trust_remote_code=True,
+            device=device
         )
 
         global initialized_model
@@ -32,7 +53,6 @@ def get_model(cache_dir, logger: Logger):
             logger.info("Model already loaded. Reusing the existing model.")
 
         return initialized_model
-
 
 def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
@@ -47,6 +67,21 @@ def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
         write_embedding_cache(cache_dir, sha256, embedding, logger)
 
     return embedding
+
+class CachedBaseEmbedder(BaseEmbedder):
+
+    def __init__(self, cache_dir, model: SentenceTransformer, logger: Logger):
+        super().__init__()
+        self.cache_dir = cache_dir
+        self.model = model
+        self.logger = logger
+
+
+    def embed(self, documents: List[str], verbose: bool = False) -> np.ndarray:
+        embeddings =  [get_embedding(self.cache_dir, self.model, text, self.logger) for text in documents]
+        return np.vstack(embeddings)
+
+
 
 def normalize(v):
     return v / np.linalg.norm(v)
