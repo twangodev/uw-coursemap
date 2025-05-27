@@ -115,8 +115,8 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
             keyphrase_ngram_range=(1, 2),
             stop_words="english",
             top_n=5,
-            use_mmr=True,
-            diversity=0.7
+            use_maxsum=True,
+            nr_candidates=10,
         )
 
         actual_keywords = [keyword[0] for keyword in keywords]
