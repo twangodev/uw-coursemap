@@ -16,11 +16,12 @@
     } from "$lib/components/data-card/index.js";
 
     interface Props {
-        course: Course;
-        similarCourses: Course[];
-        terms: Terms;
-        selectedTerm: string | undefined;
-        instructors: FullInstructorInformation[];
+        course: Course,
+        similarCourses: Course[],
+        terms: Terms,
+        selectedTerm: string | undefined,
+        instructors: FullInstructorInformation[],
+        goToInstructors: () => void
     }
 
     let {
@@ -29,6 +30,7 @@
         terms,
         selectedTerm,
         instructors,
+        goToInstructors
     }: Props = $props();
 
     function termsWithGradeData(course: Course) {
@@ -125,6 +127,17 @@
                     <InstructorPreview {instructor} showRating={true} />
                 {/each}
             {/key}
+            {#if instructors.length > 3}
+                <div class="flex justify-center">
+                    <button
+                        class="text-center text-xs text-muted-foreground flex items-center space-x-1 hover:underline hover:cursor-pointer"
+                        onclick={goToInstructors}
+                    >
+                        <span>Showing 3 of {instructors.length} instructors.</span>
+                        <ArrowUpRight class="h-3.5 w-3.5"/>
+                    </button>
+                </div>
+            {/if}
         </CardContent>
     </Card>
     <div class="md:col-span-2 lg:col-span-7">
