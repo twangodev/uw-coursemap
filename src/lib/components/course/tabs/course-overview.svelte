@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {ArrowUpRight, BookA, BookPlus, CircleCheckBig, Users} from "@lucide/svelte";
+    import {ArrowUpRight} from "@lucide/svelte";
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
@@ -77,13 +77,6 @@
         return calculateCompletionRate(course.cumulative_grade_data)
     }
 
-    const appendPercent = (value: number | null) => {
-        if (value === null) {
-            return "Not Reported"
-        }
-        return `${value.toFixed(2)}%`
-    }
-
     let termGPA = $derived(getLatestTermGPA(course));
     let cumulativeGPA = $derived(getCumulativeGPA(course));
     let termCompletionRate = $derived(getLatestCompletionRate(course));
@@ -128,8 +121,8 @@
         </CardHeader>
         <CardContent>
             {#key instructors}
-                {#each instructors as instructor}
-                    <InstructorPreview {instructor} showRating={true}/>
+                {#each instructors.slice(0, 3) as instructor}
+                    <InstructorPreview {instructor} showRating={true} />
                 {/each}
             {/key}
         </CardContent>
