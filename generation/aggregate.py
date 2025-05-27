@@ -113,7 +113,7 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
         keywords = kw_model.extract_keywords(
             description,
-            keyphrase_ngram_range=(1, 2),
+            keyphrase_ngram_range=(1, 1),
             stop_words="english",
             top_n=5,
             use_mmr=True,
