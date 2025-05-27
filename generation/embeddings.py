@@ -3,9 +3,11 @@ import hashlib
 import os
 import re
 from logging import Logger
+from typing import List
 
 import numpy as np
 import requests_cache
+from keybert.backend import BaseEmbedder
 from sentence_transformers import SentenceTransformer
 from tqdm.asyncio import tqdm
 
@@ -33,7 +35,6 @@ def get_model(cache_dir, logger: Logger):
 
         return initialized_model
 
-
 def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
 
@@ -47,6 +48,21 @@ def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
         write_embedding_cache(cache_dir, sha256, embedding, logger)
 
     return embedding
+
+class CachedBaseEmbedder(BaseEmbedder):
+
+    def __init__(self, cache_dir, model: SentenceTransformer, logger: Logger):
+        super().__init__()
+        self.cache_dir = cache_dir
+        self.model = model
+        self.logger = logger
+
+
+    def embed(self, documents: List[str], verbose: bool = False) -> np.ndarray:
+        embeddings =  [get_embedding(self.cache_dir, self.model, text, self.logger) for text in documents]
+        return np.vstack(embeddings)
+
+
 
 def normalize(v):
     return v / np.linalg.norm(v)

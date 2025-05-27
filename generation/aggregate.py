@@ -1,10 +1,11 @@
 import asyncio
 
 import numpy as np
+from keybert import KeyBERT
 from tqdm.asyncio import tqdm
 
 from course import Course
-from embeddings import get_model, get_embedding, cosine_similarity, normalize
+from embeddings import get_model, get_embedding, CachedBaseEmbedder
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
@@ -45,7 +46,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     ]
 
     # Await tasks concurrently.
-    results = await tqdm.gather(*tasks, position=0, desc="Course Embedding Analysis", unit="course")
+    results = await tqdm.gather(*tasks, position=0, desc="Course Similarity Embedding Analysis", unit="course")
 
     # Build the dictionary mapping course references to their embeddings.
     course_embeddings = {course_ref: embedding for course_ref, embedding in results}
@@ -98,10 +99,36 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
             for similar_ref in similar_courses_mapping.get(course_ref, [])
         ]
 
+async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
+    kw_model = KeyBERT(
+        model=CachedBaseEmbedder(cache_dir, get_model(cache_dir, logger), logger),
+    )
+
+    def set_keywords(course: Course):
+        keywords = kw_model.extract_keywords(
+            course.description,
+            keyphrase_ngram_range=(1, 2),
+            stop_words="english",
+            top_n=5,
+            use_mmr=True,
+        )
+
+        actual_keywords = [keyword[0] for keyword in keywords]
+        course.keywords = actual_keywords
+
+    tasks = [
+        asyncio.to_thread(set_keywords, course)
+        for course in course_ref_to_course.values()
+    ]
+
+    await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
+
+
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
     qs = quick_statistics(course_ref_to_course, logger)
 
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
+    asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
     return qs
 
