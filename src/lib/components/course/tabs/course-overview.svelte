@@ -3,12 +3,19 @@
     import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import GradeDataHorizontalBarChart from "$lib/components/charts/grade-data-horizontal-bar-chart.svelte";
     import CourseCarousel from "$lib/components/course-carousel/course-carousel.svelte";
-    import Change from "$lib/components/change.svelte";
+    import Change from "$lib/components/data-card/change.svelte";
     import InstructorPreview from "$lib/components/instructor-preview/instructor-preview.svelte";
     import type {Course} from "$lib/types/course.ts";
     import type {Terms} from "$lib/types/terms.ts";
     import {type FullInstructorInformation} from "$lib/types/instructor.ts";
     import {calculateARate, calculateCompletionRate, calculateGradePointAverage} from "$lib/types/madgrades.ts";
+    import NumberFlow from "@number-flow/svelte";
+    import {
+        ARateDataCard,
+        ClassSizeDataCard,
+        CompletionRateDataCard,
+        GPADataCard
+    } from "$lib/components/data-card/index.js";
 
     interface Props {
         course: Course;
@@ -44,24 +51,9 @@
         return calculateGradePointAverage(getTermGradeData(course))
     }
 
-    const calculateColorFromGPA = (gpa: number | null) => {
-        if (gpa === null) {
-            return ""
-        }
-        if (gpa >= 3.5) {
-            return "text-green-600 dark:text-green-400"
-        } else if (gpa >= 3.0) {
-            return "text-amber-600 dark:text-yellow-400"
-        } else if (gpa >= 2.5) {
-            return "text-orange-600 dark:text-orange-400"
-        } else {
-            return "text-red-600 dark:text-red-400"
-        }
-    }
-
     const getPercentChange = (latest: number | null, cumulative: number | null) => {
         if (cumulative !== null && latest !== null) {
-            return ((latest - cumulative) / cumulative) * 100
+            return ((latest - cumulative) / cumulative)
         }
         return null
     }
@@ -101,73 +93,22 @@
         return `${value.toFixed(2)}%`
     }
 
+    let termGPA = $derived(getLatestTermGPA(course));
+    let cumulativeGPA = $derived(getCumulativeGPA(course));
+    let termCompletionRate = $derived(getLatestCompletionRate(course));
+    let cumulativeCompletionRate = $derived(getCumulativeCompletionRate(course));
+    let termARate = $derived(getLatestARate(course));
+    let cumulativeARate = $derived(getCumulativeARate(course));
+    let termClassSize = $derived(getLatestClassSize(course));
+    let cumulativeAverageClassSize = $derived(getCumulativeClassSize(course));
+
 </script>
 
 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-    <Card>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-sm font-medium">Grade Point Average</CardTitle>
-            <BookPlus class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <div class="text-2xl font-bold {calculateColorFromGPA(getLatestTermGPA(course))}">
-                {getLatestTermGPA(course)?.toFixed(2) ?? "Not Reported"}
-            </div>
-            <Change class="mt-0.5 text-xs"
-                    comparisonKeyword="Historical"
-                    points={getPercentChange(getLatestTermGPA(course), getCumulativeGPA(course))}/>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-sm font-medium">Completion Rate</CardTitle>
-            <CircleCheckBig class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <div class="text-2xl font-bold">
-                {appendPercent(getLatestCompletionRate(course))}
-            </div>
-            <Change class="mt-0.5 text-xs"
-                    comparisonKeyword="Historical"
-                    points={getPercentChange(getLatestCompletionRate(course), getCumulativeCompletionRate(course))}/>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-sm font-medium">A Rate</CardTitle>
-            <BookA class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <div class="text-2xl font-bold">
-                {appendPercent(getLatestARate(course))}
-            </div>
-            <Change class="mt-0.5 text-xs"
-                    comparisonKeyword="Historical"
-                    points={getPercentChange(getLatestARate(course), getCumulativeARate(course))}/>
-        </CardContent>
-    </Card>
-    <Card>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-sm font-medium">Class Size</CardTitle>
-            <Users class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <div class="text-2xl font-bold">
-                {getLatestClassSize(course) ?? "Not Reported"}
-            </div>
-            <Change class="mt-0.5 text-xs"
-                    comparisonKeyword="Historical"
-                    points={getPercentChange(getLatestClassSize(course), getCumulativeClassSize(course))}/>
-        </CardContent>
-    </Card>
+    <GPADataCard {termGPA} {cumulativeGPA} />
+    <CompletionRateDataCard {termCompletionRate} {cumulativeCompletionRate} />
+    <ARateDataCard {termARate} {cumulativeARate} />
+    <ClassSizeDataCard {termClassSize} {cumulativeAverageClassSize} />
 </div>
 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
     <Card class="lg:col-span-4">
