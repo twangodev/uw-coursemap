@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'generation/**'
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'
