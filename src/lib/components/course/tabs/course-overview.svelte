@@ -100,8 +100,10 @@
     <Card class="lg:col-span-4">
         <CardContent class="pt-6">
             {#if course.cumulative_grade_data}
-                <GradeDataHorizontalBarChart cumulative={course.cumulative_grade_data}
-                                             termData={course.term_data}/>
+                <GradeDataHorizontalBarChart
+                    cumulative={course.cumulative_grade_data}
+                    termData={course.term_data}
+                />
             {:else}
                 <p class="text-center">No data available</p>
             {/if}

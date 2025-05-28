@@ -21,7 +21,7 @@
         term = null
     }: Props = $props();
 
-    let gradeData = term ? (termData[term].grade_data ?? cumulative) : cumulative
+    let gradeData = $derived(term ? (termData[term].grade_data ?? cumulative) : cumulative)
     let data: ChartTabularData = $derived([
         {
             group: 'A',
