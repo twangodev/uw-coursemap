@@ -52,6 +52,7 @@ def get_model(cache_dir, logger: Logger):
             device=device
         )
 
+        initialized_model = model
         return model
 
 def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
