@@ -34,7 +34,7 @@
 
 <div in:slide|global={slideParams} out:slide|global={slideOutParams}>
     <a
-        class="flex justify-between items-center p-2 rounded-lg hover:bg-muted transition-colors w-full"
+        class="flex justify-between items-center p-2 rounded-lg hover:bg-muted transition-colors"
         target="_blank"
         href="/instructors/{name.replaceAll(' ', '_').replaceAll('/', '_')}"
     >

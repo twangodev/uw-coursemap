@@ -63,10 +63,10 @@
 </script>
 
 <ContentWrapper>
-    <div class="grid gap-4 lg:grid-cols-12">
+    <div class="grid gap-4 grid-cols-1 lg:grid-cols-12">
         <InstructorDetails {instructor} />
-        <div class="mt-2 lg:col-span-9 space-y-4">
-            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-2 grid-cols-1 lg:col-span-9 space-y-4">
+            <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
                     <CardHeader
                             class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -125,7 +125,7 @@
                 </Card>
             </div>
             {#if instructor.rmp_data}
-                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                     <Card>
                         <CardHeader
                                 class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -183,7 +183,7 @@
                         </CardContent>
                     </Card>
                 </div>
-                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
                     <Card>
                         <CardContent class="pt-6">
                             <RatingDonutChart ratingData={instructor.rmp_data?.ratings_distribution} />
