@@ -2,8 +2,6 @@
     import {BookOpen, CalendarRange, ClipboardCheck, Info} from "@lucide/svelte";
     import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import type {Course} from "$lib/types/course.ts";
-    import {cn} from "$lib/utils.ts";
-    import {onMount} from "svelte";
     import ClampedParagraph from "../clamped-paragraph.svelte";
 
     interface Props {
@@ -46,28 +44,6 @@
     const getNormallyOffered = (course: Course) => {
         return getLatestEnrollmentData(course)?.typically_offered ?? "Not Reported";
     }
-
-    let descriptionElement: HTMLParagraphElement
-    let showToggle = $state(false)
-    let expandDescription = $state(false);
-
-    function checkOverflow() {
-        if (!descriptionElement) return;
-        showToggle = descriptionElement.scrollHeight > descriptionElement.clientHeight;
-    }
-
-    function toggleExpandDescription() {
-        expandDescription = !expandDescription;
-    }
-
-    onMount(() => {
-        checkOverflow();
-        window.addEventListener('resize', checkOverflow);
-    });
-
-    $effect(() => {
-        checkOverflow();
-    });
 
 </script>
 
