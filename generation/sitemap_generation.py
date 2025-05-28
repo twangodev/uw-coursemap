@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from typing import List, Dict, Union
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
@@ -6,6 +7,8 @@ from pathvalidate import validate_filename, ValidationError
 from tqdm import tqdm
 
 pages = ['', 'explorer', 'upload']
+
+last_mod = datetime.now().date().isoformat()
 
 def sanitize_entry(entry: str, logger) -> Union[str, None]:
     result = entry.replace("/", "_").replace(" ", "_")
@@ -16,16 +19,17 @@ def sanitize_entry(entry: str, logger) -> Union[str, None]:
         return None
     return result
 
-def create_url_entry(base_url: str, prefix: str, url_str: str, logger,
-                     changefreq: str = 'weekly',
-                     priority: float = 0.5) -> Union[Dict[str, Union[str, float]], None]:
+def create_url_entry(
+    base_url: str, prefix: str, url_str: str, logger, changefreq: str = 'weekly', priority: float = 0.5, lastmod: str = last_mod
+) -> Union[Dict[str, Union[str, float]], None]:
     sanitized = sanitize_entry(url_str, logger)
     if not sanitized:
         return None
     return {
         'loc': f"{base_url}/{prefix}/{sanitized}",
         'changefreq': changefreq,
-        'priority': priority
+        'priority': priority,
+        'lastmod': lastmod
     }
 
 def generate_sitemap_xml(urls: List[Dict[str, Union[str, float]]]) -> str:
@@ -38,6 +42,8 @@ def generate_sitemap_xml(urls: List[Dict[str, Union[str, float]]]) -> str:
         cf.text = entry['changefreq']
         pr = SubElement(url_el, 'priority')
         pr.text = f"{entry['priority']:.1f}"
+        lm_el      = SubElement(url_el, 'lastmod')
+        lm_el.text = entry['lastmod']
     raw_xml = tostring(urlset, encoding='utf-8')
     return parseString(raw_xml).toprettyxml(indent="  ")
 
@@ -72,7 +78,7 @@ def write_urlsets(data_dir: str, base_url: str,
 def generate_sitemap(data_dir: str, base_url: str,
                      subjects: List[str], courses: List[str],
                      instructors: List[str], logger):
-    pages_entries = [{'loc': f"{base_url}/{p}", 'changefreq': 'monthly', 'priority': 1.0}
+    pages_entries = [{'loc': f"{base_url}/{p}", 'changefreq': 'monthly', 'priority': 1.0, 'lastmod': last_mod}
                      for p in pages]
 
     subj_entries = []
