@@ -48,6 +48,7 @@
                         elementDefinitions={prerequisiteElementDefinitions}
                         styleEntries={prerequisiteStyleEntries}
                         filter={course}
+                        allowFocusing={false}
                 />
             {/key}
         </div>

@@ -11,7 +11,7 @@
 
 </script>
 
-<a href="/courses/{sanitizeCourseToReferenceString(course.course_reference)}" target="_parent"> <!-- TODO fix reactivity on +page.svelte for courseIdentifier slug -->
+<a href="/courses/{sanitizeCourseToReferenceString(course.course_reference)}">
     <Card class="w-full max-w-64 overflow-hidden">
         <CardHeader class="pb-0">
             <CardTitle class="truncate">{course.course_title}</CardTitle>
