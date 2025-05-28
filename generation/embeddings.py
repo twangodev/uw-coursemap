@@ -18,7 +18,8 @@ from course import Course
 
 initialized_model = None
 
-def get_model(cache_dir, logger: Logger):
+def get_model(cache_dir, logger: Logger, model_name="avsolatorio/GIST-large-Embedding-v0"):
+
     # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
     with requests_cache.disabled():
         model_cache_dir = os.path.join(cache_dir, "model")
@@ -39,7 +40,7 @@ def get_model(cache_dir, logger: Logger):
             device = f"cuda:{cuda_device}"
 
         model =  SentenceTransformer(
-            model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
+            model_name_or_path=model_name,
             cache_folder=model_cache_dir,
             trust_remote_code=True,
             device=device
@@ -67,21 +68,6 @@ def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
         write_embedding_cache(cache_dir, sha256, embedding, logger)
 
     return embedding
-
-class CachedBaseEmbedder(BaseEmbedder):
-
-    def __init__(self, cache_dir, model: SentenceTransformer, logger: Logger):
-        super().__init__()
-        self.cache_dir = cache_dir
-        self.model = model
-        self.logger = logger
-
-
-    def embed(self, documents: List[str], verbose: bool = False) -> np.ndarray:
-        embeddings =  [get_embedding(self.cache_dir, self.model, text, self.logger) for text in documents]
-        return np.vstack(embeddings)
-
-
 
 def normalize(v):
     return v / np.linalg.norm(v)
