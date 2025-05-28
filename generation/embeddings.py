@@ -18,8 +18,7 @@ from course import Course
 
 initialized_model = None
 
-def get_model(cache_dir, logger: Logger, model_name="avsolatorio/GIST-large-Embedding-v0"):
-
+def get_model(cache_dir, logger: Logger):
     # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
     with requests_cache.disabled():
         model_cache_dir = os.path.join(cache_dir, "model")
@@ -40,7 +39,7 @@ def get_model(cache_dir, logger: Logger, model_name="avsolatorio/GIST-large-Embe
             device = f"cuda:{cuda_device}"
 
         model =  SentenceTransformer(
-            model_name_or_path=model_name,
+            model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
             cache_folder=model_cache_dir,
             trust_remote_code=True,
             device=device
