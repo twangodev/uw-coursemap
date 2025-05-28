@@ -71,7 +71,12 @@
             <BookOpen class="text-muted-foreground h-4 w-4"/>
         </CardHeader>
         <CardContent>
-            <LinkedPrerequisites {course}/>
+            <ClampedParagraph
+                    clampAmount={3}
+                    class="text-sm break-words"
+            >
+                <LinkedPrerequisites {course}/>
+            </ClampedParagraph>
         </CardContent>
         <div class="flex flex-row space-x-4">
             <div class="flex-1">

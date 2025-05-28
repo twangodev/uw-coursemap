@@ -16,23 +16,18 @@
 
 </script>
 
-<ClampedParagraph
-    clampAmount={3}
-    class="text-sm break-words"
->
-    {#each linkedPrerequisites as item}
-        {#if typeof item === 'string'}
-            {item}
-        {:else if typeof item === 'object'}
-            <HoverCard>
-                <HoverCardTrigger
-                        href={`/courses/${sanitizeCourseToReferenceString(item)}`}
-                        class="underline-offset-2 hover:underline focus-visible:outline-2"
-                >
-                    {courseReferenceToString(item)}
-                </HoverCardTrigger>
-                <HoverLinkedRequisiteContent courseReference={item} />
-            </HoverCard>
-        {/if}
-    {/each}
-</ClampedParagraph>
+{#each linkedPrerequisites as item}
+    {#if typeof item === 'string'}
+        {item}
+    {:else if typeof item === 'object'}
+        <HoverCard>
+            <HoverCardTrigger
+                    href={`/courses/${sanitizeCourseToReferenceString(item)}`}
+                    class="underline-offset-2 hover:underline focus-visible:outline-2"
+            >
+                {courseReferenceToString(item)}
+            </HoverCardTrigger>
+            <HoverLinkedRequisiteContent courseReference={item} />
+        </HoverCard>
+    {/if}
+{/each}
