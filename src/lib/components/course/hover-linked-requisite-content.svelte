@@ -33,7 +33,7 @@
                 </div>
             </div>
         {:then course}
-            <h5 class="text-xs line-clamp-1">{course.course_title}</h5>
+            <h5 class="text-xs pt-0.5 line-clamp-1">{course.course_title}</h5>
             <p class="text-xs pt-1 line-clamp-2">{course.description}</p>
             <div class="flex items-center pt-2">
                 <Users class="mr-2 size-3" />
