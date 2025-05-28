@@ -90,13 +90,13 @@
 
 </script>
 
-<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+<div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     <GPADataCard {termGPA} {cumulativeGPA} />
     <CompletionRateDataCard {termCompletionRate} {cumulativeCompletionRate} />
     <ARateDataCard {termARate} {cumulativeARate} />
     <ClassSizeDataCard {termClassSize} {cumulativeAverageClassSize} />
 </div>
-<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+<div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
     <Card class="lg:col-span-4">
         <CardContent class="pt-6">
             {#if course.cumulative_grade_data}
