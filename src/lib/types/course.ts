@@ -12,6 +12,7 @@ export type CourseReference = {
 type CoursePrerequisites = {
     course_references: CourseReference[];
     prerequisites_text: string;
+    linked_requisite_text: (string | CourseReference)[];
 }
 
 export type Course = {
@@ -76,6 +77,12 @@ export function getInstructorsWithEmail(course: Course | undefined, term: string
     }
 
     return {};
+}
+
+export function getLatestInstructorNames(course: Course) {
+    const latestTerm = Object.keys(course.term_data).sort().reverse()[0];
+    const instructorsWithEmail = getInstructorsWithEmail(course, latestTerm);
+    return Object.keys(instructorsWithEmail);
 }
 
 export function courseToJsonLd(course: Course): WithContext<CourseSchema> {

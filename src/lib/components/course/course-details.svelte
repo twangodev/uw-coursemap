@@ -3,6 +3,7 @@
     import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import type {Course} from "$lib/types/course.ts";
     import ClampedParagraph from "../clamped-paragraph.svelte";
+    import LinkedPrerequisites from "./linked-prerequisites.svelte";
 
     interface Props {
         course: Course;
@@ -71,10 +72,10 @@
         </CardHeader>
         <CardContent>
             <ClampedParagraph
-                clampAmount={3}
-                class="text-sm break-words"
+                    clampAmount={3}
+                    class="text-sm break-words"
             >
-                {course.prerequisites.prerequisites_text}
+                <LinkedPrerequisites {course}/>
             </ClampedParagraph>
         </CardContent>
         <div class="flex flex-row space-x-4">
