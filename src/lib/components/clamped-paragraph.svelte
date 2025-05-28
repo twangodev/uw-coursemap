@@ -21,8 +21,9 @@
     }
 
     function toggleExpand() {
-        checkOverflow();
         expanded = !expanded;
+        // Invoke checkOverflow() after toggling the 'expanded' state to ensure it responds to the new state.
+        checkOverflow();
     }
 
     onMount(() => {
