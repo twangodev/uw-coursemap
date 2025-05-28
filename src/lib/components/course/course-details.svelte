@@ -2,7 +2,7 @@
     import {BookOpen, CalendarRange, ClipboardCheck, Info} from "@lucide/svelte";
     import {Card, CardContent, CardHeader, CardTitle} from "$lib/components/ui/card/index.js";
     import type {Course} from "$lib/types/course.ts";
-    import type {Terms} from "$lib/types/terms.ts";
+    import ClampedParagraph from "../clamped-paragraph.svelte";
 
     interface Props {
         course: Course;
@@ -56,7 +56,12 @@
             <Info class="text-muted-foreground h-4 w-4"/>
         </CardHeader>
         <CardContent>
-            <p class="text-sm break-words">{course.description}</p>
+            <ClampedParagraph
+                clampAmount={5}
+                class="text-sm break-words"
+            >
+                {course.description}
+            </ClampedParagraph>
         </CardContent>
         <CardHeader
                 class="flex flex-row items-center justify-between space-y-0 pb-2"
@@ -65,7 +70,12 @@
             <BookOpen class="text-muted-foreground h-4 w-4"/>
         </CardHeader>
         <CardContent>
-            <p class="text-sm break-words">{course.prerequisites.prerequisites_text}</p>
+            <ClampedParagraph
+                clampAmount={3}
+                class="text-sm break-words"
+            >
+                {course.prerequisites.prerequisites_text}
+            </ClampedParagraph>
         </CardContent>
         <div class="flex flex-row space-x-4">
             <div class="flex-1">
