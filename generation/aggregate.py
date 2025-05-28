@@ -2,10 +2,11 @@ import asyncio
 
 import numpy as np
 from keybert import KeyBERT
+from sentence_transformers import SentenceTransformer
 from tqdm.asyncio import tqdm
 
 from course import Course
-from embeddings import get_model, get_embedding, CachedBaseEmbedder
+from embeddings import get_model, get_embedding
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
@@ -100,9 +101,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
         ]
 
 async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
-    kw_model = KeyBERT(
-        model=CachedBaseEmbedder(cache_dir, get_model(cache_dir, logger), logger),
-    )
+    kw_model = KeyBERT()
 
     def set_keywords(course: Course):
         description = course.description.strip()

@@ -69,19 +69,6 @@ def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
 
     return embedding
 
-class CachedBaseEmbedder(BaseEmbedder):
-
-    def __init__(self, cache_dir, model: SentenceTransformer, logger: Logger):
-        super().__init__()
-        self.cache_dir = cache_dir
-        self.model = model
-        self.logger = logger
-
-
-    def embed(self, documents: List[str], verbose: bool = False) -> np.ndarray:
-        embeddings =  [get_embedding(self.cache_dir, self.model, text, self.logger) for text in documents]
-        return np.vstack(embeddings)
-
 def normalize(v):
     return v / np.linalg.norm(v)
 
