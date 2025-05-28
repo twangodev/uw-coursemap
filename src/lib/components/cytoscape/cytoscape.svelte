@@ -34,7 +34,8 @@
         styleEntries: StyleEntry[],
         // dfs backwards from a specific course until it reaches courses that are taken
         // courses not reached by dfs are hidden
-        filter?: Course;
+        filter?: Course,
+        allowFocusing?: boolean
     }
 
     let cy: cytoscape.Core | undefined = $state()
@@ -58,7 +59,7 @@
         
     });
 
-    let { elementDefinitions, styleEntries, filter = undefined }: Props = $props();
+    let { elementDefinitions, styleEntries, filter = undefined, allowFocusing = true }: Props = $props();
 
     let showCodeLabels = $state(true);
     let styleData = $derived(getStyles(styleEntries, mode.current, showCodeLabels))
@@ -352,7 +353,7 @@
         computeLayout(layoutType, elementDefinitions, true);
     }}/>
 </div>
-<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip}/>
+<CourseDrawer {cy} bind:sheetOpen selectedCourse={selectedCourse} {destroyTip} {allowFocusing} />
 
 {#if cy && !hasSeenTapGuide}
     <Dialog.Root open={true}>

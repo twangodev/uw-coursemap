@@ -18,15 +18,17 @@
     import {onMount, tick} from "svelte";
     import {Drawer, DrawerContent, DrawerFooter, DrawerTitle} from "$lib/components/ui/drawer";
     import {DrawerDescription, DrawerHeader} from "$lib/components/ui/drawer/index.js";
+    import ClampedParagraph from "../clamped-paragraph.svelte";
 
     interface Props {
         cy: cytoscape.Core | undefined;
         sheetOpen: boolean;
         selectedCourse: Course | undefined;
         destroyTip: () => void;
+        allowFocusing: boolean
     }
 
-    let {sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip}: Props = $props();
+    let {sheetOpen = $bindable<boolean>(), selectedCourse, cy, destroyTip, allowFocusing = true}: Props = $props();
     let focus = $derived(page.url.searchParams.get('focus'));
 
     let terms: Terms = $state({});
@@ -68,7 +70,7 @@
     })
 
     $effect(() => {
-        if (!cy) return
+        if (!cy || !allowFocusing) return
 
         if (sheetOpen) {
             if (selectedCourse) {
@@ -106,7 +108,11 @@
             </div>
             <DrawerDescription>
                 {#if selectedCourse}
-                    {selectedCourse.description}
+                    <ClampedParagraph
+                        clampAmount={5}
+                    >
+                        {selectedCourse.description}
+                    </ClampedParagraph>
                 {:else}
                     <Skeleton class="h-5 w-6/12"/>
                 {/if}
@@ -114,7 +120,7 @@
         </DrawerHeader>
         <div class="p-4 pb-0">
             {#if instructors}
-                {#each instructors as [name, email], index}
+                {#each instructors.slice(0, 3) as [name, email], index}
                     {#if index === 0}
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1"/>
@@ -133,7 +139,12 @@
                         }}
                         disableSlideOut={true}
                     />
-                    {/each}
+                {/each}
+                {#if instructors.length > 3}
+                    <div class="flex justify-center">
+                        <span class="text-xs text-muted-foreground">Showing 3 of {instructors.length} instructors.</span>
+                    </div>
+                {/if}
             {/if}
         </div>
 

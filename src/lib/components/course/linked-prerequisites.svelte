@@ -21,11 +21,13 @@
         {item}
     {:else if typeof item === 'object'}
         <HoverCard>
-            <HoverCardTrigger
-                    href={`/courses/${sanitizeCourseToReferenceString(item)}`}
+            <HoverCardTrigger>
+                <a
+                    href="/courses/{sanitizeCourseToReferenceString(item)}"
                     class="underline-offset-2 hover:underline focus-visible:outline-2"
-            >
-                {courseReferenceToString(item)}
+                >
+                    {courseReferenceToString(item)}
+                </a>
             </HoverCardTrigger>
             <HoverLinkedRequisiteContent courseReference={item} />
         </HoverCard>
