@@ -4,6 +4,7 @@
     import type {Course} from "$lib/types/course.ts";
     import ClampedParagraph from "../clamped-paragraph.svelte";
     import LinkedPrerequisites from "./linked-prerequisites.svelte";
+    import SatisfiedRequisites from "./satisfied-requisites.svelte";
 
     interface Props {
         course: Course;
@@ -76,6 +77,20 @@
                     class="text-sm break-words"
             >
                 <LinkedPrerequisites {course}/>
+            </ClampedParagraph>
+        </CardContent>
+        <CardHeader
+                class="flex flex-row items-center justify-between space-y-0 pb-2"
+        >
+            <CardTitle class="text-base font-medium">Satisfies</CardTitle>
+            <BookOpen class="text-muted-foreground h-4 w-4"/>
+        </CardHeader>
+        <CardContent>
+            <ClampedParagraph
+                    clampAmount={2}
+                    class="text-sm break-words"
+            >
+                <SatisfiedRequisites {course}/>
             </ClampedParagraph>
         </CardContent>
         <div class="flex flex-row space-x-4">

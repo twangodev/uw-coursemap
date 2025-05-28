@@ -26,6 +26,7 @@ export type Course = {
         [key: string]: TermData,
     },
     similar_courses: CourseReference[],
+    satisfies: CourseReference[],
 }
 
 export type TermData = {
