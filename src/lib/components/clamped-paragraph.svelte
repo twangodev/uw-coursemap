@@ -21,6 +21,7 @@
     }
 
     function toggleExpand() {
+        checkOverflow();
         expanded = !expanded;
     }
 
