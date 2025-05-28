@@ -119,18 +119,21 @@
                         <div class="font-semibold mt-2">INSTRUCTORS</div>
                         <Separator class="my-1"/>
                     {/if}
-                    <InstructorPreview instructor={{
-                    name: name,
-                    email: email ?? "",
-                    credentials: null,
-                    rmp_data: null,
-                    department: null,
-                    official_name: null,
-                    position: null,
-                    courses_taught: [],
-                    cumulative_grade_data: null,
-                }}/>
-                {/each}
+                    <InstructorPreview
+                        instructor={{
+                            name: name,
+                            email: email ?? "",
+                            credentials: null,
+                            rmp_data: null,
+                            department: null,
+                            official_name: null,
+                            position: null,
+                            courses_taught: [],
+                            cumulative_grade_data: null,
+                        }}
+                        disableSlideOut={true}
+                    />
+                    {/each}
             {/if}
         </div>
 

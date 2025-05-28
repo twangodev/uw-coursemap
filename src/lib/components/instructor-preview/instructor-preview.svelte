@@ -3,25 +3,36 @@
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
-    import {slide} from "svelte/transition";
-    import {slideIn} from "$lib/transitions.ts";
+    import {slide, type SlideParams} from "svelte/transition";
+    import {slideParams} from "$lib/transitions.ts";
 
     interface Props {
-        instructor: FullInstructorInformation;
-        showRating?: boolean;
-        showOtherDetails?: boolean;
+        instructor: FullInstructorInformation,
+        showRating?: boolean,
+        showOtherDetails?: boolean,
+        disableSlideOut?: boolean
     }
 
-    let { instructor, showRating = false, showOtherDetails = false }: Props = $props();
+    let {
+        instructor,
+        showRating = false,
+        showOtherDetails = false,
+        disableSlideOut = false
+    }: Props = $props();
 
     let {name, email} = instructor;
     let averageRating = instructor?.rmp_data?.average_rating;
     let averageDifficulty = instructor?.rmp_data?.average_difficulty;
     let wouldTakeAgain = instructor?.rmp_data?.would_take_again_percent;
 
+    const slideOutParams: SlideParams = {
+        ...slideParams,
+        duration: disableSlideOut ? 0 : slideParams.duration
+    }
+
 </script>
 
-<div transition:slide|global={slideIn}>
+<div in:slide|global={slideParams} out:slide|global={slideOutParams}>
     <a
         class="flex justify-between items-center p-2 rounded-lg hover:bg-muted transition-colors w-full"
         target="_blank"
