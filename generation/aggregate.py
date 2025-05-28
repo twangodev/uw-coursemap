@@ -28,6 +28,19 @@ def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], logge
         "total_grades_given": school_cumulative_grades,
     }
 
+def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
+
+    for course in tqdm(course_ref_to_course.values(), desc="Determining Satisfies", unit="course"):
+        requisites = course.prerequisites.course_references
+
+        for requisite in requisites:
+            if requisite not in course_ref_to_course:
+                continue
+
+            requisite_course = course_ref_to_course[requisite]
+            requisite_course.satisfies.add(course.course_reference)
+
+
 async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
 
     model = get_model(cache_dir, logger)
@@ -132,6 +145,7 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
     qs = quick_statistics(course_ref_to_course, logger)
 
+    determine_satisfies(course_ref_to_course)
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
