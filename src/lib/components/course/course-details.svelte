@@ -4,6 +4,7 @@
     import type {Course} from "$lib/types/course.ts";
     import ClampedParagraph from "../clamped-paragraph.svelte";
     import LinkedPrerequisites from "./linked-prerequisites.svelte";
+    import SatisfiedRequisites from "./satisfied-requisites.svelte";
 
     interface Props {
         course: Course;
@@ -48,55 +49,71 @@
 
 </script>
 
-<div class="space-y-4 mt-2 lg:col-span-3">
-    <Card>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-base font-medium">Course Description</CardTitle>
-            <Info class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <ClampedParagraph
-                clampAmount={5}
-                class="text-sm break-words"
+{#key course}
+    <div class="space-y-4 mt-2 lg:col-span-3">
+        <Card>
+            <CardHeader
+                    class="flex flex-row items-center justify-between space-y-0 pb-2"
             >
-                {course.description}
-            </ClampedParagraph>
-        </CardContent>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
-            <BookOpen class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <ClampedParagraph
-                    clampAmount={3}
+                <CardTitle class="text-base font-medium">Course Description</CardTitle>
+                <Info class="text-muted-foreground h-4 w-4"/>
+            </CardHeader>
+            <CardContent>
+                <ClampedParagraph
+                    clampAmount={5}
                     class="text-sm break-words"
+                >
+                    {course.description}
+                </ClampedParagraph>
+            </CardContent>
+            <CardHeader
+                    class="flex flex-row items-center justify-between space-y-0 pb-2"
             >
-                <LinkedPrerequisites {course}/>
-            </ClampedParagraph>
-        </CardContent>
-        <div class="flex flex-row space-x-4">
-            <div class="flex-1">
-                <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle class="text-base font-medium">Credits</CardTitle>
-                    <ClipboardCheck class="text-muted-foreground h-4 w-4"/>
-                </CardHeader>
-                <CardContent>
-                    <p class="text-sm break-words">{getCreditCount(course)}</p>
-                </CardContent>
+                <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
+                <BookOpen class="text-muted-foreground h-4 w-4"/>
+            </CardHeader>
+            <CardContent>
+                <ClampedParagraph
+                        clampAmount={3}
+                        class="text-sm break-words"
+                >
+                    <LinkedPrerequisites {course}/>
+                </ClampedParagraph>
+            </CardContent>
+            <CardHeader
+                    class="flex flex-row items-center justify-between space-y-0 pb-2"
+            >
+                <CardTitle class="text-base font-medium">Satisfies</CardTitle>
+                <BookOpen class="text-muted-foreground h-4 w-4"/>
+            </CardHeader>
+            <CardContent>
+                <ClampedParagraph
+                        clampAmount={2}
+                        class="text-sm break-words"
+                >
+                    <SatisfiedRequisites {course}/>
+                </ClampedParagraph>
+            </CardContent>
+            <div class="flex flex-row space-x-4">
+                <div class="flex-1">
+                    <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle class="text-base font-medium">Credits</CardTitle>
+                        <ClipboardCheck class="text-muted-foreground h-4 w-4"/>
+                    </CardHeader>
+                    <CardContent>
+                        <p class="text-sm break-words">{getCreditCount(course)}</p>
+                    </CardContent>
+                </div>
+                <div class="flex-1">
+                    <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle class="text-base font-medium">Offered</CardTitle>
+                        <CalendarRange class="text-muted-foreground h-4 w-4"/>
+                    </CardHeader>
+                    <CardContent>
+                        <p class="text-sm break-words">{getNormallyOffered(course)}</p>
+                    </CardContent>
+                </div>
             </div>
-            <div class="flex-1">
-                <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle class="text-base font-medium">Offered</CardTitle>
-                    <CalendarRange class="text-muted-foreground h-4 w-4"/>
-                </CardHeader>
-                <CardContent>
-                    <p class="text-sm break-words">{getNormallyOffered(course)}</p>
-                </CardContent>
-            </div>
-        </div>
-    </Card>
-</div>
+        </Card>
+    </div>
+{/key}
