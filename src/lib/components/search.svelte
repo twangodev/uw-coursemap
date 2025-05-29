@@ -1,7 +1,6 @@
 <script lang="ts">
     import  {Button} from "$lib/components/ui/button";
     import {cn, sleep} from "$lib/utils.ts";
-    import * as Command from "$lib/components/ui/command/index.js";
     import CtrlCmd from "$lib/components/ctrl-cmd.svelte";
     import {getRandomCourses, search} from "$lib/api";
     import { writable } from "svelte/store";
@@ -16,15 +15,19 @@
         combineSearchResults,
         type CourseSearchResult,
         generateCourseSearchResults,
-        generateSubjectSearchResults,
         type InstructorSearchResult,
         type SubjectSearchResult, type UnifiedSearchResponse
     } from "$lib/types/search/searchResults.ts";
     import {goto} from "$app/navigation";
     import {toast} from "svelte-sonner";
-    import { page } from "$app/stores";
-    import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
     import { Filter } from "@lucide/svelte";
+    import {
+        DropdownMenu,
+        DropdownMenuTrigger,
+        DropdownMenuContent,
+        DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuCheckboxItem
+    } from "$lib/components/ui/dropdown-menu";
+    import {CommandDialog, CommandGroup, CommandItem, CommandList} from "$lib/components/ui/command";
 
     
     interface Props {
@@ -211,26 +214,26 @@
 <svelte:document onkeydown={handleKeydown} onkeyup={handleKeyUp}/>
 
 <div class="flex gap-0">
-    <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
+    <DropdownMenu>
+        <DropdownMenuTrigger>
             <Button variant="outline" size="icon" class="shrink-0 rounded-r-none border-r-0">
                 <Filter class="h-4 w-4" />
                 <span class="sr-only">Filter search</span>
             </Button>
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content align="start" class="w-48">
-            <DropdownMenu.Label>Filter Search</DropdownMenu.Label>
-                <DropdownMenu.Separator />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" class="w-48">
+            <DropdownMenuLabel>Filter Search</DropdownMenuLabel>
+                <DropdownMenuSeparator />
                     {#each filterOptions as option}
-                        <DropdownMenu.CheckboxItem
+                        <DropdownMenuCheckboxItem
                             checked={$searchOptions[option.id]}
                             onCheckedChange={(checked) => handleOptionToggle(option.id, checked)}
                         >
                             {option.label}
-                        </DropdownMenu.CheckboxItem>
+                        </DropdownMenuCheckboxItem>
                     {/each}
-        </DropdownMenu.Content>
-    </DropdownMenu.Root>
+        </DropdownMenuContent>
+    </DropdownMenu>
 
     <Button
         variant="outline"
@@ -253,22 +256,21 @@
 </div>
 
 {#if !fake}
-<Command.Dialog bind:open={$searchModalOpen}>
+<CommandDialog bind:open={$searchModalOpen}>
     <CustomSearchInput placeholder={placeholderString} bind:value={searchQuery} />
-    
-    <Command.List>
+    <CommandList>
         <!-- TODO: Add way to generate random departments and instructors -->
         {#if $results.length <= 0}
             {#if $searchOptions.showCourses}
                 {#await randomCourses}
                     <div class="py-6 text-center text-sm">No results found.</div>
                 {:then randomCourses}
-                <Command.Group heading="Random Courses">
+                <CommandGroup heading="Random Courses">
                     {#each randomCourses as suggestion }
-                        <Command.Item
-                                onSelect={() => {
-                                    courseSuggestionSelected(suggestion)
-                                }}
+                        <CommandItem
+                            onSelect={() => {
+                                courseSuggestionSelected(suggestion)
+                            }}
                         >
                             <Book class="mr-3 h-4 w-4" />
                             <div>
@@ -278,9 +280,9 @@
                                     data: suggestion
                                 })}</p>
                             </div>
-                        </Command.Item>
+                        </CommandItem>
                     {/each}
-                </Command.Group>
+                </CommandGroup>
                 {:catch error}
                     <div class="py-6 text-center text-sm">Error loading random courses.</div>
                 {/await}
@@ -289,33 +291,32 @@
                 {/if}
             {/if}
             {#if $results.length > 0}
-            <Command.Group heading="Results">
-                                    {#each $results as suggestion}
-                    <Command.Item onSelect={() => handleSuggestionSelect(suggestion)}>
-                        <!-- Render icon based on type -->
-                        {#if suggestion.type === 'course'}
-                            <Book class="mr-3 h-4 w-4" />
-                        {:else if suggestion.type === 'subject'}
-                            <School class="mr-3 h-4 w-4" />
-                        {:else if suggestion.type === 'instructor'}
-                            <User class="mr-3 h-4 w-4" />
-                        {/if}
-                        <div>
+            <CommandGroup heading="Results">
+                {#each $results as suggestion}
+                    <CommandItem onSelect={() => handleSuggestionSelect(suggestion)}>
+                            <!-- Render icon based on type -->
                             {#if suggestion.type === 'course'}
-                                <p>{getCourseTitle(suggestion)}</p>
-                                <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
+                                <Book class="mr-3 h-4 w-4" />
                             {:else if suggestion.type === 'subject'}
-                                <span>{getSubjectTitle(suggestion)}</span>
+                                <School class="mr-3 h-4 w-4" />
                             {:else if suggestion.type === 'instructor'}
-                                <p class="truncate line-clamp-1">{getInstructorName(suggestion)}</p>
-                                <p class="text-xs">{getInstructorDetail(suggestion)}</p>
+                                <User class="mr-3 h-4 w-4" />
                             {/if}
-                        </div>
-                    </Command.Item>
+                            <div>
+                                {#if suggestion.type === 'course'}
+                                    <p>{getCourseTitle(suggestion)}</p>
+                                    <p class="text-xs">{searchResponseToIdentifier(suggestion)}</p>
+                                {:else if suggestion.type === 'subject'}
+                                    <span>{getSubjectTitle(suggestion)}</span>
+                                {:else if suggestion.type === 'instructor'}
+                                    <p class="truncate line-clamp-1">{getInstructorName(suggestion)}</p>
+                                    <p class="text-xs">{getInstructorDetail(suggestion)}</p>
+                                {/if}
+                            </div>
+                    </CommandItem>
                 {/each}
-            </Command.Group>
+            </CommandGroup>
         {/if}
-
-        </Command.List>
-    </Command.Dialog>
+        </CommandList>
+    </CommandDialog>
 {/if}
