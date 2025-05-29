@@ -71,28 +71,30 @@
             <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
             <BookOpen class="text-muted-foreground h-4 w-4"/>
         </CardHeader>
-        <CardContent>
-            <ClampedParagraph
-                    clampAmount={3}
-                    class="text-sm break-words"
+        {#key course}
+            <CardContent>
+                <ClampedParagraph
+                        clampAmount={3}
+                        class="text-sm break-words"
+                >
+                    <LinkedPrerequisites {course}/>
+                </ClampedParagraph>
+            </CardContent>
+            <CardHeader
+                    class="flex flex-row items-center justify-between space-y-0 pb-2"
             >
-                <LinkedPrerequisites {course}/>
-            </ClampedParagraph>
-        </CardContent>
-        <CardHeader
-                class="flex flex-row items-center justify-between space-y-0 pb-2"
-        >
-            <CardTitle class="text-base font-medium">Satisfies</CardTitle>
-            <BookOpen class="text-muted-foreground h-4 w-4"/>
-        </CardHeader>
-        <CardContent>
-            <ClampedParagraph
-                    clampAmount={2}
-                    class="text-sm break-words"
-            >
-                <SatisfiedRequisites {course}/>
-            </ClampedParagraph>
-        </CardContent>
+                <CardTitle class="text-base font-medium">Satisfies</CardTitle>
+                <BookOpen class="text-muted-foreground h-4 w-4"/>
+            </CardHeader>
+            <CardContent>
+                <ClampedParagraph
+                        clampAmount={2}
+                        class="text-sm break-words"
+                >
+                    <SatisfiedRequisites {course}/>
+                </ClampedParagraph>
+            </CardContent>
+        {/key}
         <div class="flex flex-row space-x-4">
             <div class="flex-1">
                 <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
