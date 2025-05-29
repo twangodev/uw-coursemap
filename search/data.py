@@ -103,7 +103,7 @@ def get_courses(data_dir, subjects, logger):
         for course_id, course_data in courses.items()
     }
 
-def get_random_courses(data_dir, subjects, logger, num_courses=5):
+def get_random_courses(data_dir, num_courses=5):
     """
     Returns a specified number of random courses from the dataset.
     
@@ -136,7 +136,6 @@ def get_random_courses(data_dir, subjects, logger, num_courses=5):
                 "course_number": data["course_reference"]["course_number"],
                 "course_title": data["course_title"],
                 "subjects": data["course_reference"]["subjects"],
-                "departments": [subjects[shorthand] for shorthand in data["course_reference"]["subjects"]],
             }
     
     return random_courses

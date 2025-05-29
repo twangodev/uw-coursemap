@@ -91,12 +91,12 @@ def search():
 @app.route('/random-courses', methods=['GET'])
 def get_random_courses():
     """Returns 5 random courses from the dataset."""
-    random_courses_data = get_random_courses_data(data_dir, subjects, logger, num_courses=5)
+    random_courses_data = get_random_courses_data(data_dir, num_courses=5)
     # Retrieve the full course details
     random_courses = [
         {
         "course_id": course_id,
-        **courses[course_id]
+        **random_courses_data[course_id]
         } for course_id in random_courses_data 
     ]
     return jsonify(random_courses)
