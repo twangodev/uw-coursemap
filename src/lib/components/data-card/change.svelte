@@ -52,7 +52,8 @@
 
     {#if points !== null}
         {#if points}
-            <NumberFlow value={points} suffix=" from {comparisonKeyword}" format={percentFormat}/>
+            <NumberFlow value={points} suffix=" " format={percentFormat}/>
+            <span class="line-clamp-1 break-all overflow-ellipsis">from {comparisonKeyword}</span>
         {:else}
             No change from {comparisonKeyword}
         {/if}
