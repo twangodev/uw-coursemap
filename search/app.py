@@ -115,18 +115,18 @@ if __name__ == "__main__":
 
     verbose = bool(args.verbose) if args else verbose
 
+data_dir = args.data_dir if args else data_dir_default
+
+logger = logging.getLogger(__name__)
+logging_level = logging.DEBUG if verbose else logging.INFO
+coloredlogs.install(level=logging_level, logger=logger)
+
+subjects = get_subjects(data_dir, logger)
+courses = get_courses(data_dir, subjects, logger)
+
 if environ.get('WERKZEUG_RUN_MAIN') != 'true':
-    # This code runs only once at the start
-    data_dir = args.data_dir if args else data_dir_default
-
-    logger = logging.getLogger(__name__)
-    logging_level = logging.DEBUG if verbose else logging.INFO
-    coloredlogs.install(level=logging_level, logger=logger)
-
-    subjects = get_subjects(data_dir, logger)
+    # This check prevents the code from running twice when using Flask's reloader
     instructors = get_instructors(data_dir, logger)
-    courses = get_courses(data_dir, subjects, logger)
-
     clear_elasticsearch()
 
     load_subjects(es, subjects)
