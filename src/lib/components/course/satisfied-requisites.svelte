@@ -3,7 +3,6 @@
     import {type Course, courseReferenceToString, sanitizeCourseToReferenceString} from "$lib/types/course.ts";
     import {HoverCard, HoverCardTrigger} from "$lib/components/ui/hover-card/index.js";
     import HoverLinkedRequisiteContent from "./hover-linked-requisite-content.svelte";
-    import ClampedParagraph from "$lib/components/clamped-paragraph.svelte";
 
     interface Props {
         course: Course
@@ -14,7 +13,7 @@
     let requisites = $derived(course.satisfies);
 
     function intersperseWithAnd<T>(items: T[] | undefined): (T | string)[] {
-        if (!items) {
+        if (!items || items.length == 0) {
             return ['This course does not satisfy any prerequisites.'];
         }
 
