@@ -61,7 +61,7 @@
 
 <div class="flex items-center gap-2">
 
-    <div class="inline-flex">
+    <div class="hidden sm:inline-flex">
         <Button
                 variant="outline"
                 onclick={() => previousTermId && navigateTo(previousTermId)}

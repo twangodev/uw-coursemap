@@ -16,20 +16,22 @@
 
 </script>
 
-{#each linkedPrerequisites as item}
-    {#if typeof item === 'string'}
-        {item}
-    {:else if typeof item === 'object'}
-        <HoverCard>
-            <HoverCardTrigger>
-                <a
-                    href="/courses/{sanitizeCourseToReferenceString(item)}"
-                    class="underline-offset-2 hover:underline focus-visible:outline-2"
-                >
-                    {courseReferenceToString(item)}
-                </a>
-            </HoverCardTrigger>
-            <HoverLinkedRequisiteContent courseReference={item} />
-        </HoverCard>
-    {/if}
-{/each}
+<div>
+    {#each linkedPrerequisites as item}
+        {#if typeof item === 'string'}
+            {item}
+        {:else if typeof item === 'object'}
+            <HoverCard>
+                <HoverCardTrigger>
+                    <a
+                        href="/courses/{sanitizeCourseToReferenceString(item)}"
+                        class="underline-offset-2 hover:underline focus-visible:outline-2"
+                    >
+                        {courseReferenceToString(item)}
+                    </a>
+                </HoverCardTrigger>
+                <HoverLinkedRequisiteContent courseReference={item} />
+            </HoverCard>
+        {/if}
+    {/each}
+</div>
