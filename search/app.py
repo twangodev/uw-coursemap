@@ -109,15 +109,15 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
-logger = logging.getLogger(__name__)
-logging_level = logging.DEBUG if verbose else logging.INFO
-coloredlogs.install(level=logging_level, logger=logger)
-
-subjects = get_subjects(data_dir, logger)
-courses = get_courses(data_dir, subjects, logger)
 
 if environ.get('WERKZEUG_RUN_MAIN') != 'true':
     # This check prevents the code from running twice when using Flask's reloader
+    logger = logging.getLogger(__name__)
+    logging_level = logging.DEBUG if verbose else logging.INFO
+    coloredlogs.install(level=logging_level, logger=logger)
+
+    subjects = get_subjects(data_dir, logger)
+    courses = get_courses(data_dir, subjects, logger)
     instructors = get_instructors(data_dir, logger)
     clear_elasticsearch()
 
