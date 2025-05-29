@@ -13,7 +13,7 @@
     let requisites = $derived(course.satisfies);
 
     function intersperseWithAnd<T>(items: T[] | undefined): (T | string)[] {
-        if (!items || items.length == 0) {
+        if (!items || items.length === 0) {
             return ['This course does not satisfy any prerequisites.'];
         }
 
