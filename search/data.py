@@ -1,5 +1,7 @@
 import json
 import os
+from pathlib import Path
+import random
 import re
 import unicodedata
 
@@ -100,6 +102,43 @@ def get_courses(data_dir, subjects, logger):
         }
         for course_id, course_data in courses.items()
     }
+
+def get_random_courses(data_dir, num_courses=5):
+    """
+    Returns a specified number of random courses from the dataset.
+    
+    Parameters:
+    - data_dir (str): Directory containing course data.
+    - subjects (dict): Dictionary of subjects.
+    - logger: Logger instance for logging information.
+    - num_courses (int): Number of random courses to return.
+
+    Returns:
+    - list: A list of dictionaries representing random courses.
+    """
+    data_path = Path(os.path.join(data_dir, "course"))
+    courses = [f.name for f in data_path.glob('*json')]
+
+    # Ensure we don't try to sample more courses than exist
+    num_courses = min(num_courses, len(courses))
+
+    random_indexes = random.sample(range(0, len(courses)), num_courses)
+
+    random_courses = {}
+    # Retrieve the full course details
+    for index in random_indexes:
+        data = read_json_file(os.path.join(data_dir, "course", courses[index]))
+        if data is not None:
+            # Use the file name without the '.json' extension as the key
+            file_key = os.path.splitext(courses[index])[0]
+            random_courses[file_key] = {
+                "course_reference": process_course_reference(data["course_reference"]),
+                "course_number": data["course_reference"]["course_number"],
+                "course_title": data["course_title"],
+                "subjects": data["course_reference"]["subjects"],
+            }
+    
+    return random_courses
 
 def process_course_reference(course_reference):
     course_number = course_reference["course_number"]
