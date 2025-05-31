@@ -17,7 +17,7 @@
         href="https://github.com/twangodev/uw-coursemap"
         target="_blank"
         class={cn(
-		"bg-muted inline-flex items-center rounded-lg px-3 py-1 text-sm font-medium",
+		"bg-muted inline-flex items-center rounded-lg px-3 py-1 mb-4 text-sm font-medium",
 		className
 	)}
         {...rest}
