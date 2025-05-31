@@ -49,7 +49,7 @@
                 <div aria-hidden="true" class="z-2 absolute inset-0 size-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--color-background)_100%)]"></div>
                 <div class="mt-8 mb-8">
                     {#key cardImages[i]}
-                        <div class="rounded-(--radius) z-1 relative border-2 mx-auto" transition:slide={slideParams}>
+                        <div class="rounded-(--radius) z-1 relative border-3 dark:border mx-auto" transition:slide={slideParams}>
                             <img
                                     class="rounded-(--radius) z-1 relative dark:hidden"
                                     src={cardImages[i]}

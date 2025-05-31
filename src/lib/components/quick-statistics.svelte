@@ -72,7 +72,7 @@
         Dynamic Insights from Multiple Sources
     </h2>
     <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400">
-        UW Course Map brings everything into one place—pulling data from Rate My Professor, Madgrades, UW-Madison’s Course &amp; Enroll, Course Guide, and more—so you can view key metrics (total courses, prerequisite paths, average ratings, total comments, etc.) all in a single dashboard.
+        UW Course Map brings everything into one place—pulling data from Rate My Professor, Madgrades, UW-Madison’s Course &amp; Enroll, Course Guide, and more—so you can view key metrics (GPA, prerequisite paths, average ratings, distributions, etc.) all in a single dashboard.
     </p>
     <dl class="mt-12 dark:border-gray-800 border-y border-gray-200 py-14">
         <Marquee pauseOnHover class="[--duration:30s]">
