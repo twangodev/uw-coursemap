@@ -4,6 +4,7 @@
     import {Button} from "$lib/components/ui/button";
     import Announcement from "$lib/components/announcement.svelte";
     import RotatingTiltCard from "$lib/components/rotating-tilt-card.svelte";
+    import QuickStatistics from "$lib/components/quick-statistics.svelte";
 </script>
 
 <div class="w-full">
@@ -37,7 +38,11 @@
         </section>
     </ContentWrapper>
 
-    <RotatingTiltCard />
+    <RotatingTiltCard/>
+
+    <ContentWrapper>
+        <QuickStatistics/>
+    </ContentWrapper>
 
 </div>
 
