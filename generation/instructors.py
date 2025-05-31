@@ -156,7 +156,7 @@ class RMPData(JsonSerializable):
 
 class FullInstructor(JsonSerializable):
 
-    def __init__(self, name, email, rmp_data, position, department, credentials, official_name, courses_taught = None, cumulative_grade_data: GradeData | None = None):
+    def __init__(self, name, email, rmp_data: RMPData | None, position, department, credentials, official_name, courses_taught = None, cumulative_grade_data: GradeData | None = None):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data

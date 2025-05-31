@@ -16,7 +16,7 @@ export type GradeData = {
     no_work: number,
     not_reported: number,
     other: number,
-    instructors: string[] | null,
+    instructors?: string[] | null,
 }
 
 export function getTotalOtherGrades(gradeData: GradeData): number {

@@ -57,7 +57,7 @@
 <ModeWatcher/>
 <div class="flex flex-col min-h-screen h-screen">
     <Navbar/>
-    <main class="grow flex">
+    <main class="grow">
         {@render children?.()}
     </main>
     <Footer/>

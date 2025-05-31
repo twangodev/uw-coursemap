@@ -2,7 +2,6 @@ import asyncio
 
 import numpy as np
 from keybert import KeyBERT
-from sentence_transformers import SentenceTransformer
 from tqdm.asyncio import tqdm
 
 from course import Course
@@ -10,22 +9,46 @@ from embeddings import get_model, get_embedding
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
-def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], logger):
+
+def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor], logger):
 
     total_courses = len(course_ref_to_course)
     school_cumulative_grades = GradeData.empty()
+
+    total_instructors = len(instructors)
+
+    total_detected_requisites = 0
 
     for course, course_data in course_ref_to_course.items():
         cumulative_grade_data = course_data.cumulative_grade_data
         if cumulative_grade_data:
             school_cumulative_grades = school_cumulative_grades.merge_with(cumulative_grade_data)
 
+        if course_data.prerequisites:
+            total_detected_requisites += len(course_data.prerequisites.course_references)
+
+    total_ratings = 0
+
+    for instructor in instructors:
+        if not instructor.rmp_data:
+            continue
+
+        rmp_data = instructor.rmp_data
+        total_ratings += len(rmp_data.ratings)
+
+
     logger.info("Total courses: %d", total_courses)
     logger.info("School cumulative grades: %s", school_cumulative_grades)
+    logger.info("Total instructors: %d", total_instructors)
+    logger.info("Total detected requisites: %d", total_detected_requisites)
+    logger.info("Total ratings: %d", total_ratings)
 
     return {
         "total_courses": total_courses,
         "total_grades_given": school_cumulative_grades,
+        "total_instructors": total_instructors,
+        "total_detected_requisites": total_detected_requisites,
+        "total_ratings": total_ratings,
     }
 
 def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
@@ -142,10 +165,11 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
 
-def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
-    qs = quick_statistics(course_ref_to_course, logger)
-
+def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
     determine_satisfies(course_ref_to_course)
+
+    qs = quick_statistics(course_ref_to_course, instructors, logger)
+
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 

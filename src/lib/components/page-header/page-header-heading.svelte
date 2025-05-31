@@ -13,7 +13,7 @@
 
 <h1
         class={cn(
-		"text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]",
+		"text-center text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-6xl",
 		className
 	)}
         {...rest}
