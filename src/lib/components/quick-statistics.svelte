@@ -68,7 +68,7 @@
     <span class="z-10 block w-fit rounded-lg border border-rose-200/20 bg-rose-50/50 px-3 py-1.5 font-semibold uppercase leading-4 tracking-tighter dark:border-rose-800/30 dark:bg-rose-900/20 sm:text-sm">
         <span class="bg-gradient-to-b from-rose-500 to-rose-600 bg-clip-text text-transparent dark:from-rose-200 dark:to-rose-400">Aggregated Statistics</span>
     </span>
-    <h2 id="features-title" class="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-6xl">
+    <h2 id="features-title" class="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl">
         Dynamic Insights from Multiple Sources
     </h2>
     <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400">
