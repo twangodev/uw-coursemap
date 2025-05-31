@@ -53,14 +53,14 @@
                             <img
                                     class="rounded-(--radius) z-1 relative dark:hidden"
                                     src={cardImages[i]}
-                                    alt="COMPSCI 300 Preview"
+                                    alt="Preview"
                                     width=3840
                                     height=2160
                             />
                             <img
                                     class="rounded-(--radius) z-1 relative hidden dark:block"
                                     src={toDarkVariant(cardImages[i])}
-                                    alt="COMPSCI 300 Preview"
+                                    alt="Preview"
                                     width=3840
                                     height=2160
                             />
