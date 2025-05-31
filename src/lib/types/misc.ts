@@ -4,5 +4,6 @@ export type QuickStatistics = {
     total_courses: number,
     total_grades_given: GradeData,
     total_instructors: number,
+    total_detected_requisites: number,
     total_ratings: number,
 }
