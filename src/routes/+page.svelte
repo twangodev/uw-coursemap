@@ -25,7 +25,7 @@
                         Explore the courses offered by the UW-Madison in a visual and interactive way.
                     </PageHeaderDescription>
                     <p class="text-center text-sm text-primary mt-3">
-                        UW Course Map is not affiliated by the University of Wisconsin-Madison.
+                        UW Course Map is not affiliated with the University of Wisconsin-Madison.
                     </p>
                     <div class="py-4 md:pb-10">
                         <Button href="/explorer">
