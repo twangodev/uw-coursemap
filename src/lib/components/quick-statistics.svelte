@@ -36,11 +36,6 @@
         return stats.sort(() => Math.random() - 0.5);
     });
 
-    let loopedStats = $derived([
-        ...shuffledStats,
-        ...shuffledStats,
-    ]);
-
     function formatNumber(value: number | string): string {
         if (typeof value === "string") {
             return value;
@@ -79,12 +74,12 @@
     <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400">
         UW Course Map brings everything into one place—pulling data from Rate My Professor, Madgrades, UW-Madison’s Course &amp; Enroll, Course Guide, and more—so you can view key metrics (total courses, prerequisite paths, average ratings, total comments, etc.) all in a single dashboard.
     </p>
-    <dl class="mt-12 dark:border-gray-800 md:grid-cols-3 md:border-y md:border-gray-200 md:py-14">
+    <dl class="mt-12 dark:border-gray-800 border-y border-gray-200 py-14">
         <Marquee pauseOnHover class="[--duration:30s]">
             <div class="flex">
-                {#each loopedStats as stat}
+                {#each shuffledStats as stat}
                     <div
-                            class="w-72 border-l-2 border-rose-100 dark:border-rose-900 md:border-l md:text-center lg:border-gray-200 lg:first:border-none lg:dark:border-gray-800"
+                            class="w-48 md:w-72 border-l-2 border-rose-100 dark:border-rose-900 text-center lg:border-gray-200 lg:dark:border-gray-800"
                     >
                         <dd
                                 class="inline-block bg-gradient-to-t from-rose-900 to-rose-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent dark:from-rose-700 dark:to-rose-400 lg:text-6xl"
