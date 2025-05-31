@@ -278,8 +278,11 @@ def main():
                 logger=logger
             )
 
+            instructor_values = instructor_to_rating.values()
+
             quick_statistics = aggregate_courses(
                 course_ref_to_course=course_ref_to_course,
+                instructors=instructor_values,
                 cache_dir=cache_dir,
                 logger=logger
             )
