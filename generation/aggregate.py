@@ -12,7 +12,7 @@ from embeddings import get_model, get_embedding
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
-CROSS_LIST_MIN = 10
+CROSS_LIST_MIN = 5
 
 def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor], logger):
 
@@ -76,15 +76,10 @@ def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course
         course_subjects = course.course_reference.subjects
         prereqs = course.prerequisites.course_references
 
-        prereq_subjects = set()
-        for prereq in prereqs:
-            prereq_subjects.update(prereq.subjects or [])
-
-        for s1, s2 in product(course_subjects, prereq_subjects):
-            if s1 == s2:
-                continue
-            a, b = sorted((s1, s2))
-            pair_counter[(a, b)] += 1
+        for s1 in course_subjects:
+            for prereq in prereqs:
+                for s2 in (prereq.subjects or []):
+                    pair_counter[(s1, s2)] += 1
 
     result: list[dict] = []
     for (s1, s2), count in pair_counter.items():
