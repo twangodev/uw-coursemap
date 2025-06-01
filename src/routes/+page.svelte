@@ -5,6 +5,7 @@
     import Announcement from "$lib/components/announcement.svelte";
     import RotatingTiltCard from "$lib/components/rotating-tilt-card.svelte";
     import QuickStatistics from "$lib/components/quick-statistics.svelte";
+    import CallToAction from "$lib/components/call-to-action.svelte";
 </script>
 
 <div class="w-full">
@@ -25,7 +26,7 @@
                         Explore the courses offered by the UW-Madison in a visual and interactive way.
                     </PageHeaderDescription>
                     <p class="text-center text-sm text-primary mt-3">
-                        UW Course Map is not affiliated by the University of Wisconsin-Madison.
+                        UW Course Map is not affiliated with the University of Wisconsin-Madison.
                     </p>
                     <div class="py-4 md:pb-10">
                         <Button href="/explorer">
@@ -42,6 +43,7 @@
 
     <ContentWrapper>
         <QuickStatistics/>
+        <CallToAction />
     </ContentWrapper>
 
 </div>
@@ -84,8 +86,6 @@
 <!--                    <CardTitle>Display Map of a Department</CardTitle>-->
 <!--                </CardHeader>-->
 <!--                <CardContent>-->
-<!--                    View an interactive map of a department and course relationships to explore course offerings.-->
-<!--                </CardContent>-->
 <!--            </Card>-->
 <!--        </a>-->
 <!--        &lt;!&ndash; Course and Instructor Details Card &ndash;&gt;-->
