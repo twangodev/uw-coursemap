@@ -100,7 +100,7 @@
                 <h3 class="text-sm font-medium">Open Source</h3>
             </div>
             <p class="text-muted-foreground text-sm">
-                All code is available on GitHub—fork, contribute, or run your own instance under AGPLv3
+                Built by UW-Madison students, for students. Contribute to our open-source project on GitHub.
             </p>
         </div>
         <div class="space-y-2">
