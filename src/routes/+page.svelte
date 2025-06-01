@@ -5,6 +5,7 @@
     import Announcement from "$lib/components/announcement.svelte";
     import RotatingTiltCard from "$lib/components/rotating-tilt-card.svelte";
     import QuickStatistics from "$lib/components/quick-statistics.svelte";
+    import CallToAction from "$lib/components/call-to-action.svelte";
 </script>
 
 <div class="w-full">
@@ -42,6 +43,7 @@
 
     <ContentWrapper>
         <QuickStatistics/>
+        <CallToAction />
     </ContentWrapper>
 
 </div>
@@ -84,8 +86,6 @@
 <!--                    <CardTitle>Display Map of a Department</CardTitle>-->
 <!--                </CardHeader>-->
 <!--                <CardContent>-->
-<!--
-<!--                </CardContent>-->
 <!--            </Card>-->
 <!--        </a>-->
 <!--        &lt;!&ndash; Course and Instructor Details Card &ndash;&gt;-->
