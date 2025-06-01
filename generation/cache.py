@@ -109,14 +109,14 @@ def read_quick_statistics_cache(cache_dir, logger):
 def write_quick_statistics_cache(cache_dir, quick_statistics, logger):
     write_file(cache_dir, (), "quick_statistics", quick_statistics, logger)
 
-def read_explorer_extras_cache(cache_dir, logger):
-    explorer_extras = read_cache(cache_dir, (), "explorer_extras", logger)
+def read_explorer_stats_cache(cache_dir, logger):
+    explorer_extras = read_cache(cache_dir, (), "explorer_stats", logger)
     if explorer_extras is None:
         return {}
     return explorer_extras
 
-def write_explorer_extras_cache(cache_dir, explorer_extras, logger):
-    write_file(cache_dir, (), "explorer_extras", explorer_extras, logger)
+def write_explorer_stats_cache(cache_dir, explorer_extras, logger):
+    write_file(cache_dir, (), "explorer_stats", explorer_extras, logger)
 
 def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding, logger: Logger):
     """

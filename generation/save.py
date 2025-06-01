@@ -148,7 +148,7 @@ def write_data(
         instructor_to_rating: dict[str, FullInstructor],
         terms,
         quick_statistics,
-        explorer_extras,
+        explorer_stats,
         logger,
 ):
     wipe_data(data_dir, logger)
@@ -183,8 +183,8 @@ def write_data(
 
     write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
 
-    for key, value in tqdm(explorer_extras.items(), desc="Explorer Extras", unit="extra"):
-        write_file(data_dir, ("extras",), key, value, logger)
+    for key, value in tqdm(explorer_stats.items(), desc="Explorer Stats", unit="Stat"):
+        write_file(data_dir, ("stats",), key, value, logger)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
