@@ -1,6 +1,5 @@
 import asyncio
 from collections import Counter
-from itertools import product
 from logging import Logger
 
 import numpy as np
@@ -67,30 +66,6 @@ def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
             requisite_course = course_ref_to_course[requisite]
             requisite_course.satisfies.add(course.course_reference)
 
-
-def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
-    courses = course_ref_to_course.values()
-    pair_counter: Counter[tuple[str, str]] = Counter()
-
-    for course in courses:
-        course_subjects = course.course_reference.subjects
-        prereqs = course.prerequisites.course_references
-
-        for s1 in course_subjects:
-            for prereq in prereqs:
-                for s2 in (prereq.subjects or []):
-                    pair_counter[(s1, s2)] += 1
-
-    result: list[dict] = []
-    for (s1, s2), count in pair_counter.items():
-        if count < CROSS_LIST_MIN:
-            continue
-        result.append({"s1": s1, "s2": s2, "value": count})
-
-    result = sorted(result, key=lambda x: x["value"], reverse=True)
-
-    logger.info("Aggregated symmetric cross-listings for %d pairs", len(result))
-    return result
 
 async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
 
@@ -192,21 +167,46 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
+def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course], logger):
+    subject_stats = {}
+
+    for course in course_ref_to_course.values():
+        subjects = course.course_reference.subjects
+
+        if not subjects:
+            continue
+
+        for subject in subjects:
+            if subject not in subject_stats:
+                subject_stats[subject] = {
+                    "total_courses": 0,
+                    "total_grades_given": GradeData.empty(),
+                    "total_detected_requisites": 0,
+                }
+
+            stats = subject_stats[subject]
+            stats["total_courses"] += 1
+            stats["total_grades_given"] = stats["total_grades_given"].merge_with(course.cumulative_grade_data)
+
+            if course.prerequisites:
+                stats["total_detected_requisites"] += len(course.prerequisites.course_references)
+
+    for subject, stats in subject_stats.items():
+        logger.info("Subject: %s, Stats: %s", subject, stats)
+
+    return subject_stats
+
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
     determine_satisfies(course_ref_to_course)
 
-    aggregated_cross_listings = aggregate_cross_listings(course_ref_to_course, logger)
-
-    explorer_extras = {
-        "cross_listings": aggregated_cross_listings,
-    }
+    stats = aggregate_subject_stats(course_ref_to_course, logger)
 
     qs = quick_statistics(course_ref_to_course, instructors, logger)
 
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
-    return qs, explorer_extras
+    return qs, stats
 
 def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor], logger):
 

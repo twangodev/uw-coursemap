@@ -1,7 +1,7 @@
 <script lang="ts">
     import {cn} from "$lib/utils.js";
 
-    const logoPath = '../uw-coursemap-logo.svg';
+    const logoPath = '/uw-coursemap-logo.svg';
 
     interface Props {
         class?: string;

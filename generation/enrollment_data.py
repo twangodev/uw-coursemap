@@ -167,6 +167,8 @@ class GradeData(JsonSerializable):
         )
 
     def merge_with(self, other: "GradeData") -> "GradeData":
+        if not other:
+            return self
         return GradeData(
             total=self.total + other.total,
             a=self.a + other.a,
