@@ -1,6 +1,6 @@
 import asyncio
 from collections import Counter
-from itertools import combinations
+from itertools import product
 from logging import Logger
 
 import numpy as np
@@ -73,20 +73,27 @@ def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course
     pair_counter: Counter[tuple[str, str]] = Counter()
 
     for course in courses:
-        subjects = sorted(course.course_reference.subjects)
-        for a, b in combinations(subjects, 2):
+        course_subjects = course.course_reference.subjects
+        prereqs = course.prerequisites.course_references
+
+        prereq_subjects = set()
+        for prereq in prereqs:
+            prereq_subjects.update(prereq.subjects or [])
+
+        for s1, s2 in product(course_subjects, prereq_subjects):
+            if s1 == s2:
+                continue
+            a, b = sorted((s1, s2))
             pair_counter[(a, b)] += 1
 
     result: list[dict] = []
-    for (a, b), count in pair_counter.items():
+    for (s1, s2), count in pair_counter.items():
         if count < CROSS_LIST_MIN:
             continue
-        result.append({"s1": a, "s2": b, "value": count})
+        result.append({"s1": s1, "s2": s2, "value": count})
 
-    logger.info("Aggregated cross-listings for %d pairs", len(result))
-
+    logger.info("Aggregated symmetric cross-listings for %d pairs", len(result))
     return result
-
 
 async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
 
