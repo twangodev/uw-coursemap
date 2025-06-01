@@ -92,6 +92,8 @@ def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course
             continue
         result.append({"s1": s1, "s2": s2, "value": count})
 
+    result = sorted(result, key=lambda x: x["value"], reverse=True)
+
     logger.info("Aggregated symmetric cross-listings for %d pairs", len(result))
     return result
 
