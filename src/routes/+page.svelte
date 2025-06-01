@@ -84,7 +84,7 @@
 <!--                    <CardTitle>Display Map of a Department</CardTitle>-->
 <!--                </CardHeader>-->
 <!--                <CardContent>-->
-<!--                    View an interactive map of a department and course relationships to explore course offerings.-->
+<!--
 <!--                </CardContent>-->
 <!--            </Card>-->
 <!--        </a>-->

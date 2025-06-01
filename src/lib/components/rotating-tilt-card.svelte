@@ -2,6 +2,7 @@
 
     import {slide, type SlideParams} from "svelte/transition";
     import {quadInOut} from "svelte/easing";
+    import { Code, Database, Waypoints, Upload } from "@lucide/svelte";
 
     const DISPLAY_DURATION = 5000
 
@@ -69,5 +70,48 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="mx-auto max-w-5xl space-y-12 px-6 mt-4">
+    <div
+            class="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4"
+    >
+        <div class="space-y-3">
+            <div class="flex items-center gap-2">
+                <Upload class="size-4" />
+                <h3 class="text-sm font-medium">Upload</h3>
+            </div>
+            <p class="text-muted-foreground text-sm">
+                Upload your transcript to automatically analyze and visualize your completed courses.
+            </p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex items-center gap-2">
+                <Waypoints class="size-4" />
+                <h3 class="text-sm font-medium">Visual First</h3>
+            </div>
+            <p class="text-muted-foreground text-sm">
+                View an interactive map of a department and course relationships to explore course offerings.
+            </p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex items-center gap-2">
+                <Code class="size-4"/>
+                <h3 class="text-sm font-medium">Open Source</h3>
+            </div>
+            <p class="text-muted-foreground text-sm">
+                All code is available on GitHub—fork, contribute, or run your own instance under AGPLv3
+            </p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex items-center gap-2">
+                <Database class="size-4"/>
+                <h3 class="text-sm font-medium">Data Friendly</h3>
+            </div>
+            <p class="text-muted-foreground text-sm">
+                Download or immediately access our data via API to build your own tools and insights.
+            </p>
+        </div>
+
     </div>
 </div>
