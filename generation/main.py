@@ -18,7 +18,7 @@ from aio_cache import set_aio_cache_location, set_aio_cache_expiration
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
-    write_quick_statistics_cache, read_quick_statistics_cache
+    write_quick_statistics_cache, read_quick_statistics_cache, write_explorer_extras_cache, read_explorer_extras_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
@@ -280,7 +280,7 @@ def main():
 
             instructor_values = instructor_to_rating.values()
 
-            quick_statistics = aggregate_courses(
+            quick_statistics, explorer_extras = aggregate_courses(
                 course_ref_to_course=course_ref_to_course,
                 instructors=instructor_values,
                 cache_dir=cache_dir,
@@ -289,7 +289,9 @@ def main():
 
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
             write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+
             write_quick_statistics_cache(cache_dir, quick_statistics, logger)
+            write_explorer_extras_cache(cache_dir, explorer_extras, logger)
 
             logger.info("Data aggregated successfully.")
 
@@ -339,6 +341,7 @@ def main():
             terms = read_terms_cache(cache_dir, logger)
 
             quick_statistics = read_quick_statistics_cache(cache_dir, logger)
+            explorer_extras = read_explorer_extras_cache(cache_dir, logger)
 
             write_data(
                 data_dir=data_dir,
@@ -354,6 +357,7 @@ def main():
                 instructor_to_rating=instructor_to_rating,
                 terms=terms,
                 quick_statistics=quick_statistics,
+                explorer_extras=explorer_extras,
                 logger=logger
             )
 
