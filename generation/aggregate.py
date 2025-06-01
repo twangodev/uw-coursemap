@@ -82,8 +82,6 @@ def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course
         if count < CROSS_LIST_MIN:
             continue
         result.append({"s1": a, "s2": b, "value": count})
-        result.append({"s1": b, "s2": a, "value": count})
-
 
     logger.info("Aggregated cross-listings for %d pairs", len(result))
 
