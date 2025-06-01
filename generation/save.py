@@ -3,7 +3,6 @@ import os
 from datetime import datetime, timezone
 from logging import Logger
 
-from pathvalidate import validate_filename, ValidationError
 from tqdm import tqdm
 
 from instructors import FullInstructor
@@ -149,6 +148,7 @@ def write_data(
         instructor_to_rating: dict[str, FullInstructor],
         terms,
         quick_statistics,
+        explorer_extras,
         logger,
 ):
     wipe_data(data_dir, logger)
@@ -182,6 +182,9 @@ def write_data(
     write_file(data_dir, tuple(), "terms", terms, logger)
 
     write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
+
+    for key, value in tqdm(explorer_extras.items(), desc="Explorer Extras", unit="extra"):
+        write_file(data_dir, ("extras",), key, value, logger)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {

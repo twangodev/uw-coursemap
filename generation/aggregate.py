@@ -1,4 +1,7 @@
 import asyncio
+from collections import Counter
+from itertools import combinations
+from logging import Logger
 
 import numpy as np
 from keybert import KeyBERT
@@ -62,6 +65,24 @@ def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
 
             requisite_course = course_ref_to_course[requisite]
             requisite_course.satisfies.add(course.course_reference)
+
+
+def aggregate_cross_listings(course_ref_to_course: dict[Course.Reference, Course], logger: Logger):
+    courses = course_ref_to_course.values()
+    pair_counter: Counter[tuple[str, str]] = Counter()
+
+    for course in courses:
+        subjects = sorted(course.course_reference.subjects)
+        for a, b in combinations(subjects, 2):
+            pair_counter[(a, b)] += 1
+
+    result: list[dict] = []
+    for (a, b), count in pair_counter.items():
+        result.append({"s1": a, "s2": b, "value": count})
+
+    logger.info("Aggregated cross-listings for %d pairs", len(result))
+
+    return result
 
 
 async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
@@ -164,16 +185,21 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
-
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
     determine_satisfies(course_ref_to_course)
+
+    aggregated_cross_listings = aggregate_cross_listings(course_ref_to_course, logger)
+
+    explorer_extras = {
+        "cross_listings": aggregated_cross_listings,
+    }
 
     qs = quick_statistics(course_ref_to_course, instructors, logger)
 
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
-    return qs
+    return qs, explorer_extras
 
 def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor], logger):
 
