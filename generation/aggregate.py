@@ -1,6 +1,5 @@
 import asyncio
-from collections import Counter
-from logging import Logger
+import math
 
 import numpy as np
 from keybert import KeyBERT
@@ -196,12 +195,68 @@ def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]
 
     return subject_stats
 
+def a_rate_wilson_lower_bound_scaled(course: Course) -> tuple[Course, float]:
+    """
+    Calculate the Wilson lower bound for the A-rate of a course, scaled to reward classes with large enrollments.
+    """
+    if not course.cumulative_grade_data:
+        return course, 0.0
+
+    total_a_grades = course.cumulative_grade_data.a
+    total_grades = course.cumulative_grade_data.total
+
+    if not total_a_grades or total_grades < 100:
+        return course, 0.0
+
+    # Calculate the Wilson lower bound
+    z = 2.576 # For a 99% confidence interval
+    p_hat = total_a_grades / total_grades
+    n = total_grades
+
+    lower_bound = (p_hat + z**2 / (2 * n) - z * ((p_hat * (1 - p_hat) + z**2 / (4 * n)) / n)**0.5) / (1 + z**2 / n)
+
+    scaled = lower_bound * math.log10(n + 1)
+
+    return course, scaled
+
+def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course], logger):
+    """
+    Determine the A-rate chance for each course in the provided mapping.
+
+    Args:
+        course_ref_to_course (dict): Mapping of course references to Course objects.
+        logger: Logger for logging information.
+
+    Returns:
+        dict: Mapping of course references to their A-rate Wilson lower bounds.
+    """
+    a_rate_chances = {}
+
+    for course_ref, course in tqdm(course_ref_to_course.items(), desc="Calculating A-rate Chances", unit="course"):
+        course, lower_bound = a_rate_wilson_lower_bound_scaled(course)
+        a_rate_chances[course_ref] = lower_bound
+        logger.debug("Course %s has A-rate chance: %.2f", course_ref.get_identifier(), lower_bound)
+
+
+    top_100 = sorted(a_rate_chances.items(), key=lambda x: x[1], reverse=True)[:100]
+    top_100 = [{
+        "reference": course_ref,
+        "a_rate_chance": chance
+    } for course_ref, chance in top_100]
+
+    logger.info("Top 10 courses by A-rate chance:")
+    for course in top_100[:10]:
+        logger.info("Course %s: A-rate chance %.2f", course["reference"], course["a_rate_chance"])
+
+    return top_100
+
 def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
     determine_satisfies(course_ref_to_course)
 
     stats = aggregate_subject_stats(course_ref_to_course, logger)
-
     qs = quick_statistics(course_ref_to_course, instructors, logger)
+
+    qs["top_100_a_rate_chances"] = determine_a_rate_chance(course_ref_to_course, logger)
 
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
