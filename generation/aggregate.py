@@ -244,9 +244,9 @@ def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course]
         "a_rate_chance": chance
     } for course_ref, chance in top_100]
 
-    logger.info("Top 10 courses by A-rate chance:")
+    logger.debug("Top 10 courses by A-rate chance:")
     for course in top_100[:10]:
-        logger.info("Course %s: A-rate chance %.2f", course["reference"], course["a_rate_chance"])
+        logger.debug("Course %s: A-rate chance %.2f", course["reference"], course["a_rate_chance"])
 
     return top_100
 
@@ -262,6 +262,19 @@ def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], inst
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
     return qs, stats
+
+def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], logger, top_n=100):
+    instructor_ratings = [
+        (name, instructor.rmp_data.num_ratings if instructor.rmp_data and instructor.email else 0)
+        for name, instructor in instructor_to_rating.items()
+    ]
+
+    sorted_instructors = sorted(instructor_ratings, key=lambda x: x[1], reverse=True)
+    names = [inst[0] for inst in sorted_instructors if inst[1]][:top_n]
+
+    logger.debug("Most rated instructors: %s", names)
+
+    return names
 
 def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor], logger):
 
@@ -290,3 +303,8 @@ def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], 
                 instructor.courses_taught.add(course_reference.get_identifier())
                 instructor.cumulative_grade_data = grade_data_summation
 
+    instructor_statistics = {
+        "most_rated_instructors": most_rated_instructors(instructor_to_rating, logger, top_n=100)
+    }
+
+    return instructor_statistics
