@@ -272,7 +272,7 @@ def main():
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
             instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
 
-            aggregate_instructors(
+            instructor_statistics = aggregate_instructors(
                 course_ref_to_course=course_ref_to_course,
                 instructor_to_rating=instructor_to_rating,
                 logger=logger
@@ -280,17 +280,22 @@ def main():
 
             instructor_values = instructor_to_rating.values()
 
-            quick_statistics, explorer_stats = aggregate_courses(
+            course_statistics, explorer_stats = aggregate_courses(
                 course_ref_to_course=course_ref_to_course,
                 instructors=instructor_values,
                 cache_dir=cache_dir,
                 logger=logger
             )
 
+            course_statistics = {
+                **instructor_statistics,
+                **course_statistics,
+            }
+
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
             write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
 
-            write_quick_statistics_cache(cache_dir, quick_statistics, logger)
+            write_quick_statistics_cache(cache_dir, course_statistics, logger)
             write_explorer_stats_cache(cache_dir, explorer_stats, logger)
 
             logger.info("Data aggregated successfully.")
@@ -340,7 +345,7 @@ def main():
 
             terms = read_terms_cache(cache_dir, logger)
 
-            quick_statistics = read_quick_statistics_cache(cache_dir, logger)
+            course_statistics = read_quick_statistics_cache(cache_dir, logger)
             explorer_stats = read_explorer_stats_cache(cache_dir, logger)
 
             write_data(
@@ -356,7 +361,7 @@ def main():
                 subject_to_style=subject_to_style,
                 instructor_to_rating=instructor_to_rating,
                 terms=terms,
-                quick_statistics=quick_statistics,
+                quick_statistics=course_statistics,
                 explorer_stats=explorer_stats,
                 logger=logger
             )
