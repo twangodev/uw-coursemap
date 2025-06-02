@@ -5,19 +5,22 @@
     import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
     import {slide, type SlideParams} from "svelte/transition";
     import {slideParams} from "$lib/transitions.ts";
+    import {Badge} from "$lib/components/ui/badge";
 
     interface Props {
         instructor: FullInstructorInformation,
         showRating?: boolean,
         showOtherDetails?: boolean,
-        disableSlideOut?: boolean
+        disableSlideOut?: boolean,
+        rank?: number
     }
 
     let {
         instructor,
         showRating = false,
         showOtherDetails = false,
-        disableSlideOut = false
+        disableSlideOut = false,
+        rank = undefined
     }: Props = $props();
 
     let {name, email} = instructor;
@@ -39,6 +42,9 @@
         href="/instructors/{name.replaceAll(' ', '_').replaceAll('/', '_')}"
     >
         <div class="flex items-center overflow-hidden">
+            {#if rank}
+                <Badge class="text-xs text-muted-foreground mr-2" variant="outline">#{rank}</Badge>
+            {/if}
             <Avatar class="shrink-0">
                 <AvatarFallback>{name[0]}</AvatarFallback>
             </Avatar>
