@@ -85,7 +85,7 @@
                         </CardTitle>
                     </CardHeader>
                     <CardDescription class="px-6">
-                        Can't get enough? Me neither, but I'm running out of ideas. Request another fun fact or feature on our GitHub repository.
+                        If you have an idea for a fun fact or feature, let us know!
                     </CardDescription>
                 </Card>
             </a>
