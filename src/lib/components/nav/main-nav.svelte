@@ -18,7 +18,7 @@
 			{siteConfig.name}
 		</span>
     </a>
-    <nav class="flex items-center gap-6 text-sm mx-4">
+    <nav class="flex items-center gap-6 text-sm mx-6">
         {#each navigation as item}
             <a
                     href={item.href}

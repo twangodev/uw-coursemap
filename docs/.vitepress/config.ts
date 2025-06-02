@@ -119,9 +119,9 @@ const vitePressOptions: UserConfig = {
     hostname: 'https://docs.uwcourses.com'
   },
   head: [['script', {
-    src: 'https://analytics.twango.dev/script.js',
+    src: 'https://rybbit.twango.dev/api/script.js',
     defer: '',
-    'data-website-id': 'ce631ecc-43f3-44d9-9c70-668d6fa99333'
+    'data-site-id': '2'
   }]],
   markdown: {
     config(md) {

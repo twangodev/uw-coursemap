@@ -1,8 +1,8 @@
 import asyncio
+import math
 
 import numpy as np
 from keybert import KeyBERT
-from sentence_transformers import SentenceTransformer
 from tqdm.asyncio import tqdm
 
 from course import Course
@@ -10,22 +10,47 @@ from embeddings import get_model, get_embedding
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
-def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], logger):
+CROSS_LIST_MIN = 5
+
+def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor], logger):
 
     total_courses = len(course_ref_to_course)
     school_cumulative_grades = GradeData.empty()
+
+    total_instructors = len(instructors)
+
+    total_detected_requisites = 0
 
     for course, course_data in course_ref_to_course.items():
         cumulative_grade_data = course_data.cumulative_grade_data
         if cumulative_grade_data:
             school_cumulative_grades = school_cumulative_grades.merge_with(cumulative_grade_data)
 
+        if course_data.prerequisites:
+            total_detected_requisites += len(course_data.prerequisites.course_references)
+
+    total_ratings = 0
+
+    for instructor in instructors:
+        if not instructor.rmp_data:
+            continue
+
+        rmp_data = instructor.rmp_data
+        total_ratings += len(rmp_data.ratings)
+
+
     logger.info("Total courses: %d", total_courses)
     logger.info("School cumulative grades: %s", school_cumulative_grades)
+    logger.info("Total instructors: %d", total_instructors)
+    logger.info("Total detected requisites: %d", total_detected_requisites)
+    logger.info("Total ratings: %d", total_ratings)
 
     return {
         "total_courses": total_courses,
         "total_grades_given": school_cumulative_grades,
+        "total_instructors": total_instructors,
+        "total_detected_requisites": total_detected_requisites,
+        "total_ratings": total_ratings,
     }
 
 def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
@@ -141,15 +166,115 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
+def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course], logger):
+    subject_stats = {}
 
-def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
-    qs = quick_statistics(course_ref_to_course, logger)
+    for course in course_ref_to_course.values():
+        subjects = course.course_reference.subjects
 
+        if not subjects:
+            continue
+
+        for subject in subjects:
+            if subject not in subject_stats:
+                subject_stats[subject] = {
+                    "total_courses": 0,
+                    "total_grades_given": GradeData.empty(),
+                    "total_detected_requisites": 0,
+                }
+
+            stats = subject_stats[subject]
+            stats["total_courses"] += 1
+            stats["total_grades_given"] = stats["total_grades_given"].merge_with(course.cumulative_grade_data)
+
+            if course.prerequisites:
+                stats["total_detected_requisites"] += len(course.prerequisites.course_references)
+
+    for subject, stats in subject_stats.items():
+        logger.info("Subject: %s, Stats: %s", subject, stats)
+
+    return subject_stats
+
+def a_rate_wilson_lower_bound_scaled(course: Course) -> tuple[Course, float]:
+    """
+    Calculate the Wilson lower bound for the A-rate of a course, scaled to reward classes with large enrollments.
+    """
+    if not course.cumulative_grade_data:
+        return course, 0.0
+
+    total_a_grades = course.cumulative_grade_data.a
+    total_grades = course.cumulative_grade_data.total
+
+    if not total_a_grades or total_grades < 100:
+        return course, 0.0
+
+    # Calculate the Wilson lower bound
+    z = 2.576 # For a 99% confidence interval
+    p_hat = total_a_grades / total_grades
+    n = total_grades
+
+    lower_bound = (p_hat + z**2 / (2 * n) - z * ((p_hat * (1 - p_hat) + z**2 / (4 * n)) / n)**0.5) / (1 + z**2 / n)
+
+    scaled = lower_bound * math.log10(n + 1)
+
+    return course, scaled
+
+def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course], logger):
+    """
+    Determine the A-rate chance for each course in the provided mapping.
+
+    Args:
+        course_ref_to_course (dict): Mapping of course references to Course objects.
+        logger: Logger for logging information.
+
+    Returns:
+        dict: Mapping of course references to their A-rate Wilson lower bounds.
+    """
+    a_rate_chances = {}
+
+    for course_ref, course in tqdm(course_ref_to_course.items(), desc="Calculating A-rate Chances", unit="course"):
+        course, lower_bound = a_rate_wilson_lower_bound_scaled(course)
+        a_rate_chances[course_ref] = lower_bound
+        logger.debug("Course %s has A-rate chance: %.2f", course_ref.get_identifier(), lower_bound)
+
+
+    top_100 = sorted(a_rate_chances.items(), key=lambda x: x[1], reverse=True)[:100]
+    top_100 = [{
+        "reference": course_ref,
+        "a_rate_chance": chance
+    } for course_ref, chance in top_100]
+
+    logger.debug("Top 10 courses by A-rate chance:")
+    for course in top_100[:10]:
+        logger.debug("Course %s: A-rate chance %.2f", course["reference"], course["a_rate_chance"])
+
+    return top_100
+
+def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
     determine_satisfies(course_ref_to_course)
+
+    stats = aggregate_subject_stats(course_ref_to_course, logger)
+    qs = quick_statistics(course_ref_to_course, instructors, logger)
+
+    qs["top_100_a_rate_chances"] = determine_a_rate_chance(course_ref_to_course, logger)
+
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
     asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
 
-    return qs
+    return qs, stats
+
+def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], logger, top_n=100):
+    instructor_ratings = [
+        (name, instructor.rmp_data.num_ratings if instructor.rmp_data and instructor.email else 0)
+        for name, instructor in instructor_to_rating.items()
+    ]
+
+    sorted_instructors = sorted(instructor_ratings, key=lambda x: x[1], reverse=True)
+    names = [inst[0] for inst in sorted_instructors if inst[1]][:top_n]
+
+    logger.debug("Most rated instructors: %s", names)
+
+    return names
 
 def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor], logger):
 
@@ -178,3 +303,8 @@ def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], 
                 instructor.courses_taught.add(course_reference.get_identifier())
                 instructor.cumulative_grade_data = grade_data_summation
 
+    instructor_statistics = {
+        "most_rated_instructors": most_rated_instructors(instructor_to_rating, logger, top_n=100)
+    }
+
+    return instructor_statistics

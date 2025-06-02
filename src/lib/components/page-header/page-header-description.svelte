@@ -15,7 +15,7 @@
 
 <p
         class={cn(
-		"text-muted-foreground max-w-[750px] text-center text-lg sm:text-xl",
+		"mx-auto text-muted-foreground max-w-[750px] text-center text-lg sm:text-xl",
 		balanced && "text-balance",
 		className
 	)}

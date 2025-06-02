@@ -208,6 +208,46 @@
                     <InstructorWordCloud instructors={[instructor]} />
                 </CardContent>
             </Card>
+            {#if instructor.rmp_data?.ratings?.length}
+                <Card class="mt-4">
+                    <CardHeader class="pb-2">
+                        <CardTitle class="text-lg font-bold">Comments</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div class="space-y-3 overflow-y-auto pt-4 max-h-64 custom-scrollbar">
+                            {#each instructor.rmp_data.ratings as rating}
+                                {#if rating.comment}
+                                    <div class="p-3 border rounded-lg bg-muted-foreground/5">
+                                        <p class="text-sm">{rating.comment}</p>
+                                    </div>
+                                {/if}
+                            {/each}
+                        </div>
+                    </CardContent>
+                </Card>
+            {/if}
         </div>
     </div>
 </ContentWrapper>
+
+<style>
+    /* Nicer, thinner scrollbar styling */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(100, 100, 100, 0.4);
+        border-radius: 3px;
+    }
+    .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(100, 100, 100, 0.6);
+    }
+    /* Firefox support */
+    .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+    }
+</style>
