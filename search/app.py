@@ -11,6 +11,7 @@ from flask_cors import CORS
 
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
+from data import get_random_courses as get_random_courses_data
 
 load_dotenv()
 
@@ -41,6 +42,9 @@ cors = CORS(app)
 
 data_dir_default = environ.get("DATA_DIR", "./data")
 
+args = None
+verbose = False
+
 def generate_parser():
     """
     Build the argument parser for command line arguments.
@@ -63,6 +67,15 @@ def generate_parser():
     )
     return arg_parser
 
+if __name__ == "__main__":
+    parser = generate_parser()
+    args = parser.parse_args()
+
+    verbose = bool(args.verbose) if args else verbose
+
+
+data_dir = args.data_dir if args else data_dir_default
+
 @app.route('/search', methods=['POST'])
 def search():
     # Expecting a JSON body like { "query": "Python" }
@@ -78,25 +91,15 @@ def search():
 @app.route('/random-courses', methods=['GET'])
 def get_random_courses():
     """Returns 5 random courses from the dataset."""
-    if not courses:
-        return jsonify({"error": "No courses available"}), 404
-
-    # Ensure we don't try to sample more courses than exist
-    num_courses = min(5, len(courses))
-
-    # Select 5 unique random course IDs
-    random_course_ids = random.sample(list(courses.keys()), num_courses)
-
+    random_courses_data = get_random_courses_data(data_dir, num_courses=5)
     # Retrieve the full course details
     random_courses = [
         {
         "course_id": course_id,
-        **courses[course_id]
-        } for course_id in random_course_ids
+        **random_courses_data[course_id]
+        } for course_id in random_courses_data 
     ]
-
     return jsonify(random_courses)
-
 
 def clear_elasticsearch():
 
@@ -106,30 +109,21 @@ def clear_elasticsearch():
         if es.indices.exists(index=index):
             es.indices.delete(index=index)
 
-args = None
-verbose = False
 
-if __name__ == "__main__":
-    parser = generate_parser()
-    args = parser.parse_args()
+if environ.get('WERKZEUG_RUN_MAIN') != 'true':
+    # This check prevents the code from running twice when using Flask's reloader
+    logger = logging.getLogger(__name__)
+    logging_level = logging.DEBUG if verbose else logging.INFO
+    coloredlogs.install(level=logging_level, logger=logger)
 
-    verbose = bool(args.verbose) if args else verbose
+    subjects = get_subjects(data_dir, logger)
+    courses = get_courses(data_dir, subjects, logger)
+    instructors = get_instructors(data_dir, logger)
+    clear_elasticsearch()
 
-data_dir = args.data_dir if args else data_dir_default
-
-logger = logging.getLogger(__name__)
-logging_level = logging.DEBUG if verbose else logging.INFO
-coloredlogs.install(level=logging_level, logger=logger)
-
-subjects = get_subjects(data_dir, logger)
-instructors = get_instructors(data_dir, logger)
-courses = get_courses(data_dir, subjects, logger)
-
-clear_elasticsearch()
-
-load_subjects(es, subjects)
-load_courses(es, courses)
-load_instructors(es, instructors)
+    load_subjects(es, subjects)
+    load_courses(es, courses)
+    load_instructors(es, instructors)
 
 if __name__ == "__main__":
     app.run(debug=verbose)
