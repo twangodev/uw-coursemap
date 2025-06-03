@@ -1,5 +1,5 @@
 import type {EdgeDefinition, ElementDefinition, LayoutOptions, NodeDefinition} from 'cytoscape'
-import ELK from 'elkjs/lib/elk.bundled.js'
+import ELK, {type ElkNode} from 'elkjs/lib/elk.bundled.js'
 import {getEdgeData, getNodeData} from './graph-data.ts'
 
 export enum LayoutType {
@@ -13,9 +13,13 @@ export async function generateLayeredLayout(
     labelIsCode: boolean
 ): Promise<LayoutOptions> {
     const elk = new ELK()
-    const newLayout = {
+    const newLayout: ElkNode = {
         id: "root",
-        layoutOptions: { 'elk.algorithm': 'layered' },
+        layoutOptions: {
+            'elk.algorithm': 'layered',
+            'elk.aspectRatio': `${window.innerWidth / window.innerHeight}`,
+            'elk.randomSeed': `${Math.floor(Math.random() * 1000)}`,
+        },
         children: getNodeData(courseData).map((node: NodeDefinition) => {
                 if (!node.data.id) {
                     throw new Error("Node ID is undefined");
@@ -38,7 +42,8 @@ export async function generateLayeredLayout(
                     sources: [edge.data.source],
                     targets: [edge.data.target],
                 }
-            })
+            }),
+
     }
 
     const nodePos = await elk.layout(newLayout)
