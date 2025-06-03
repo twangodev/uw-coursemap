@@ -118,11 +118,17 @@ const vitePressOptions: UserConfig = {
   sitemap: {
     hostname: 'https://docs.uwcourses.com'
   },
-  head: [['script', {
-    src: 'https://rybbit.twango.dev/api/script.js',
-    defer: '',
-    'data-site-id': '2'
-  }]],
+  head: [
+    ['script', {
+      src: 'https://rybbit.twango.dev/api/script.js',
+      defer: '',
+      'data-site-id': '2'
+    }],
+    ['link', {
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+      rel: "stylesheet"
+    }]
+  ],
   markdown: {
     config(md) {
       md.use(groupIconMdPlugin)

@@ -22,8 +22,8 @@ For dark backgrounds, use the dark version of the logo:
 
 For light backgrounds, use the light version of the logo:
 
-![Icon with Text and Tagline](https://uwcourses.com/uw-coursemap-tagline-light.svg)
+![Icon with Text and Tagline](https://uwcourses.com/uw-coursemap-tagline-dark.svg)
 
 For dark backgrounds, use the dark version of the logo:
 
-![Icon with Text and Tagline](https://uwcourses.com/uw-coursemap-tagline-dark.svg)
+![Icon with Text and Tagline](https://uwcourses.com/uw-coursemap-tagline-light.svg)
