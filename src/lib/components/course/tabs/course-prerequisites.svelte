@@ -27,7 +27,10 @@
             <div>
                 <CardTitle>Course Prerequisites Map</CardTitle>
                 <CardDescription>
-                    Visual representation of course prerequisites and related courses
+                    Visual representation of course prerequisites and related courses.
+                </CardDescription>
+                <CardDescription>
+                    Note: We aren't showing all possible requisite relationships, only those that are directly relevant to the course.
                 </CardDescription>
             </div>
             <Button
