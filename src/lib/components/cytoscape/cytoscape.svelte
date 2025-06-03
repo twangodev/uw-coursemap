@@ -388,7 +388,7 @@
         <Alert.Description
             >You can upload your transcript <a href="/upload"
             class="font-medium text-primary underline decoration-primary underline-offset-4 hover:text-primary/80 transition-colors"
->here</a> and display courses you've taken in a different color.</Alert.Description
+>here</a> and display courses you've taken in a different color. <strong>We've also trimmed this prerequisite graph to show optimized relationships, (i.e. the combination that best satisfies a requisite)</strong></Alert.Description
         >
         <AlertClose class="absolute right-2 top-2 md:right-3 md:top-3 opacity-70 hover:opacity-100 transition-opacity rounded-full p-1 hover:bg-muted" onclick={() => showAlert = false}>
             <X class="h-4 w-4" />
