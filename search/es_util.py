@@ -276,6 +276,50 @@ def load_instructors(es, instructors):
     Index instructors into Elasticsearch.
     Adds normalized versions for all text fields.
     """
+    # literally all it does it to remove tokens shorter than 2 characters after analyzer tokenizes the string 
+    # done to remove middle name tokens like "I" filling up the results
+    settings = {
+        "settings": {
+            "analysis": {
+                "filter": {
+                    "min_length_filter": {
+                        "type": "length",
+                        "min": 2  
+                    }
+                },
+                "analyzer": {
+                    "instructor_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "lowercase",
+                            "min_length_filter"
+                        ]
+                    }
+                }
+            }
+        },
+        "mappings": {
+            "properties": {
+                "name": {
+                    "type": "text",
+                    "analyzer": "instructor_analyzer",
+                    "search_analyzer": "instructor_analyzer"
+                },
+                "official_name": {
+                    "type": "text",
+                    "analyzer": "instructor_analyzer",
+                    "search_analyzer": "instructor_analyzer"
+                },
+            }
+        }
+    }
+
+    # Create index with settings
+    if es.indices.exists(index="instructors"):
+        es.indices.delete(index="instructors")
+    es.indices.create(index="instructors", body=settings)
+
     actions = []
     for instructor_id, instructor_data in instructors.items():
         name = instructor_data["name"]
@@ -305,43 +349,68 @@ def search_instructors(es, search_term):
         "query": {
             "bool": {
                 "should": [
+                    # Primary name fields with high boost
                     {
                         "multi_match": {
                             "query": search_term,
                             "fields": [
                                 "name^10",
-                                "official_name^2",
-                                "email",
-                                "position",
-                                "department",
+                                "official_name^8",
                                 "name_normalized^10",
-                                "official_name_normalized^2",
-                                "email_normalized",
-                                "position_normalized",
-                                "department_normalized"
+                                "official_name_normalized^8"
                             ],
+                            "type": "best_fields",
+                            "fuzziness": "AUTO",
+                            "analyzer": "instructor_analyzer",
+                            "slop": 1 
+                        }
+                    },
+                    # Department and position with medium boost
+                    {
+                        "multi_match": {
+                            "query": search_term,
+                            "fields": [
+                                "department^5",
+                                "position^5",
+                                "department_normalized^5",
+                                "position_normalized^5"
+                            ],
+                            "type": "best_fields",
                             "fuzziness": "AUTO"
                         }
                     },
+                    # Email with lower boost
                     {
-                        "query_string": {
-                            "query": f"*{search_term}*",
+                        "multi_match": {
+                            "query": search_term,
                             "fields": [
-                                "name",
-                                "official_name",
-                                "email",
-                                "position",
-                                "department",
-                                "name_normalized",
-                                "official_name_normalized",
-                                "email_normalized",
-                                "position_normalized",
-                                "department_normalized"
+                                "email^2",
+                                "email_normalized^2"
                             ],
-                            "analyze_wildcard": True
+                            "type": "best_fields",
+                            "fuzziness": "AUTO"
                         }
                     }
                 ],
+                    # {
+                    #     "query_string": {
+                    #         "query": f"*{search_term}*",
+                    #         "fields": [
+                    #             "name",
+                    #             "official_name",
+                    #             "email",
+                    #             "position",
+                    #             "department",
+                    #             "name_normalized",
+                    #             "official_name_normalized",
+                    #             "email_normalized",
+                    #             "position_normalized",
+                    #             "department_normalized"
+                    #         ],
+                    #         "analyze_wildcard": True
+                    #     }
+                    # }
+                
                 "minimum_should_match": 1
             }
         },
