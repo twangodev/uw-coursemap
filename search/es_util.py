@@ -110,6 +110,63 @@ def load_courses(es, courses):
     Index courses into Elasticsearch.
     Adds normalized versions for key text fields.
     """
+
+    settings = {
+        "settings": {
+            "analysis": {
+                "filter": {
+                    "roman_numerals_synonym_filter": {
+                        "type": "synonym",
+                        "synonyms": [
+                            "I, i, 1",
+                            "II, ii, 2",
+                            "III, iii, 3",
+                            "IV, iv, 4",
+                            "V, v, 5",
+                            "VI, vi, 6",
+                            "VII, vii, 7",
+                            "VIII, viii, 8",
+                        ]
+                    }
+                },
+                "analyzer": {
+                    # this should be identical to the one used by default + synonyms
+                    # https://www.elastic.co/docs/reference/text-analysis/analysis-standard-analyzer
+                    "course_analyzer": {
+                        "tokenizer": "standard",
+                        "filter": [
+                            "lowercase",
+                            "roman_numerals_synonym_filter"
+                        ]
+                    }
+                }
+            }
+        },
+        "mappings": {
+            "properties": {
+                "name": {
+                    "type": "text",
+                    "analyzer": "course_analyzer"
+                },
+                "name_normalized": {
+                    "type": "text",
+                    "analyzer": "course_analyzer"
+                },
+                "variations": {
+                    "type": "text",
+                    "analyzer": "course_analyzer"
+                },
+                "variations_normalized": {
+                    "type": "text",
+                    "analyzer": "course_analyzer"
+                }
+            }
+        }
+    }
+    if es.indices.exists(index="courses"):
+        es.indices.delete(index="courses")
+    es.indices.create(index="courses", body=settings)
+
     actions = []
     for course_id, course_data in courses.items():
         # Original fields
@@ -183,7 +240,8 @@ def search_courses(es: Elasticsearch, search_term: str):
                     "course_title_normalized^5",
                     "course_reference_normalized^4"
                 ],
-                "fuzziness": "AUTO"
+                "fuzziness": "AUTO",
+                "analyzer": "course_analyzer"
             }
         }
     ])
