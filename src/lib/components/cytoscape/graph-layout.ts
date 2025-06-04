@@ -17,7 +17,6 @@ export async function generateLayeredLayout(
         id: "root",
         layoutOptions: {
             'elk.algorithm': 'layered',
-            'elk.aspectRatio': `${window.innerWidth / window.innerHeight}`,
             'elk.randomSeed': `${Math.floor(Math.random() * 1000)}`,
         },
         children: getNodeData(courseData).map((node: NodeDefinition) => {
