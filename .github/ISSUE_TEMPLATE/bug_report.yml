@@ -32,15 +32,6 @@ body:
   attributes:
     label: Platform
     description: "What platform/Browser are you using?"
-    placeholder: "e.g. Chrome, Firefox, Safari, etc, or your OS"
+    placeholder: "Browser (Chrome, Firefox, Safari, etc), or your Operating System (if not web related)"
   validations:
     required: true
-- type: checkboxes
-  id: terms
-  attributes:
-    label: Code of Conduct and Contribution Guidelines
-    description: | 
-      By submitting this issue, you agree to follow our [Code of Conduct](https://docs.uwcourses.com/code-of-conduct) and [Contributing Guidelines](https://docs.uwcourses.com/contributing).
-    options:
-      - label: I agree to follow this project's Code of Conduct
-        required: true
