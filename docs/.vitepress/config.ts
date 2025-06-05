@@ -85,6 +85,10 @@ const vitePressOptions: UserConfig = {
         link: '/contributing'
       },
       {
+        text: 'Code of Conduct',
+        link: '/code-of-conduct'
+      },
+      {
         text: 'Team',
         link: '/team'
       },
