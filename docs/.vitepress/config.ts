@@ -1,4 +1,4 @@
-import {defineConfig, type UserConfig} from 'vitepress'
+import { type UserConfig} from 'vitepress'
 import {groupIconMdPlugin, groupIconVitePlugin} from 'vitepress-plugin-group-icons';
 import {withMermaid} from "vitepress-plugin-mermaid";
 import teamData from './contributors';
@@ -48,18 +48,21 @@ const vitePressOptions: UserConfig = {
             text: 'Quickstart',
             link: '/getting-started/quickstart'
           },
+          {
+            text: 'Architecture',
+            link: '/getting-started/architecture'
+          }
         ]
       },
       {
-        text: 'Concepts',
+        text: 'Usage',
         items: [
           {
-            text: 'Data Model',
-            link: '/concepts/data-model'
+            text: 'Content API Specification',
+            link: '/usage/static-api',
           },
           {
-            text: 'Architecture',
-            link: '/concepts/architecture'
+
           }
         ]
       },

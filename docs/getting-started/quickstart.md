@@ -18,7 +18,7 @@ cp .env.example .env
 <<< @/../.env.example{dotenv}
 :::
 
-Next, determine whether you want to run the frontend, search, generation, or all. If you're not sure what you want to run, you should read [architecture](../concepts/architecture.md) to get a better understanding of the project. 
+Next, determine whether you want to run the frontend, search, generation, or all. If you're not sure what you want to run, you should read [architecture](architecture.md) to get a better understanding of the project. 
 
 Frontend is the easiest to get started with, so we recommend starting there.
 

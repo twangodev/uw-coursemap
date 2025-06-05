@@ -43,4 +43,4 @@ The University of Wisconsin–Madison has 10,000+ courses spanning 190+ departme
 ## Moving Forward
 
 - If you would like new features or even implement them yourself, please check out our [Contributing Guide](./contributing.md).
-- Our datasets and endpoints are open to the public. If you're curious about how we built this, check out our [API Documentation](./concepts/data-model.md)
+- Our datasets and endpoints are open to the public. If you're curious about how we built this, check out our [API Documentation](usage/static-api.md)
