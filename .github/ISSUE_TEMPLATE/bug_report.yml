@@ -1,47 +1,46 @@
 name: Bug report
 about: File a bug report to help us improve the project
-title: ''
 labels: ["bug", "triage"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: dropdown
-    id: target
-    attributes:
-      label: Where did this happen?
-      description: "Select the target where you encountered the bug."
-      options:
-        - "Website (Svelte)"
-        - "Search Endpoint"
-        - "API Endpoint"
-      default: 0
-    validations:
-      required: true
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      description: "Also tell us what you expected to happen."
-      placeholder: |
-        Tell us what you see!
-    validations:
-      required: true
-  - type: input
-    id: platform
-    attributes:
-      label: Platform
-      description: "What platform/Browser are you using?"
-      placeholder: "e.g. Chrome, Firefox, Safari, etc, or your OS"
-    validations:
-      required: true
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct and Contribution Guidelines
-      description: | 
-        By submitting this issue, you agree to follow our [Code of Conduct](https://docs.uwcourses.com/code-of-conduct) and [Contributing Guidelines](https://docs.uwcourses.com/contributing).
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this bug report!
+- type: dropdown
+  id: target
+  attributes:
+    label: Where did this happen?
+    description: "Select the target where you encountered the bug."
+    options:
+      - "Website (Svelte)"
+      - "Search Endpoint"
+      - "API Endpoint"
+    default: 0
+  validations:
+    required: true
+- type: textarea
+  id: what-happened
+  attributes:
+    label: What happened?
+    description: "Also tell us what you expected to happen."
+    placeholder: |
+      Tell us what you see!
+  validations:
+    required: true
+- type: input
+  id: platform
+  attributes:
+    label: Platform
+    description: "What platform/Browser are you using?"
+    placeholder: "e.g. Chrome, Firefox, Safari, etc, or your OS"
+  validations:
+    required: true
+- type: checkboxes
+  id: terms
+  attributes:
+    label: Code of Conduct and Contribution Guidelines
+    description: | 
+      By submitting this issue, you agree to follow our [Code of Conduct](https://docs.uwcourses.com/code-of-conduct) and [Contributing Guidelines](https://docs.uwcourses.com/contributing).
+    options:
+      - label: I agree to follow this project's Code of Conduct
+        required: true
