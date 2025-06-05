@@ -1,0 +1,435 @@
+openapi: 3.1.1
+info:
+  title: UW Course Map - OpenAPI 3.0
+  summary: UW Course Map Content API Documentation
+  description: |-
+    To standardize the wide variety of data sources, we expose UW Course Map data through a unified API. Through this, you can access course metadata, instructor offerings, and student-rating statistics to power your own interfaces, data pipelines, or applications.
+    
+    ## Usage
+
+    Note that this API should be ideally used with applications that demand refreshing data, such as a web application or a mobile app. If you are building a one-time data pipeline, consider exporting the static data directly, as outlined in [static.uwcourses.com](https://static.uwcourses.com).
+    
+    ### Authentication
+    
+    This API does not require authentication. You can access the endpoints directly without any API keys or tokens.
+    
+    ### Rate Limits
+    
+    All API endpoints below have no rate limits, and are free to use. In reasonable cases, this actually improves overall system performance, as more content is cached and served from the Edge CDN. Generally, we ask you to follow these guidelines:
+    
+    - Do you need all the data at once? If so, consider using the static data export instead, outlined in [static.uwcourses.com](https://static.uwcourses.com).
+    - Respect `Cache-Control` headers in the responses, both client side and server side.
+    - Endpoints are monitored, we track usage, latency, and error rate. Blacklisting may occur if we detect abuse or excessive load.
+    - If you have any questions or concerns about usage or bringing your project to scale, please reach out to us via GitHub discussions. For the most part, we are happy to help you scale your project, and we can work with you to ensure that the API meets your needs.
+
+  contact:
+    name: GitHub Discussions
+    url: https://github.com/twangodev/uw-coursemap/discussions
+  version: "1"
+servers:
+  - url: https://static.uwcourses.com
+tags:
+  - name: Courses
+    description: Course-related endpoints
+  - name: Instructors
+    description: Instructor-related endpoints
+components:
+  schemas:
+
+    SubjectCode:
+      type: string
+      description: |
+        A department-level subject code. Is always uppercase letters, but may include symbols like `&`
+
+    SubjectList:
+      type: array
+      description: |
+        A sorted list of subject codes to guarantee consistent ordering.
+      items:
+        $ref: '#/components/schemas/SubjectCode'
+      minItems: 1
+      uniqueItems: true
+
+    CourseNumber:
+      type: integer
+      format: int32
+      description: |
+        The numeric portion identifying the course
+
+    CourseReference:
+      type: object
+      description: |
+        A composite object containing a list of subject codes and a course number.
+      properties:
+        subjects:
+          $ref: '#/components/schemas/SubjectList'
+        course_number:
+          $ref: '#/components/schemas/CourseNumber'
+      required:
+        - subjects
+        - course_number
+
+    CourseIdentifier:
+      type: string
+      description: |
+        A unique identifier for a course, derived from a `CourseReference`. It is formed by joining the elements of `SubjectList` with slashes, followed by a space and the course number.
+
+    UrlCourseCode:
+      type: string
+      description: |
+        Used for URLs, this is a sanitized version of a `CourseIdentifier`. It replaces slashes and spaces with underscores, and appends `.json` to the end.
+      example: "COMPSCI_300.json"
+
+    CoursePrerequisiteAbstractSyntaxTree:
+      oneOf:
+        - $ref: '#/components/schemas/PrerequisiteInnerNode'
+        - $ref: '#/components/schemas/PrerequisiteLeaf'
+      description: |
+        The prerequisite AST itself, which may be either an inner node (AND/OR plus children)
+        or a leaf (textual note or concrete course reference).
+
+    PrerequisiteNode:
+      oneOf:
+        - $ref: '#/components/schemas/PrerequisiteInnerNode'
+        - $ref: '#/components/schemas/PrerequisiteLeaf'
+      description: |
+        A node in the prerequisite AST. It can either be an inner node (with an operator
+        and children) or a leaf (containing either plain text or a CourseReference).
+
+    PrerequisiteInnerNode:
+      type: object
+      description: |
+        An inner AST node that applies a logical operator ("AND" or "OR") to its children.
+      properties:
+        operator:
+          type: string
+          description: Logical operator to combine child nodes.
+          enum:
+            - AND
+            - OR
+        children:
+          type: array
+          description: List of child nodes under this operator.
+          items:
+            $ref: '#/components/schemas/PrerequisiteNode'
+      required:
+        - operator
+        - children
+
+    PrerequisiteLeaf:
+      type: object
+      description: |
+        A leaf node in the AST, representing either a textual note or a concrete course reference.
+      properties:
+        payload:
+          description: |
+            If this is a string, it represents a textual leaf (e.g., “Instructor consent required”).
+            Otherwise, it is a CourseReference object.
+          oneOf:
+            - type: string
+              description: A free-form textual leaf.
+            - $ref: '#/components/schemas/CourseReference'
+      required:
+        - payload
+
+    CoursePrerequisites:
+      type: object
+      description: |
+        Details about the prerequisites for a course, including the parsed abstract syntax tree (AST), mentioned courses, and any additional data.
+      properties:
+        prerequisites_text:
+          type: string
+          description: The raw text of the prerequisites as provided in the course description
+        linked_requisite_text:
+          type: array
+          description: A list containing strings and `CourseReference` objects that represent the prerequisites.
+          items:
+            anyOf:
+              - type: string
+                description: Any text that does not mention a course reference. This may include non-existent courses, or general requirements.
+              - $ref: '#/components/schemas/CourseReference'
+        course_references:
+          type: array
+          description: A list of `CourseReference` objects that represent the courses mentioned in the prerequisites.
+          items:
+              $ref: '#/components/schemas/CourseReference'
+        abstract_syntax_tree:
+          $ref: '#/components/schemas/CoursePrerequisiteAbstractSyntaxTree'
+      required:
+        - prerequisites_text
+        - linked_requisite_text
+        - course_references
+        - abstract_syntax_tree
+
+    GradeData:
+      type: object
+      description: |
+        Aggregated grade counts and associated instructors for a course. All count fields are integers.
+      properties:
+        total:
+          type: integer
+          description: Total number of grades reported.
+        a:
+          type: integer
+          description: Number of A grades.
+        ab:
+          type: integer
+          description: Number of A/B grades.
+        b:
+          type: integer
+          description: Number of B grades.
+        bc:
+          type: integer
+          description: Number of B/C grades.
+        c:
+          type: integer
+          description: Number of C grades.
+        d:
+          type: integer
+          description: Number of D grades.
+        f:
+          type: integer
+          description: Number of F grades.
+        satisfactory:
+          type: integer
+          description: Number of Satisfactory grades.
+        unsatisfactory:
+          type: integer
+          description: Number of Unsatisfactory grades.
+        credit:
+          type: integer
+          description: Number of Credit (CR) grades.
+        no_credit:
+          type: integer
+          description: Number of No Credit (NC) grades.
+        passed:
+          type: integer
+          description: Number of Passed grades.
+        incomplete:
+          type: integer
+          description: Number of Incomplete grades.
+        no_work:
+          type: integer
+          description: Number of No Work (NW) grades.
+        not_reported:
+          type: integer
+          description: Number of Not Reported grades.
+        other:
+          type: integer
+          description: Number of grades classified as other.
+        instructors:
+          type: array
+          nullable: true
+          description: List of instructor names who taught the course (null if not set).
+          items:
+            type: string
+      required:
+        - total
+        - a
+        - ab
+        - b
+        - bc
+        - c
+        - d
+        - f
+        - satisfactory
+        - unsatisfactory
+        - credit
+        - no_credit
+        - passed
+        - incomplete
+        - no_work
+        - not_reported
+        - other
+        - instructors
+        -
+
+    EnrollmentDataSchool:
+      type: object
+      description: |
+        Information about the school offering a course.
+      properties:
+        name:
+          type: string
+          description: The full name of the school.
+        abbreviation:
+          type: string
+          description: The school’s official abbreviation or code.
+        url:
+          type: string
+          format: uri
+          description: The URL for the school or college’s homepage.
+      required:
+        - name
+        - abbreviation
+        - url
+
+    EnrollmentData:
+      type: object
+      description: |
+        Enrollment‐related metadata for a course in a specific term, including optional
+        school details, offering cadence, credit range, and instructor mapping.
+      properties:
+        school:
+          $ref: '#/components/schemas/EnrollmentDataSchool'
+          nullable: true
+          description: |
+            The school or college that offers this course. Null if not available.
+        last_taught_term:
+          type: string
+          nullable: true
+          description: |
+            The identifier of the most recent term this course was taught.
+            Null if unknown.
+        typically_offered:
+          type: string
+          description: |
+            A human‐readable string describing when the course is usually offered
+          example: "Fall, Spring"
+        credit_count:
+          type: array
+          description: |
+            A two‐element array specifying the minimum and maximum credits of the course.
+          items:
+            type: integer
+          minItems: 2
+          maxItems: 2
+        general_education:
+          type: boolean
+          description: True if the course satisfies a general education requirement.
+        ethnics_studies:
+          type: boolean
+          description: True if the course qualifies as an ethnic studies offering.
+        instructors:
+          type: object
+          description: |
+            A mapping of instructor identifiers (or names) to arbitrary instructor details.
+            May be an empty object if no instructors are recorded.
+          additionalProperties: true
+      required:
+        - school
+        - last_taught_term
+        - typically_offered
+        - credit_count
+        - general_education
+        - ethnics_studies
+        - instructors
+
+    TermData:
+      type: object
+      description: |
+        Data for a specific academic term, including optional enrollment and grade details.
+      properties:
+        enrollment_data:
+          $ref: '#/components/schemas/EnrollmentData'
+          nullable: true
+          description: Enrollment statistics for this term (null if unavailable).
+        grade_data:
+          $ref: '#/components/schemas/GradeData'
+          nullable: true
+          description: Grade statistics for this term (null if unavailable).
+      required:
+        - enrollment_data
+        - grade_data
+
+    Course:
+      type: object
+      description: |
+        A course object containing metadata about a course, including its reference, title, description, and other relevant information.
+      properties:
+        course_reference:
+          $ref: '#/components/schemas/CourseReference'
+        title:
+          type: string
+          description: The title of the course
+        description:
+          type: string
+          description: A brief description of the course content
+        prerequisites:
+          $ref: '#/components/schemas/CoursePrerequisites'
+        optimized_prerequisites:
+          type: array
+          description: |
+              A list of `CourseReference` objects representing the optimized prerequisites for the course. This takes all the courses mentioned in the best branch of the prerequisite AST, and returns them in a list.
+          items:
+            $ref: '#/components/schemas/CourseReference'
+        cumulative_grade_data:
+          $ref: '#/components/schemas/GradeData'
+          nullable: true
+        term_data:
+          type: object
+          description: |
+            A mapping from term id to its corresponding TermData object.
+          additionalProperties:
+            $ref: '#/components/schemas/TermData'
+        similar_courses:
+          type: array
+          description: |
+            A list of `CourseReference` objects representing similar courses to this one.
+            This is used for course recommendations
+          items:
+            $ref: '#/components/schemas/CourseReference'
+        keywords:
+          type: array
+          description: |
+            A list of keywords associated with the course
+          items:
+            type: string
+        satisfies:
+          type: array
+          description: |
+            A list of `CourseReference` objects representing the courses that this course satisfies.
+          items:
+            $ref: '#/components/schemas/CourseReference'
+      required:
+        - course_reference
+        - title
+        - description
+        - prerequisites
+        - optimized_prerequisites
+        - cumulative_grade_data
+        - term_data
+        - similar_courses
+        - keywords
+        - satisfies
+
+  parameters:
+    UrlCourseCodeParam:
+      name: courseCode
+      in: path
+      required: true
+      description: |
+        A sanitized version of a `CourseIdentifier` suitable for URLs.
+        It replaces slashes and spaces with underscores.
+      schema:
+        $ref: '#/components/schemas/UrlCourseCode'
+
+  responses:
+    NotFoundHTML:
+      description: Resource not found (HTML)
+      content:
+        text/html:
+          schema:
+            type: string
+            description: An HTML page indicating that the requested resource was not found.
+
+paths:
+  /course/{courseCode}:
+    get:
+      tags:
+        - Courses
+      summary: Retrieve a Course
+      description: |
+        Retrieve a course by its unique identifier. The `courseCode` parameter should be a sanitized version of the `CourseIdentifier`, suitable for URLs.
+      operationId: getCourse
+      parameters:
+        - $ref: '#/components/parameters/UrlCourseCodeParam'
+      responses:
+        "200":
+          description: "Successful retrieval of course data"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "404":
+          $ref: '#/components/responses/NotFoundHTML'
