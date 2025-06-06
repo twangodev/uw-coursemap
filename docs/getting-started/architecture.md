@@ -53,7 +53,7 @@ Since the static assets are served independently relative to the deployment, we 
 
 However, this comes with the downside of being able to make breaking changes to the static assets without updating the frontend. To mitigate this, we'll try our best to maintain backwards compatibility with the API, and in the cases where it is required, we will give 1–2 weeks notice before rolling out breaking changes.
 
-In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDeliver, or by downloading the assets directly from the GitHub repository and self-hosting.
+In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDelivr, or by downloading the assets directly from the GitHub repository and self-hosting.
 ::: 
 
 ### CI/CD Pipelines
