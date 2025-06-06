@@ -91,7 +91,7 @@ As you can see, after caching was implemented (May), the cost of running the act
 > [!TIP]
 > GitHub Actions is free for public repositories, so there was no "real" cost to us (scary $150 bill), aside from the time it took to run the actions. This also improves the developer experience, as we can now run the generation process locally without having to wait for hours for the assets to be generated.
 
-<small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you :).</small>
+<small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you.</small>
 
 ### Scale
 
