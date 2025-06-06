@@ -76,9 +76,9 @@ An added bonus of using Cloudflare is international accessibility, approximately
 
 #### Generation Caching
 
-Generating all static assets for this application was by far one of the most time-consuming tasks (and in theory, most expensive). Before [#622](https://github.com/twangodev/uw-coursemap/pull/622) and other caching PRs, assets were generated on every run, which often took 3–4 hours to complete. This was not ideal, as it meant that every time we made a change to generation, we had to wait for the entire generation process to complete before we could see the changes.
+Generating all static assets for this application was by far one of the most time-consuming tasks (and in theory, most expensive). Before [#622](https://github.com/twangodev/uw-coursemap/pull/622) and other caching PRs, assets were generated on every run, which often took 2–6 hours to complete. This was not ideal, as it meant that every time we made a change to generation, we had to wait for the entire generation process to complete before we could see the changes.
 
-To mitigate this, we implemented caching strategies that allow us to speed up responses from APIs, use diffing techniques to only update changed data, and save large model downloads. This allows us to significantly reduce the time it takes to generate the assets, from 3 to 4 hours to about 10–15 minutes. This is a significant improvement-it allows us to iterate on the generation process much faster, and reduces load on the services used during generation.
+To mitigate this, we implemented caching strategies that allow us to speed up responses from APIs, use diffing techniques to only update changed data, and save large model downloads. This allows us to significantly reduce the time by 90%-98% in some instances. This is a significant improvement-it allows us to iterate on the generation process much faster, and reduces load on the services used during generation.
 
 ![github-generation-caching-usage.webp](../public/assets/github-generation-caching-usage.webp)
 
