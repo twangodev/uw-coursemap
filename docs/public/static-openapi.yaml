@@ -18,7 +18,7 @@ info:
     All API endpoints below have no rate limits, and are free to use. In reasonable cases, this actually improves overall system performance, as more content is cached and served from the Edge CDN. Generally, we ask you to follow these guidelines:
     
     - Do you need all the data at once? If so, consider using the static data export instead, outlined in [static.uwcourses.com](https://static.uwcourses.com).
-    - Respect `Cache-Control` headers in the responses, both client side and server side.
+    - Respect `Cache-Control` headers in the responses, both client side and server side. Otherwise, check the [update](#getUpdate) endpoint to see when the data was last updated.
     - Endpoints are monitored, we track usage, latency, and error rate. Blacklisting may occur if we detect abuse or excessive load.
     - If you have any questions or concerns about usage or bringing your project to scale, please reach out to us via GitHub discussions. For the most part, we are happy to help you scale your project, and we can work with you to ensure that the API meets your needs.
 
@@ -33,6 +33,8 @@ tags:
     description: Course-related endpoints
   - name: Instructors
     description: Instructor-related endpoints
+  - name: Internal
+    description: Internal endpoints, unstable, and not recommended for use in production applications. These endpoints may change or be updated without notice.
 components:
   schemas:
 
@@ -77,8 +79,8 @@ components:
     UrlCourseCode:
       type: string
       description: |
-        Used for URLs, this is a sanitized version of a `CourseIdentifier`. It replaces slashes and spaces with underscores, and appends `.json` to the end.
-      example: "COMPSCI_300.json"
+        Used for URLs, this is a sanitized version of a `CourseIdentifier`. It replaces slashes and spaces with underscores.
+      example: "COMPSCI_300"
 
     CoursePrerequisiteAbstractSyntaxTree:
       oneOf:
@@ -414,7 +416,60 @@ components:
             description: An HTML page indicating that the requested resource was not found.
 
 paths:
-  /course/{courseCode}:
+  /update.json:
+    get:
+      summary: Check for Updates
+      description:
+        Check when the data was last updated. This endpoint returns a JSON object with the last update timestamp.
+      operationId: getUpdate
+      responses:
+        "200":
+          description: "Successful retrieval of update information"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updated_on:
+                    type: string
+                    format: date-time
+                    description: "The timestamp of the last data update"
+
+  /subjects.json:
+    get:
+      summary: Retrieve All Subjects/Departments
+      description: |
+        A mapping of `SubjectCode` to their corresponding full names.
+      operationId: getSubjects
+      responses:
+        "200":
+          description: "Successful retrieval of subjects"
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  description: "The full name of the subject/department"
+
+  /terms.json:
+    get:
+      summary: Retrieve All Terms
+      description: |
+        A mapping of term identifiers to their corresponding term names.
+      operationId: getTerms
+      responses:
+        "200":
+          description: "Successful retrieval of terms"
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+                  description: "The name of the term"
+
+  /course/{courseCode}.json:
     get:
       tags:
         - Courses
