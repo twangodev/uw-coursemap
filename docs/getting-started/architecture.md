@@ -109,7 +109,7 @@ graph LR;
         SA[(fa:fa-database Static Assets<br><small>R2/S3 Bucket</small>)]
         
         subgraph Kubernetes Deployment
-            IG@{ shape: diamond, label: "fa:fa-network-wired Ingress<br><small>NGINX or Traefik</small>" }
+            IG@{ shape: diamond, label: "fa:fa-network-wired Ingress<br><small>NGINX/HAProxy/Traefik</small>" }
             FP@{ shape: procs, label: "fa:fa-globe Frontend Pods<br><small>ReplicaSet</small>" }
             SP@{ shape: procs, label: "fa:fa-search Search Pods<br><small>ReplicaSet</small>" }
             ES@{ shape: procs, label: "fa:fa-database Elasticsearch Pods<br><small>StatefulSet</small>" }
