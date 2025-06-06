@@ -1,87 +1,21 @@
 # Architecture
 
-For the most part, there are 3 main components to the architecture:
+[UW Course Map](https://uwcourses.com) follows the [microservice architecture pattern](https://en.wikipedia.org/wiki/Microservices), where each service is responsible for a specific part of the application. This allows us to isolate services from each other, scale them independently, and deploy updates without affecting the entire application.
 
-- **Frontend**: The user interface that allows users to search for courses and view their schedules.
-- **Search Server**: The backend service that handles search queries and any dynamic, unpredictable data.
-- **Data Collection and Generation**: The process of collecting data from various sources and generating the static assets that are served by the frontend.
+- **Frontend**: The SvelteKit application that serves the user interface. SvelteKit configured to use the static assets as a data source, which allows us to build the application without needing a backend server. 
+- **Backend**: A Flask service that serves data which cannot be determined at build time, such as search queries. Currently, this service is responsible for:
+  - Handling search queries and returning results from the Elasticsearch index.
+  - Generating random courses for the "Random Course" feature.
+- **Static Assets**: A set of static JSON files that contain the data for the application, generated from a Python script.
 
-## Problem Context
-
-We'll define the problem context by identifying the objectives, constraints, and design decisions that will guide the architecture of the system.
-
-### Objectives
-
-::: details Scalability
-- The system should be able to handle a large number of users and data sources without performance degradation.
-- If we assume 20K students (50% of UW-Madison students), each performing 5 searches per day, we need to handle 100K searches per day. We'll assume this is a peak load, and recognize that the average load will be much lower, especially during times like finals.
-:::
-
-::: details Aggregate Multiple External Data Sources
-- Rate My Professor, Madgrades, Course & Enroll, and UW Course Guide each have their own rate limits and response times.
-- We need a unified schema on the backend so that the front end doesn’t have to stitch together five different formats at runtime, or pull the data from each source separately.
-- Ideally, we have something independent of these sources, so that one source going down doesn't take the whole site down.
-  - How do we ensure we can roll back or maintain versions of the data?
-:::
-
-::: details Latency
-- Fast response times are crucial for a good user experience (ideally under 500ms).
-:::
-
-::: details Public API and OSS
-- Anyone should be able to use the API to build their own applications, export the data, and the code should be open source so that others can contribute and improve the project.
-:::
-
-### Constraints
-
-
-::: details My wallet is empty
-This one is self-explanatory, womp womp.
-:::
-
-::: details Bandwidth
-Common cloud hosting providers offer charge for bandwidth per GB, which can add up quickly with a large number of users. This doesn't scale well with users/abuse, so we need to be careful about how we handle this.
-:::
-
-### Design Decisions
-
-::: details Microservice Architecture
-To answer scalability concerns, we will use a microservices architecture with a focus on stateless services that can be scaled horizontally. 
-
-Why no Vercel? It's good platform to just get started; unfortunately, my wallet does not scale to meet my personal expectations for this project.
-:::
-
-::: details Use of Docker
-Docker will be used to containerize the application, allowing for easy deployment and scaling. This also allows us to run the application on any platform that supports Docker, making it easier to develop and test locally.
-
-If we need to scale to multiple instances, we can use Docker Swarm or Kubernetes to orchestrate the containers. This will allow us to run multiple instances of the frontend and search servers to handle more traffic.
-
-<small>"it's just a container, bro"</small>
-:::
-
-::: details Cloudflare
-Cloudflare will be used as a CDN and WAF to protect the application from DDoS attacks and other security threats. This will also help to reduce latency by caching static assets and serving them from the edge.
-
-Bandwidth isn't really a concern with Cloudflare, commonly hit assets should end up living on Cloudflare's edge, reducing actual bandwidth from our origin servers.
-
-I also have other projects that use Cloudflare, so this is a convenient way to manage all of my projects in one place.
-:::
-
-::: details Static Assets
-We'll keep static assets (data, images, etc.) to isolate them from the rest of the application. This will allow us to serve them from a separate domain, where we can use more aggressive caching and reduce the load on the main application server. If it's really an issue, we can also just yeet data into an S3/R2 bucket and serve it from there, but I don't think we'll need to do that.
-
-We'll use git to version control the static assets, and deploy them to a separate domain (e.g. `static.uwcourses.com`) that is served by GitHub Pages. GitHub pages has a soft limit of 100GB/month bandwidth, which should be sufficient for our needs, especially with Cloudflare caching the assets. You also get to export the data directly from the repository, which is a nice bonus.
-
-Git gets angry handling so many files (30K+) and their diffs, escpecially when the files are generated in a non-deterministic manner. There's still some optimizations to the generation, but haven't gotten around to fixing it. 
-
-The data is in a seperate repository, referenced by a submodule in the main repository. This allows us to keep the static assets separate from the rest of the application, while still being able to version control them.
-
-I'll admit that this a part of the project I'm not entirely happy with, but it works for now. Another alternative is just serving assets via a web server like NGINX or Caddy.
-:::
+> [!IMPORTANT] Current Scale/Stats*
+> - **600+ peak daily active users**, with an average of ~100 daily active users
+> - **150K+ peak requests** within a day, with an average of **~100K requests per day**. Within a single month, we have seen over **3M+ requests**.
+> - Approximately **~75GB of data served per month**.
+> 
+> <small>*Updated as of June 2025</small>
 
 ## Deployment Architecture
-
-From the [system context](#system-context), we can derive the following deployment architecture:
 
 ```mermaid
 graph LR;
@@ -108,20 +42,93 @@ graph LR;
     
 ```
 
-For deployment, I have a A1-Flex instance (4 OCPU, 24GB RAM) on [Oracle Cloud](https://www.oracle.com/cloud/free/) that runs the frontend and search servers. Bandwidth is free for the first 10TB/month, which is more than enough for our needs. The instance is running Oracle Linux 8, and the application is deployed using Docker Compose along a couple other of my projects.
+Currently, the application is deployed on a single [A1-Flex (4 OCPU, 24GB RAM) instance](https://www.oracle.com/cloud/compute/arm/), alongside other projects.
 
-Since the static data is served independly from a versioned deployment, we can update the static assets without having to redeploy the entire application. This allows us to make changes to the data without affecting the rest of the application, and also allows us to roll back to a previous version of the data if needed.
+::: details No Vercel?
+No, we do not use Vercel for deployment. My wallet does not scale to meet Vercel's pricing.
+::: 
 
-This also comes with a downside of creating breaking changes to the data model, which will require a new version of the static assets to be generated and deployed on the live API. This is something we'll need to consider when creating new data models or making changes to existing ones, but for the most part we can avoid this by being careful with our changes and ensuring that they are backwards compatible.
+::: details Why are static assets separate from the deployment?
+Since the static assets are served independently relative to the deployment, we can update the static assets without needing to redeploy the entire application. This allows us to update the data without downtime, and also makes it easier to scale the application. We also do not need to release "versions" of data.
 
-## CI/CD Pipelines
+However, this comes with the downside of being able to make breaking changes to the static assets without updating the frontend. To mitigate this, we'll try our best to maintain backwards compatibility with the API, and in the cases where it is required, we will give 1–2 weeks notice before rolling out breaking changes.
 
-We have 4 main CI/CD pipelines running on GitHub Actions:
+In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDeliver, or by downloading the assets directly from the GitHub repository and self-hosting.
+::: 
 
-- **Docker Build**: This pipeline builds the Docker images for the frontend and search servers, and pushes them to the GitHub Container Registry (GHCR) and Docker Hub.
-- **Static Assets Generation**: This pipeline generates the static assets from the data sources, and pushes them to the static assets repository.
-- **Node.js Build**: This pipeline builds, tests, and lints the SvelteKit frontend.
-- **Docs Build**: This pipeline builds the documentation using Vitepress, and allows you to see what your looking at right now.
+### CI/CD Pipelines
+
+To automate the deployment process and ensure code changes are tested before being deployed, we use [GitHub Actions](https://github.com/twangodev/uw-coursemap/actions) for our CI/CD pipelines. The pipelines are defined in the `.github/workflows` directory.
+
+### Optimization
+
+To bring this application to production, not only do we have to design for scale, but we also have to optimize the application for performance and cost. This is especially important given that the application is open source and free to use (and because my wallet does not scale :().
+
+#### Aggressive External Caching
+
+To optimize performance, we leverage aggressive caching strategies. In early builds, we used [jsDelivr](https://www.jsdelivr.com/) to serve static assets. However, the initial load time for assets was really slow, and it was hard to control what assets were actually cached.
+
+By switching to Cloudflare, we were able to significantly reduce the load time for static assets. Cloudflare caches the assets at the edge, which means that users can access the assets from a location closer to them, reducing latency and improving load times. Currently, about 70% of the assets result in a cache hit from Cloudflare, giving users less than 100 ms load times for the static assets.
+
+Currently, Cloudflare is configured to cache endpoints on `static.uwcourses.com` for 5 days, and assets are also served with a 5 day cache TTL.
+
+An added bonus of using Cloudflare is international accessibility, approximately 10-20% of users are from outside the United States, and Cloudflare's global CDN allows us to serve assets to users in other countries with minimal latency.
+
+#### Generation Caching
+
+Generating all static assets for this application was by far one of the most time-consuming tasks (and in theory, most expensive). Before [#622](https://github.com/twangodev/uw-coursemap/pull/622) and other caching PRs, assets were generated on every run, which often took 3–4 hours to complete. This was not ideal, as it meant that every time we made a change to generation, we had to wait for the entire generation process to complete before we could see the changes.
+
+To mitigate this, we implemented caching strategies that allow us to speed up responses from APIs, use diffing techniques to only update changed data, and save large model downloads. This allows us to significantly reduce the time it takes to generate the assets, from 3 to 4 hours to about 10–15 minutes. This is a significant improvement-it allows us to iterate on the generation process much faster, and reduces load on the services used during generation.
+
+![github-generation-caching-usage.webp](../public/assets/github-generation-caching-usage.webp)
+
+By reducing the time it takes to generate the assets, we can also reduce the cost of running the application.
+
+![github-actions-bill.webp](../public/assets/github-actions-bill.webp)
+
+As you can see, after caching was implemented (May), the cost of running the actions dropped significantly, from about $100 to about $15 per month. This is a significant reduction in cost, and it allows us to run the generation process more frequently.
+
+> [!TIP]
+> GitHub Actions is free for public repositories, so there was no "real" cost to us (scary $150 bill), aside from the time it took to run the actions. This also improves the developer experience, as we can now run the generation process locally without having to wait for hours for the assets to be generated.
+
+<small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you :).</small>
+
+### Scale
+
+Even with the current demand, the application does not warrant the need to horizontally scale. We'll see how the application performs as we continue to grow, especially during enrollment periods, but for now, the single instance is enough to handle the load.
+
+In practice though, here's what the deployment could look like if we scaled with Kubernetes:
+
+```mermaid
+graph LR;
+    
+    User[fa:fa-user User]
+    
+    subgraph Production
+        CF((fa:fa-cloud Cloudflare<br><small>CDN & WAF</small>))
+        SA[(fa:fa-database Static Assets<br><small>R2/S3 Bucket</small>)]
+        
+        subgraph Kubernetes Deployment
+            IG@{ shape: diamond, label: "fa:fa-network-wired Ingress<br><small>NGINX or Traefik</small>" }
+            FP@{ shape: procs, label: "fa:fa-globe Frontend Pods<br><small>ReplicaSet</small>" }
+            SP@{ shape: procs, label: "fa:fa-search Search Pods<br><small>ReplicaSet</small>" }
+            ES@{ shape: procs, label: "fa:fa-database Elasticsearch Pods<br><small>StatefulSet</small>" }
+            
+            IG <--> FP
+            IG <--> SP
+            IG <--> ES
+        end
+        
+        CF <--> IG
+        CF <--> SA
+        
+    end
+
+
+    User ---> CF
+```
+
+
 
 ## Monitoring
 
@@ -129,6 +136,4 @@ To monitor our static API, we define routes in Cloudflare that records endpoint 
 
 Cloudflare also has a whole suite of monitoring tools that we can use to track the performance of our application, including analytics, logs, and alerts.
 
-For analytics on the main application, I have it connected to my self hosted Rybbit instance, which is an open source, no-cookie analytics platform, similiar to [Umami](https://umami.is/). This allows me to track user interactions with the application, such as page views, clicks, and searches, without using cookies or tracking users across the web.
-
-I was using Umami in the past, but Rybbit has cool visuals - who doesn't like that? If you'd like to see the current analytics, you can view them at [rybbit.twango.dev](https://rybbit.twango.dev/1). The instance is public, but you can only view the analytics, not modify them.
+Additionally, we use [rybbit](https://github.com/rybbit-io/rybbit) to monitor user interactions with the application. This allows us to track how users are using the application, popular content, referrals, and more. This data is used to improve the application and provide a better user experience, while protecting user privacy. If you'd like to take a look at the data we collect, you can view it on our [rybbit dashboard](https://rybbit.twango.dev/1)

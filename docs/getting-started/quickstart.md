@@ -142,12 +142,6 @@ docker compose down
 
 To expose your application to the internet, you can use a production grade reverse proxy like [NGINX](https://www.nginx.com/), [Caddy](https://caddyserver.com/), or [Traefik](https://traefik.io/).
 
-### Scaling
-
-This application is designed to be horizontally scalable, meaning you can run multiple instances of the frontend and search servers to handle more traffic. 
-
-Currently, there isn't enough demand to warrant horizontally scaling the application. However, if you would like to scale the application, you can use [Docker Swarm](https://docs.docker.com/engine/swarm/) or [Kubernetes](https://kubernetes.io/) to orchestrate the scaling process, or using an autoscaler group with your cloud provider of choice.
-
 [docker]: https://www.docker.com/products/docker-desktop
 [elasticsearch]: https://www.elastic.co/elasticsearch
 [pipenv]: https://pipenv.pypa.io/en/latest/
