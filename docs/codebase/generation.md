@@ -109,7 +109,98 @@ We can use this "Reference" as a unique identifier for each course to prevent du
 
 ### Madgrades Integration
 
+```mermaid
+graph TD
+    
+    subgraph api.madgrades.com
+        MT["Madgrades Terms"]
+        MPG@{ shape: docs, label: "fa:fa-graduation-cap Madgrades Pagination" }
+        MGD@{ shape: procs, label: "fa:fa-graduation-cap Madgrades GradeData" }
+        
+        MPG ===> MGD
+    end
+    
+    CET["Course Enrollment Terms<br><small>public.enroll.wisc.edu</small>"]
+    T[Terms]
+    
+    MT ---> T
+    CET ---> T
+    
+    C[(Cache)]
+    CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection "}
+
+    MGD ---> CC
+    T --> C
+    CC <--> C
+```
+
+Madgrades contains historical data for all courses, including courses not currently offered. We care about the courses that we have collected in the previous step, so we scrape the Madgrades website to get the historical data for those courses. There will also be courses that are newly added to the Guide, but not yet in Madgrades.
+
+Since Madgrades API is paginated, we need to retrieve all the pages of data for each course. From each page, we pull grade data, distribution, and other relevant information.
+
+We additionally retrieve the terms that are available in Madgrades, and the terms that are available in the Course Enrollment Terms API. Madgrades generally will have historical terms (lagging behind the current semester), while the Course Enrollment Terms API will have the current and upcoming terms.
+
 ### Instructor Collection
+
+```mermaid
+graph TB
+    subgraph ratemyprofessors.com
+        direction LR
+        RMPAPIKEY["RMP API Key"]
+        RMPGQL@{ shape: procs, label: "fa:fa-user-tie RMP GraphQL</small>" }
+        RMPAPIKEY --> RMPGQL
+    end
+    
+    subgraph wisc.edu
+
+        MQ@{ shape: procs, label: "fa:fa-chalkboard Mega Query<br><small>public.enroll.wisc.edu</small>" }
+        FL["Faculty List<br><small>guide.wisc.edu</small>"]
+        
+    end
+    
+    C[(Cache)]
+    T[Terms]
+    
+    CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection" }
+    IC@{ shape: procs, label: "fa:fa-user-tie Instructor Collection<br><small>Name Matcher</small>" }
+    
+    C --> T
+    T --> MQ
+    MQ ===> CC
+    CC <--> C
+    
+    CC --> IC
+    FL ---> IC
+    RMPGQL <---> IC
+    IC --> C
+```
+
+The instructor collection step, admittedly, does slightly more than collect instructors. Instructor collection performs the "Mega Query." 
+
+For some reason, the Course Enrollment Terms Search API does not validate two items.
+
+1. `queryString` is not validated, so you can pass in any string, including an empty string, and it will return all courses.
+2. `pageSize` is practically not validated, so you can pass in a very large number, and it will return that many results. You cannot pass `99999999`, but you can pass in the total amount of courses in the term, which is given from the `found` field in the response.
+
+It's a feature, not a bug! When this gets patched (if it ever does), we can just paginate through the results and do a bit of de-duplication, kind of like with Madgrades. It's fun that Madgrades, another open source project, validates requests, but UW-Madison does not ;).
+
+With these two facts, we can construct a query that returns all courses in the system.
+
+![mega-query.png](../public/assets/mega-query.png)
+
+We get a hilarious amount of data, ranging from (20MB—40MB), depending on how many courses are offered in a given term.
+
+We take all the data from Enrollment and add it within our existing course collection. This includes course information, such as the course name, description, and more.
+
+Next, we collect the instructors for each course. We do this by scraping the [Faculty List](https://guide.wisc.edu/faculty/) page, which contains a list of all instructors at the University of Wisconsin-Madison.
+
+The thing is, the format of the names is not consistent, and we need to match the names to the instructors in the Course Enrollment Terms API. This is handled with a name matching and diffing technique that compares the names from the Faculty List to the names in the Course Enrollment Terms API, and for the most part, it works well. You may notice issues with instructors being matched to their alternate names, but this seems like one of a couple edge cases.
+
+We combine the data from the Faculty List and the Course Enrollment Terms API to create a unified list of instructors, which includes their names, departments, and other relevant information.
+
+Finally, we also integrate with [Rate My Professors](https://www.ratemyprofessors.com/) to get additional data about the instructors, such as their ratings and reviews. This is done using the Rate My Professors GraphQL API, which allows us to retrieve data about instructors based on their names.
+
+RateMyProfessors has (or had) an authenticated API, where we could send GraphQL queries to retrieve data about instructors. After some digging around, we found that the API key was provided through a JavaScript file that was loaded on the Rate My Professors website. We scrape the JavaScript file to get the production API key, which is then used to authenticate our requests to the Rate My Professors API. This in addition to modifying a couple of headers to make the request look like it is coming from a browser.
 
 ### Aggregation
 
