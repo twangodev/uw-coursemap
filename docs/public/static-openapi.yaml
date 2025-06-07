@@ -15,10 +15,10 @@ info:
     
     ### Rate Limits
     
-    All API endpoints below have no rate limits, and are free to use. In reasonable cases, this actually improves overall system performance, as more content is cached and served from the Edge CDN. Generally, we ask you to follow these guidelines:
+    All API endpoints below have no rate limits, and are free to use. In reasonable cases, this actually improves overall performance, as more content is cached and served from the Edge CDN. Generally, we ask you to follow these guidelines:
     
     - Do you need all the data at once? If so, consider using the static data export instead, outlined in [static.uwcourses.com](https://static.uwcourses.com).
-    - Respect `Cache-Control` headers in the responses, both client side and server side. Otherwise, check the [update](#getUpdate) endpoint to see when the data was last updated.
+    - Respect `Cache-Control`/`ETag` headers in the responses, both client side and server side. Otherwise, check the [update](#getUpdate) endpoint to see when the data was last updated.
     - Endpoints are monitored, we track usage, latency, and error rate. Blacklisting may occur if we detect abuse or excessive load.
     - If you have any questions or concerns about usage or bringing your project to scale, please reach out to us via GitHub discussions. For the most part, we are happy to help you scale your project, and we can work with you to ensure that the API meets your needs.
     
@@ -32,6 +32,9 @@ info:
     name: GitHub Discussions
     url: https://github.com/twangodev/uw-coursemap/discussions
   version: "1"
+externalDocs:
+  description: Generation Documentation
+  url: /codebase/generation
 servers:
   - url: https://static.uwcourses.com
 tags:
