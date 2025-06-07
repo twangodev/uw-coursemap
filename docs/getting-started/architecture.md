@@ -89,7 +89,7 @@ By reducing the time it takes to generate the assets, we can also reduce the cos
 As you can see, after caching was implemented (May), the cost of running the actions dropped significantly, from about $100 to about $15 per month. This is a significant reduction in cost, and it allows us to run the generation process more frequently.
 
 > [!TIP]
-> GitHub Actions is free for public repositories, so there was no "real" cost to us (scary $150 bill), aside from the time it took to run the actions. This also improves the developer experience, as we can now run the generation process locally without having to wait for hours for the assets to be generated.
+> GitHub Actions is free for public repositories, so there was no "real" cost to us (scary $150 bill), aside from the time it took to run the actions. However there still was motivation improve developer experience, as we can now run the generation process locally without having to wait for hours for the assets to be generated.
 
 <small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you :).</small>
 
@@ -128,7 +128,7 @@ graph LR;
     User ---> CF
 ```
 
-
+Nothing too different, aside from making everything into ReplicaSets and StatefulSets, and adding an Ingress controller to handle routing.
 
 ## Monitoring
 

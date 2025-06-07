@@ -107,6 +107,8 @@ We also need to address issues of duplicate course listings, as some courses are
 
 We can use this "Reference" as a unique identifier for each course to prevent duplicates. This allows us to ensure that we only collect each course once, even if it is listed under multiple departments.
 
+For a full reference on all schemas and their fields, they should be explained in the [Content OAS spec](../usage/static-api.md)
+
 ### Madgrades Integration
 
 ```mermaid
@@ -182,7 +184,7 @@ For some reason, the Course Enrollment Terms Search API does not validate two it
 1. `queryString` is not validated, so you can pass in any string, including an empty string, and it will return all courses.
 2. `pageSize` is practically not validated, so you can pass in a very large number, and it will return that many results. You cannot pass `99999999`, but you can pass in the total amount of courses in the term, which is given from the `found` field in the response.
 
-It's a feature, not a bug! When this gets patched (if it ever does), we can just paginate through the results and do a bit of de-duplication, kind of like with Madgrades. It's fun that Madgrades, another open source project, validates requests, but UW-Madison does not ;).
+It's a feature, not a bug! When this gets patched (if it ever does), we can just paginate through the results and do a bit of de-duplication, kind of like with Madgrades. It's fun that Madgrades, another open source project, validates requests, but UW-Madison does not 🗿.
 
 With these two facts, we can construct a query that returns all courses in the system.
 
@@ -204,9 +206,140 @@ RateMyProfessors has (or had) an authenticated API, where we could send GraphQL 
 
 ### Aggregation
 
+```mermaid
+graph LR
+    QS["Quick Statistics"]
+    ES["Explorer Statistics"]
+    C[(Cache)]
+    
+    subgraph Instructor
+        IC@{ shape: procs, label: "fa:fa-user-tie Instructor Collection" }
+        MRI[\"Most Rated Instructors<br><small>Top 100</small>"/]
+        
+        IC --> MRI
+    end
+    
+    MRI --> QS
+    
+    subgraph Course
+        CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection" }
+        CS["Determine Satisfies"]
+        SSA["Subject Statistics Aggregation"]
+        UA["University Statistics Aggregation"]
+        EC["Easiest Courses"]
+        CEA@{ shape: procs, label: "fa:fa-cubes Course Embedding Analysis" }
+        KE@{ shape: procs, label: "fa:fa-layer-group Keyword Extraction" }
+        
+        CS <--> CC
+        CC --> SSA
+        CC --> UA
+        CC --> EC
+        CC <==> CEA
+        KE <==> CC
+    end
+    
+    SSA --> ES
+    UA --> QS
+    EC --> QS
+    
+    CEA <==> C
+    
+    CC <--> C
+    IC <--> C
+    QS --> C
+    ES --> C
+    
+```
+
+Aggregation is where most of the post-processing happens. We take the data collected from the previous steps and perform various analyses to generate statistics and insights about the courses and instructors.
+
+We perform the following analyses:
+
+- **Quick Statistics**: This includes the number of courses, instructors, and other high-level statistics about the data collected. This generally applies to university-wide statistics, such as the number of courses offered, the number of instructors, and more. This is what you see on the [home page](https://uwcourses.com/).
+- **Explorer Statistics**: This includes more detailed statistics about the courses and instructors, such as the number of courses offered by each department, the number of instructors in each department, and more. Think about this as statistics per department/subject.
+
+> [!CAUTION]
+> The API endpoints for these statistics are currently unstable and may change in the future. We are working on stabilizing them, but for now, they are subject to change without notice.
+> 
+> You can for sure expect them to change to like, university statistics, and department statistics, but the exact endpoints and data returned may change in the future.
+
 ### Optimization
+
+Optimization refers to the process of optimizing prerequisites. In [course collection](#course-collection), an AST is built for each course, which is then used to determine the prerequisites for each course.
+
+Displaying all prerequisites on the explorer page can be overwhelming (and funny, since it's a massive hairball of edges). To address this, we need to prune the prerequisites.
+
+An ideal prune for COMPSCI 300 would be:
+
+![pruned-ast.png](../public/assets/pruned-ast.png)
+
+To select a pruned AST, we use a heuristic that selects "best branch." We score branches based on a heuristic that for now, considers the semantic similarity of courses within the branch, and popularity of the courses in the branch.
+
+$$
+\begin{align}
+\mathrm{scoreBranch}(c, B)
+&=
+\begin{cases}
+0, & B = \varnothing,\\[8pt]
+\alpha\,\cos\bigl(E(c),\,\overline{E}_B\bigr)\;+\;\beta\,\dfrac{n_c}{N},
+& B \neq \varnothing,
+\end{cases}\\
+\overline{E}_B &= \displaystyle\frac{1}{\lvert B\rvert}\sum_{c'\in B}E(c'),\\
+n_c &= \text{Cumulative course enrollment}\\
+N &= \text{Total UW-Madison Enrollment}\\
+\end{align}
+$$
+
+> [!NOTE]
+> $\alpha$ and $\beta$ are currently set as 0.5 - I haven't played around with these values much, but they can be tuned to adjust the weight of the semantic similarity and popularity of the courses in the branch. 
+> 
+> Due to the nature of $\frac{n_c}{N}$, it is a really small number, so it is generally not the dominating factor in the score. It is more of a tiebreaker for branches that have similar semantic similarity scores, but probably should be tuned to be more significant in the future.
+> 
+> If you have any suggestions on how to improve this heuristic, please open an issue or a pull request!
+
+Before [v1.1.0](https://github.com/twangodev/uw-coursemap/releases/tag/v1.1.0), there was no AST, and we simply selected courses that semantically matched the description of the course, using OpenAI's embedding models. In [#564](https://github.com/twangodev/uw-coursemap/pull/564), we switch to [GIST Large Embedding v0](https://huggingface.co/avsolatorio/GIST-large-Embedding-v0), as it outperforms [text-embedding-3-small](https://platform.openai.com/docs/models/text-embedding-3-small), as of writing according to the [Hugging Face MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) with a rank of #17:
+
+![gist-large-embedding-v0.png](../public/assets/gist-large-embedding-v0.png)
+
+`text-embedding-3-small` has a rank of #43:
+
+![text-embedding-3-small.png](../public/assets/text-embedding-3-small.png)
+
+In terms of performance, `GIST Large Embedding v0` runs locally, requiring approximately 1.2GB of memory, and performs just as fast, if not faster on most of my machines (Apple M2 Pro 16GB, HP Omen 17 i7-12700H, 32GB RAM, 3060M with CUDA enabled) (accounting for rate limiting done by OpenAI). For slower machines you can run smaller GIST models, such as [GIST Embedding v0](https://huggingface.co/avsolatorio/GIST-Embedding-v0) (rank 26), or [GIST small Embedding v0](https://huggingface.co/avsolatorio/GIST-small-Embedding-v0) (rank 34), or just the generic all miniLM-L6-v2 models by sentence transformers.
+
+![gist-models.png](../public/assets/gist-models.png)
+
+Since we are primarily using cosine similarity to evaluate which course to select, GIST should be able to perform relatively well to top models in terms of the STS and Summarization metrics.
+
+![gist-sts-summarization.png](../public/assets/gist-sts-summarization.png)
 
 ### Graph
 
+Graphing flattens the branch into a single list of nodes and edges, in a format compatible with Cytoscape.
+
+We also pick colors for all the nodes here, which are then used to render the graph in the frontend. The colors are picked based on the department of the course, and gray if cross-listed. 
+
+The colors are picked to be visible on both light and dark themes with a high enough contrast ratio to be accessible.
+
+To keep my self sane, we cache the colors for each department in the cache directory, so that colors don't change every time the graph is generated. Christmas tree graph?
+
 ### Build
 
+This step is responsible for writing the final output to the `DATA_DIR` specified in your environment. It compiles all the data collected from the previous steps, and generates the routes for the API endpoints.
+
+## Other Notes
+
+### TQDM
+
+We use [TQDM](https://tqdm.github.io/) to provide a progress bar for the generation process. This is especially useful for long-running processes, as it allows you to see the progress of the generation process in real-time. Make sure you are running generation with a TTY; otherwise the progress bar will be redrawn every time the terminal is refreshed, which can be annoying.
+
+### CUDA
+
+If you have a CUDA-enabled GPU, you can use it to speed up the generation process. The generation process will automatically detect if a CUDA-enabled GPU is available, and will use it to speed up the embedding generation step. This can significantly reduce the time it takes to generate the assets, especially for large datasets.
+
+Install (replace your existing CPU dependencies) with the CUDA dependencies by:
+
+```bash
+pipenv run pip unstall torch torchvision torchaudio 
+pipenv run pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 # Find out what version you actually need to use through PyTorch's website
+```

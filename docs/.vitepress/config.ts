@@ -143,7 +143,8 @@ const vitePressOptions: UserConfig = {
     lineNumbers: true,
     image: {
       lazyLoading: true
-    }
+    },
+    math: true,
   },
   vite: {
     plugins: [
