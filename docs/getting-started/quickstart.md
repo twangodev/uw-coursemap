@@ -5,10 +5,11 @@
 To get started with development of this project, clone the repository from GitHub:
 
 ```sh [git]
-git clone https://github.com/twangodev/uw-coursemap.git
+git clone https://github.com/twangodev/uw-coursemap.git \
+  --recurse-submodules
 ```
 
-Next, create a `.env` file in the root directory of the project. This project contains an `.env.example` file that **works out of the box**. You can copy it to create your own `.env` file, or modify it to suit your needs.
+Next, create a `.env` file in the root directory of the project. This project contains an `.env.example`, which may be copied and modified for each environment.
 
 ```sh [sh]
 cp .env.example .env
@@ -18,7 +19,7 @@ cp .env.example .env
 <<< @/../.env.example{dotenv}
 :::
 
-Next, determine whether you want to run the frontend, search, generation, or all. If you're not sure what you want to run, you should read [architecture](architecture.md) to get a better understanding of the project. 
+Next, determine whether you want to run the frontend, search, generation, or all. If you're not sure what you want to run, you should read up on the [architecture](architecture.md) to get a better understanding of the project.
 
 Frontend is the easiest to get started with, so we recommend starting there.
 
@@ -30,23 +31,21 @@ To begin development on the frontend, ensure you have [Node.js](https://nodejs.o
 npm install
 ```
 
-Next, start the development server:
+You can now run the development server for the frontend, which should be accessible within your browser at the specified URL.
 
 ```sh [npm]
 npm run dev
 ```
 
-You can now access the application with your browser at the specified URL.
 
 ::: details How do I preview documentation?
 We use [VitePress](https://vitepress.dev/) to generate the documentation for this project, as it runs alongside the frontend. To preview the documentation, you can run the following command:
 ```sh [npm]
 npm run docs:dev
-``` 
+```
 :::
 
 ### Search
-The search is a little more tricky to set up, as it uses [Pipenv] and [Elasticsearch].
 
 First, you will need to initialize the [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) if you have
 not done so already.
@@ -57,13 +56,13 @@ git submodule update --init --recursive
 
 #### Setup Elasticsearch
 
-Next, you will need to install [Elasticsearch] on your machine. We recommend using [Docker] to run Elasticsearch, as it is the easiest way to get started. If you don't have Docker installed, you can follow the instructions on the [Docker website](https://docs.docker.com/get-docker/).
+Next, you will need to install [Elasticsearch] on your machine. We recommend using [Docker] to run Elasticsearch, as it is the easiest way to get started. If you don't have Docker installed, it can be easily downloaded with [Docker Desktop][docker]
 
 ```sh [docker]
 docker compose up -d
 ```
 
-At this point, you will need to reconfigure your `.env` file to point to the Elasticsearch instance. As specified in the `docker-compose.yml`, the Docker container will run on `localhost:9200`, so you can use the following configuration for your `.env` file:
+At this point, you will need to reconfigure your environment variables to point to the Elasticsearch instance. As specified in the `docker-compose.yml`, the Docker container binds to `localhost:9200`, so you can use the following configuration:
 
 ```dotenv
 ELASTIC_HOST=https://localhost:9200
@@ -73,28 +72,31 @@ ELASTIC_HOST=https://localhost:9200
 <<< @/../docker-compose.yml{yaml}
 :::
 
+> [!IMPORTANT]
+> Ensure that your `DATA_DIR` environment variable is correctly configured. During local development, this should point to a directory on your local machine where the data will be stored. The default is `./data`.
+>
+> In Docker Compose, we mount the data directly onto the root directory of the container, so you can use `/data` as the value for `DATA_DIR`.
+
 #### Setup Flask
 
-Finally, ensure you have [Python](https://www.python.org/downloads/) installed. Install [Pipenv] with the following command:
+Finally, ensure you have [Python](https://www.python.org/downloads/) installed. Follow the documentation to setup a virtual environment with [Pipenv](https://pipenv.pypa.io/en/latest/installation.html)
 
-```sh [pip]
-pip install pipenv --user
-```
-
-Next, navigate into the `search` directory and install the dependencies:
+Install the dependencies for the search service:
 
 ```sh [pipenv]
-pipenv sync
+pipenv install
 ```
 
-Change directories back to the project root directory, and now you can run the search server:
+We recommend running the service from the project root directory, as that is likely where your environment variables are set up. You can run the search service with the following command:
 
 ```sh [pipenv]
 pipenv run python ./search/app.py
 ```
 
-> [!IMPORTANT] 
-> The search server pulls the same environment variables as specified in the `.env` file in the project root directory.
+This spins up a development server that listens for requests.
+
+> [!CAUTION]
+> This server is not intended for production use. It is only meant for development and testing purposes. For production, you should use a WSGI server like [Gunicorn](https://gunicorn.org/), which is already configured through the `uw-coursemap-search` Docker image.
 
 ### Generation
 
@@ -142,6 +144,7 @@ docker compose down
 
 To expose your application to the internet, you can use a production grade reverse proxy like [NGINX](https://www.nginx.com/), [Caddy](https://caddyserver.com/), or [Traefik](https://traefik.io/).
 
+[frontend]: #frontend
 [docker]: https://www.docker.com/products/docker-desktop
 [elasticsearch]: https://www.elastic.co/elasticsearch
 [pipenv]: https://pipenv.pypa.io/en/latest/
