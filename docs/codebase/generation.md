@@ -1,6 +1,6 @@
 # Generation
 
-The generation process is responsible for collecting, aggregating, and analyzing a majority of the data used in the application, including course data, professor ratings, and more. 
+The generation process is responsible for collecting, aggregating, and analyzing a majority of the data used in the application, including course data, professor ratings, and more.
 
 > [!TIP] Data Science
 > Since the generation process is heavily data-driven, if your interested in performing final analysis on the data, you can check out the [aggregation step](#aggregation) for more details on how the data is collected and processed.
@@ -12,16 +12,16 @@ The generation process can be broken down into several key steps, as implemented
 You can specify the step to run with the `--step` flag when running the generation command. The steps are as follows:
 
 ```bash
-pipenv run python generation/main.py --step <step_name> 
+pipenv run python generation/main.py --step <step_name>
 ```
 
 Where `<step_name>` can be one of the following:
 
 - `all`: Run all steps in order
-- `courses`: Run the course collection step 
-- `madgrades`: Run the madgrades integration step 
-- `instructors`: Run the instructor collection step 
-- `aggregate`: Run the aggregation step 
+- `courses`: Run the course collection step
+- `madgrades`: Run the madgrades integration step
+- `instructors`: Run the instructor collection step
+- `aggregate`: Run the aggregation step
 - `optimize`: Run the optimization step
 - `graph`: Run the graph step
 
@@ -36,7 +36,7 @@ graph TD
     AG@{ shape: procs, label: "fa:fa-chart-bar Aggregation "}
     OP@{ shape: procs, label: "fa:fa-cogs Optimization "}
     GR@{ shape: procs, label: "fa:fa-project-diagram Graph "}
-        
+
     CC --> MI
     MI --> IC
     IC --> AG
@@ -76,9 +76,9 @@ graph LR
     SM["Guide Sitemap<br><small>guide.wisc.edu/sitemap.xml</small>"]
     CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection "}
     SD@{ shape: procs, label: "fa:fa-school Subject/Department Definitions" }
-    
+
     C[(Cache)]
-    
+
     SM --> CC
     SM --> SD
     CC --> C
@@ -93,12 +93,12 @@ Next, we take the courses listed on each of the department pages and scrape the 
 
 This is also where we build our Abstract Syntax Tree (AST) for requisites.
 
-> ##### COMPSCI 300 Requisites: 
-> 
+> ##### COMPSCI 300 Requisites:
+>
 > Satisfied QR-A and (COMPSCI 200 , COMPSCI 220 , 302, COMPSCI 310 , 301, or placement into COMPSCI 300 ) or (COMPSCI/ECE 252 and ECE 203 ); graduate/professional standing; declared in Capstone Certificate in COMP SCI. Not open to students with credit for COMP SCI 367.
 >
 > ![ast.png](../public/assets/ast.png)
-> 
+>
 > We drop branches that include a negation phrase, such as "Not open for students with..."
 
 We also need to address issues of duplicate course listings, as some courses are listed under multiple departments.
@@ -113,21 +113,21 @@ For a full reference on all schemas and their fields, they should be explained i
 
 ```mermaid
 graph TD
-    
+
     subgraph api.madgrades.com
         MT["Madgrades Terms"]
         MPG@{ shape: docs, label: "fa:fa-graduation-cap Madgrades Pagination" }
         MGD@{ shape: procs, label: "fa:fa-graduation-cap Madgrades GradeData" }
-        
+
         MPG ===> MGD
     end
-    
+
     CET["Course Enrollment Terms<br><small>public.enroll.wisc.edu</small>"]
     T[Terms]
-    
+
     MT ---> T
     CET ---> T
-    
+
     C[(Cache)]
     CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection "}
 
@@ -152,32 +152,32 @@ graph TB
         RMPGQL@{ shape: procs, label: "fa:fa-user-tie RMP GraphQL</small>" }
         RMPAPIKEY --> RMPGQL
     end
-    
+
     subgraph wisc.edu
 
         MQ@{ shape: procs, label: "fa:fa-chalkboard Mega Query<br><small>public.enroll.wisc.edu</small>" }
         FL["Faculty List<br><small>guide.wisc.edu</small>"]
-        
+
     end
-    
+
     C[(Cache)]
     T[Terms]
-    
+
     CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection" }
     IC@{ shape: procs, label: "fa:fa-user-tie Instructor Collection<br><small>Name Matcher</small>" }
-    
+
     C --> T
     T --> MQ
     MQ ===> CC
     CC <--> C
-    
+
     CC --> IC
     FL ---> IC
     RMPGQL <---> IC
     IC --> C
 ```
 
-The instructor collection step, admittedly, does slightly more than collect instructors. Instructor collection performs the "Mega Query." 
+The instructor collection step, admittedly, does slightly more than collect instructors. Instructor collection performs the "Mega Query."
 
 For some reason, the Course Enrollment Terms Search API does not validate two items.
 
@@ -211,16 +211,16 @@ graph LR
     QS["Quick Statistics"]
     ES["Explorer Statistics"]
     C[(Cache)]
-    
+
     subgraph Instructor
         IC@{ shape: procs, label: "fa:fa-user-tie Instructor Collection" }
         MRI[\"Most Rated Instructors<br><small>Top 100</small>"/]
-        
+
         IC --> MRI
     end
-    
+
     MRI --> QS
-    
+
     subgraph Course
         CC@{ shape: procs, label: "fa:fa-chalkboard Course Collection" }
         CS["Determine Satisfies"]
@@ -229,7 +229,7 @@ graph LR
         EC["Easiest Courses"]
         CEA@{ shape: procs, label: "fa:fa-cubes Course Embedding Analysis" }
         KE@{ shape: procs, label: "fa:fa-layer-group Keyword Extraction" }
-        
+
         CS <--> CC
         CC --> SSA
         CC --> UA
@@ -237,18 +237,18 @@ graph LR
         CC <==> CEA
         KE <==> CC
     end
-    
+
     SSA --> ES
     UA --> QS
     EC --> QS
-    
+
     CEA <==> C
-    
+
     CC <--> C
     IC <--> C
     QS --> C
     ES --> C
-    
+
 ```
 
 Aggregation is where most of the post-processing happens. We take the data collected from the previous steps and perform various analyses to generate statistics and insights about the courses and instructors.
@@ -260,7 +260,7 @@ We perform the following analyses:
 
 > [!CAUTION]
 > The API endpoints for these statistics are currently unstable and may change in the future. We are working on stabilizing them, but for now, they are subject to change without notice.
-> 
+>
 > You can for sure expect them to change to like, university statistics, and department statistics, but the exact endpoints and data returned may change in the future.
 
 ### Optimization
@@ -291,10 +291,10 @@ N &= \text{Total UW-Madison Enrollment}\\
 $$
 
 > [!NOTE]
-> $\alpha$ and $\beta$ are currently set as 0.5 - I haven't played around with these values much, but they can be tuned to adjust the weight of the semantic similarity and popularity of the courses in the branch. 
-> 
+> $\alpha$ and $\beta$ are currently set as 0.5 - I haven't played around with these values much, but they can be tuned to adjust the weight of the semantic similarity and popularity of the courses in the branch.
+>
 > Due to the nature of $\frac{n_c}{N}$, it is a really small number, so it is generally not the dominating factor in the score. It is more of a tiebreaker for branches that have similar semantic similarity scores, but probably should be tuned to be more significant in the future.
-> 
+>
 > If you have any suggestions on how to improve this heuristic, please open an issue or a pull request!
 
 Before [v1.1.0](https://github.com/twangodev/uw-coursemap/releases/tag/v1.1.0), there was no AST, and we simply selected courses that semantically matched the description of the course, using OpenAI's embedding models. In [#564](https://github.com/twangodev/uw-coursemap/pull/564), we switch to [GIST Large Embedding v0](https://huggingface.co/avsolatorio/GIST-large-Embedding-v0), as it outperforms [text-embedding-3-small](https://platform.openai.com/docs/models/text-embedding-3-small), as of writing according to the [Hugging Face MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) with a rank of #17:
@@ -317,7 +317,7 @@ Since we are primarily using cosine similarity to evaluate which course to selec
 
 Graphing flattens the branch into a single list of nodes and edges, in a format compatible with Cytoscape.
 
-We also pick colors for all the nodes here, which are then used to render the graph in the frontend. The colors are picked based on the department of the course, and gray if cross-listed. 
+We also pick colors for all the nodes here, which are then used to render the graph in the frontend. The colors are picked based on the department of the course, and gray if cross-listed.
 
 The colors are picked to be visible on both light and dark themes with a high enough contrast ratio to be accessible.
 
@@ -340,6 +340,6 @@ If you have a CUDA-enabled GPU, you can use it to speed up the generation proces
 Install (replace your existing CPU dependencies) with the CUDA dependencies by:
 
 ```bash
-pipenv run pip unstall torch torchvision torchaudio 
+pipenv run pip unstall torch torchvision torchaudio
 pipenv run pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 # Find out what version you actually need to use through PyTorch's website
 ```
