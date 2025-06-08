@@ -35,6 +35,10 @@ const vitePressOptions: UserConfig = {
         text: 'Live',
         link: 'https://uwcourses.com'
       },
+      {
+        text: 'Status',
+        link: 'https://kener.twango.dev/?group=uw-coursemap'
+      }
     ],
     sidebar: [
       {
