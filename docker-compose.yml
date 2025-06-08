@@ -11,6 +11,8 @@ services:
   search:
     container_name: uw-coursemap-search
     image: ghcr.io/twangodev/uw-coursemap-search:v1.3.2
+    build:
+      context: search
     restart: unless-stopped
     env_file: ".env"
     ports:
@@ -23,6 +25,8 @@ services:
   web:
     container_name: uw-coursemap-web
     image: ghcr.io/twangodev/uw-coursemap-web:v1.3.2
+    build:
+      context: .
     env_file: ".env"
     restart: unless-stopped
     ports:
