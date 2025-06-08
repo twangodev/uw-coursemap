@@ -6,7 +6,12 @@
     </picture>
   </a>
   <p>
-    Check it out live at <a href="https://uwcourses.com" target="_blank">uwcourses.com</a>
+    <img
+      align="center"
+      src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping"
+      alt="Live Status"
+    />
+    Check it out live at <a href="https://uwcourses.com">uwcourses.com</a>
   </p>
 </div>
 
@@ -19,12 +24,7 @@
 </p>
 
 <p align="center">
-  <img
-    align="center"
-    src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping"
-    alt="Live Status"
-  />
-  Check it out live at <a href="https://uwcourses.com">uwcourses.com</a>
+
 </p>
 
 ## Problem Statement
