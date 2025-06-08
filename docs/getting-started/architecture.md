@@ -53,7 +53,7 @@ Since the static assets are served independently relative to the deployment, we 
 
 However, this comes with the downside of being able to make breaking changes to the static assets without updating the frontend. To mitigate this, we'll try our best to maintain backwards compatibility with the API, and in the cases where it is required, we will give 1–2 weeks notice before rolling out breaking changes.
 
-In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDeliver, or by downloading the assets directly from the GitHub repository and self-hosting.
+In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDelivr, or by downloading the assets directly from the GitHub repository and self-hosting.
 ::: 
 
 ### CI/CD Pipelines
@@ -78,7 +78,7 @@ An added bonus of using Cloudflare is international accessibility, approximately
 
 Generating all static assets for this application was by far one of the most time-consuming tasks (and in theory, most expensive). Before [#622](https://github.com/twangodev/uw-coursemap/pull/622) and other caching PRs, assets were generated on every run, which often took 2–6 hours to complete. This was not ideal, as it meant that every time we made a change to generation, we had to wait for the entire generation process to complete before we could see the changes.
 
-To mitigate this, we implemented caching strategies that allow us to speed up responses from APIs, use diffing techniques to only update changed data, and save large model downloads. This allows us to significantly reduce the time by 90%-98% in some instances. This is a significant improvement-it allows us to iterate on the generation process much faster, and reduces load on the services used during generation.
+To mitigate this, we implemented caching strategies that allow us to speed up responses from APIs, use diffing techniques to only update changed data, and save large model downloads. This allows us to significantly reduce the time by 90%-98% in some instances. This is a significant improvement—it allows us to iterate on the generation process much faster, and reduces load on the services used during generation.
 
 ![github-generation-caching-usage.webp](../public/assets/github-generation-caching-usage.webp)
 
@@ -91,7 +91,7 @@ As you can see, after caching was implemented (May), the cost of running the act
 > [!TIP]
 > GitHub Actions is free for public repositories, so there was no "real" cost to us (scary $150 bill), aside from the time it took to run the actions. However there still was motivation improve developer experience, as we can now run the generation process locally without having to wait for hours for the assets to be generated.
 
-<small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you :).</small>
+<small>We talk more about the generation process in the [generation](../codebase/generation.md) documentation, if that interests you.</small>
 
 ### Scale
 

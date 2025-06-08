@@ -19,7 +19,12 @@
 </p>
 
 <p align="center">
-  <b>UW Course Map</b> is an open‑source tool that helps University of Wisconsin–Madison students explore course offerings, plan their academic path, and ultimately leverage data to make informed decisions about their education.
+  <img
+    align="center"
+    src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping"
+    alt="Live Status"
+  />
+  Check it out live at <a href="https://uwcourses.com">uwcourses.com</a>
 </p>
 
 ## Problem Statement

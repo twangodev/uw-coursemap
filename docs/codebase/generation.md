@@ -59,7 +59,7 @@ Additionally, API keys and other sensitive information may be stored in the cach
 
 ### Performance
 
-Generally, this process takes 2-6 hours to run from a dry state, depending on the number of courses and instructors being processed. The time can vary based your system's performance, network speed, and the number of courses and instructors being processed.
+Generally, this process takes 2-6 hours to run from a dry state, depending on the number of courses and instructors being processed. The time can vary based on your system's performance, network speed, and the number of courses and instructors being processed.
 
 As a baseline, we run this process from a dry state on GitHub's CI servers, which takes roughly 3 hours. For context, public CI runners have [4 vCPUs and 16GB of RAM](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories) available, which is generally equivalent if not worse than a mid-range laptop.
 
