@@ -21,6 +21,7 @@ jobs:
           discovery.type: single-node
           ES_JAVA_OPTS: -Xms512m -Xmx512m
           ELASTIC_PASSWORD: changeme
+          xpack.security.enabled: false  # Disable security for local testing
         ports:
           - 9200:9200
         options: >-
