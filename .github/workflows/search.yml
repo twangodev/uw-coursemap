@@ -49,10 +49,10 @@ jobs:
       - name: Run tests
         working-directory: ./search
         env:
-          ELASTIC_HOST: ${{ vars.ELASTIC_HOST }} 
-          ELASTIC_USERNAME: ${{ vars.ELASTIC_USERNAME }} 
-          ELASTIC_PASSWORD: ${{ vars.ELASTIC_PASSWORD }} 
-          ELASTIC_VERIFY_CERTS: $${{ vars.ELASTIC_VERIFY_CERTS }} 
+          ELASTIC_HOST: "http://localhost:9200"
+          ELASTIC_USERNAME: "elastic"
+          ELASTIC_PASSWORD: "changeme"
+          ELASTIC_VERIFY_CERTS: "false"
           FLASK_DEBUG: "0" 
         run: |
           pipenv run pytest test.py
