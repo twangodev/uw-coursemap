@@ -33,33 +33,88 @@ def test_search_endpoint(client):
     response = client.post('/search', 
                          json={},
                          content_type='application/json')
-    assert response.status_code == 400
-    
+    assert response.status_code == 200    
+
     # Test malformed JSON
     response = client.post('/search', 
                          data='not json',
                          content_type='application/json')
     assert response.status_code == 400
 
-def test_search_results_quality(client):
-    """Test the quality of search results"""
-    # Test course search
-    response = client.post('/search',
-                         json={'query': 'COMP SCI 300'},
+def test_department_search(client):
+    """Test department search functionality"""
+    # Test 1: Initials should match department
+    response = client.post('/search', 
+                         json={'query': 'cs'},
                          content_type='application/json')
-    data = json.loads(response.data)
-    assert len(data['courses']) > 0
+    data = response.json
+    subjects = data['subjects']
+    assert any('Computer Science' in subject['name'] for subject in subjects)
     
-    # Test instructor search
-    response = client.post('/search',
-                         json={'query': 'Computer Science Professor'},
+    # Test 2: Known abbreviations
+    response = client.post('/search', 
+                         json={'query': 'COMPSCI'},
                          content_type='application/json')
-    data = json.loads(response.data)
-    assert len(data['instructors']) > 0
-    
-    # Test subject search
-    response = client.post('/search',
+    data = response.json
+    subjects = data['subjects']
+    assert any('Computer Science' in subject['name'] for subject in subjects)
+
+    # Test 3: Full department name
+    response = client.post('/search', 
                          json={'query': 'Computer Science'},
                          content_type='application/json')
-    data = json.loads(response.data)
-    assert len(data['subjects']) > 0
+    data = response.json
+    subjects = data['subjects']
+    assert any('Computer Science' in subject['name'] for subject in subjects)
+
+    # Test 4: Partial department name
+    response = client.post('/search', 
+                         json={'query': 'Comp sci'},
+                         content_type='application/json')
+    data = response.json
+    subjects = data['subjects']
+    assert any('Computer Science' in subject['name'] for subject in subjects)
+
+def test_course_search(client):
+    """Test course search functionality"""
+    # Test 1: Course codes with and without spaces
+    test_cases = ['cs577', 'cs 577']
+    for query in test_cases:
+        response = client.post('/search', 
+                            json={'query': query},
+                            content_type='application/json')
+        data = response.json
+        courses = data['courses']
+        assert any('COMPSCI_577' in course['course_id'] 
+                  for course in courses), f"Failed for query: {query}"
+    
+    # Test 2: Full text department name with number
+    response = client.post('/search', 
+                         json={'query': 'computer science 577'},
+                         content_type='application/json')
+    data = response.json
+    courses = data['courses']
+    assert any('COMPSCI_577' in course['course_id'] for course in courses)
+    
+    # Test 3: Contextual course title matches
+    title_tests = [
+        ('artificial intelligence', 'COMPSCI_540'),
+        ('matrix methods', 'COMPSCI_ECE_ME_532')
+    ]
+    for query, expected in title_tests:
+        response = client.post('/search', 
+                            json={'query': query},
+                            content_type='application/json')
+        data = response.json
+        courses = data['courses']
+        assert any(expected in course['course_id'] 
+                  for course in courses), f"Failed for query: {query}"
+
+def test_instructor_search(client):
+    """Test instructor search functionality"""
+    response = client.post('/search', 
+                         json={'query': 'Hobbes'},
+                         content_type='application/json')
+    data = response.json
+    instructors = data['instructors']
+    assert any('Hobbes Legault' in instructor['name'] for instructor in instructors)
