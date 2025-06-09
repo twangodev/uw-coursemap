@@ -43,7 +43,8 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./search
-        run: pipenv sync
+        run: |
+          pipenv sync
  
       - name: Run tests
         working-directory: ./search
@@ -54,4 +55,4 @@ jobs:
           ELASTIC_VERIFY_CERTS: $${{ vars.ELASTIC_VERIFY_CERTS }} 
           FLASK_DEBUG: "0" 
         run: |
-          pytest search/test.py
+          pipenv run pytest search/test.py
