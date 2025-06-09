@@ -1,0 +1,55 @@
+name: Search Service CI
+
+on:
+  push:
+    paths:
+      - 'search/**'
+      - '.github/workflows/search.yml'
+  pull_request:
+    paths:
+      - 'search/**'
+      - '.github/workflows/search.yml'
+
+jobs:
+  test-search:
+    runs-on: ubuntu-latest
+    
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.18.0
+        env:
+          discovery.type: single-node
+          ES_JAVA_OPTS: -Xms512m -Xmx512m
+          ELASTIC_PASSWORD: changeme
+        ports:
+          - 9200:9200
+        options: >-
+          --health-cmd "curl http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3
+          cache: pipenv
+
+      - name: Install pipenv
+        run: python3 -m pip install --upgrade pip pipenv
+
+      - name: Install Dependencies
+        run: pipenv sync
+ 
+      - name: Run tests
+        working-directory: ./search
+        env:
+          ELASTIC_HOST: ${{ vars.ELASTIC_HOST }} 
+          ELASTIC_USERNAME: ${{ vars.ELASTIC_USERNAME }} 
+          ELASTIC_PASSWORD: ${{ vars.ELASTIC_PASSWORD }} 
+          ELASTIC_VERIFY_CERTS: $${{ vars.ELASTIC_VERIFY_CERTS }} 
+          FLASK_DEBUG: "0" 
+        run: |
+          pytest search/test.py
