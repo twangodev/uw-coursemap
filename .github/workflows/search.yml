@@ -42,6 +42,7 @@ jobs:
         run: python3 -m pip install --upgrade pip pipenv
 
       - name: Install Dependencies
+        working-directory: ./search
         run: pipenv sync
  
       - name: Run tests
