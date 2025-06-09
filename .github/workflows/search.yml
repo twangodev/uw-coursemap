@@ -55,4 +55,4 @@ jobs:
           ELASTIC_VERIFY_CERTS: $${{ vars.ELASTIC_VERIFY_CERTS }} 
           FLASK_DEBUG: "0" 
         run: |
-          pipenv run pytest search/test.py
+          pipenv run pytest test.py
