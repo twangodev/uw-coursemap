@@ -45,6 +45,27 @@ jobs:
         working-directory: ./search
         run: |
           pipenv sync
+      - name: Setup Cache Environment
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - name: Restore Data Cache
+        id: cache-data
+        uses: actions/cache@v4
+        with:
+          path: data/
+          key: coursemap-data-${{ runner.os }}-${{ env.cache_id }}
+          restore-keys: |
+            coursemap-data-${{ runner.os }}-
+
+      - name: Generate Data if No Cache
+        if: steps.cache-data.outputs.cache-hit != 'true'
+        working-directory: ./generation
+        run: |
+          pipenv sync
+          pipenv run python main.py --step all
+        env:
+          DATA_DIR: "../data"
+          MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }} 
  
       - name: Run tests
         working-directory: ./search
