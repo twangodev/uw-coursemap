@@ -3,7 +3,7 @@
 </script>
 
 Made possible by
-<FooterLink href="https://github.com/twangodev">James Ding</FooterLink>,
+<FooterLink href="https://twango.dev">James Ding</FooterLink>,
 <FooterLink href="https://github.com/ProfessorAtomicManiac">Charles Ding</FooterLink>, and
 <FooterLink href="https://docs.uwcourses.com/team">contributors</FooterLink>.
 
