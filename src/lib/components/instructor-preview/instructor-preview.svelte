@@ -3,7 +3,7 @@
     import {Avatar, AvatarFallback} from "$lib/components/ui/avatar";
     import type {FullInstructorInformation} from "$lib/types/instructor.ts";
     import ColoredNumberBox from "$lib/components/instructor-preview/colored-number-box.svelte";
-    import {slide, type SlideParams} from "svelte/transition";
+    import {slide} from "svelte/transition";
     import {slideParams} from "$lib/transitions.ts";
     import {Badge} from "$lib/components/ui/badge";
 
