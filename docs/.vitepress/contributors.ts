@@ -1,4 +1,4 @@
-import { Octokit } from '@octokit/rest';
+import { Octokit } from "@octokit/rest";
 
 // Access environment variables
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -20,22 +20,30 @@ interface TeamMember {
 }
 
 // This function will be executed only during build time
-async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor[]> {
-  console.log('Fetching GitHub contributors during build time (using a single API call)...');
+async function fetchContributors(
+  maintainers: TeamMember[],
+): Promise<Contributor[]> {
+  console.log(
+    "Fetching GitHub contributors during build time (using a single API call)...",
+  );
   // Initialize Octokit with GitHub token if available
-  const octokit = new Octokit(GITHUB_TOKEN ? {
-    auth: GITHUB_TOKEN
-  } : {});
+  const octokit = new Octokit(
+    GITHUB_TOKEN
+      ? {
+          auth: GITHUB_TOKEN,
+        }
+      : {},
+  );
 
   if (GITHUB_TOKEN) {
-    console.log('Using GitHub token for authentication');
+    console.log("Using GitHub token for authentication");
   } else {
-    console.log('No GitHub token found. API requests may be rate-limited.');
+    console.log("No GitHub token found. API requests may be rate-limited.");
   }
 
   try {
     // Make a single API call to get contributor stats
-    console.log('Retrieving contributor stats...');
+    console.log("Retrieving contributor stats...");
     let stats = [];
     try {
       // Implement retry mechanism for 202 responses
@@ -44,21 +52,30 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
       let response;
 
       while (retries <= maxRetries) {
-        response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
-          owner: 'twangodev',
-          repo: 'uw-coursemap',
-        });
+        response = await octokit.request(
+          "GET /repos/{owner}/{repo}/stats/contributors",
+          {
+            owner: "twangodev",
+            repo: "uw-coursemap",
+          },
+        );
 
         // If we get a 202 status code, GitHub is still computing the stats
         if (response.status === 202) {
           retries++;
           if (retries <= maxRetries) {
-            console.log(`Received 202 status (stats being computed). Retry ${retries}/${maxRetries} after 5 seconds...`);
+            console.log(
+              `Received 202 status (stats being computed). Retry ${retries}/${maxRetries} after 5 seconds...`,
+            );
             // Wait for 5 seconds before retrying
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise((resolve) => setTimeout(resolve, 5000));
           } else {
-            console.error(`Reached maximum retries (${maxRetries}) for 202 status. Aborting operation.`);
-            throw new Error(`Failed to fetch contributor stats after ${maxRetries} retries. Aborting.`);
+            console.error(
+              `Reached maximum retries (${maxRetries}) for 202 status. Aborting operation.`,
+            );
+            throw new Error(
+              `Failed to fetch contributor stats after ${maxRetries} retries. Aborting.`,
+            );
           }
         } else {
           // If we get a successful response, break out of the loop
@@ -68,25 +85,29 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
 
       if (response && response.status !== 202) {
         stats = response.data;
-        console.log(`Successfully fetched stats for ${stats.length} contributors`);
+        console.log(
+          `Successfully fetched stats for ${stats.length} contributors`,
+        );
       } else {
-        console.warn('Could not fetch contributor stats after retries, proceeding with empty data');
+        console.warn(
+          "Could not fetch contributor stats after retries, proceeding with empty data",
+        );
       }
     } catch (error) {
-      console.warn('Could not fetch contributor stats:', error);
+      console.warn("Could not fetch contributor stats:", error);
       return []; // Return empty array if we can't get stats
     }
 
     // Ensure stats is an array before processing
     if (!Array.isArray(stats)) {
-      console.warn('Stats is not an array, returning empty array');
+      console.warn("Stats is not an array, returning empty array");
       return [];
     }
 
     // Process each contributor from the stats
     const contributors = stats.map((stat) => {
       if (!stat.author) {
-        console.warn('Stat has no author, skipping');
+        console.warn("Stat has no author, skipping");
         return null;
       }
 
@@ -105,7 +126,9 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
       const userName = contributor.login;
 
       // Log the contributor details including lines and contributions
-      console.log(`Discovered contributor: ${contributor.login} - Lines: ${lines}, Commits: ${stat.total}`);
+      console.log(
+        `Discovered contributor: ${contributor.login} - Lines: ${lines}, Commits: ${stat.total}`,
+      );
 
       return {
         login: contributor.login,
@@ -120,14 +143,16 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
     const contributorsWithLines = contributors.filter(Boolean) as Contributor[];
 
     // Filter out maintainers from the contributors list
-    const maintainerGithubUsernames = maintainers.map(maintainer => {
+    const maintainerGithubUsernames = maintainers.map((maintainer) => {
       // Extract GitHub username from the link
-      const githubLink = maintainer.links.find(link => link.icon === 'github')?.link;
-      return githubLink ? githubLink.replace(/\/+$/, '').split('/').pop() : '';
+      const githubLink = maintainer.links.find(
+        (link) => link.icon === "github",
+      )?.link;
+      return githubLink ? githubLink.replace(/\/+$/, "").split("/").pop() : "";
     });
 
     const filteredContributors = contributorsWithLines.filter(
-      contributor => !maintainerGithubUsernames.includes(contributor.login)
+      (contributor) => !maintainerGithubUsernames.includes(contributor.login),
     );
 
     // Sort by lines contributed (descending), then by contributions if lines are equal
@@ -144,7 +169,7 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
       return linesB - linesA;
     });
   } catch (error) {
-    console.error('Error fetching GitHub contributors:', error);
+    console.error("Error fetching GitHub contributors:", error);
     return [];
   }
 }
@@ -152,29 +177,27 @@ async function fetchContributors(maintainers: TeamMember[]): Promise<Contributor
 // Define the maintainers list
 const maintainers = [
   {
-    avatar: 'https://www.github.com/twangodev.png',
-    name: 'James Ding',
-    title: 'Creator',
+    avatar: "https://www.github.com/twangodev.png",
+    name: "James Ding",
+    title: "Creator",
     links: [
-      { icon: 'github', link: 'https://github.com/twangodev' },
-      { icon: 'linkedin', link: 'https://www.linkedin.com/in/jamesding365/' },
-    ]
+      { icon: "github", link: "https://github.com/twangodev" },
+      { icon: "linkedin", link: "https://www.linkedin.com/in/jamesding365/" },
+    ],
   },
   {
-    avatar: 'https://www.github.com/ProfessorAtomicManiac.png',
-    name: 'Charles Ding',
-    title: 'Maintainer',
+    avatar: "https://www.github.com/ProfessorAtomicManiac.png",
+    name: "Charles Ding",
+    title: "Maintainer",
     links: [
-      { icon: 'github', link: 'https://github.com/ProfessorAtomicManiac' },
-    ]
+      { icon: "github", link: "https://github.com/ProfessorAtomicManiac" },
+    ],
   },
   {
-    avatar: 'https://www.github.com/landonbakken.png',
-    name: 'Landon Bakken',
-    title: 'Maintainer',
-    links: [
-      { icon: 'github', link: 'https://github.com/landonbakken' },
-    ]
+    avatar: "https://www.github.com/landonbakken.png",
+    name: "Landon Bakken",
+    title: "Maintainer",
+    links: [{ icon: "github", link: "https://github.com/landonbakken" }],
   },
 ];
 
@@ -184,18 +207,16 @@ export default {
     const rawContributors = await fetchContributors(maintainers);
 
     // Transform contributors to match VPTeamMembers format
-    const contributors = rawContributors.map(contributor => ({
+    const contributors = rawContributors.map((contributor) => ({
       avatar: contributor.avatar_url,
       name: contributor.name,
       title: `${contributor.lines} lines, ${contributor.contributions} contributions`,
-      links: [
-        { icon: 'github', link: contributor.html_url }
-      ]
+      links: [{ icon: "github", link: contributor.html_url }],
     }));
 
     return {
       maintainers,
-      contributors
+      contributors,
     };
-  }
+  },
 };

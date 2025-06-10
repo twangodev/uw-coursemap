@@ -4,17 +4,16 @@ on:
     branches:
       - main
     paths:
-      - 'generation/**'
+      - "generation/**"
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 
 concurrency:
-  group: 'generation'
+  group: "generation"
   cancel-in-progress: true
 
 jobs:
-
   generate:
     name: Generate Data
     runs-on: ubuntu-latest
@@ -53,7 +52,7 @@ jobs:
         with:
           name: uw-coursemap-data-snapshot-${{ github.run_id }}
           path: data/
-          include-hidden-files: 'true'
+          include-hidden-files: "true"
 
   deployment:
     name: Deploy Data Snapshot
@@ -89,11 +88,11 @@ jobs:
         id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          repository: 'deploy'
+          repository: "deploy"
           disable_globbing: true
           commit_message: "Deploy Snapshot #${{ github.run_id }}"
           branch: main
-          push_options: '--force'
+          push_options: "--force"
 
   bump:
     name: Bump Submodule
@@ -111,10 +110,10 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          title: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
+          title: "Bump Data Submodule from Snapshot #${{ github.run_id }}"
           base: main
-          branch: 'github-actions/data-bump'
-          sign-commits: 'true'
-          commit-message: 'Bump Data Submodule from Snapshot #${{ github.run_id }}'
+          branch: "github-actions/data-bump"
+          sign-commits: "true"
+          commit-message: "Bump Data Submodule from Snapshot #${{ github.run_id }}"
           labels: submodules, cicd, generation
           reviewers: ${{ github.repository_owner }}

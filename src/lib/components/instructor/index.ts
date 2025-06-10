@@ -1,5 +1,3 @@
-import InstructorDetails from './instructor-details.svelte';
+import InstructorDetails from "./instructor-details.svelte";
 
-export {
-    InstructorDetails
-}
+export { InstructorDetails };
