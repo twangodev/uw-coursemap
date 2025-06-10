@@ -1,34 +1,32 @@
 export function getCarbonTheme(mode: "light" | "dark" | undefined) {
-
-    switch (mode) {
-        case "light":
-            return "white"
-        case "dark":
-            return "g100"
-        default:
-            return "white"
-    }
-
+  switch (mode) {
+    case "light":
+      return "white";
+    case "dark":
+      return "g100";
+    default:
+      return "white";
+  }
 }
 
 export function getTextColor(mode: "light" | "dark" | undefined) {
-    switch (mode) {
-        case "light":
-            return "black"
-        case "dark":
-            return "white"
-        default:
-            return "black"
-    }
+  switch (mode) {
+    case "light":
+      return "black";
+    case "dark":
+      return "white";
+    default:
+      return "black";
+  }
 }
 
 export function getTextOutlineColor(mode: "light" | "dark" | undefined) {
-    switch (mode) {
-        case "light":
-            return "white"
-        case "dark":
-            return "black"
-        default:
-            return "white"
-    }
+  switch (mode) {
+    case "light":
+      return "white";
+    case "dark":
+      return "black";
+    default:
+      return "white";
+  }
 }

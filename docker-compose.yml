@@ -1,5 +1,4 @@
 services:
-
   elasticsearch:
     image: elasticsearch:9.0.2
     container_name: elasticsearch
@@ -31,4 +30,3 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000"
-

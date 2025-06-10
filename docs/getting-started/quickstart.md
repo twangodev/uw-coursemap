@@ -37,12 +37,13 @@ You can now run the development server for the frontend, which should be accessi
 npm run dev
 ```
 
-
 ::: details How do I preview documentation?
 We use [VitePress](https://vitepress.dev/) to generate the documentation for this project, as it runs alongside the frontend. To preview the documentation, you can run the following command:
+
 ```sh [npm]
 npm run docs:dev
 ```
+
 :::
 
 ### Search

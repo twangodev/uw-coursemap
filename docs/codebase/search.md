@@ -44,7 +44,7 @@ Example request:
 
 ```json
 {
-  "query": "computer science"
+    "query": "computer science"
 }
 ```
 

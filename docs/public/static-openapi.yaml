@@ -4,28 +4,28 @@ info:
   summary: UW Course Map Content API Documentation
   description: |-
     To standardize the wide variety of data sources, we expose UW Course Map data through a unified API. Through this, you can access course metadata, instructor offerings, and student-rating statistics to power your own interfaces, data pipelines, or applications.
-    
+
     ## Usage
 
     Note that this API should be ideally used with applications that demand refreshing data, such as a web application or a mobile app. If you are building a one-time data pipeline, consider exporting the static data directly, as outlined in [static.uwcourses.com](https://static.uwcourses.com).
-    
+
     ### Authentication
-    
+
     This API does not require authentication. You can access the endpoints directly without any API keys or tokens.
-    
+
     ### Rate Limits
-    
+
     All API endpoints below have no rate limits, and are free to use. In reasonable cases, this actually improves overall performance, as more content is cached and served from the Edge CDN. Generally, we ask you to follow these guidelines:
-    
+
     - Do you need all the data at once? If so, consider using the static data export instead, outlined in [static.uwcourses.com](https://static.uwcourses.com).
     - Respect `Cache-Control`/`ETag` headers in the responses, both client side and server side. Otherwise, check the [update](#getUpdate) endpoint to see when the data was last updated.
     - Endpoints are monitored, we track usage, latency, and error rate. Blacklisting may occur if we detect abuse or excessive load.
     - If you have any questions or concerns about usage or bringing your project to scale, please reach out to us via GitHub discussions. For the most part, we are happy to help you scale your project, and we can work with you to ensure that the API meets your needs.
-    
+
     ## OpenAPI Specification
-    
+
     This document is written in OpenAPI 3.1 format, which is a standard for describing RESTful APIs. You can use this specification to generate client libraries, server stubs, and API documentation. 
-    
+
     Find the full OpenAPI specification at [docs/public/static-openapi.yaml](https://docs.uwcourses.com/static-openapi.yaml)
 
   contact:
@@ -46,7 +46,6 @@ tags:
     description: Internal endpoints, unstable, and not recommended for use in production applications. These endpoints may change or be updated without notice.
 components:
   schemas:
-
     SubjectCode:
       type: string
       description: |
@@ -57,7 +56,7 @@ components:
       description: |
         A sorted list of subject codes to guarantee consistent ordering.
       items:
-        $ref: '#/components/schemas/SubjectCode'
+        $ref: "#/components/schemas/SubjectCode"
       minItems: 1
       uniqueItems: true
 
@@ -73,9 +72,9 @@ components:
         A composite object containing a list of subject codes and a course number.
       properties:
         subjects:
-          $ref: '#/components/schemas/SubjectList'
+          $ref: "#/components/schemas/SubjectList"
         course_number:
-          $ref: '#/components/schemas/CourseNumber'
+          $ref: "#/components/schemas/CourseNumber"
       required:
         - subjects
         - course_number
@@ -93,16 +92,16 @@ components:
 
     CoursePrerequisiteAbstractSyntaxTree:
       oneOf:
-        - $ref: '#/components/schemas/PrerequisiteInnerNode'
-        - $ref: '#/components/schemas/PrerequisiteLeaf'
+        - $ref: "#/components/schemas/PrerequisiteInnerNode"
+        - $ref: "#/components/schemas/PrerequisiteLeaf"
       description: |
         The prerequisite AST itself, which may be either an inner node (AND/OR plus children)
         or a leaf (textual note or concrete course reference).
 
     PrerequisiteNode:
       oneOf:
-        - $ref: '#/components/schemas/PrerequisiteInnerNode'
-        - $ref: '#/components/schemas/PrerequisiteLeaf'
+        - $ref: "#/components/schemas/PrerequisiteInnerNode"
+        - $ref: "#/components/schemas/PrerequisiteLeaf"
       description: |
         A node in the prerequisite AST. It can either be an inner node (with an operator
         and children) or a leaf (containing either plain text or a CourseReference).
@@ -122,7 +121,7 @@ components:
           type: array
           description: List of child nodes under this operator.
           items:
-            $ref: '#/components/schemas/PrerequisiteNode'
+            $ref: "#/components/schemas/PrerequisiteNode"
       required:
         - operator
         - children
@@ -139,7 +138,7 @@ components:
           oneOf:
             - type: string
               description: A free-form textual leaf.
-            - $ref: '#/components/schemas/CourseReference'
+            - $ref: "#/components/schemas/CourseReference"
       required:
         - payload
 
@@ -158,14 +157,14 @@ components:
             anyOf:
               - type: string
                 description: Any text that does not mention a course reference. This may include non-existent courses, or general requirements.
-              - $ref: '#/components/schemas/CourseReference'
+              - $ref: "#/components/schemas/CourseReference"
         course_references:
           type: array
           description: A list of `CourseReference` objects that represent the courses mentioned in the prerequisites.
           items:
-              $ref: '#/components/schemas/CourseReference'
+            $ref: "#/components/schemas/CourseReference"
         abstract_syntax_tree:
-          $ref: '#/components/schemas/CoursePrerequisiteAbstractSyntaxTree'
+          $ref: "#/components/schemas/CoursePrerequisiteAbstractSyntaxTree"
       required:
         - prerequisites_text
         - linked_requisite_text
@@ -281,7 +280,7 @@ components:
         school details, offering cadence, credit range, and instructor mapping.
       properties:
         school:
-          $ref: '#/components/schemas/EnrollmentDataSchool'
+          $ref: "#/components/schemas/EnrollmentDataSchool"
           nullable: true
           description: |
             The school or college that offers this course. Null if not available.
@@ -331,11 +330,11 @@ components:
         Data for a specific academic term, including optional enrollment and grade details.
       properties:
         enrollment_data:
-          $ref: '#/components/schemas/EnrollmentData'
+          $ref: "#/components/schemas/EnrollmentData"
           nullable: true
           description: Enrollment statistics for this term (null if unavailable).
         grade_data:
-          $ref: '#/components/schemas/GradeData'
+          $ref: "#/components/schemas/GradeData"
           nullable: true
           description: Grade statistics for this term (null if unavailable).
       required:
@@ -348,7 +347,7 @@ components:
         A course object containing metadata about a course, including its reference, title, description, and other relevant information.
       properties:
         course_reference:
-          $ref: '#/components/schemas/CourseReference'
+          $ref: "#/components/schemas/CourseReference"
         title:
           type: string
           description: The title of the course
@@ -356,29 +355,29 @@ components:
           type: string
           description: A brief description of the course content
         prerequisites:
-          $ref: '#/components/schemas/CoursePrerequisites'
+          $ref: "#/components/schemas/CoursePrerequisites"
         optimized_prerequisites:
           type: array
           description: |
-              A list of `CourseReference` objects representing the optimized prerequisites for the course. This takes all the courses mentioned in the best branch of the prerequisite AST, and returns them in a list.
+            A list of `CourseReference` objects representing the optimized prerequisites for the course. This takes all the courses mentioned in the best branch of the prerequisite AST, and returns them in a list.
           items:
-            $ref: '#/components/schemas/CourseReference'
+            $ref: "#/components/schemas/CourseReference"
         cumulative_grade_data:
-          $ref: '#/components/schemas/GradeData'
+          $ref: "#/components/schemas/GradeData"
           nullable: true
         term_data:
           type: object
           description: |
             A mapping from term id to its corresponding TermData object.
           additionalProperties:
-            $ref: '#/components/schemas/TermData'
+            $ref: "#/components/schemas/TermData"
         similar_courses:
           type: array
           description: |
             A list of `CourseReference` objects representing similar courses to this one.
             This is used for course recommendations
           items:
-            $ref: '#/components/schemas/CourseReference'
+            $ref: "#/components/schemas/CourseReference"
         keywords:
           type: array
           description: |
@@ -390,7 +389,7 @@ components:
           description: |
             A list of `CourseReference` objects representing the courses that this course satisfies.
           items:
-            $ref: '#/components/schemas/CourseReference'
+            $ref: "#/components/schemas/CourseReference"
       required:
         - course_reference
         - title
@@ -412,7 +411,7 @@ components:
         A sanitized version of a `CourseIdentifier` suitable for URLs.
         It replaces slashes and spaces with underscores.
       schema:
-        $ref: '#/components/schemas/UrlCourseCode'
+        $ref: "#/components/schemas/UrlCourseCode"
 
   responses:
     NotFoundHTML:
@@ -427,8 +426,7 @@ paths:
   /update.json:
     get:
       summary: Check for Updates
-      description:
-        Check when the data was last updated. This endpoint returns a JSON object with the last update timestamp.
+      description: Check when the data was last updated. This endpoint returns a JSON object with the last update timestamp.
       operationId: getUpdate
       responses:
         "200":
@@ -486,13 +484,13 @@ paths:
         Retrieve a course by its unique identifier. The `courseCode` parameter should be a sanitized version of the `CourseIdentifier`, suitable for URLs.
       operationId: getCourse
       parameters:
-        - $ref: '#/components/parameters/UrlCourseCodeParam'
+        - $ref: "#/components/parameters/UrlCourseCodeParam"
       responses:
         "200":
           description: "Successful retrieval of course data"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Course'
+                $ref: "#/components/schemas/Course"
         "404":
-          $ref: '#/components/responses/NotFoundHTML'
+          $ref: "#/components/responses/NotFoundHTML"

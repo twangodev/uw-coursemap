@@ -1,46 +1,46 @@
 /* .vitepress/theme/custom.css */
 :root {
-    --vp-c-brand-1: var(--vp-c-red-1);
-    --vp-c-brand-2: var(--vp-c-red-2);
-    --vp-c-brand-3: var(--vp-c-red-3);
+  --vp-c-brand-1: var(--vp-c-red-1);
+  --vp-c-brand-2: var(--vp-c-red-2);
+  --vp-c-brand-3: var(--vp-c-red-3);
 }
 
 html.dark .light-only {
-    display: none !important;
+  display: none !important;
 }
 
 html:not(.dark) .dark-only {
-    display: none !important;
+  display: none !important;
 }
 
 :root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-            120deg,
-            #F9B16E 30%,
-            #DF5B3D
-    );
-    --vp-home-hero-image-background-image: linear-gradient(
-            -45deg,
-            rgba(249, 177, 110, 0.5) 50%,
-            rgba(223, 91, 61, 0.5) 50%
-    );
-    --vp-home-hero-image-filter: blur(44px);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #f9b16e 30%,
+    #df5b3d
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(249, 177, 110, 0.5) 50%,
+    rgba(223, 91, 61, 0.5) 50%
+  );
+  --vp-home-hero-image-filter: blur(44px);
 }
 
 @media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(56px);
-    }
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
 }
 
 @media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(68px);
-    }
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
 }
 
 .VPHero .VPImage {
-    filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
-    padding: 18px;
+  filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
+  padding: 18px;
 }

@@ -2,51 +2,52 @@
 
 [UW Course Map](https://uwcourses.com) follows the [microservice architecture pattern](https://en.wikipedia.org/wiki/Microservices), where each service is responsible for a specific part of the application. This allows us to isolate services from each other, scale them independently, and deploy updates without affecting the entire application.
 
-- **Frontend**: The SvelteKit application that serves the user interface. SvelteKit configured to use the static assets as a data source, which allows us to build the application without needing a backend server. 
+- **Frontend**: The SvelteKit application that serves the user interface. SvelteKit configured to use the static assets as a data source, which allows us to build the application without needing a backend server.
 - **Backend**: A Flask service that serves data which cannot be determined at build time, such as search queries. Currently, this service is responsible for:
-  - Handling search queries and returning results from the Elasticsearch index.
-  - Generating random courses for the "Random Course" feature.
+    - Handling search queries and returning results from the Elasticsearch index.
+    - Generating random courses for the "Random Course" feature.
 - **Static Assets**: A set of static JSON files that contain the data for the application, generated from a Python script.
 
-> [!IMPORTANT] Current Scale/Stats*
+> [!IMPORTANT] Current Scale/Stats\*
+>
 > - **600+ peak daily active users**, with an average of ~100 daily active users
 > - **150K+ peak requests** within a day, with an average of **~100K requests per day**. Within a single month, we have seen over **3M+ requests**.
 > - Approximately **~75GB of data served per month**.
-> 
-> <small>*Updated as of June 2025</small>
+>
+> <small>\*Updated as of June 2025</small>
 
 ## Deployment Architecture
 
 ```mermaid
 graph LR;
-    
+
     User[fa:fa-user User]
-    
+
     subgraph Production
         CF((fa:fa-cloud Cloudflare<br><small>CDN & WAF</small>))
         SA[(fa:fa-database Static Assets<br><small>static.uwcourses.com</small>)]
-        
+
         subgraph Deployment
             FE[fa:fa-globe Frontend<br><small>uwcourses.com</small>]
             SE[fa:fa-search Search Endpoint<br><small>search.uwcourses.com</small>]
         end
-        
+
         CF <--> FE
         CF <--> SE
         CF <--> SA
-        
+
     end
 
 
     User ---> CF
-    
+
 ```
 
 Currently, the application is deployed on a single [A1-Flex (4 OCPU, 24GB RAM) instance](https://www.oracle.com/cloud/compute/arm/), alongside other projects.
 
 ::: details No Vercel?
 No, we do not use Vercel for deployment. My wallet does not scale to meet Vercel's pricing.
-::: 
+:::
 
 ::: details Why are static assets separate from the deployment?
 Since the static assets are served independently relative to the deployment, we can update the static assets without needing to redeploy the entire application. This allows us to update the data without downtime, and also makes it easier to scale the application. We also do not need to release "versions" of data.
@@ -54,7 +55,7 @@ Since the static assets are served independently relative to the deployment, we 
 However, this comes with the downside of being able to make breaking changes to the static assets without updating the frontend. To mitigate this, we'll try our best to maintain backwards compatibility with the API, and in the cases where it is required, we will give 1–2 weeks notice before rolling out breaking changes.
 
 In case users must use an older version of the static assets, all assets are version controlled. Users can still access older versions of the static assets, either with jsDelivr, or by downloading the assets directly from the GitHub repository and self-hosting.
-::: 
+:::
 
 ### CI/CD Pipelines
 
@@ -101,27 +102,27 @@ In practice though, here's what the deployment could look like if we scaled with
 
 ```mermaid
 graph LR;
-    
+
     User[fa:fa-user User]
-    
+
     subgraph Production
         CF((fa:fa-cloud Cloudflare<br><small>CDN & WAF</small>))
         SA[(fa:fa-database Static Assets<br><small>R2/S3 Bucket</small>)]
-        
+
         subgraph Kubernetes Deployment
             IG@{ shape: diamond, label: "fa:fa-network-wired Ingress<br><small>NGINX/HAProxy/Traefik</small>" }
             FP@{ shape: procs, label: "fa:fa-globe Frontend Pods<br><small>ReplicaSet</small>" }
             SP@{ shape: procs, label: "fa:fa-search Search Pods<br><small>ReplicaSet</small>" }
             ES@{ shape: procs, label: "fa:fa-database Elasticsearch Pods<br><small>StatefulSet</small>" }
-            
+
             IG <--> FP
             IG <--> SP
             IG <--> ES
         end
-        
+
         CF <--> IG
         CF <--> SA
-        
+
     end
 
 

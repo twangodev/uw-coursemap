@@ -51,11 +51,11 @@ This allows you to debug and test each step independently, while also providing 
 
 Each of these steps, except for the final build step, write to a unified `.cache` directory, which is used to store intermediate results and final outputs. The final build step compiles all the data into a single output file.
 
-Generally, the cache is platform-dependent* (it contains a models cache used for embeddings), so you should use the same cache for all steps on a single platform.
+Generally, the cache is platform-dependent\* (it contains a models cache used for embeddings), so you should use the same cache for all steps on a single platform.
 
 Additionally, API keys and other sensitive information may be stored in the cache, which bad actors may use, so it is recommended to keep the cache directory secure and not share it publicly.
 
-<small>*This is a hunch, but it is likely that the cache is platform-dependent due to the models used for embeddings and other data processing steps.</small>
+<small>\*This is a hunch, but it is likely that the cache is platform-dependent due to the models used for embeddings and other data processing steps.</small>
 
 ### Performance
 
@@ -290,8 +290,7 @@ N &= \text{Total UW-Madison Enrollment}\\
 \end{align}
 $$
 
-> [!NOTE]
-> $\alpha$ and $\beta$ are currently set as 0.5 - I haven't played around with these values much, but they can be tuned to adjust the weight of the semantic similarity and popularity of the courses in the branch.
+> [!NOTE] > $\alpha$ and $\beta$ are currently set as 0.5 - I haven't played around with these values much, but they can be tuned to adjust the weight of the semantic similarity and popularity of the courses in the branch.
 >
 > Due to the nature of $\frac{n_c}{N}$, it is a really small number, so it is generally not the dominating factor in the score. It is more of a tiebreaker for branches that have similar semantic similarity scores, but probably should be tuned to be more significant in the future.
 >

@@ -1,11 +1,11 @@
 <script lang="ts">
-    interface Props {
-        children?: import('svelte').Snippet;
-    }
+  interface Props {
+    children?: import("svelte").Snippet;
+  }
 
-    let { children }: Props = $props();
+  let { children }: Props = $props();
 </script>
 
 <p class="leading-7 not-first:mt-6">
-    {@render children?.()}
+  {@render children?.()}
 </p>

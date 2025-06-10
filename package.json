@@ -13,7 +13,8 @@
     "coverage": "vitest run --coverage",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@carbon/charts-svelte": "^1.23.10",
@@ -36,6 +37,9 @@
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^11.6.0",
     "mode-watcher": "^1.0.7",
+    "prettier": "^3.5.3",
+    "prettier-plugin-svelte": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "schema-dts": "^1.1.5",
     "svelte": "^5.33.1",
     "svelte-check": "^4.1.7",
