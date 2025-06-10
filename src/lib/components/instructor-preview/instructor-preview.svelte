@@ -11,7 +11,6 @@
         instructor: FullInstructorInformation,
         showRating?: boolean,
         showOtherDetails?: boolean,
-        disableSlideOut?: boolean,
         rank?: number
     }
 
@@ -19,7 +18,6 @@
         instructor,
         showRating = false,
         showOtherDetails = false,
-        disableSlideOut = false,
         rank = undefined
     }: Props = $props();
 
@@ -28,14 +26,9 @@
     let averageDifficulty = instructor?.rmp_data?.average_difficulty;
     let wouldTakeAgain = instructor?.rmp_data?.would_take_again_percent;
 
-    const slideOutParams: SlideParams = {
-        ...slideParams,
-        duration: disableSlideOut ? 0 : slideParams.duration
-    }
-
 </script>
 
-<div in:slide|global={slideParams} out:slide|global={slideOutParams}>
+<div in:slide|global={slideParams}>
     <a
         class="flex justify-between items-center p-2 rounded-lg hover:bg-muted transition-colors"
         target="_blank"
