@@ -86,7 +86,7 @@ jobs:
 
       - name: Commit Snapshot
         id: commit
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           repository: "deploy"
           disable_globbing: true
