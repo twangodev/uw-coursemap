@@ -137,7 +137,6 @@
                             courses_taught: [],
                             cumulative_grade_data: null,
                         }}
-                        disableSlideOut={true}
                     />
                 {/each}
                 {#if instructors.length > 3}

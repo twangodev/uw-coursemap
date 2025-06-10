@@ -43,9 +43,9 @@
     <meta name="keywords" content="UW-Madison, University of Wisconsin-Madison, course map, course explorer, university courses" />
     <meta name="theme-color" content="#c5050c" />
     <script
-            src="https://rybbit.twango.dev/api/script.js"
-            data-site-id="1"
-            defer
+        src="https://rybbit.twango.dev/api/script.js"
+        data-site-id="1"
+        defer
     ></script>
     {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
     <meta property="og:site_name" content={siteName}>
