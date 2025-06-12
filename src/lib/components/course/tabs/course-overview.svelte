@@ -122,6 +122,8 @@
         <GradeDataHorizontalBarChart
           cumulative={course.cumulative_grade_data}
           termData={course.term_data}
+          term={selectedTerm}
+          {terms}
         />
       {:else}
         <p class="text-center">No data available</p>
