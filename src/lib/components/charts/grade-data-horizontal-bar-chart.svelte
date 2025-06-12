@@ -12,8 +12,6 @@
   import { mode } from "mode-watcher";
   import type { TermData } from "$lib/types/course.ts";
   import type {Terms} from "$lib/types/terms.ts";
-  import {onMount} from "svelte";
-
   interface Props {
     cumulative: GradeData;
     termData: {
