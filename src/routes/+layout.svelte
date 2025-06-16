@@ -45,6 +45,7 @@
   <script
     src="https://rybbit.twango.dev/api/script.js"
     data-site-id="1"
+    data-web-vitals="true"
     defer
   ></script>
   {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
