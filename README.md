@@ -11,7 +11,7 @@
       src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping"
       alt="Live Status"
     />
-    Check it out live at <a href="https://uwcourses.com">uwcourses.com</a>
+    Check it out live at <a href="https://uwcourses.com/?utm_source=github.com">uwcourses.com</a>
   </p>
 </div>
 
