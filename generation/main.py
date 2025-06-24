@@ -29,6 +29,8 @@ from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
 
+logger = logging.getLogger(__name__)
+
 def generate_parser():
     """
     Build the argument parser for command line arguments.
@@ -75,11 +77,9 @@ def filter_step(step_name, allowed_step):
     return step_name == allowed_step
 
 
-def courses(
-        logger: Logger
-):
-    site_map_urls = get_course_urls(logger=logger)
-    subject_to_full_subject, course_ref_to_course = asyncio.run(scrape_all(urls=site_map_urls, logger=logger))
+def courses():
+    site_map_urls = get_course_urls()
+    subject_to_full_subject, course_ref_to_course = asyncio.run(scrape_all(urls=site_map_urls))
     return subject_to_full_subject, course_ref_to_course
 
 
@@ -175,6 +175,7 @@ def record_factory(*args, **kwargs):
 
 logging.setLogRecordFactory(record_factory)
 
+
 def main():
     parser = generate_parser()
     args = parser.parse_args()
@@ -219,14 +220,12 @@ def main():
         milliseconds=True,
     )
 
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging_level)
 
     with logging_redirect_tqdm():
 
         if filter_step(step, "courses"):
             logger.info("Fetching course data...")
-            subject_to_full_subject, course_ref_to_course = courses(logger=logger)
+            subject_to_full_subject, course_ref_to_course = courses()
 
             write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject, logger=logger)
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)

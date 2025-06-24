@@ -1,7 +1,7 @@
 import asyncio
+import logging
 import re
 import time
-from logging import Logger
 
 import aiohttp
 import requests
@@ -15,8 +15,9 @@ from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
+logger = logging.getLogger(__name__)
 
-async def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSet):
+async def get_course_blocks(session, url: str) -> (str, ResultSet):
     attempts = 5
     for attempt in range(1, attempts + 1):
         try:
@@ -37,7 +38,7 @@ async def get_course_blocks(session, url: str, logger: Logger) -> (str, ResultSe
     raise Exception(f"Failed to fetch data from {url} after {attempts} attempts.")
 
 
-def add_data(subjects, course_ref_course, full_subject, blocks, logger):
+def add_data(subjects, course_ref_course, full_subject, blocks):
     full_subject = re.match(r"(.*)\((.*)\)", full_subject)
     full_name = full_subject.group(1).strip()
     abbreviation = full_subject.group(2).replace(" ", "")
@@ -51,7 +52,7 @@ def add_data(subjects, course_ref_course, full_subject, blocks, logger):
         course_ref_course[course.course_reference] = course
 
 
-def get_course_urls(logger: Logger) -> set[str]:
+def get_course_urls() -> set[str]:
     logger.info("Fetching and parsing the course sitemap...")
 
     response = requests.get(sitemap_url)
@@ -76,7 +77,7 @@ def get_course_urls(logger: Logger) -> set[str]:
     return sitemap_urls
 
 
-async def scrape_all(urls: set[str], logger: Logger):
+async def scrape_all(urls: set[str]):
     logger.info("Building course data...")
 
     subject_to_full_subject = {}
@@ -86,10 +87,10 @@ async def scrape_all(urls: set[str], logger: Logger):
     connector = aiohttp.TCPConnector(limit=10)
 
     async with CachedSession(cache=get_aio_cache(), timeout=timeout, connector=connector) as session:
-        tasks = [get_course_blocks(session, url, logger) for url in urls]
+        tasks = [get_course_blocks(session, url) for url in urls]
         results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
         for full_subject, blocks in results:
-            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks, logger)
+            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
