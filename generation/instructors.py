@@ -2,9 +2,9 @@ import asyncio
 import os
 import re
 import threading
-from collections import defaultdict
-from logging import Logger
 from asyncio import Semaphore
+from collections import defaultdict
+from logging import getLogger
 
 import requests
 from aiohttp import DummyCookieJar
@@ -76,6 +76,8 @@ query NewSearchTeachersQuery($query: TeacherSearchQuery!) {
 	}
 }
 """
+
+logger = getLogger(__name__)
 
 
 class RMPData(JsonSerializable):
@@ -214,7 +216,7 @@ def produce_query(instructor_name):
 
 mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-async def get_rating(name: str, api_key: str, logger: Logger, session, attempts: int = 10, rate_limited_count: int = 0, disable_cache=False):
+async def get_rating(name: str, api_key: str, session, attempts: int = 10, rate_limited_count: int = 0, disable_cache=False):
     auth_header = {
         "Authorization": f"Basic {api_key}",
         "User-Agent": mock_user_agent
@@ -234,7 +236,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
             backoff = min(30, 2 ** rate_limited_count)
             logger.debug(f"Rate limited, retrying after {backoff} seconds.")
             await asyncio.sleep(backoff)
-            return await get_rating(name, api_key, logger, session, attempts, rate_limited_count + 1, disable_cache)
+            return await get_rating(name, api_key, session, attempts, rate_limited_count + 1, disable_cache)
 
         if data.get("errors"):
             raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
@@ -243,7 +245,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
         if attempts > 0:
             logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
             await asyncio.sleep(1)
-            return await get_rating(name, api_key, logger, session, attempts - 1, rate_limited_count, True)
+            return await get_rating(name, api_key, session, attempts - 1, rate_limited_count, True)
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
@@ -258,7 +260,7 @@ async def get_rating(name: str, api_key: str, logger: Logger, session, attempts:
     logger.debug(f"Failed to find rating for {name}")
     return None
 
-def scrape_rmp_api_key(logger):
+def scrape_rmp_api_key():
     response = requests.get(rmp_url, headers={"User-Agent": "Mozilla/5.0"}) # Some sites require a user-agent to avoid blocking
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
@@ -418,11 +420,11 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
                 gd.instructors.remove(diff["old"])
                 gd.instructors.add(diff["new"])
 
-async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, logger, session):
+async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, session):
     async with sem:
-        return await get_rating(name, api_key, logger, session)
+        return await get_rating(name, api_key, session)
 
-async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger: Logger):
+async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
     additional_instructors = set()
@@ -451,7 +453,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
         for i, (name, email) in enumerate(names_emails):
             logger.debug(f"Fetching rating for {name} ({i * 100 / total:.2f}%).")
             # Create a task to get the rating for each instructor
-            tasks.append(sem_get_rating(semaphore, name, api_key, logger, session))
+            tasks.append(sem_get_rating(semaphore, name, api_key, session))
 
         # Run all rating requests concurrently
         ratings = await tqdm.gather(*tasks, desc="RMP Query", unit="instructor")
@@ -501,7 +503,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
         f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
     return instructor_data
 
-async def gather_instructor_emails(terms, course_ref_to_course, logger):
+async def gather_instructor_emails(terms, course_ref_to_course):
     combined_emails = {}
     # sort terms so that later (i.e. 'larger') keys override earlier ones
     sorted_terms = sorted(terms.keys())
@@ -512,7 +514,6 @@ async def gather_instructor_emails(terms, course_ref_to_course, logger):
             term_name=terms[term],
             terms=terms,
             course_ref_to_course=course_ref_to_course,
-            logger=logger
         )
         for term in sorted_terms
     ]

@@ -1,6 +1,6 @@
 import asyncio
 from json import JSONDecodeError
-from logging import Logger
+from logging import getLogger
 
 import requests
 from aiohttp_client_cache import CachedSession
@@ -14,12 +14,14 @@ terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
 enrollment_package_base_url = "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
 
+logger = getLogger(__name__)
+
 
 def build_enrollment_package_base_url(term, subject_code, course_id):
     return f"{enrollment_package_base_url}/{term}/{subject_code}/{course_id}"
 
 
-def sync_enrollment_terms(terms, logger: Logger):
+def sync_enrollment_terms(terms):
     logger.info("Fetching latest terms...")
 
     response = requests.get(url=terms_url)
@@ -37,7 +39,7 @@ def sync_enrollment_terms(terms, logger: Logger):
         terms[term_code] = short_description
 
 
-async def build_from_mega_query(selected_term: str, term_name, terms, course_ref_to_course, logger: Logger):
+async def build_from_mega_query(selected_term: str, term_name, terms, course_ref_to_course):
     post_data = {
         "selectedTerm": selected_term,
         "queryString": "",
@@ -66,7 +68,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
 
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
-            process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, logger, session)
+            process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, session)
             for i, hit in enumerate(hits)
         ]
         results = await tqdm.gather(*tasks, desc=f"Courses in {term_name}", unit="course")
@@ -80,7 +82,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
         return all_instructors
 
 
-async def process_hit(hit, i, course_count, selected_term: str, term_name: str, terms, course_ref_to_course, logger, session, attempts=10):
+async def process_hit(hit, i, course_count, selected_term: str, term_name: str, terms, course_ref_to_course, session, attempts=10):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
         enrollment_subjects = hit["allCrossListedSubjects"]
@@ -110,7 +112,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
         if attempts > 0:
             logger.info(f"Retrying {attempts} more times...")
             await asyncio.sleep(1)
-            return await process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, logger, session,
+            return await process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, session,
                                      attempts - 1)
         return None
 

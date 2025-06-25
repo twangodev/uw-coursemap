@@ -2,23 +2,23 @@ import asyncio
 import hashlib
 import os
 import re
-from logging import Logger
+from logging import getLogger
 from os import environ
-from typing import List
 
 import numpy as np
 import requests_cache
-from keybert.backend import BaseEmbedder
 from sentence_transformers import SentenceTransformer
 from torch import cuda
 from tqdm.asyncio import tqdm
 
-from cache import read_embedding_cache, write_embedding_cache, write_course_ref_to_course_cache
+from cache import read_embedding_cache, write_embedding_cache
 from course import Course
+
+logger = getLogger(__name__)
 
 initialized_model = None
 
-def get_model(cache_dir, logger: Logger):
+def get_model(cache_dir):
     global initialized_model
 
     if initialized_model:
@@ -55,17 +55,17 @@ def get_model(cache_dir, logger: Logger):
         initialized_model = model
         return model
 
-def get_embedding(cache_dir, model: SentenceTransformer, text, logger):
+def get_embedding(cache_dir, model: SentenceTransformer, text):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
 
     # Check if the embedding already exists
-    embedding = read_embedding_cache(cache_dir, sha256, logger)
+    embedding = read_embedding_cache(cache_dir, sha256)
 
     if embedding is None:
         embedding = model.encode(text, show_progress_bar=False)
 
         logger.debug(f"Embedding for '{text}' not found in cache. Caching it now.")
-        write_embedding_cache(cache_dir, sha256, embedding, logger)
+        write_embedding_cache(cache_dir, sha256, embedding)
 
     return embedding
 
@@ -86,14 +86,18 @@ def average_embedding(embeddings):
         return None
     return np.mean(embeddings, axis=0)
 
-def find_best_prerequisite(cache_dir, model, course: Course, prerequisites, max_prerequisites, logger) -> list[Course]:
+def find_best_prerequisite(
+    cache_dir,
+    model,
+    course: Course, prerequisites, max_prerequisites
+) -> list[Course]:
     prerequisite_text = course.prerequisites.prerequisites_text
     and_count = len(re.findall(r"\d*and\d*", prerequisite_text))
     max_prerequisites += and_count
 
-    course_embedding = get_embedding(cache_dir, model, course.get_full_summary(), logger)
+    course_embedding = get_embedding(cache_dir, model, course.get_full_summary())
     prerequisite_embeddings = [
-        (prereq, get_embedding(cache_dir, model, prereq.get_short_summary(), logger)) for prereq in
+        (prereq, get_embedding(cache_dir, model, prereq.get_short_summary())) for prereq in
         prerequisites
     ]
 
@@ -118,16 +122,15 @@ def score_branch(
         branch: list[Course.Reference],
         semantic_similarity_weight,
         popularity_weight,
-        logger
 ):
     if not branch:
         return 0
 
-    course_embedding = get_embedding(cache_dir, model, course.get_full_summary(), logger)
+    course_embedding = get_embedding(cache_dir, model, course.get_full_summary())
     branch_as_courses = [course_ref_to_course[cr] for cr in branch if cr in course_ref_to_course if cr != course.course_reference]
     if not branch_as_courses:
         return 0
-    branch_embeddings = [get_embedding(cache_dir, model, course.get_full_summary(), logger) for course in branch_as_courses]
+    branch_embeddings = [get_embedding(cache_dir, model, course.get_full_summary()) for course in branch_as_courses]
     branch_embedding = average_embedding(branch_embeddings)
 
     # Calculate the cosine similarity between the course and the branch
@@ -150,7 +153,6 @@ def prune_prerequisites(
         course_ref_to_course,
         max_enrollment,
         max_prerequisites,
-        logger: Logger
 ):
 
     if len(course.prerequisites.course_references) <= max_prerequisites:
@@ -174,7 +176,6 @@ def prune_prerequisites(
             branch=branch,
             semantic_similarity_weight=semantic_similarity_weight,
             popularity_weight=popularity_weight,
-            logger=logger
         )
         if score > best_score:
             best_score = score
@@ -200,7 +201,6 @@ def prune_prerequisites(
             course=course,
             prerequisites=prerequisites,
             max_prerequisites=max_prerequisites,
-            logger=logger
         )
 
         course.optimized_prerequisites = [c.course_reference for c in best]
@@ -213,12 +213,11 @@ def optimize_prerequisite(
         max_enrollment,
         max_prerequisites,
         max_retries,
-        logger
 ):
     retries = 0
     while retries < max_retries:
         try:
-            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_enrollment, max_prerequisites, logger)
+            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_enrollment, max_prerequisites)
             return
         except Exception as e:
             retries += 1
@@ -234,7 +233,6 @@ async def optimize_prerequisites(
         course_ref_to_course: dict[Course.Reference, Course],
         max_prerequisites: int | float,
         max_retries: int,
-        logger: Logger
 ):
     total_courses = len(course_ref_to_course)
     logger.info(f"Optimizing prerequisites for {total_courses} courses...")
@@ -255,7 +253,6 @@ async def optimize_prerequisites(
             max_enrollment,
             max_prerequisites,
             max_retries,
-            logger
         ) for course in course_ref_to_course.values()
     ]
     await tqdm.gather(*tasks, desc="Optimizing Prerequisites", unit="course")
