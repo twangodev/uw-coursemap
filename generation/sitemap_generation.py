@@ -1,16 +1,19 @@
 import os
 from datetime import datetime
+from logging import getLogger
 from typing import List, Dict, Union
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
 from pathvalidate import validate_filename, ValidationError
 from tqdm import tqdm
 
+logger = getLogger(__name__)
+
 pages = ['', 'explorer', 'upload']
 
 last_mod = datetime.now().date().isoformat()
 
-def sanitize_entry(entry: str, logger) -> Union[str, None]:
+def sanitize_entry(entry: str) -> Union[str, None]:
     result = entry.replace("/", "_").replace(" ", "_")
     try:
         validate_filename(result)
@@ -20,9 +23,11 @@ def sanitize_entry(entry: str, logger) -> Union[str, None]:
     return result
 
 def create_url_entry(
-    base_url: str, prefix: str, url_str: str, logger, changefreq: str = 'weekly', priority: float = 0.5, lastmod: str = last_mod
+    base_url: str,
+    prefix: str,
+    url_str: str, changefreq: str = 'weekly', priority: float = 0.5, lastmod: str = last_mod
 ) -> Union[Dict[str, Union[str, float]], None]:
-    sanitized = sanitize_entry(url_str, logger)
+    sanitized = sanitize_entry(url_str)
     if not sanitized:
         return None
     return {
@@ -77,23 +82,23 @@ def write_urlsets(data_dir: str, base_url: str,
 
 def generate_sitemap(data_dir: str, base_url: str,
                      subjects: List[str], courses: List[str],
-                     instructors: List[str], logger):
+                     instructors: List[str]):
     pages_entries = [{'loc': f"{base_url}/{p}", 'changefreq': 'monthly', 'priority': 1.0, 'lastmod': last_mod}
                      for p in pages]
 
     subj_entries = []
     for subj in tqdm(subjects, desc="Explorer Sitemap", unit="subject"):
-        entry = create_url_entry(base_url, "explorer", subj, logger, priority=0.9)
+        entry = create_url_entry(base_url, "explorer", subj, priority=0.9)
         if entry: subj_entries.append(entry)
 
     course_entries = []
     for crs in tqdm(courses, desc="Course Sitemap", unit="course"):
-        entry = create_url_entry(base_url, "courses", crs, logger, priority=1.0)
+        entry = create_url_entry(base_url, "courses", crs, priority=1.0)
         if entry: course_entries.append(entry)
 
     instr_entries = []
     for inst in tqdm(instructors, desc="Instructor Sitemap", unit="instructor"):
-        entry = create_url_entry(base_url, "instructors", inst, logger, priority=0.8)
+        entry = create_url_entry(base_url, "instructors", inst, priority=0.8)
         if entry: instr_entries.append(entry)
 
     url_sets = {

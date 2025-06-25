@@ -226,8 +226,8 @@ def main():
             logger.info("Fetching course data...")
             subject_to_full_subject, course_ref_to_course = courses()
 
-            write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject, logger=logger)
-            write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
+            write_subject_to_full_subject_cache(cache_dir, subject_to_full_subject)
+            write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
             logger.info("Course data fetched successfully.")
 
         if filter_step(step, "madgrades"):
@@ -236,22 +236,22 @@ def main():
                 raise_missing_env_var("MADGRADES_API_KEY")
 
             logger.info("Fetching madgrades data...")
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
             terms, latest_term = madgrades(
                 course_ref_to_course=course_ref_to_course,
                 madgrades_api_key=madgrades_api_key,
                 logger=logger
             )
 
-            write_terms_cache(cache_dir, terms, logger)
-            write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
+            write_terms_cache(cache_dir, terms)
+            write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
             logger.info("Madgrades data fetched successfully.")
 
         if filter_step(step, "instructors"):
             logger.info("Fetching instructor data...")
 
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-            terms = read_terms_cache(cache_dir, logger)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
+            terms = read_terms_cache(cache_dir)
 
             instructor_to_rating, instructors_emails = instructors(
                 course_ref_to_course=course_ref_to_course,
@@ -260,15 +260,15 @@ def main():
                 logger=logger
             )
 
-            write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
-            write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
+            write_instructors_to_rating_cache(cache_dir, instructor_to_rating)
+            write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
             logger.info("Instructor data fetched successfully.")
 
         if filter_step(step, "aggregate"):
             logger.info("Aggregating data")
 
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
-            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir)
 
             instructor_statistics = aggregate_instructors(
                 course_ref_to_course=course_ref_to_course,
@@ -290,18 +290,18 @@ def main():
                 **course_statistics,
             }
 
-            write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
-            write_instructors_to_rating_cache(cache_dir, instructor_to_rating, logger)
+            write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
+            write_instructors_to_rating_cache(cache_dir, instructor_to_rating)
 
-            write_quick_statistics_cache(cache_dir, course_statistics, logger)
-            write_explorer_stats_cache(cache_dir, explorer_stats, logger)
+            write_quick_statistics_cache(cache_dir, course_statistics)
+            write_explorer_stats_cache(cache_dir, explorer_stats)
 
             logger.info("Data aggregated successfully.")
 
         if filter_step(step, "optimize"):
             logger.info("Optimizing course data...")
 
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
 
             optimize(
                 cache_dir=cache_dir,
@@ -310,13 +310,13 @@ def main():
                 logger=logger
             )
 
-            write_course_ref_to_course_cache(cache_dir, course_ref_to_course, logger)
+            write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
             logger.info("Course data optimized successfully.")
 
         if filter_step(step, "graph"):
             logger.info("Building course graph...")
 
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
 
             color_map = {}
             global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style = graph(
@@ -325,26 +325,26 @@ def main():
                 logger=logger
             )
 
-            write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map, logger)
+            write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map)
 
             logger.info("Course graph built successfully.")
 
         if not no_build:
 
-            subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir, logger)
-            course_ref_to_course = read_course_ref_to_course_cache(cache_dir, logger)
+            subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir)
+            course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
 
             subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
             identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
-            global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir, logger)
+            global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir)
 
-            instructor_to_rating = read_instructors_to_rating_cache(cache_dir, logger)
+            instructor_to_rating = read_instructors_to_rating_cache(cache_dir)
 
-            terms = read_terms_cache(cache_dir, logger)
+            terms = read_terms_cache(cache_dir)
 
-            course_statistics = read_quick_statistics_cache(cache_dir, logger)
-            explorer_stats = read_explorer_stats_cache(cache_dir, logger)
+            course_statistics = read_quick_statistics_cache(cache_dir)
+            explorer_stats = read_explorer_stats_cache(cache_dir)
 
             write_data(
                 data_dir=data_dir,
@@ -361,7 +361,6 @@ def main():
                 terms=terms,
                 quick_statistics=course_statistics,
                 explorer_stats=explorer_stats,
-                logger=logger
             )
 
 

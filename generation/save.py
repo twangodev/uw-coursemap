@@ -1,7 +1,7 @@
 import json
 import os
 from datetime import datetime, timezone
-from logging import Logger
+from logging import getLogger
 
 from tqdm import tqdm
 
@@ -9,6 +9,7 @@ from instructors import FullInstructor
 from json_serializable import JsonSerializable
 from sitemap_generation import generate_sitemap, sanitize_entry
 
+logger = getLogger(__name__)
 
 def convert_keys_to_str(data):
     if isinstance(data, dict):
@@ -64,13 +65,12 @@ def format_file_size(size_in_bytes):
     return f"{size:.2f} {units[index]}"
 
 
-def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data, logger: Logger):
+def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data):
     """
     Writes a sorted dictionary or list to a JSON file.
     - directory_tuple: Tuple representing the directory path.
     - filename: Name of the JSON file (without the .json extension).
     - data: Dictionary or list to be written to the file.
-    - logger: Logger instance for logging messages.
     """
 
     if not data:
@@ -100,7 +100,7 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     os.makedirs(directory_path, exist_ok=True)
 
     # Sanitize the filename to remove problematic characters
-    sanitized_filename = sanitize_entry(filename, logger)
+    sanitized_filename = sanitize_entry(filename)
 
     if sanitized_filename is None:
         return
@@ -119,7 +119,7 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data,
     logger.debug(f"Data written to {file_path} ({readable_size})")
 
 
-def wipe_data(data_dir, logger):
+def wipe_data(data_dir):
     """
     Wipe only .json files in the data directory.
     """
@@ -149,65 +149,63 @@ def write_data(
         terms,
         quick_statistics,
         explorer_stats,
-        logger,
 ):
-    wipe_data(data_dir, logger)
+    wipe_data(data_dir)
 
-    write_file(data_dir, tuple(), "subjects", subject_to_full_subject, logger)
+    write_file(data_dir, tuple(), "subjects", subject_to_full_subject)
 
     for subject, courses in tqdm(subject_to_courses.items(), desc="Courses by Subject", unit="subject"):
-        write_file(data_dir, ("courses",), subject, courses, logger)
+        write_file(data_dir, ("courses",), subject, courses)
 
     for identifier, course in tqdm(identifier_to_course.items(), desc="Courses", unit="course"):
-        write_file(data_dir, ("course",), identifier, course, logger)
+        write_file(data_dir, ("course",), identifier, course)
 
-    write_file(data_dir, tuple(), "global_graph", global_graph, logger)
+    write_file(data_dir, tuple(), "global_graph", global_graph)
 
     for subject, graph in tqdm(subject_to_graph.items(), desc="Graphs by Subject", unit="subject"):
-        write_file(data_dir, ("graphs",), subject, graph, logger)
+        write_file(data_dir, ("graphs",), subject, graph)
 
     for course, graph in tqdm(course_to_graph.items(), desc="Graphs by Course", unit="course"):
-        write_file(data_dir, ("graphs", "course"), course, graph, logger) 
+        write_file(data_dir, ("graphs", "course"), course, graph)
 
-    write_file(data_dir, tuple(), "global_style", global_style, logger)
+    write_file(data_dir, tuple(), "global_style", global_style)
 
     for subject, style in tqdm(subject_to_style.items(), desc="Styles by Subject", unit="subject"):
-        write_file(data_dir, ("styles",), subject, style, logger)
+        write_file(data_dir, ("styles",), subject, style)
 
     for instructor, rating in tqdm(instructor_to_rating.items(), desc="Instructors", unit="instructor"):
         if rating is None:
             continue
-        write_file(data_dir, ("instructors",), instructor, rating, logger)
+        write_file(data_dir, ("instructors",), instructor, rating)
 
-    write_file(data_dir, tuple(), "terms", terms, logger)
+    write_file(data_dir, tuple(), "terms", terms)
 
-    write_file(data_dir, tuple(), "quick_statistics", quick_statistics, logger)
+    write_file(data_dir, tuple(), "quick_statistics", quick_statistics)
 
     for key, value in tqdm(explorer_stats.items(), desc="Explorer Stats", unit="Stat"):
-        write_file(data_dir, ("stats",), key, value, logger)
+        write_file(data_dir, ("stats",), key, value)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
         "updated_on": updated_on,
     }
 
-    write_file(data_dir, tuple(), "update", updated_json, logger)
+    write_file(data_dir, tuple(), "update", updated_json)
 
     subject_names = list(subject_to_courses.keys())
     course_names = list(identifier_to_course.keys())
     instructor_names = [key for key, value in instructor_to_rating.items() if value is not None]
 
-    generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names, logger)
+    generate_sitemap(data_dir, base_url, subject_names, course_names, instructor_names)
 
 
-def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...], logger) -> list[str]:
+def list_files(directory, directory_tuple: tuple[str, ...], extensions: tuple[str, ...]) -> list[str]:
     """
     Lists files in a specified directory that match the given file extensions.
 
     - directory: Base directory.
     - directory_tuple: Tuple representing the subdirectory path.
     - extensions: Tuple of file extensions to filter by (e.g., (".json", ".txt")).
-    - logger: Logger instance for logging messages.
 
     Returns:
     - List of filenames (as strings) that have one of the specified extensions.
