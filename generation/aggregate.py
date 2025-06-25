@@ -2,6 +2,7 @@ import asyncio
 import math
 
 import numpy as np
+from charset_normalizer.md import getLogger
 from keybert import KeyBERT
 from tqdm.asyncio import tqdm
 
@@ -10,9 +11,11 @@ from embeddings import get_model, get_embedding
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
+logger = getLogger(__name__)
+
 CROSS_LIST_MIN = 5
 
-def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor], logger):
+def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor]):
 
     total_courses = len(course_ref_to_course)
     school_cumulative_grades = GradeData.empty()
@@ -66,14 +69,14 @@ def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
             requisite_course.satisfies.add(course.course_reference)
 
 
-async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
+async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir):
 
-    model = get_model(cache_dir, logger)
+    model = get_model(cache_dir)
 
     async def embed_course(course_ref, course):
         summary = course.get_short_summary()
         # Wrap the synchronous get_embedding call in asyncio.to_thread if necessary.
-        embedding = await asyncio.to_thread(get_embedding, cache_dir, model, summary, logger)
+        embedding = await asyncio.to_thread(get_embedding, cache_dir, model, summary)
 
         # Update progress safely using the lock.
         return course_ref, embedding
@@ -138,7 +141,7 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
             for similar_ref in similar_courses_mapping.get(course_ref, [])
         ]
 
-async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], cache_dir, logger):
+async def define_keywords(course_ref_to_course: dict[Course.Reference, Course]):
     kw_model = KeyBERT()
 
     def set_keywords(course: Course):
@@ -166,7 +169,7 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
-def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course], logger):
+def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]):
     subject_stats = {}
 
     for course in course_ref_to_course.values():
@@ -219,13 +222,12 @@ def a_rate_wilson_lower_bound_scaled(course: Course) -> tuple[Course, float]:
 
     return course, scaled
 
-def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course], logger):
+def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course]):
     """
     Determine the A-rate chance for each course in the provided mapping.
 
     Args:
         course_ref_to_course (dict): Mapping of course references to Course objects.
-        logger: Logger for logging information.
 
     Returns:
         dict: Mapping of course references to their A-rate Wilson lower bounds.
@@ -250,20 +252,20 @@ def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course]
 
     return top_100
 
-def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir, logger):
+def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir):
     determine_satisfies(course_ref_to_course)
 
-    stats = aggregate_subject_stats(course_ref_to_course, logger)
-    qs = quick_statistics(course_ref_to_course, instructors, logger)
+    stats = aggregate_subject_stats(course_ref_to_course)
+    qs = quick_statistics(course_ref_to_course, instructors)
 
-    qs["top_100_a_rate_chances"] = determine_a_rate_chance(course_ref_to_course, logger)
+    qs["top_100_a_rate_chances"] = determine_a_rate_chance(course_ref_to_course)
 
-    asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir, logger))
-    asyncio.run(define_keywords(course_ref_to_course, cache_dir, logger))
+    asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir))
+    asyncio.run(define_keywords(course_ref_to_course))
 
     return qs, stats
 
-def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], logger, top_n=100):
+def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], top_n=100):
     instructor_ratings = [
         (name, instructor.rmp_data.num_ratings if instructor.rmp_data and instructor.email else 0)
         for name, instructor in instructor_to_rating.items()
@@ -276,7 +278,7 @@ def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], logg
 
     return names
 
-def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor], logger):
+def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor]):
 
     for course in course_ref_to_course.values():
         for term_data in course.term_data.values():
@@ -304,7 +306,7 @@ def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], 
                 instructor.cumulative_grade_data = grade_data_summation
 
     instructor_statistics = {
-        "most_rated_instructors": most_rated_instructors(instructor_to_rating, logger, top_n=100)
+        "most_rated_instructors": most_rated_instructors(instructor_to_rating, top_n=100)
     }
 
     return instructor_statistics

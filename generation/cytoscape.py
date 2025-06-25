@@ -1,4 +1,4 @@
-from logging import Logger
+from logging import Logger, getLogger
 
 from frozendict import frozendict
 from tqdm import tqdm
@@ -6,6 +6,7 @@ from tqdm import tqdm
 from color import generate_random_hex_colors
 from course import Course
 
+logger = getLogger(__name__)
 
 def create_compound(subject):
     return frozendict({
@@ -75,7 +76,7 @@ def get_subgraphs(course: Course, course_ref_to_course: dict[Course.Reference, C
 
 # returns a tuple of the three graphs (global graph, subject graph, course graph)
 # the subject graph and course graph is a dictionary mapping subjects/course to their respective graphs
-def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]], logger: Logger):
+def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_to_courses: dict[str, set[Course]]):
     logger.info("Building course graphs...")
 
     graph = set()
@@ -92,7 +93,7 @@ def build_graphs(course_ref_to_course: dict[Course.Reference, Course], subject_t
 
     return graph, subject_to_graph, course_to_graph
 
-def cleanup_graphs(global_graph, subject_to_graph, course_to_graph, logger: Logger):
+def cleanup_graphs(global_graph, subject_to_graph, course_to_graph):
     count = 0
     if None in global_graph:
         count += 1

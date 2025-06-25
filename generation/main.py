@@ -112,11 +112,9 @@ def optimize(
         cache_dir,
         course_ref_to_course,
         max_prerequisites,
-        logger,
 ):
     model = get_model(
         cache_dir=cache_dir,
-        logger=logger,
     )
     asyncio.run(optimize_prerequisites(
         cache_dir=cache_dir,
@@ -124,28 +122,24 @@ def optimize(
         course_ref_to_course=course_ref_to_course,
         max_prerequisites=max_prerequisites,
         max_retries=50,
-        logger=logger
     ))
 
 
 def graph(
         course_ref_to_course,
         color_map,
-        logger
 ):
     subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course)
 
     global_graph, subject_to_graph, course_to_graph = build_graphs(
         course_ref_to_course=course_ref_to_course,
         subject_to_courses=subject_to_courses,
-        logger=logger
     )
 
     cleanup_graphs(
         global_graph=global_graph,
         subject_to_graph=subject_to_graph,
         course_to_graph=course_to_graph,
-        logger=logger
     )
 
     subject_to_style = generate_styles(subject_to_graph=subject_to_graph, color_map=color_map)
@@ -268,7 +262,6 @@ def main():
             instructor_statistics = aggregate_instructors(
                 course_ref_to_course=course_ref_to_course,
                 instructor_to_rating=instructor_to_rating,
-                logger=logger
             )
 
             instructor_values = instructor_to_rating.values()
@@ -277,7 +270,6 @@ def main():
                 course_ref_to_course=course_ref_to_course,
                 instructors=instructor_values,
                 cache_dir=cache_dir,
-                logger=logger
             )
 
             course_statistics = {
@@ -302,7 +294,6 @@ def main():
                 cache_dir=cache_dir,
                 course_ref_to_course=course_ref_to_course,
                 max_prerequisites=max_prerequisites,
-                logger=logger
             )
 
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
@@ -317,7 +308,6 @@ def main():
             global_graph, subject_to_graph, course_to_graph, subject_to_style, global_style = graph(
                 course_ref_to_course=course_ref_to_course,
                 color_map=color_map,
-                logger=logger
             )
 
             write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map)
