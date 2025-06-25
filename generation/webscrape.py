@@ -1,7 +1,7 @@
 import asyncio
-import logging
 import re
 import time
+from logging import getLogger
 
 import aiohttp
 import requests
@@ -15,7 +15,7 @@ from timer import get_ms
 
 sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 async def get_course_blocks(session, url: str) -> (str, ResultSet):
     attempts = 5

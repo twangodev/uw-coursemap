@@ -4,7 +4,7 @@ import os
 import socket
 import sys
 from argparse import ArgumentParser
-from logging import Logger
+from logging import getLogger, Logger
 from os import environ
 from os import path
 
@@ -29,7 +29,7 @@ from webscrape import get_course_urls, scrape_all, build_subject_to_courses
 
 load_dotenv()
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 def generate_parser():
     """
@@ -174,7 +174,6 @@ def record_factory(*args, **kwargs):
     return record
 
 logging.setLogRecordFactory(record_factory)
-
 
 def main():
     parser = generate_parser()
