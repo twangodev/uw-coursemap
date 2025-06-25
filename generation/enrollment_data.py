@@ -1,7 +1,7 @@
 import asyncio
 from json import JSONDecodeError
 
-from charset_normalizer.md import getLogger
+from logging import getLogger
 
 from json_serializable import JsonSerializable
 from safe_parse import safe_int
