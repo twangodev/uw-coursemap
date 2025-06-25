@@ -2,7 +2,7 @@ import asyncio
 import math
 
 import numpy as np
-from charset_normalizer.md import getLogger
+from logging import getLogger
 from keybert import KeyBERT
 from tqdm.asyncio import tqdm
 
