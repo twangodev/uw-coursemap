@@ -4,7 +4,7 @@ import os
 import socket
 import sys
 from argparse import ArgumentParser
-from logging import getLogger, Logger
+from logging import getLogger
 from os import environ
 from os import path
 
