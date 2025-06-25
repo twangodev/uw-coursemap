@@ -1,4 +1,4 @@
-from logging import Logger, getLogger
+from logging import getLogger
 
 from frozendict import frozendict
 from tqdm import tqdm
