@@ -1,6 +1,6 @@
 import asyncio
 from json import JSONDecodeError
-from logging import Logger, getLogger
+from logging import getLogger
 
 import requests
 from aiohttp_client_cache import CachedSession
