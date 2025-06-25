@@ -1,6 +1,6 @@
 import asyncio
 from json import JSONDecodeError
-from logging import Logger
+from logging import Logger, getLogger
 
 import requests
 from aiohttp_client_cache import CachedSession
@@ -14,12 +14,14 @@ terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
 enrollment_package_base_url = "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
 
+logger = getLogger(__name__)
+
 
 def build_enrollment_package_base_url(term, subject_code, course_id):
     return f"{enrollment_package_base_url}/{term}/{subject_code}/{course_id}"
 
 
-def sync_enrollment_terms(terms, logger: Logger):
+def sync_enrollment_terms(terms):
     logger.info("Fetching latest terms...")
 
     response = requests.get(url=terms_url)

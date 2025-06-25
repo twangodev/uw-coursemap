@@ -1,11 +1,12 @@
 import asyncio
 from json import JSONDecodeError
 
-from tqdm import tqdm
+from charset_normalizer.md import getLogger
 
 from json_serializable import JsonSerializable
 from safe_parse import safe_int
 
+logger = getLogger(__name__)
 
 class EnrollmentData(JsonSerializable):
     class School(JsonSerializable):
@@ -266,7 +267,7 @@ class MadgradesData:
         self.by_term = by_term
 
     @classmethod
-    async def from_madgrades_async(cls, session, url, madgrades_api_key, current_page, logger, attempts=3) -> "MadgradesData":
+    async def from_madgrades_async(cls, session, url, madgrades_api_key, current_page, attempts=3) -> "MadgradesData":
         auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
 
         try:
@@ -276,7 +277,7 @@ class MadgradesData:
             if attempts > 0:
                 logger.debug(f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times...")
                 await asyncio.sleep(1)
-                return await cls.from_madgrades_async(session, url, madgrades_api_key, current_page, logger, attempts - 1)
+                return await cls.from_madgrades_async(session, url, madgrades_api_key, current_page, attempts - 1)
             logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
 
         cumulative = GradeData.from_madgrades(data["cumulative"])

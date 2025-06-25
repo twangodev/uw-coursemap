@@ -86,15 +86,13 @@ def courses():
 def madgrades(
         course_ref_to_course,
         madgrades_api_key,
-        logger: Logger
 ):
     terms = asyncio.run(add_madgrades_data(
         course_ref_to_course=course_ref_to_course,
         madgrades_api_key=madgrades_api_key,
-        logger=logger
     ))
 
-    sync_enrollment_terms(terms=terms, logger=logger)
+    sync_enrollment_terms(terms=terms)
     latest_term = max(terms.keys())
 
     return terms, latest_term
@@ -240,7 +238,6 @@ def main():
             terms, latest_term = madgrades(
                 course_ref_to_course=course_ref_to_course,
                 madgrades_api_key=madgrades_api_key,
-                logger=logger
             )
 
             write_terms_cache(cache_dir, terms)
