@@ -175,6 +175,26 @@ def chunk_meetings_by_date_and_subject(course_to_meetings, data_dir):
     logger.info(f"Wrote {total_files_written} meeting files organized by subject and date")
     logger.info(f"Meetings organized across {len(subject_meetings)} subjects")
 
+def chunk_meetings_by_date_only(course_to_meetings, data_dir):
+    """
+    Chunks all meetings purely by date without any other grouping.
+    
+    Directory structure: /meetings/date/MM/DD/YY/meetings.json
+    """
+    # Flatten all meetings from all courses
+    all_meetings = []
+    for course_identifier, meetings in course_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for pure date chunking")
+    
+    # Use the generic chunking function with just "meetings/date" as base directory
+    directory_tuple = ("meetings", "date")
+    files_written = chunk_meetings_by_date(all_meetings, directory_tuple, data_dir)
+    
+    logger.info(f"Wrote {files_written} meeting files organized purely by date")
+
 def convert_keys_to_str(data):
     if isinstance(data, dict):
         return {str(key): convert_keys_to_str(value) for key, value in data.items()}
@@ -367,6 +387,9 @@ def write_data(
     
     # Chunk meetings by date and subject
     chunk_meetings_by_date_and_subject(course_to_meetings, data_dir)
+    
+    # Chunk meetings purely by date
+    chunk_meetings_by_date_only(course_to_meetings, data_dir)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
