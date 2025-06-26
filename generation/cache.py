@@ -226,7 +226,7 @@ def read_course_ref_to_meetings_cache(cache_dir):
     if course_to_meetings is None:
         return {}
     return {
-        Course.Reference.from_string(key): EnrollmentData.Meeting.from_json(value)
+        Course.Reference.from_string(key): [EnrollmentData.Meeting.from_json(meeting) for meeting in value]
         for key, value in course_to_meetings.items()
     }
 
