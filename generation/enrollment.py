@@ -86,16 +86,14 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
         for result in results:
             if result is None:
                 continue
-            instructors, meetings = result
+            instructors, meetings, course_ref = result
             for full_name, email in instructors.items():
                 all_instructors.setdefault(full_name, email)
             
-            # Group meetings by course identifier
+            # Group meetings by course identifier using the course_reference
             if meetings:
-                # Get course identifier from the first meeting (they all belong to same course)
-                course_identifier = meetings[0].name.split(' - ')[0] if meetings else None
-                if course_identifier:
-                    all_meetings.setdefault(course_identifier, []).extend(meetings)
+                course_identifier = course_ref.get_identifier()
+                all_meetings.setdefault(course_identifier, []).extend(meetings)
 
         logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}")
         logger.info(f"Discovered meetings for {len(all_meetings)} courses in {term_name}")
@@ -285,4 +283,4 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
 
     course.term_data[selected_term] = term_data
 
-    return course_instructors, course_meetings
+    return course_instructors, course_meetings, course_ref
