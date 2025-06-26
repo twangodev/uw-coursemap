@@ -242,9 +242,10 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         end_time=end_date_time,
                         type=meeting_type,
                         location=None,  # No location for single meetings
-                        name=f"{course.course_reference} {meeting_type}",
+                        name=meeting_type,
                         current_enrollment=current_enrollment,
-                        instructors=section_instructor_names
+                        instructors=section_instructor_names,
+                        course_reference=course_ref
                     )
                     course_meetings.append(course_meeting)
                     continue
@@ -272,7 +273,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
-                    name = f"{course.course_reference} - {section_identifier} #{index}"
+                    name = f"{section_identifier} #{index}"
                     course_meeting = EnrollmentData.Meeting(
                         start_time=start,
                         end_time=end,
@@ -280,7 +281,8 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         location=location,
                         name=name,
                         current_enrollment=current_enrollment,
-                        instructors=section_instructor_names
+                        instructors=section_instructor_names,
+                        course_reference=course_ref
                     )
 
                     course_meetings.append(course_meeting)
