@@ -94,7 +94,7 @@ class EnrollmentData(JsonSerializable):
             if location_key in cls._all_locations:
                 existing_location = cls._all_locations[location_key]
                 # Update capacity to maximum seen so far
-                if existing_location.capacity is None or (class_capacity and class_capacity > existing_location.capacity):
+                if existing_location.capacity is None or (class_capacity is not None and class_capacity > existing_location.capacity):
                     existing_location.capacity = class_capacity
                 return existing_location
             else:
