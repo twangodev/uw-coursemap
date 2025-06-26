@@ -64,19 +64,52 @@ class EnrollmentData(JsonSerializable):
         self.instructors = instructors
 
     class MeetingLocation(JsonSerializable):
+        # Class-level dict to track all unique meeting locations for O(1) lookup
+        _all_locations = {}
+        
         def __init__(self, building, room, coordinates, capacity=None):
             self.building = building
             self.room = room
             self.coordinates = coordinates
             self.capacity = capacity
+        
+        @classmethod
+        def get_or_create_with_capacity(cls, building, room, coordinates, class_capacity):
+            """
+            Get existing MeetingLocation or create new one, updating max capacity.
+            
+            Args:
+                building: Building name
+                room: Room identifier  
+                coordinates: Tuple of (latitude, longitude)
+                class_capacity: Current class capacity (used to estimate room capacity)
+            
+            Returns:
+                MeetingLocation instance with updated max capacity
+            """
+            # Create a key for dictionary lookup using the same hash logic
+            location_key = (building, room, coordinates)
+            
+            # O(1) lookup in dictionary
+            if location_key in cls._all_locations:
+                existing_location = cls._all_locations[location_key]
+                # Update capacity to maximum seen so far
+                if existing_location.capacity is None or (class_capacity and class_capacity > existing_location.capacity):
+                    existing_location.capacity = class_capacity
+                return existing_location
+            else:
+                # Create new location and add to dictionary
+                new_location = cls(building, room, coordinates, class_capacity)
+                cls._all_locations[location_key] = new_location
+                return new_location
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
-            return EnrollmentData.MeetingLocation(
+            return cls.get_or_create_with_capacity(
                 building=data["building"],
                 room=data["room"],
                 coordinates=data["coordinates"],
-                capacity=data.get("capacity")
+                class_capacity=data.get("capacity")
             )
 
         def to_dict(self) -> dict:

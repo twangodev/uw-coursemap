@@ -251,11 +251,11 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     coordinates = (building.get("latitude"), building.get("longitude"))
                     room = meeting.get("room", "No Assigned Room")
 
-                    location = EnrollmentData.MeetingLocation(
+                    location = EnrollmentData.MeetingLocation.get_or_create_with_capacity(
                         building=building_name,
                         room=room,
                         coordinates=coordinates,
-                        capacity=capacity
+                        class_capacity=capacity
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
