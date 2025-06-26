@@ -323,7 +323,6 @@ def main():
             subject_to_full_subject = read_subject_to_full_subject_cache(cache_dir)
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
 
-            subject_to_courses = build_subject_to_courses(course_ref_to_course=course_ref_to_course, )
             identifier_to_course = {course.get_identifier(): course for course in course_ref_to_course.values()}
 
             global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style = read_graphs_cache(cache_dir)
@@ -339,7 +338,6 @@ def main():
                 data_dir=data_dir,
                 base_url=sitemap_base_url,
                 subject_to_full_subject=subject_to_full_subject,
-                subject_to_courses=subject_to_courses,
                 identifier_to_course=identifier_to_course,
                 global_graph=global_graph,
                 subject_to_graph=subject_to_graph,

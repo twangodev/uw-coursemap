@@ -138,7 +138,6 @@ def write_data(
         data_dir,
         base_url,
         subject_to_full_subject,
-        subject_to_courses,
         identifier_to_course,
         global_graph,
         subject_to_graph,
@@ -153,9 +152,6 @@ def write_data(
     wipe_data(data_dir)
 
     write_file(data_dir, tuple(), "subjects", subject_to_full_subject)
-
-    for subject, courses in tqdm(subject_to_courses.items(), desc="Courses by Subject", unit="subject"):
-        write_file(data_dir, ("courses",), subject, courses)
 
     for identifier, course in tqdm(identifier_to_course.items(), desc="Courses", unit="course"):
         write_file(data_dir, ("course",), identifier, course)
