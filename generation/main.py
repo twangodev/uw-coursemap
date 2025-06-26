@@ -19,7 +19,7 @@ from cache import read_course_ref_to_course_cache, write_course_ref_to_course_ca
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
     write_quick_statistics_cache, read_quick_statistics_cache, write_explorer_stats_cache, read_explorer_stats_cache, \
-    write_new_terms_cache, write_course_to_meetings_cache, read_course_to_meetings_cache
+    write_new_terms_cache, write_course_ref_to_meetings_cache, read_course_ref_to_meetings_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
@@ -105,9 +105,9 @@ def instructors(
         cache_dir,
 ):
     api_key = scrape_rmp_api_key()
-    instructors_emails, course_to_meetings = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course))
+    instructors_emails, course_ref_to_meetings = asyncio.run(gather_instructor_emails(terms=terms, course_ref_to_course=course_ref_to_course))
     instructor_to_rating = asyncio.run(get_ratings(instructors=instructors_emails, api_key=api_key, course_ref_to_course=course_ref_to_course, cache_dir=cache_dir))
-    return instructor_to_rating, instructors_emails, course_to_meetings
+    return instructor_to_rating, instructors_emails, course_ref_to_meetings
 
 def optimize(
         cache_dir,
@@ -246,14 +246,14 @@ def main():
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
             terms = read_terms_cache(cache_dir)
 
-            instructor_to_rating, instructors_emails, course_to_meetings = instructors(
+            instructor_to_rating, instructors_emails, course_ref_to_meetings = instructors(
                 course_ref_to_course=course_ref_to_course,
                 terms=terms,
                 cache_dir=cache_dir,
             )
 
             write_instructors_to_rating_cache(cache_dir, instructor_to_rating)
-            write_course_to_meetings_cache(cache_dir, course_to_meetings)
+            write_course_ref_to_meetings_cache(cache_dir, course_ref_to_meetings)
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
             logger.info("Instructor data fetched successfully.")
 
@@ -333,7 +333,7 @@ def main():
 
             course_statistics = read_quick_statistics_cache(cache_dir)
             explorer_stats = read_explorer_stats_cache(cache_dir)
-            course_to_meetings = read_course_to_meetings_cache(cache_dir)
+            course_ref_to_meetings = read_course_ref_to_meetings_cache(cache_dir)
 
             write_data(
                 data_dir=data_dir,
@@ -349,7 +349,7 @@ def main():
                 terms=terms,
                 quick_statistics=course_statistics,
                 explorer_stats=explorer_stats,
-                course_to_meetings=course_to_meetings,
+                course_to_meetings=course_ref_to_meetings,
             )
 
 

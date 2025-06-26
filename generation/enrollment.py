@@ -92,7 +92,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
             
             # Group meetings by course identifier using the course_reference
             if meetings:
-                course_identifier = course_ref.get_identifier()
+                course_identifier = course_ref
                 all_meetings.setdefault(course_identifier, []).extend(meetings)
 
         logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}")

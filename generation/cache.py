@@ -5,6 +5,7 @@ from logging import getLogger
 import numpy as np
 
 from course import Course
+from enrollment_data import EnrollmentData
 from instructors import FullInstructor
 from save import write_file, format_file_size
 
@@ -201,7 +202,7 @@ def read_new_terms_cache(cache_dir):
 
     return {int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()}
 
-def write_course_to_meetings_cache(cache_dir, course_to_meetings):
+def write_course_ref_to_meetings_cache(cache_dir, course_to_meetings):
     """
     Writes course meetings data to the cache.
 
@@ -211,7 +212,7 @@ def write_course_to_meetings_cache(cache_dir, course_to_meetings):
     """
     write_file(cache_dir, (), "course_to_meetings", course_to_meetings)
 
-def read_course_to_meetings_cache(cache_dir):
+def read_course_ref_to_meetings_cache(cache_dir):
     """
     Reads course meetings data from the cache.
 
@@ -224,5 +225,8 @@ def read_course_to_meetings_cache(cache_dir):
     course_to_meetings = read_cache(cache_dir, (), "course_to_meetings")
     if course_to_meetings is None:
         return {}
-    return course_to_meetings
+    return {
+        Course.Reference.from_string(key): EnrollmentData.Meeting.from_json(value)
+        for key, value in course_to_meetings.items()
+    }
 
