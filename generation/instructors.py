@@ -505,6 +505,7 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
 async def gather_instructor_emails(terms, course_ref_to_course):
     combined_emails = {}
+    combined_meetings = {}
     # sort terms so that later (i.e. 'larger') keys override earlier ones
     sorted_terms = sorted(terms.keys())
     # Create a list of tasks, one per term
@@ -520,6 +521,12 @@ async def gather_instructor_emails(terms, course_ref_to_course):
     # Run all tasks concurrently
     results = await tqdm.gather(*tasks, desc="Term Query", unit="term")
     # Merge dictionaries; later ones override earlier ones for duplicate keys
-    for term, emails in zip(sorted_terms, results):
+    for term, result in zip(sorted_terms, results):
+        if not result:
+            continue
+        emails, meetings = result  # Unpack the tuple returned by build_from_mega_query
         combined_emails.update(emails)
-    return combined_emails
+        # Merge meetings, combining lists for the same course
+        for course_identifier, course_meetings in meetings.items():
+            combined_meetings.setdefault(course_identifier, []).extend(course_meetings)
+    return combined_emails, combined_meetings

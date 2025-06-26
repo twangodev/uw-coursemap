@@ -201,3 +201,28 @@ def read_new_terms_cache(cache_dir):
 
     return {int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()}
 
+def write_course_to_meetings_cache(cache_dir, course_to_meetings):
+    """
+    Writes course meetings data to the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+        course_to_meetings (dict): Dictionary mapping course identifiers to meeting lists.
+    """
+    write_file(cache_dir, (), "course_to_meetings", course_to_meetings)
+
+def read_course_to_meetings_cache(cache_dir):
+    """
+    Reads course meetings data from the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+
+    Returns:
+        dict: Dictionary mapping course identifiers to meeting lists, or empty dict if not found.
+    """
+    course_to_meetings = read_cache(cache_dir, (), "course_to_meetings")
+    if course_to_meetings is None:
+        return {}
+    return course_to_meetings
+

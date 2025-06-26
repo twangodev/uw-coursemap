@@ -148,6 +148,7 @@ def write_data(
         terms,
         quick_statistics,
         explorer_stats,
+        course_to_meetings,
 ):
     wipe_data(data_dir)
 
@@ -181,6 +182,10 @@ def write_data(
     for key, value in tqdm(explorer_stats.items(), desc="Explorer Stats", unit="Stat"):
         write_file(data_dir, ("stats",), key, value)
 
+    for course_identifier, meetings in tqdm(course_to_meetings.items(), desc="Course Meetings", unit="course"):
+        if meetings:
+            write_file(data_dir, ("courses", course_identifier), "meetings", meetings)
+
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
         "updated_on": updated_on,
@@ -188,7 +193,7 @@ def write_data(
 
     write_file(data_dir, tuple(), "update", updated_json)
 
-    subject_names = list(subject_to_courses.keys())
+    subject_names = list(subject_to_graph.keys())
     course_names = list(identifier_to_course.keys())
     instructor_names = [key for key, value in instructor_to_rating.items() if value is not None]
 

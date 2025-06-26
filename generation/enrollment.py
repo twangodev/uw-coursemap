@@ -75,6 +75,7 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
 
         hits = data["hits"]
         all_instructors = {}
+        all_meetings = {}
 
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
@@ -82,14 +83,23 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
             for i, hit in enumerate(hits)
         ]
         results = await tqdm.gather(*tasks, desc=f"Courses in {term_name}", unit="course")
-        for instructors in results:
-            if instructors is None:
+        for result in results:
+            if result is None:
                 continue
+            instructors, meetings = result
             for full_name, email in instructors.items():
                 all_instructors.setdefault(full_name, email)
+            
+            # Group meetings by course identifier
+            if meetings:
+                # Get course identifier from the first meeting (they all belong to same course)
+                course_identifier = meetings[0].name.split(' - ')[0] if meetings else None
+                if course_identifier:
+                    all_meetings.setdefault(course_identifier, []).extend(meetings)
 
         logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}")
-        return all_instructors
+        logger.info(f"Discovered meetings for {len(all_meetings)} courses in {term_name}")
+        return all_instructors, all_meetings
 
 def generate_recurring_meetings(start_date_epoch_ms, end_date_epoch_ms, epoch_start_time_ms, epoch_end_time_ms, days_of_week):
     """
@@ -264,7 +274,6 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                 email = instructor["email"]
                 course_instructors.setdefault(full_name, email)
 
-    course.meetings.extend(course_meetings)
     enrollment_data.instructors = course_instructors
     logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")
 
@@ -276,4 +285,4 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
 
     course.term_data[selected_term] = term_data
 
-    return course_instructors
+    return course_instructors, course_meetings

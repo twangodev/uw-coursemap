@@ -121,8 +121,7 @@ class Course(JsonSerializable):
             term_data: dict[str, TermData],
             similar_courses=None,
             keywords=None,
-            satisfies: set[Reference] = None,
-            meetings=None
+            satisfies: set[Reference] = None
     ):
         if similar_courses is None:
             similar_courses = set()
@@ -132,9 +131,6 @@ class Course(JsonSerializable):
 
         if satisfies is None:
             satisfies = set()
-
-        if meetings is None:
-            meetings = []
 
         self.course_reference = course_reference
         self.course_title = course_title
@@ -146,7 +142,6 @@ class Course(JsonSerializable):
         self.similar_courses = similar_courses
         self.keywords = keywords
         self.satisfies = satisfies
-        self.meetings = meetings
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -168,8 +163,7 @@ class Course(JsonSerializable):
             term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()},
             similar_courses={Course.Reference.from_json(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set(),
             keywords=json_data.get("keywords", []),
-            satisfies={Course.Reference.from_json(ref) for ref in json_data.get("satisfies", [])},
-            meetings=[EnrollmentData.Meeting.from_json(meeting) for meeting in json_data.get("meetings", [])]
+            satisfies={Course.Reference.from_json(ref) for ref in json_data.get("satisfies", [])}
         )
 
     def to_dict(self):
@@ -183,8 +177,7 @@ class Course(JsonSerializable):
             "term_data": {term: data.to_dict() for term, data in self.term_data.items()},
             "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses],
             "keywords": self.keywords,
-            "satisfies": [ref.to_dict() for ref in self.satisfies],
-            "meetings": [meeting.to_dict() for meeting in self.meetings]
+            "satisfies": [ref.to_dict() for ref in self.satisfies]
         }
 
     @classmethod
