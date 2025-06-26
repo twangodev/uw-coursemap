@@ -335,7 +335,6 @@ def main():
             explorer_stats = read_explorer_stats_cache(cache_dir)
 
             course_ref_to_meetings = read_course_ref_to_meetings_cache(cache_dir)
-            course_to_meetings = { course_reference.get_identifier(): meeting for course_reference, meeting in course_ref_to_meetings.items() }
 
             write_data(
                 data_dir=data_dir,
@@ -351,7 +350,7 @@ def main():
                 terms=terms,
                 quick_statistics=course_statistics,
                 explorer_stats=explorer_stats,
-                course_to_meetings=course_to_meetings,
+                course_ref_to_meetings=course_ref_to_meetings,
             )
 
 

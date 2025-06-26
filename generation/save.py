@@ -63,12 +63,12 @@ def chunk_meetings_by_date(meetings, directory_tuple, data_dir):
     
     return files_written
 
-def chunk_meetings_by_date_and_building(course_to_meetings, data_dir):
+def chunk_meetings_by_date_and_building(course_ref_to_meetings, data_dir):
     """
     Chunks meetings by date and building, writing them to organized directories.
     
     Args:
-        course_to_meetings: Dict mapping course identifiers to lists of Meeting objects
+        course_ref_to_meetings: Dict mapping course references to lists of Meeting objects
         data_dir: Base data directory for writing files
     
     Directory structure: /meetings/building/{building_name}/MM/DD/YY/meetings.json
@@ -79,7 +79,7 @@ def chunk_meetings_by_date_and_building(course_to_meetings, data_dir):
     
     # Flatten all meetings from all courses and group by building
     all_meetings = []
-    for course_identifier, meetings in course_to_meetings.items():
+    for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
             all_meetings.extend(meetings)
     
@@ -108,7 +108,7 @@ def chunk_meetings_by_date_and_building(course_to_meetings, data_dir):
     logger.info(f"Wrote {total_files_written} meeting files organized by building and date")
     logger.info(f"Meetings organized across {len(building_meetings)} buildings")
 
-def chunk_meetings_by_date_and_instructor(course_to_meetings, data_dir):
+def chunk_meetings_by_date_and_instructor(course_ref_to_meetings, data_dir):
     """
     Chunks meetings by instructor and date.
     
@@ -119,7 +119,7 @@ def chunk_meetings_by_date_and_instructor(course_to_meetings, data_dir):
     
     # Flatten all meetings from all courses and group by instructor
     all_meetings = []
-    for course_identifier, meetings in course_to_meetings.items():
+    for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
             all_meetings.extend(meetings)
     
@@ -144,26 +144,25 @@ def chunk_meetings_by_date_and_instructor(course_to_meetings, data_dir):
     logger.info(f"Wrote {total_files_written} meeting files organized by instructor and date")
     logger.info(f"Meetings organized across {len(instructor_meetings)} instructors")
 
-def chunk_meetings_by_date_and_subject(course_to_meetings, data_dir):
+def chunk_meetings_by_date_and_subject(course_ref_to_meetings, data_dir):
     """
-    Example function showing how to chunk meetings by subject.
+    Chunks meetings by subject using actual course reference subjects.
     
     Directory structure: /meetings/subject/{subject_code}/MM/DD/YY/meetings.json
     """
-    # Group meetings by subject (derived from course identifier)
+    # Group meetings by subject using actual course reference subjects
     subject_meetings = defaultdict(list)
     
-    logger.info(f"Processing {len(course_to_meetings)} courses for date/subject chunking")
+    logger.info(f"Processing {len(course_ref_to_meetings)} courses for date/subject chunking")
     
-    for course_identifier, meetings in course_to_meetings.items():
+    for course_reference, meetings in course_ref_to_meetings.items():
         if not meetings:
             continue
             
-        # Extract subject from course identifier (assuming format like "CS-540")
-        subject_code = course_identifier.split("-")[0] if "-" in course_identifier else "Unknown_Subject"
-        
-        # Add all meetings for this course to the subject bucket
-        subject_meetings[subject_code].extend(meetings)
+        # Use actual subjects from course reference (can have multiple subjects)
+        for subject_code in course_reference.subjects:
+            # Add all meetings for this course to each subject bucket
+            subject_meetings[subject_code].extend(meetings)
     
     # Write meetings for each subject using the generic chunking function
     total_files_written = 0
@@ -175,7 +174,7 @@ def chunk_meetings_by_date_and_subject(course_to_meetings, data_dir):
     logger.info(f"Wrote {total_files_written} meeting files organized by subject and date")
     logger.info(f"Meetings organized across {len(subject_meetings)} subjects")
 
-def chunk_meetings_by_date_only(course_to_meetings, data_dir):
+def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     """
     Chunks all meetings purely by date without any other grouping.
     
@@ -183,7 +182,7 @@ def chunk_meetings_by_date_only(course_to_meetings, data_dir):
     """
     # Flatten all meetings from all courses
     all_meetings = []
-    for course_identifier, meetings in course_to_meetings.items():
+    for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
             all_meetings.extend(meetings)
     
@@ -341,7 +340,7 @@ def write_data(
         terms,
         quick_statistics,
         explorer_stats,
-        course_to_meetings,
+        course_ref_to_meetings,
 ):
     wipe_data(data_dir)
 
@@ -375,21 +374,22 @@ def write_data(
     for key, value in tqdm(explorer_stats.items(), desc="Explorer Stats", unit="Stat"):
         write_file(data_dir, ("stats",), key, value)
 
-    for course_identifier, meetings in tqdm(course_to_meetings.items(), desc="Course Meetings", unit="course"):
+    for course_reference, meetings in tqdm(course_ref_to_meetings.items(), desc="Course Meetings", unit="course"):
         if meetings:
+            course_identifier = course_reference.get_identifier()
             write_file(data_dir, ("course", course_identifier), "meetings", meetings)
     
     # Chunk meetings by date and building
-    chunk_meetings_by_date_and_building(course_to_meetings, data_dir)
+    chunk_meetings_by_date_and_building(course_ref_to_meetings, data_dir)
     
     # Chunk meetings by date and instructor
-    chunk_meetings_by_date_and_instructor(course_to_meetings, data_dir)
+    chunk_meetings_by_date_and_instructor(course_ref_to_meetings, data_dir)
     
     # Chunk meetings by date and subject
-    chunk_meetings_by_date_and_subject(course_to_meetings, data_dir)
+    chunk_meetings_by_date_and_subject(course_ref_to_meetings, data_dir)
     
     # Chunk meetings purely by date
-    chunk_meetings_by_date_only(course_to_meetings, data_dir)
+    chunk_meetings_by_date_only(course_ref_to_meetings, data_dir)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
