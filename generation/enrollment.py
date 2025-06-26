@@ -282,5 +282,8 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
     term_data.enrollment_data = enrollment_data
 
     course.term_data[selected_term] = term_data
+    
+    # Set has_meetings field based on whether course has meeting data
+    course.has_meetings = len(course_meetings) > 0
 
     return course_instructors, course_meetings, course_ref
