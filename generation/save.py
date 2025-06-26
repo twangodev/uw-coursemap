@@ -93,8 +93,17 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data)
     # Sort the data
     sorted_data = recursive_sort_data(data)
 
+    # Sanitize directory components
+    sanitized_directory = []
+    for dir_component in directory_tuple:
+        sanitized_component = sanitize_entry(dir_component)
+        if sanitized_component is None:
+            logger.warning(f"Directory component '{dir_component}' could not be sanitized. Skipping file write.")
+            return
+        sanitized_directory.append(sanitized_component)
+
     # Create the full directory path
-    directory_path = os.path.join(directory, *directory_tuple)
+    directory_path = os.path.join(directory, *sanitized_directory)
 
     # Ensure the directory exists
     os.makedirs(directory_path, exist_ok=True)
@@ -184,7 +193,7 @@ def write_data(
 
     for course_identifier, meetings in tqdm(course_to_meetings.items(), desc="Course Meetings", unit="course"):
         if meetings:
-            write_file(data_dir, ("courses", course_identifier), "meetings", meetings)
+            write_file(data_dir, ("course", course_identifier), "meetings", meetings)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {
