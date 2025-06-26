@@ -107,7 +107,8 @@ class EnrollmentData(JsonSerializable):
                 "name": self.name,
                 "type": self.type,
                 "start_time": self.start_time,
-                "end_time": self.end_time
+                "end_time": self.end_time,
+                "location": self.location.to_dict() if self.location else None
             }
 
     @classmethod
