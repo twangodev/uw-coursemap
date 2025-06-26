@@ -183,3 +183,46 @@ def read_embedding_cache(cache_dir, sha256hash: str):
 
 def write_embedding_cache(cache_dir, sha256hash: str, embedding):
     write_embedding(cache_dir, ("embeddings",), sha256hash, embedding)
+
+def write_new_terms_cache(cache_dir, new_terms):
+    """
+    Writes new terms to the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+        new_terms (dict): Dictionary of new terms to be cached.
+    """
+    write_file(cache_dir, (), "new_terms", new_terms)
+
+def read_new_terms_cache(cache_dir):
+    new_terms = read_cache(cache_dir, (), "new_terms")
+    if new_terms is None:
+        return {}
+
+    return {int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()}
+
+def write_course_to_meetings_cache(cache_dir, course_to_meetings):
+    """
+    Writes course meetings data to the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+        course_to_meetings (dict): Dictionary mapping course identifiers to meeting lists.
+    """
+    write_file(cache_dir, (), "course_to_meetings", course_to_meetings)
+
+def read_course_to_meetings_cache(cache_dir):
+    """
+    Reads course meetings data from the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+
+    Returns:
+        dict: Dictionary mapping course identifiers to meeting lists, or empty dict if not found.
+    """
+    course_to_meetings = read_cache(cache_dir, (), "course_to_meetings")
+    if course_to_meetings is None:
+        return {}
+    return course_to_meetings
+

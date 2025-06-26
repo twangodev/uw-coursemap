@@ -63,6 +63,54 @@ class EnrollmentData(JsonSerializable):
         self.ethnics_studies = ethnics_studies
         self.instructors = instructors
 
+    class MeetingLocation(JsonSerializable):
+        def __init__(self, building, room, coordinates):
+            self.building = building
+            self.room = room
+            self.coordinates = coordinates
+
+        @classmethod
+        def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
+            return EnrollmentData.MeetingLocation(
+                building=data["building"],
+                room=data["room"],
+                coordinates=data["coordinates"]
+            )
+
+        def to_dict(self) -> dict:
+            return {
+                "building": self.building,
+                "room": self.room,
+                "coordinates": self.coordinates
+            }
+
+    class Meeting(JsonSerializable):
+        def __init__(self, name, type, start_time, end_time, location):
+            self.name = name
+            self.type = type
+            self.start_time = start_time
+            self.end_time = end_time
+            self.location = location
+
+        @classmethod
+        def from_json(cls, data) -> 'EnrollmentData.Meeting':
+            return EnrollmentData.Meeting(
+                name=data["name"],
+                type=data["type"],
+                start_time=data["start_time"],
+                end_time=data["end_time"],
+                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None
+            )
+
+        def to_dict(self) -> dict:
+            return {
+                "name": self.name,
+                "type": self.type,
+                "start_time": self.start_time,
+                "end_time": self.end_time,
+                "location": self.location.to_dict() if self.location else None
+            }
+
     @classmethod
     def from_json(cls, data) -> 'EnrollmentData':
         return EnrollmentData(

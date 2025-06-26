@@ -3,7 +3,7 @@ from logging import Logger
 
 from bs4 import NavigableString
 
-from enrollment_data import GradeData, TermData
+from enrollment_data import GradeData, TermData, EnrollmentData
 from json_serializable import JsonSerializable
 from requirement_ast import RequirementAbstractSyntaxTree, tokenize_requisites, RequirementParser, Node, Leaf
 
@@ -122,6 +122,7 @@ class Course(JsonSerializable):
             similar_courses=None,
             keywords=None,
             satisfies: set[Reference] = None,
+            has_meetings: bool = False
     ):
         if similar_courses is None:
             similar_courses = set()
@@ -142,6 +143,7 @@ class Course(JsonSerializable):
         self.similar_courses = similar_courses
         self.keywords = keywords
         self.satisfies = satisfies
+        self.has_meetings = has_meetings
 
     @classmethod
     def from_json(cls, json_data) -> "Course":
@@ -163,7 +165,8 @@ class Course(JsonSerializable):
             term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()},
             similar_courses={Course.Reference.from_json(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set(),
             keywords=json_data.get("keywords", []),
-            satisfies={Course.Reference.from_json(ref) for ref in json_data.get("satisfies", [])}
+            satisfies={Course.Reference.from_json(ref) for ref in json_data.get("satisfies", [])},
+            has_meetings=json_data.get("has_meetings", False)
         )
 
     def to_dict(self):
@@ -178,6 +181,7 @@ class Course(JsonSerializable):
             "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses],
             "keywords": self.keywords,
             "satisfies": [ref.to_dict() for ref in self.satisfies],
+            "has_meetings": self.has_meetings
         }
 
     @classmethod
