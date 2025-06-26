@@ -156,6 +156,7 @@ def generate_recurring_meetings(start_date_epoch_ms, end_date_epoch_ms, epoch_st
 
     return meetings
 
+
 async def process_hit(hit, i, course_count, selected_term: str, term_name: str, terms, course_ref_to_course, session, attempts=10):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
@@ -207,6 +208,11 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
             start_date = s["startDate"]
             end_date = s["endDate"]
 
+            # Get enrollment data for this section
+            enrollment_status = s.get("enrollmentStatus", {})
+            current_enrollment = enrollment_status.get("currentlyEnrolled", 0)
+            capacity = enrollment_status.get("capacity", 0)
+
             class_meetings = s.get("classMeetings", [])
             for meeting in class_meetings:
                 days = meeting["meetingDaysList"]
@@ -224,7 +230,8 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         end_time=end_date_time,
                         type=meeting_type,
                         location=None,  # No location for single meetings
-                        name=f"{course.course_reference} {meeting_type}"
+                        name=f"{course.course_reference} {meeting_type}",
+                        current_enrollment=current_enrollment
                     )
                     course_meetings.append(course_meeting)
                     continue
@@ -244,10 +251,11 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     coordinates = (building.get("latitude"), building.get("longitude"))
                     room = meeting.get("room", "No Assigned Room")
 
-                    location = EnrollmentData.MeetingLocation(
+                    location = EnrollmentData.MeetingLocation.get_or_create_with_capacity(
                         building=building_name,
                         room=room,
                         coordinates=coordinates,
+                        class_capacity=capacity
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
@@ -258,6 +266,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         type=meeting_type,
                         location=location,
                         name=name,
+                        current_enrollment=current_enrollment
                     )
 
                     course_meetings.append(course_meeting)

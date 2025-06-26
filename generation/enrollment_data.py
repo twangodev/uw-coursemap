@@ -64,33 +64,80 @@ class EnrollmentData(JsonSerializable):
         self.instructors = instructors
 
     class MeetingLocation(JsonSerializable):
-        def __init__(self, building, room, coordinates):
+        # Class-level dict to track all unique meeting locations for O(1) lookup
+        _all_locations = {}
+        
+        def __init__(self, building, room, coordinates, capacity=None):
             self.building = building
             self.room = room
             self.coordinates = coordinates
+            self.capacity = capacity
+        
+        @classmethod
+        def get_or_create_with_capacity(cls, building, room, coordinates, class_capacity):
+            """
+            Get existing MeetingLocation or create new one, updating max capacity.
+            
+            Args:
+                building: Building name
+                room: Room identifier  
+                coordinates: Tuple of (latitude, longitude)
+                class_capacity: Current class capacity (used to estimate room capacity)
+            
+            Returns:
+                MeetingLocation instance with updated max capacity
+            """
+            # Create a key for dictionary lookup using the same hash logic
+            location_key = (building, room, coordinates)
+            
+            # O(1) lookup in dictionary
+            if location_key in cls._all_locations:
+                existing_location = cls._all_locations[location_key]
+                # Update capacity to maximum seen so far
+                if existing_location.capacity is None or (class_capacity is not None and class_capacity > existing_location.capacity):
+                    existing_location.capacity = class_capacity
+                return existing_location
+            else:
+                # Create new location and add to dictionary
+                new_location = cls(building, room, coordinates, class_capacity)
+                cls._all_locations[location_key] = new_location
+                return new_location
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
-            return EnrollmentData.MeetingLocation(
+            return cls.get_or_create_with_capacity(
                 building=data["building"],
                 room=data["room"],
-                coordinates=data["coordinates"]
+                coordinates=data["coordinates"],
+                class_capacity=data.get("capacity")
             )
 
         def to_dict(self) -> dict:
             return {
                 "building": self.building,
                 "room": self.room,
-                "coordinates": self.coordinates
+                "coordinates": self.coordinates,
+                "capacity": self.capacity
             }
 
+        def __eq__(self, other):
+            if not isinstance(other, EnrollmentData.MeetingLocation):
+                return False
+            return (self.building == other.building and 
+                    self.room == other.room and 
+                    self.coordinates == other.coordinates)
+
+        def __hash__(self):
+            return hash((self.building, self.room, self.coordinates))
+
     class Meeting(JsonSerializable):
-        def __init__(self, name, type, start_time, end_time, location):
+        def __init__(self, name, type, start_time, end_time, location, current_enrollment):
             self.name = name
             self.type = type
             self.start_time = start_time
             self.end_time = end_time
             self.location = location
+            self.current_enrollment = current_enrollment
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.Meeting':
@@ -99,7 +146,8 @@ class EnrollmentData(JsonSerializable):
                 type=data["type"],
                 start_time=data["start_time"],
                 end_time=data["end_time"],
-                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None
+                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None,
+                current_enrollment=data.get("current_enrollment")
             )
 
         def to_dict(self) -> dict:
@@ -108,7 +156,8 @@ class EnrollmentData(JsonSerializable):
                 "type": self.type,
                 "start_time": self.start_time,
                 "end_time": self.end_time,
-                "location": self.location.to_dict() if self.location else None
+                "location": self.location.to_dict() if self.location else None,
+                "current_enrollment": self.current_enrollment
             }
 
     @classmethod
