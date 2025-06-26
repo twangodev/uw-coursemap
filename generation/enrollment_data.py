@@ -105,10 +105,11 @@ class EnrollmentData(JsonSerializable):
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
+            coordinates = data["coordinates"]
             return cls.get_or_create_with_capacity(
                 building=data["building"],
                 room=data["room"],
-                coordinates=data["coordinates"],
+                coordinates=(coordinates[0], coordinates[1]) if coordinates else None,
                 class_capacity=data.get("capacity")
             )
 
@@ -146,7 +147,7 @@ class EnrollmentData(JsonSerializable):
                 type=data["type"],
                 start_time=data["start_time"],
                 end_time=data["end_time"],
-                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None,
+                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if data.get("location") else None,
                 current_enrollment=data.get("current_enrollment")
             )
 
