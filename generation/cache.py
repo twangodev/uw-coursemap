@@ -183,3 +183,21 @@ def read_embedding_cache(cache_dir, sha256hash: str):
 
 def write_embedding_cache(cache_dir, sha256hash: str, embedding):
     write_embedding(cache_dir, ("embeddings",), sha256hash, embedding)
+
+def write_new_terms_cache(cache_dir, new_terms):
+    """
+    Writes new terms to the cache.
+
+    Parameters:
+        cache_dir (str): Directory where the cache is stored.
+        new_terms (dict): Dictionary of new terms to be cached.
+    """
+    write_file(cache_dir, (), "new_terms", new_terms)
+
+def read_new_terms_cache(cache_dir):
+    new_terms = read_cache(cache_dir, (), "new_terms")
+    if new_terms is None:
+        return {}
+
+    return {int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()}
+

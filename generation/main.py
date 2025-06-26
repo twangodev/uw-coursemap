@@ -18,7 +18,8 @@ from aio_cache import set_aio_cache_location, set_aio_cache_expiration
 from cache import read_course_ref_to_course_cache, write_course_ref_to_course_cache, \
     write_subject_to_full_subject_cache, write_terms_cache, write_instructors_to_rating_cache, read_terms_cache, \
     write_graphs_cache, read_subject_to_full_subject_cache, read_graphs_cache, read_instructors_to_rating_cache, \
-    write_quick_statistics_cache, read_quick_statistics_cache, write_explorer_stats_cache, read_explorer_stats_cache
+    write_quick_statistics_cache, read_quick_statistics_cache, write_explorer_stats_cache, read_explorer_stats_cache, \
+    write_new_terms_cache, read_new_terms_cache
 from cytoscape import build_graphs, cleanup_graphs, generate_styles, generate_style_from_graph
 from embeddings import optimize_prerequisites, get_model
 from enrollment import sync_enrollment_terms
@@ -92,10 +93,10 @@ def madgrades(
         madgrades_api_key=madgrades_api_key,
     ))
 
-    sync_enrollment_terms(terms=terms)
+    new_terms = sync_enrollment_terms(terms=terms)
     latest_term = max(terms.keys())
 
-    return terms, latest_term
+    return terms, latest_term, new_terms
 
 
 def instructors(
@@ -228,13 +229,15 @@ def main():
 
             logger.info("Fetching madgrades data...")
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
-            terms, latest_term = madgrades(
+            terms, latest_term, new_terms = madgrades(
                 course_ref_to_course=course_ref_to_course,
                 madgrades_api_key=madgrades_api_key,
             )
 
             write_terms_cache(cache_dir, terms)
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
+            write_new_terms_cache(cache_dir, new_terms)
+
             logger.info("Madgrades data fetched successfully.")
 
         if filter_step(step, "instructors"):
@@ -242,6 +245,7 @@ def main():
 
             course_ref_to_course = read_course_ref_to_course_cache(cache_dir)
             terms = read_terms_cache(cache_dir)
+            new_terms = read_new_terms_cache(cache_dir)
 
             instructor_to_rating, instructors_emails = instructors(
                 course_ref_to_course=course_ref_to_course,
