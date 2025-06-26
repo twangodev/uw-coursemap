@@ -64,33 +64,47 @@ class EnrollmentData(JsonSerializable):
         self.instructors = instructors
 
     class MeetingLocation(JsonSerializable):
-        def __init__(self, building, room, coordinates):
+        def __init__(self, building, room, coordinates, capacity=None):
             self.building = building
             self.room = room
             self.coordinates = coordinates
+            self.capacity = capacity
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
             return EnrollmentData.MeetingLocation(
                 building=data["building"],
                 room=data["room"],
-                coordinates=data["coordinates"]
+                coordinates=data["coordinates"],
+                capacity=data.get("capacity")
             )
 
         def to_dict(self) -> dict:
             return {
                 "building": self.building,
                 "room": self.room,
-                "coordinates": self.coordinates
+                "coordinates": self.coordinates,
+                "capacity": self.capacity
             }
 
+        def __eq__(self, other):
+            if not isinstance(other, EnrollmentData.MeetingLocation):
+                return False
+            return (self.building == other.building and 
+                    self.room == other.room and 
+                    self.coordinates == other.coordinates)
+
+        def __hash__(self):
+            return hash((self.building, self.room, self.coordinates))
+
     class Meeting(JsonSerializable):
-        def __init__(self, name, type, start_time, end_time, location):
+        def __init__(self, name, type, start_time, end_time, location, current_enrollment):
             self.name = name
             self.type = type
             self.start_time = start_time
             self.end_time = end_time
             self.location = location
+            self.current_enrollment = current_enrollment
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.Meeting':
@@ -99,7 +113,8 @@ class EnrollmentData(JsonSerializable):
                 type=data["type"],
                 start_time=data["start_time"],
                 end_time=data["end_time"],
-                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None
+                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if "location" in data else None,
+                current_enrollment=data.get("current_enrollment")
             )
 
         def to_dict(self) -> dict:
@@ -108,7 +123,8 @@ class EnrollmentData(JsonSerializable):
                 "type": self.type,
                 "start_time": self.start_time,
                 "end_time": self.end_time,
-                "location": self.location.to_dict() if self.location else None
+                "location": self.location.to_dict() if self.location else None,
+                "current_enrollment": self.current_enrollment
             }
 
     @classmethod
