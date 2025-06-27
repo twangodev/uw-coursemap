@@ -58,14 +58,14 @@ def get_model(cache_dir):
 def get_embedding(cache_dir, model: SentenceTransformer, text):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
 
-    # Check if the embedding already exists
-    embedding = read_embedding_cache(cache_dir, sha256)
+    # Check if the embedding already exists (with model-specific caching)
+    embedding = read_embedding_cache(cache_dir, sha256, model)
 
     if embedding is None:
         embedding = model.encode(text, show_progress_bar=False)
 
         logger.debug(f"Embedding for '{text}' not found in cache. Caching it now.")
-        write_embedding_cache(cache_dir, sha256, embedding)
+        write_embedding_cache(cache_dir, sha256, embedding, model)
 
     return embedding
 
