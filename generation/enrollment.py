@@ -201,6 +201,18 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
         sections = section.get("sections", [])
         for s in sections:
 
+            # Collect instructor names for this section
+            section_instructor_names = []
+            section_instructors = s.get("instructors", [])
+            for instructor in section_instructors:
+                name = instructor["name"]
+                first = name["first"]
+                last = name["last"]
+                full_name = f"{first} {last}"
+                email = instructor["email"]
+                course_instructors.setdefault(full_name, email)
+                section_instructor_names.append(full_name)
+
             section_type = s["type"]
             section_number = s["sectionNumber"]
             section_identifier = f"{section_type} {section_number}"
@@ -230,8 +242,10 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         end_time=end_date_time,
                         type=meeting_type,
                         location=None,  # No location for single meetings
-                        name=f"{course.course_reference} {meeting_type}",
-                        current_enrollment=current_enrollment
+                        name=meeting_type,
+                        current_enrollment=current_enrollment,
+                        instructors=section_instructor_names,
+                        course_reference=course_ref
                     )
                     course_meetings.append(course_meeting)
                     continue
@@ -259,27 +273,20 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
-                    name = f"{course.course_reference} - {section_identifier} #{index}"
+                    name = f"{section_identifier} #{index}"
                     course_meeting = EnrollmentData.Meeting(
                         start_time=start,
                         end_time=end,
                         type=meeting_type,
                         location=location,
                         name=name,
-                        current_enrollment=current_enrollment
+                        current_enrollment=current_enrollment,
+                        instructors=section_instructor_names,
+                        course_reference=course_ref
                     )
 
                     course_meetings.append(course_meeting)
 
-
-            section_instructors = s.get("instructors", [])
-            for instructor in section_instructors:
-                name = instructor["name"]
-                first = name["first"]
-                last = name["last"]
-                full_name = f"{first} {last}"
-                email = instructor["email"]
-                course_instructors.setdefault(full_name, email)
 
     enrollment_data.instructors = course_instructors
     logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")

@@ -1,6 +1,8 @@
 import json
 import os
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+from collections import defaultdict
 from logging import getLogger
 
 from tqdm import tqdm
@@ -10,6 +12,165 @@ from json_serializable import JsonSerializable
 from sitemap_generation import generate_sitemap, sanitize_entry
 
 logger = getLogger(__name__)
+
+
+def chunk_meetings_by_building(course_ref_to_meetings, data_dir):
+    """
+    Chunks meetings by building, writing them to organized directories.
+    
+    Args:
+        course_ref_to_meetings: Dict mapping course references to lists of Meeting objects
+        data_dir: Base data directory for writing files
+    
+    Directory structure: /buildings/{building_name}/meetings.json
+    """
+    # Group meetings by building
+    building_meetings = defaultdict(list)
+    
+    # Flatten all meetings from all courses and group by building
+    all_meetings = []
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for building chunking")
+    
+    for meeting in all_meetings:
+        # Skip meetings without location
+        if not meeting.location or not meeting.start_time:
+            continue
+            
+        # Use building name from location
+        building_name = meeting.location.building
+        if not building_name:
+            building_name = "Unknown_Building"
+        
+        # Add meeting to the appropriate building bucket
+        building_meetings[building_name].append(meeting)
+    
+    # Write meetings for each building to a single file
+    total_files_written = 0
+    for building_name, meetings in tqdm(building_meetings.items(), desc="Writing meeting files by building", unit="building"):
+        directory_tuple = ("buildings", building_name)
+        write_file(data_dir, directory_tuple, "meetings", meetings)
+        total_files_written += 1
+    
+    logger.info(f"Wrote {total_files_written} meeting files organized by building")
+    logger.info(f"Meetings organized across {len(building_meetings)} buildings")
+
+def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
+    """
+    Chunks meetings by instructor.
+    
+    Directory structure: /instructors/{instructor_name}/meetings.json
+    """
+    # Group meetings by instructor
+    instructor_meetings = defaultdict(list)
+    
+    # Flatten all meetings from all courses and group by instructor
+    all_meetings = []
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for instructor chunking")
+    
+    for meeting in all_meetings:
+        # Skip meetings without start_time or instructors
+        if not meeting.start_time or not meeting.instructors:
+            continue
+            
+        # Add meeting to each instructor's bucket (meetings can have multiple instructors)
+        for instructor_name in meeting.instructors:
+            instructor_meetings[instructor_name].append(meeting)
+    
+    # Write meetings for each instructor to a single file
+    total_files_written = 0
+    for instructor_name, meetings in tqdm(instructor_meetings.items(), desc="Writing meeting files by instructor", unit="instructor"):
+        directory_tuple = ("instructors", instructor_name)
+        write_file(data_dir, directory_tuple, "meetings", meetings)
+        total_files_written += 1
+    
+    logger.info(f"Wrote {total_files_written} meeting files organized by instructor")
+    logger.info(f"Meetings organized across {len(instructor_meetings)} instructors")
+
+def chunk_meetings_by_subject(course_ref_to_meetings, data_dir):
+    """
+    Chunks meetings by subject using actual course reference subjects.
+    
+    Directory structure: /subjects/{subject_code}/meetings.json
+    """
+    # Group meetings by subject using actual course reference subjects
+    subject_meetings = defaultdict(list)
+    
+    logger.info(f"Processing {len(course_ref_to_meetings)} courses for subject chunking")
+    
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if not meetings:
+            continue
+            
+        # Use actual subjects from course reference (can have multiple subjects)
+        for subject_code in course_reference.subjects:
+            # Add all meetings for this course to each subject bucket
+            subject_meetings[subject_code].extend(meetings)
+    
+    # Write meetings for each subject to a single file
+    total_files_written = 0
+    for subject_code, meetings in tqdm(subject_meetings.items(), desc="Writing meeting files by subject", unit="subject"):
+        directory_tuple = ("subjects", subject_code)
+        write_file(data_dir, directory_tuple, "meetings", meetings)
+        total_files_written += 1
+    
+    logger.info(f"Wrote {total_files_written} meeting files organized by subject")
+    logger.info(f"Meetings organized across {len(subject_meetings)} subjects")
+
+def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
+    """
+    Chunks all meetings purely by date without any other grouping.
+    
+    Directory structure: /meetings/MM-DD-YY.json
+    """
+    # Use US/Central timezone which automatically handles DST
+    central_tz = ZoneInfo("US/Central")
+    
+    # Group meetings by date
+    date_meetings = defaultdict(list)
+    
+    # Flatten all meetings from all courses
+    all_meetings = []
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for pure date chunking")
+    
+    for meeting in all_meetings:
+        # Skip meetings without start_time
+        if not meeting.start_time:
+            continue
+            
+        # Convert epoch ms to datetime in Central Time
+        start_datetime = datetime.fromtimestamp(meeting.start_time / 1000, tz=central_tz)
+        
+        # Extract date components and create filename
+        year = start_datetime.strftime("%y")  # 2-digit year
+        month = start_datetime.strftime("%m")  # 2-digit month
+        day = start_datetime.strftime("%d")    # 2-digit day
+        
+        # Create filename with date
+        date_filename = f"{month}-{day}-{year}"
+        
+        # Add meeting to the appropriate date bucket
+        date_meetings[date_filename].append(meeting)
+    
+    # Write meetings for each date to flat files
+    files_written = 0
+    for date_filename, meetings_for_date in tqdm(date_meetings.items(), desc="Writing meeting files by date", unit="date"):
+        directory_tuple = ("meetings",)
+        write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
+        files_written += 1
+    
+    logger.info(f"Wrote {files_written} meeting files organized purely by date")
 
 def convert_keys_to_str(data):
     if isinstance(data, dict):
@@ -157,7 +318,7 @@ def write_data(
         terms,
         quick_statistics,
         explorer_stats,
-        course_to_meetings,
+        course_ref_to_meetings,
 ):
     wipe_data(data_dir)
 
@@ -191,9 +352,22 @@ def write_data(
     for key, value in tqdm(explorer_stats.items(), desc="Explorer Stats", unit="Stat"):
         write_file(data_dir, ("stats",), key, value)
 
-    for course_identifier, meetings in tqdm(course_to_meetings.items(), desc="Course Meetings", unit="course"):
+    for course_reference, meetings in tqdm(course_ref_to_meetings.items(), desc="Course Meetings", unit="course"):
         if meetings:
+            course_identifier = course_reference.get_identifier()
             write_file(data_dir, ("course", course_identifier), "meetings", meetings)
+    
+    # Chunk meetings by building
+    chunk_meetings_by_building(course_ref_to_meetings, data_dir)
+    
+    # Chunk meetings by instructor
+    chunk_meetings_by_instructor(course_ref_to_meetings, data_dir)
+    
+    # Chunk meetings by subject
+    chunk_meetings_by_subject(course_ref_to_meetings, data_dir)
+    
+    # Chunk meetings purely by date
+    chunk_meetings_by_date_only(course_ref_to_meetings, data_dir)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {

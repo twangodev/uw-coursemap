@@ -132,23 +132,32 @@ class EnrollmentData(JsonSerializable):
             return hash((self.building, self.room, self.coordinates))
 
     class Meeting(JsonSerializable):
-        def __init__(self, name, type, start_time, end_time, location, current_enrollment):
+        def __init__(self, name, type, start_time, end_time, location, current_enrollment, instructors=None, course_reference=None):
             self.name = name
             self.type = type
             self.start_time = start_time
             self.end_time = end_time
             self.location = location
             self.current_enrollment = current_enrollment
+            self.instructors = instructors or []
+            self.course_reference = course_reference
 
         @classmethod
         def from_json(cls, data) -> 'EnrollmentData.Meeting':
+            course_reference = None
+            if data.get("course_reference"):
+                from course import Course
+                course_reference = Course.Reference.from_json(data["course_reference"])
+            
             return EnrollmentData.Meeting(
                 name=data["name"],
                 type=data["type"],
                 start_time=data["start_time"],
                 end_time=data["end_time"],
                 location=EnrollmentData.MeetingLocation.from_json(data["location"]) if data.get("location") else None,
-                current_enrollment=data.get("current_enrollment")
+                current_enrollment=data.get("current_enrollment"),
+                instructors=data.get("instructors", []),
+                course_reference=course_reference
             )
 
         def to_dict(self) -> dict:
@@ -158,7 +167,9 @@ class EnrollmentData(JsonSerializable):
                 "start_time": self.start_time,
                 "end_time": self.end_time,
                 "location": self.location.to_dict() if self.location else None,
-                "current_enrollment": self.current_enrollment
+                "current_enrollment": self.current_enrollment,
+                "instructors": self.instructors,
+                "course_reference": self.course_reference.to_dict() if self.course_reference else None
             }
 
     @classmethod

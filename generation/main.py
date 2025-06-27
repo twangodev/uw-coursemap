@@ -255,7 +255,6 @@ def main():
             write_instructors_to_rating_cache(cache_dir, instructor_to_rating)
             write_course_ref_to_meetings_cache(cache_dir, course_ref_to_meetings)
             write_course_ref_to_course_cache(cache_dir, course_ref_to_course)
-            course_ref_to_meetings = read_course_ref_to_meetings_cache(cache_dir)
             logger.info("Instructor data fetched successfully.")
 
         if filter_step(step, "aggregate"):
@@ -334,6 +333,7 @@ def main():
 
             course_statistics = read_quick_statistics_cache(cache_dir)
             explorer_stats = read_explorer_stats_cache(cache_dir)
+
             course_ref_to_meetings = read_course_ref_to_meetings_cache(cache_dir)
 
             write_data(
@@ -350,7 +350,7 @@ def main():
                 terms=terms,
                 quick_statistics=course_statistics,
                 explorer_stats=explorer_stats,
-                course_to_meetings=course_ref_to_meetings,
+                course_ref_to_meetings=course_ref_to_meetings,
             )
 
 
