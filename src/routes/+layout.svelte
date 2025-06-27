@@ -6,7 +6,8 @@
   import { Toaster } from "$lib/components/ui/sonner";
   import { page } from "$app/state";
   import type { WebSite, WithContext } from "schema-dts";
-  let { children } = $props();
+  
+  let { children, data } = $props();
 
   const siteName = "UW Course Map";
   const siteDescription =
@@ -61,5 +62,5 @@
   <main class="flex grow">
     {@render children?.()}
   </main>
-  <Footer />
+  <Footer lastSynced={data.lastSynced} />
 </div>

@@ -2,6 +2,9 @@ FROM node:24-alpine AS builder
 
 WORKDIR /app
 
+# Install git for version generation
+RUN apk add --no-cache git
+
 COPY package*.json .
 
 RUN npm ci
