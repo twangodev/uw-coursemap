@@ -34,7 +34,7 @@
       </p>
     </div>
     <div
-      class="flex flex-col gap-1 text-muted-foreground text-center text-base leading-loose text-balance md:text-right "
+      class="flex flex-col gap-1 text-muted-foreground text-center text-xs leading-loose text-balance md:grid-cols-2 md:text-base md:text-right "
     >
       <div class="flex items-center justify-center gap-2 sm:justify-end">
         <span class="relative flex">
