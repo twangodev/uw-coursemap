@@ -1,0 +1,79 @@
+name: Search Service CI
+
+on:
+  push:
+    paths:
+      - 'search/**'
+      - '.github/workflows/search.yml'
+  pull_request:
+    paths:
+      - 'search/**'
+      - '.github/workflows/search.yml'
+
+jobs:
+  test-search:
+    runs-on: ubuntu-latest
+    
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.18.0
+        env:
+          discovery.type: single-node
+          ES_JAVA_OPTS: -Xms512m -Xmx512m
+          ELASTIC_PASSWORD: changeme
+          xpack.security.enabled: false  # Disable security for local testing
+        ports:
+          - 9200:9200
+        options: >-
+          --health-cmd "curl http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3
+          cache: pipenv
+
+      - name: Install pipenv
+        run: python3 -m pip install --upgrade pip pipenv
+
+      - name: Install Dependencies
+        working-directory: ./search
+        run: |
+          pipenv sync
+      - name: Setup Cache Environment
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - name: Restore Data Cache
+        id: cache-data
+        uses: actions/cache@v4
+        with:
+          path: data/
+          key: coursemap-data-${{ runner.os }}-${{ env.cache_id }}
+          restore-keys: |
+            coursemap-data-${{ runner.os }}-
+
+      - name: Generate Data if No Cache
+        if: steps.cache-data.outputs.cache-hit != 'true'
+        working-directory: ./generation
+        run: |
+          pipenv sync
+          pipenv run python main.py --step all
+        env:
+          DATA_DIR: "../data"
+          MADGRADES_API_KEY: ${{ secrets.MADGRADES_API_KEY }} 
+ 
+      - name: Run tests
+        working-directory: ./search
+        env:
+          ELASTIC_HOST: "http://localhost:9200"
+          ELASTIC_USERNAME: "elastic"
+          ELASTIC_PASSWORD: "changeme"
+          ELASTIC_VERIFY_CERTS: "false"
+          FLASK_DEBUG: "0" 
+        run: |
+          pipenv run pytest test.py
