@@ -1,6 +1,8 @@
 <script lang="ts">
   import FooterLink from "$lib/components/footer/footer-link.svelte";
   import { VERSION_INFO } from "$lib/generated/version";
+
+  const { tag, short } = VERSION_INFO;
 </script>
 
 <footer
@@ -19,7 +21,10 @@
         <FooterLink href="https://docs.uwcourses.com/team">contributors</FooterLink>
       </p>
       <p class="text-xs">
-        Last synced 4 days ago • {VERSION_INFO.tag} - {VERSION_INFO.short}
+        Last synced 4 days ago •
+        <FooterLink href="https://github.com/twangodev/uw-coursemap/releases/tag/{tag}">{tag}</FooterLink>
+        -
+        <FooterLink href="https://github.com/twangodev/uw-coursemap/commit/{short}">{short}</FooterLink>
       </p>
     </div>
     <div
