@@ -3,11 +3,10 @@ import math
 
 import numpy as np
 from logging import getLogger
-from keybert import KeyBERT
 from tqdm.asyncio import tqdm
 
 from course import Course
-from embeddings import get_model, get_embedding
+from embeddings import get_model, get_embedding, get_keyword_model, CachedKeyBERT
 from enrollment_data import GradeData
 from instructors import FullInstructor
 
@@ -141,8 +140,10 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
             for similar_ref in similar_courses_mapping.get(course_ref, [])
         ]
 
-async def define_keywords(course_ref_to_course: dict[Course.Reference, Course]):
-    kw_model = KeyBERT()
+async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], cache_dir):
+    # Load the all-MiniLM-L6-v2 model with custom caching
+    keyword_model = get_keyword_model(cache_dir)
+    kw_model = CachedKeyBERT(cache_dir, keyword_model)
 
     def set_keywords(course: Course):
         description = course.description.strip()
@@ -261,7 +262,7 @@ def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], inst
     qs["top_100_a_rate_chances"] = determine_a_rate_chance(course_ref_to_course)
 
     asyncio.run(course_embedding_analysis(course_ref_to_course, cache_dir))
-    asyncio.run(define_keywords(course_ref_to_course))
+    asyncio.run(define_keywords(course_ref_to_course, cache_dir))
 
     return qs, stats
 

@@ -16,6 +16,68 @@ from course import Course
 
 logger = getLogger(__name__)
 
+class CachedKeyBERT:
+    """
+    Custom KeyBERT wrapper that uses our embedding caching system.
+    """
+    def __init__(self, cache_dir, model):
+        from keybert import KeyBERT
+        self.cache_dir = cache_dir
+        self.model = model
+        # Create KeyBERT with our custom model
+        self.keybert = KeyBERT(model=model)
+        
+    def extract_keywords(self, docs, **kwargs):
+        """
+        Extract keywords using KeyBERT but with cached embeddings.
+        This method intercepts KeyBERT's internal embedding calls.
+        """
+        # Store original encode method
+        original_encode = self.model.encode
+        
+        def cached_encode(sentences, **encode_kwargs):
+            # If it's a single string, convert to list
+            if isinstance(sentences, str):
+                sentences = [sentences]
+                single_input = True
+            else:
+                single_input = False
+                
+            # Get cached embeddings for each sentence
+            embeddings = []
+            for sentence in sentences:
+                sha256 = hashlib.sha256(sentence.encode()).hexdigest()
+                
+                # Check if the embedding already exists (with model-specific caching)
+                embedding = read_embedding_cache(self.cache_dir, sha256, self.model)
+                
+                if embedding is None:
+                    # Use original encode method to avoid recursion
+                    embedding = original_encode(sentence, show_progress_bar=False)
+                    logger.debug(f"Embedding for '{sentence}' not found in cache. Caching it now.")
+                    write_embedding_cache(self.cache_dir, sha256, embedding, self.model)
+                
+                embeddings.append(embedding)
+            
+            embeddings = np.array(embeddings)
+            
+            # Return single embedding if input was single string
+            if single_input:
+                return embeddings[0]
+            return embeddings
+        
+        # Temporarily replace the model's encode method
+        self.model.encode = cached_encode
+        
+        try:
+            # Call KeyBERT with our cached encoding
+            result = self.keybert.extract_keywords(docs, **kwargs)
+        finally:
+            # Restore original encode method
+            self.model.encode = original_encode
+            
+        return result
+
 initialized_model = None
 
 def get_model(cache_dir):
@@ -53,6 +115,38 @@ def get_model(cache_dir):
         )
 
         initialized_model = model
+        return model
+
+def get_keyword_model(cache_dir):
+    """
+    Load the all-MiniLM-L6-v2 model for keyword extraction with custom caching.
+    """
+    # Disable HTTP request caching to ensure the model is fetched or initialized correctly.
+    with requests_cache.disabled():
+        model_cache_dir = os.path.join(cache_dir, "model")
+
+        device = "cpu"
+
+        if cuda.is_available():
+            logger.info("CUDA is available. Using GPU for keyword model inference.")
+            cuda_device = 0
+
+            selected_cuda_device = environ.get("CUDA_DEVICE", None)
+            if selected_cuda_device:
+                cuda_device = selected_cuda_device
+                logger.info(f"CUDA device selected: {selected_cuda_device}")
+            else:
+                logger.info(f"No specific CUDA device selected. Using default device {cuda_device}.")
+
+            device = f"cuda:{cuda_device}"
+
+        logger.info("Loading keyword extraction model...")
+        model = SentenceTransformer(
+            model_name_or_path="all-MiniLM-L6-v2",
+            cache_folder=model_cache_dir,
+            device=device
+        )
+
         return model
 
 def get_embedding(cache_dir, model: SentenceTransformer, text):
