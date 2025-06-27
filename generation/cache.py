@@ -213,7 +213,7 @@ def get_model_name_for_cache(model):
         model_name = "unknown_model"
     
     # Sanitize the model name for use in file paths
-    sanitized_name = sanitize_name(model_name)
+    sanitized_name = model_name.replace("/", "_").replace("\\", "_").replace(":", "_").replace(" ", "_")
     return sanitized_name
 
 def read_embedding_cache(cache_dir, sha256hash: str, model):
