@@ -7,30 +7,31 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = join(__dirname, '..');
 
 interface VersionInfo {
-  version: string;
+  tag: string,
+  short: string,
   buildTime: string;
 }
 
-const makeDirty = true
 const outputDir = join(projectRoot, 'src/lib/generated');
 const outputFile = join(outputDir, 'version.ts');
 
-let version: string;
+let tag: string;
+let short: string;
 
 try {
-  // Use git-rev-sync with project root path
-  const tag = gitRevSync.tag(makeDirty);
-  const short = gitRevSync.short(projectRoot);
+  tag = gitRevSync.tag();
+  short = gitRevSync.short(projectRoot);
   
-  version = tag ? `${tag}-${short}` : short;
 } catch (error) {
   console.warn('Git command failed:', error instanceof Error ? error.message : String(error));
   console.warn('Using fallback version');
-  version = 'unknown';
+  tag = 'unknown';
+  short = 'unknown';
 }
 
 const versionInfo: VersionInfo = {
-  version,
+  tag,
+  short,
   buildTime: new Date().toISOString()
 };
 
@@ -43,4 +44,4 @@ mkdirSync(outputDir, { recursive: true });
 
 writeFileSync(outputFile, content);
 
-console.log(`Generated version info: ${version}`);
+console.log(`Generated version info: ${tag} (${short}) at ${outputFile}`);

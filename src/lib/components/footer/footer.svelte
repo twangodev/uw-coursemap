@@ -19,7 +19,7 @@
         <FooterLink href="https://docs.uwcourses.com/team">contributors</FooterLink>
       </p>
       <p class="text-xs">
-        Last synced 4 days ago • {VERSION_INFO.version}
+        Last synced 4 days ago • {VERSION_INFO.tag} - {VERSION_INFO.short}
       </p>
     </div>
     <div
