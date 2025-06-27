@@ -3,6 +3,12 @@
   import { VERSION_INFO } from "$lib/generated/version";
 
   const { tag, short } = VERSION_INFO;
+  
+  interface Props {
+    lastSynced: string;
+  }
+  
+  let { lastSynced }: Props = $props();
 </script>
 
 <footer
@@ -21,7 +27,7 @@
         <FooterLink href="https://docs.uwcourses.com/team">contributors</FooterLink>
       </p>
       <p class="text-xs">
-        Last synced 4 days ago •
+        Last synced {lastSynced} •
         <FooterLink href="https://github.com/twangodev/uw-coursemap/releases/tag/{tag}">{tag}</FooterLink>
         -
         <FooterLink href="https://github.com/twangodev/uw-coursemap/commit/{short}">{short}</FooterLink>
