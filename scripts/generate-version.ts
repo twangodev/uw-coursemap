@@ -1,4 +1,4 @@
-import gitRevSync from 'git-rev-sync';
+import * as gitRevSync from 'git-rev-sync';
 import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -11,48 +11,36 @@ interface VersionInfo {
   buildTime: string;
 }
 
-const makeDirty = true;
+const makeDirty = true
+const outputDir = join(projectRoot, 'src/lib/generated');
+const outputFile = join(outputDir, 'version.ts');
+
+let version: string;
 
 try {
-  // Try to get git tag with commit info
+  // Use git-rev-sync with project root path
   const tag = gitRevSync.tag(makeDirty);
-  const version: string = tag ? 
-    `${tag}-${gitRevSync.count()}-g${gitRevSync.short(projectRoot)}` : 
-    gitRevSync.short(projectRoot);
+  const short = gitRevSync.short(projectRoot);
   
-  const versionInfo: VersionInfo = {
-    version,
-    buildTime: new Date().toISOString()
-  };
+  version = tag ? `${tag}-${short}` : short;
+} catch (error) {
+  console.warn('Git command failed:', error instanceof Error ? error.message : String(error));
+  console.warn('Using fallback version');
+  version = 'unknown';
+}
 
-  const content = `// This file is auto-generated during build
+const versionInfo: VersionInfo = {
+  version,
+  buildTime: new Date().toISOString()
+};
+
+const content = `// This file is auto-generated during build
 export const VERSION_INFO = ${JSON.stringify(versionInfo, null, 2)} as const;
 `;
 
-  // Ensure directory exists
-  mkdirSync(join(__dirname, '../src/lib/generated'), { recursive: true });
-  
-  writeFileSync(
-    join(__dirname, '../src/lib/generated/version.ts'),
-    content
-  );
+// Ensure directory exists
+mkdirSync(outputDir, { recursive: true });
 
-  console.log(`Generated version info: ${version}`);
-} catch (error) {
-  console.error('Failed to generate version info:', error);
-  
-  // Fallback
-  const fallbackInfo: VersionInfo = {
-    version: 'unknown',
-    buildTime: new Date().toISOString()
-  };
+writeFileSync(outputFile, content);
 
-  const content = `// This file is auto-generated during build (fallback)
-export const VERSION_INFO = ${JSON.stringify(fallbackInfo, null, 2)} as const;
-`;
-
-  writeFileSync(
-    join(__dirname, '../src/lib/generated/version.ts'),
-    content
-  );
-}
+console.log(`Generated version info: ${version}`);
