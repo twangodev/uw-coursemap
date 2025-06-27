@@ -178,12 +178,73 @@ def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: s
         return None
 
 
-def read_embedding_cache(cache_dir, sha256hash: str):
-    return read_embedding(cache_dir, ("embeddings",), sha256hash)
+def get_model_name_for_cache(model):
+    """
+    Extract a safe model name for caching purposes.
+    
+    Args:
+        model: SentenceTransformer model instance
+        
+    Returns:
+        str: A sanitized model name suitable for directory names
+    """
+    # Try various ways to get the model name from SentenceTransformer
+    model_name = None
+    
+    # Check common attributes where model name might be stored
+    for attr in ['model_name', '_model_name', 'model_name_or_path', '_model_name_or_path']:
+        if hasattr(model, attr):
+            value = getattr(model, attr)
+            if value and isinstance(value, str):
+                model_name = value
+                break
+    
+    # If still no model name found, try to get it from the model card or config
+    if not model_name and hasattr(model, '_modules') and hasattr(model._modules, 'get'):
+        # Try to extract from the first transformer module
+        transformer_module = model._modules.get('0')
+        if transformer_module and hasattr(transformer_module, 'auto_model'):
+            auto_model = transformer_module.auto_model
+            if hasattr(auto_model, 'name_or_path'):
+                model_name = auto_model.name_or_path
+    
+    # Final fallback
+    if not model_name:
+        model_name = "unknown_model"
+    
+    # Sanitize the model name for use in file paths
+    sanitized_name = model_name.replace("/", "_").replace("\\", "_").replace(":", "_").replace(" ", "_")
+    return sanitized_name
 
+def read_embedding_cache(cache_dir, sha256hash: str, model):
+    """
+    Read cached embedding from model-specific subdirectory.
+    
+    Args:
+        cache_dir: Cache directory
+        sha256hash: Hash of the text
+        model: Model instance for per-model caching
+        
+    Returns:
+        Cached embedding or None
+    """
+    model_name = get_model_name_for_cache(model)
+    directory_tuple = ("embeddings", model_name)
+    return read_embedding(cache_dir, directory_tuple, sha256hash)
 
-def write_embedding_cache(cache_dir, sha256hash: str, embedding):
-    write_embedding(cache_dir, ("embeddings",), sha256hash, embedding)
+def write_embedding_cache(cache_dir, sha256hash: str, embedding, model):
+    """
+    Write embedding to cache in model-specific subdirectory.
+    
+    Args:
+        cache_dir: Cache directory
+        sha256hash: Hash of the text
+        embedding: Embedding to cache
+        model: Model instance for per-model caching
+    """
+    model_name = get_model_name_for_cache(model)
+    directory_tuple = ("embeddings", model_name)
+    write_embedding(cache_dir, directory_tuple, sha256hash, embedding)
 
 def write_new_terms_cache(cache_dir, new_terms):
     """
