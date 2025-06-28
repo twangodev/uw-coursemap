@@ -5,6 +5,8 @@
     import 'maplibre-gl/dist/maplibre-gl.css';
     import { MapboxOverlay } from '@deck.gl/mapbox';
     import {MVTLayer} from "@deck.gl/geo-layers";
+    import {GeoJsonLayer} from "deck.gl";
+    import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
 
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
@@ -19,6 +21,7 @@
     type PropertiesType = {
         layerName: string,
         render_height?: number;
+        colour?: string;
     };
 
     onMount(async () => {
@@ -37,7 +40,8 @@
 
         console.log(map.getStyle())
 
-        const allLayers = new Set<string>();
+        const BUILDING_DATA =
+            'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/google-3d-tiles/buildings.geojson';
 
         const buildingLayer = new MVTLayer<PropertiesType>({
             id: 'buildings-mvt',
@@ -50,20 +54,28 @@
             },
             getFillColor: f => {
                 const layerName = f.properties.layerName;
-                allLayers.add(layerName);
                 switch (layerName) {
                     case 'building': return [105,105,105, 128];
                     default:         return [0,0,0,0];
                 }
-            }
+            },
+            operation: 'terrain+draw'
         });
-
-        console.debug("All Available Layers:", Array.from(allLayers).sort());
 
         const deckOverlay = new MapboxOverlay({
             interleaved: true,
             layers: [
-                buildingLayer
+                buildingLayer,
+                new GeoJsonLayer({
+                    id: 'buildings',
+                    data: BUILDING_DATA,
+                    extensions: [new TerrainExtension()],
+                    stroked: false,
+                    filled: true,
+                    getFillColor: ({properties}) => [(properties.distance_to_nearest_tree ?? 0) * 5, 0, 0, 255],
+                    opacity: 0.2,
+                    pickable: true
+                })
             ]
         })
 
