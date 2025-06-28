@@ -1,28 +1,28 @@
 <!-- src/App.svelte -->
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
-    import maplibregl from 'maplibre-gl';
+    import { Map } from 'maplibre-gl';
     import 'maplibre-gl/dist/maplibre-gl.css';
 
     const INITIAL_VIEW_STATE = {
-        longitude: -74,
-        latitude: 40.72,
+        longitude: -89.4012,
+        latitude: 43.0731,
         zoom: 15,    // zoom in a bit so buildings pop
         pitch: 45,
         bearing: 0
     };
 
-    let map;
+    let map: Map;
 
     onMount(() => {
-        map = new maplibregl.Map({
+        map = new Map({
             container: 'map',
-            style:
-                'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
+            style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
             center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
             zoom: INITIAL_VIEW_STATE.zoom,
             pitch: INITIAL_VIEW_STATE.pitch,
-            bearing: INITIAL_VIEW_STATE.bearing
+            bearing: INITIAL_VIEW_STATE.bearing,
+
         });
 
         map.on('load', () => {
@@ -44,7 +44,7 @@
                     // or a static default of 10m
                     'fill-extrusion-height': [
                         'coalesce',
-                        ['*', ['get', 'render_height'], 1],
+                        ['*', ['get', 'render_height'], 2],
                         10
                     ],
                     // use the feature’s `min_height` if present
