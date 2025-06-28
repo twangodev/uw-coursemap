@@ -1,7 +1,7 @@
 <!-- src/App.svelte -->
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Map } from 'maplibre-gl';
+    import maplibregl from 'maplibre-gl';
     import 'maplibre-gl/dist/maplibre-gl.css';
 
     const INITIAL_VIEW_STATE = {
@@ -12,10 +12,10 @@
         bearing: 0
     };
 
-    let map: Map;
+    let map: maplibregl.Map;
 
     onMount(() => {
-        map = new Map({
+        map = new maplibregl.Map({
             container: 'map',
             style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
             center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
