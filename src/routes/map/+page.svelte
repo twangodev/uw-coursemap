@@ -7,6 +7,7 @@
     import {MVTLayer} from "@deck.gl/geo-layers";
     import {GeoJsonLayer} from "deck.gl";
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
+    import {scaleLinear, scaleLog} from 'd3-scale';
 
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
@@ -23,6 +24,14 @@
         render_height?: number;
         colour?: string;
     };
+
+    type BuildingProperties = {
+        person_count?: number;
+        [key: string]: any;
+    };
+
+    // Color scale will be created dynamically based on data
+    let colorScale: ReturnType<typeof scaleLog<number>>;
 
     onMount(async () => {
         map = new maplibregl.Map({
@@ -41,7 +50,7 @@
         console.log(map.getStyle())
 
         const BUILDING_DATA =
-            'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/google-3d-tiles/buildings.geojson';
+            'http://127.0.0.1:5000/map';
 
         const buildingLayer = new MVTLayer<PropertiesType>({
             id: 'buildings-mvt',
@@ -62,17 +71,41 @@
             operation: 'terrain+draw'
         });
 
+        // Fetch GeoJSON data to get metadata
+        const response = await fetch(BUILDING_DATA);
+        const geoJsonData = await response.json();
+        
+        // Extract max_meetings from metadata to set domain
+        const maxMeetings = geoJsonData.metadata?.max_persons || 10_000;
+        console.log('Max meetings from metadata:', maxMeetings);
+        
+        // Create log scale based on actual data range
+        colorScale = scaleLog<number>()
+            .domain([1, maxMeetings])
+            .range([50, 255])
+            .clamp(true);
+
         const deckOverlay = new MapboxOverlay({
             interleaved: true,
             layers: [
                 buildingLayer,
                 new GeoJsonLayer({
                     id: 'buildings',
-                    data: BUILDING_DATA,
+                    data: geoJsonData,
                     extensions: [new TerrainExtension()],
                     stroked: false,
                     filled: true,
-                    getFillColor: ({properties}) => [(properties.distance_to_nearest_tree ?? 0) * 5, 0, 0, 255],
+                    getFillColor: ({properties}: {properties: BuildingProperties}) => {
+                        const personCount = properties.person_count || 0;
+                        if (personCount === 0) {
+                            return [0, 0, 0, 0]; // Transparent for no meetings
+                        }
+                        
+                        // Use d3 log scale to map meeting count to red intensity
+                        const redValue = Math.floor(colorScale(personCount));
+                        
+                        return [redValue, 0, 0, 255]; // Red with alpha
+                    },
                     opacity: 0.2,
                     pickable: true
                 })
