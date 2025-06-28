@@ -12,6 +12,7 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 from data import get_random_courses as get_random_courses_data
+from map import get_buildings_with_meeting_counts, load_meetings_from_url
 
 load_dotenv()
 
@@ -100,6 +101,36 @@ def get_random_courses():
         } for course_id in random_courses_data 
     ]
     return jsonify(random_courses)
+
+@app.route('/map', methods=['GET'])
+def get_map_data():
+    """Returns building data with meeting counts."""
+    
+    # Load meetings data
+    meetings_url = "https://raw.githubusercontent.com/twangodev/uw-coursemap-data/refs/heads/main/meetings/11-17-25.json"
+    meetings = load_meetings_from_url(meetings_url)
+    
+    if not meetings:
+        return jsonify({"error": "Failed to load meetings data"}), 500
+    
+    # Get buildings with meeting counts
+    buildings_with_counts = get_buildings_with_meeting_counts(meetings)
+    
+    # Calculate max persons in a building
+    max_persons = max((f['properties']['person_count'] for f in buildings_with_counts.features), default=0)
+    
+    # Add metadata
+    response_data = {
+        "type": "FeatureCollection",
+        "features": buildings_with_counts.features,
+        "metadata": {
+            "total_buildings": len(buildings_with_counts.features),
+            "total_meetings": len(meetings),
+            "max_persons": max_persons
+        }
+    }
+    
+    return jsonify(response_data)
 
 def clear_elasticsearch():
 
