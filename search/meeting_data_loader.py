@@ -3,28 +3,48 @@ Meeting data loading module.
 Handles fetching meeting data from URLs and other sources.
 """
 
-import urllib.request
 import json
-from typing import List, Dict
+from typing import List, Dict, Optional
+
+import requests
+from cachetools import TTLCache
 
 
 class MeetingDataLoader:
     """Handles loading meeting data from various sources."""
     
-    @staticmethod
-    def load_from_url(url: str) -> List[Dict]:
+    _cache = TTLCache(maxsize=128, ttl=300)  # 5 minutes TTL, 128 max items
+    
+    @classmethod
+    def load_from_url(cls, url: str) -> Optional[List[Dict]]:
         """
-        Load meetings data from a URL.
+        Load meetings data from a URL with time-based caching.
         
         Args:
             url: URL to fetch meeting data from
             
         Returns:
-            List of meeting dictionaries, empty list on error
+            List of meeting dictionaries, None if 404 or other HTTP error
         """
+        # Check cache first
+        if url in cls._cache:
+            return cls._cache[url]
+        
         try:
-            with urllib.request.urlopen(url) as response:
-                return json.loads(response.read().decode())
+            headers = {
+                'User-Agent': 'UW-CourseMap/1.0 (https://uwcourses.com)'
+            }
+            response = requests.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            cls._cache[url] = data
+            return data
+        except requests.exceptions.HTTPError as e:
+            if hasattr(e, 'response') and e.response.status_code == 404:
+                cls._cache[url] = None  # Cache 404s too
+                return None
+            print(f"HTTP error loading meetings from {url}: {e}")
+            return []
         except Exception as e:
             print(f"Error loading meetings from {url}: {e}")
             return []
@@ -49,6 +69,6 @@ class MeetingDataLoader:
 
 
 # Backward compatibility function
-def load_meetings_from_url(url: str) -> List[Dict]:
+def load_meetings_from_url(url: str) -> Optional[List[Dict]]:
     """Load meetings data from a URL (backward compatibility)."""
     return MeetingDataLoader.load_from_url(url)

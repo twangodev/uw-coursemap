@@ -117,7 +117,7 @@
         console.log(map.getStyle())
 
         const BUILDING_DATA =
-            'http://127.0.0.1:5000/map';
+            'http://127.0.0.1:5000/highlight/06-30-25';
 
         const buildingLayer = new MVTLayer<PropertiesType>({
             id: 'buildings-mvt',
