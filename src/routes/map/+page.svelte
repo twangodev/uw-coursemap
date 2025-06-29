@@ -7,10 +7,72 @@
     import {MVTLayer} from "@deck.gl/geo-layers";
     import {GeoJsonLayer} from "deck.gl";
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
-    import {scaleLinear, scaleLog} from 'd3-scale';
-    import {Slider} from "$lib/components/ui/slider";
+    import { scaleLog } from 'd3-scale';
+    import { Slider } from "$lib/components/ui/slider";
 
-    let timeIndex = $state(96)
+    let timeIndex = $state(0);
+    let metadata: any = null;
+    let isPlaying = $state(false);
+    let playInterval: NodeJS.Timeout | null = null;
+
+    // Helper function to format timestamp with timezone
+    function formatDateTime(timeIndex: number): { time: string, date: string, timezone: string, hour: number, minute: number } {
+        if (!metadata) return { time: '--:--', date: '--/--', timezone: '', hour: 0, minute: 0 };
+        
+        const startTime = metadata.start_time;
+        const chunkDuration = metadata.chunk_duration_minutes;
+        const currentTimestamp = startTime + (timeIndex * chunkDuration * 60 * 1000);
+        const date = new Date(currentTimestamp);
+        
+        return {
+            time: date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            }),
+            date: date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric'
+            }),
+            timezone: date.toLocaleTimeString('en-US', {
+                timeZoneName: 'short'
+            }).split(' ').pop() || '',
+            hour: date.getHours() % 12 || 12,
+            minute: date.getMinutes()
+        };
+    }
+
+    // Play/pause functionality
+    function togglePlay() {
+        if (isPlaying) {
+            if (playInterval) {
+                clearInterval(playInterval);
+                playInterval = null;
+            }
+            isPlaying = false;
+        } else {
+            isPlaying = true;
+            playInterval = setInterval(() => {
+                if (timeIndex >= (metadata?.total_chunks - 1 || 191)) {
+                    // Reset to beginning when reaching end
+                    timeIndex = 0;
+                } else {
+                    timeIndex += 1;
+                }
+                renderFunction?.(timeIndex);
+            }, 250); // Play at 2fps (500ms per frame)
+        }
+    }
+
+    // Get current statistics
+    function getCurrentStats(timeIndex: number) {
+        if (!metadata) return { persons: 0, instructors: 0 };
+        
+        return {
+            persons: metadata.total_persons?.[timeIndex] || 0,
+            instructors: metadata.total_instructors?.[timeIndex] || 0
+        };
+    }
 
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
@@ -80,13 +142,16 @@
         const response = await fetch(BUILDING_DATA);
         const geoJsonData = await response.json();
         
-        // Extract max_meetings from metadata to set domain
-        const maxMeetings = geoJsonData.metadata?.max_persons || 10_000;
-        console.log('Max meetings from metadata:', maxMeetings);
+        // Store metadata for reactive updates
+        metadata = geoJsonData.metadata;
+        
+        // Extract max_persons from metadata to set domain
+        const maxPersons = metadata?.max_persons || 10_000;
+        console.log('Max persons from metadata:', maxPersons);
         
         // Create log scale based on actual data range
         colorScale = scaleLog<number>()
-            .domain([1, maxMeetings])
+            .domain([1, maxPersons])
             .range([50, 255])
             .clamp(true);
 
@@ -140,39 +205,68 @@
         render(timeIndex)
         renderFunction = render;
 
-        // map.addLayer({
-        //     id: '3d-buildings',
-        //     // replace `openmaptiles` below with the actual source name you see in your style
-        //     source: 'carto',
-        //     'source-layer': 'building',
-        //     type: 'fill-extrusion',
-        //     minzoom: 0,
-        //     paint: {
-        //         'fill-extrusion-color': '#666',
-        //         // use the feature’s `height` property if present,
-        //         // otherwise fall back to `levels * 3m`,
-        //         // or a static default of 10m
-        //         'fill-extrusion-height': [
-        //             'coalesce',
-        //             ['*', ['get', 'render_height'], 2],
-        //             10
-        //         ],
-        //         // use the feature’s `min_height` if present
-        //         'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
-        //         'fill-extrusion-opacity': 0.5
-        //     }
-        // });
     });
 </script>
 
 <div class="relative grow">
     <div id="map" class="relative h-full w-full"></div>
-    <Slider type="single" bind:value={timeIndex} max={192} onValueChange={() => {
-        console.log('Time index changed:', timeIndex);
-        // Trigger any additional updates needed when time index changes
-
-        renderFunction(timeIndex)
-
-
-    }}></Slider>
+    
+    <!-- Video-style control bar -->
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-md rounded-full px-6 py-3 flex items-center gap-4">
+        <!-- Play Button -->
+        <button 
+            onclick={togglePlay}
+            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+        >
+            {#if isPlaying}
+                <!-- Pause icon -->
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+            {:else}
+                <!-- Play icon -->
+                <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            {/if}
+        </button>
+        
+        <!-- Time and Date -->
+        <div class="flex flex-col items-center min-w-20">
+            <div class="text-white font-mono text-sm">
+                {formatDateTime(timeIndex).time}
+            </div>
+            <div class="text-gray-300 text-xs">
+                {formatDateTime(timeIndex).date} {formatDateTime(timeIndex).timezone}
+            </div>
+        </div>
+        
+        <!-- Slider -->
+        <div class="flex-1 min-w-64">
+            <Slider
+                type="single"
+                bind:value={timeIndex}
+                max={metadata?.total_chunks - 1 || 191}
+                onValueChange={() => {
+                    renderFunction?.(timeIndex);
+                }}
+            />
+        </div>
+        
+        <!-- Statistics -->
+        <div class="flex gap-4 text-xs">
+            <div class="flex flex-col items-center">
+                <div class="text-blue-300 font-semibold">
+                    {getCurrentStats(timeIndex).persons.toLocaleString()}
+                </div>
+                <div class="text-gray-400">Persons</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="text-green-300 font-semibold">
+                    {getCurrentStats(timeIndex).instructors.toLocaleString()}
+                </div>
+                <div class="text-gray-400">Instructors</div>
+            </div>
+        </div>
+    </div>
 </div>
