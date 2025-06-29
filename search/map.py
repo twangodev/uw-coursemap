@@ -168,11 +168,22 @@ def get_buildings_with_meeting_counts(meetings_data):
     for i, feature in enumerate(buildings_geojson.features):
         data = building_data.get(i, {'persons': 0, 'instructors': 0})
         
-        # Add counts to feature properties
-        if 'properties' not in feature:
-            feature['properties'] = {}
-        feature['properties']['person_count'] = data['persons']
-        feature['properties']['instructor_count'] = data['instructors']
+        # Clean up properties - remove null/empty values and keep only essential fields
+        original_props = feature.get('properties', {})
+        cleaned_props = {}
+        
+        # Keep only essential properties that have values
+        essential_fields = ['building', 'name', '@id', 'addr:street', 'addr:housenumber']
+        for field in essential_fields:
+            value = original_props.get(field)
+            if value is not None and value != '' and value != 'None':
+                cleaned_props[field] = value
+        
+        # Add our computed counts
+        cleaned_props['person_count'] = data['persons']
+        cleaned_props['instructor_count'] = data['instructors']
+        
+        feature['properties'] = cleaned_props
         
         # Expand the building geometry by approximately 1 meter
         # Using a small buffer in degrees (roughly 1 meter = ~0.000009 degrees at this latitude)
@@ -210,7 +221,11 @@ def load_meetings_from_url(url):
 # The result contains buildings with person and instructor counts
 # Each building feature will have:
 # - geometry: Building polygon/multipolygon (expanded by ~1 meter)
-# - properties: Building attributes including:
+# - properties: Cleaned building attributes (null fields removed) including:
+#   - 'building': Building type (e.g., 'university')
+#   - 'name': Building name (if available)
+#   - '@id': OSM identifier
+#   - 'addr:street', 'addr:housenumber': Address info (if available)
 #   - 'person_count': Total enrollment (current_enrollment) across all meetings
 #   - 'instructor_count': Total unique instructor count across all meetings
 #
