@@ -7,18 +7,24 @@ import json
 from typing import List, Dict, Optional
 
 import requests
-from cachetools import TTLCache
+import requests_cache
 
 
 class MeetingDataLoader:
     """Handles loading meeting data from various sources."""
     
-    _cache = TTLCache(maxsize=128, ttl=300)  # 5 minutes TTL, 128 max items
+    # Initialize requests-cache session
+    _session = requests_cache.CachedSession(
+        cache_name='meeting_cache',
+        backend='memory',
+        expire_after=None,  # Respect Cache-Control headers
+        allowable_codes=[200, 404]  # Cache successful responses and 404s
+    )
     
     @classmethod
     def load_from_url(cls, url: str) -> Optional[List[Dict]]:
         """
-        Load meetings data from a URL with time-based caching.
+        Load meetings data from a URL with Cache-Control header respect.
         
         Args:
             url: URL to fetch meeting data from
@@ -26,22 +32,16 @@ class MeetingDataLoader:
         Returns:
             List of meeting dictionaries, None if 404 or other HTTP error
         """
-        # Check cache first
-        if url in cls._cache:
-            return cls._cache[url]
         
         try:
             headers = {
                 'User-Agent': 'UW-CourseMap/1.0 (https://uwcourses.com)'
             }
-            response = requests.get(url, headers=headers, timeout=30)
+            response = cls._session.get(url, headers=headers, timeout=30)
             response.raise_for_status()
-            data = response.json()
-            cls._cache[url] = data
-            return data
+            return response.json()
         except requests.exceptions.HTTPError as e:
-            if hasattr(e, 'response') and e.response.status_code == 404:
-                cls._cache[url] = None  # Cache 404s too
+            if e.response.status_code == 404:
                 return None
             print(f"HTTP error loading meetings from {url}: {e}")
             return []
