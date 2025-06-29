@@ -130,12 +130,6 @@ class MapDataProcessor:
         }
 
 
-# Backward compatibility - create global instances
+# Global instance for app.py usage
 _processor = MapDataProcessor()
 get_buildings_with_meeting_counts = _processor.get_buildings_with_meeting_counts
-
-# Re-export other functions for backward compatibility
-from spatial_query import find_buildings_containing_points, find_building_at_coordinate
-from meeting_data_loader import load_meetings_from_url
-from building_loader import _loader
-get_building_stats = _loader.get_building_stats
