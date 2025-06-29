@@ -12,7 +12,8 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 from data import get_random_courses as get_random_courses_data
-from map import get_buildings_with_meeting_counts, load_meetings_from_url
+from map import get_buildings_with_meeting_counts
+from meeting_data_loader import load_meetings_from_url
 
 load_dotenv()
 
