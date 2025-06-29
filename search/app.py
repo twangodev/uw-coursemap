@@ -113,20 +113,23 @@ def get_map_data():
     if not meetings:
         return jsonify({"error": "Failed to load meetings data"}), 500
     
-    # Get buildings with meeting counts
-    buildings_with_counts = get_buildings_with_meeting_counts(meetings)
+    # Get buildings with time-chunked counts and aggregated metadata
+    buildings_with_counts, time_metadata = get_buildings_with_meeting_counts(meetings)
     
-    # Calculate max persons in a building
-    max_persons = max((f['properties']['person_count'] for f in buildings_with_counts.features), default=0)
-    
-    # Add metadata
+    # Add metadata including time information and pre-calculated aggregated totals
     response_data = {
         "type": "FeatureCollection",
         "features": buildings_with_counts.features,
         "metadata": {
             "total_buildings": len(buildings_with_counts.features),
             "total_meetings": len(meetings),
-            "max_persons": max_persons
+            "max_persons": time_metadata.get('max_persons', 0),
+            "total_chunks": time_metadata.get('total_chunks', 0),
+            "chunk_duration_minutes": time_metadata.get('chunk_duration_minutes', 5),
+            "start_time": time_metadata.get('start_time'),
+            "end_time": time_metadata.get('end_time'),
+            "total_persons": time_metadata.get('total_persons', []),
+            "total_instructors": time_metadata.get('total_instructors', [])
         }
     }
     

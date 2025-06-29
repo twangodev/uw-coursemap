@@ -8,6 +8,9 @@
     import {GeoJsonLayer} from "deck.gl";
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
     import {scaleLinear, scaleLog} from 'd3-scale';
+    import {Slider} from "$lib/components/ui/slider";
+
+    let timeIndex = $state(96)
 
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
@@ -32,7 +35,9 @@
 
     // Color scale will be created dynamically based on data
     let colorScale: ReturnType<typeof scaleLog<number>>;
+    let deckOverlay: MapboxOverlay;
 
+    let renderFunction: (time: number) => void;
     onMount(async () => {
         map = new maplibregl.Map({
             container: 'map',
@@ -85,9 +90,14 @@
             .range([50, 255])
             .clamp(true);
 
-        const deckOverlay = new MapboxOverlay({
+
+        deckOverlay = new MapboxOverlay({
             interleaved: true,
-            layers: [
+        })
+
+
+        function render(time: number) {
+            let layers = [
                 buildingLayer,
                 new GeoJsonLayer({
                     id: 'buildings',
@@ -96,23 +106,39 @@
                     stroked: false,
                     filled: true,
                     getFillColor: ({properties}: {properties: BuildingProperties}) => {
-                        const personCount = properties.person_count || 0;
+                        const personCount = properties.person_counts[timeIndex] || 0;
                         if (personCount === 0) {
                             return [0, 0, 0, 0]; // Transparent for no meetings
                         }
-                        
+
                         // Use d3 log scale to map meeting count to red intensity
                         const redValue = Math.floor(colorScale(personCount));
-                        
+
                         return [redValue, 0, 0, 255]; // Red with alpha
                     },
                     opacity: 0.2,
-                    pickable: true
+                    pickable: true,
+                    updateTriggers: {
+                        getFillColor: time
+                    }
                 })
             ]
-        })
+
+            deckOverlay.setProps({
+                layers: layers,
+                getCursor: ({isHovering}) => isHovering ? 'pointer' : 'grab',
+                onClick: ({object}) => {
+                    if (object) {
+                        console.log('Clicked object:', object);
+                    }
+                }
+            });
+        }
 
         map.addControl(deckOverlay);
+
+        render(timeIndex)
+        renderFunction = render;
 
         // map.addLayer({
         //     id: '3d-buildings',
@@ -139,4 +165,14 @@
     });
 </script>
 
-<div id="map" class="relative grow"></div>
+<div class="relative grow">
+    <div id="map" class="relative h-full w-full"></div>
+    <Slider type="single" bind:value={timeIndex} max={192} onValueChange={() => {
+        console.log('Time index changed:', timeIndex);
+        // Trigger any additional updates needed when time index changes
+
+        renderFunction(timeIndex)
+
+
+    }}></Slider>
+</div>
