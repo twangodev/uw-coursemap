@@ -9,11 +9,31 @@
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
     import { scaleLog } from 'd3-scale';
     import { Slider } from "$lib/components/ui/slider";
+    import { Calendar } from "$lib/components/ui/calendar";
+    import { Popover, PopoverContent, PopoverTrigger } from "$lib/components/ui/popover";
+    import { DateFormatter, getLocalTimeZone, today } from "@internationalized/date";
 
     let timeIndex = $state(0);
-    let metadata: any = null;
+    let metadata = $state<any>(null);
     let isPlaying = $state(false);
     let playInterval: NodeJS.Timeout | null = null;
+    let selectedDate = $state(today(getLocalTimeZone())); // Default to today using CalendarDate
+    let selectedJSDate = $state(new Date()); // JavaScript Date for API calls
+    let currentGeoJsonData = $state<any>(null);
+    let calendarOpen = $state(false);
+    
+    const df = new DateFormatter("en-US", {
+        dateStyle: "medium"
+    });
+
+    // Format date for API endpoint (MM-DD-YY format)
+    function formatDateForAPI(date: Date): string {
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2);
+        return `${month}-${day}-${year}`;
+    }
+
 
     // Helper function to format timestamp with timezone
     function formatDateTime(timeIndex: number): { time: string, date: string, timezone: string, hour: number, minute: number } {
@@ -74,6 +94,50 @@
         };
     }
 
+    // Function to change date and reload data
+    async function changeDate(newDate: Date) {
+        selectedJSDate = newDate;
+        timeIndex = 0; // Reset to beginning
+        isPlaying = false; // Stop playback
+        if (playInterval) {
+            clearInterval(playInterval);
+            playInterval = null;
+        }
+        
+        // Reload data for the new date
+        const newData = await loadDataForDate(selectedJSDate);
+        currentGeoJsonData = newData;
+        
+        // Re-render with new data
+        if (renderFunction) {
+            renderFunction(timeIndex);
+        }
+    }
+
+    // Define loadDataForDate at top level
+    async function loadDataForDate(date: Date) {
+        const dateStr = formatDateForAPI(date);
+        const BUILDING_DATA = `http://127.0.0.1:5000/highlight/${dateStr}`;
+        
+        const response = await fetch(BUILDING_DATA);
+        const geoJsonData = await response.json();
+        
+        // Store metadata for reactive updates
+        metadata = geoJsonData.metadata;
+        
+        // Extract max_persons from metadata to set domain
+        const maxPersons = metadata?.max_persons || 10_000;
+        console.log('Max persons from metadata:', maxPersons);
+        
+        // Create log scale based on actual data range
+        colorScale = scaleLog<number>()
+            .domain([1, maxPersons])
+            .range([50, 255])
+            .clamp(true);
+
+        return geoJsonData;
+    }
+
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
         latitude: 43.0731,
@@ -116,9 +180,6 @@
 
         console.log(map.getStyle())
 
-        const BUILDING_DATA =
-            'http://127.0.0.1:5000/highlight/06-30-25';
-
         const buildingLayer = new MVTLayer<PropertiesType>({
             id: 'buildings-mvt',
             data: tileUrls,
@@ -138,35 +199,19 @@
             operation: 'terrain+draw'
         });
 
-        // Fetch GeoJSON data to get metadata
-        const response = await fetch(BUILDING_DATA);
-        const geoJsonData = await response.json();
-        
-        // Store metadata for reactive updates
-        metadata = geoJsonData.metadata;
-        
-        // Extract max_persons from metadata to set domain
-        const maxPersons = metadata?.max_persons || 10_000;
-        console.log('Max persons from metadata:', maxPersons);
-        
-        // Create log scale based on actual data range
-        colorScale = scaleLog<number>()
-            .domain([1, maxPersons])
-            .range([50, 255])
-            .clamp(true);
-
+        // Load initial data
+        currentGeoJsonData = await loadDataForDate(selectedJSDate);
 
         deckOverlay = new MapboxOverlay({
             interleaved: true,
         })
-
 
         function render(time: number) {
             let layers = [
                 buildingLayer,
                 new GeoJsonLayer({
                     id: 'buildings',
-                    data: geoJsonData,
+                    data: currentGeoJsonData,
                     extensions: [new TerrainExtension()],
                     stroked: false,
                     filled: true,
@@ -200,6 +245,7 @@
             });
         }
 
+
         map.addControl(deckOverlay);
 
         render(timeIndex)
@@ -210,6 +256,7 @@
 
 <div class="relative grow">
     <div id="map" class="relative h-full w-full"></div>
+    
     
     <!-- Video-style control bar -->
     <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-md rounded-full px-6 py-3 flex items-center gap-4">
@@ -231,14 +278,38 @@
             {/if}
         </button>
         
-        <!-- Time and Date -->
+        <!-- Time and Date with Calendar Popover -->
         <div class="flex flex-col items-center min-w-20">
             <div class="text-white font-mono text-sm">
                 {formatDateTime(timeIndex).time}
             </div>
-            <div class="text-gray-300 text-xs">
-                {formatDateTime(timeIndex).date} {formatDateTime(timeIndex).timezone}
-            </div>
+            <Popover bind:open={calendarOpen}>
+                <PopoverTrigger>
+                    <button class="text-gray-300 text-xs hover:text-white transition-colors cursor-pointer">
+                        {formatDateTime(timeIndex).date}
+                    </button>
+                </PopoverTrigger>
+                <PopoverContent class="w-auto p-4" align="center" side="top">
+                    <Calendar
+                        type="single"
+                        bind:value={selectedDate}
+                        captionLayout="dropdown"
+                        onValueChange={(value) => {
+                            if (value) {
+                                // Convert CalendarDate to JavaScript Date
+                                selectedJSDate = new Date(value.year, value.month - 1, value.day);
+                                changeDate(selectedJSDate);
+                                calendarOpen = false;
+                            }
+                        }}
+                    />
+                    <div class="text-center mt-3 pt-3 border-t">
+                        <p class="text-xs text-muted-foreground">
+                            All times displayed in {Intl.DateTimeFormat().resolvedOptions().timeZone}
+                        </p>
+                    </div>
+                </PopoverContent>
+            </Popover>
         </div>
         
         <!-- Slider -->
