@@ -130,12 +130,19 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     Chunks all meetings purely by date without any other grouping.
     
     Directory structure: /meetings/MM-DD-YY.json
+    Also creates an index.json file with date mappings and statistics.
     """
     # Use US/Central timezone which automatically handles DST
     central_tz = ZoneInfo("US/Central")
     
     # Group meetings by date
     date_meetings = defaultdict(list)
+    # Track unique buildings per date for index.json
+    date_buildings = defaultdict(set)
+    # Track unique instructors per date for index.json
+    date_instructors = defaultdict(set)
+    # Track total students per date for index.json
+    date_students = defaultdict(int)
     
     # Flatten all meetings from all courses
     all_meetings = []
@@ -163,6 +170,19 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         
         # Add meeting to the appropriate date bucket
         date_meetings[date_filename].append(meeting)
+        
+        # Track unique buildings for this date
+        if meeting.location and meeting.location.building:
+            date_buildings[date_filename].add(meeting.location.building)
+        
+        # Track unique instructors for this date
+        if meeting.instructors:
+            for instructor in meeting.instructors:
+                date_instructors[date_filename].add(instructor)
+        
+        # Track total students for this date
+        if meeting.current_enrollment:
+            date_students[date_filename] += meeting.current_enrollment
     
     # Write meetings for each date to flat files and generate GeoJSON building highlights
     files_written = 0
@@ -187,8 +207,23 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         except Exception as e:
             logger.error(f"Failed to generate building highlights for {date_filename}: {e}")
     
+    # Create index.json with date mappings and statistics
+    index_data = {}
+    for date_filename in date_meetings.keys():
+        index_data[date_filename] = {
+            "total_buildings": len(date_buildings[date_filename]),
+            "total_meetings": len(date_meetings[date_filename]),
+            "total_instructors": len(date_instructors[date_filename]),
+            "total_students": date_students[date_filename]
+        }
+    
+    # Write index.json file
+    directory_tuple = ("meetings",)
+    write_file(data_dir, directory_tuple, "index", index_data)
+    
     logger.info(f"Wrote {files_written} meeting files organized purely by date")
     logger.info(f"Wrote {geojson_files_written} building highlight GeoJSON files")
+    logger.info(f"Created index.json with {len(index_data)} date entries")
 
 def convert_keys_to_str(data):
     if isinstance(data, dict):
