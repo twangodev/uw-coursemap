@@ -138,6 +138,10 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     date_meetings = defaultdict(list)
     # Track unique buildings per date for index.json
     date_buildings = defaultdict(set)
+    # Track unique instructors per date for index.json
+    date_instructors = defaultdict(set)
+    # Track total students per date for index.json
+    date_students = defaultdict(int)
     
     # Flatten all meetings from all courses
     all_meetings = []
@@ -169,6 +173,15 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         # Track unique buildings for this date
         if meeting.location and meeting.location.building:
             date_buildings[date_filename].add(meeting.location.building)
+        
+        # Track unique instructors for this date
+        if meeting.instructors:
+            for instructor in meeting.instructors:
+                date_instructors[date_filename].add(instructor)
+        
+        # Track total students for this date
+        if meeting.current_enrollment:
+            date_students[date_filename] += meeting.current_enrollment
     
     # Write meetings for each date to flat files
     files_written = 0
@@ -181,7 +194,10 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     index_data = {}
     for date_filename in date_meetings.keys():
         index_data[date_filename] = {
-            "total_buildings": len(date_buildings[date_filename])
+            "total_buildings": len(date_buildings[date_filename]),
+            "total_meetings": len(date_meetings[date_filename]),
+            "total_instructors": len(date_instructors[date_filename]),
+            "total_students": date_students[date_filename]
         }
     
     # Write index.json file
