@@ -195,10 +195,26 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
         files_written += 1
 
+        building_geojson, metadata = get_buildings(meetings_for_date)
 
-        building_geojson = get_buildings(meetings_for_date)
+        full_geojson = {
+            "type": "FeatureCollection",
+            "features": building_geojson.features,
+            "metadata": {
+                "total_buildings": len(building_geojson.features),
+                "total_meetings": len(meetings_for_date),
+                "max_persons": metadata.get('max_persons', 0),
+                "total_chunks": metadata.get('total_chunks', 0),
+                "chunk_duration_minutes": metadata.get('chunk_duration_minutes', 5),
+                "start_time": metadata.get('start_time'),
+                "end_time": metadata.get('end_time'),
+                "total_persons": metadata.get('total_persons', []),
+                "total_instructors": metadata.get('total_instructors', [])
+            }
+        }
+
         if building_geojson:
-            write_geojson_file(data_dir, directory_tuple, date_filename, building_geojson)
+            write_geojson_file(data_dir, directory_tuple, date_filename, full_geojson)
             geojson_files_written += 1
         else:
             logger.warning(f"No building highlights generated for {date_filename}")
