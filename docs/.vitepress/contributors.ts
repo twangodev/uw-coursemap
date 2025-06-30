@@ -155,18 +155,18 @@ async function fetchContributors(
       (contributor) => !maintainerGithubUsernames.includes(contributor.login),
     );
 
-    // Sort by lines contributed (descending), then by contributions if lines are equal
+    // Sort by contributions (commits) first, then by lines if contributions are equal
     return filteredContributors.sort((a, b) => {
-      const linesA = a.lines || 0;
-      const linesB = b.lines || 0;
+      const contributionsA = a.contributions || 0;
+      const contributionsB = b.contributions || 0;
 
-      // If lines are equal, sort by contributions
-      if (linesA === linesB) {
-        return (b.contributions || 0) - (a.contributions || 0);
+      // If contributions are equal, sort by lines
+      if (contributionsA === contributionsB) {
+        return (b.lines || 0) - (a.lines || 0);
       }
 
-      // Otherwise, sort by lines
-      return linesB - linesA;
+      // Otherwise, sort by contributions (commits)
+      return contributionsB - contributionsA;
     });
   } catch (error) {
     console.error("Error fetching GitHub contributors:", error);
