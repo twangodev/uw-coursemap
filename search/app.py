@@ -1,6 +1,4 @@
 import logging
-import random
-import re
 from argparse import ArgumentParser
 from os import environ
 
@@ -13,8 +11,6 @@ from flask_cors import CORS
 from data import get_instructors, get_courses, get_subjects, normalize_text
 from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
 from data import get_random_courses as get_random_courses_data
-from map import get_buildings_with_meeting_counts
-from meeting_data_loader import load_meetings_from_url
 
 load_dotenv()
 
@@ -22,7 +18,6 @@ ELASTIC_HOST = environ.get("ELASTIC_HOST")
 ELASTIC_USERNAME = environ.get("ELASTIC_USERNAME")
 ELASTIC_PASSWORD = environ.get("ELASTIC_PASSWORD")
 ELASTIC_VERIFY_CERTS = environ.get("ELASTIC_VERIFY_CERTS")
-PUBLIC_API_URL = environ.get("PUBLIC_API_URL", "https://static.uwcourses.com")
 
 if not ELASTIC_HOST:
     raise EnvironmentError("ELASTIC_HOST environment variable not set")
@@ -104,46 +99,6 @@ def get_random_courses():
         } for course_id in random_courses_data 
     ]
     return jsonify(random_courses)
-
-@app.route('/highlight/<date>', methods=['GET'])
-def get_highlight_data(date):
-    """Returns building GeoJSON data with meeting counts for a specific date."""
-    
-    # Validate date format (MM-DD-YY)
-    if not re.match(r'^\d{2}-\d{2}-\d{2}$', date):
-        return jsonify({"error": "Invalid date format. Expected MM-DD-YY"}), 400
-    
-    # Construct meetings URL using the date parameter
-    meetings_url = f"{PUBLIC_API_URL}/meetings/{date}.json"
-    meetings = load_meetings_from_url(meetings_url)
-    
-    if meetings is None:
-        return jsonify({"error": "Meetings data not found"}), 404
-    
-    if not meetings:
-        return jsonify({"error": "Failed to load meetings data"}), 500
-    
-    # Get buildings with time-chunked counts
-    buildings_with_counts, time_metadata = get_buildings_with_meeting_counts(meetings)
-    
-    # Return GeoJSON with metadata
-    response_data = {
-        "type": "FeatureCollection",
-        "features": buildings_with_counts.features,
-        "metadata": {
-            "total_buildings": len(buildings_with_counts.features),
-            "total_meetings": len(meetings),
-            "max_persons": time_metadata.get('max_persons', 0),
-            "total_chunks": time_metadata.get('total_chunks', 0),
-            "chunk_duration_minutes": time_metadata.get('chunk_duration_minutes', 5),
-            "start_time": time_metadata.get('start_time'),
-            "end_time": time_metadata.get('end_time'),
-            "total_persons": time_metadata.get('total_persons', []),
-            "total_instructors": time_metadata.get('total_instructors', [])
-        }
-    }
-    
-    return jsonify(response_data)
 
 def clear_elasticsearch():
 
