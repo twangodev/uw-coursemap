@@ -81,6 +81,8 @@ class MeetingProcessor:
                 continue
             
             longitude, latitude = coords
+            if longitude is None or latitude is None:
+                continue
             if not (-180 <= longitude <= 180 and -90 <= latitude <= 90):
                 continue
                 
