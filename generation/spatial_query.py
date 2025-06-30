@@ -5,8 +5,7 @@ Handles point-in-polygon queries and building lookups.
 
 import geojson
 from shapely.geometry import Point
-from typing import List, Tuple
-from functools import lru_cache
+from typing import List, Tuple, Dict, Set
 from building_loader import buildings_gdf
 
 
@@ -15,8 +14,8 @@ class SpatialQueryEngine:
 
     def __init__(self, buildings_data=None):
         self.buildings_gdf = buildings_data if buildings_data is not None else buildings_gdf
+        self._point_cache: Dict[Tuple[float, float], Set[int]] = {}
 
-    @lru_cache(maxsize=512)
     def _find_buildings_for_coordinates_tuple(self, coordinates_tuple: Tuple[Tuple[float, float], ...]) -> str:
         """
         Cached helper method for finding buildings containing coordinates.
@@ -28,15 +27,26 @@ class SpatialQueryEngine:
 
         matching_indices = set()
 
-        # Use spatial index for fast lookups
+        # Use spatial index for fast lookups with caching
         for point in points:
-            # Get candidates using spatial index (fast bounding box check)
-            possible_matches_index = list(self.buildings_gdf.sindex.intersection(point.bounds))
-
-            # Precise containment check for candidates
-            for idx in possible_matches_index:
-                if self.buildings_gdf.geometry.iloc[idx].contains(point):
-                    matching_indices.add(idx)
+            point_coord = (point.x, point.y)
+            
+            # Check cache first
+            if point_coord in self._point_cache:
+                matching_indices.update(self._point_cache[point_coord])
+            else:
+                # Get candidates using spatial index (fast bounding box check)
+                possible_matches_index = list(self.buildings_gdf.sindex.intersection(point.bounds))
+                
+                # Precise containment check for candidates
+                point_matches = set()
+                for idx in possible_matches_index:
+                    if self.buildings_gdf.geometry.iloc[idx].contains(point):
+                        point_matches.add(idx)
+                
+                # Cache the result for this point
+                self._point_cache[point_coord] = point_matches
+                matching_indices.update(point_matches)
 
         geojson_result = self._convert_buildings_to_geojson(matching_indices)
         return geojson.dumps(geojson_result)
@@ -56,7 +66,6 @@ class SpatialQueryEngine:
         geojson_str = self._find_buildings_for_coordinates_tuple(coordinates_tuple)
         return geojson.loads(geojson_str)
 
-    @lru_cache(maxsize=1024)
     def find_building_at_coordinate(self, longitude: float, latitude: float) -> geojson.FeatureCollection:
         """
         Find buildings containing a single coordinate.

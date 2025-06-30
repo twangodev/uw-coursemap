@@ -17,6 +17,7 @@ class BuildingAggregator:
 
     def __init__(self, buildings_data=None):
         self.buildings_gdf = buildings_data if buildings_data is not None else buildings_gdf
+        self._id_to_geometry = {row.get('@id', ''): row.geometry for idx, row in self.buildings_gdf.iterrows() if row.get('@id')}
 
     def aggregate_coordinate_data_to_buildings(
             self,
@@ -141,13 +142,7 @@ class BuildingAggregator:
     def _get_building_geometry(self, feature: Dict) -> Any:
         """Get the building geometry from the original buildings dataset."""
         building_id = feature.get('properties', {}).get('@id', '')
-
-        # Find this building in our original dataset
-        for idx, row in self.buildings_gdf.iterrows():
-            if row.get('@id', '') == building_id:
-                return row.geometry
-
-        return None
+        return self._id_to_geometry.get(building_id)
 
     def _clean_building_properties(self, original_props: Dict) -> Dict:
         """Clean building properties, keeping only essential non-null fields."""
