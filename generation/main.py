@@ -11,6 +11,7 @@ from os import path
 import coloredlogs
 import requests_cache
 from dotenv import load_dotenv
+from requests_cache import NEVER_EXPIRE
 from tqdm.contrib.logging import logging_redirect_tqdm
 
 from aggregate import aggregate_instructors, aggregate_courses
@@ -178,13 +179,11 @@ def main():
     cache_dir = str(args.cache_dir)
     os.makedirs(cache_dir, exist_ok=True)  # Ensure the cache directory exists
 
-    cache_expiration = 60 * 60 * 24 * 7 # 1 week
-
     requests_cache_location = path.join(cache_dir, "requests_cache")
-    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=cache_expiration)
+    requests_cache.install_cache(cache_name=requests_cache_location, expires_after=NEVER_EXPIRE)
 
     set_aio_cache_location(path.join(cache_dir, "aio_cache"))
-    set_aio_cache_expiration(cache_expiration)
+    set_aio_cache_expiration(-1)
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 
