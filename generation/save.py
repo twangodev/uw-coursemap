@@ -9,8 +9,8 @@ from tqdm import tqdm
 
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
+from map import get_buildings
 from sitemap_generation import generate_sitemap, sanitize_entry
-from building_highlight import generate_building_highlight_geojson
 
 logger = getLogger(__name__)
 
@@ -187,26 +187,22 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     # Write meetings for each date to flat files and generate GeoJSON building highlights
     files_written = 0
     geojson_files_written = 0
-    osm_geojson_path = os.path.join(os.path.dirname(__file__), "osm.geojson")
-    
+
     for date_filename, meetings_for_date in tqdm(date_meetings.items(), desc="Writing meeting files by date", unit="date"):
         directory_tuple = ("meetings",)
         
         # Write JSON file with meeting data
         write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
         files_written += 1
-        
-        # Generate and write GeoJSON building highlight file
-        try:
-            building_geojson = generate_building_highlight_geojson(meetings_for_date, osm_geojson_path)
-            if building_geojson and building_geojson.get('features'):
-                write_geojson_file(data_dir, directory_tuple, date_filename, building_geojson)
-                geojson_files_written += 1
-            else:
-                logger.warning(f"No building highlights generated for {date_filename}")
-        except Exception as e:
-            logger.error(f"Failed to generate building highlights for {date_filename}: {e}")
-    
+
+
+        building_geojson = get_buildings(meetings_for_date)
+        if building_geojson:
+            write_geojson_file(data_dir, directory_tuple, date_filename, building_geojson)
+            geojson_files_written += 1
+        else:
+            logger.warning(f"No building highlights generated for {date_filename}")
+
     # Create index.json with date mappings and statistics
     index_data = {}
     for date_filename in date_meetings.keys():
