@@ -1,5 +1,4 @@
 import logging
-import random
 from argparse import ArgumentParser
 from os import environ
 

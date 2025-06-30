@@ -9,6 +9,7 @@ from tqdm import tqdm
 
 from instructors import FullInstructor
 from json_serializable import JsonSerializable
+from map import get_buildings
 from sitemap_generation import generate_sitemap, sanitize_entry
 
 logger = getLogger(__name__)
@@ -183,13 +184,25 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         if meeting.current_enrollment:
             date_students[date_filename] += meeting.current_enrollment
     
-    # Write meetings for each date to flat files
+    # Write meetings for each date to flat files and generate GeoJSON building highlights
     files_written = 0
+    geojson_files_written = 0
+
     for date_filename, meetings_for_date in tqdm(date_meetings.items(), desc="Writing meeting files by date", unit="date"):
         directory_tuple = ("meetings",)
+        
+        # Write JSON file with meeting data
         write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
         files_written += 1
-    
+
+
+        building_geojson = get_buildings(meetings_for_date)
+        if building_geojson:
+            write_geojson_file(data_dir, directory_tuple, date_filename, building_geojson)
+            geojson_files_written += 1
+        else:
+            logger.warning(f"No building highlights generated for {date_filename}")
+
     # Create index.json with date mappings and statistics
     index_data = {}
     for date_filename in date_meetings.keys():
@@ -205,6 +218,7 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     write_file(data_dir, directory_tuple, "index", index_data)
     
     logger.info(f"Wrote {files_written} meeting files organized purely by date")
+    logger.info(f"Wrote {geojson_files_written} building highlight GeoJSON files")
     logger.info(f"Created index.json with {len(index_data)} date entries")
 
 def convert_keys_to_str(data):
@@ -324,19 +338,65 @@ def write_file(directory, directory_tuple: tuple[str, ...], filename: str, data)
     logger.debug(f"Data written to {file_path} ({readable_size})")
 
 
+def write_geojson_file(directory, directory_tuple: tuple[str, ...], filename: str, geojson_data):
+    """
+    Writes GeoJSON data to a .geojson file.
+    - directory_tuple: Tuple representing the directory path.
+    - filename: Name of the GeoJSON file (without the .geojson extension).
+    - geojson_data: GeoJSON data to be written to the file.
+    """
+    if not geojson_data:
+        logger.warning(f"GeoJSON data is empty for {filename}. Skipping writing to file.")
+        return
+
+    # Sanitize directory components
+    sanitized_directory = []
+    for dir_component in directory_tuple:
+        sanitized_component = sanitize_entry(dir_component)
+        if sanitized_component is None:
+            logger.warning(f"Directory component '{dir_component}' could not be sanitized. Skipping file write.")
+            return
+        sanitized_directory.append(sanitized_component)
+
+    # Create the full directory path
+    directory_path = os.path.join(directory, *sanitized_directory)
+
+    # Ensure the directory exists
+    os.makedirs(directory_path, exist_ok=True)
+
+    # Sanitize the filename to remove problematic characters
+    sanitized_filename = sanitize_entry(filename)
+
+    if sanitized_filename is None:
+        return
+
+    # Full path to the GeoJSON file
+    file_path = os.path.join(directory_path, f"{sanitized_filename}.geojson")
+
+    # Write the GeoJSON data to the file
+    with open(file_path, 'w', encoding='utf-8') as geojson_file:
+        json.dump(geojson_data, geojson_file, indent=2)
+
+    # Calculate file size and format it
+    file_size = os.path.getsize(file_path)
+    readable_size = format_file_size(file_size)
+
+    logger.debug(f"GeoJSON data written to {file_path} ({readable_size})")
+
+
 def wipe_data(data_dir):
     """
-    Wipe only .json files in the data directory.
+    Wipe .json and .geojson files in the data directory.
     """
-    logger.info("Wiping .json files in the data directory...")
+    logger.info("Wiping .json and .geojson files in the data directory...")
 
-    # Remove only files ending with .json in the data directory
+    # Remove files ending with .json or .geojson in the data directory
     for root, dirs, files in os.walk(data_dir, topdown=False):
         for file in files:
-            if file.endswith(".json"):
+            if file.endswith((".json", ".geojson")):
                 os.remove(os.path.join(root, file))
 
-    logger.info("Wiping complete. Only .json files were removed.")
+    logger.info("Wiping complete. .json and .geojson files were removed.")
 
 
 def write_data(
