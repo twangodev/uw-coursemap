@@ -129,12 +129,15 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     Chunks all meetings purely by date without any other grouping.
     
     Directory structure: /meetings/MM-DD-YY.json
+    Also creates an index.json file with date mappings and statistics.
     """
     # Use US/Central timezone which automatically handles DST
     central_tz = ZoneInfo("US/Central")
     
     # Group meetings by date
     date_meetings = defaultdict(list)
+    # Track unique buildings per date for index.json
+    date_buildings = defaultdict(set)
     
     # Flatten all meetings from all courses
     all_meetings = []
@@ -162,6 +165,10 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         
         # Add meeting to the appropriate date bucket
         date_meetings[date_filename].append(meeting)
+        
+        # Track unique buildings for this date
+        if meeting.location and meeting.location.building:
+            date_buildings[date_filename].add(meeting.location.building)
     
     # Write meetings for each date to flat files
     files_written = 0
@@ -170,7 +177,19 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
         files_written += 1
     
+    # Create index.json with date mappings and statistics
+    index_data = {}
+    for date_filename in date_meetings.keys():
+        index_data[date_filename] = {
+            "total_buildings": len(date_buildings[date_filename])
+        }
+    
+    # Write index.json file
+    directory_tuple = ("meetings",)
+    write_file(data_dir, directory_tuple, "index", index_data)
+    
     logger.info(f"Wrote {files_written} meeting files organized purely by date")
+    logger.info(f"Created index.json with {len(index_data)} date entries")
 
 def convert_keys_to_str(data):
     if isinstance(data, dict):
