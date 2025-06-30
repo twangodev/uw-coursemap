@@ -183,7 +183,7 @@ def main():
     requests_cache.install_cache(cache_name=requests_cache_location, expires_after=NEVER_EXPIRE)
 
     set_aio_cache_location(path.join(cache_dir, "aio_cache"))
-    set_aio_cache_expiration(-1)
+    set_aio_cache_expiration(NEVER_EXPIRE)
 
     madgrades_api_key = environ.get("MADGRADES_API_KEY", None)
 

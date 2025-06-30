@@ -1,8 +1,9 @@
 from aiohttp_client_cache import SQLiteBackend
+from requests_cache import NEVER_EXPIRE
 
 _aio_cache_config = {
     "cache_name": None,
-    "expire_after": -1,
+    "expire_after": NEVER_EXPIRE,
     "allowed_methods": ('GET', 'POST')
 }
 
