@@ -117,7 +117,7 @@
     // Define loadDataForDate at top level
     async function loadDataForDate(date: Date) {
         const dateStr = formatDateForAPI(date);
-        const BUILDING_DATA = `http://127.0.0.1:5000/highlight/${dateStr}`;
+        const BUILDING_DATA = `https://static.uwcourses.com/meetings/${dateStr}.geojson`;
         
         const response = await fetch(BUILDING_DATA);
         const geoJsonData = await response.json();
