@@ -46,6 +46,8 @@
   <script
     src="https://rybbit.twango.dev/api/script.js"
     data-site-id="1"
+    data-track-errors="true"
+    data-session-replay="true"
     data-web-vitals="true"
     defer
   ></script>
