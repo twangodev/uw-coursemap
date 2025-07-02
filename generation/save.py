@@ -11,6 +11,7 @@ from instructors import FullInstructor
 from json_serializable import JsonSerializable
 from map import get_buildings
 from sitemap_generation import generate_sitemap, sanitize_entry
+from trips import TripGenerator
 
 logger = getLogger(__name__)
 
@@ -400,6 +401,47 @@ def write_geojson_file(directory, directory_tuple: tuple[str, ...], filename: st
     logger.debug(f"GeoJSON data written to {file_path} ({readable_size})")
 
 
+def generate_trips_data(data_dir):
+    """
+    Generate trips data for traffic visualization.
+    """
+    try:
+        logger.info("Generating trips data for visualization...")
+        
+        # Initialize the trip generator
+        traffic_file = os.path.join(os.path.dirname(__file__), 'traffic.geojson')
+        if not os.path.exists(traffic_file):
+            logger.warning(f"Traffic file not found at {traffic_file}. Skipping trip generation.")
+            return
+        
+        generator = TripGenerator(traffic_file)
+        
+        # Define parameters for Madison, WI area
+        center_point = (-89.40902500577803, 43.073265957414826)
+        radius_meters = 8000
+        inner_radius_meters = 5 * 1609.34  # 5 miles converted to meters
+        num_trips = 1000
+        
+        # Generate trips
+        trips = generator.generate_trips(
+            center=center_point,
+            radius_meters=radius_meters,
+            num_trips=num_trips,
+            time_period_hours=1,
+            inner_radius_meters=inner_radius_meters
+        )
+        
+        # Export trips data directly using TripGenerator's export method
+        output_path = os.path.join(data_dir, 'trips.json')
+        TripGenerator.export_trips_json(trips, output_path)
+        
+        logger.info(f"Successfully generated {len(trips)} trips and saved to {output_path}")
+        
+    except Exception as e:
+        logger.error(f"Failed to generate trips data: {e}")
+        # Don't let trip generation failure stop the rest of the data processing
+
+
 def wipe_data(data_dir):
     """
     Wipe .json and .geojson files in the data directory.
@@ -479,6 +521,9 @@ def write_data(
     
     # Chunk meetings purely by date
     chunk_meetings_by_date_only(course_ref_to_meetings, data_dir)
+    
+    # Generate trips data for visualization
+    generate_trips_data(data_dir)
 
     updated_on = datetime.now(timezone.utc).isoformat()
     updated_json = {

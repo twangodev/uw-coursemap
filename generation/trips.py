@@ -579,7 +579,7 @@ class TripGenerator:
             waypoints = []
             for j, coord in enumerate(route_coords):
                 waypoints.append({
-                    "coordinates": [coord[0], coord[1]],  # [longitude, latitude]
+                    "coordinates": [round(coord[0], 4), round(coord[1], 4)],  # [longitude, latitude] rounded to 4 decimal places
                     "timestamp": timestamps[j]
                 })
             
@@ -714,10 +714,7 @@ def main():
     
     # Print summary
     TripGenerator.print_summary(trips)
-    
-    # Export to trips JSON format
-    TripGenerator.export_trips_json(trips, 'generated_trips.trips.json')
-    
+    TripGenerator.export_trips_json(trips, 'trips_output.json', trip_start_interval_seconds=2)
     
     return trips
 
