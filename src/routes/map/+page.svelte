@@ -5,13 +5,15 @@
     import 'maplibre-gl/dist/maplibre-gl.css';
     import { MapboxOverlay } from '@deck.gl/mapbox';
     import {MVTLayer} from "@deck.gl/geo-layers";
-    import {GeoJsonLayer} from "deck.gl";
+    import {GeoJsonLayer, TripsLayer} from "deck.gl";
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
     import { scaleLog } from 'd3-scale';
     import { Slider } from "$lib/components/ui/slider";
     import { Calendar } from "$lib/components/ui/calendar";
     import { Popover, PopoverContent, PopoverTrigger } from "$lib/components/ui/popover";
     import { DateFormatter, getLocalTimeZone, today } from "@internationalized/date";
+    import {Tween, tweened} from "svelte/motion";
+    import {animate, useMotionValue} from "svelte-motion";
 
     let timeIndex = $state(0);
     let metadata = $state<any>(null);
@@ -21,6 +23,8 @@
     let selectedJSDate = $state(new Date()); // JavaScript Date for API calls
     let currentGeoJsonData = $state<any>(null);
     let calendarOpen = $state(false);
+    let tripsData = $state<any>(null);
+    let maxTimestamp = $state(0);
     
     const df = new DateFormatter("en-US", {
         dateStyle: "medium"
@@ -33,7 +37,6 @@
         const year = String(date.getFullYear()).slice(-2);
         return `${month}-${day}-${year}`;
     }
-
 
     // Helper function to format timestamp with timezone
     function formatDateTime(timeIndex: number): { time: string, date: string, timezone: string, hour: number, minute: number } {
@@ -138,6 +141,25 @@
         return geoJsonData;
     }
 
+    // Load trips data and calculate max timestamp
+    async function loadTripsData() {
+        const response = await fetch('/generated_trips.trips.json');
+        const data = await response.json();
+        tripsData = data;
+        
+        // Calculate max timestamp from all waypoints
+        let max = 0;
+        for (const trip of data) {
+            for (const waypoint of trip.waypoints) {
+                if (waypoint.timestamp > max) {
+                    max = waypoint.timestamp;
+                }
+            }
+        }
+        maxTimestamp = max;
+        return data;
+    }
+
     const INITIAL_VIEW_STATE = {
         longitude: -89.4012,
         latitude: 43.0731,
@@ -201,13 +223,40 @@
 
         // Load initial data
         currentGeoJsonData = await loadDataForDate(selectedJSDate);
+        
+        // Load trips data
+        await loadTripsData();
 
         deckOverlay = new MapboxOverlay({
             interleaved: true,
         })
 
-        function render(time: number) {
+        function render(time: number, tripTime: number) {
+
+            let trips = new TripsLayer({
+                id: 'TripsLayer',
+                data: tripsData,
+
+                getPath: (d: any) => {
+                    const height = Math.floor(Math.random() * 10) + 5;
+                    return d.waypoints.map(p => {
+                        const [lon, lat, alt = 0] = p.coordinates;
+                        return [lon, lat, height]
+                    });
+                },
+                // Timestamp is stored as float32, do not return a long int as it will cause precision loss
+                getTimestamps: (d: any) => d.waypoints.map(p => p.timestamp),
+                getColor: [253, 128, 93],
+                currentTime: tripTime,
+                trailLength: 110000,
+                capRounded: true,
+                jointRounded: true,
+                widthMinPixels: 2,
+                opacity: 0.3,
+            })
+
             let layers = [
+                trips,
                 buildingLayer,
                 new GeoJsonLayer({
                     id: 'buildings',
@@ -231,25 +280,43 @@
                     updateTriggers: {
                         getFillColor: time
                     }
-                })
+                }),
+
             ]
 
             deckOverlay.setProps({
                 layers: layers,
-                getCursor: ({isHovering}) => isHovering ? 'pointer' : 'grab',
-                onClick: ({object}) => {
-                    if (object) {
-                        console.log('Clicked object:', object);
-                    }
-                }
             });
         }
 
 
         map.addControl(deckOverlay);
 
-        render(timeIndex)
-        renderFunction = render;
+        const currentTime = useMotionValue(0);
+
+        function loop() {
+            animate(currentTime, maxTimestamp, {
+                duration: 30,
+                ease: "linear",
+                onComplete: () => {
+                    currentTime.set(0); // Reset to 0 after completion
+                    loop(); // Restart the animation loop
+                } // restart on finish
+            });
+        }
+
+
+        render(timeIndex, currentTime.get())
+        renderFunction = (time: number) => {;
+            const a = currentTime.get()
+            render(time, a);
+        };
+
+        loop();
+
+        const unsubscribe = currentTime.subscribe((value) => {
+            render(timeIndex, value)
+        });
 
     });
 </script>
