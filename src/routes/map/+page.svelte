@@ -12,8 +12,8 @@
     import { Calendar } from "$lib/components/ui/calendar";
     import { Popover, PopoverContent, PopoverTrigger } from "$lib/components/ui/popover";
     import { DateFormatter, getLocalTimeZone, today } from "@internationalized/date";
-    import {Tween, tweened} from "svelte/motion";
     import {animate, useMotionValue} from "svelte-motion";
+    import { env } from "$env/dynamic/public";
 
     let timeIndex = $state(0);
     let metadata = $state<any>(null);
@@ -143,7 +143,7 @@
 
     // Load trips data and calculate max timestamp
     async function loadTripsData() {
-        const response = await fetch('/generated_trips.trips.json');
+        const response = await fetch(`${env.PUBLIC_API_URL}/trips.json`);
         const data = await response.json();
         tripsData = data;
         
