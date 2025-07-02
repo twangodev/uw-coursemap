@@ -5,7 +5,7 @@
     import 'maplibre-gl/dist/maplibre-gl.css';
     import { MapboxOverlay } from '@deck.gl/mapbox';
     import {MVTLayer} from "@deck.gl/geo-layers";
-    import {GeoJsonLayer, TripsLayer} from "deck.gl";
+    import {GeoJsonLayer, type Position, TripsLayer} from "deck.gl";
     import {_TerrainExtension as TerrainExtension} from "@deck.gl/extensions";
     import { scaleLog } from 'd3-scale';
     import { Slider } from "$lib/components/ui/slider";
@@ -25,6 +25,13 @@
     let calendarOpen = $state(false);
     let tripsData = $state<any>(null);
     let maxTimestamp = $state(0);
+
+    type Trip = {
+        waypoints: {
+            coordinates: Position;
+            timestamp: number;
+        }[]
+    };
     
     const df = new DateFormatter("en-US", {
         dateStyle: "medium"
@@ -233,11 +240,11 @@
 
         function render(time: number, tripTime: number) {
 
-            let trips = new TripsLayer({
+            let trips = new TripsLayer<Trip>({
                 id: 'TripsLayer',
                 data: tripsData,
 
-                getPath: (d: any) => {
+                getPath: (d) => {
                     const height = Math.floor(Math.random() * 10) + 5;
                     return d.waypoints.map(p => {
                         const [lon, lat, alt = 0] = p.coordinates;
@@ -245,7 +252,7 @@
                     });
                 },
                 // Timestamp is stored as float32, do not return a long int as it will cause precision loss
-                getTimestamps: (d: any) => d.waypoints.map(p => p.timestamp),
+                getTimestamps: (d) => d.waypoints.map(p => p.timestamp),
                 getColor: [253, 128, 93],
                 currentTime: tripTime,
                 trailLength: 110000,
