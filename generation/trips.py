@@ -1,9 +1,9 @@
 import json
-import random
 import math
-from typing import List, Tuple, Dict, Optional
+import random
 from collections import defaultdict, deque
-import heapq
+from typing import List, Tuple, Dict, Optional
+
 import numpy as np
 from rtree import index
 
@@ -327,15 +327,17 @@ class TripGenerator:
     
     
     def generate_trips(self, center: Tuple[float, float], radius_meters: float, 
-                      num_trips: int, time_period_hours: int = 1) -> List[Dict]:
-        """Generate random trips based on traffic data around a center point."""
-        nearby_segments = self.get_segments_near_center(center, radius_meters)
+                      num_trips: int, time_period_hours: int = 1, inner_radius_meters: float = None) -> List[Dict]:
+        """Generate random trips focused entirely within the inner radius."""
+        # Use inner radius as the main search area
+        search_radius = inner_radius_meters if inner_radius_meters is not None else radius_meters
+        nearby_segments = self.get_segments_near_center(center, search_radius)
         
         if not nearby_segments:
-            print(f"No segments found within {radius_meters}m of center {center}")
+            print(f"No segments found within {search_radius}m of center {center}")
             return []
         
-        print(f"Found {len(nearby_segments)} segments within {radius_meters}m")
+        print(f"Found {len(nearby_segments)} segments within inner radius {search_radius}m")
         
         # Check if we have any connected segments for routing
         connected_nearby = [seg for seg in nearby_segments if seg['id'] in self.segment_adjacency]
@@ -343,31 +345,78 @@ class TripGenerator:
             print("Warning: No connected segments found - using all segments")
             connected_nearby = nearby_segments
         
-        # Create weighted list - ignore AWT counts for segments within 5 miles of center
-        weighted_segments = []
-        five_miles_meters = 5 * 1609.34  # 5 miles in meters
+        # Define 2.5-mile core radius for trip endpoints
+        core_radius_meters = 2.5 * 1609.34  # 2.5 miles in meters
+        core_segments = [seg for seg in connected_nearby if seg.get('distance_to_center', 0) <= core_radius_meters]
         
-        for segment in connected_nearby:
-            # Check if segment is within 5 miles of center
-            if segment.get('distance_to_center', 0) <= five_miles_meters:
-                # Within 5 miles - use equal weighting (ignore AWT counts)
-                weighted_segments.append(segment)
-            else:
-                # Beyond 5 miles - use traffic count as weight
+        print(f"Core radius {core_radius_meters}m (2.5 miles): {len(core_segments)} segments")
+        print(f"Total segments in inner radius: {len(connected_nearby)} segments")
+        
+        if not core_segments:
+            print("Warning: No segments found within 2.5-mile core - using all inner segments")
+            core_segments = connected_nearby
+        
+        # Create weighted lists using AWT counts within core radius
+        def create_awt_weighted_segments(segments):
+            weighted = []
+            for segment in segments:
+                # Use traffic count as weight, with minimum weight of 1
                 weight = max(1, segment['traffic_count'])
                 # Normalize by time period (traffic count is typically daily)
                 hourly_weight = weight / 24 * time_period_hours
-                weighted_segments.extend([segment] * max(1, int(hourly_weight / 100)))  # Scale down for reasonable list size
+                # Add segment multiple times based on weight
+                repeat_count = max(1, int(hourly_weight / 50))  # Scale for reasonable list size
+                weighted.extend([segment] * repeat_count)
+            return weighted
         
-        if not weighted_segments:
-            weighted_segments = connected_nearby  # Fallback to unweighted
+        # Apply AWT weighting to core segments
+        weighted_core = create_awt_weighted_segments(core_segments)
+        # Inner segments beyond core use equal weighting
+        outer_inner_segments = [seg for seg in connected_nearby if seg.get('distance_to_center', 0) > core_radius_meters]
+        weighted_inner = weighted_core + outer_inner_segments  # Combine weighted core + unweighted outer
+        
+        if not weighted_inner:
+            weighted_inner = connected_nearby  # Fallback to unweighted
+            
+        print(f"Created weighted lists: {len(weighted_core)} weighted core entries, {len(weighted_inner)} total entries")
         
         trips = []
         
+        # Track which core segments (2.5-mile) have been used
+        unused_core_segments = set(seg['id'] for seg in core_segments)
+        print(f"Ensuring all {len(unused_core_segments)} core segments are used")
+        
         for i in range(num_trips):
-            # Select origin and destination segments
-            origin_segment = random.choice(weighted_segments)
-            destination_segment = random.choice(weighted_segments)
+            # First priority: use unused core segments (2.5-mile radius)
+            if unused_core_segments:
+                # Pick an unused core segment for either origin or destination
+                unused_seg_id = unused_core_segments.pop()
+                unused_segment = next(seg for seg in core_segments if seg['id'] == unused_seg_id)
+                
+                # For unused segments, prefer keeping both endpoints in core (80% chance)
+                if random.random() < 0.8:  # 80% chance both in core
+                    origin_segment = unused_segment
+                    # Use random.choice on the original core_segments for equal chance, not weighted list
+                    destination_segment = random.choice(core_segments)
+                else:  # 20% chance one endpoint outside core
+                    if random.choice([True, False]):
+                        origin_segment = unused_segment
+                        destination_segment = random.choice(weighted_inner)
+                    else:
+                        origin_segment = random.choice(weighted_inner)
+                        destination_segment = unused_segment
+            else:
+                # Regular trips: bias heavily toward core-to-core trips
+                trip_type = random.random()
+                if trip_type < 0.7:  # 70% core-to-core trips
+                    origin_segment = random.choice(weighted_core)
+                    destination_segment = random.choice(weighted_core)
+                elif trip_type < 0.85:  # 15% core-to-inner trips
+                    origin_segment = random.choice(weighted_core)
+                    destination_segment = random.choice(weighted_inner)
+                else:  # 15% inner-to-core trips
+                    origin_segment = random.choice(weighted_inner)
+                    destination_segment = random.choice(weighted_core)
             
             # Get random points along the selected segments
             origin_coords = TripGenerator.get_random_point_on_segment(origin_segment)
@@ -414,7 +463,61 @@ class TripGenerator:
             
             trips.append(trip)
         
-        return trips
+        # Verify all core segments were used and analyze trip distribution
+        if core_segments:
+            used_segments = set()
+            core_to_core = 0
+            core_to_inner = 0
+            inner_to_core = 0
+            
+            core_segment_ids = set(seg['id'] for seg in core_segments)
+            
+            for trip in trips:
+                origin_id = trip['origin']['segment_id']
+                dest_id = trip['destination']['segment_id']
+                used_segments.add(origin_id)
+                used_segments.add(dest_id)
+                
+                # Categorize trip types
+                origin_in_core = origin_id in core_segment_ids
+                dest_in_core = dest_id in core_segment_ids
+                
+                if origin_in_core and dest_in_core:
+                    core_to_core += 1
+                elif origin_in_core:
+                    core_to_inner += 1
+                elif dest_in_core:
+                    inner_to_core += 1
+            
+            unused_core = core_segment_ids - used_segments
+            
+            if unused_core:
+                print(f"Warning: {len(unused_core)} core segments were not used as trip endpoints")
+            else:
+                print(f"Success: All {len(core_segment_ids)} core segments used as trip endpoints")
+            
+            print(f"Trip distribution:")
+            print(f"  Core-to-Core: {core_to_core} ({core_to_core/len(trips)*100:.1f}%)")
+            print(f"  Core-to-Inner: {core_to_inner} ({core_to_inner/len(trips)*100:.1f}%)")
+            print(f"  Inner-to-Core: {inner_to_core} ({inner_to_core/len(trips)*100:.1f}%)")
+        
+        # Filter out very short trips (which would appear slow)
+        min_distance_meters = 200  # Minimum trip distance in meters (~0.12 miles)
+        
+        filtered_trips = []
+        removed_count = 0
+        
+        for trip in trips:
+            if trip['distance_meters'] >= min_distance_meters:
+                filtered_trips.append(trip)
+            else:
+                removed_count += 1
+        
+        if removed_count > 0:
+            print(f"Removed {removed_count} trips shorter than {min_distance_meters}m")
+            print(f"Remaining trips: {len(filtered_trips)}")
+        
+        return filtered_trips
     
     @staticmethod
     def get_random_point_on_segment(segment: Dict) -> Tuple[float, float]:
@@ -452,40 +555,110 @@ class TripGenerator:
         return total_distance
     
     @staticmethod
-    def export_trips_geojson(trips: List[Dict], output_path: str):
-        """Export trips as GeoJSON file."""
-        features = []
+    def export_trips_json(trips: List[Dict], output_path: str, trip_start_interval_seconds: int = 2):
+        """Export trips in deck.gl TripsLayer format with fixed interval between trip starts."""
+        trips_output = []
         
-        for trip in trips:
-            # Create LineString from the actual route coordinates
-            line_feature = {
-                "type": "Feature",
-                "properties": {
-                    "trip_id": trip['trip_id'],
-                    "origin_segment": trip['origin']['segment_name'],
-                    "destination_segment": trip['destination']['segment_name'],
-                    "distance_meters": trip['distance_meters'],
-                    "route_segments": trip['route_segments'],
-                    "segment_path": trip['segment_path'],
-                    "origin_traffic_count": trip['origin']['traffic_count'],
-                    "destination_traffic_count": trip['destination']['traffic_count']
-                },
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": trip['route_coordinates']
-                }
+        # Fixed interval between trip starts (in milliseconds)
+        start_interval_ms = trip_start_interval_seconds * 1000
+        
+        # Calculate total loop duration to ensure seamless cycling
+        loop_duration = len(trips) * start_interval_ms
+        
+        for i, trip in enumerate(trips):
+            route_coords = trip['route_coordinates']
+            
+            # Start each trip at a fixed interval
+            start_offset = i * start_interval_ms
+            
+            timestamps = TripGenerator.generate_trip_timestamps_with_loop(
+                route_coords, trip['distance_meters'], start_offset, loop_duration
+            )
+            
+            # Create waypoints array in deck.gl format
+            waypoints = []
+            for j, coord in enumerate(route_coords):
+                waypoints.append({
+                    "coordinates": [coord[0], coord[1]],  # [longitude, latitude]
+                    "timestamp": timestamps[j]
+                })
+            
+            trip_data = {
+                "waypoints": waypoints
             }
-            features.append(line_feature)
-        
-        geojson_output = {
-            "type": "FeatureCollection",
-            "features": features
-        }
+            trips_output.append(trip_data)
         
         with open(output_path, 'w') as f:
-            json.dump(geojson_output, f, indent=2)
+            json.dump(trips_output, f, indent=2)
         
         print(f"Exported {len(trips)} trips to {output_path}")
+        print(f"Trip starts every {trip_start_interval_seconds}s, loop duration: {loop_duration/1000}s")
+    
+    @staticmethod
+    def calculate_trip_duration(distance_meters: float) -> int:
+        """Calculate trip duration in milliseconds based on distance."""
+        avg_speed_ms = 13.4  # 30 mph = 13.4 m/s
+        duration_seconds = distance_meters / avg_speed_ms
+        return int(duration_seconds * 1000)  # Convert to milliseconds
+    
+    @staticmethod
+    def generate_trip_timestamps_with_loop(route_coords: List[Tuple[float, float]], 
+                                         total_distance_meters: float, 
+                                         start_offset: int, 
+                                         loop_duration: int) -> List[int]:
+        """Generate timestamps with looping for seamless animation."""
+        if len(route_coords) < 2:
+            return [start_offset]
+        
+        trip_duration = TripGenerator.calculate_trip_duration(total_distance_meters)
+        
+        # Calculate cumulative distances along the route
+        cumulative_distances = [0.0]
+        for i in range(1, len(route_coords)):
+            segment_distance = TripGenerator.calculate_distance(route_coords[i-1], route_coords[i])
+            cumulative_distances.append(cumulative_distances[-1] + segment_distance)
+        
+        # Generate timestamps with start offset and loop wrapping
+        timestamps = []
+        for cum_distance in cumulative_distances:
+            if total_distance_meters > 0:
+                time_ratio = cum_distance / total_distance_meters
+                timestamp = start_offset + int(time_ratio * trip_duration)
+                # Wrap around for seamless looping
+                timestamp = timestamp % loop_duration
+            else:
+                timestamp = start_offset
+            timestamps.append(timestamp)
+        
+        return timestamps
+    
+    @staticmethod
+    def generate_trip_timestamps(route_coords: List[Tuple[float, float]], total_distance_meters: float, base_timestamp: int) -> List[int]:
+        """Generate timestamps for each coordinate point based on realistic travel speed."""
+        if len(route_coords) < 2:
+            return [base_timestamp]
+        
+        # Assume average speed of 30 mph = 13.4 m/s for urban driving
+        avg_speed_ms = 13.4  # meters per second
+        total_time_seconds = total_distance_meters / avg_speed_ms
+        
+        # Calculate cumulative distances along the route
+        cumulative_distances = [0.0]
+        for i in range(1, len(route_coords)):
+            segment_distance = TripGenerator.calculate_distance(route_coords[i-1], route_coords[i])
+            cumulative_distances.append(cumulative_distances[-1] + segment_distance)
+        
+        # Generate timestamps starting from 0 (relative timestamps)
+        timestamps = []
+        for cum_distance in cumulative_distances:
+            if total_distance_meters > 0:
+                time_ratio = cum_distance / total_distance_meters
+                timestamp = int(time_ratio * total_time_seconds * 1000)  # Start from 0
+            else:
+                timestamp = 0
+            timestamps.append(timestamp)
+        
+        return timestamps
     
     
     @staticmethod
@@ -523,9 +696,11 @@ def main():
     # Define a center point (longitude, latitude) - example coordinates for Madison, WI area
     center_point = (-89.40902500577803, 43.073265957414826)  # Approximate center of the traffic data
     radius_meters = 8000
-    num_trips = 500
+    inner_radius_meters = 5 * 1609.34  # 5 miles converted to meters
+    num_trips = 1000
     
     print(f"Generating {num_trips} trips within {radius_meters}m of {center_point}")
+    print(f"Inner radius: {inner_radius_meters}m ({inner_radius_meters/1609.34:.1f} miles)")
     
     
     # Generate trips
@@ -533,14 +708,15 @@ def main():
         center=center_point,
         radius_meters=radius_meters,
         num_trips=num_trips,
-        time_period_hours=1
+        time_period_hours=1,
+        inner_radius_meters=inner_radius_meters
     )
     
     # Print summary
     TripGenerator.print_summary(trips)
     
-    # Export to GeoJSON
-    TripGenerator.export_trips_geojson(trips, 'generated_trips.geojson')
+    # Export to trips JSON format
+    TripGenerator.export_trips_json(trips, 'generated_trips.trips.json')
     
     
     return trips
