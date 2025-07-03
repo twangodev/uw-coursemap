@@ -10,7 +10,7 @@
 	import { Slider } from '$lib/components/ui/slider';
 	import { Calendar } from '$lib/components/ui/calendar';
 	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date';
+	import { getLocalTimeZone, today } from '@internationalized/date';
 	import { animate, useMotionValue } from 'svelte-motion';
 	import { env } from '$env/dynamic/public';
 
@@ -75,9 +75,6 @@
 		bearing: 0
 	};
 
-	const df = new DateFormatter('en-US', {
-		dateStyle: 'medium'
-	});
 
 	// Utility functions
 	function formatDateForAPI(date: Date): string {
@@ -139,7 +136,7 @@
 		} else {
 			isPlaying = true;
 			playInterval = setInterval(() => {
-				if (timeIndex >= (metadata?.total_chunks - 1 || 191)) {
+				if (timeIndex >= ((metadata?.total_chunks ?? 192) - 1)) {
 					timeIndex = 0;
 				} else {
 					timeIndex += 1;
@@ -158,8 +155,7 @@
 			playInterval = null;
 		}
 
-		const newData = await loadDataForDate(selectedJSDate);
-		currentGeoJsonData = newData;
+		currentGeoJsonData = await loadDataForDate(selectedJSDate);
 
 		if (renderFunction) {
 			renderFunction(timeIndex);
@@ -264,11 +260,11 @@
 				const trips = new TripsLayer<Trip>({
 					id: 'TripsLayer',
 					data: tripsData,
-					getPath: (d) => {
+					getPath: (d: Trip) => {
 						const height = Math.floor(Math.random() * 10) + 5;
 						return d.waypoints.map((p) => {
-							const [lon, lat, alt = 0] = p.coordinates;
-							return [lon, lat, height];
+							const [lon, lat] = p.coordinates;
+							return [lon, lat, height] as Position;
 						});
 					},
 					getTimestamps: (d) => d.waypoints.map((p) => p.timestamp),
@@ -370,7 +366,7 @@
 		>
 			<!-- Play Button -->
 			<button
-				on:click={togglePlay}
+				onclick={togglePlay}
 				class="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
 			>
 				{#if isPlaying}
@@ -426,7 +422,7 @@
 				<Slider
 					type="single"
 					bind:value={timeIndex}
-					max={metadata?.total_chunks - 1 || 191}
+					max={(metadata?.total_chunks ?? 192) - 1}
 					onValueChange={() => {
 						renderFunction?.(timeIndex);
 					}}
