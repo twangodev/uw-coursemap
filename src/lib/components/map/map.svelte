@@ -129,7 +129,7 @@
 				getPath: (d: any) => {
 					const height = Math.floor(Math.random() * 10) + 5;
 					return d.waypoints.map((p: any) => {
-						const [lon, lat, alt = 0] = p.coordinates;
+						const [lon, lat] = p.coordinates;
 						return [lon, lat, height];
 					});
 				},
@@ -199,13 +199,15 @@
 		// Load trips data
 		await loadTripsData();
 
+		currentTime.set(0); // Initialize current time
+
 		// Set up animation loop for trips
 		function loop() {
 			animate(currentTime, maxTimestamp, {
 				duration: 30,
 				ease: "linear",
 				onComplete: () => {
-					currentTime.set(0); // Reset to 0 after completion
+					currentTime.set(maxTimestamp * 0.1); // Reset to 10% of animation
 					loop(); // Restart the animation loop
 				}
 			});
@@ -215,7 +217,7 @@
 		loop();
 
 		// Subscribe to currentTime changes to re-render
-		const unsubscribe = currentTime.subscribe((value) => {
+		unsubscribeFn = currentTime.subscribe((value) => {
 			render(timeIndex, value);
 		});
 
@@ -223,7 +225,13 @@
 		render(timeIndex, currentTime.get());
 	});
 
+	// Store unsubscribe function for cleanup
+	let unsubscribeFn: (() => void) | null = null;
+
 	onDestroy(() => {
+		if (unsubscribeFn) {
+			unsubscribeFn();
+		}
 		if (map) {
 			map.remove();
 		}
