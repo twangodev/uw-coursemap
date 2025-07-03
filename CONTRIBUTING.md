@@ -116,23 +116,37 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/twango
 
 ### Your First Code Contribution
 
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
+Generally, there should be open issues on GitHub if you just want to get your feet wet and contribute code to the project. These issues should be labeled with `good first issue` or `help wanted`.
 
--->
+If you run into any issues while contributing, please don't hesitate to ask for help in the issue thread, or open a GitHub discussion.
 
-### Improving The Documentation
+#### Development Workflow
 
-<!-- TODO
-Updating, improving and correcting the documentation
+We use [trunk-based development](https://trunkbaseddevelopment.com/). Keep in mind:
 
--->
+- Feature branches should be short-lived (1-2 days max)
+- Make small, focused changes.
+- Always ensure `main` is deployable
+
+You can create a fork, then create a Pull Request (PR) to the main repository. The PR should be against the `main` branch, but sometimes we may target a specific branch for a feature or bug fix.
 
 ## Styleguides
 
+Whatever is in the current codebase is the style we follow. We'll add CI checks to enforce this in the future, but for now, have fun.
+
 ### Commit Messages
 
+Honestly, we don't have a strict commit message style guide. However, we do recommend that you follow these general guidelines:
+
+- Be specific and descriptive in your commit messages. Single word messages like "fix" or "update" are not helpful.
+- Describe what the commit does, not how it does it.
+- If you used an AI to generate code, please mention it in the commit message. You can do this by adding a `Co-authored-by: Model <noreply@example.com>` commit trailer. This helps us understand the origin of the code and gives credit to the AI model used.
+    - Claude does this automatically if you ask it to commit code for you. I believe the commit trailer is `Co-authored-by: Claude <noreply@anthropic.com>`.
+
+
 ## Join The Project Team
+
+Once you know the project well enough, you'll also know who to ask to join the project team. It should be whoever reviews your PRs and helps you out with issues.
 
 ## Attribution
 
