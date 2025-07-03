@@ -4,17 +4,20 @@
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
 	import { MVTLayer } from '@deck.gl/geo-layers';
-	import { GeoJsonLayer, type Layer } from 'deck.gl';
+	import { GeoJsonLayer, TripsLayer, type Layer } from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
+	import { animate, useMotionValue } from 'svelte-motion';
+	import {env } from '$env/dynamic/public';
 
 	// Props
 	interface Props {
 		highlightsUrl: string;
+		timeIndex: number;
 		children?: import('svelte').Snippet;
 	}
 
-	let { highlightsUrl, children }: Props = $props();
+	let { highlightsUrl, timeIndex, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
@@ -22,6 +25,9 @@
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
 	let currentGeoJsonData = $state<any>(null);
+	let tripsData = $state<any>(null);
+	let maxTimestamp = $state(0);
+	let currentTime = useMotionValue(0);
 
 	// Type definitions
 	type PropertiesType = {
@@ -37,9 +43,9 @@
 
 	// Constants
 	const INITIAL_VIEW_STATE = {
-		longitude: -89.4012,
-		latitude: 43.0731,
-		zoom: 15,
+		longitude: -89.41033202860592,
+		latitude: 43.073525483485824,
+		zoom: 14.75,
 		pitch: 45,
 		bearing: 0
 	};
@@ -60,14 +66,37 @@
 
 			// Re-render the map
 			if (deckOverlay) {
-				render();
+				render(timeIndex, currentTime.get());
 			}
 		} catch (error) {
 			console.warn('Failed to load highlights data:', error);
 		}
 	}
 
-	function render() {
+	// Load trips data and calculate max timestamp
+	async function loadTripsData() {
+		try {
+			const response = await fetch(`${env.PUBLIC_API_URL}/trips.json`);
+			const data = await response.json();
+			tripsData = data;
+			
+			// Calculate max timestamp from all waypoints
+			let max = 0;
+			for (const trip of data) {
+				for (const waypoint of trip.waypoints) {
+					if (waypoint.timestamp > max) {
+						max = waypoint.timestamp;
+					}
+				}
+			}
+			maxTimestamp = max;
+			return data;
+		} catch (error) {
+			console.warn('Failed to load trips data:', error);
+		}
+	}
+
+	function render(highlightsTime: number, tripTime: number) {
 		const layers: Layer[] = [];
 
 		// Add building base layer
@@ -92,6 +121,30 @@
 		});
 		layers.push(buildingLayer);
 
+		// Add trips layer if data is available
+		if (tripsData) {
+			const tripsLayer = new TripsLayer({
+				id: 'TripsLayer',
+				data: tripsData,
+				getPath: (d: any) => {
+					const height = Math.floor(Math.random() * 10) + 5;
+					return d.waypoints.map((p: any) => {
+						const [lon, lat, alt = 0] = p.coordinates;
+						return [lon, lat, height];
+					});
+				},
+				getTimestamps: (d: any) => d.waypoints.map((p: any) => p.timestamp),
+				getColor: [253, 128, 93],
+				currentTime: tripTime,
+				trailLength: 110000,
+				capRounded: true,
+				jointRounded: true,
+				widthMinPixels: 2,
+				opacity: 0.3,
+			});
+			layers.push(tripsLayer);
+		}
+
 		// Add highlights layer if data is available
 		if (currentGeoJsonData && colorScale) {
 			const highlightsLayer = new GeoJsonLayer({
@@ -101,8 +154,8 @@
 				stroked: false,
 				filled: true,
 				getFillColor: ({ properties }: { properties: BuildingProperties }) => {
-					// For static highlights, use first value or a simple property
-					const intensity = properties.person_counts?.[0] || properties.intensity || 0;
+					// Use time index to get the correct value from person_counts array
+					const intensity = properties.person_counts?.[highlightsTime] || properties.intensity || 0;
 					if (intensity === 0) {
 						return [0, 0, 0, 0];
 					}
@@ -110,7 +163,10 @@
 					return [redValue, 0, 0, 255];
 				},
 				opacity: 0.2,
-				pickable: true
+				pickable: true,
+				updateTriggers: {
+					getFillColor: highlightsTime
+				}
 			});
 			layers.push(highlightsLayer);
 		}
@@ -139,6 +195,32 @@
 
 		// Load initial data
 		await loadHighlightsData();
+		
+		// Load trips data
+		await loadTripsData();
+
+		// Set up animation loop for trips
+		function loop() {
+			animate(currentTime, maxTimestamp, {
+				duration: 30,
+				ease: "linear",
+				onComplete: () => {
+					currentTime.set(0); // Reset to 0 after completion
+					loop(); // Restart the animation loop
+				}
+			});
+		}
+
+		// Start the animation loop
+		loop();
+
+		// Subscribe to currentTime changes to re-render
+		const unsubscribe = currentTime.subscribe((value) => {
+			render(timeIndex, value);
+		});
+
+		// Initial render
+		render(timeIndex, currentTime.get());
 	});
 
 	onDestroy(() => {
@@ -151,6 +233,13 @@
 	$effect(() => {
 		if (highlightsUrl && map) {
 			loadHighlightsData();
+		}
+	});
+
+	// Reactive statement to re-render when timeIndex changes
+	$effect(() => {
+		if (deckOverlay) {
+			render(timeIndex, currentTime.get());
 		}
 	});
 </script>

@@ -57,7 +57,7 @@
 	}
 </script>
 
-<Map {highlightsUrl}>
+<Map {highlightsUrl} {timeIndex}>
 	<MapControls
 		bind:timeIndex
 		{metadata}
