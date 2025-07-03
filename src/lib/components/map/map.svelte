@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
 	import { MVTLayer } from '@deck.gl/geo-layers';
-	import { GeoJsonLayer, type Position, TripsLayer } from 'deck.gl';
+	import {GeoJsonLayer, type Layer, type Position, TripsLayer} from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
 	import { Slider } from '$lib/components/ui/slider';
@@ -45,6 +45,7 @@
 	let deckOverlay: MapboxOverlay;
 	let renderFunction: (time: number) => void;
 	let mapContainer: HTMLElement;
+	let motionUnsubscribe: () => void;
 
 	// Type definitions
 	type Trip = {
@@ -256,7 +257,7 @@
 		});
 
 		function render(time: number, tripTime: number) {
-			const layers = [buildingLayer];
+			const layers: Layer[] = [buildingLayer];
 
 			// Add trips layer if enabled and data is available
 			if (showTrips && tripsData) {
@@ -340,18 +341,22 @@
 			loop();
 		}
 
-		const unsubscribe = currentTime.subscribe((value) => {
+		motionUnsubscribe = currentTime.subscribe((value) => {
 			render(timeIndex, value);
 		});
+	});
 
-		// Cleanup function
-		return () => {
-			unsubscribe();
-			if (playInterval) {
-				clearInterval(playInterval);
-			}
+	onDestroy(() => {
+		if (motionUnsubscribe) {
+			motionUnsubscribe();
+		}
+		if (playInterval) {
+			clearInterval(playInterval);
+			playInterval = null;
+		}
+		if (map) {
 			map.remove();
-		};
+		}
 	});
 </script>
 
@@ -365,7 +370,7 @@
 		>
 			<!-- Play Button -->
 			<button
-				onclick={togglePlay}
+				on:click={togglePlay}
 				class="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
 			>
 				{#if isPlaying}
