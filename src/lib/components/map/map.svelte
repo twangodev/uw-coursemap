@@ -13,11 +13,11 @@
 	interface Props {
 		highlightsData: any;
 		tripsData: any;
-		timeIndex: number; // Discrete index for building occupancy data time slices
+		currentTime: number; // Unix timestamp in milliseconds
 		children?: Snippet;
 	}
 
-	let { highlightsData, tripsData: propsTripsData, timeIndex: highlightTimeSliceIndex, children }: Props = $props();
+	let { highlightsData, tripsData: propsTripsData, currentTime: highlightTimestamp, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
@@ -54,6 +54,26 @@
 			const maxPersons = highlightsData.metadata.max_persons || 10_000;
 			colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
 		}
+	}
+
+	// Convert Unix timestamp to array index for highlights data
+	function timestampToHighlightIndex(timestamp: number): number {
+		if (!highlightsData?.metadata) {
+			return 0; // Fallback if no metadata
+		}
+		
+		const { start_time, chunk_duration_minutes = 5, total_chunks = 192 } = highlightsData.metadata;
+		
+		if (!start_time) {
+			return 0; // Fallback if no start time
+		}
+		
+		// Calculate the index based on timestamp
+		const chunkDurationMs = chunk_duration_minutes * 60 * 1000;
+		const index = Math.floor((timestamp - start_time) / chunkDurationMs);
+		
+		// Clamp to valid range [0, total_chunks - 1]
+		return Math.max(0, Math.min(index, total_chunks - 1));
 	}
 
 	// Calculate max timestamp from trips data
@@ -191,11 +211,11 @@
 
 		// Subscribe to tripAnimationTimestamp changes to re-render
 		unsubscribeFn = tripAnimationTimestamp.subscribe((value) => {
-			render(highlightTimeSliceIndex, value);
+			render(timestampToHighlightIndex(highlightTimestamp), value);
 		});
 
 		// Initial render
-		render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
+		render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 	});
 
 	// Store unsubscribe function for cleanup
@@ -214,7 +234,7 @@
 	$effect(() => {
 		if (highlightsData && map) {
 			setupColorScale();
-			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 		}
 	});
 
@@ -222,14 +242,14 @@
 	$effect(() => {
 		if (propsTripsData && map) {
 			calculateMaxTripTimestamp();
-			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 		}
 	});
 
-	// Reactive statement to re-render when highlightTimeSliceIndex changes
+	// Reactive statement to re-render when highlightTimestamp changes
 	$effect(() => {
 		if (deckOverlay) {
-			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 		}
 	});
 </script>

@@ -11,6 +11,17 @@
 	let highlightsData = $state<any>(null);
 	let tripsData = $state<any>(null);
 
+	// Calculate current timestamp from timeIndex and metadata
+	let currentTime = $derived(() => {
+		if (!metadata?.start_time) {
+			return Date.now(); // Fallback to current time if no metadata
+		}
+		
+		// Calculate timestamp from timeIndex (timeIndex is now properly initialized)
+		const chunkDurationMs = (metadata.chunk_duration_minutes || 5) * 60 * 1000;
+		return metadata.start_time + (timeIndex * chunkDurationMs);
+	});
+
 	function formatDateForAPI(date: Date): string {
 		const month = String(date.getMonth() + 1).padStart(2, '0');
 		const day = String(date.getDate()).padStart(2, '0');
@@ -33,6 +44,26 @@
 			highlightsData = data;
 			// Extract metadata for controls
 			metadata = data.metadata;
+			
+			// Initialize timeIndex based on real current time when metadata is first loaded
+			if (metadata?.start_time && timeIndex === 0) {
+				const now = Date.now();
+				const start_time = metadata.start_time;
+				const chunkDurationMs = (metadata.chunk_duration_minutes || 5) * 60 * 1000;
+				const totalChunks = metadata.total_chunks || 192;
+				const end_time = start_time + (totalChunks * chunkDurationMs);
+				
+				// Calculate timeIndex from clamped current time
+				let clampedTime = now;
+				if (now < start_time) {
+					clampedTime = start_time;
+				} else if (now > end_time) {
+					clampedTime = end_time;
+				}
+				
+				// Convert clamped time to timeIndex
+				timeIndex = Math.floor((clampedTime - start_time) / chunkDurationMs);
+			}
 		} catch (error) {
 			console.warn('Failed to load highlights data:', error);
 		}
@@ -94,7 +125,7 @@
 	});
 </script>
 
-<Map {highlightsData} {tripsData} {timeIndex}>
+<Map {highlightsData} {tripsData} currentTime={currentTime()}>
 	<MapControls
 		bind:timeIndex
 		{metadata}
