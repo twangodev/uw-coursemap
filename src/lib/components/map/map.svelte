@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import {onMount, onDestroy, type Snippet} from 'svelte';
 	import maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
@@ -14,7 +14,7 @@
 		highlightsData: any;
 		tripsData: any;
 		timeIndex: number;
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { highlightsData, tripsData: propsTripsData, timeIndex, children }: Props = $props();

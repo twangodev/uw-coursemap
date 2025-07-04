@@ -1,11 +1,11 @@
 <script lang="ts">
   import { cn } from "$lib/utils.ts";
-  import { onMount } from "svelte";
+  import { onMount, type Snippet } from "svelte";
 
   interface Props {
     clampAmount: number;
     class?: string;
-    children?: () => any;
+    children?: Snippet;
   }
 
   let { clampAmount, class: className = "", children }: Props = $props();
