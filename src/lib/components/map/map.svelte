@@ -1,27 +1,31 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import {onMount, onDestroy, type Snippet} from 'svelte';
 	import maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
 	import { MVTLayer } from '@deck.gl/geo-layers';
-	import { GeoJsonLayer, type Layer } from 'deck.gl';
+	import { GeoJsonLayer, TripsLayer, type Layer } from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
+	import { animate, useMotionValue } from 'svelte-motion';
 
 	// Props
 	interface Props {
-		highlightsUrl: string;
-		children?: import('svelte').Snippet;
+		highlightsData: any;
+		tripsData: any;
+		currentTime: number; // Unix timestamp in milliseconds
+		children?: Snippet;
 	}
 
-	let { highlightsUrl, children }: Props = $props();
+	let { highlightsData, tripsData: propsTripsData, currentTime: highlightTimestamp, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
 	let colorScale: ReturnType<typeof scaleLog<number>>;
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
-	let currentGeoJsonData = $state<any>(null);
+	let maxTripTimestamp = $state(0);
+	let tripAnimationTimestamp = useMotionValue(0); // Continuous timestamp for trips layer animation
 
 	// Type definitions
 	type PropertiesType = {
@@ -37,37 +41,57 @@
 
 	// Constants
 	const INITIAL_VIEW_STATE = {
-		longitude: -89.4012,
-		latitude: 43.0731,
-		zoom: 15,
+		longitude: -89.41033202860592,
+		latitude: 43.073525483485824,
+		zoom: 14.75,
 		pitch: 45,
 		bearing: 0
 	};
 
-	// Data loading function
-	async function loadHighlightsData() {
-		try {
-			const response = await fetch(highlightsUrl);
-			const geoJsonData = await response.json();
-			
-			currentGeoJsonData = geoJsonData;
-
-			// Set up color scale if metadata exists
-			if (geoJsonData.metadata) {
-				const maxPersons = geoJsonData.metadata.max_persons || 10_000;
-				colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
-			}
-
-			// Re-render the map
-			if (deckOverlay) {
-				render();
-			}
-		} catch (error) {
-			console.warn('Failed to load highlights data:', error);
+	// Setup color scale from highlights data
+	function setupColorScale() {
+		if (highlightsData?.metadata) {
+			const maxPersons = highlightsData.metadata.max_persons || 10_000;
+			colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
 		}
 	}
 
-	function render() {
+	// Convert Unix timestamp to array index for highlights data
+	function timestampToHighlightIndex(timestamp: number): number {
+		if (!highlightsData?.metadata) {
+			return 0; // Fallback if no metadata
+		}
+		
+		const { start_time, chunk_duration_minutes = 5, total_chunks = 192 } = highlightsData.metadata;
+		
+		if (!start_time) {
+			return 0; // Fallback if no start time
+		}
+		
+		// Calculate the index based on timestamp
+		const chunkDurationMs = chunk_duration_minutes * 60 * 1000;
+		const index = Math.floor((timestamp - start_time) / chunkDurationMs);
+		
+		// Clamp to valid range [0, total_chunks - 1]
+		return Math.max(0, Math.min(index, total_chunks - 1));
+	}
+
+	// Calculate max timestamp from trips data
+	function calculateMaxTripTimestamp() {
+		if (!propsTripsData) return;
+		
+		let max = 0;
+		for (const trip of propsTripsData) {
+			for (const waypoint of trip.waypoints) {
+				if (waypoint.timestamp > max) {
+					max = waypoint.timestamp;
+				}
+			}
+		}
+		maxTripTimestamp = max;
+	}
+
+	function render(highlightTimeSlice: number, tripAnimationTime: number) {
 		const layers: Layer[] = [];
 
 		// Add building base layer
@@ -92,17 +116,41 @@
 		});
 		layers.push(buildingLayer);
 
+		// Add trips layer if data is available
+		if (propsTripsData) {
+			const tripsLayer = new TripsLayer({
+				id: 'TripsLayer',
+				data: propsTripsData,
+				getPath: (d: any) => {
+					const height = Math.floor(Math.random() * 10) + 5;
+					return d.waypoints.map((p: any) => {
+						const [lon, lat] = p.coordinates;
+						return [lon, lat, height];
+					});
+				},
+				getTimestamps: (d: any) => d.waypoints.map((p: any) => p.timestamp),
+				getColor: [253, 128, 93],
+				currentTime: tripAnimationTime,
+				trailLength: 110000,
+				capRounded: true,
+				jointRounded: true,
+				widthMinPixels: 2,
+				opacity: 0.3,
+			});
+			layers.push(tripsLayer);
+		}
+
 		// Add highlights layer if data is available
-		if (currentGeoJsonData && colorScale) {
+		if (highlightsData && colorScale) {
 			const highlightsLayer = new GeoJsonLayer({
 				id: 'highlights',
-				data: currentGeoJsonData,
+				data: highlightsData,
 				extensions: [new TerrainExtension()],
 				stroked: false,
 				filled: true,
 				getFillColor: ({ properties }: { properties: BuildingProperties }) => {
-					// For static highlights, use first value or a simple property
-					const intensity = properties.person_counts?.[0] || properties.intensity || 0;
+					// Use highlight time slice to get the correct value from person_counts array
+					const intensity = properties.person_counts?.[highlightTimeSlice] || properties.intensity || 0;
 					if (intensity === 0) {
 						return [0, 0, 0, 0];
 					}
@@ -110,7 +158,10 @@
 					return [redValue, 0, 0, 255];
 				},
 				opacity: 0.2,
-				pickable: true
+				pickable: true,
+				updateTriggers: {
+					getFillColor: highlightTimeSlice
+				}
 			});
 			layers.push(highlightsLayer);
 		}
@@ -137,20 +188,68 @@
 
 		map.addControl(deckOverlay);
 
-		// Load initial data
-		await loadHighlightsData();
+		// Setup data from props
+		setupColorScale();
+		calculateMaxTripTimestamp();
+
+		tripAnimationTimestamp.set(0); // Initialize trip animation timestamp
+
+		// Set up animation loop for trips
+		function loop() {
+			animate(tripAnimationTimestamp, maxTripTimestamp, {
+				duration: 30,
+				ease: "linear",
+				onComplete: () => {
+					tripAnimationTimestamp.set(maxTripTimestamp * 0.1); // Reset to 10% of animation
+					loop(); // Restart the animation loop
+				}
+			});
+		}
+
+		// Start the animation loop
+		loop();
+
+		// Subscribe to tripAnimationTimestamp changes to re-render
+		unsubscribeFn = tripAnimationTimestamp.subscribe((value) => {
+			render(timestampToHighlightIndex(highlightTimestamp), value);
+		});
+
+		// Initial render
+		render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 	});
 
+	// Store unsubscribe function for cleanup
+	let unsubscribeFn: (() => void) | null = null;
+
 	onDestroy(() => {
+		if (unsubscribeFn) {
+			unsubscribeFn();
+		}
 		if (map) {
 			map.remove();
 		}
 	});
 
-	// Reactive statement to reload data when URL changes
+	// Reactive statement to update when highlights data changes
 	$effect(() => {
-		if (highlightsUrl && map) {
-			loadHighlightsData();
+		if (highlightsData && map) {
+			setupColorScale();
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
+		}
+	});
+
+	// Reactive statement to update when trips data changes
+	$effect(() => {
+		if (propsTripsData && map) {
+			calculateMaxTripTimestamp();
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
+		}
+	});
+
+	// Reactive statement to re-render when highlightTimestamp changes
+	$effect(() => {
+		if (deckOverlay) {
+			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
 		}
 	});
 </script>

@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { env } from "$env/dynamic/public";
   import type { QuickStatistics } from "$lib/types/misc.ts";
-  import Marquee from "$lib/components/ui/Marquee.svelte";
+  import { Marquee } from "$lib/components/ui/marquee/index.js";
 
   let quickStatistics = $state<QuickStatistics | undefined>(undefined);
 
