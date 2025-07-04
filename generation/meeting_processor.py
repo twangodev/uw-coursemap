@@ -148,7 +148,8 @@ class MeetingProcessor:
 
             # Add counts to all chunks that this meeting spans
             for chunk_idx in range(start_chunk, end_chunk + 1):
-                coordinate_time_data[coord_key]['persons'][chunk_idx] += enrollment
-                coordinate_time_data[coord_key]['instructors'][chunk_idx] += instructor_count
+                if chunk_idx < len(coordinate_time_data[coord_key]['persons']):
+                    coordinate_time_data[coord_key]['persons'][chunk_idx] += enrollment
+                    coordinate_time_data[coord_key]['instructors'][chunk_idx] += instructor_count
 
         return coordinate_time_data, global_start, global_end, total_chunks
