@@ -1,13 +1,15 @@
 <script lang="ts">
 	import Map from '$lib/components/map/map.svelte';
 	import MapControls from '$lib/components/map/map-controls.svelte';
+	import { goto } from '$app/navigation';
 
 	// Props from load function
 	interface Props {
 		data: {
 			tripsData: any;
 			highlightsData: any;
-			initialDate: Date;
+			selectedDate: Date;
+			dayParam: string;
 		};
 	}
 
@@ -18,7 +20,6 @@
 	let metadata = $state<any>(data.highlightsData?.metadata || null);
 	let isPlaying = $state(false);
 	let playInterval: NodeJS.Timeout | null = null;
-	let selectedJSDate = $state(data.initialDate);
 	let highlightsData = $state<any>(data.highlightsData);
 	let tripsData = $state<any>(data.tripsData);
 
@@ -33,30 +34,12 @@
 		return metadata.start_time + (timeIndex * chunkDurationMs);
 	});
 
-	function formatDateForAPI(date: Date): string {
+	// Format date for URL parameter (MM-DD-YY)
+	function formatDateForURL(date: Date): string {
 		const month = String(date.getMonth() + 1).padStart(2, '0');
 		const day = String(date.getDate()).padStart(2, '0');
 		const year = String(date.getFullYear()).slice(-2);
 		return `${month}-${day}-${year}`;
-	}
-
-	function generateHighlightsUrl(date: Date): string {
-		const dateStr = formatDateForAPI(date);
-		return `https://static.uwcourses.com/meetings/${dateStr}.geojson`;
-	}
-
-
-	// Client-side loading for date changes only
-	async function loadHighlightsForDate(date: Date) {
-		try {
-			const url = generateHighlightsUrl(date);
-			const response = await fetch(url);
-			const data = await response.json();
-			highlightsData = data;
-			metadata = data.metadata;
-		} catch (error) {
-			console.warn('Failed to load highlights data:', error);
-		}
 	}
 
 	function handleTimeIndexChange(index: number) {
@@ -84,16 +67,29 @@
 	}
 
 	function handleDateChange(newDate: Date) {
-		selectedJSDate = newDate;
+		// Update URL with new date parameter
+		const dateParam = formatDateForURL(newDate);
+		goto(`/campus?day=${dateParam}`, { 
+			keepFocus: true,
+			noScroll: true 
+		});
+		// Note: Data will be reloaded via the load function when URL changes
+	}
+
+	// Sync component state with new data when URL/data changes
+	$effect(() => {
+		highlightsData = data.highlightsData;
+		tripsData = data.tripsData;
+		metadata = data.highlightsData?.metadata || null;
+		
+		// Reset time controls when date changes
 		timeIndex = 0;
 		isPlaying = false;
 		if (playInterval) {
 			clearInterval(playInterval);
 			playInterval = null;
 		}
-		// Load new date's highlights data
-		loadHighlightsForDate(newDate);
-	}
+	});
 
 	// Initialize timeIndex based on real current time when metadata is available
 	$effect(() => {
@@ -116,6 +112,7 @@
 			timeIndex = Math.floor((clampedTime - start_time) / chunkDurationMs);
 		}
 	});
+
 </script>
 
 <Map {highlightsData} {tripsData} currentTime={currentTime()}>
