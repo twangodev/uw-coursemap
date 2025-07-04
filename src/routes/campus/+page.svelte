@@ -1,15 +1,26 @@
 <script lang="ts">
 	import Map from '$lib/components/map/map.svelte';
 	import MapControls from '$lib/components/map/map-controls.svelte';
-	import { env } from '$env/dynamic/public';
 
+	// Props from load function
+	interface Props {
+		data: {
+			tripsData: any;
+			highlightsData: any;
+			initialDate: Date;
+		};
+	}
+
+	let { data }: Props = $props();
+
+	// Component state
 	let timeIndex = $state(0);
-	let metadata = $state<any>(null);
+	let metadata = $state<any>(data.highlightsData?.metadata || null);
 	let isPlaying = $state(false);
 	let playInterval: NodeJS.Timeout | null = null;
-	let selectedJSDate = $state(new Date());
-	let highlightsData = $state<any>(null);
-	let tripsData = $state<any>(null);
+	let selectedJSDate = $state(data.initialDate);
+	let highlightsData = $state<any>(data.highlightsData);
+	let tripsData = $state<any>(data.tripsData);
 
 	// Calculate current timestamp from timeIndex and metadata
 	let currentTime = $derived(() => {
@@ -34,49 +45,17 @@
 		return `https://static.uwcourses.com/meetings/${dateStr}.geojson`;
 	}
 
-	let highlightsUrl = $derived(generateHighlightsUrl(selectedJSDate));
 
-	// Load highlights data
-	async function loadHighlightsData(url: string) {
+	// Client-side loading for date changes only
+	async function loadHighlightsForDate(date: Date) {
 		try {
+			const url = generateHighlightsUrl(date);
 			const response = await fetch(url);
 			const data = await response.json();
 			highlightsData = data;
-			// Extract metadata for controls
 			metadata = data.metadata;
-			
-			// Initialize timeIndex based on real current time when metadata is first loaded
-			if (metadata?.start_time && timeIndex === 0) {
-				const now = Date.now();
-				const start_time = metadata.start_time;
-				const chunkDurationMs = (metadata.chunk_duration_minutes || 5) * 60 * 1000;
-				const totalChunks = metadata.total_chunks || 192;
-				const end_time = start_time + (totalChunks * chunkDurationMs);
-				
-				// Calculate timeIndex from clamped current time
-				let clampedTime = now;
-				if (now < start_time) {
-					clampedTime = start_time;
-				} else if (now > end_time) {
-					clampedTime = end_time;
-				}
-				
-				// Convert clamped time to timeIndex
-				timeIndex = Math.floor((clampedTime - start_time) / chunkDurationMs);
-			}
 		} catch (error) {
 			console.warn('Failed to load highlights data:', error);
-		}
-	}
-
-	// Load trips data
-	async function loadTripsData() {
-		try {
-			const response = await fetch(`${env.PUBLIC_API_URL}/trips.json`);
-			const data = await response.json();
-			tripsData = data;
-		} catch (error) {
-			console.warn('Failed to load trips data:', error);
 		}
 	}
 
@@ -112,16 +91,30 @@
 			clearInterval(playInterval);
 			playInterval = null;
 		}
+		// Load new date's highlights data
+		loadHighlightsForDate(newDate);
 	}
 
-	// Load trips data on mount
+	// Initialize timeIndex based on real current time when metadata is available
 	$effect(() => {
-		loadTripsData();
-	});
-
-	// Load highlights data when URL changes
-	$effect(() => {
-		loadHighlightsData(highlightsUrl);
+		if (metadata?.start_time && timeIndex === 0) {
+			const now = Date.now();
+			const start_time = metadata.start_time;
+			const chunkDurationMs = (metadata.chunk_duration_minutes || 5) * 60 * 1000;
+			const totalChunks = metadata.total_chunks || 192;
+			const end_time = start_time + (totalChunks * chunkDurationMs);
+			
+			// Calculate timeIndex from clamped current time
+			let clampedTime = now;
+			if (now < start_time) {
+				clampedTime = start_time;
+			} else if (now > end_time) {
+				clampedTime = end_time;
+			}
+			
+			// Convert clamped time to timeIndex
+			timeIndex = Math.floor((clampedTime - start_time) / chunkDurationMs);
+		}
 	});
 </script>
 
