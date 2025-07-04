@@ -579,7 +579,7 @@ class TripGenerator:
             waypoints = []
             for j, coord in enumerate(route_coords):
                 waypoints.append({
-                    "coordinates": [round(coord[0], 4), round(coord[1], 4)],  # [longitude, latitude] rounded to 4 decimal places
+                    "coordinates": [round(coord[0], 5), round(coord[1], 5)],  # [longitude, latitude] rounded to 5 decimal places
                     "timestamp": timestamps[j]
                 })
             

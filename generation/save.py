@@ -60,6 +60,60 @@ def chunk_meetings_by_building(course_ref_to_meetings, data_dir):
     logger.info(f"Wrote {total_files_written} meeting files organized by building")
     logger.info(f"Meetings organized across {len(building_meetings)} buildings")
 
+
+def chunk_meetings_by_building_and_date(course_ref_to_meetings, data_dir):
+    """
+    Chunks meetings by building and then by date, creating daily files for each building.
+    
+    Args:
+        course_ref_to_meetings: Dict mapping course references to lists of Meeting objects
+        data_dir: Base data directory for writing files
+    
+    Directory structure: 
+        /buildings/{building_name}/MM-DD-YY.json - Meeting data for each day
+        /buildings/{building_name}/MM-DD-YY.geojson - Building highlights for each day
+        /buildings/{building_name}/index.json - Index of all dates with statistics
+    """
+    # Group meetings by building
+    building_meetings = defaultdict(list)
+    
+    # Flatten all meetings from all courses and group by building
+    all_meetings = []
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for building and date chunking")
+    
+    for meeting in all_meetings:
+        # Skip meetings without location
+        if not meeting.location or not meeting.start_time:
+            continue
+            
+        # Use building name from location
+        building_name = meeting.location.building
+        if not building_name:
+            building_name = "Unknown_Building"
+        
+        # Add meeting to the appropriate building bucket
+        building_meetings[building_name].append(meeting)
+    
+    # Process each building's meetings by date
+    total_buildings_processed = 0
+    total_date_files_written = 0
+    
+    for building_name, meetings in tqdm(building_meetings.items(), desc="Writing daily meeting files by building", unit="building"):
+        directory_tuple = ("buildings", building_name)
+        
+        # Use the abstracted function to write meetings by date for this building
+        write_meetings_by_date(meetings, data_dir, directory_tuple)
+        
+        total_buildings_processed += 1
+        # Note: write_meetings_by_date handles the counting of individual date files
+    
+    logger.info(f"Processed {total_buildings_processed} buildings with daily meeting files")
+    logger.info(f"Each building now has MM-DD-YY.json, MM-DD-YY.geojson, and index.json files")
+
 def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
     """
     Chunks meetings by instructor.
@@ -133,6 +187,32 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     Directory structure: /meetings/MM-DD-YY.json
     Also creates an index.json file with date mappings and statistics.
     """
+    # Flatten all meetings from all courses
+    all_meetings = []
+    for course_reference, meetings in course_ref_to_meetings.items():
+        if meetings:
+            all_meetings.extend(meetings)
+    
+    logger.info(f"Processing {len(all_meetings)} total meetings for pure date chunking")
+    
+    # Use the abstracted function to write meetings by date
+    write_meetings_by_date(all_meetings, data_dir, ("meetings",))
+
+
+def write_meetings_by_date(meetings, data_dir, directory_tuple):
+    """
+    Abstract function to write meetings grouped by date to any directory structure.
+    
+    Args:
+        meetings: List of meeting objects to process
+        data_dir: Base data directory
+        directory_tuple: Tuple representing the directory path (e.g., ("meetings",) or ("buildings", "building_name"))
+    
+    Creates:
+        - MM-DD-YY.json files with meeting data
+        - MM-DD-YY.geojson files with building highlights
+        - index.json file with date mappings and statistics
+    """
     # Use US/Central timezone which automatically handles DST
     central_tz = ZoneInfo("US/Central")
     
@@ -145,15 +225,7 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     # Track total students per date for index.json
     date_students = defaultdict(int)
     
-    # Flatten all meetings from all courses
-    all_meetings = []
-    for course_reference, meetings in course_ref_to_meetings.items():
-        if meetings:
-            all_meetings.extend(meetings)
-    
-    logger.info(f"Processing {len(all_meetings)} total meetings for pure date chunking")
-    
-    for meeting in all_meetings:
+    for meeting in meetings:
         # Skip meetings without start_time
         if not meeting.start_time:
             continue
@@ -190,12 +262,11 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     geojson_files_written = 0
 
     for date_filename, meetings_for_date in tqdm(date_meetings.items(), desc="Writing meeting files by date", unit="date"):
-        directory_tuple = ("meetings",)
-        
         # Write JSON file with meeting data
         write_file(data_dir, directory_tuple, date_filename, meetings_for_date)
         files_written += 1
 
+        # Generate building highlights for this date
         building_geojson, metadata = get_buildings(meetings_for_date)
 
         full_geojson = {
@@ -231,12 +302,11 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
         }
     
     # Write index.json file
-    directory_tuple = ("meetings",)
     write_file(data_dir, directory_tuple, "index", index_data)
     
-    logger.info(f"Wrote {files_written} meeting files organized purely by date")
-    logger.info(f"Wrote {geojson_files_written} building highlight GeoJSON files")
-    logger.info(f"Created index.json with {len(index_data)} date entries")
+    logger.info(f"Wrote {files_written} meeting files organized by date to {'/'.join(directory_tuple)}")
+    logger.info(f"Wrote {geojson_files_written} building highlight GeoJSON files to {'/'.join(directory_tuple)}")
+    logger.info(f"Created index.json with {len(index_data)} date entries in {'/'.join(directory_tuple)}")
 
 def convert_keys_to_str(data):
     if isinstance(data, dict):
@@ -512,6 +582,9 @@ def write_data(
     
     # Chunk meetings by building
     chunk_meetings_by_building(course_ref_to_meetings, data_dir)
+    
+    # Chunk meetings by building and date (creates daily files for each building)
+    chunk_meetings_by_building_and_date(course_ref_to_meetings, data_dir)
     
     # Chunk meetings by instructor
     chunk_meetings_by_instructor(course_ref_to_meetings, data_dir)
