@@ -13,19 +13,19 @@
 	interface Props {
 		highlightsData: any;
 		tripsData: any;
-		timeIndex: number;
+		timeIndex: number; // Discrete index for building occupancy data time slices
 		children?: Snippet;
 	}
 
-	let { highlightsData, tripsData: propsTripsData, timeIndex, children }: Props = $props();
+	let { highlightsData, tripsData: propsTripsData, timeIndex: highlightTimeSliceIndex, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
 	let colorScale: ReturnType<typeof scaleLog<number>>;
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
-	let maxTimestamp = $state(0);
-	let currentTime = useMotionValue(0);
+	let maxTripTimestamp = $state(0);
+	let tripAnimationTimestamp = useMotionValue(0); // Continuous timestamp for trips layer animation
 
 	// Type definitions
 	type PropertiesType = {
@@ -57,7 +57,7 @@
 	}
 
 	// Calculate max timestamp from trips data
-	function calculateMaxTimestamp() {
+	function calculateMaxTripTimestamp() {
 		if (!propsTripsData) return;
 		
 		let max = 0;
@@ -68,10 +68,10 @@
 				}
 			}
 		}
-		maxTimestamp = max;
+		maxTripTimestamp = max;
 	}
 
-	function render(highlightsTime: number, tripTime: number) {
+	function render(highlightTimeSlice: number, tripAnimationTime: number) {
 		const layers: Layer[] = [];
 
 		// Add building base layer
@@ -110,7 +110,7 @@
 				},
 				getTimestamps: (d: any) => d.waypoints.map((p: any) => p.timestamp),
 				getColor: [253, 128, 93],
-				currentTime: tripTime,
+				currentTime: tripAnimationTime,
 				trailLength: 110000,
 				capRounded: true,
 				jointRounded: true,
@@ -129,8 +129,8 @@
 				stroked: false,
 				filled: true,
 				getFillColor: ({ properties }: { properties: BuildingProperties }) => {
-					// Use time index to get the correct value from person_counts array
-					const intensity = properties.person_counts?.[highlightsTime] || properties.intensity || 0;
+					// Use highlight time slice to get the correct value from person_counts array
+					const intensity = properties.person_counts?.[highlightTimeSlice] || properties.intensity || 0;
 					if (intensity === 0) {
 						return [0, 0, 0, 0];
 					}
@@ -140,7 +140,7 @@
 				opacity: 0.2,
 				pickable: true,
 				updateTriggers: {
-					getFillColor: highlightsTime
+					getFillColor: highlightTimeSlice
 				}
 			});
 			layers.push(highlightsLayer);
@@ -170,17 +170,17 @@
 
 		// Setup data from props
 		setupColorScale();
-		calculateMaxTimestamp();
+		calculateMaxTripTimestamp();
 
-		currentTime.set(0); // Initialize current time
+		tripAnimationTimestamp.set(0); // Initialize trip animation timestamp
 
 		// Set up animation loop for trips
 		function loop() {
-			animate(currentTime, maxTimestamp, {
+			animate(tripAnimationTimestamp, maxTripTimestamp, {
 				duration: 30,
 				ease: "linear",
 				onComplete: () => {
-					currentTime.set(maxTimestamp * 0.1); // Reset to 10% of animation
+					tripAnimationTimestamp.set(maxTripTimestamp * 0.1); // Reset to 10% of animation
 					loop(); // Restart the animation loop
 				}
 			});
@@ -189,13 +189,13 @@
 		// Start the animation loop
 		loop();
 
-		// Subscribe to currentTime changes to re-render
-		unsubscribeFn = currentTime.subscribe((value) => {
-			render(timeIndex, value);
+		// Subscribe to tripAnimationTimestamp changes to re-render
+		unsubscribeFn = tripAnimationTimestamp.subscribe((value) => {
+			render(highlightTimeSliceIndex, value);
 		});
 
 		// Initial render
-		render(timeIndex, currentTime.get());
+		render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
 	});
 
 	// Store unsubscribe function for cleanup
@@ -214,22 +214,22 @@
 	$effect(() => {
 		if (highlightsData && map) {
 			setupColorScale();
-			render(timeIndex, currentTime.get());
+			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
 		}
 	});
 
 	// Reactive statement to update when trips data changes
 	$effect(() => {
 		if (propsTripsData && map) {
-			calculateMaxTimestamp();
-			render(timeIndex, currentTime.get());
+			calculateMaxTripTimestamp();
+			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
 		}
 	});
 
-	// Reactive statement to re-render when timeIndex changes
+	// Reactive statement to re-render when highlightTimeSliceIndex changes
 	$effect(() => {
 		if (deckOverlay) {
-			render(timeIndex, currentTime.get());
+			render(highlightTimeSliceIndex, tripAnimationTimestamp.get());
 		}
 	});
 </script>
