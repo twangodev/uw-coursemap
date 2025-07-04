@@ -1,12 +1,15 @@
 <script lang="ts">
 	import Map from '$lib/components/map/map.svelte';
 	import MapControls from '$lib/components/map/map-controls.svelte';
+	import { env } from '$env/dynamic/public';
 
 	let timeIndex = $state(0);
 	let metadata = $state<any>(null);
 	let isPlaying = $state(false);
 	let playInterval: NodeJS.Timeout | null = null;
 	let selectedJSDate = $state(new Date());
+	let highlightsData = $state<any>(null);
+	let tripsData = $state<any>(null);
 
 	function formatDateForAPI(date: Date): string {
 		const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -21,6 +24,30 @@
 	}
 
 	let highlightsUrl = $derived(generateHighlightsUrl(selectedJSDate));
+
+	// Load highlights data
+	async function loadHighlightsData(url: string) {
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+			highlightsData = data;
+			// Extract metadata for controls
+			metadata = data.metadata;
+		} catch (error) {
+			console.warn('Failed to load highlights data:', error);
+		}
+	}
+
+	// Load trips data
+	async function loadTripsData() {
+		try {
+			const response = await fetch(`${env.PUBLIC_API_URL}/trips.json`);
+			const data = await response.json();
+			tripsData = data;
+		} catch (error) {
+			console.warn('Failed to load trips data:', error);
+		}
+	}
 
 	function handleTimeIndexChange(index: number) {
 		// This could trigger re-rendering if needed
@@ -55,9 +82,19 @@
 			playInterval = null;
 		}
 	}
+
+	// Load trips data on mount
+	$effect(() => {
+		loadTripsData();
+	});
+
+	// Load highlights data when URL changes
+	$effect(() => {
+		loadHighlightsData(highlightsUrl);
+	});
 </script>
 
-<Map {highlightsUrl} {timeIndex}>
+<Map {highlightsData} {tripsData} {timeIndex}>
 	<MapControls
 		bind:timeIndex
 		{metadata}

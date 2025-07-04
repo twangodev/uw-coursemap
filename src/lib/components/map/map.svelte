@@ -8,24 +8,22 @@
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
 	import { animate, useMotionValue } from 'svelte-motion';
-	import {env } from '$env/dynamic/public';
 
 	// Props
 	interface Props {
-		highlightsUrl: string;
+		highlightsData: any;
+		tripsData: any;
 		timeIndex: number;
 		children?: import('svelte').Snippet;
 	}
 
-	let { highlightsUrl, timeIndex, children }: Props = $props();
+	let { highlightsData, tripsData: propsTripsData, timeIndex, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
 	let colorScale: ReturnType<typeof scaleLog<number>>;
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
-	let currentGeoJsonData = $state<any>(null);
-	let tripsData = $state<any>(null);
 	let maxTimestamp = $state(0);
 	let currentTime = useMotionValue(0);
 
@@ -50,50 +48,27 @@
 		bearing: 0
 	};
 
-	// Data loading function
-	async function loadHighlightsData() {
-		try {
-			const response = await fetch(highlightsUrl);
-			const geoJsonData = await response.json();
-			
-			currentGeoJsonData = geoJsonData;
-
-			// Set up color scale if metadata exists
-			if (geoJsonData.metadata) {
-				const maxPersons = geoJsonData.metadata.max_persons || 10_000;
-				colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
-			}
-
-			// Re-render the map
-			if (deckOverlay) {
-				render(timeIndex, currentTime.get());
-			}
-		} catch (error) {
-			console.warn('Failed to load highlights data:', error);
+	// Setup color scale from highlights data
+	function setupColorScale() {
+		if (highlightsData?.metadata) {
+			const maxPersons = highlightsData.metadata.max_persons || 10_000;
+			colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
 		}
 	}
 
-	// Load trips data and calculate max timestamp
-	async function loadTripsData() {
-		try {
-			const response = await fetch(`${env.PUBLIC_API_URL}/trips.json`);
-			const data = await response.json();
-			tripsData = data;
-			
-			// Calculate max timestamp from all waypoints
-			let max = 0;
-			for (const trip of data) {
-				for (const waypoint of trip.waypoints) {
-					if (waypoint.timestamp > max) {
-						max = waypoint.timestamp;
-					}
+	// Calculate max timestamp from trips data
+	function calculateMaxTimestamp() {
+		if (!propsTripsData) return;
+		
+		let max = 0;
+		for (const trip of propsTripsData) {
+			for (const waypoint of trip.waypoints) {
+				if (waypoint.timestamp > max) {
+					max = waypoint.timestamp;
 				}
 			}
-			maxTimestamp = max;
-			return data;
-		} catch (error) {
-			console.warn('Failed to load trips data:', error);
 		}
+		maxTimestamp = max;
 	}
 
 	function render(highlightsTime: number, tripTime: number) {
@@ -122,10 +97,10 @@
 		layers.push(buildingLayer);
 
 		// Add trips layer if data is available
-		if (tripsData) {
+		if (propsTripsData) {
 			const tripsLayer = new TripsLayer({
 				id: 'TripsLayer',
-				data: tripsData,
+				data: propsTripsData,
 				getPath: (d: any) => {
 					const height = Math.floor(Math.random() * 10) + 5;
 					return d.waypoints.map((p: any) => {
@@ -146,10 +121,10 @@
 		}
 
 		// Add highlights layer if data is available
-		if (currentGeoJsonData && colorScale) {
+		if (highlightsData && colorScale) {
 			const highlightsLayer = new GeoJsonLayer({
 				id: 'highlights',
-				data: currentGeoJsonData,
+				data: highlightsData,
 				extensions: [new TerrainExtension()],
 				stroked: false,
 				filled: true,
@@ -193,11 +168,9 @@
 
 		map.addControl(deckOverlay);
 
-		// Load initial data
-		await loadHighlightsData();
-		
-		// Load trips data
-		await loadTripsData();
+		// Setup data from props
+		setupColorScale();
+		calculateMaxTimestamp();
 
 		currentTime.set(0); // Initialize current time
 
@@ -237,10 +210,19 @@
 		}
 	});
 
-	// Reactive statement to reload data when URL changes
+	// Reactive statement to update when highlights data changes
 	$effect(() => {
-		if (highlightsUrl && map) {
-			loadHighlightsData();
+		if (highlightsData && map) {
+			setupColorScale();
+			render(timeIndex, currentTime.get());
+		}
+	});
+
+	// Reactive statement to update when trips data changes
+	$effect(() => {
+		if (propsTripsData && map) {
+			calculateMaxTimestamp();
+			render(timeIndex, currentTime.get());
 		}
 	});
 
