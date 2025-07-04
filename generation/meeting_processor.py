@@ -64,7 +64,7 @@ class MeetingProcessor:
         global_start = min(all_start_times)
         global_end = max(all_end_times)
 
-        total_chunks = math.ceil((global_end - global_start) / self.chunk_duration_ms)
+        total_chunks = max(1, math.ceil((global_end - global_start) / self.chunk_duration_ms))
 
         return global_start, global_end, total_chunks
 
@@ -148,8 +148,7 @@ class MeetingProcessor:
 
             # Add counts to all chunks that this meeting spans
             for chunk_idx in range(start_chunk, end_chunk + 1):
-                if chunk_idx < len(coordinate_time_data[coord_key]['persons']):
-                    coordinate_time_data[coord_key]['persons'][chunk_idx] += enrollment
-                    coordinate_time_data[coord_key]['instructors'][chunk_idx] += instructor_count
+                coordinate_time_data[coord_key]['persons'][chunk_idx] += enrollment
+                coordinate_time_data[coord_key]['instructors'][chunk_idx] += instructor_count
 
         return coordinate_time_data, global_start, global_end, total_chunks
