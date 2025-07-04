@@ -64,7 +64,7 @@ class MeetingProcessor:
         global_start = min(all_start_times)
         global_end = max(all_end_times)
 
-        total_chunks = math.ceil((global_end - global_start) / self.chunk_duration_ms)
+        total_chunks = max(1, math.ceil((global_end - global_start) / self.chunk_duration_ms))
 
         return global_start, global_end, total_chunks
 
