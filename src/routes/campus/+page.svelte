@@ -19,6 +19,7 @@
 	let timeIndex = $state(0);
 	let metadata = $state<any>(data.highlightsData?.metadata || null);
 	let isPlaying = $state(false);
+	let isManualControl = $state(false);
 	let playInterval: NodeJS.Timeout | null = null;
 	let highlightsData = $state<any>(data.highlightsData);
 	let tripsData = $state<any>(data.tripsData);
@@ -43,7 +44,8 @@
 	}
 
 	function handleTimeIndexChange(index: number) {
-		// This could trigger re-rendering if needed
+		// Mark as manual control when user changes time
+		isManualControl = true;
 		console.log('Time index changed to:', index);
 	}
 
@@ -55,6 +57,8 @@
 			}
 			isPlaying = false;
 		} else {
+			// Mark as manual control when user manually plays
+			isManualControl = true;
 			isPlaying = true;
 			playInterval = setInterval(() => {
 				if (timeIndex >= ((metadata?.total_chunks ?? 192) - 1)) {
@@ -85,6 +89,7 @@
 		// Reset time controls when date changes
 		timeIndex = 0;
 		isPlaying = false;
+		isManualControl = false; // Reset manual control state
 		if (playInterval) {
 			clearInterval(playInterval);
 			playInterval = null;
@@ -93,7 +98,7 @@
 
 	// Initialize timeIndex based on real current time when metadata is available
 	$effect(() => {
-		if (metadata?.start_time && timeIndex === 0) {
+		if (metadata?.start_time && timeIndex === 0 && !isManualControl) {
 			const now = Date.now();
 			const start_time = metadata.start_time;
 			const chunkDurationMs = (metadata.chunk_duration_minutes || 5) * 60 * 1000;
@@ -120,6 +125,7 @@
 		bind:timeIndex
 		{metadata}
 		{isPlaying}
+		{isManualControl}
 		onTimeIndexChange={handleTimeIndexChange}
 		onTogglePlay={handleTogglePlay}
 		onDateChange={handleDateChange}

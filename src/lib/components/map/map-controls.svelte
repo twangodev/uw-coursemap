@@ -3,12 +3,14 @@
 	import { Calendar } from '$lib/components/ui/calendar';
 	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
 	import { getLocalTimeZone, today } from '@internationalized/date';
+	import LiveStatusIndicator from './live-status-indicator.svelte';
 
 	// Props
 	interface Props {
 		timeIndex: number;
 		metadata: any;
 		isPlaying: boolean;
+		isManualControl?: boolean;
 		onTimeIndexChange: (index: number) => void;
 		onTogglePlay: () => void;
 		onDateChange: (date: Date) => void;
@@ -18,6 +20,7 @@
 		timeIndex = $bindable(),
 		metadata,
 		isPlaying,
+		isManualControl = false,
 		onTimeIndexChange,
 		onTogglePlay,
 		onDateChange
@@ -74,6 +77,7 @@
 			calendarOpen = false;
 		}
 	}
+
 </script>
 
 <!-- Video-style control bar -->
@@ -106,8 +110,13 @@
 		<Popover bind:open={calendarOpen}>
 			<PopoverTrigger>
 				<button
-					class="text-gray-300 text-xs hover:text-white transition-colors cursor-pointer"
+					class="text-gray-300 text-xs hover:text-white transition-colors cursor-pointer flex items-center gap-2"
 				>
+					<LiveStatusIndicator 
+						{timeIndex}
+						{metadata}
+						{isManualControl}
+					/>
 					{formatDateTime(timeIndex).date}
 				</button>
 			</PopoverTrigger>
