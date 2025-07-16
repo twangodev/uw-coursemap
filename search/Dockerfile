@@ -8,12 +8,12 @@ ENV PYTHONUNBUFFERED=1
 
 FROM base AS builder
 
-RUN pip install pipenv
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-COPY Pipfile .
-COPY Pipfile.lock .
+COPY pyproject.toml uv.lock ./
 
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+RUN uv sync --frozen --no-cache
 
 FROM base AS runtime
 
