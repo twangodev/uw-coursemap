@@ -11,5 +11,12 @@ export default defineConfig(({ mode }) => {
     ssr: {
       noExternal: mode === "production" ? ["@carbon/charts"] : [],
     },
+    server: {
+      watch: {
+        ignored: [
+            "**/data/**"
+        ]
+      }
+    }
   };
 });
