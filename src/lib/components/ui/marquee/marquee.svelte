@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { cn } from "$lib/utils";
+  import { cn } from "$lib/utils.ts";
+  import type { Snippet } from 'svelte';
 
   interface Props {
     pauseOnHover?: boolean;
@@ -7,7 +8,7 @@
     repeat?: number;
     reverse?: boolean;
     class?: string | undefined | null;
-    children?: () => any;
+    children?: Snippet;
   }
 
   let {
