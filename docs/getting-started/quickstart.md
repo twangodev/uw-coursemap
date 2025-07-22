@@ -80,18 +80,18 @@ ELASTIC_HOST=https://localhost:9200
 
 #### Setup Flask
 
-Finally, ensure you have [Python](https://www.python.org/downloads/) installed. Follow the documentation to setup a virtual environment with [Pipenv](https://pipenv.pypa.io/en/latest/installation.html)
+Finally, ensure you have [Python](https://www.python.org/downloads/) installed. Follow the documentation to setup a virtual environment with [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 Install the dependencies for the search service:
 
-```sh [pipenv]
-pipenv install
+```sh [uv]
+uv sync
 ```
 
 We recommend running the service from the project root directory, as that is likely where your environment variables are set up. You can run the search service with the following command:
 
-```sh [pipenv]
-pipenv run python ./search/app.py
+```sh [uv]
+uv run python ./search/app.py
 ```
 
 This spins up a development server that listens for requests.
@@ -101,13 +101,13 @@ This spins up a development server that listens for requests.
 
 ### Generation
 
-The generation process requires the same Python setup as the search. Install [Pipenv] and the dependencies as specified above, just in the `generation` directory.
+The generation process requires the same Python setup as the search. Install [uv] and the dependencies as specified above, just in the `generation` directory.
 
 > [!TIP]
 > Ideally, you should create separate virtual environments for the search and generation processes.
 
-```sh [pipenv]
-pipenv run python ./generation/main.py --help
+```sh [uv]
+uv run python ./generation/main.py --help
 ```
 
 For full details on how to run the generation process, see the [Generation](../codebase/generation.md) documentation.
@@ -148,6 +148,6 @@ To expose your application to the internet, you can use a production grade rever
 [frontend]: #frontend
 [docker]: https://www.docker.com/products/docker-desktop
 [elasticsearch]: https://www.elastic.co/elasticsearch
-[pipenv]: https://pipenv.pypa.io/en/latest/
+[uv]: https://docs.astral.sh/uv/
 [docker hub]: https://hub.docker.com/search?q=twango%2Fuw-coursemap
 [GHCR]: https://github.com/twangodev?tab=packages&repo_name=uw-coursemap

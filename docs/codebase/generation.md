@@ -12,7 +12,7 @@ The generation process can be broken down into several key steps, as implemented
 You can specify the step to run with the `--step` flag when running the generation command. The steps are as follows:
 
 ```bash
-pipenv run python generation/main.py --step <step_name>
+uv run python generation/main.py --step <step_name>
 ```
 
 Where `<step_name>` can be one of the following:
@@ -336,9 +336,16 @@ We use [TQDM](https://tqdm.github.io/) to provide a progress bar for the generat
 
 If you have a CUDA-enabled GPU, you can use it to speed up the generation process. The generation process will automatically detect if a CUDA-enabled GPU is available, and will use it to speed up the embedding generation step. This can significantly reduce the time it takes to generate the assets, especially for large datasets.
 
-Install (replace your existing CPU dependencies) with the CUDA dependencies by:
+Install (replace your existing CPU dependencies) with the CUDA dependencies by modifying your `pyproject.toml`:
+
+```toml
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"  # or cu121, cu124 - check PyTorch website for latest
+```
+
+Then run:
 
 ```bash
-pipenv run pip unstall torch torchvision torchaudio
-pipenv run pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 # Find out what version you actually need to use through PyTorch's website
+uv sync --refresh-package torch --refresh-package torchvision --refresh-package torchaudio
 ```

@@ -5,13 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/generation/"
     open-pull-requests-limit: 1000
     schedule:
       interval: "daily"
 
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/search/"
     open-pull-requests-limit: 1000
     schedule:

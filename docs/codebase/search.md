@@ -16,16 +16,16 @@ docker-compose up -d
 
 The elastic search instance is now exposed on `localhost:9200`. Within both production and development environments, elasticsearch is not meant to be accessed directly. Instead, Flask sits in front of Elasticsearch and handles all requests.
 
-To run the Flask server, you can use the following commands (assuming you have `pipenv` installed):
+To run the Flask server, you can use the following commands (assuming you have `uv` installed):
 
 ```bash
-pipenv sync
+uv sync
 ```
 
 Change directories back to the project root directory, and now you can run the search server:
 
-```sh [pipenv]
-pipenv run python ./search/app.py
+```sh [uv]
+uv run python ./search/app.py
 ```
 
 We will eventually configure WSGI to run the Flask server in production.
