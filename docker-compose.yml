@@ -1,6 +1,6 @@
 services:
   elasticsearch:
-    image: elasticsearch:9.0.3
+    image: elasticsearch:9.0.4
     container_name: elasticsearch
     env_file: ".env"
     ports:
