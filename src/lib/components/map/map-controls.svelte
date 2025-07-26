@@ -11,6 +11,7 @@
 		metadata: any;
 		isPlaying: boolean;
 		isManualControl?: boolean;
+		availableDates: Record<string, { total_buildings: number }>;
 		onTimeIndexChange: (index: number) => void;
 		onTogglePlay: () => void;
 		onDateChange: (date: Date) => void;
@@ -21,6 +22,7 @@
 		metadata,
 		isPlaying,
 		isManualControl = false,
+		availableDates,
 		onTimeIndexChange,
 		onTogglePlay,
 		onDateChange
@@ -78,6 +80,18 @@
 		}
 	}
 
+	// Check if a date is disabled (no data or no buildings)
+	function isDateDisabled(date: any) {
+		// Format date to MM-DD-YY format to match availableDates keys
+		const year = String(date.year).slice(-2);
+		const month = String(date.month).padStart(2, '0');
+		const day = String(date.day).padStart(2, '0');
+		const dateKey = `${month}-${day}-${year}`;
+		
+		// Disable if no data exists or total_buildings is 0
+		return !availableDates[dateKey] || availableDates[dateKey].total_buildings === 0;
+	}
+
 </script>
 
 <!-- Video-style control bar -->
@@ -126,6 +140,7 @@
 					bind:value={selectedDate}
 					captionLayout="dropdown"
 					onValueChange={handleDateChange}
+					{isDateDisabled}
 				/>
 				<div class="text-center mt-3 pt-3 border-t">
 					<p class="text-xs text-muted-foreground">

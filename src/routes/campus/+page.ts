@@ -51,6 +51,7 @@ export const load = async ({ fetch, url }) => {
 			highlightsData,
 			selectedDate: validation.selectedDate,
 			dayParam: finalDateStr,
+			availableDates,
 			jsonLd: [
 				{
 					'@context': 'https://schema.org',

@@ -10,6 +10,7 @@
 			highlightsData: any;
 			selectedDate: Date;
 			dayParam: string;
+			availableDates: Record<string, { total_buildings: number }>;
 		};
 	}
 
@@ -126,6 +127,7 @@
 		{metadata}
 		{isPlaying}
 		{isManualControl}
+		availableDates={data.availableDates}
 		onTimeIndexChange={handleTimeIndexChange}
 		onTogglePlay={handleTogglePlay}
 		onDateChange={handleDateChange}
