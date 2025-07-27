@@ -6,11 +6,9 @@
 	// Props from load function
 	interface Props {
 		data: {
-			tripsData: any;
 			highlightsData: any;
 			selectedDate: Date;
 			dayParam: string;
-			availableDates: Record<string, { total_buildings: number }>;
 		};
 	}
 
@@ -23,7 +21,6 @@
 	let isManualControl = $state(false);
 	let playInterval: NodeJS.Timeout | null = null;
 	let highlightsData = $state<any>(data.highlightsData);
-	let tripsData = $state<any>(data.tripsData);
 
 	// Calculate current timestamp from timeIndex and metadata
 	let currentTime = $derived(() => {
@@ -36,18 +33,9 @@
 		return metadata.start_time + (timeIndex * chunkDurationMs);
 	});
 
-	// Format date for URL parameter (MM-DD-YY)
-	function formatDateForURL(date: Date): string {
-		const month = String(date.getMonth() + 1).padStart(2, '0');
-		const day = String(date.getDate()).padStart(2, '0');
-		const year = String(date.getFullYear()).slice(-2);
-		return `${month}-${day}-${year}`;
-	}
-
 	function handleTimeIndexChange(index: number) {
 		// Mark as manual control when user changes time
 		isManualControl = true;
-		console.log('Time index changed to:', index);
 	}
 
 	function handleTogglePlay() {
@@ -71,26 +59,15 @@
 		}
 	}
 
-	function handleDateChange(newDate: Date) {
-		// Update URL with new date parameter
-		const dateParam = formatDateForURL(newDate);
-		goto(`/campus?day=${dateParam}`, { 
-			keepFocus: true,
-			noScroll: true 
-		});
-		// Note: Data will be reloaded via the load function when URL changes
-	}
-
-	// Sync component state with new data when URL/data changes
+	// Sync component state with new data
 	$effect(() => {
 		highlightsData = data.highlightsData;
-		tripsData = data.tripsData;
 		metadata = data.highlightsData?.metadata || null;
 		
-		// Reset time controls when date changes
+		// Reset time controls when data changes
 		timeIndex = 0;
 		isPlaying = false;
-		isManualControl = false; // Reset manual control state
+		isManualControl = false; 
 		if (playInterval) {
 			clearInterval(playInterval);
 			playInterval = null;
@@ -121,15 +98,13 @@
 
 </script>
 
-<Map {highlightsData} {tripsData} currentTime={currentTime()}>
+<Map {highlightsData} currentTime={currentTime()}>
 	<MapControls
 		bind:timeIndex
 		{metadata}
 		{isPlaying}
 		{isManualControl}
-		availableDates={data.availableDates}
 		onTimeIndexChange={handleTimeIndexChange}
 		onTogglePlay={handleTogglePlay}
-		onDateChange={handleDateChange}
 	/>
 </Map>

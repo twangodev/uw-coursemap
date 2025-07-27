@@ -1,64 +1,37 @@
 import { env } from '$env/dynamic/public';
-import { error, redirect } from '@sveltejs/kit';
-import {
-	fetchAvailableDates,
-	validateDateParam,
-	formatDateForAPI
-} from '$lib/utils/campus-date-validation.js';
+import { error } from '@sveltejs/kit';
+import { formatDateForAPI } from '$lib/utils/campus-date-validation.js';
 
-export const load = async ({ fetch, url }) => {
-	const dayParam = url.searchParams.get('day');
-	
-	// Fetch available dates and validate the requested date
-	const availableDates = await fetchAvailableDates(fetch);
-	const validation = validateDateParam(dayParam, availableDates);
-	
-	// Redirect if date is invalid or unavailable
-	if (!validation.isValid && validation.redirectDate) {
-		throw redirect(302, `/campus?day=${validation.redirectDate}`);
-	}
+export const load = async ({ fetch }) => {
+	// Always use today's date
+	const today = new Date();
+	const todayParam = formatDateForAPI(today);
 
 	try {
-		// At this point, dayParam is the final validated date string
-		const finalDateStr = dayParam || formatDateForAPI(new Date());
-		
-		// Load trips data and selected date's highlights data in parallel
-		const [tripsResponse, highlightsResponse] = await Promise.all([
-			fetch(`${env.PUBLIC_API_URL}/trips.json`),
-			fetch(`${env.PUBLIC_API_URL}/meetings/${finalDateStr}.geojson`)
-		]);
+		// Load today's highlights data (trips data removed)
+		const highlightsResponse = await fetch(`${env.PUBLIC_API_URL}/meetings/${todayParam}.geojson`);
 
-		// Handle trips data
-		let tripsData = null;
-		if (tripsResponse.ok) {
-			tripsData = await tripsResponse.json();
-		} else {
-			console.warn('Failed to load trips data:', tripsResponse.statusText);
-		}
-
-		// Handle highlights data
+		// Handle highlights data - if no data for today, just return null
 		let highlightsData = null;
 		if (highlightsResponse.ok) {
 			highlightsData = await highlightsResponse.json();
 		} else {
-			console.warn(`Failed to load highlights data for ${finalDateStr}:`, highlightsResponse.statusText);
+			console.info(`No highlights data available for today (${todayParam})`);
 		}
 
 		return {
 			subtitle: 'Campus Map',
-			description: 'Interactive campus map showing building occupancy and student movement patterns',
-			tripsData,
+			description: 'Interactive campus map showing current building occupancy',
 			highlightsData,
-			selectedDate: validation.selectedDate,
-			dayParam: finalDateStr,
-			availableDates,
+			selectedDate: today,
+			dayParam: todayParam,
 			jsonLd: [
 				{
 					'@context': 'https://schema.org',
 					'@type': 'WebPage',
 					name: 'UW-Madison Campus Map',
-					description: 'Interactive campus map showing building occupancy and student movement patterns',
-					url: `https://uwcourses.com/campus?day=${finalDateStr}`
+					description: 'Interactive campus map showing current building occupancy',
+					url: 'https://uwcourses.com/campus'
 				}
 			]
 		};

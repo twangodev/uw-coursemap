@@ -4,28 +4,24 @@
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
 	import { MVTLayer } from '@deck.gl/geo-layers';
-	import { GeoJsonLayer, TripsLayer, type Layer } from 'deck.gl';
+	import { GeoJsonLayer, type Layer } from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
-	import { animate, useMotionValue } from 'svelte-motion';
 
 	// Props
 	interface Props {
 		highlightsData: any;
-		tripsData: any;
 		currentTime: number; // Unix timestamp in milliseconds
 		children?: Snippet;
 	}
 
-	let { highlightsData, tripsData: propsTripsData, currentTime: highlightTimestamp, children }: Props = $props();
+	let { highlightsData, currentTime: highlightTimestamp, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
 	let colorScale: ReturnType<typeof scaleLog<number>>;
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
-	let maxTripTimestamp = $state(0);
-	let tripAnimationTimestamp = useMotionValue(0); // Continuous timestamp for trips layer animation
 
 	// Type definitions
 	type PropertiesType = {
@@ -76,22 +72,8 @@
 		return Math.max(0, Math.min(index, total_chunks - 1));
 	}
 
-	// Calculate max timestamp from trips data
-	function calculateMaxTripTimestamp() {
-		if (!propsTripsData) return;
-		
-		let max = 0;
-		for (const trip of propsTripsData) {
-			for (const waypoint of trip.waypoints) {
-				if (waypoint.timestamp > max) {
-					max = waypoint.timestamp;
-				}
-			}
-		}
-		maxTripTimestamp = max;
-	}
 
-	function render(highlightTimeSlice: number, tripAnimationTime: number) {
+	function render(highlightTimeSlice: number) {
 		const layers: Layer[] = [];
 
 		// Add building base layer
@@ -115,30 +97,6 @@
 			operation: 'terrain+draw'
 		});
 		layers.push(buildingLayer);
-
-		// Add trips layer if data is available
-		if (propsTripsData) {
-			const tripsLayer = new TripsLayer({
-				id: 'TripsLayer',
-				data: propsTripsData,
-				getPath: (d: any) => {
-					const height = Math.floor(Math.random() * 10) + 5;
-					return d.waypoints.map((p: any) => {
-						const [lon, lat] = p.coordinates;
-						return [lon, lat, height];
-					});
-				},
-				getTimestamps: (d: any) => d.waypoints.map((p: any) => p.timestamp),
-				getColor: [253, 128, 93],
-				currentTime: tripAnimationTime,
-				trailLength: 110000,
-				capRounded: true,
-				jointRounded: true,
-				widthMinPixels: 2,
-				opacity: 0.3,
-			});
-			layers.push(tripsLayer);
-		}
 
 		// Add highlights layer if data is available
 		if (highlightsData && colorScale) {
@@ -190,41 +148,12 @@
 
 		// Setup data from props
 		setupColorScale();
-		calculateMaxTripTimestamp();
-
-		tripAnimationTimestamp.set(0); // Initialize trip animation timestamp
-
-		// Set up animation loop for trips
-		function loop() {
-			animate(tripAnimationTimestamp, maxTripTimestamp, {
-				duration: 30,
-				ease: "linear",
-				onComplete: () => {
-					tripAnimationTimestamp.set(maxTripTimestamp * 0.1); // Reset to 10% of animation
-					loop(); // Restart the animation loop
-				}
-			});
-		}
-
-		// Start the animation loop
-		loop();
-
-		// Subscribe to tripAnimationTimestamp changes to re-render
-		unsubscribeFn = tripAnimationTimestamp.subscribe((value) => {
-			render(timestampToHighlightIndex(highlightTimestamp), value);
-		});
 
 		// Initial render
-		render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
+		render(timestampToHighlightIndex(highlightTimestamp));
 	});
 
-	// Store unsubscribe function for cleanup
-	let unsubscribeFn: (() => void) | null = null;
-
 	onDestroy(() => {
-		if (unsubscribeFn) {
-			unsubscribeFn();
-		}
 		if (map) {
 			map.remove();
 		}
@@ -234,22 +163,14 @@
 	$effect(() => {
 		if (highlightsData && map) {
 			setupColorScale();
-			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
-		}
-	});
-
-	// Reactive statement to update when trips data changes
-	$effect(() => {
-		if (propsTripsData && map) {
-			calculateMaxTripTimestamp();
-			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
+			render(timestampToHighlightIndex(highlightTimestamp));
 		}
 	});
 
 	// Reactive statement to re-render when highlightTimestamp changes
 	$effect(() => {
 		if (deckOverlay) {
-			render(timestampToHighlightIndex(highlightTimestamp), tripAnimationTimestamp.get());
+			render(timestampToHighlightIndex(highlightTimestamp));
 		}
 	});
 </script>

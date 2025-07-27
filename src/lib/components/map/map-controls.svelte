@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { Slider } from '$lib/components/ui/slider';
-	import { Calendar } from '$lib/components/ui/calendar';
-	import { Popover, PopoverContent, PopoverTrigger } from '$lib/components/ui/popover';
-	import { getLocalTimeZone, today } from '@internationalized/date';
 	import LiveStatusIndicator from './live-status-indicator.svelte';
 
 	// Props
@@ -11,10 +8,8 @@
 		metadata: any;
 		isPlaying: boolean;
 		isManualControl?: boolean;
-		availableDates: Record<string, { total_buildings: number }>;
 		onTimeIndexChange: (index: number) => void;
 		onTogglePlay: () => void;
-		onDateChange: (date: Date) => void;
 	}
 
 	let {
@@ -22,14 +17,9 @@
 		metadata,
 		isPlaying,
 		isManualControl = false,
-		availableDates,
 		onTimeIndexChange,
-		onTogglePlay,
-		onDateChange
+		onTogglePlay
 	}: Props = $props();
-
-	let selectedDate = $state(today(getLocalTimeZone()));
-	let calendarOpen = $state(false);
 
 	function formatDateTime(timeIndex: number): {
 		time: string;
@@ -38,7 +28,23 @@
 		hour: number;
 		minute: number;
 	} {
-		if (!metadata) return { time: '--:--', date: '--/--', timezone: '', hour: 0, minute: 0 };
+		// Always show today's date, regardless of metadata
+		const today = new Date();
+		
+		if (!metadata) {
+			return { 
+				time: '--:--', 
+				date: today.toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric'
+				}), 
+				timezone: today.toLocaleTimeString('en-US', {
+					timeZoneName: 'short'
+				}).split(' ').pop() || '', 
+				hour: 0, 
+				minute: 0 
+			};
+		}
 
 		const startTime = metadata.start_time;
 		const chunkDuration = metadata.chunk_duration_minutes;
@@ -51,11 +57,11 @@
 				minute: '2-digit',
 				hour12: true
 			}),
-			date: date.toLocaleDateString('en-US', {
+			date: today.toLocaleDateString('en-US', {
 				month: 'short',
 				day: 'numeric'
 			}),
-			timezone: date.toLocaleTimeString('en-US', {
+			timezone: today.toLocaleTimeString('en-US', {
 				timeZoneName: 'short'
 			}).split(' ').pop() || '',
 			hour: date.getHours() % 12 || 12,
@@ -63,35 +69,15 @@
 		};
 	}
 
-	function getCurrentStats(timeIndex: number) {
+	// Make stats reactive to both timeIndex and metadata changes
+	let currentStats = $derived(() => {
 		if (!metadata) return { persons: 0, instructors: 0 };
 
 		return {
 			persons: metadata.total_persons?.[timeIndex] || 0,
 			instructors: metadata.total_instructors?.[timeIndex] || 0
 		};
-	}
-
-	function handleDateChange(value: any) {
-		if (value) {
-			const newDate = new Date(value.year, value.month - 1, value.day);
-			onDateChange(newDate);
-			calendarOpen = false;
-		}
-	}
-
-	// Check if a date is disabled (no data or no buildings)
-	function isDateDisabled(date: any) {
-		// Format date to MM-DD-YY format to match availableDates keys
-		const year = String(date.year).slice(-2);
-		const month = String(date.month).padStart(2, '0');
-		const day = String(date.day).padStart(2, '0');
-		const dateKey = `${month}-${day}-${year}`;
-		
-		// Disable if no data exists or total_buildings is 0
-		return !availableDates[dateKey] || availableDates[dateKey].total_buildings === 0;
-	}
-
+	});
 </script>
 
 <!-- Video-style control bar -->
@@ -116,39 +102,19 @@
 		{/if}
 	</button>
 
-	<!-- Time and Date with Calendar Popover -->
+	<!-- Time and Date Display (no longer clickable) -->
 	<div class="flex flex-col items-center min-w-20">
 		<div class="text-white font-mono text-sm">
 			{formatDateTime(timeIndex).time}
 		</div>
-		<Popover bind:open={calendarOpen}>
-			<PopoverTrigger>
-				<button
-					class="text-gray-300 text-xs hover:text-white transition-colors cursor-pointer flex items-center gap-2"
-				>
-					<LiveStatusIndicator 
-						{timeIndex}
-						{metadata}
-						{isManualControl}
-					/>
-					{formatDateTime(timeIndex).date}
-				</button>
-			</PopoverTrigger>
-			<PopoverContent class="w-auto p-4" align="center" side="top">
-				<Calendar
-					type="single"
-					bind:value={selectedDate}
-					captionLayout="dropdown"
-					onValueChange={handleDateChange}
-					{isDateDisabled}
-				/>
-				<div class="text-center mt-3 pt-3 border-t">
-					<p class="text-xs text-muted-foreground">
-						All times displayed in {Intl.DateTimeFormat().resolvedOptions().timeZone}
-					</p>
-				</div>
-			</PopoverContent>
-		</Popover>
+		<div class="text-gray-300 text-xs flex items-center gap-2">
+			<LiveStatusIndicator 
+				{timeIndex}
+				{metadata}
+				{isManualControl}
+			/>
+			{formatDateTime(timeIndex).date}
+		</div>
 	</div>
 
 	<!-- Slider -->
@@ -165,13 +131,13 @@
 	<div class="flex gap-4 text-xs">
 		<div class="flex flex-col items-center">
 			<div class="text-blue-300 font-semibold">
-				{getCurrentStats(timeIndex).persons.toLocaleString()}
+				{currentStats().persons.toLocaleString()}
 			</div>
 			<div class="text-gray-400">Persons</div>
 		</div>
 		<div class="flex flex-col items-center">
 			<div class="text-green-300 font-semibold">
-				{getCurrentStats(timeIndex).instructors.toLocaleString()}
+				{currentStats().instructors.toLocaleString()}
 			</div>
 			<div class="text-gray-400">Instructors</div>
 		</div>

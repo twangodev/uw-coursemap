@@ -18,18 +18,21 @@
 	function getLiveStatus(timeIndex: number): {
 		isLive: boolean;
 		tooltip: string;
+		showNoEvents: boolean;
 	} {
-		if (isManualControl) {
-			return {
-				isLive: false,
-				tooltip: 'Manual time control - not following live time'
-			};
-		}
-
 		if (!metadata?.start_time) {
 			return {
 				isLive: false,
-				tooltip: 'Time data unavailable'
+				tooltip: 'No events today',
+				showNoEvents: true
+			};
+		}
+
+		if (isManualControl) {
+			return {
+				isLive: false,
+				tooltip: 'Manual time control - not following live time',
+				showNoEvents: false
 			};
 		}
 
@@ -43,7 +46,8 @@
 		if (!isInBounds) {
 			return {
 				isLive: false,
-				tooltip: 'Live time is outside the data window'
+				tooltip: 'Live time is outside the data window',
+				showNoEvents: false
 			};
 		}
 
@@ -54,12 +58,14 @@
 		if (timeDiff <= liveThreshold) {
 			return {
 				isLive: true,
-				tooltip: 'Following live time'
+				tooltip: 'Following live time',
+				showNoEvents: false
 			};
 		} else {
 			return {
 				isLive: false,
-				tooltip: 'Not following live time'
+				tooltip: 'Not following live time',
+				showNoEvents: false
 			};
 		}
 	}
@@ -77,7 +83,9 @@
 				aria-label={liveStatus.tooltip}
 			>
 				<div class="relative">
-					{#if liveStatus.isLive}
+					{#if liveStatus.showNoEvents}
+						<div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+					{:else if liveStatus.isLive}
 						<div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
 						<div class="absolute top-0 left-0 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
 					{:else}
