@@ -7,6 +7,7 @@
 	import { GeoJsonLayer, type Layer } from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
+	import { mode } from 'mode-watcher';
 
 	// Props
 	interface Props {
@@ -43,6 +44,27 @@
 		pitch: 45,
 		bearing: 0
 	};
+
+	// Theme-aware basemap styles - reactive to mode changes
+	let mapStyle = $derived(() => {
+		switch (mode.current) {
+			case 'light':
+				return 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
+			case 'dark':
+				return 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+			default:
+				return 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+		}
+	});
+
+	// Theme-aware building colors - reactive to mode changes  
+	let buildingColor = $derived((): [number, number, number, number] => {
+		if (mode.current === 'light') {
+			return [150, 150, 150, 128]; // Lighter gray for light mode
+		} else {
+			return [80, 80, 80, 128]; // Darker gray for dark mode
+		}
+	});
 
 	// Setup color scale from highlights data
 	function setupColorScale() {
@@ -89,10 +111,13 @@
 				const layerName = f.properties.layerName;
 				switch (layerName) {
 					case 'building':
-						return [105, 105, 105, 128];
+						return buildingColor();
 					default:
 						return [0, 0, 0, 0];
 				}
+			},
+			updateTriggers: {
+				getFillColor: buildingColor()
 			},
 			operation: 'terrain+draw'
 		});
@@ -131,7 +156,7 @@
 	onMount(async () => {
 		map = new maplibregl.Map({
 			container: mapContainer,
-			style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
+			style: mapStyle(),
 			center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
 			zoom: INITIAL_VIEW_STATE.zoom,
 			pitch: INITIAL_VIEW_STATE.pitch,
@@ -171,6 +196,21 @@
 	$effect(() => {
 		if (deckOverlay) {
 			render(timestampToHighlightIndex(highlightTimestamp));
+		}
+	});
+
+	// Reactive statement to handle theme changes
+	$effect(() => {
+		if (map && mapStyle()) {
+			map.setStyle(mapStyle());
+			
+			// Re-add deck overlay and layers after style change
+			map.once('styledata', () => {
+				if (deckOverlay) {
+					// Re-render layers with new theme
+					render(timestampToHighlightIndex(highlightTimestamp));
+				}
+			});
 		}
 	});
 </script>
