@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import {onMount, onDestroy, type Snippet} from 'svelte';
 	import maplibregl from 'maplibre-gl';
 	import 'maplibre-gl/dist/maplibre-gl.css';
 	import { MapboxOverlay } from '@deck.gl/mapbox';
@@ -7,21 +7,22 @@
 	import { GeoJsonLayer, type Layer } from 'deck.gl';
 	import { _TerrainExtension as TerrainExtension } from '@deck.gl/extensions';
 	import { scaleLog } from 'd3-scale';
+	import { mode } from 'mode-watcher';
 
 	// Props
 	interface Props {
-		highlightsUrl: string;
-		children?: import('svelte').Snippet;
+		highlightsData: any;
+		currentTime: number; // Unix timestamp in milliseconds
+		children?: Snippet;
 	}
 
-	let { highlightsUrl, children }: Props = $props();
+	let { highlightsData, currentTime: highlightTimestamp, children }: Props = $props();
 
 	// State variables
 	let map: maplibregl.Map;
 	let colorScale: ReturnType<typeof scaleLog<number>>;
 	let deckOverlay: MapboxOverlay;
 	let mapContainer: HTMLElement;
-	let currentGeoJsonData = $state<any>(null);
 
 	// Type definitions
 	type PropertiesType = {
@@ -37,37 +38,64 @@
 
 	// Constants
 	const INITIAL_VIEW_STATE = {
-		longitude: -89.4012,
-		latitude: 43.0731,
-		zoom: 15,
+		longitude: -89.41033202860592,
+		latitude: 43.073525483485824,
+		zoom: 14.75,
 		pitch: 45,
 		bearing: 0
 	};
 
-	// Data loading function
-	async function loadHighlightsData() {
-		try {
-			const response = await fetch(highlightsUrl);
-			const geoJsonData = await response.json();
-			
-			currentGeoJsonData = geoJsonData;
+	// Theme-aware basemap styles - reactive to mode changes
+	let mapStyle = $derived(() => {
+		switch (mode.current) {
+			case 'light':
+				return 'https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json';
+			case 'dark':
+				return 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+			default:
+				return 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
+		}
+	});
 
-			// Set up color scale if metadata exists
-			if (geoJsonData.metadata) {
-				const maxPersons = geoJsonData.metadata.max_persons || 10_000;
-				colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
-			}
+	// Theme-aware building colors - reactive to mode changes  
+	let buildingColor = $derived((): [number, number, number, number] => {
+		if (mode.current === 'light') {
+			return [150, 150, 150, 128]; // Lighter gray for light mode
+		} else {
+			return [80, 80, 80, 128]; // Darker gray for dark mode
+		}
+	});
 
-			// Re-render the map
-			if (deckOverlay) {
-				render();
-			}
-		} catch (error) {
-			console.warn('Failed to load highlights data:', error);
+	// Setup color scale from highlights data
+	function setupColorScale() {
+		if (highlightsData?.metadata) {
+			const maxPersons = highlightsData.metadata.max_persons || 10_000;
+			colorScale = scaleLog<number>().domain([1, maxPersons]).range([50, 255]).clamp(true);
 		}
 	}
 
-	function render() {
+	// Convert Unix timestamp to array index for highlights data
+	function timestampToHighlightIndex(timestamp: number): number {
+		if (!highlightsData?.metadata) {
+			return 0; // Fallback if no metadata
+		}
+		
+		const { start_time, chunk_duration_minutes = 5, total_chunks = 192 } = highlightsData.metadata;
+		
+		if (!start_time) {
+			return 0; // Fallback if no start time
+		}
+		
+		// Calculate the index based on timestamp
+		const chunkDurationMs = chunk_duration_minutes * 60 * 1000;
+		const index = Math.floor((timestamp - start_time) / chunkDurationMs);
+		
+		// Clamp to valid range [0, total_chunks - 1]
+		return Math.max(0, Math.min(index, total_chunks - 1));
+	}
+
+
+	function render(highlightTimeSlice: number) {
 		const layers: Layer[] = [];
 
 		// Add building base layer
@@ -83,26 +111,29 @@
 				const layerName = f.properties.layerName;
 				switch (layerName) {
 					case 'building':
-						return [105, 105, 105, 128];
+						return buildingColor();
 					default:
 						return [0, 0, 0, 0];
 				}
+			},
+			updateTriggers: {
+				getFillColor: buildingColor()
 			},
 			operation: 'terrain+draw'
 		});
 		layers.push(buildingLayer);
 
 		// Add highlights layer if data is available
-		if (currentGeoJsonData && colorScale) {
+		if (highlightsData && colorScale) {
 			const highlightsLayer = new GeoJsonLayer({
 				id: 'highlights',
-				data: currentGeoJsonData,
+				data: highlightsData,
 				extensions: [new TerrainExtension()],
 				stroked: false,
 				filled: true,
 				getFillColor: ({ properties }: { properties: BuildingProperties }) => {
-					// For static highlights, use first value or a simple property
-					const intensity = properties.person_counts?.[0] || properties.intensity || 0;
+					// Use highlight time slice to get the correct value from person_counts array
+					const intensity = properties.person_counts?.[highlightTimeSlice] || properties.intensity || 0;
 					if (intensity === 0) {
 						return [0, 0, 0, 0];
 					}
@@ -110,7 +141,10 @@
 					return [redValue, 0, 0, 255];
 				},
 				opacity: 0.2,
-				pickable: true
+				pickable: true,
+				updateTriggers: {
+					getFillColor: highlightTimeSlice
+				}
 			});
 			layers.push(highlightsLayer);
 		}
@@ -122,7 +156,7 @@
 	onMount(async () => {
 		map = new maplibregl.Map({
 			container: mapContainer,
-			style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json',
+			style: mapStyle(),
 			center: [INITIAL_VIEW_STATE.longitude, INITIAL_VIEW_STATE.latitude],
 			zoom: INITIAL_VIEW_STATE.zoom,
 			pitch: INITIAL_VIEW_STATE.pitch,
@@ -137,8 +171,11 @@
 
 		map.addControl(deckOverlay);
 
-		// Load initial data
-		await loadHighlightsData();
+		// Setup data from props
+		setupColorScale();
+
+		// Initial render
+		render(timestampToHighlightIndex(highlightTimestamp));
 	});
 
 	onDestroy(() => {
@@ -147,10 +184,33 @@
 		}
 	});
 
-	// Reactive statement to reload data when URL changes
+	// Reactive statement to update when highlights data changes
 	$effect(() => {
-		if (highlightsUrl && map) {
-			loadHighlightsData();
+		if (highlightsData && map) {
+			setupColorScale();
+			render(timestampToHighlightIndex(highlightTimestamp));
+		}
+	});
+
+	// Reactive statement to re-render when highlightTimestamp changes
+	$effect(() => {
+		if (deckOverlay) {
+			render(timestampToHighlightIndex(highlightTimestamp));
+		}
+	});
+
+	// Reactive statement to handle theme changes
+	$effect(() => {
+		if (map && mapStyle()) {
+			map.setStyle(mapStyle());
+			
+			// Re-add deck overlay and layers after style change
+			map.once('styledata', () => {
+				if (deckOverlay) {
+					// Re-render layers with new theme
+					render(timestampToHighlightIndex(highlightTimestamp));
+				}
+			});
 		}
 	});
 </script>
