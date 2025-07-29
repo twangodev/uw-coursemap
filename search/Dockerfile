@@ -9,11 +9,11 @@ ENV PYTHONUNBUFFERED=1
 FROM base AS builder
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.8.3 /uv /uvx /bin/
 
 COPY pyproject.toml uv.lock ./
 
-RUN uv sync --frozen --no-cache
+RUN uv sync --locked
 
 FROM base AS runtime
 
