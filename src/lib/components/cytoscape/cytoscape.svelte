@@ -36,11 +36,7 @@
   import { getTextColor, getTextOutlineColor } from "$lib/theme.ts";
   import Legend from "./legend.svelte";
   import { onMount } from "svelte";
-  import { FileText, Terminal, X } from "@lucide/svelte";
-  import * as Alert from "$lib/components/ui/alert/index.js";
-  import { AlertClose } from "$lib/components/ui/alert";
-  import { getData, setData, clearData } from "$lib/localStorage.ts";
-  import * as Dialog from "$lib/components/ui/dialog";
+  import HelpControl from "./help-control.svelte";
 
   interface Props {
     elementDefinitions: ElementDefinition[];
@@ -54,24 +50,13 @@
   let cy: cytoscape.Core | undefined = $state();
 
   let takenCourses: (undefined | string)[] = $state([]);
-  let showAlert = $derived(cy && takenCourses.length <= 0);
-  let hasSeenTapGuide = $state(false);
 
   let highlightedCourse = $state<cytoscape.NodeSingular | undefined>();
 
   onMount(() => {
     loadGraph();
-    takenCourses = getData("takenCourses").map((course: any) => {
-      if (course.course_reference === undefined) {
-        return;
-      }
-
-      return courseReferenceToString(course.course_reference);
-    });
-    hasSeenTapGuide = !(
-      getData("hasSeenTapGuide") == undefined ||
-      getData("hasSeenTapGuide").length == 0
-    );
+    // TODO: Implement transcript loading when available
+    takenCourses = [];
   });
 
   let {
@@ -105,7 +90,13 @@
   });
 
   let elementsAreDraggable = $state(false);
-  const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+  let isDesktopValue = $state(false);
+  
+  $effect(() => {
+    isDesktopValue = window.matchMedia("(min-width: 768px)").matches;
+  });
+  
+  const isDesktop = () => isDesktopValue;
 
   let selectedCourse: Course | undefined = $state(undefined);
 
@@ -420,6 +411,7 @@
       computeLayout(layoutType, elementDefinitions, true);
     }}
   />
+  <HelpControl isDesktop={isDesktopValue} />
 </div>
 <CourseDrawer
   {cy}
@@ -429,62 +421,3 @@
   {allowFocusing}
 />
 
-{#if cy && !hasSeenTapGuide}
-  <Dialog.Root open={true}>
-    <Dialog.Content class="sm:max-w-md">
-      <Dialog.Header>
-        <Dialog.Title>Quick Guide</Dialog.Title>
-        <Dialog.Description class="space-y-2">
-          <p>
-            <strong>Single tap on course</strong>: {isDesktop()
-              ? "Open detailed course information"
-              : "Show course description"}
-          </p>
-          <p>
-            <strong>Double tap on course</strong>: Keeps course prerequisites
-            and dependencies highlighted
-          </p>
-          <p><strong>Double tap on empty space</strong>: Clears highlighting</p>
-        </Dialog.Description>
-      </Dialog.Header>
-      <Dialog.Footer class="flex justify-end">
-        <Dialog.Close
-          class="ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-          onclick={() => {
-            hasSeenTapGuide = true;
-            setData("hasSeenTapGuide", [true]);
-          }}
-        >
-          Got it
-        </Dialog.Close>
-      </Dialog.Footer>
-    </Dialog.Content>
-  </Dialog.Root>
-{/if}
-
-{#if showAlert}
-  <Alert.Root class="absolute right-15 bottom-28 z-50 w-96">
-    <FileText class="h-4 w-4" />
-    <Alert.Title>Heads up!</Alert.Title>
-    <Alert.Description
-      >You can upload your transcript <a
-        href="/upload"
-        class="text-primary decoration-primary hover:text-primary/80 font-medium underline underline-offset-4 transition-colors"
-        >here</a
-      > and display courses you've taken in a different color.</Alert.Description
-    >
-    <p class="mt-2 text-sm">
-      <strong
-        >We've also trimmed this prerequisite graph to show optimized
-        relationships, (i.e. the combination that best satisfies a requisite)</strong
-      >
-    </p>
-    <AlertClose
-      class="hover:bg-muted absolute top-2 right-2 rounded-full p-1 opacity-70 transition-opacity hover:opacity-100 md:top-3 md:right-3"
-      onclick={() => (showAlert = false)}
-    >
-      <X class="h-4 w-4" />
-      <span class="sr-only">Close</span>
-    </AlertClose>
-  </Alert.Root>
-{/if}
