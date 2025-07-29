@@ -43,22 +43,22 @@ npm run docs:dev
 cd search && docker-compose up
 
 # Setup Python environment (first time)
-cd generation && pipenv install
-cd search && pipenv install
+cd generation && uv sync
+cd search && uv sync
 
-# Generate course data (Python with pipenv)
-cd generation && pipenv run python main.py
+# Generate course data (Python with uv)
+cd generation && uv run python main.py
 
 # Test individual generation steps
-cd generation && pipenv run python main.py --step course_collection --no_build
+cd generation && uv run python main.py --step course_collection --no_build
 
 # Run search service locally
-cd search && pipenv run python app.py
+cd search && uv run python app.py
 ```
 
 ### Important Notes
 - Version generation runs automatically before dev/build via `npm run generate`
-- **Python services use pipenv** for dependency management (not pip or conda)
+- **Python services use uv** for dependency management (not pip, pipenv, or conda)
 - Search service requires Elasticsearch via Docker Compose
 - Data generation can take 2-6 hours on fresh runs, ~3 minutes with caching
 - Tests use Vitest framework with coverage reporting

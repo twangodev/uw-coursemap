@@ -1,0 +1,20 @@
+[project]
+name = "uw-coursemap-search"
+version = "0.1.0"
+description = "UW Course Map Search API Service"
+requires-python = "==3.12.*"
+dependencies = [
+    "coloredlogs>=15.0.1",
+    "elasticsearch>=9.0.2",
+    "flask>=3.1.1",
+    "flask-cors>=6.0.1",
+    "geojson>=3.2.0",
+    "geopandas>=1.1.1",
+    "gunicorn>=23.0.0",
+    "numpy>=2.3.1",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "requests-cache>=1.2.1",
+    "rtree>=1.4.0",
+    "shapely>=2.1.1",
+]
