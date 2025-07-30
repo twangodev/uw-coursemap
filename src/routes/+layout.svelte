@@ -22,7 +22,6 @@
   });
 
   let description = $derived(page.data?.description || siteDescription);
-  let keywords = $derived(page.data?.keywords || "UW-Madison, University of Wisconsin-Madison, course map, course explorer, university courses");
   let ogImage = $derived(page.data?.ogImage || "https://uwcourses.com/uw-coursemap-logo.svg");
   let canonicalUrl = $derived(`https://uwcourses.com${page.url.pathname}`);
 
@@ -53,7 +52,6 @@
   <!-- Primary Meta Tags -->
   <meta name="title" content={title} />
   <meta name="description" content={description} />
-  <meta name="keywords" content={keywords} />
   <meta name="author" content="UW Course Map" />
   <meta name="theme-color" content="#c5050c" />
   

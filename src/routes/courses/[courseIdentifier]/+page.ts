@@ -8,7 +8,7 @@ import {
 import { getFullInstructorInformation } from "$lib/types/instructor.ts";
 import { error } from "@sveltejs/kit";
 import type { ElementDefinition } from "cytoscape";
-import { generateEnhancedCourseDescription, generateStructuredCourseTitle, generateCourseKeywords } from "$lib/seo/description/index.ts";
+import { generateCourseMetaDescription, generateCourseTitle } from "$lib/seo/course-seo.ts";
 import { generateComprehensiveCourseJsonLd } from "$lib/seo/course-schema.ts";
 import { generateCourseBreadcrumbSchema } from "$lib/seo/breadcrumb-schema.ts";
 
@@ -89,19 +89,17 @@ export const load = async ({ params, url, fetch }) => {
 
   const courseCode = courseReferenceToString(course.course_reference);
   
-  // Generate enhanced SEO content
-  const enhancedDescription = generateEnhancedCourseDescription(course, instructors, { variant: 'meta' });
-  const structuredTitle = generateStructuredCourseTitle(course);
-  const keywords = generateCourseKeywords(course, instructors);
+  // Generate SEO content
+  const metaDescription = generateCourseMetaDescription(course);
+  const pageTitle = generateCourseTitle(course);
   
   // Generate comprehensive JSON-LD schemas
   const courseJsonLd = generateComprehensiveCourseJsonLd(course, instructors, terms, selectedTermId);
   const breadcrumbJsonLd = generateCourseBreadcrumbSchema(course);
 
   return {
-    subtitle: structuredTitle,
-    description: enhancedDescription,
-    keywords: keywords.join(", "),
+    subtitle: pageTitle,
+    description: metaDescription,
     terms: terms,
     selectedTermId: selectedTermId,
     course: course,
