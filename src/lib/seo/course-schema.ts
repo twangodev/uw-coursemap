@@ -98,11 +98,6 @@ export function generateComprehensiveCourseJsonLd(
   // Similar courses will be shown in the UI but not in schema
   // as isRelatedTo is not a valid property for Course type
   
-  // Add total historical enrollment if available (Google-recognized property)
-  if (course.cumulative_grade_data?.total && course.cumulative_grade_data.total > 50) {
-    schema.totalHistoricalEnrollment = course.cumulative_grade_data.total;
-  }
-  
   return schema;
 }
 
