@@ -2,6 +2,7 @@ import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
 import type { FullInstructorInformation } from "$lib/types/instructor.ts";
 import type { ProfilePage, WithContext } from "schema-dts";
+import { generateInstructorMetaDescription, generateInstructorTitle } from "$lib/seo/instructor-seo.ts";
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
@@ -18,7 +19,8 @@ export const load = async ({ params, fetch }) => {
     );
   const instructor: FullInstructorInformation = await instructorResponse.json();
 
-  const description = `${instructor.name} is a ${instructor.position || "faculty"} at ${instructor.department || "some department"} at the University of Wisconsin-Madison.`;
+  const description = generateInstructorMetaDescription(instructor);
+  const pageTitle = generateInstructorTitle(instructor);
 
   const jsonLd: WithContext<ProfilePage> = {
     "@context": "https://schema.org",
@@ -36,7 +38,7 @@ export const load = async ({ params, fetch }) => {
   };
 
   return {
-    subtitle: instructor.name,
+    subtitle: pageTitle,
     description: description,
     instructor: instructor,
     jsonLd: [jsonLd],

@@ -3,12 +3,14 @@ import { env } from "$env/dynamic/public";
 import {
   type Course,
   courseReferenceToString,
-  courseToJsonLd,
   sanitizeCourseToReferenceString,
 } from "$lib/types/course.ts";
 import { getFullInstructorInformation } from "$lib/types/instructor.ts";
 import { error } from "@sveltejs/kit";
 import type { ElementDefinition } from "cytoscape";
+import { generateCourseMetaDescription, generateCourseTitle } from "$lib/seo/course-seo.ts";
+import { generateComprehensiveCourseJsonLd } from "$lib/seo/course-schema.ts";
+import { generateCourseBreadcrumbSchema } from "$lib/seo/breadcrumb-schema.ts";
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
@@ -86,13 +88,18 @@ export const load = async ({ params, url, fetch }) => {
   const prerequisiteStyleEntries = await styleEntriesResponse.json();
 
   const courseCode = courseReferenceToString(course.course_reference);
-  const courseDescription = course.description;
-
-  const jsonLd = courseToJsonLd(course);
+  
+  // Generate SEO content
+  const metaDescription = generateCourseMetaDescription(course);
+  const pageTitle = generateCourseTitle(course);
+  
+  // Generate comprehensive JSON-LD schemas
+  const courseJsonLd = generateComprehensiveCourseJsonLd(course, instructors, terms, selectedTermId);
+  const breadcrumbJsonLd = generateCourseBreadcrumbSchema(course);
 
   return {
-    subtitle: courseCode,
-    description: courseDescription,
+    subtitle: pageTitle,
+    description: metaDescription,
     terms: terms,
     selectedTermId: selectedTermId,
     course: course,
@@ -100,6 +107,6 @@ export const load = async ({ params, url, fetch }) => {
     instructors: instructors,
     prerequisiteElementDefinitions: prerequisiteElementDefinitions,
     prerequisiteStyleEntries: prerequisiteStyleEntries,
-    jsonLd: [jsonLd],
+    jsonLd: [courseJsonLd, breadcrumbJsonLd],
   };
 };
