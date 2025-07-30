@@ -23,7 +23,7 @@ services:
 
   web:
     container_name: uw-coursemap-web
-    image: ghcr.io/twangodev/uw-coursemap-web:v1.4.0
+    image: ghcr.io/twangodev/uw-coursemap-web:v1.4.1
     build:
       context: .
     env_file: ".env"
