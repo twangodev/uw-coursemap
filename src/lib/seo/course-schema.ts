@@ -43,7 +43,7 @@ export function generateComprehensiveCourseJsonLd(
     "url": courseUrl,
     "courseCode": courseCode,
     "name": course.course_title,
-    "description": course.description,
+    "description": course.description.length > 500 ? course.description.slice(0, 497) + "..." : course.description,
     "provider": university,
     "inLanguage": "en-US",
     "educationalLevel": educationalLevel,
@@ -89,22 +89,17 @@ export function generateComprehensiveCourseJsonLd(
     };
   }
   
-  // Add attributes
-  if (enrollmentData?.general_education || enrollmentData?.ethnic_studies) {
-    const attributes: string[] = [];
-    if (enrollmentData.general_education) attributes.push("General Education");
-    if (enrollmentData.ethnic_studies) attributes.push("Ethnic Studies");
-    schema.educationalCredentialAwarded = attributes.join(", ") + " Credit";
-  }
+  // Add attributes as part of keywords instead of educationalCredentialAwarded
+  // (educationalCredentialAwarded should be for actual degrees/certificates)
   
-  // Add keywords
-  schema.keywords = generateCourseKeywords(course);
+  // Add keywords (including attributes like General Education)
+  schema.keywords = generateCourseKeywords(course, enrollmentData);
   
   // Similar courses will be shown in the UI but not in schema
   // as isRelatedTo is not a valid property for Course type
   
-  // Add total historical enrollment if available
-  if (course.cumulative_grade_data?.total) {
+  // Add total historical enrollment if available (Google-recognized property)
+  if (course.cumulative_grade_data?.total && course.cumulative_grade_data.total > 50) {
     schema.totalHistoricalEnrollment = course.cumulative_grade_data.total;
   }
   
@@ -112,15 +107,18 @@ export function generateComprehensiveCourseJsonLd(
 }
 
 function generateAggregateRating(gradeData: any, instructors: FullInstructorInformation[]): AggregateRating | undefined {
+  // Only include ratings if we have meaningful data (at least 30 students)
+  if (!gradeData?.total || gradeData.total < 30) return undefined;
+  
   const gpa = calculateGradePointAverage(gradeData);
   if (!gpa) return undefined;
   
   // Convert GPA to 5-star rating (4.0 = 5 stars, 2.0 = 2.5 stars)
-  const rating = (gpa / 4.0) * 5;
+  const gpaRating = (gpa / 4.0) * 5;
   
-  // Get average instructor rating if available
+  // Get average instructor rating if available with sufficient data
   const instructorRatings = instructors
-    .filter(i => i.rmp_data?.average_rating)
+    .filter(i => i.rmp_data?.average_rating && i.rmp_data?.num_ratings > 10)
     .map(i => i.rmp_data!.average_rating);
   
   const avgInstructorRating = instructorRatings.length > 0
@@ -128,15 +126,16 @@ function generateAggregateRating(gradeData: any, instructors: FullInstructorInfo
     : null;
   
   // Use instructor rating if available, otherwise use GPA-based rating
-  const finalRating = avgInstructorRating || rating;
+  const finalRating = avgInstructorRating || gpaRating;
+  const totalReviews = instructors.reduce((sum, i) => sum + (i.rmp_data?.num_ratings || 0), 0);
   
   return {
     "@type": "AggregateRating",
     "ratingValue": Number(finalRating.toFixed(1)),
     "bestRating": 5,
     "worstRating": 1,
-    "ratingCount": gradeData.total || instructors.reduce((sum, i) => sum + (i.rmp_data?.num_ratings || 0), 0),
-    "reviewCount": instructors.reduce((sum, i) => sum + (i.rmp_data?.num_ratings || 0), 0)
+    "ratingCount": Math.max(gradeData.total, totalReviews),
+    "reviewCount": totalReviews > 0 ? totalReviews : undefined
   };
 }
 
@@ -162,39 +161,48 @@ function generatePrerequisitesList(course: Course): Array<string | CourseSchema>
   return prerequisites;
 }
 
+// Pre-computed subject skill mappings
+const SUBJECT_SKILLS_MAP = new Map<string, string[]>([
+  ["COMP SCI", ["Software Development", "Algorithm Design", "Data Structures", "Programming"]],
+  ["MATH", ["Mathematical Reasoning", "Proof Writing", "Quantitative Analysis"]],
+  ["CHEM", ["Laboratory Techniques", "Chemical Analysis", "Scientific Method"]],
+  ["PHYSICS", ["Problem Solving", "Mathematical Modeling", "Experimental Design"]],
+  ["ENGLISH", ["Critical Reading", "Academic Writing", "Literary Analysis"]],
+  ["BIOLOGY", ["Scientific Method", "Laboratory Techniques", "Data Analysis"]],
+  ["PSYCH", ["Research Methods", "Data Analysis", "Critical Thinking"]],
+  ["ECON", ["Economic Analysis", "Quantitative Methods", "Data Interpretation"]],
+  ["HISTORY", ["Historical Analysis", "Research", "Critical Writing"]],
+  ["ENGINEERING", ["Problem Solving", "Design", "Technical Analysis"]]
+]);
+
+// Common skill keywords to check
+const SKILL_KEYWORDS = [
+  "programming", "design", "analysis", "research", "writing",
+  "problem solving", "critical thinking", "communication",
+  "laboratory", "mathematical", "statistical", "computational"
+];
+
 function generateSkillsTaught(course: Course): string[] {
-  const skills: string[] = [];
-  const title = course.course_title.toLowerCase();
-  const description = course.description.toLowerCase();
+  const skills = new Set<string>();
+  const textToCheck = `${course.course_title} ${course.description}`.toLowerCase();
   
-  // Extract skills from title and description
-  const skillPatterns = [
-    /programming/i, /design/i, /analysis/i, /research/i, /writing/i,
-    /problem solving/i, /critical thinking/i, /communication/i,
-    /laboratory/i, /mathematical/i, /statistical/i, /computational/i
-  ];
-  
-  skillPatterns.forEach(pattern => {
-    if (pattern.test(title) || pattern.test(description)) {
-      skills.push(pattern.source.replace(/\\/g, '').replace(/i$/, ''));
+  // Check for keyword-based skills
+  SKILL_KEYWORDS.forEach(skill => {
+    if (textToCheck.includes(skill)) {
+      skills.add(skill.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' '));
     }
   });
   
   // Add subject-specific skills
-  const subject = course.course_reference.subjects[0];
-  const subjectSkills: { [key: string]: string[] } = {
-    "COMP SCI": ["Software Development", "Algorithm Design", "Data Structures"],
-    "MATH": ["Mathematical Reasoning", "Proof Writing", "Quantitative Analysis"],
-    "CHEM": ["Laboratory Techniques", "Chemical Analysis", "Scientific Method"],
-    "PHYSICS": ["Problem Solving", "Mathematical Modeling", "Experimental Design"],
-    "ENGLISH": ["Critical Reading", "Academic Writing", "Literary Analysis"]
-  };
-  
-  if (subjectSkills[subject]) {
-    skills.push(...subjectSkills[subject]);
+  const primarySubject = course.course_reference.subjects[0];
+  const subjectSkills = SUBJECT_SKILLS_MAP.get(primarySubject);
+  if (subjectSkills) {
+    subjectSkills.forEach(skill => skills.add(skill));
   }
   
-  return [...new Set(skills)];
+  return Array.from(skills).slice(0, 10); // Limit to 10 skills
 }
 
 function getCourseLevel(courseNumber: number): string {
@@ -223,7 +231,7 @@ function generateCourseInstances(
   // Create instance for the selected term
   const instance: CourseInstance = {
     "@type": "CourseInstance",
-    "courseMode": "on-campus",
+    "courseMode": "Onsite", // Google requires "Onsite", "Online", or "Blended"
     "name": `${course.course_title} - ${termInfo.name}`,
   };
   
@@ -289,25 +297,30 @@ function generateOffers(enrollmentData: any): Offer[] {
   }];
 }
 
-function generateCourseKeywords(course: Course): string {
+function generateCourseKeywords(course: Course, enrollmentData?: any): string {
   const keywords: Set<string> = new Set();
   
   // Add course identifiers
   keywords.add(courseReferenceToString(course.course_reference));
   course.course_reference.subjects.forEach(s => keywords.add(s));
   
-  // Add title keywords
-  course.course_title.split(/\s+/).forEach(word => {
-    if (word.length > 3) keywords.add(word);
-  });
-  
   // Add level
   const level = getCourseLevel(course.course_reference.course_number);
   keywords.add(level);
   
+  // Add attributes
+  if (enrollmentData?.general_education) keywords.add("General Education");
+  if (enrollmentData?.ethnic_studies) keywords.add("Ethnic Studies");
+  
   // Add UW-specific
   keywords.add("UW-Madison");
   keywords.add("University of Wisconsin");
+  
+  // Add some title keywords (but not all to avoid bloat)
+  const titleWords = course.course_title.split(/\s+/)
+    .filter(word => word.length > 4 && !["with", "from", "about", "through"].includes(word.toLowerCase()))
+    .slice(0, 3);
+  titleWords.forEach(word => keywords.add(word));
   
   return Array.from(keywords).join(", ");
 }
