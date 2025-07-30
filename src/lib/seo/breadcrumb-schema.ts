@@ -15,8 +15,8 @@ export function generateCourseBreadcrumbSchema(course: Course): WithContext<Brea
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Courses",
-      "item": "https://uwcourses.com/courses"
+      "name": "Course Explorer",
+      "item": "https://uwcourses.com/explorer"
     },
     {
       "@type": "ListItem",
@@ -28,7 +28,7 @@ export function generateCourseBreadcrumbSchema(course: Course): WithContext<Brea
   
   return {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
+  "@type": "BreadcrumbList",
     "itemListElement": breadcrumbItems
   };
 }
