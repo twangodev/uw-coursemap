@@ -58,8 +58,8 @@ export function generateComprehensiveCourseJsonLd(
   
   // Add prerequisites
   if (prerequisites.length > 0) {
-    // Use proper type assertion for coursePrerequisites
-    schema.coursePrerequisites = prerequisites as Array<string | CourseSchema>;
+    // Assign prerequisites directly without type assertion
+    schema.coursePrerequisites = prerequisites;
   }
   
   // Add skills/topics taught
