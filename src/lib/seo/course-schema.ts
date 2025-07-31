@@ -58,13 +58,16 @@ export function generateComprehensiveCourseJsonLd(
   
   // Add prerequisites
   if (prerequisites.length > 0) {
-    schema.coursePrerequisites = prerequisites;
+    // Use proper type assertion for coursePrerequisites
+    schema.coursePrerequisites = prerequisites as Array<string | CourseSchema>;
   }
   
   // Add skills/topics taught
   if (skillsTaught.length > 0) {
+    // Keep as array - Google prefers arrays for multiple values
     schema.teaches = skillsTaught;
-    schema.about = skillsTaught.slice(0, 5); // Top 5 topics
+    // Remove 'about' as it expects Thing objects which require name/description
+    // schema.about = skillsTaught.slice(0, 5); // Top 5 topics
   }
   
   // Add ratings
