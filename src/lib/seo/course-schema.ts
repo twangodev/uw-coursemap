@@ -79,7 +79,7 @@ export function generateComprehensiveCourseJsonLd(
   schema.hasCourseInstance = courseInstances.length > 0 ? courseInstances : [{
     "@type": "CourseInstance",
     "courseMode": "Onsite",
-    "name": `${course.course_title} - Course Instance`,
+    "name": generateFallbackCourseInstanceName(course.course_title),
     "location": {
       "@type": "Place",
       "name": "University of Wisconsin-Madison",
