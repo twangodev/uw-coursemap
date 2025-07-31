@@ -28,7 +28,7 @@ export function generateInstructorMetaDescription(instructor: FullInstructorInfo
   const takeAgainInfo = wouldTakeAgain && wouldTakeAgain > 80
     ? `. ${Math.round(wouldTakeAgain)}% would take again`
     : '';
-  
+
   // Add courses if many
   const coursesInfo = courseCount > 5
     ? `. Teaches ${courseCount} courses`
