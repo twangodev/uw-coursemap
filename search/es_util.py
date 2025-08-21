@@ -5,6 +5,7 @@ from elasticsearch import helpers, Elasticsearch
 
 from data import normalize_text
 
+
 def generate_variations(subject_name: str, abbreviation: str):
     """
     Generate variations for a subject name. Variations include:
@@ -48,6 +49,7 @@ def generate_variations(subject_name: str, abbreviation: str):
 
     return list(variations)
 
+
 def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = None):
     """
     Index subjects into Elasticsearch.
@@ -63,8 +65,11 @@ def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = Non
                 "name": subject_data,
                 "name_normalized": normalize_text(subject_data),
                 "variations": generate_variations(subject_data, subject_id),
-                "variations_normalized": [normalize_text(v) for v in generate_variations(subject_data, subject_id)]
-            }
+                "variations_normalized": [
+                    normalize_text(v)
+                    for v in generate_variations(subject_data, subject_id)
+                ],
+            },
         }
         for subject_id, subject_data in subjects.items()
     ]
@@ -74,6 +79,7 @@ def load_subjects(es: Elasticsearch, subjects: dict, logger: Logger | None = Non
         logger.debug(f"All subjects: {str(subjects.keys())}")
 
     helpers.bulk(es, actions)
+
 
 def search_subjects(es: Elasticsearch, search_term: str):
     search_term = normalize_text(search_term)
@@ -87,12 +93,12 @@ def search_subjects(es: Elasticsearch, search_term: str):
                     "variations^20",
                     "name_normalized^20",
                     "abbreviation_normalized^20",
-                    "variations_normalized^20"
+                    "variations_normalized^20",
                 ],
-                "fuzziness": "AUTO"
+                "fuzziness": "AUTO",
             }
         },
-        "size": 5
+        "size": 5,
     }
     results = es.search(index="subjects", body=es_query)
     hits = results.get("hits", {}).get("hits", [])
@@ -100,10 +106,11 @@ def search_subjects(es: Elasticsearch, search_term: str):
         {
             "subject_id": hit["_id"],
             "name": hit["_source"]["name"],
-            "score": hit["_score"]
+            "score": hit["_score"],
         }
         for hit in hits
     ]
+
 
 def load_courses(es, courses):
     """
@@ -129,14 +136,11 @@ def load_courses(es, courses):
             "course_reference_normalized": normalized_course_reference,
             "course_title_normalized": normalized_course_title,
             "subjects_normalized": normalized_subjects,
-            "departments_normalized": normalized_departments
+            "departments_normalized": normalized_departments,
         }
-        actions.append({
-            "_index": "courses",
-            "_id": course_id,
-            "_source": course_doc
-        })
+        actions.append({"_index": "courses", "_id": course_id, "_source": course_doc})
     helpers.bulk(es, actions)
+
 
 def search_courses(es: Elasticsearch, search_term: str):
     # Normalize and split
@@ -155,48 +159,49 @@ def search_courses(es: Elasticsearch, search_term: str):
         # for each subject match the numeric part
         if numeric_part:
             for subj in subject_ids:
-                should_queries.append({
-                    "bool": {
-                        "must": [
-                            # require that the course lists this subject
-                            {"term": {"subjects_normalized": normalize_text(subj)}},
-                            # and also has the right number
-                            {"term": {
-                                "course_number": {
-                                    "value": int(numeric_part),
-                                    "boost": 10.0
-                                }
-                            }}
-                        ]
+                should_queries.append(
+                    {
+                        "bool": {
+                            "must": [
+                                # require that the course lists this subject
+                                {"term": {"subjects_normalized": normalize_text(subj)}},
+                                # and also has the right number
+                                {
+                                    "term": {
+                                        "course_number": {
+                                            "value": int(numeric_part),
+                                            "boost": 10.0,
+                                        }
+                                    }
+                                },
+                            ]
+                        }
                     }
-                })
+                )
 
     # 2) Always include a fallback on the full text
-    should_queries.extend([
-        # exact-ish on reference
-        {"wildcard": {"course_reference_normalized": f"*{norm}*"}},
-        # fuzzy on title
-        {
-            "multi_match": {
-                "query": norm,
-                "fields": [
-                    "course_title_normalized^5",
-                    "course_reference_normalized^4"
-                ],
-                "fuzziness": "AUTO"
-            }
-        }
-    ])
+    should_queries.extend(
+        [
+            # exact-ish on reference
+            {"wildcard": {"course_reference_normalized": f"*{norm}*"}},
+            # fuzzy on title
+            {
+                "multi_match": {
+                    "query": norm,
+                    "fields": [
+                        "course_title_normalized^5",
+                        "course_reference_normalized^4",
+                    ],
+                    "fuzziness": "AUTO",
+                }
+            },
+        ]
+    )
 
     # 3) Wrap it up
     es_query = {
-        "query": {
-            "bool": {
-                "should": should_queries,
-                "minimum_should_match": 1
-            }
-        },
-        "size": 10
+        "query": {"bool": {"should": should_queries, "minimum_should_match": 1}},
+        "size": 10,
     }
 
     resp = es.search(index="courses", body=es_query)
@@ -208,10 +213,11 @@ def search_courses(es: Elasticsearch, search_term: str):
             "course_number": h["_source"]["course_number"],
             "subjects": h["_source"]["subjects"],
             "departments": h["_source"]["departments"],
-            "score": h["_score"]
+            "score": h["_score"],
         }
         for h in hits
     ]
+
 
 def load_instructors(es, instructors):
     """
@@ -234,12 +240,11 @@ def load_instructors(es, instructors):
             "position_normalized": normalize_text(position),
             "department_normalized": normalize_text(department),
         }
-        actions.append({
-            "_index": "instructors",
-            "_id": instructor_id,
-            "_source": instructor_doc
-        })
+        actions.append(
+            {"_index": "instructors", "_id": instructor_id, "_source": instructor_doc}
+        )
     helpers.bulk(es, actions)
+
 
 def search_instructors(es, search_term):
     search_term = normalize_text(search_term)
@@ -260,9 +265,9 @@ def search_instructors(es, search_term):
                                 "official_name_normalized^2",
                                 "email_normalized",
                                 "position_normalized",
-                                "department_normalized"
+                                "department_normalized",
                             ],
-                            "fuzziness": "AUTO"
+                            "fuzziness": "AUTO",
                         }
                     },
                     {
@@ -278,16 +283,16 @@ def search_instructors(es, search_term):
                                 "official_name_normalized",
                                 "email_normalized",
                                 "position_normalized",
-                                "department_normalized"
+                                "department_normalized",
                             ],
-                            "analyze_wildcard": True
+                            "analyze_wildcard": True,
                         }
-                    }
+                    },
                 ],
-                "minimum_should_match": 1
+                "minimum_should_match": 1,
             }
         },
-        "size": 5
+        "size": 5,
     }
     results = es.search(index="instructors", body=es_query)
     hits = results.get("hits", {}).get("hits", [])
@@ -299,7 +304,7 @@ def search_instructors(es, search_term):
             "email": hit["_source"]["email"],
             "position": hit["_source"]["position"],
             "department": hit["_source"]["department"],
-            "score": hit["_score"]
+            "score": hit["_score"],
         }
         for hit in hits
     ]

@@ -8,8 +8,15 @@ from elasticsearch import Elasticsearch
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from data import get_instructors, get_courses, get_subjects, normalize_text
-from es_util import load_courses, search_courses, load_instructors, search_instructors, load_subjects, search_subjects
+from data import get_instructors, get_courses, get_subjects
+from es_util import (
+    load_courses,
+    search_courses,
+    load_instructors,
+    search_instructors,
+    load_subjects,
+    search_subjects,
+)
 from data import get_random_courses as get_random_courses_data
 
 load_dotenv()
@@ -33,7 +40,7 @@ verify_certs = ELASTIC_VERIFY_CERTS.lower() in ("true", "1", "yes")
 es = Elasticsearch(
     ELASTIC_HOST,
     basic_auth=(ELASTIC_USERNAME, ELASTIC_PASSWORD),
-    verify_certs=verify_certs
+    verify_certs=verify_certs,
 )
 
 app = Flask(__name__)
@@ -44,19 +51,18 @@ data_dir_default = environ.get("DATA_DIR", "./data")
 args = None
 verbose = False
 
+
 def generate_parser():
     """
     Build the argument parser for command line arguments.
     """
-    arg_parser = ArgumentParser(
-        description="Search for courses"
-    )
+    arg_parser = ArgumentParser(description="Search for courses")
     arg_parser.add_argument(
         "data_dir",
         type=str,
         nargs="?",
         default=data_dir_default,
-        help="Directory to pull generated data."
+        help="Directory to pull generated data.",
     )
     arg_parser.add_argument(
         "-v",
@@ -65,6 +71,7 @@ def generate_parser():
         help="Enable verbose logging (DEBUG level). This will also enable Flask debug mode, and should not be used in production.",
     )
     return arg_parser
+
 
 if __name__ == "__main__":
     parser = generate_parser()
@@ -75,7 +82,8 @@ if __name__ == "__main__":
 
 data_dir = args.data_dir if args else data_dir_default
 
-@app.route('/search', methods=['POST'])
+
+@app.route("/search", methods=["POST"])
 def search():
     # Expecting a JSON body like { "query": "Python" }
     data = request.get_json()
@@ -87,21 +95,20 @@ def search():
         "subjects": search_subjects(es, search_term),
     }
 
-@app.route('/random-courses', methods=['GET'])
+
+@app.route("/random-courses", methods=["GET"])
 def get_random_courses():
     """Returns 5 random courses from the dataset."""
     random_courses_data = get_random_courses_data(data_dir, num_courses=5)
     # Retrieve the full course details
     random_courses = [
-        {
-        "course_id": course_id,
-        **random_courses_data[course_id]
-        } for course_id in random_courses_data 
+        {"course_id": course_id, **random_courses_data[course_id]}
+        for course_id in random_courses_data
     ]
     return jsonify(random_courses)
 
-def clear_elasticsearch():
 
+def clear_elasticsearch():
     indexes = ["courses", "instructors", "subjects"]
 
     for index in indexes:
@@ -109,7 +116,7 @@ def clear_elasticsearch():
             es.indices.delete(index=index)
 
 
-if environ.get('WERKZEUG_RUN_MAIN') != 'true':
+if environ.get("WERKZEUG_RUN_MAIN") != "true":
     # This check prevents the code from running twice when using Flask's reloader
     logger = logging.getLogger(__name__)
     logging_level = logging.DEBUG if verbose else logging.INFO

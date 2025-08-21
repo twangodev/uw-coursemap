@@ -13,12 +13,13 @@ def normalize_text(text: str) -> str:
     if not text:
         return ""
     # Normalize Unicode characters to ASCII
-    text = unicodedata.normalize('NFKD', text)
-    text = text.encode('ascii', 'ignore').decode('ascii')
+    text = unicodedata.normalize("NFKD", text)
+    text = text.encode("ascii", "ignore").decode("ascii")
     # Remove punctuation and extra whitespace, then lowercase
-    text = re.sub(r'[^\w\s]', '', text)
+    text = re.sub(r"[^\w\s]", "", text)
     text = text.lower().strip()
     return text
+
 
 def read_json_file(filepath):
     """
@@ -31,7 +32,7 @@ def read_json_file(filepath):
     - dict: The JSON data as a dictionary, or None if an error occurs.
     """
     try:
-        with open(filepath, 'r', encoding='utf-8') as file:
+        with open(filepath, "r", encoding="utf-8") as file:
             data = json.load(file)
         return data
     except json.JSONDecodeError as e:
@@ -39,6 +40,7 @@ def read_json_file(filepath):
     except Exception as e:
         print(f"Error processing file {filepath}: {e}")
     return None
+
 
 def read_json_directory(directory_path):
     """
@@ -54,7 +56,7 @@ def read_json_directory(directory_path):
     json_data = {}
     # Loop through all files in the given directory
     for filename in os.listdir(directory_path):
-        if filename.endswith('.json'):
+        if filename.endswith(".json"):
             filepath = os.path.join(directory_path, filename)
             data = read_json_file(filepath)
             if data is not None:
@@ -63,11 +65,13 @@ def read_json_directory(directory_path):
                 json_data[file_key] = data
     return json_data
 
+
 def get_subjects(data_dir, logger):
     subjects = read_json_file(os.path.join(data_dir, "subjects.json"))
 
     logger.info(f"Loaded {len(subjects)} subjects.")
     return subjects
+
 
 def get_instructors(data_dir, logger):
     instructor_dir = os.path.join(data_dir, "instructors")
@@ -86,6 +90,7 @@ def get_instructors(data_dir, logger):
         for instructor_id, instructor_data in instructors.items()
     }
 
+
 def get_courses(data_dir, subjects, logger):
     course_dir = os.path.join(data_dir, "course")
 
@@ -94,19 +99,25 @@ def get_courses(data_dir, subjects, logger):
 
     return {
         course_id: {
-            "course_reference": process_course_reference(course_data["course_reference"]),
+            "course_reference": process_course_reference(
+                course_data["course_reference"]
+            ),
             "course_number": course_data["course_reference"]["course_number"],
             "course_title": course_data["course_title"],
             "subjects": course_data["course_reference"]["subjects"],
-            "departments": [subjects[shorthand] for shorthand in course_data["course_reference"]["subjects"]],
+            "departments": [
+                subjects[shorthand]
+                for shorthand in course_data["course_reference"]["subjects"]
+            ],
         }
         for course_id, course_data in courses.items()
     }
 
+
 def get_random_courses(data_dir, num_courses=5):
     """
     Returns a specified number of random courses from the dataset.
-    
+
     Parameters:
     - data_dir (str): Directory containing course data.
     - subjects (dict): Dictionary of subjects.
@@ -117,7 +128,7 @@ def get_random_courses(data_dir, num_courses=5):
     - list: A list of dictionaries representing random courses.
     """
     data_path = Path(os.path.join(data_dir, "course"))
-    courses = [f.name for f in data_path.glob('*json')]
+    courses = [f.name for f in data_path.glob("*json")]
 
     # Ensure we don't try to sample more courses than exist
     num_courses = min(num_courses, len(courses))
@@ -137,13 +148,12 @@ def get_random_courses(data_dir, num_courses=5):
                 "course_title": data["course_title"],
                 "subjects": data["course_reference"]["subjects"],
             }
-    
+
     return random_courses
+
 
 def process_course_reference(course_reference):
     course_number = course_reference["course_number"]
     subjects = sorted(course_reference["subjects"])
 
     return f"{'/'.join(subjects)} {course_number}"
-
-
