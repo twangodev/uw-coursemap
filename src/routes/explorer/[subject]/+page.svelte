@@ -5,7 +5,7 @@
   import { onMount } from "svelte";
   import { toast } from "svelte-sonner";
 
-  let subject = $derived(page.params.subject.toUpperCase());
+  let subject = $derived(page.params.subject?.toUpperCase() ?? '');
 
   let { data } = $props();
 
