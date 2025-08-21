@@ -13,7 +13,9 @@ from enrollment_data import EnrollmentData, TermData
 
 terms_url = "https://public.enroll.wisc.edu/api/search/v1/aggregate"
 query_url = "https://public.enroll.wisc.edu/api/search/v1"
-enrollment_package_base_url = "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
+enrollment_package_base_url = (
+    "https://public.enroll.wisc.edu/api/search/v1/enrollmentPackages"
+)
 
 logger = getLogger(__name__)
 
@@ -49,13 +51,15 @@ def sync_enrollment_terms(terms):
     return term_times
 
 
-async def build_from_mega_query(selected_term: str, term_name, terms, course_ref_to_course):
+async def build_from_mega_query(
+    selected_term: str, term_name, terms, course_ref_to_course
+):
     post_data = {
         "selectedTerm": selected_term,
         "queryString": "",
         "filters": [],
         "page": 1,
-        "pageSize": 1
+        "pageSize": 1,
     }
 
     async with CachedSession(cache=get_aio_cache()) as session:
@@ -69,7 +73,9 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
             return {}
 
         post_data["pageSize"] = course_count
-        logger.debug(f"Discovered {course_count} courses in the {term_name} term. Syncing terms...")
+        logger.debug(
+            f"Discovered {course_count} courses in the {term_name} term. Syncing terms..."
+        )
         async with session.post(url=query_url, json=post_data) as response:
             data = await response.json()
 
@@ -79,27 +85,49 @@ async def build_from_mega_query(selected_term: str, term_name, terms, course_ref
 
         # Create tasks for each hit to concurrently fetch enrollment package data.
         tasks = [
-            process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, session)
+            process_hit(
+                hit,
+                i,
+                course_count,
+                selected_term,
+                term_name,
+                terms,
+                course_ref_to_course,
+                session,
+            )
             for i, hit in enumerate(hits)
         ]
-        results = await tqdm.gather(*tasks, desc=f"Courses in {term_name}", unit="course")
+        results = await tqdm.gather(
+            *tasks, desc=f"Courses in {term_name}", unit="course"
+        )
         for result in results:
             if result is None:
                 continue
             instructors, meetings, course_ref = result
             for full_name, email in instructors.items():
                 all_instructors.setdefault(full_name, email)
-            
+
             # Group meetings by course identifier using the course_reference
             if meetings:
                 course_identifier = course_ref
                 all_meetings.setdefault(course_identifier, []).extend(meetings)
 
-        logger.info(f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}")
-        logger.info(f"Discovered meetings for {len(all_meetings)} courses in {term_name}")
+        logger.info(
+            f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}"
+        )
+        logger.info(
+            f"Discovered meetings for {len(all_meetings)} courses in {term_name}"
+        )
         return all_instructors, all_meetings
 
-def generate_recurring_meetings(start_date_epoch_ms, end_date_epoch_ms, epoch_start_time_ms, epoch_end_time_ms, days_of_week):
+
+def generate_recurring_meetings(
+    start_date_epoch_ms,
+    end_date_epoch_ms,
+    epoch_start_time_ms,
+    epoch_end_time_ms,
+    days_of_week,
+):
     """
     Generate individual start and end times for recurring meetings.
 
@@ -119,8 +147,13 @@ def generate_recurring_meetings(start_date_epoch_ms, end_date_epoch_ms, epoch_st
 
     # Map day names to weekday numbers (Monday=0, Sunday=6)
     day_mapping = {
-        "MONDAY": 0, "TUESDAY": 1, "WEDNESDAY": 2, "THURSDAY": 3,
-        "FRIDAY": 4, "SATURDAY": 5, "SUNDAY": 6
+        "MONDAY": 0,
+        "TUESDAY": 1,
+        "WEDNESDAY": 2,
+        "THURSDAY": 3,
+        "FRIDAY": 4,
+        "SATURDAY": 5,
+        "SUNDAY": 6,
     }
 
     # Convert day names to weekday numbers
@@ -157,14 +190,26 @@ def generate_recurring_meetings(start_date_epoch_ms, end_date_epoch_ms, epoch_st
     return meetings
 
 
-async def process_hit(hit, i, course_count, selected_term: str, term_name: str, terms, course_ref_to_course, session, attempts=10):
+async def process_hit(
+    hit,
+    i,
+    course_count,
+    selected_term: str,
+    term_name: str,
+    terms,
+    course_ref_to_course,
+    session,
+    attempts=10,
+):
     course_code = int(hit["catalogNumber"])
     if len(hit["allCrossListedSubjects"]) > 1:
         enrollment_subjects = hit["allCrossListedSubjects"]
     else:
         enrollment_subjects = [hit["subject"]]
 
-    subjects = {subject["shortDescription"].replace(" ", "") for subject in enrollment_subjects}
+    subjects = {
+        subject["shortDescription"].replace(" ", "") for subject in enrollment_subjects
+    }
     course_ref = Course.Reference(subjects, course_code)
 
     if course_ref not in course_ref_to_course:
@@ -177,18 +222,31 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
 
     subject_code = hit["subject"]["subjectCode"]
     course_id = hit["courseId"]
-    enrollment_package_url = build_enrollment_package_base_url(selected_term, subject_code, course_id)
+    enrollment_package_url = build_enrollment_package_base_url(
+        selected_term, subject_code, course_id
+    )
 
     try:
         async with session.get(url=enrollment_package_url) as response:
             data = await response.json()
     except (JSONDecodeError, Exception) as e:
-        logger.warning(f"Failed to fetch enrollment data for {course_ref.get_identifier()}: {str(e)}")
+        logger.warning(
+            f"Failed to fetch enrollment data for {course_ref.get_identifier()}: {str(e)}"
+        )
         if attempts > 0:
             logger.info(f"Retrying {attempts} more times...")
             await asyncio.sleep(1)
-            return await process_hit(hit, i, course_count, selected_term, term_name, terms, course_ref_to_course, session,
-                                     attempts - 1)
+            return await process_hit(
+                hit,
+                i,
+                course_count,
+                selected_term,
+                term_name,
+                terms,
+                course_ref_to_course,
+                session,
+                attempts - 1,
+            )
         return None
 
     course_instructors = {}
@@ -200,7 +258,6 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
     for section in data:
         sections = section.get("sections", [])
         for s in sections:
-
             # Collect instructor names for this section
             section_instructor_names = []
             section_instructors = s.get("instructors", [])
@@ -234,7 +291,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                 end_time = meeting["meetingTimeEnd"]
 
                 date = meeting.get("examDate")
-                if not days and date: # Not a recurring meeting
+                if not days and date:  # Not a recurring meeting
                     start_date_time = date + start_time
                     end_date_time = date + end_time
                     course_meeting = EnrollmentData.Meeting(
@@ -245,7 +302,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         name=meeting_type,
                         current_enrollment=current_enrollment,
                         instructors=section_instructor_names,
-                        course_reference=course_ref
+                        course_reference=course_ref,
                     )
                     course_meetings.append(course_meeting)
                     continue
@@ -255,7 +312,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     end_date_epoch_ms=end_date,
                     epoch_start_time_ms=start_time,
                     epoch_end_time_ms=end_time,
-                    days_of_week=days
+                    days_of_week=days,
                 )
 
                 location = None
@@ -265,11 +322,13 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                     coordinates = (building.get("latitude"), building.get("longitude"))
                     room = meeting.get("room", "No Assigned Room")
 
-                    location = EnrollmentData.MeetingLocation.get_or_create_with_capacity(
-                        building=building_name,
-                        room=room,
-                        coordinates=coordinates,
-                        class_capacity=capacity
+                    location = (
+                        EnrollmentData.MeetingLocation.get_or_create_with_capacity(
+                            building=building_name,
+                            room=room,
+                            coordinates=coordinates,
+                            class_capacity=capacity,
+                        )
                     )
 
                 for index, (start, end) in enumerate(all_meeting_occurrences, start=1):
@@ -282,14 +341,15 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
                         name=name,
                         current_enrollment=current_enrollment,
                         instructors=section_instructor_names,
-                        course_reference=course_ref
+                        course_reference=course_ref,
                     )
 
                     course_meetings.append(course_meeting)
 
-
     enrollment_data.instructors = course_instructors
-    logger.debug(f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}")
+    logger.debug(
+        f"Added {len(course_instructors)} instructors to {course_ref.get_identifier()}"
+    )
 
     term_data = TermData(None, None)
     if course.term_data.get(selected_term):
@@ -298,7 +358,7 @@ async def process_hit(hit, i, course_count, selected_term: str, term_name: str, 
     term_data.enrollment_data = enrollment_data
 
     course.term_data[selected_term] = term_data
-    
+
     # Set has_meetings field based on whether course has meeting data
     course.has_meetings = len(course_meetings) > 0
 

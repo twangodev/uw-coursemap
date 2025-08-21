@@ -15,11 +15,14 @@ page_size = 100
 
 logger = getLogger(__name__)
 
+
 def get_madgrades_terms(madgrades_api_key) -> dict[int, str]:
     logger.info("Fetching Madgrades terms...")
     auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
     response = requests.get(url=madgrades_api_endpoint + "terms", headers=auth_header)
-    return {int(term_code): term_name for term_code, term_name in response.json().items()}
+    return {
+        int(term_code): term_name for term_code, term_name in response.json().items()
+    }
 
 
 async def process_course(
@@ -28,7 +31,7 @@ async def process_course(
     course_ref_to_course,
     madgrades_api_key,
     current_page,
-    total_pages
+    total_pages,
 ):
     course_number = madgrade_course["number"]
     subjects = madgrade_course["subjects"]
@@ -40,7 +43,9 @@ async def process_course(
         return
 
     grades_url = madgrade_course["url"] + "/grades"
-    madgrades_data = await MadgradesData.from_madgrades_async(session, grades_url, madgrades_api_key, current_page, attempts=10)
+    madgrades_data = await MadgradesData.from_madgrades_async(
+        session, grades_url, madgrades_api_key, current_page, attempts=10
+    )
     course = course_ref_to_course[course_ref]
     course.cumulative_grade_data = madgrades_data.cumulative
 
@@ -52,18 +57,24 @@ async def process_course(
         term_data.grade_data = grade_data
         course.term_data[term] = term_data
 
-    logger.debug(f"Adding madgrades data to course {course_ref} of page {current_page}/{total_pages}")
+    logger.debug(
+        f"Adding madgrades data to course {course_ref} of page {current_page}/{total_pages}"
+    )
 
 
 async def fetch_and_process_page(session, url, course_ref_to_course, key, attempts=5):
-    async with session.get(url, headers={"Authorization": f"Token token={key}"}) as resp:
+    async with session.get(
+        url, headers={"Authorization": f"Token token={key}"}
+    ) as resp:
         try:
             data = await resp.json()
         except Exception as e:
             if attempts > 0:
                 logger.warning(f"Failed to fetch page {url}: {e}. Retrying...")
                 await asyncio.sleep(1)
-                await fetch_and_process_page(session, url, course_ref_to_course, key, attempts - 1)
+                await fetch_and_process_page(
+                    session, url, course_ref_to_course, key, attempts - 1
+                )
             else:
                 logger.warning(f"Failed to fetch page {url}: {e}")
             return
@@ -71,12 +82,19 @@ async def fetch_and_process_page(session, url, course_ref_to_course, key, attemp
     current_page = data["currentPage"]
     total_pages = data["totalPages"]
 
-    await tqdm.gather(*[
-        process_course(session, course, course_ref_to_course, key,
-                    current_page, total_pages)
-        for course in data["results"]
-    ], desc=f"Madgrades Data Worker ({current_page}/{total_pages})", unit="course")
-    logger.debug(f"Courses from  {data['currentPage']}/{data['totalPages']} fully loaded.")
+    await tqdm.gather(
+        *[
+            process_course(
+                session, course, course_ref_to_course, key, current_page, total_pages
+            )
+            for course in data["results"]
+        ],
+        desc=f"Madgrades Data Worker ({current_page}/{total_pages})",
+        unit="course",
+    )
+    logger.debug(
+        f"Courses from  {data['currentPage']}/{data['totalPages']} fully loaded."
+    )
 
 
 async def add_madgrades_data(course_ref_to_course, madgrades_api_key):
@@ -85,12 +103,16 @@ async def add_madgrades_data(course_ref_to_course, madgrades_api_key):
     connector = aiohttp.TCPConnector(limit_per_host=10)
     async with CachedSession(cache=get_aio_cache(), connector=connector) as session:
         first_url = base + params
-        async with session.get(first_url, headers={"Authorization": f"Token token={madgrades_api_key}"}) as resp:
+        async with session.get(
+            first_url, headers={"Authorization": f"Token token={madgrades_api_key}"}
+        ) as resp:
             first = await resp.json()
         total = first["totalPages"]
-        urls = [f"{base}{params}&page={i}" for i in range(1, total+1)]
+        urls = [f"{base}{params}&page={i}" for i in range(1, total + 1)]
         [
-            await fetch_and_process_page(session, url, course_ref_to_course, madgrades_api_key)
+            await fetch_and_process_page(
+                session, url, course_ref_to_course, madgrades_api_key
+            )
             for url in tqdm(urls, desc="Madgrades Data Worker", unit="page")
         ]
     return get_madgrades_terms(madgrades_api_key)

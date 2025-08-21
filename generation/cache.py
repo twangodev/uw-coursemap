@@ -11,10 +11,11 @@ from save import write_file, format_file_size
 
 logger = getLogger(__name__)
 
+
 def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str):
     """
     Reads data from a JSON cache file.
-    
+
     Parameters:
         directory (str): Base directory where the cache file is stored.
         directory_tuple (tuple[str, ...]): Tuple representing subdirectories.
@@ -36,7 +37,7 @@ def read_cache(directory: str, directory_tuple: tuple[str, ...], filename: str):
         logger.warning(f"Cache file {file_path} does not exist.")
         return None
 
-    with open(file_path, 'r', encoding='utf-8') as json_file:
+    with open(file_path, "r", encoding="utf-8") as json_file:
         data = json.load(json_file)
 
     logger.debug(f"Cache read from {file_path}")
@@ -59,7 +60,15 @@ def write_instructors_to_rating_cache(cache_dir, instructor_to_rating):
     write_file(cache_dir, (), "instructors", instructor_to_rating)
 
 
-def write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style, color_map):
+def write_graphs_cache(
+    cache_dir,
+    global_graph,
+    subject_to_graph,
+    course_to_graph,
+    global_style,
+    subject_to_style,
+    color_map,
+):
     write_file(cache_dir, ("graphs",), "global_graph", global_graph)
     write_file(cache_dir, ("graphs",), "subject_to_graph", subject_to_graph)
     write_file(cache_dir, ("graphs",), "course_to_graph", course_to_graph)
@@ -69,10 +78,13 @@ def write_graphs_cache(cache_dir, global_graph, subject_to_graph, course_to_grap
 
     write_file(cache_dir, ("graphs",), "color_map", color_map)
 
+
 def read_course_ref_to_course_cache(cache_dir):
     str_course_ref_to_course = read_cache(cache_dir, (), "courses")
-    return {Course.Reference.from_string(key): Course.from_json(value) for key, value in
-            str_course_ref_to_course.items()}
+    return {
+        Course.Reference.from_string(key): Course.from_json(value)
+        for key, value in str_course_ref_to_course.items()
+    }
 
 
 def read_terms_cache(cache_dir):
@@ -85,6 +97,7 @@ def read_terms_cache(cache_dir):
 def read_subject_to_full_subject_cache(cache_dir):
     return read_cache(cache_dir, (), "subjects")
 
+
 def read_graphs_cache(cache_dir):
     global_graph = read_cache(cache_dir, ("graphs",), "global_graph")
     subject_to_graph = read_cache(cache_dir, ("graphs",), "subject_to_graph")
@@ -92,13 +105,24 @@ def read_graphs_cache(cache_dir):
     global_style = read_cache(cache_dir, ("graphs",), "global_style")
     subject_to_style = read_cache(cache_dir, ("graphs",), "subject_to_style")
 
-    return global_graph, subject_to_graph, course_to_graph, global_style, subject_to_style
+    return (
+        global_graph,
+        subject_to_graph,
+        course_to_graph,
+        global_style,
+        subject_to_style,
+    )
+
 
 def read_instructors_to_rating_cache(cache_dir):
     instructors_to_rating = read_cache(cache_dir, (), "instructors")
     if instructors_to_rating is None:
         return {}
-    return {name: FullInstructor.from_json(full_instructor) for name, full_instructor in instructors_to_rating.items()}
+    return {
+        name: FullInstructor.from_json(full_instructor)
+        for name, full_instructor in instructors_to_rating.items()
+    }
+
 
 def read_quick_statistics_cache(cache_dir):
     quick_statistics = read_cache(cache_dir, (), "quick_statistics")
@@ -106,8 +130,10 @@ def read_quick_statistics_cache(cache_dir):
         return {}
     return quick_statistics
 
+
 def write_quick_statistics_cache(cache_dir, quick_statistics):
     write_file(cache_dir, (), "quick_statistics", quick_statistics)
+
 
 def read_explorer_stats_cache(cache_dir):
     explorer_extras = read_cache(cache_dir, (), "explorer_stats")
@@ -115,10 +141,14 @@ def read_explorer_stats_cache(cache_dir):
         return {}
     return explorer_extras
 
+
 def write_explorer_stats_cache(cache_dir, explorer_extras):
     write_file(cache_dir, (), "explorer_stats", explorer_extras)
 
-def write_embedding(directory: str, directory_tuple: tuple[str, ...], filename: str, embedding):
+
+def write_embedding(
+    directory: str, directory_tuple: tuple[str, ...], filename: str, embedding
+):
     """
     Writes a numpy array (embedding) to an .npy file.
 
@@ -181,50 +211,61 @@ def read_embedding(directory: str, directory_tuple: tuple[str, ...], filename: s
 def get_model_name_for_cache(model):
     """
     Extract a safe model name for caching purposes.
-    
+
     Args:
         model: SentenceTransformer model instance
-        
+
     Returns:
         str: A sanitized model name suitable for directory names
     """
     # Try various ways to get the model name from SentenceTransformer
     model_name = None
-    
+
     # Check common attributes where model name might be stored
-    for attr in ['model_name', '_model_name', 'model_name_or_path', '_model_name_or_path']:
+    for attr in [
+        "model_name",
+        "_model_name",
+        "model_name_or_path",
+        "_model_name_or_path",
+    ]:
         if hasattr(model, attr):
             value = getattr(model, attr)
             if value and isinstance(value, str):
                 model_name = value
                 break
-    
+
     # If still no model name found, try to get it from the model card or config
-    if not model_name and hasattr(model, '_modules') and hasattr(model._modules, 'get'):
+    if not model_name and hasattr(model, "_modules") and hasattr(model._modules, "get"):
         # Try to extract from the first transformer module
-        transformer_module = model._modules.get('0')
-        if transformer_module and hasattr(transformer_module, 'auto_model'):
+        transformer_module = model._modules.get("0")
+        if transformer_module and hasattr(transformer_module, "auto_model"):
             auto_model = transformer_module.auto_model
-            if hasattr(auto_model, 'name_or_path'):
+            if hasattr(auto_model, "name_or_path"):
                 model_name = auto_model.name_or_path
-    
+
     # Final fallback
     if not model_name:
         model_name = "unknown_model"
-    
+
     # Sanitize the model name for use in file paths
-    sanitized_name = model_name.replace("/", "_").replace("\\", "_").replace(":", "_").replace(" ", "_")
+    sanitized_name = (
+        model_name.replace("/", "_")
+        .replace("\\", "_")
+        .replace(":", "_")
+        .replace(" ", "_")
+    )
     return sanitized_name
+
 
 def read_embedding_cache(cache_dir, sha256hash: str, model):
     """
     Read cached embedding from model-specific subdirectory.
-    
+
     Args:
         cache_dir: Cache directory
         sha256hash: Hash of the text
         model: Model instance for per-model caching
-        
+
     Returns:
         Cached embedding or None
     """
@@ -232,10 +273,11 @@ def read_embedding_cache(cache_dir, sha256hash: str, model):
     directory_tuple = ("embeddings", model_name)
     return read_embedding(cache_dir, directory_tuple, sha256hash)
 
+
 def write_embedding_cache(cache_dir, sha256hash: str, embedding, model):
     """
     Write embedding to cache in model-specific subdirectory.
-    
+
     Args:
         cache_dir: Cache directory
         sha256hash: Hash of the text
@@ -245,6 +287,7 @@ def write_embedding_cache(cache_dir, sha256hash: str, embedding, model):
     model_name = get_model_name_for_cache(model)
     directory_tuple = ("embeddings", model_name)
     write_embedding(cache_dir, directory_tuple, sha256hash, embedding)
+
 
 def write_new_terms_cache(cache_dir, new_terms):
     """
@@ -256,12 +299,16 @@ def write_new_terms_cache(cache_dir, new_terms):
     """
     write_file(cache_dir, (), "new_terms", new_terms)
 
+
 def read_new_terms_cache(cache_dir):
     new_terms = read_cache(cache_dir, (), "new_terms")
     if new_terms is None:
         return {}
 
-    return {int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()}
+    return {
+        int(term_code): tuple(term_info) for term_code, term_info in new_terms.items()
+    }
+
 
 def write_course_ref_to_meetings_cache(cache_dir, course_to_meetings):
     """
@@ -272,6 +319,7 @@ def write_course_ref_to_meetings_cache(cache_dir, course_to_meetings):
         course_to_meetings (dict): Dictionary mapping course identifiers to meeting lists.
     """
     write_file(cache_dir, (), "course_to_meetings", course_to_meetings)
+
 
 def read_course_ref_to_meetings_cache(cache_dir):
     """
@@ -287,7 +335,8 @@ def read_course_ref_to_meetings_cache(cache_dir):
     if course_to_meetings is None:
         return {}
     return {
-        Course.Reference.from_string(key): [EnrollmentData.Meeting.from_json(meeting) for meeting in value]
+        Course.Reference.from_string(key): [
+            EnrollmentData.Meeting.from_json(meeting) for meeting in value
+        ]
         for key, value in course_to_meetings.items()
     }
-

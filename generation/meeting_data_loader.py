@@ -15,10 +15,10 @@ class MeetingDataLoader:
 
     # Initialize requests-cache session
     _session = requests_cache.CachedSession(
-        cache_name='meeting_cache',
-        backend='memory',
+        cache_name="meeting_cache",
+        backend="memory",
         expire_after=None,  # Respect Cache-Control headers
-        allowable_codes=[200, 404]  # Cache successful responses and 404s
+        allowable_codes=[200, 404],  # Cache successful responses and 404s
     )
 
     @classmethod
@@ -34,9 +34,7 @@ class MeetingDataLoader:
         """
 
         try:
-            headers = {
-                'User-Agent': 'UW-CourseMap/1.0 (https://uwcourses.com)'
-            }
+            headers = {"User-Agent": "UW-CourseMap/1.0 (https://uwcourses.com)"}
             response = cls._session.get(url, headers=headers, timeout=30)
             response.raise_for_status()
             return response.json()
@@ -61,7 +59,7 @@ class MeetingDataLoader:
             List of meeting dictionaries, empty list on error
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception as e:
             print(f"Error loading meetings from {file_path}: {e}")

@@ -14,8 +14,11 @@ logger = getLogger(__name__)
 
 CROSS_LIST_MIN = 5
 
-def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instructors: list[FullInstructor]):
 
+def quick_statistics(
+    course_ref_to_course: dict[Course.Reference, Course],
+    instructors: list[FullInstructor],
+):
     total_courses = len(course_ref_to_course)
     school_cumulative_grades = GradeData.empty()
 
@@ -26,10 +29,14 @@ def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instr
     for course, course_data in course_ref_to_course.items():
         cumulative_grade_data = course_data.cumulative_grade_data
         if cumulative_grade_data:
-            school_cumulative_grades = school_cumulative_grades.merge_with(cumulative_grade_data)
+            school_cumulative_grades = school_cumulative_grades.merge_with(
+                cumulative_grade_data
+            )
 
         if course_data.prerequisites:
-            total_detected_requisites += len(course_data.prerequisites.course_references)
+            total_detected_requisites += len(
+                course_data.prerequisites.course_references
+            )
 
     total_ratings = 0
 
@@ -39,7 +46,6 @@ def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instr
 
         rmp_data = instructor.rmp_data
         total_ratings += len(rmp_data.ratings)
-
 
     logger.info("Total courses: %d", total_courses)
     logger.info("School cumulative grades: %s", school_cumulative_grades)
@@ -55,9 +61,11 @@ def quick_statistics(course_ref_to_course: dict[Course.Reference, Course], instr
         "total_ratings": total_ratings,
     }
 
-def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
 
-    for course in tqdm(course_ref_to_course.values(), desc="Determining Satisfies", unit="course"):
+def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
+    for course in tqdm(
+        course_ref_to_course.values(), desc="Determining Satisfies", unit="course"
+    ):
         requisites = course.prerequisites.course_references
 
         for requisite in requisites:
@@ -68,8 +76,9 @@ def determine_satisfies(course_ref_to_course: dict[Course.Reference, Course]):
             requisite_course.satisfies.add(course.course_reference)
 
 
-async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference, Course], cache_dir):
-
+async def course_embedding_analysis(
+    course_ref_to_course: dict[Course.Reference, Course], cache_dir
+):
     model = get_model(cache_dir)
 
     async def embed_course(course_ref, course):
@@ -87,7 +96,9 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     ]
 
     # Await tasks concurrently.
-    results = await tqdm.gather(*tasks, position=0, desc="Course Similarity Embedding Analysis", unit="course")
+    results = await tqdm.gather(
+        *tasks, position=0, desc="Course Similarity Embedding Analysis", unit="course"
+    )
 
     # Build the dictionary mapping course references to their embeddings.
     course_embeddings = {course_ref: embedding for course_ref, embedding in results}
@@ -121,26 +132,32 @@ async def course_embedding_analysis(course_ref_to_course: dict[Course.Reference,
     # For each row in the similarity matrix, use argpartition to get the indices of the top k similar courses.
     top_k_indices = np.argpartition(similarity_matrix, -k, axis=1)[:, -k:]
     # Optionally sort these indices to order by descending similarity.
-    sorted_top_k_indices = np.array([
-        indices[np.argsort(similarity_matrix[i, indices])[::-1]]
-        for i, indices in enumerate(top_k_indices)
-    ])
+    sorted_top_k_indices = np.array(
+        [
+            indices[np.argsort(similarity_matrix[i, indices])[::-1]]
+            for i, indices in enumerate(top_k_indices)
+        ]
+    )
 
     # Build a mapping from each course reference to its corresponding top k similar course references.
     similar_courses_mapping = {}
     for i, course_ref in enumerate(course_refs):
-        similar_courses_mapping[course_ref] = [course_refs[j] for j in sorted_top_k_indices[i]]
+        similar_courses_mapping[course_ref] = [
+            course_refs[j] for j in sorted_top_k_indices[i]
+        ]
 
     # Update each course with its similar courses.
     for course_ref, course in course_ref_to_course.items():
         logger.debug("Setting similar courses for %s", course_ref.get_identifier())
         # Use the mapping to update the course; here we assume each course has a .similar_courses attribute.
         course.similar_courses = [
-            similar_ref
-            for similar_ref in similar_courses_mapping.get(course_ref, [])
+            similar_ref for similar_ref in similar_courses_mapping.get(course_ref, [])
         ]
 
-async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], cache_dir):
+
+async def define_keywords(
+    course_ref_to_course: dict[Course.Reference, Course], cache_dir
+):
     # Load the all-MiniLM-L6-v2 model with custom caching
     keyword_model = get_keyword_model(cache_dir)
     kw_model = CachedKeyBERT(cache_dir, keyword_model)
@@ -170,6 +187,7 @@ async def define_keywords(course_ref_to_course: dict[Course.Reference, Course], 
 
     await tqdm.gather(*tasks, desc="Extracting Keywords", unit="course")
 
+
 def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]):
     subject_stats = {}
 
@@ -189,15 +207,20 @@ def aggregate_subject_stats(course_ref_to_course: dict[Course.Reference, Course]
 
             stats = subject_stats[subject]
             stats["total_courses"] += 1
-            stats["total_grades_given"] = stats["total_grades_given"].merge_with(course.cumulative_grade_data)
+            stats["total_grades_given"] = stats["total_grades_given"].merge_with(
+                course.cumulative_grade_data
+            )
 
             if course.prerequisites:
-                stats["total_detected_requisites"] += len(course.prerequisites.course_references)
+                stats["total_detected_requisites"] += len(
+                    course.prerequisites.course_references
+                )
 
     for subject, stats in subject_stats.items():
         logger.info("Subject: %s, Stats: %s", subject, stats)
 
     return subject_stats
+
 
 def a_rate_wilson_lower_bound_scaled(course: Course) -> tuple[Course, float]:
     """
@@ -213,15 +236,18 @@ def a_rate_wilson_lower_bound_scaled(course: Course) -> tuple[Course, float]:
         return course, 0.0
 
     # Calculate the Wilson lower bound
-    z = 2.576 # For a 99% confidence interval
+    z = 2.576  # For a 99% confidence interval
     p_hat = total_a_grades / total_grades
     n = total_grades
 
-    lower_bound = (p_hat + z**2 / (2 * n) - z * ((p_hat * (1 - p_hat) + z**2 / (4 * n)) / n)**0.5) / (1 + z**2 / n)
+    lower_bound = (
+        p_hat + z**2 / (2 * n) - z * ((p_hat * (1 - p_hat) + z**2 / (4 * n)) / n) ** 0.5
+    ) / (1 + z**2 / n)
 
     scaled = lower_bound * math.log10(n + 1)
 
     return course, scaled
+
 
 def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course]):
     """
@@ -235,25 +261,37 @@ def determine_a_rate_chance(course_ref_to_course: dict[Course.Reference, Course]
     """
     a_rate_chances = {}
 
-    for course_ref, course in tqdm(course_ref_to_course.items(), desc="Calculating A-rate Chances", unit="course"):
+    for course_ref, course in tqdm(
+        course_ref_to_course.items(), desc="Calculating A-rate Chances", unit="course"
+    ):
         course, lower_bound = a_rate_wilson_lower_bound_scaled(course)
         a_rate_chances[course_ref] = lower_bound
-        logger.debug("Course %s has A-rate chance: %.2f", course_ref.get_identifier(), lower_bound)
-
+        logger.debug(
+            "Course %s has A-rate chance: %.2f",
+            course_ref.get_identifier(),
+            lower_bound,
+        )
 
     top_100 = sorted(a_rate_chances.items(), key=lambda x: x[1], reverse=True)[:100]
-    top_100 = [{
-        "reference": course_ref,
-        "a_rate_chance": chance
-    } for course_ref, chance in top_100]
+    top_100 = [
+        {"reference": course_ref, "a_rate_chance": chance}
+        for course_ref, chance in top_100
+    ]
 
     logger.debug("Top 10 courses by A-rate chance:")
     for course in top_100[:10]:
-        logger.debug("Course %s: A-rate chance %.2f", course["reference"], course["a_rate_chance"])
+        logger.debug(
+            "Course %s: A-rate chance %.2f",
+            course["reference"],
+            course["a_rate_chance"],
+        )
 
     return top_100
 
-def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir):
+
+def aggregate_courses(
+    course_ref_to_course: dict[Course.Reference, Course], instructors, cache_dir
+):
     determine_satisfies(course_ref_to_course)
 
     stats = aggregate_subject_stats(course_ref_to_course)
@@ -266,9 +304,15 @@ def aggregate_courses(course_ref_to_course: dict[Course.Reference, Course], inst
 
     return qs, stats
 
+
 def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], top_n=100):
     instructor_ratings = [
-        (name, instructor.rmp_data.num_ratings if instructor.rmp_data and instructor.email else 0)
+        (
+            name,
+            instructor.rmp_data.num_ratings
+            if instructor.rmp_data and instructor.email
+            else 0,
+        )
         for name, instructor in instructor_to_rating.items()
     ]
 
@@ -279,16 +323,17 @@ def most_rated_instructors(instructor_to_rating: dict[str, FullInstructor], top_
 
     return names
 
-def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], instructor_to_rating: dict[str, FullInstructor]):
 
+def aggregate_instructors(
+    course_ref_to_course: dict[Course.Reference, Course],
+    instructor_to_rating: dict[str, FullInstructor],
+):
     for course in course_ref_to_course.values():
         for term_data in course.term_data.values():
-
             if not term_data.grade_data or not term_data.grade_data.instructors:
                 continue
 
             for instructor_name in term_data.grade_data.instructors:
-
                 if instructor_name not in instructor_to_rating:
                     continue
 
@@ -301,13 +346,17 @@ def aggregate_instructors(course_ref_to_course: dict[Course.Reference, Course], 
                     instructor.cumulative_grade_data = GradeData.empty()
 
                 course_reference = course.course_reference
-                grade_data_summation = instructor.cumulative_grade_data.merge_with(term_data.grade_data)
+                grade_data_summation = instructor.cumulative_grade_data.merge_with(
+                    term_data.grade_data
+                )
 
                 instructor.courses_taught.add(course_reference.get_identifier())
                 instructor.cumulative_grade_data = grade_data_summation
 
     instructor_statistics = {
-        "most_rated_instructors": most_rated_instructors(instructor_to_rating, top_n=100)
+        "most_rated_instructors": most_rated_instructors(
+            instructor_to_rating, top_n=100
+        )
     }
 
     return instructor_statistics

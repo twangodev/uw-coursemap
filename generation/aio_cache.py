@@ -4,14 +4,17 @@ from requests_cache import NEVER_EXPIRE
 _aio_cache_config = {
     "cache_name": None,
     "expire_after": NEVER_EXPIRE,
-    "allowed_methods": ('GET', 'POST')
+    "allowed_methods": ("GET", "POST"),
 }
+
 
 def set_aio_cache_location(location):
     _aio_cache_config["cache_name"] = location
 
+
 def set_aio_cache_expiration(expire_after):
     _aio_cache_config["expire_after"] = expire_after
+
 
 def get_aio_cache():
     if _aio_cache_config["cache_name"] is None:

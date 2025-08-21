@@ -13,10 +13,14 @@ class SpatialQueryEngine:
     """Handles spatial queries for buildings and coordinates."""
 
     def __init__(self, buildings_data=None):
-        self.buildings_gdf = buildings_data if buildings_data is not None else buildings_gdf
+        self.buildings_gdf = (
+            buildings_data if buildings_data is not None else buildings_gdf
+        )
         self._point_cache: Dict[Tuple[float, float], Set[int]] = {}
 
-    def _find_buildings_for_coordinates_tuple(self, coordinates_tuple: Tuple[Tuple[float, float], ...]) -> str:
+    def _find_buildings_for_coordinates_tuple(
+        self, coordinates_tuple: Tuple[Tuple[float, float], ...]
+    ) -> str:
         """
         Cached helper method for finding buildings containing coordinates.
         Takes a tuple of coordinates for hashability.
@@ -30,20 +34,22 @@ class SpatialQueryEngine:
         # Use spatial index for fast lookups with caching
         for point in points:
             point_coord = (point.x, point.y)
-            
+
             # Check cache first
             if point_coord in self._point_cache:
                 matching_indices.update(self._point_cache[point_coord])
             else:
                 # Get candidates using spatial index (fast bounding box check)
-                possible_matches_index = list(self.buildings_gdf.sindex.intersection(point.bounds))
-                
+                possible_matches_index = list(
+                    self.buildings_gdf.sindex.intersection(point.bounds)
+                )
+
                 # Precise containment check for candidates
                 point_matches = set()
                 for idx in possible_matches_index:
                     if self.buildings_gdf.geometry.iloc[idx].contains(point):
                         point_matches.add(idx)
-                
+
                 # Cache the result for this point
                 self._point_cache[point_coord] = point_matches
                 matching_indices.update(point_matches)
@@ -51,7 +57,9 @@ class SpatialQueryEngine:
         geojson_result = self._convert_buildings_to_geojson(matching_indices)
         return geojson.dumps(geojson_result)
 
-    def find_buildings_containing_points(self, coordinates: List[Tuple[float, float]]) -> geojson.FeatureCollection:
+    def find_buildings_containing_points(
+        self, coordinates: List[Tuple[float, float]]
+    ) -> geojson.FeatureCollection:
         """
         Find all buildings that contain any of the given coordinates using spatial indexing.
 
@@ -66,7 +74,9 @@ class SpatialQueryEngine:
         geojson_str = self._find_buildings_for_coordinates_tuple(coordinates_tuple)
         return geojson.loads(geojson_str)
 
-    def find_building_at_coordinate(self, longitude: float, latitude: float) -> geojson.FeatureCollection:
+    def find_building_at_coordinate(
+        self, longitude: float, latitude: float
+    ) -> geojson.FeatureCollection:
         """
         Find buildings containing a single coordinate.
 
@@ -79,7 +89,9 @@ class SpatialQueryEngine:
         """
         return self.find_buildings_containing_points([(longitude, latitude)])
 
-    def _convert_buildings_to_geojson(self, building_indices: set) -> geojson.FeatureCollection:
+    def _convert_buildings_to_geojson(
+        self, building_indices: set
+    ) -> geojson.FeatureCollection:
         """
         Convert building indices to GeoJSON FeatureCollection.
 
@@ -96,7 +108,7 @@ class SpatialQueryEngine:
 
         # Handle timestamp/datetime columns that cause JSON serialization issues
         for col in matching_buildings.columns:
-            if 'datetime' in str(matching_buildings[col].dtype):
+            if "datetime" in str(matching_buildings[col].dtype):
                 matching_buildings[col] = matching_buildings[col].astype(str)
 
         # Convert back to GeoJSON format

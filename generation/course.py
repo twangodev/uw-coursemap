@@ -5,7 +5,13 @@ from bs4 import NavigableString
 
 from enrollment_data import GradeData, TermData, EnrollmentData
 from json_serializable import JsonSerializable
-from requirement_ast import RequirementAbstractSyntaxTree, tokenize_requisites, RequirementParser, Node, Leaf
+from requirement_ast import (
+    RequirementAbstractSyntaxTree,
+    tokenize_requisites,
+    RequirementParser,
+    Node,
+    Leaf,
+)
 
 
 def remove_extra_spaces(text: str):
@@ -17,16 +23,10 @@ def cleanup_course_reference_str(course_code: str):
     if not course_code:
         return None
     course_code = remove_extra_spaces(course_code)
-    return (
-        course_code
-        .replace("\u200b", " ")
-        .replace("\u00a0", " ")
-        .strip()
-    )
+    return course_code.replace("\u200b", " ").replace("\u00a0", " ").strip()
 
 
 class Identifiable:
-
     def get_identifier(self) -> str:
         raise NotImplementedError
 
@@ -48,9 +48,13 @@ class Course(JsonSerializable):
         def from_string(cls, course_reference_str: str):
             course_reference_str = cleanup_course_reference_str(course_reference_str)
             match = re.match(r"(\D+)(\d+)", course_reference_str)
-            course_subject_str = match.group(1).replace(" ", "").strip()  # Only keep the subject
+            course_subject_str = (
+                match.group(1).replace(" ", "").strip()
+            )  # Only keep the subject
             raw_course_subjects = course_subject_str.split("/")
-            course_subject = {str(subject).replace(" ", "") for subject in raw_course_subjects}
+            course_subject = {
+                str(subject).replace(" ", "") for subject in raw_course_subjects
+            }
             course_number = int(match.group(2).strip())  # Convert to integer
             return Course.Reference(course_subject, course_number)
 
@@ -67,7 +71,10 @@ class Course(JsonSerializable):
         def __eq__(self, other):
             if not isinstance(other, Course.Reference):
                 return False
-            return self.subjects == other.subjects and self.course_number == other.course_number
+            return (
+                self.subjects == other.subjects
+                and self.course_number == other.course_number
+            )
 
         def __hash__(self):
             return hash(self.get_identifier())
@@ -79,8 +86,13 @@ class Course(JsonSerializable):
             return self.get_identifier()
 
     class Prerequisites(JsonSerializable):
-
-        def __init__(self, prerequisites_text, linked_requisite_text, course_references, abstract_syntax_tree):
+        def __init__(
+            self,
+            prerequisites_text,
+            linked_requisite_text,
+            course_references,
+            abstract_syntax_tree,
+        ):
             self.prerequisites_text = prerequisites_text
             self.linked_requisite_text = linked_requisite_text
             self.course_references = course_references
@@ -92,37 +104,47 @@ class Course(JsonSerializable):
                 prerequisites_text=json_data["prerequisites_text"],
                 linked_requisite_text=json_data["linked_requisite_text"],
                 course_references=[
-                    Course.Reference.from_json(course_ref) for course_ref in json_data["course_references"]
+                    Course.Reference.from_json(course_ref)
+                    for course_ref in json_data["course_references"]
                 ],
-                abstract_syntax_tree=RequirementAbstractSyntaxTree.from_json(json_data["abstract_syntax_tree"]),
+                abstract_syntax_tree=RequirementAbstractSyntaxTree.from_json(
+                    json_data["abstract_syntax_tree"]
+                ),
             )
 
         def to_dict(self):
             return {
                 "prerequisites_text": self.prerequisites_text,
                 "linked_requisite_text": self.linked_requisite_text,
-                "course_references": [course_ref.to_dict() for course_ref in self.course_references],
-                "abstract_syntax_tree": self.abstract_syntax_tree.to_dict() if self.abstract_syntax_tree else None,
+                "course_references": [
+                    course_ref.to_dict() for course_ref in self.course_references
+                ],
+                "abstract_syntax_tree": self.abstract_syntax_tree.to_dict()
+                if self.abstract_syntax_tree
+                else None,
             }
 
         def __eq__(self, other):
             if not isinstance(other, Course.Prerequisites):
                 return False
-            return self.prerequisites_text == other.prerequisites_text and self.course_references == other.course_references
+            return (
+                self.prerequisites_text == other.prerequisites_text
+                and self.course_references == other.course_references
+            )
 
     def __init__(
-            self,
-            course_reference: Reference,
-            course_title: str,
-            description: str,
-            prerequisites: Prerequisites,
-            optimized_prerequisites: list[Reference] | None,
-            cumulative_grade_data: "GradeData | None",
-            term_data: dict[str, TermData],
-            similar_courses=None,
-            keywords=None,
-            satisfies: set[Reference] = None,
-            has_meetings: bool = False
+        self,
+        course_reference: Reference,
+        course_title: str,
+        description: str,
+        prerequisites: Prerequisites,
+        optimized_prerequisites: list[Reference] | None,
+        cumulative_grade_data: "GradeData | None",
+        term_data: dict[str, TermData],
+        similar_courses=None,
+        keywords=None,
+        satisfies: set[Reference] = None,
+        has_meetings: bool = False,
     ):
         if similar_courses is None:
             similar_courses = set()
@@ -149,11 +171,16 @@ class Course(JsonSerializable):
     def from_json(cls, json_data) -> "Course":
         optimized_prerequisites = None
         if json_data["optimized_prerequisites"]:
-            optimized_prerequisites = [Course.Reference.from_json(json) for json in json_data["optimized_prerequisites"]]
+            optimized_prerequisites = [
+                Course.Reference.from_json(json)
+                for json in json_data["optimized_prerequisites"]
+            ]
 
         cumulative_grade_data = None
         if json_data["cumulative_grade_data"]:
-            cumulative_grade_data = GradeData.from_json(json_data["cumulative_grade_data"])
+            cumulative_grade_data = GradeData.from_json(
+                json_data["cumulative_grade_data"]
+            )
 
         return Course(
             course_reference=Course.Reference.from_json(json_data["course_reference"]),
@@ -162,11 +189,22 @@ class Course(JsonSerializable):
             prerequisites=Course.Prerequisites.from_json(json_data["prerequisites"]),
             optimized_prerequisites=optimized_prerequisites,
             cumulative_grade_data=cumulative_grade_data,
-            term_data={term: TermData.from_json(data) for term, data in json_data["term_data"].items()},
-            similar_courses={Course.Reference.from_json(course_ref) for course_ref in json_data["similar_courses"]} if json_data.get("similar_courses", None) else set(),
+            term_data={
+                term: TermData.from_json(data)
+                for term, data in json_data["term_data"].items()
+            },
+            similar_courses={
+                Course.Reference.from_json(course_ref)
+                for course_ref in json_data["similar_courses"]
+            }
+            if json_data.get("similar_courses", None)
+            else set(),
             keywords=json_data.get("keywords", []),
-            satisfies={Course.Reference.from_json(ref) for ref in json_data.get("satisfies", [])},
-            has_meetings=json_data.get("has_meetings", False)
+            satisfies={
+                Course.Reference.from_json(ref)
+                for ref in json_data.get("satisfies", [])
+            },
+            has_meetings=json_data.get("has_meetings", False),
         )
 
     def to_dict(self):
@@ -175,13 +213,23 @@ class Course(JsonSerializable):
             "course_title": self.course_title,
             "description": self.description,
             "prerequisites": self.prerequisites.to_dict(),
-            "optimized_prerequisites": [course_ref.to_dict() for course_ref in self.optimized_prerequisites] if self.optimized_prerequisites else None,
-            "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None,
-            "term_data": {term: data.to_dict() for term, data in self.term_data.items()},
-            "similar_courses": [course_ref.to_dict() for course_ref in self.similar_courses],
+            "optimized_prerequisites": [
+                course_ref.to_dict() for course_ref in self.optimized_prerequisites
+            ]
+            if self.optimized_prerequisites
+            else None,
+            "cumulative_grade_data": self.cumulative_grade_data.to_dict()
+            if self.cumulative_grade_data
+            else None,
+            "term_data": {
+                term: data.to_dict() for term, data in self.term_data.items()
+            },
+            "similar_courses": [
+                course_ref.to_dict() for course_ref in self.similar_courses
+            ],
             "keywords": self.keywords,
             "satisfies": [ref.to_dict() for ref in self.satisfies],
-            "has_meetings": self.has_meetings
+            "has_meetings": self.has_meetings,
         }
 
     @classmethod
@@ -191,16 +239,24 @@ class Course(JsonSerializable):
         if not html_title:
             return None
 
-        course_reference_str = html_title.find("span", class_="courseblockcode").get_text(strip=True)
+        course_reference_str = html_title.find(
+            "span", class_="courseblockcode"
+        ).get_text(strip=True)
         if not course_reference_str:
             return None
         course_reference = Course.Reference.from_string(course_reference_str)
 
         raw_title = html_title.get_text(strip=True)
         raw_course_title = raw_title.replace(course_reference_str, "").strip()
-        course_title = raw_course_title.split("—", 1)[-1].strip() if "—" in raw_course_title else raw_course_title
+        course_title = (
+            raw_course_title.split("—", 1)[-1].strip()
+            if "—" in raw_course_title
+            else raw_course_title
+        )
 
-        description = block.find("p", class_="courseblockdesc noindent").get_text(strip=True)
+        description = block.find("p", class_="courseblockdesc noindent").get_text(
+            strip=True
+        )
 
         cb_extras = block.find("div", class_="cb-extras")
         basic_course = Course(
@@ -210,12 +266,14 @@ class Course(JsonSerializable):
             Course.Prerequisites("", [], set(), None),
             None,
             None,
-            {}
+            {},
         )
         if not cb_extras:
             return basic_course
 
-        requisites_header = cb_extras.find("span", class_="cbextra-label", string=re.compile("Requisites:"))
+        requisites_header = cb_extras.find(
+            "span", class_="cbextra-label", string=re.compile("Requisites:")
+        )
         if not requisites_header:
             return basic_course
 
@@ -244,12 +302,24 @@ class Course(JsonSerializable):
         try:
             tree = parser.parse()
         except SyntaxError as se:
-            logger.warning(f"Syntax error in course {course_reference}: {se}. See text: {requisites_text}")
+            logger.warning(
+                f"Syntax error in course {course_reference}: {se}. See text: {requisites_text}"
+            )
 
         requisites_courses.discard(course_reference)  # Remove self-reference
 
-        course_prerequisite = Course.Prerequisites(requisites_text, linked_requisite_text, requisites_courses, tree)
-        return Course(course_reference, course_title, description, course_prerequisite, None, None,{})
+        course_prerequisite = Course.Prerequisites(
+            requisites_text, linked_requisite_text, requisites_courses, tree
+        )
+        return Course(
+            course_reference,
+            course_title,
+            description,
+            course_prerequisite,
+            None,
+            None,
+            {},
+        )
 
     def determine_parent(self):
         parent = None
@@ -284,11 +354,14 @@ class Course(JsonSerializable):
         return self.term_data[latest_term]
 
     def __eq__(self, other):
-        return self.get_identifier() == other.get_identifier() and self.course_title == other.course_title and self.description == other.description
+        return (
+            self.get_identifier() == other.get_identifier()
+            and self.course_title == other.course_title
+            and self.description == other.description
+        )
 
     def __hash__(self):
         return hash(self.get_identifier())
 
     def __repr__(self):
         return self.get_identifier()
-
