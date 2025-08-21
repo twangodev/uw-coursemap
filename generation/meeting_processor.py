@@ -5,7 +5,7 @@ Handles validation, filtering, and time-chunking of meeting data.
 
 import math
 from collections import defaultdict
-from typing import List, Dict, Tuple, Any, Optional
+from typing import List, Dict, Tuple
 
 
 class MeetingProcessor:

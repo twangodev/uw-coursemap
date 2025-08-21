@@ -3,14 +3,12 @@ from logging import Logger
 
 from bs4 import NavigableString
 
-from enrollment_data import GradeData, TermData, EnrollmentData
+from enrollment_data import GradeData, TermData
 from json_serializable import JsonSerializable
 from requirement_ast import (
     RequirementAbstractSyntaxTree,
     tokenize_requisites,
     RequirementParser,
-    Node,
-    Leaf,
 )
 
 

@@ -105,7 +105,6 @@ def chunk_meetings_by_building_and_date(course_ref_to_meetings, data_dir):
 
     # Process each building's meetings by date
     total_buildings_processed = 0
-    total_date_files_written = 0
 
     for building_name, meetings in tqdm(
         building_meetings.items(),
@@ -124,7 +123,7 @@ def chunk_meetings_by_building_and_date(course_ref_to_meetings, data_dir):
         f"Processed {total_buildings_processed} buildings with daily meeting files"
     )
     logger.info(
-        f"Each building now has MM-DD-YY.json, MM-DD-YY.geojson, and index.json files"
+        "Each building now has MM-DD-YY.json, MM-DD-YY.geojson, and index.json files"
     )
 
 

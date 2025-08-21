@@ -187,7 +187,7 @@ def filter_tokens(tokens):
             # now tokens[i] is 'LPAREN' and tokens[j-1] is its matching 'RPAREN'
             inner = tokens[i + 1 : j - 1]
             # only consider TEXT tokens for "not"
-            has_not = any(exclusion_re.search(l) for t, l in inner if t == "TEXT")
+            has_not = any(exclusion_re.search(text) for t, text in inner if t == "TEXT")
             if not has_not:
                 res.append(tokens[i])  # keep LPAREN
                 res += filter_tokens(inner)  # recurse inside
@@ -200,7 +200,7 @@ def filter_tokens(tokens):
             while j < len(tokens) and tokens[j][0] != "LPAREN":
                 j += 1
             run = tokens[i:j]
-            has_not = any(exclusion_re.search(l) for t, l in run if t == "TEXT")
+            has_not = any(exclusion_re.search(text) for t, text in run if t == "TEXT")
             if not has_not:
                 res.extend(run)
             i = j
