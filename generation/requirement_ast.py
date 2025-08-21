@@ -4,20 +4,21 @@ from typing import Union
 from json_serializable import JsonSerializable
 
 token_specs = [
-    (r'\(', 'LPAREN'),
-    (r'\)', 'RPAREN'),
-    (r'\bAND\b', 'AND'),
-    (r'\bOR\b|;', 'OR'),
-    (r'\,', 'COMMA'),
+    (r"\(", "LPAREN"),
+    (r"\)", "RPAREN"),
+    (r"\bAND\b", "AND"),
+    (r"\bOR\b|;", "OR"),
+    (r"\,", "COMMA"),
 ]
 
-leaf_like = {'TEXT', 'COURSE'}
+leaf_like = {"TEXT", "COURSE"}
 
-tokenizer_regex = '|'.join(f'(?P<{name}>{pattern})' for pattern, name in token_specs)
+tokenizer_regex = "|".join(f"(?P<{name}>{pattern})" for pattern, name in token_specs)
 tokenizer_re = re.compile(tokenizer_regex, re.IGNORECASE)
 
-exclusion_regex = r'\bnot\b'
+exclusion_regex = r"\bnot\b"
 exclusion_re = re.compile(exclusion_regex, re.IGNORECASE)
+
 
 def wrap_sentences(linked_requisite_text):
     output = []
@@ -25,7 +26,7 @@ def wrap_sentences(linked_requisite_text):
 
     for token in linked_requisite_text:
         if isinstance(token, str):
-            parts = re.split(r'([.!?])', token)
+            parts = re.split(r"([.!?])", token)
             for i, part in enumerate(parts):
                 if not part:
                     continue
@@ -36,33 +37,34 @@ def wrap_sentences(linked_requisite_text):
                         stripped = text.lstrip()
                         if not stripped:
                             continue
-                        text = '(' + stripped
+                        text = "(" + stripped
                         need_open_paren = False
                     output.append(text)
 
                 else:
                     if output and isinstance(output[-1], str):
-                        output[-1] += part + ')'
+                        output[-1] += part + ")"
                     else:
                         if need_open_paren:
-                            output.append('(' + part + ')')
+                            output.append("(" + part + ")")
                         else:
-                            output.append(part + ')')
+                            output.append(part + ")")
                     need_open_paren = True
 
         else:
             if need_open_paren:
-                output.append('(')
+                output.append("(")
                 need_open_paren = False
             output.append(token)
 
     if not need_open_paren:
         if output and isinstance(output[-1], str):
-            output[-1] += ')'
+            output[-1] += ")"
         else:
-            output.append(')')
+            output.append(")")
 
     return output
+
 
 def infer_commas(tokens):
     """
@@ -76,25 +78,26 @@ def infer_commas(tokens):
     inferred_tokens = []
 
     for i, (kind, value) in enumerate(tokens):
-        if kind != 'COMMA':
+        if kind != "COMMA":
             inferred_tokens.append((kind, value))
             continue
 
         depth = 0
-        assumed_operator = 'AND'
-        for next_kind, next_value in tokens[i + 1:]:
-            if next_kind == 'LPAREN':
+        assumed_operator = "AND"
+        for next_kind, next_value in tokens[i + 1 :]:
+            if next_kind == "LPAREN":
                 depth += 1
-            elif next_kind == 'RPAREN':
+            elif next_kind == "RPAREN":
                 depth -= 1
 
-            if next_kind in ('AND', 'OR') and depth == 0:
+            if next_kind in ("AND", "OR") and depth == 0:
                 assumed_operator = next_kind
                 break
 
         inferred_tokens.append((assumed_operator, value))
 
     return inferred_tokens
+
 
 def collapse_operators(tokens):
     """
@@ -118,7 +121,7 @@ def collapse_operators(tokens):
     last_operator = None
 
     for kind, value in tokens:
-        if kind in ('AND', 'OR'):
+        if kind in ("AND", "OR"):
             if last_operator != kind:
                 out.append((kind, value))
                 last_operator = kind
@@ -127,6 +130,7 @@ def collapse_operators(tokens):
             last_operator = None
 
     return out
+
 
 def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]]:
     """
@@ -148,9 +152,13 @@ def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]
     i = 0
     while i < len(tokens):
         kind, val = tokens[i]
-        if kind == 'LPAREN' and i + 1 < len(tokens) and tokens[i+1][0] in ('AND','OR'):
-            op_kind, op_val = tokens[i+1]
-            if out and out[-1][0] not in ('LPAREN','AND','OR'):
+        if (
+            kind == "LPAREN"
+            and i + 1 < len(tokens)
+            and tokens[i + 1][0] in ("AND", "OR")
+        ):
+            op_kind, op_val = tokens[i + 1]
+            if out and out[-1][0] not in ("LPAREN", "AND", "OR"):
                 out.append((op_kind, op_val))
             out.append((kind, val))
             i += 2
@@ -159,42 +167,46 @@ def hoist_group_operators(tokens: list[tuple[str, str]]) -> list[tuple[str, str]
             i += 1
     return out
 
+
 def filter_tokens(tokens):
     res, i = [], 0
     while i < len(tokens):
         typ, lit = tokens[i]
 
-        if typ == 'LPAREN':
+        if typ == "LPAREN":
             # explicitly initialize j so it's always in scope
             j = i + 1
             depth = 1
             # walk forward until we close this group
             while j < len(tokens) and depth:
-                if   tokens[j][0] == 'LPAREN':   depth += 1
-                elif tokens[j][0] == 'RPAREN':   depth -= 1
+                if tokens[j][0] == "LPAREN":
+                    depth += 1
+                elif tokens[j][0] == "RPAREN":
+                    depth -= 1
                 j += 1
             # now tokens[i] is 'LPAREN' and tokens[j-1] is its matching 'RPAREN'
-            inner = tokens[i+1 : j-1]
+            inner = tokens[i + 1 : j - 1]
             # only consider TEXT tokens for "not"
-            has_not = any(exclusion_re.search(l) for t, l in inner if t == 'TEXT')
+            has_not = any(exclusion_re.search(text) for t, text in inner if t == "TEXT")
             if not has_not:
-                res.append(tokens[i])               # keep LPAREN
-                res += filter_tokens(inner)        # recurse inside
-                res.append(tokens[j-1])            # keep RPAREN
+                res.append(tokens[i])  # keep LPAREN
+                res += filter_tokens(inner)  # recurse inside
+                res.append(tokens[j - 1])  # keep RPAREN
             i = j  # jump past this group
 
         else:
             # plain run up to next LPAREN
             j = i
-            while j < len(tokens) and tokens[j][0] != 'LPAREN':
+            while j < len(tokens) and tokens[j][0] != "LPAREN":
                 j += 1
             run = tokens[i:j]
-            has_not = any(exclusion_re.search(l) for t, l in run if t == 'TEXT')
+            has_not = any(exclusion_re.search(text) for t, text in run if t == "TEXT")
             if not has_not:
                 res.extend(run)
             i = j
 
     return res
+
 
 def tokenize_requisites(linked_requisite_text):
     from course import Course
@@ -204,13 +216,13 @@ def tokenize_requisites(linked_requisite_text):
 
     for piece in linked_requisite_text:
         if isinstance(piece, Course.Reference):
-            tokens.append(('COURSE', piece))
+            tokens.append(("COURSE", piece))
             continue
 
         position = 0
         for match in tokenizer_re.finditer(piece):
-            if position < match.start() and piece[position:match.start()].strip():
-                tokens.append(('TEXT', piece[position:match.start()].strip()))
+            if position < match.start() and piece[position : match.start()].strip():
+                tokens.append(("TEXT", piece[position : match.start()].strip()))
 
             token_type = match.lastgroup
             token_value = match.group(token_type)
@@ -219,13 +231,14 @@ def tokenize_requisites(linked_requisite_text):
             position = match.end()
 
         if position < len(piece) and piece[position:].strip():
-            tokens.append(('TEXT', piece[position:].strip()))
+            tokens.append(("TEXT", piece[position:].strip()))
 
     tokens = infer_commas(tokens)
     tokens = hoist_group_operators(tokens)
     tokens = collapse_operators(tokens)
     tokens = filter_tokens(tokens)
     return tokens
+
 
 class Leaf(JsonSerializable):
     def __init__(self, payload: JsonSerializable | str):
@@ -237,6 +250,7 @@ class Leaf(JsonSerializable):
     @classmethod
     def from_json(cls, json_data) -> "Leaf":
         from course import Course
+
         if isinstance(json_data, str):
             return cls(json_data)
         elif isinstance(json_data, dict):
@@ -249,13 +263,14 @@ class Leaf(JsonSerializable):
             return self.payload.to_dict()
         return str(self.payload)
 
+
 class Node(JsonSerializable):
-    def __init__(self, operator: str, children: list[Union['Node', Leaf]]):
+    def __init__(self, operator: str, children: list[Union["Node", Leaf]]):
         self.operator = operator
         self.children = children
 
     @classmethod
-    def from_json(cls, json_data) -> 'Union[Node, Leaf]':
+    def from_json(cls, json_data) -> "Union[Node, Leaf]":
         if isinstance(json_data, dict):
             operator = json_data.get("operator")
             if operator is None:
@@ -270,16 +285,22 @@ class Node(JsonSerializable):
     def to_dict(self):
         return {
             "operator": self.operator,
-            "children": [child.to_dict() if isinstance(child, JsonSerializable) else str(child) for child in self.children]
+            "children": [
+                child.to_dict() if isinstance(child, JsonSerializable) else str(child)
+                for child in self.children
+            ],
         }
 
     def to_tree_print(self):
         return _tree_repr(self, is_root=True)
 
-def _tree_repr(node: Union[Node, Leaf],
-               prefix: str = "",
-               is_last: bool = True,
-               is_root: bool = False) -> str:
+
+def _tree_repr(
+    node: Union[Node, Leaf],
+    prefix: str = "",
+    is_last: bool = True,
+    is_root: bool = False,
+) -> str:
     if is_root:
         label = node.operator if isinstance(node, Node) else node.payload
         line = label
@@ -293,14 +314,14 @@ def _tree_repr(node: Union[Node, Leaf],
     if isinstance(node, Node):
         lines = [line]
         for idx, child in enumerate(node.children):
-            last = (idx == len(node.children) - 1)
+            last = idx == len(node.children) - 1
             lines.append(_tree_repr(child, children_prefix, last))
         return "\n".join(lines)
     else:
         return line
 
-class RequirementAbstractSyntaxTree(JsonSerializable):
 
+class RequirementAbstractSyntaxTree(JsonSerializable):
     def __init__(self, root: Union[Node, Leaf]):
         self.root = root
 
@@ -314,7 +335,11 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
             return None
 
     def to_dict(self):
-        return self.root.to_dict() if isinstance(self.root, JsonSerializable) else str(self.root)
+        return (
+            self.root.to_dict()
+            if isinstance(self.root, JsonSerializable)
+            else str(self.root)
+        )
 
     def to_tree_print(self):
         return _tree_repr(self.root, is_root=True)
@@ -332,7 +357,7 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
 
             # Node case
             assert isinstance(node, Node)
-            if node.operator == 'AND':
+            if node.operator == "AND":
                 combos = [[]]  # start with an “empty” combo
                 for child in node.children:
                     child_combos = _recurse(child)
@@ -340,7 +365,7 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
                     combos = [prev + curr for prev in combos for curr in child_combos]
                 return combos
 
-            elif node.operator == 'OR':
+            elif node.operator == "OR":
                 # any one child’s combos will do
                 combos = []
                 for child in node.children:
@@ -363,8 +388,8 @@ class RequirementAbstractSyntaxTree(JsonSerializable):
                 unique.append(combo)
         return unique
 
-class RequirementParser:
 
+class RequirementParser:
     def __init__(self, tokens):
         self.tokens = tokens
         self.pos = 0
@@ -375,46 +400,46 @@ class RequirementParser:
 
     def parse_or(self):
         children = [self.parse_and()]
-        while self._peek_kind() == 'OR':
+        while self._peek_kind() == "OR":
             self.pos += 1
             children.append(self.parse_and())
-        return children[0] if len(children) == 1 else Node('OR', children)
+        return children[0] if len(children) == 1 else Node("OR", children)
 
     def parse_and(self):
         children = [self.parse_primary()]
 
         while True:
             kind = self._peek_kind()
-            if kind == 'AND':
+            if kind == "AND":
                 self.pos += 1
                 children.append(self.parse_primary())
-            elif kind in ('TEXT', 'COURSE', 'LPAREN'):
+            elif kind in ("TEXT", "COURSE", "LPAREN"):
                 children.append(self.parse_primary())
             else:
                 break
 
-        return children[0] if len(children) == 1 else Node('AND', children)
+        return children[0] if len(children) == 1 else Node("AND", children)
 
     def parse_primary(self):
         kind = self._peek_kind()
 
-        if kind == 'LPAREN':
+        if kind == "LPAREN":
             self.pos += 1
             node = self.parse_or()
-            if self._peek_kind() != 'RPAREN':
+            if self._peek_kind() != "RPAREN":
                 raise SyntaxError("Expected ')'")
             self.pos += 1
             return node
 
-        if kind in ('TEXT', 'COURSE'):
+        if kind in ("TEXT", "COURSE"):
             _, val = self.tokens[self.pos]
             self.pos += 1
             return Leaf(val)
 
-        if kind == 'EOF':
-            return Leaf('')
+        if kind == "EOF":
+            return Leaf("")
 
         raise SyntaxError(f"Unexpected token {kind!r}")
 
     def _peek_kind(self):
-        return self.tokens[self.pos][0] if self.pos < len(self.tokens) else 'EOF'
+        return self.tokens[self.pos][0] if self.pos < len(self.tokens) else "EOF"

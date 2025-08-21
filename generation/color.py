@@ -12,10 +12,12 @@ def generate_accessible_color():
     Returns:
         str: A hex color string in the form "#RRGGBB".
     """
+
     def relative_luminance(r, g, b):
         # Convert sRGB to linear light values
         def to_linear(c):
             return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
         R_lin = to_linear(r)
         G_lin = to_linear(g)
         B_lin = to_linear(b)
@@ -47,6 +49,7 @@ def generate_accessible_color():
     G = int(round(g * 255))
     B = int(round(b * 255))
     return f"#{R:02x}{G:02x}{B:02x}"
+
 
 def generate_random_hex_colors(parents, color_map):
     """

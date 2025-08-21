@@ -81,9 +81,18 @@ logger = getLogger(__name__)
 
 
 class RMPData(JsonSerializable):
-
-    def __init__(self, id, legacy_id, average_rating, average_difficulty, num_ratings, would_take_again_percent,
-                 mandatory_attendance, ratings_distribution, ratings):
+    def __init__(
+        self,
+        id,
+        legacy_id,
+        average_rating,
+        average_difficulty,
+        num_ratings,
+        would_take_again_percent,
+        mandatory_attendance,
+        ratings_distribution,
+        ratings,
+    ):
         self.id = id
         self.legacy_id = legacy_id
         self.average_rating = average_rating
@@ -107,7 +116,7 @@ class RMPData(JsonSerializable):
             would_take_again_percent=json_data["would_take_again_percent"],
             mandatory_attendance=json_data["mandatory_attendance"],
             ratings_distribution=json_data["ratings_distribution"],
-            ratings=json_data["ratings"]
+            ratings=json_data["ratings"],
         )
 
     @classmethod
@@ -124,11 +133,13 @@ class RMPData(JsonSerializable):
         ratings = []
         for rating in rmp_data["ratings"]["edges"]:
             node = rating["node"]
-            ratings.append({
-                "comment": node["comment"],
-                "quality_rating": node["qualityRating"],
-                "difficulty_rating": node["difficultyRatingRounded"]
-            })
+            ratings.append(
+                {
+                    "comment": node["comment"],
+                    "quality_rating": node["qualityRating"],
+                    "difficulty_rating": node["difficultyRatingRounded"],
+                }
+            )
 
         return RMPData(
             id=id,
@@ -139,7 +150,7 @@ class RMPData(JsonSerializable):
             would_take_again_percent=would_take_again_percent,
             mandatory_attendance=mandatory_attendance,
             ratings_distribution=ratings_distribution,
-            ratings=ratings
+            ratings=ratings,
         )
 
     def to_dict(self):
@@ -152,13 +163,23 @@ class RMPData(JsonSerializable):
             "would_take_again_percent": self.would_take_again_percent,
             "mandatory_attendance": self.mandatory_attendance,
             "ratings_distribution": self.ratings_distribution,
-            "ratings": self.ratings
+            "ratings": self.ratings,
         }
 
 
 class FullInstructor(JsonSerializable):
-
-    def __init__(self, name, email, rmp_data: RMPData | None, position, department, credentials, official_name, courses_taught = None, cumulative_grade_data: GradeData | None = None):
+    def __init__(
+        self,
+        name,
+        email,
+        rmp_data: RMPData | None,
+        position,
+        department,
+        credentials,
+        official_name,
+        courses_taught=None,
+        cumulative_grade_data: GradeData | None = None,
+    ):
         self.name = name
         self.email = email
         self.rmp_data = rmp_data
@@ -188,7 +209,7 @@ class FullInstructor(JsonSerializable):
             credentials=json_data["credentials"],
             official_name=json_data["official_name"],
             courses_taught=courses_taught,
-            cumulative_grade_data=cumulative_grade_data
+            cumulative_grade_data=cumulative_grade_data,
         )
 
     def to_dict(self):
@@ -200,8 +221,12 @@ class FullInstructor(JsonSerializable):
             "department": self.department,
             "credentials": self.credentials,
             "official_name": self.official_name,
-            "courses_taught": list(self.courses_taught) if self.courses_taught else None,
-            "cumulative_grade_data": self.cumulative_grade_data.to_dict() if self.cumulative_grade_data else None
+            "courses_taught": list(self.courses_taught)
+            if self.courses_taught
+            else None,
+            "cumulative_grade_data": self.cumulative_grade_data.to_dict()
+            if self.cumulative_grade_data
+            else None,
         }
 
 
@@ -216,36 +241,53 @@ def produce_query(instructor_name):
 
 mock_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-async def get_rating(name: str, api_key: str, session, attempts: int = 10, rate_limited_count: int = 0, disable_cache=False):
-    auth_header = {
-        "Authorization": f"Basic {api_key}",
-        "User-Agent": mock_user_agent
-    }
+
+async def get_rating(
+    name: str,
+    api_key: str,
+    session,
+    attempts: int = 10,
+    rate_limited_count: int = 0,
+    disable_cache=False,
+):
+    auth_header = {"Authorization": f"Basic {api_key}", "User-Agent": mock_user_agent}
     payload = {"query": graph_ql_query, "variables": produce_query(name)}
 
     try:
         if disable_cache:
             async with session.disabled():
-                async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+                async with session.post(
+                    url=rmp_graphql_url, headers=auth_header, json=payload
+                ) as response:
                     data = await response.json()
         else:
-            async with session.post(url=rmp_graphql_url, headers=auth_header, json=payload) as response:
+            async with session.post(
+                url=rmp_graphql_url, headers=auth_header, json=payload
+            ) as response:
                 data = await response.json()
 
         if response.status == 429:
-            backoff = min(30, 2 ** rate_limited_count)
+            backoff = min(30, 2**rate_limited_count)
             logger.debug(f"Rate limited, retrying after {backoff} seconds.")
             await asyncio.sleep(backoff)
-            return await get_rating(name, api_key, session, attempts, rate_limited_count + 1, disable_cache)
+            return await get_rating(
+                name, api_key, session, attempts, rate_limited_count + 1, disable_cache
+            )
 
         if data.get("errors"):
-            raise Exception(f"RMP API returned errors with status code {response.status}: {data['errors']}")
+            raise Exception(
+                f"RMP API returned errors with status code {response.status}: {data['errors']}"
+            )
 
     except Exception as e:
         if attempts > 0:
-            logger.debug(f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}")
+            logger.debug(
+                f"Failed to fetch or decode JSON response for {name} with {attempts} remaining attempts: {e}"
+            )
             await asyncio.sleep(1)
-            return await get_rating(name, api_key, session, attempts - 1, rate_limited_count, True)
+            return await get_rating(
+                name, api_key, session, attempts - 1, rate_limited_count, True
+            )
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
@@ -254,19 +296,25 @@ async def get_rating(name: str, api_key: str, session, attempts: int = 10, rate_
     for item in results:
         result = item["node"]
         # Simple matching: check if both first and last names appear in the name string
-        if result["firstName"].lower() in name.lower() and result["lastName"].lower() in name.lower():
+        if (
+            result["firstName"].lower() in name.lower()
+            and result["lastName"].lower() in name.lower()
+        ):
             return RMPData.from_rmp_data(result)
 
     logger.debug(f"Failed to find rating for {name}")
     return None
 
+
 def scrape_rmp_api_key():
-    response = requests.get(rmp_url, headers={"User-Agent": "Mozilla/5.0"}) # Some sites require a user-agent to avoid blocking
+    response = requests.get(
+        rmp_url, headers={"User-Agent": "Mozilla/5.0"}
+    )  # Some sites require a user-agent to avoid blocking
 
     match = re.search(r'"REACT_APP_GRAPHQL_AUTH"\s*:\s*"([^"]+)"', response.text)
     if match:
         graphql_auth = match.group(1)
-    else :
+    else:
         logger.error("Failed to scrape the RMP API key from the response.")
         logger.debug(response.text)
         raise RuntimeError("Failed to scrape the RMP API key from the response.")
@@ -286,7 +334,11 @@ def get_faculty():
 
     for ul in uw_people_lists:
         for li in ul.find_all("li"):
-            name = li.find("span", class_="faculty-name").text if li.find("span", class_="faculty-name") else None
+            name = (
+                li.find("span", class_="faculty-name").text
+                if li.find("span", class_="faculty-name")
+                else None
+            )
 
             if not name:
                 continue
@@ -304,6 +356,7 @@ def get_faculty():
 _caches: dict[str, Cache] = {}
 _caches_lock = threading.Lock()
 
+
 def get_match_cache(cache_dir: str) -> Cache:
     # build one canonical directory for your cache
     path = os.path.abspath(os.path.join(cache_dir, "name_cache"))
@@ -316,10 +369,13 @@ def get_match_cache(cache_dir: str) -> Cache:
             _caches[path] = cache
     return cache
 
+
 null_sentinel = object()
 
-def match_name(student_name, official_names, cache_dir, query_cache_group, threshold=80):
 
+def match_name(
+    student_name, official_names, cache_dir, query_cache_group, threshold=80
+):
     cache = get_match_cache(cache_dir)
     cache_key = f"{query_cache_group}:{student_name.strip().upper()}"
 
@@ -355,11 +411,12 @@ def match_name(student_name, official_names, cache_dir, query_cache_group, thres
     cache.set(cache_key, result)
     return result
 
+
 def generate_instructor_merge_diff(
-        instructor: str,
-        instructors: dict[str, str | None],
-        appearances: dict[str, list[tuple[Course.Reference, str]]],
-        cache_dir: str
+    instructor: str,
+    instructors: dict[str, str | None],
+    appearances: dict[str, list[tuple[Course.Reference, str]]],
+    cache_dir: str,
 ) -> list[dict]:
     diffs = []
     match = match_name(instructor, set(instructors.keys()), cache_dir, "instructors")
@@ -367,25 +424,32 @@ def generate_instructor_merge_diff(
     if match and match != instructor:
         # only iterate the courses/terms where this instructor actually shows up
         for course_ref, term in appearances.get(instructor, []):
-            diffs.append({
-                "type":       "replace_in_course",
-                "course_ref": course_ref,
-                "term":       term,
-                "old":        instructor,
-                "new":        match,
-            })
+            diffs.append(
+                {
+                    "type": "replace_in_course",
+                    "course_ref": course_ref,
+                    "term": term,
+                    "old": instructor,
+                    "new": match,
+                }
+            )
     elif match is None:
-        diffs.append({
-            "type":       "add_instructor",
-            "instructor": instructor,
-        })
+        diffs.append(
+            {
+                "type": "add_instructor",
+                "instructor": instructor,
+            }
+        )
 
     return diffs
 
 
-async def merge_instructors(additional_instructors, instructors, course_ref_to_course, cache_dir):
-
-    instructor_appearances: dict[str, list[tuple[Course.Reference, str]]] = defaultdict(list)
+async def merge_instructors(
+    additional_instructors, instructors, course_ref_to_course, cache_dir
+):
+    instructor_appearances: dict[str, list[tuple[Course.Reference, str]]] = defaultdict(
+        list
+    )
     for course_ref, course in course_ref_to_course.items():
         for term, term_data in course.term_data.items():
             if term_data.grade_data:
@@ -404,9 +468,7 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
     ]
 
     all_diffs = await tqdm.gather(
-        *tasks,
-        desc="Generate Instructor Diff",
-        unit="instructor"
+        *tasks, desc="Generate Instructor Diff", unit="instructor"
     )
 
     for difflist in tqdm(all_diffs, desc="Merge Instructor Diff", unit="diff"):
@@ -420,11 +482,18 @@ async def merge_instructors(additional_instructors, instructors, course_ref_to_c
                 gd.instructors.remove(diff["old"])
                 gd.instructors.add(diff["new"])
 
+
 async def sem_get_rating(sem: asyncio.Semaphore, name, api_key, session):
     async with sem:
         return await get_rating(name, api_key, session)
 
-async def get_ratings(instructors: dict[str, str | None], api_key: str, course_ref_to_course: dict[Course.Reference, Course], cache_dir):
+
+async def get_ratings(
+    instructors: dict[str, str | None],
+    api_key: str,
+    course_ref_to_course: dict[Course.Reference, Course],
+    cache_dir,
+):
     faculty = get_faculty()  # Assuming these functions are fast/synchronous.
 
     additional_instructors = set()
@@ -432,13 +501,19 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
     # Gather all instructors from the course data.
     for course in course_ref_to_course.values():
         for term_data in course.term_data.values():
-            if not term_data or not term_data.grade_data or not term_data.grade_data.instructors:
+            if (
+                not term_data
+                or not term_data.grade_data
+                or not term_data.grade_data.instructors
+            ):
                 continue
             for instructor in term_data.grade_data.instructors:
                 if instructor:
                     additional_instructors.add(instructor)
 
-    await merge_instructors(additional_instructors, instructors, course_ref_to_course, cache_dir)
+    await merge_instructors(
+        additional_instructors, instructors, course_ref_to_course, cache_dir
+    )
 
     instructor_data = {}
     total = len(instructors)
@@ -446,7 +521,9 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
     logger.info(f"Fetching ratings for {total} instructors...")
 
-    async with CachedSession(cache=get_aio_cache(), cookie_jar=DummyCookieJar()) as session:
+    async with CachedSession(
+        cache=get_aio_cache(), cookie_jar=DummyCookieJar()
+    ) as session:
         semaphore = Semaphore(10)
         tasks = []
         names_emails = list(instructors.items())
@@ -462,11 +539,15 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
 
         async def _process_one(name_email, rating):
             instructor_name, instructor_email = name_email
-            match = await asyncio.to_thread(match_name, instructor_name, faculty_names, cache_dir, "rmp")
+            match = await asyncio.to_thread(
+                match_name, instructor_name, faculty_names, cache_dir, "rmp"
+            )
 
             if match:
                 position, department, credentials = faculty[match]
-                logger.debug(f"Matched {instructor_name} to {match} ({position}, {department}, {credentials})")
+                logger.debug(
+                    f"Matched {instructor_name} to {match} ({position}, {department}, {credentials})"
+                )
             else:
                 position = department = credentials = None
 
@@ -477,14 +558,11 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
                 position=position,
                 department=department,
                 credentials=credentials,
-                official_name=match
+                official_name=match,
             )
             return instructor_name, inst, bool(rating)
 
-        process_tasks = [
-            _process_one(ne, r)
-            for ne, r in zip(names_emails, ratings)
-        ]
+        process_tasks = [_process_one(ne, r) for ne, r in zip(names_emails, ratings)]
 
         # run them all in parallel, with a tqdm progress bar
         results = await tqdm.gather(
@@ -500,8 +578,10 @@ async def get_ratings(instructors: dict[str, str | None], api_key: str, course_r
             instructor_data[name] = inst
 
     logger.info(
-        f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%).")
+        f"Found instructor_data for {with_ratings} out of {total} instructors ({with_ratings * 100 / total:.2f}%)."
+    )
     return instructor_data
+
 
 async def gather_instructor_emails(terms, course_ref_to_course):
     combined_emails = {}

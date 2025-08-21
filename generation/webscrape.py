@@ -17,6 +17,7 @@ sitemap_url = "https://guide.wisc.edu/sitemap.xml"
 
 logger = getLogger(__name__)
 
+
 async def get_course_blocks(session, url: str) -> (str, ResultSet):
     attempts = 5
     for attempt in range(1, attempts + 1):
@@ -30,7 +31,9 @@ async def get_course_blocks(session, url: str) -> (str, ResultSet):
             results = soup.find_all("div", class_="courseblock")
 
             time_elapsed_ms = get_ms(time_start)
-            logger.debug(f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}ms")
+            logger.debug(
+                f"Discovered {len(results)} courses for {subject_title} in {time_elapsed_ms}ms"
+            )
             return subject_title, results
         except Exception as e:
             logger.error(f"Attempt {attempt} failed for URL {url}: {e}")
@@ -65,8 +68,11 @@ def get_course_urls() -> set[str]:
 
     # Step 2: Extract guide-related URLs (only those containing '/guide/')
     sitemap_urls = [
-        url.text for url in soup.find_all("loc")
-        if re.search(r'/courses/.+', url.text)  # Matches /courses/ followed by any character(s)
+        url.text
+        for url in soup.find_all("loc")
+        if re.search(
+            r"/courses/.+", url.text
+        )  # Matches /courses/ followed by any character(s)
     ]
 
     sitemap_urls = set(sitemap_urls)
@@ -86,18 +92,27 @@ async def scrape_all(urls: set[str]):
     timeout = aiohttp.ClientTimeout(total=60)
     connector = aiohttp.TCPConnector(limit=10)
 
-    async with CachedSession(cache=get_aio_cache(), timeout=timeout, connector=connector) as session:
+    async with CachedSession(
+        cache=get_aio_cache(), timeout=timeout, connector=connector
+    ) as session:
         tasks = [get_course_blocks(session, url) for url in urls]
-        results = await tqdm.gather(*tasks, desc="Departmental Course Scrape", unit="department")
+        results = await tqdm.gather(
+            *tasks, desc="Departmental Course Scrape", unit="department"
+        )
         for full_subject, blocks in results:
-            add_data(subject_to_full_subject, course_ref_to_course, full_subject, blocks)
+            add_data(
+                subject_to_full_subject, course_ref_to_course, full_subject, blocks
+            )
 
     logger.info(f"Total subjects found: {len(subject_to_full_subject)}")
     logger.info(f"Total courses found: {len(course_ref_to_course)}")
 
     return subject_to_full_subject, course_ref_to_course
 
-def build_subject_to_courses(course_ref_to_course: dict[Course.Reference, Course]) -> dict[str, set[Course]]:
+
+def build_subject_to_courses(
+    course_ref_to_course: dict[Course.Reference, Course],
+) -> dict[str, set[Course]]:
     subject_to_courses = dict()
     for course in course_ref_to_course.values():
         subject = course.course_reference.subjects

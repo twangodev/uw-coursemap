@@ -16,17 +16,20 @@ from course import Course
 
 logger = getLogger(__name__)
 
+
 class CachedKeyBERT:
     """
     Custom KeyBERT wrapper that uses our embedding caching system.
     """
+
     def __init__(self, cache_dir, model):
         from keybert import KeyBERT
+
         self.cache_dir = cache_dir
         self.model = model
         # Create KeyBERT with our custom model
         self.keybert = KeyBERT(model=model)
-        
+
     def extract_keywords(self, docs, **kwargs):
         """
         Extract keywords using KeyBERT but with cached embeddings.
@@ -34,7 +37,7 @@ class CachedKeyBERT:
         """
         # Store original encode method
         original_encode = self.model.encode
-        
+
         def cached_encode(sentences, **encode_kwargs):
             # If it's a single string, convert to list
             if isinstance(sentences, str):
@@ -42,43 +45,47 @@ class CachedKeyBERT:
                 single_input = True
             else:
                 single_input = False
-                
+
             # Get cached embeddings for each sentence
             embeddings = []
             for sentence in sentences:
                 sha256 = hashlib.sha256(sentence.encode()).hexdigest()
-                
+
                 # Check if the embedding already exists (with model-specific caching)
                 embedding = read_embedding_cache(self.cache_dir, sha256, self.model)
-                
+
                 if embedding is None:
                     # Use original encode method to avoid recursion
                     embedding = original_encode(sentence, show_progress_bar=False)
-                    logger.debug(f"Embedding for '{sentence}' not found in cache. Caching it now.")
+                    logger.debug(
+                        f"Embedding for '{sentence}' not found in cache. Caching it now."
+                    )
                     write_embedding_cache(self.cache_dir, sha256, embedding, self.model)
-                
+
                 embeddings.append(embedding)
-            
+
             embeddings = np.array(embeddings)
-            
+
             # Return single embedding if input was single string
             if single_input:
                 return embeddings[0]
             return embeddings
-        
+
         # Temporarily replace the model's encode method
         self.model.encode = cached_encode
-        
+
         try:
             # Call KeyBERT with our cached encoding
             result = self.keybert.extract_keywords(docs, **kwargs)
         finally:
             # Restore original encode method
             self.model.encode = original_encode
-            
+
         return result
 
+
 initialized_model = None
+
 
 def get_model(cache_dir):
     global initialized_model
@@ -102,20 +109,23 @@ def get_model(cache_dir):
                 cuda_device = selected_cuda_device
                 logger.info(f"CUDA device selected: {selected_cuda_device}")
             else:
-                logger.info(f"No specific CUDA device selected. Using default device {cuda_device}.")
+                logger.info(
+                    f"No specific CUDA device selected. Using default device {cuda_device}."
+                )
 
             device = f"cuda:{cuda_device}"
 
         logger.info("Loading model...")
-        model =  SentenceTransformer(
+        model = SentenceTransformer(
             model_name_or_path="avsolatorio/GIST-large-Embedding-v0",
             cache_folder=model_cache_dir,
             trust_remote_code=True,
-            device=device
+            device=device,
         )
 
         initialized_model = model
         return model
+
 
 def get_keyword_model(cache_dir):
     """
@@ -136,7 +146,9 @@ def get_keyword_model(cache_dir):
                 cuda_device = selected_cuda_device
                 logger.info(f"CUDA device selected: {selected_cuda_device}")
             else:
-                logger.info(f"No specific CUDA device selected. Using default device {cuda_device}.")
+                logger.info(
+                    f"No specific CUDA device selected. Using default device {cuda_device}."
+                )
 
             device = f"cuda:{cuda_device}"
 
@@ -144,10 +156,11 @@ def get_keyword_model(cache_dir):
         model = SentenceTransformer(
             model_name_or_path="all-MiniLM-L6-v2",
             cache_folder=model_cache_dir,
-            device=device
+            device=device,
         )
 
         return model
+
 
 def get_embedding(cache_dir, model: SentenceTransformer, text):
     sha256 = hashlib.sha256(text.encode()).hexdigest()
@@ -163,14 +176,17 @@ def get_embedding(cache_dir, model: SentenceTransformer, text):
 
     return embedding
 
+
 def normalize(v):
     return v / np.linalg.norm(v)
+
 
 def cosine_similarity(vec_a, vec_b):
     """
     Computes the cosine similarity between two vectors.
     """
     return np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b))
+
 
 def average_embedding(embeddings):
     """
@@ -180,10 +196,9 @@ def average_embedding(embeddings):
         return None
     return np.mean(embeddings, axis=0)
 
+
 def find_best_prerequisite(
-    cache_dir,
-    model,
-    course: Course, prerequisites, max_prerequisites
+    cache_dir, model, course: Course, prerequisites, max_prerequisites
 ) -> list[Course]:
     prerequisite_text = course.prerequisites.prerequisites_text
     and_count = len(re.findall(r"\d*and\d*", prerequisite_text))
@@ -191,8 +206,8 @@ def find_best_prerequisite(
 
     course_embedding = get_embedding(cache_dir, model, course.get_full_summary())
     prerequisite_embeddings = [
-        (prereq, get_embedding(cache_dir, model, prereq.get_short_summary())) for prereq in
-        prerequisites
+        (prereq, get_embedding(cache_dir, model, prereq.get_short_summary()))
+        for prereq in prerequisites
     ]
 
     similarities = [
@@ -200,31 +215,41 @@ def find_best_prerequisite(
         for prereq, prereq_embedding in prerequisite_embeddings
     ]
 
-
     # Find the prerequisite with the highest similarity score
-    best_prerequisite = sorted(similarities, key=lambda x: x[1], reverse=True)[:max_prerequisites]
+    best_prerequisite = sorted(similarities, key=lambda x: x[1], reverse=True)[
+        :max_prerequisites
+    ]
 
     # Return the course object of the best prerequisite
     return [req[0] for req in best_prerequisite]
 
+
 def score_branch(
-        cache_dir,
-        model,
-        course: Course,
-        course_ref_to_course,
-        max_enrollment,
-        branch: list[Course.Reference],
-        semantic_similarity_weight,
-        popularity_weight,
+    cache_dir,
+    model,
+    course: Course,
+    course_ref_to_course,
+    max_enrollment,
+    branch: list[Course.Reference],
+    semantic_similarity_weight,
+    popularity_weight,
 ):
     if not branch:
         return 0
 
     course_embedding = get_embedding(cache_dir, model, course.get_full_summary())
-    branch_as_courses = [course_ref_to_course[cr] for cr in branch if cr in course_ref_to_course if cr != course.course_reference]
+    branch_as_courses = [
+        course_ref_to_course[cr]
+        for cr in branch
+        if cr in course_ref_to_course
+        if cr != course.course_reference
+    ]
     if not branch_as_courses:
         return 0
-    branch_embeddings = [get_embedding(cache_dir, model, course.get_full_summary()) for course in branch_as_courses]
+    branch_embeddings = [
+        get_embedding(cache_dir, model, course.get_full_summary())
+        for course in branch_as_courses
+    ]
     branch_embedding = average_embedding(branch_embeddings)
 
     # Calculate the cosine similarity between the course and the branch
@@ -236,22 +261,24 @@ def score_branch(
 
     enrollment_score = enrollment_count / max_enrollment
 
-    score = semantic_similarity_weight * similarity + popularity_weight * enrollment_score
+    score = (
+        semantic_similarity_weight * similarity + popularity_weight * enrollment_score
+    )
     return score
 
 
 def prune_prerequisites(
-        cache_dir,
-        model,
-        course: Course,
-        course_ref_to_course,
-        max_enrollment,
-        max_prerequisites,
+    cache_dir,
+    model,
+    course: Course,
+    course_ref_to_course,
+    max_enrollment,
+    max_prerequisites,
 ):
-
     if len(course.prerequisites.course_references) <= max_prerequisites:
         logger.debug(
-            f"Skipping optimization for {course.get_identifier()} as it has {len(course.prerequisites.course_references)} prerequisites")
+            f"Skipping optimization for {course.get_identifier()} as it has {len(course.prerequisites.course_references)} prerequisites"
+        )
         course.optimized_prerequisites = course.prerequisites.course_references
         return
 
@@ -278,7 +305,6 @@ def prune_prerequisites(
     course.optimized_prerequisites = best_branch
 
     if best_branch is None:
-
         original_prerequisites = course.prerequisites
 
         prerequisites = set()
@@ -299,34 +325,46 @@ def prune_prerequisites(
 
         course.optimized_prerequisites = [c.course_reference for c in best]
 
+
 def optimize_prerequisite(
-        cache_dir,
-        course,
-        model: SentenceTransformer,
-        course_ref_to_course,
-        max_enrollment,
-        max_prerequisites,
-        max_retries,
+    cache_dir,
+    course,
+    model: SentenceTransformer,
+    course_ref_to_course,
+    max_enrollment,
+    max_prerequisites,
+    max_retries,
 ):
     retries = 0
     while retries < max_retries:
         try:
-            prune_prerequisites(cache_dir, model, course, course_ref_to_course, max_enrollment, max_prerequisites)
+            prune_prerequisites(
+                cache_dir,
+                model,
+                course,
+                course_ref_to_course,
+                max_enrollment,
+                max_prerequisites,
+            )
             return
         except Exception as e:
             retries += 1
-            logger.warning(f"Retry {retries} for course {course.get_identifier()} failed: {e}")
+            logger.warning(
+                f"Retry {retries} for course {course.get_identifier()} failed: {e}"
+            )
             if retries >= max_retries:
-                logger.error(f"Optimization for course {course.get_identifier()} failed completely.")
+                logger.error(
+                    f"Optimization for course {course.get_identifier()} failed completely."
+                )
                 return
 
 
 async def optimize_prerequisites(
-        cache_dir: str,
-        model: SentenceTransformer,
-        course_ref_to_course: dict[Course.Reference, Course],
-        max_prerequisites: int | float,
-        max_retries: int,
+    cache_dir: str,
+    model: SentenceTransformer,
+    course_ref_to_course: dict[Course.Reference, Course],
+    max_prerequisites: int | float,
+    max_retries: int,
 ):
     total_courses = len(course_ref_to_course)
     logger.info(f"Optimizing prerequisites for {total_courses} courses...")
@@ -339,7 +377,8 @@ async def optimize_prerequisites(
 
     # Create tasks for each course and wait for them all to complete.
     tasks = [
-        asyncio.to_thread(optimize_prerequisite,
+        asyncio.to_thread(
+            optimize_prerequisite,
             cache_dir,
             course,
             model,
@@ -347,7 +386,8 @@ async def optimize_prerequisites(
             max_enrollment,
             max_prerequisites,
             max_retries,
-        ) for course in course_ref_to_course.values()
+        )
+        for course in course_ref_to_course.values()
     ]
     await tqdm.gather(*tasks, desc="Optimizing Prerequisites", unit="course")
     logger.info("Optimization completed.")

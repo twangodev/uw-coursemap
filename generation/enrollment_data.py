@@ -8,52 +8,54 @@ from safe_parse import safe_int
 
 logger = getLogger(__name__)
 
+
 class EnrollmentData(JsonSerializable):
     class School(JsonSerializable):
-
         def __init__(self, name, abbreviation, url):
             self.name = name
             self.abbreviation = abbreviation
             self.url = url
 
         @classmethod
-        def from_json(cls, data) -> 'EnrollmentData.School':
+        def from_json(cls, data) -> "EnrollmentData.School":
             return EnrollmentData.School(
-                name=data["name"],
-                abbreviation=data["abbreviation"],
-                url=data["url"]
+                name=data["name"], abbreviation=data["abbreviation"], url=data["url"]
             )
 
         def to_dict(self) -> dict:
             return {
                 "name": self.name,
                 "abbreviation": self.abbreviation,
-                "url": self.url
+                "url": self.url,
             }
 
         @classmethod
-        def from_enrollment(cls, data) -> 'EnrollmentData.School':
+        def from_enrollment(cls, data) -> "EnrollmentData.School":
             return EnrollmentData.School(
                 name=data["shortDescription"],
                 abbreviation=data["academicOrgCode"],
-                url=data["schoolCollegeURI"]
+                url=data["schoolCollegeURI"],
             )
 
         def __str__(self):
             return self.name
 
         def __eq__(self, other):
-            return self.name == other.name and self.abbreviation == other.abbreviation and self.url == other.url
+            return (
+                self.name == other.name
+                and self.abbreviation == other.abbreviation
+                and self.url == other.url
+            )
 
     def __init__(
-            self,
-            school: School | None,
-            last_taught_term: str,
-            typically_offered: str,
-            credit_count: tuple[int, int],
-            general_education: bool,
-            ethnics_studies: bool,
-            instructors,
+        self,
+        school: School | None,
+        last_taught_term: str,
+        typically_offered: str,
+        credit_count: tuple[int, int],
+        general_education: bool,
+        ethnics_studies: bool,
+        instructors,
     ):
         self.school = school
         self.last_taught_term = last_taught_term
@@ -66,35 +68,40 @@ class EnrollmentData(JsonSerializable):
     class MeetingLocation(JsonSerializable):
         # Class-level dict to track all unique meeting locations for O(1) lookup
         _all_locations = {}
-        
+
         def __init__(self, building, room, coordinates, capacity=None):
             self.building = building
             self.room = room
             self.coordinates = coordinates
             self.capacity = capacity
-        
+
         @classmethod
-        def get_or_create_with_capacity(cls, building, room, coordinates, class_capacity):
+        def get_or_create_with_capacity(
+            cls, building, room, coordinates, class_capacity
+        ):
             """
             Get existing MeetingLocation or create new one, updating max capacity.
-            
+
             Args:
                 building: Building name
-                room: Room identifier  
+                room: Room identifier
                 coordinates: Tuple of (latitude, longitude)
                 class_capacity: Current class capacity (used to estimate room capacity)
-            
+
             Returns:
                 MeetingLocation instance with updated max capacity
             """
             # Create a key for dictionary lookup using the same hash logic
             location_key = (building, room, coordinates)
-            
+
             # O(1) lookup in dictionary
             if location_key in cls._all_locations:
                 existing_location = cls._all_locations[location_key]
                 # Update capacity to maximum seen so far
-                if existing_location.capacity is None or (class_capacity is not None and class_capacity > existing_location.capacity):
+                if existing_location.capacity is None or (
+                    class_capacity is not None
+                    and class_capacity > existing_location.capacity
+                ):
                     existing_location.capacity = class_capacity
                 return existing_location
             else:
@@ -104,13 +111,13 @@ class EnrollmentData(JsonSerializable):
                 return new_location
 
         @classmethod
-        def from_json(cls, data) -> 'EnrollmentData.MeetingLocation':
+        def from_json(cls, data) -> "EnrollmentData.MeetingLocation":
             coordinates = data["coordinates"]
             return cls.get_or_create_with_capacity(
                 building=data["building"],
                 room=data["room"],
                 coordinates=(coordinates[0], coordinates[1]) if coordinates else None,
-                class_capacity=data.get("capacity")
+                class_capacity=data.get("capacity"),
             )
 
         def to_dict(self) -> dict:
@@ -118,21 +125,33 @@ class EnrollmentData(JsonSerializable):
                 "building": self.building,
                 "room": self.room,
                 "coordinates": self.coordinates,
-                "capacity": self.capacity
+                "capacity": self.capacity,
             }
 
         def __eq__(self, other):
             if not isinstance(other, EnrollmentData.MeetingLocation):
                 return False
-            return (self.building == other.building and 
-                    self.room == other.room and 
-                    self.coordinates == other.coordinates)
+            return (
+                self.building == other.building
+                and self.room == other.room
+                and self.coordinates == other.coordinates
+            )
 
         def __hash__(self):
             return hash((self.building, self.room, self.coordinates))
 
     class Meeting(JsonSerializable):
-        def __init__(self, name, type, start_time, end_time, location, current_enrollment, instructors=None, course_reference=None):
+        def __init__(
+            self,
+            name,
+            type,
+            start_time,
+            end_time,
+            location,
+            current_enrollment,
+            instructors=None,
+            course_reference=None,
+        ):
             self.name = name
             self.type = type
             self.start_time = start_time
@@ -143,21 +162,24 @@ class EnrollmentData(JsonSerializable):
             self.course_reference = course_reference
 
         @classmethod
-        def from_json(cls, data) -> 'EnrollmentData.Meeting':
+        def from_json(cls, data) -> "EnrollmentData.Meeting":
             course_reference = None
             if data.get("course_reference"):
                 from course import Course
+
                 course_reference = Course.Reference.from_json(data["course_reference"])
-            
+
             return EnrollmentData.Meeting(
                 name=data["name"],
                 type=data["type"],
                 start_time=data["start_time"],
                 end_time=data["end_time"],
-                location=EnrollmentData.MeetingLocation.from_json(data["location"]) if data.get("location") else None,
+                location=EnrollmentData.MeetingLocation.from_json(data["location"])
+                if data.get("location")
+                else None,
                 current_enrollment=data.get("current_enrollment"),
                 instructors=data.get("instructors", []),
-                course_reference=course_reference
+                course_reference=course_reference,
             )
 
         def to_dict(self) -> dict:
@@ -169,11 +191,13 @@ class EnrollmentData(JsonSerializable):
                 "location": self.location.to_dict() if self.location else None,
                 "current_enrollment": self.current_enrollment,
                 "instructors": self.instructors,
-                "course_reference": self.course_reference.to_dict() if self.course_reference else None
+                "course_reference": self.course_reference.to_dict()
+                if self.course_reference
+                else None,
             }
 
     @classmethod
-    def from_json(cls, data) -> 'EnrollmentData':
+    def from_json(cls, data) -> "EnrollmentData":
         return EnrollmentData(
             school=EnrollmentData.School.from_json(data["school"]),
             last_taught_term=data["last_taught_term"],
@@ -181,23 +205,25 @@ class EnrollmentData(JsonSerializable):
             credit_count=(data["credit_count"][0], data["credit_count"][1]),
             general_education=data["general_education"],
             ethnics_studies=data["ethnics_studies"],
-            instructors=data["instructors"]
+            instructors=data["instructors"],
         )
 
     @classmethod
-    def from_enrollment(cls, data, terms) -> 'EnrollmentData':
+    def from_enrollment(cls, data, terms) -> "EnrollmentData":
         last_taught_term_code = safe_int(data["lastTaught"])
         last_taught_term = None
         if last_taught_term_code and last_taught_term_code in terms:
             last_taught_term = terms[last_taught_term_code]
         return EnrollmentData(
-            school=EnrollmentData.School.from_enrollment(data["subject"]["schoolCollege"]),
+            school=EnrollmentData.School.from_enrollment(
+                data["subject"]["schoolCollege"]
+            ),
             last_taught_term=last_taught_term,
             typically_offered=data["typicallyOffered"],
             credit_count=(data["minimumCredits"], data["maximumCredits"]),
             general_education=data["generalEd"] is not None,
             ethnics_studies=data["ethnicStudies"] is not None,
-            instructors={}
+            instructors={},
         )
 
     def to_dict(self) -> dict:
@@ -208,31 +234,31 @@ class EnrollmentData(JsonSerializable):
             "credit_count": [self.credit_count[0], self.credit_count[1]],
             "general_education": self.general_education,
             "ethnics_studies": self.ethnics_studies,
-            "instructors": self.instructors
+            "instructors": self.instructors,
         }
 
-class GradeData(JsonSerializable):
 
+class GradeData(JsonSerializable):
     def __init__(
-            self,
-            total,
-            a,
-            ab,
-            b,
-            bc,
-            c,
-            d,
-            f,
-            satisfactory,
-            unsatisfactory,
-            credit,
-            no_credit,
-            passed,
-            incomplete,
-            no_work,
-            not_reported,
-            other,
-            instructors: set[str] | None,
+        self,
+        total,
+        a,
+        ab,
+        b,
+        bc,
+        c,
+        d,
+        f,
+        satisfactory,
+        unsatisfactory,
+        credit,
+        no_credit,
+        passed,
+        incomplete,
+        no_work,
+        not_reported,
+        other,
+        instructors: set[str] | None,
     ):
         self.total = total
         self.a = a
@@ -273,7 +299,7 @@ class GradeData(JsonSerializable):
             no_work=0,
             not_reported=0,
             other=0,
-            instructors=set()
+            instructors=set(),
         )
 
     def merge_with(self, other: "GradeData") -> "GradeData":
@@ -297,7 +323,9 @@ class GradeData(JsonSerializable):
             no_work=self.no_work + other.no_work,
             not_reported=self.not_reported + other.not_reported,
             other=self.other + other.other,
-            instructors=self.instructors.union(other.instructors) if self.instructors and other.instructors else self.instructors or other.instructors
+            instructors=self.instructors.union(other.instructors)
+            if self.instructors and other.instructors
+            else self.instructors or other.instructors,
         )
 
     @classmethod
@@ -320,7 +348,7 @@ class GradeData(JsonSerializable):
             no_work=json_data["nwCount"],
             not_reported=json_data["nrCount"],
             other=json_data["otherCount"],
-            instructors=None
+            instructors=None,
         )
 
     @classmethod
@@ -343,7 +371,9 @@ class GradeData(JsonSerializable):
             no_work=json_data["no_work"],
             not_reported=json_data["not_reported"],
             other=json_data["other"],
-            instructors=set(json_data["instructors"]) if json_data["instructors"] else None
+            instructors=set(json_data["instructors"])
+            if json_data["instructors"]
+            else None,
         )
 
     def to_dict(self):
@@ -365,18 +395,19 @@ class GradeData(JsonSerializable):
             "no_work": self.no_work,
             "not_reported": self.not_reported,
             "other": self.other,
-            "instructors": list(self.instructors) if self.instructors else None
+            "instructors": list(self.instructors) if self.instructors else None,
         }
 
 
 class MadgradesData:
-
     def __init__(self, cumulative, by_term: dict[str, GradeData]):
         self.cumulative = cumulative
         self.by_term = by_term
 
     @classmethod
-    async def from_madgrades_async(cls, session, url, madgrades_api_key, current_page, attempts=3) -> "MadgradesData":
+    async def from_madgrades_async(
+        cls, session, url, madgrades_api_key, current_page, attempts=3
+    ) -> "MadgradesData":
         auth_header = {"Authorization": f"Token token={madgrades_api_key}"}
 
         try:
@@ -384,9 +415,13 @@ class MadgradesData:
                 data = await response.json()
         except (JSONDecodeError, Exception) as e:
             if attempts > 0:
-                logger.debug(f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times...")
+                logger.debug(
+                    f"Failed to fetch Madgrades data from {url}: {e}. Attempting {attempts} more times..."
+                )
                 await asyncio.sleep(1)
-                return await cls.from_madgrades_async(session, url, madgrades_api_key, current_page, attempts - 1)
+                return await cls.from_madgrades_async(
+                    session, url, madgrades_api_key, current_page, attempts - 1
+                )
             logger.error(f"Failed to fetch Madgrades data from {url}: {e}")
 
         cumulative = GradeData.from_madgrades(data["cumulative"])
@@ -412,18 +447,16 @@ class MadgradesData:
 
 
 class TermData(JsonSerializable):
-
     def __init__(
-            self,
-            enrollment_data: EnrollmentData | None,
-            grade_data: GradeData | None,
+        self,
+        enrollment_data: EnrollmentData | None,
+        grade_data: GradeData | None,
     ):
         self.enrollment_data = enrollment_data
         self.grade_data = grade_data
 
-
     @classmethod
-    def from_json(cls, data) -> 'TermData':
+    def from_json(cls, data) -> "TermData":
         enrollment_data = None
         if data["enrollment_data"]:
             enrollment_data = EnrollmentData.from_json(data["enrollment_data"])
@@ -437,8 +470,8 @@ class TermData(JsonSerializable):
 
     def to_dict(self) -> dict:
         return {
-            "enrollment_data": self.enrollment_data.to_dict() if self.enrollment_data else None,
+            "enrollment_data": self.enrollment_data.to_dict()
+            if self.enrollment_data
+            else None,
             "grade_data": self.grade_data.to_dict() if self.grade_data else None,
         }
-
-

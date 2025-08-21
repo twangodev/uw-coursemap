@@ -14,7 +14,7 @@ class BuildingLoader:
     def __init__(self, geojson_path: str = None):
         if geojson_path is None:
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            geojson_path = os.path.join(current_dir, 'osm.geojson')
+            geojson_path = os.path.join(current_dir, "osm.geojson")
 
         self.geojson_path = geojson_path
         self._buildings_gdf = None
@@ -34,10 +34,10 @@ class BuildingLoader:
 
         # Filter to only building features (exclude Points and non-building features)
         building_gdf = gdf[
-            (gdf.geometry.type.isin(['Polygon', 'MultiPolygon'])) &
-            (gdf['building'].notna()) &
-            (gdf['building'] != '')
-            ].copy()
+            (gdf.geometry.type.isin(["Polygon", "MultiPolygon"]))
+            & (gdf["building"].notna())
+            & (gdf["building"] != "")
+        ].copy()
 
         # Reset index after filtering
         building_gdf.reset_index(drop=True, inplace=True)
@@ -53,9 +53,9 @@ class BuildingLoader:
             self.load_buildings()
 
         return {
-            'total_buildings': len(self._buildings_gdf),
-            'building_types': self._buildings_gdf['building'].value_counts().to_dict(),
-            'geometry_types': self._buildings_gdf.geometry.type.value_counts().to_dict()
+            "total_buildings": len(self._buildings_gdf),
+            "building_types": self._buildings_gdf["building"].value_counts().to_dict(),
+            "geometry_types": self._buildings_gdf.geometry.type.value_counts().to_dict(),
         }
 
     @property

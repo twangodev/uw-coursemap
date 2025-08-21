@@ -2,7 +2,6 @@ import json
 
 
 class JsonSerializable:
-
     @classmethod
     def from_json(cls, json_data) -> "JsonSerializable":
         raise NotImplementedError
