@@ -17,6 +17,7 @@
     CourseInstructors,
     CoursePrerequisites,
     CourseTrends,
+    CourseSchedule,
   } from "$lib/components/course/tabs/index.js";
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
@@ -56,6 +57,7 @@
     <TabsTrigger value="trends">Trends</TabsTrigger>
     <TabsTrigger value="instructors">Instructors</TabsTrigger>
     <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
+    <TabsTrigger value="schedule">Schedule</TabsTrigger>
   </TabsList>
   <div class="grid gap-4 lg:grid-cols-12">
     <CourseDetails {course} {selectedTerm} />
@@ -81,6 +83,9 @@
         {prerequisiteElementDefinitions}
         {prerequisiteStyleEntries}
       />
+    </TabsContent>
+    <TabsContent class="space-y-4 lg:col-span-9" value="schedule">
+      <CourseSchedule {course} />
     </TabsContent>
   </div>
 </Tabs>
