@@ -1,7 +1,16 @@
 import { formatInTimeZone } from 'date-fns-tz';
 import type { CourseMeeting, ScheduleEvent } from './types';
 import { MADISON_TIMEZONE } from './types';
-import { MEETING_TYPE_COLORS, TIMEZONE_CONFIG } from './schedule-constants';
+
+// Color mapping for different meeting types
+const MEETING_TYPE_COLORS: Record<string, string> = {
+  CLASS: '#3b82f6',      // blue
+  DISCUSSION: '#10b981',  // green
+  LAB: '#f59e0b',        // amber
+  EXAM: '#ef4444',       // red
+  SEMINAR: '#8b5cf6',    // purple
+  DEFAULT: '#6b7280'     // gray
+};
 
 /**
  * Format a timestamp in Madison timezone
@@ -11,7 +20,7 @@ export function formatMadisonTime(timestamp: number): string {
   return formatInTimeZone(
     new Date(timestamp),
     MADISON_TIMEZONE,
-    TIMEZONE_CONFIG.displayFormat
+    'yyyy-MM-dd HH:mm'
   );
 }
 

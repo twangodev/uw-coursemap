@@ -1,26 +1,17 @@
-import { createCalendar, createViewDay, createViewWeek, createViewMonthGrid, createViewMonthAgenda } from '@schedule-x/calendar';
+import {
+    createCalendar,
+    createViewDay,
+    createViewWeek,
+    createViewMonthGrid,
+    createViewMonthAgenda,
+    viewWeek
+} from '@schedule-x/calendar';
 import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls';
 import { createCurrentTimePlugin } from '@schedule-x/current-time';
 import { createEventModalPlugin } from '@schedule-x/event-modal';
 import type { ScheduleEvent } from './types';
 import { calculateDayBoundaries } from './schedule-boundaries';
 import { getMadisonTimeOffset } from './timezone-utils';
-import { CALENDAR_CONFIG, FEATURE_FLAGS } from './schedule-constants';
-
-// Default calendar configuration options
-export const DEFAULT_CALENDAR_OPTIONS = {
-  theme: CALENDAR_CONFIG.theme,
-  locale: CALENDAR_CONFIG.locale,
-  firstDayOfWeek: CALENDAR_CONFIG.weekOptions.firstDayOfWeek,
-  weekOptions: {
-    gridHeight: CALENDAR_CONFIG.weekOptions.gridHeight,
-    eventWidth: CALENDAR_CONFIG.weekOptions.eventWidth,
-    nDays: CALENDAR_CONFIG.weekOptions.nDays
-  },
-  monthGridOptions: {
-    nEventsPerDay: CALENDAR_CONFIG.monthGridOptions.nEventsPerDay
-  }
-};
 
 /**
  * Create a configured Schedule-X calendar instance
@@ -33,56 +24,41 @@ export function createScheduleCalendarConfig(
   events: ScheduleEvent[],
   currentTheme: 'light' | 'dark' | 'system' = 'light'
 ) {
-  const dayBoundaries = FEATURE_FLAGS.enableDynamicDayBoundaries 
-    ? calculateDayBoundaries(events)
-    : null;
-  
-  // Build views array - always include at least one view
-  const views = FEATURE_FLAGS.enableMonthAgendaView 
-    ? [
-        createViewDay(),
-        createViewWeek(),
-        createViewMonthGrid(),
-        createViewMonthAgenda() // For small screens
-      ]
-    : [
-        createViewDay(),
-        createViewWeek(),
-        createViewMonthGrid()
-      ];
-  
-  // Build plugins array conditionally based on feature flags
-  const plugins = [];
-  
-  if (FEATURE_FLAGS.enableEventModal) {
-    plugins.push(createEventModalPlugin());
-  }
-  
-  if (FEATURE_FLAGS.enableCalendarControls) {
-    plugins.push(createCalendarControlsPlugin());
-  }
-  
-  if (FEATURE_FLAGS.enableCurrentTimeIndicator) {
-    plugins.push(createCurrentTimePlugin({
-      timeZoneOffset: getMadisonTimeOffset()
-    }));
-  }
+  const dayBoundaries = calculateDayBoundaries(events);
   
   const calendarApp = createCalendar(
     {
-      views: views as any, // TypeScript needs a non-empty tuple but we guarantee this
-      defaultView: CALENDAR_CONFIG.defaultView,
+      views: [
+          createViewMonthGrid(),
+          createViewWeek(),
+          createViewDay(),
+        createViewMonthAgenda()
+      ],
+      defaultView: viewWeek.name,
       events: events,
-      ...DEFAULT_CALENDAR_OPTIONS,
-      ...(dayBoundaries && { dayBoundaries })
+      theme: 'shadcn',
+      locale: 'en-US',
+      firstDayOfWeek: 0,
+      weekOptions: {
+        gridHeight: 1000,
+        eventWidth: 95,
+        nDays: 7
+      },
+      monthGridOptions: {
+        nEventsPerDay: 3
+      },
+      dayBoundaries: dayBoundaries
     },
-    plugins
+    [
+      createEventModalPlugin(),
+      createCalendarControlsPlugin(),
+      createCurrentTimePlugin({
+        timeZoneOffset: getMadisonTimeOffset()
+      })
+    ]
   );
   
-  // Set initial theme if theme sync is enabled
-  if (FEATURE_FLAGS.enableThemeSync) {
-    calendarApp.setTheme(currentTheme === 'dark' ? 'dark' : 'light');
-  }
+  calendarApp.setTheme(currentTheme === 'dark' ? 'dark' : 'light');
   
   return calendarApp;
 }

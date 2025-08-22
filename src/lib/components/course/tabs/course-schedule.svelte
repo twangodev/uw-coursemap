@@ -7,7 +7,6 @@
   import { mode } from 'mode-watcher';
   import { transformMeetingsToScheduleEvents } from '$lib/utils/schedule/meeting-transformer';
   import { createScheduleCalendarConfig } from '$lib/utils/schedule/schedule-config';
-  import { CALENDAR_CONFIG, FEATURE_FLAGS } from '$lib/utils/schedule/schedule-constants';
 
   interface Props {
     course: Course;
@@ -25,13 +24,13 @@
   
   // Watch for theme changes
   $effect(() => {
-    if (calendarApp && FEATURE_FLAGS.enableThemeSync) {
+    if (calendarApp) {
       calendarApp.setTheme(mode.current === 'dark' ? 'dark' : 'light');
     }
   });
 </script>
 
-<div class="w-full" style="--calendar-height: {CALENDAR_CONFIG.containerHeight}px">
+<div class="w-full">
   {#if calendarApp}
     <ScheduleXCalendar {calendarApp}/>
     <p class="text-xs text-muted-foreground mt-2">
@@ -46,6 +45,6 @@
 
 <style>
     :global(.sx-svelte-calendar-wrapper) {
-        height: var(--calendar-height, 600px);
+        height: 600px;
     }
 </style>
