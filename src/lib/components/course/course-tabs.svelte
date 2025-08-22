@@ -30,6 +30,7 @@
     instructors: FullInstructorInformation[];
     prerequisiteElementDefinitions: ElementDefinition[];
     prerequisiteStyleEntries: StyleEntry[];
+    meetings?: any;
   }
 
   let {
@@ -40,6 +41,7 @@
     instructors,
     prerequisiteElementDefinitions,
     prerequisiteStyleEntries,
+    meetings,
   }: Props = $props();
 
   let value = $state("overview");
@@ -85,7 +87,7 @@
       />
     </TabsContent>
     <TabsContent class="space-y-4 lg:col-span-9" value="schedule">
-      <CourseSchedule {course} />
+      <CourseSchedule {course} {meetings} />
     </TabsContent>
   </div>
 </Tabs>

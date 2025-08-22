@@ -1,63 +1,42 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { ScheduleXCalendar } from '@schedule-x/svelte';
-  import { createCalendar, createViewWeek } from '@schedule-x/calendar';
-  import { createCurrentTimePlugin } from '@schedule-x/current-time';
   import '@schedule-x/theme-shadcn/dist/index.css';
   import type { Course } from "$lib/types/course.ts";
+  import type { CourseMeeting } from '$lib/utils/schedule/types';
   import { mode } from 'mode-watcher';
+  import { transformMeetingsToScheduleEvents } from '$lib/utils/schedule/meeting-transformer';
+  import { createScheduleCalendarConfig } from '$lib/utils/schedule/schedule-config';
+  import { CALENDAR_CONFIG, FEATURE_FLAGS } from '$lib/utils/schedule/schedule-constants';
 
   interface Props {
     course: Course;
+    meetings?: CourseMeeting[];
   }
 
-  let { course }: Props = $props();
+  let { course, meetings }: Props = $props();
   
   let calendarApp = $state<any>(null);
   
   onMount(() => {
-    calendarApp = createCalendar({
-      views: [createViewWeek()],
-      defaultView: 'week',
-      events: [
-        {
-          id: '1',
-          title: 'Sample Event',
-          start: '2024-12-10 09:00',
-          end: '2024-12-10 10:00',
-        }
-      ],
-      plugins: [
-        createCurrentTimePlugin()
-      ],
-      theme: 'shadcn',
-      locale: 'en-US',
-      firstDayOfWeek: 0, // Sunday
-      dayBoundaries: {
-        start: '07:00',
-        end: '22:00'
-      },
-      weekOptions: {
-        gridHeight: 400,
-        nDays: 7
-      }
-    });
-    
-    // Set initial theme
-    calendarApp.setTheme(mode.current === 'dark' ? 'dark' : 'light');
+    const events = transformMeetingsToScheduleEvents(meetings);
+    calendarApp = createScheduleCalendarConfig(events, mode.current);
   });
   
   // Watch for theme changes
   $effect(() => {
-    if (calendarApp) {
+    if (calendarApp && FEATURE_FLAGS.enableThemeSync) {
       calendarApp.setTheme(mode.current === 'dark' ? 'dark' : 'light');
     }
   });
 </script>
 
-<div class="calendar-container">
+<div class="w-full" style="--calendar-height: {CALENDAR_CONFIG.containerHeight}px">
   {#if calendarApp}
-    <ScheduleXCalendar {calendarApp} />
+    <ScheduleXCalendar {calendarApp}/>
+    <p class="text-xs text-muted-foreground mt-2">
+      All times shown in America/Chicago timezone.
+    </p>
   {:else}
     <div class="flex items-center justify-center h-full">
       <p class="text-muted-foreground">Loading calendar...</p>
@@ -66,9 +45,7 @@
 </div>
 
 <style>
-  .calendar-container {
-    height: 600px;
-    width: 100%;
-  }
-  
+    :global(.sx-svelte-calendar-wrapper) {
+        height: var(--calendar-height, 600px);
+    }
 </style>

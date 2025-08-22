@@ -89,6 +89,19 @@ export const load = async ({ params, url, fetch }) => {
 
   const courseCode = courseReferenceToString(course.course_reference);
   
+  // Fetch meetings data
+  let meetings = null;
+  try {
+    const meetingsResponse = await fetch(
+      `${PUBLIC_API_URL}/course/${sanitizeCourseToReferenceString(course.course_reference)}/meetings.json`,
+    );
+    if (meetingsResponse.ok) {
+      meetings = await meetingsResponse.json();
+    }
+  } catch (e) {
+    console.log(`No meetings data available for ${courseCode}`);
+  }
+  
   // Generate SEO content
   const metaDescription = generateCourseMetaDescription(course);
   const pageTitle = generateCourseTitle(course);
@@ -107,6 +120,7 @@ export const load = async ({ params, url, fetch }) => {
     instructors: instructors,
     prerequisiteElementDefinitions: prerequisiteElementDefinitions,
     prerequisiteStyleEntries: prerequisiteStyleEntries,
+    meetings: meetings,
     jsonLd: [courseJsonLd, breadcrumbJsonLd],
   };
 };
