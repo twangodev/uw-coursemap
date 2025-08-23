@@ -2,16 +2,18 @@ import type { CourseMeeting } from './types';
 import { createEvents, type EventAttributes } from 'ics';
 
 /**
- * Convert timestamp to ICS date array [year, month, day, hour, minute]
+ * Convert timestamp to UTC date array [year, month, day, hour, minute]
+ * The timestamp is already in milliseconds and represents the actual time in Chicago
+ * We need to get the UTC components for the ICS file
  */
-function timestampToDateArray(timestamp: number): [number, number, number, number, number] {
+function timestampToUTCDateArray(timestamp: number): [number, number, number, number, number] {
   const date = new Date(timestamp);
   return [
-    date.getFullYear(),
-    date.getMonth() + 1, // ICS uses 1-12 for months
-    date.getDate(),
-    date.getHours(),
-    date.getMinutes()
+    date.getUTCFullYear(),
+    date.getUTCMonth() + 1, // ICS uses 1-12 for months
+    date.getUTCDate(),
+    date.getUTCHours(),
+    date.getUTCMinutes()
   ];
 }
 
@@ -24,14 +26,19 @@ function getDurationInMinutes(startTime: number, endTime: number): number {
 
 /**
  * Generate ICS file content for selected meetings
+ * 
+ * Note: Meeting timestamps are stored as Unix timestamps that represent the actual
+ * time in America/Chicago timezone. We convert these to UTC for the ICS file,
+ * which ensures the events appear at the correct local time regardless of the
+ * viewer's timezone or DST changes.
  */
 export async function generateICS(
   meetings: CourseMeeting[],
   courseName: string
 ): Promise<string> {
-  // Convert meetings to ICS events
+  // Convert meetings to ICS events with UTC times
   const events: EventAttributes[] = meetings.map((meeting, index) => {
-    const startArray = timestampToDateArray(meeting.start_time);
+    const startArray = timestampToUTCDateArray(meeting.start_time);
     const duration = getDurationInMinutes(meeting.start_time, meeting.end_time);
     
     const location = meeting.location
@@ -56,6 +63,8 @@ export async function generateICS(
     return {
       title: meeting.name,
       start: startArray,
+      startInputType: 'utc' as const,
+      startOutputType: 'utc' as const,
       duration: { minutes: duration },
       location: location,
       description: descriptionParts.join('\n'),
