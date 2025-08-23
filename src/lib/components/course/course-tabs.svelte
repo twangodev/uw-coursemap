@@ -56,10 +56,10 @@
 <Tabs bind:value>
   <TabsList class="my-2">
     <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="trends">Trends</TabsTrigger>
-    <TabsTrigger value="instructors">Instructors</TabsTrigger>
-    <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
     <TabsTrigger value="schedule">Schedule</TabsTrigger>
+    <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
+    <TabsTrigger value="instructors">Instructors</TabsTrigger>
+    <TabsTrigger value="trends">Trends</TabsTrigger>
   </TabsList>
   <div class="grid gap-4 lg:grid-cols-12">
     <CourseDetails {course} {selectedTerm} />
