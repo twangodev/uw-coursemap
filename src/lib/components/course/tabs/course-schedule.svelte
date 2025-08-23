@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { ScheduleXCalendar } from '@schedule-x/svelte';
   import '@schedule-x/theme-shadcn/dist/index.css';
   import type { Course } from "$lib/types/course.ts";
@@ -12,14 +11,20 @@
   interface Props {
     course: Course;
     meetings?: CourseMeeting[];
+    isVisible?: boolean;
   }
 
-  let { course, meetings }: Props = $props();
+  let { course, meetings, isVisible = false }: Props = $props();
   let calendarApp = $state<any>(null);
+  let hasInitialized = false;
   
-  onMount(() => {
-    const events = transformMeetingsToScheduleEvents(meetings);
-    calendarApp = createScheduleCalendarConfig(events, mode.current);
+  // Initialize calendar when tab becomes visible for the first time
+  $effect(() => {
+    if (isVisible && !hasInitialized && meetings) {
+      const events = transformMeetingsToScheduleEvents(meetings);
+      calendarApp = createScheduleCalendarConfig(events, mode.current);
+      hasInitialized = true;
+    }
   });
   
   // Watch for theme changes

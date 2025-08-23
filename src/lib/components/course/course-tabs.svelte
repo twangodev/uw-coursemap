@@ -87,7 +87,7 @@
       />
     </TabsContent>
     <TabsContent class="space-y-4 lg:col-span-9" value="schedule">
-      <CourseSchedule {course} {meetings} />
+      <CourseSchedule {course} {meetings} isVisible={value === "schedule"} />
     </TabsContent>
   </div>
 </Tabs>
