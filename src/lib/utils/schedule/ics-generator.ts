@@ -1,5 +1,6 @@
 import type { CourseMeeting } from './types';
 import { createEvents, type EventAttributes } from 'ics';
+import { courseReferenceToString } from '$lib/types/course';
 
 /**
  * Convert timestamp to UTC date array [year, month, day, hour, minute]
@@ -45,23 +46,22 @@ export async function generateICS(
       ? `${meeting.location.building}${meeting.location.room ? ' ' + meeting.location.room : ''}`
       : undefined;
 
-    // Build description
+    // Build description with useful persistent information
     const descriptionParts: string[] = [];
-    descriptionParts.push(`Type: ${meeting.type}`);
+    
+    // Extract section info from meeting name (e.g., "LEC 001 #12345" -> "LEC 001")
+    const sectionName = meeting.name.split('#')[0].trim();
     
     if (meeting.instructors && meeting.instructors.length > 0) {
       descriptionParts.push(`Instructor(s): ${meeting.instructors.join(', ')}`);
     }
-    
-    if (meeting.current_enrollment) {
-      descriptionParts.push(`Enrollment: ${meeting.current_enrollment}`);
-    }
 
-    const courseStr = `${meeting.course_reference.subjects.join('/')} ${meeting.course_reference.course_number}`;
-    descriptionParts.push(`Course: ${courseStr}`);
+    // Use course code + section as the title for better calendar visibility
+    const courseStr = courseReferenceToString(meeting.course_reference);
+    const eventTitle = `${courseStr} ${sectionName}`;
 
     return {
-      title: meeting.name,
+      title: eventTitle,
       start: startArray,
       startInputType: 'utc' as const,
       startOutputType: 'utc' as const,
@@ -71,7 +71,7 @@ export async function generateICS(
       categories: [meeting.type],
       productId: 'uwcourses.com',
       calName: courseName,
-      uid: `${courseStr.replace(/\//g, '')}-${meeting.start_time}-${index}@uwcourses.com`
+      uid: `${courseStr.replace(/[\s\/]/g, '')}-${meeting.start_time}-${index}@uwcourses.com`
     };
   });
 
