@@ -1,7 +1,8 @@
 import asyncio
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, timezone
 from json import JSONDecodeError
 from logging import getLogger
+from zoneinfo import ZoneInfo
 
 import requests
 from aiohttp_client_cache import CachedSession
@@ -134,8 +135,8 @@ def generate_recurring_meetings(
     Args:
         start_date_epoch_ms: Start date for recurrence (full epoch timestamp)
         end_date_epoch_ms: End date for recurrence (full epoch timestamp)
-        epoch_start_time_ms: Meeting start time within day (epoch ms representing time of day)
-        epoch_end_time_ms: Meeting end time within day (epoch ms representing time of day)
+        epoch_start_time_ms: Meeting start time within day (epoch ms representing time of day in UTC)
+        epoch_end_time_ms: Meeting end time within day (epoch ms representing time of day in UTC)
         days_of_week: List of days as strings (e.g., ["MONDAY", "WEDNESDAY", "FRIDAY"])
 
     Returns:
@@ -144,6 +145,9 @@ def generate_recurring_meetings(
 
     if not epoch_start_time_ms or not epoch_end_time_ms:
         return []
+    
+    # Define Chicago timezone
+    chicago_tz = ZoneInfo('America/Chicago')
 
     # Map day names to weekday numbers (Monday=0, Sunday=6)
     day_mapping = {
@@ -159,13 +163,15 @@ def generate_recurring_meetings(
     # Convert day names to weekday numbers
     target_weekdays = [day_mapping[day.upper()] for day in days_of_week]
 
-    # Convert dates to datetime objects
-    start_date = datetime.fromtimestamp(start_date_epoch_ms / 1000).date()
-    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000).date()
+    # Convert dates to datetime objects in Chicago timezone
+    start_date = datetime.fromtimestamp(start_date_epoch_ms / 1000, tz=chicago_tz).date()
+    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=chicago_tz).date()
 
-    # Extract time components from epoch times (assuming they represent time of day)
-    start_time_dt = datetime.fromtimestamp(epoch_start_time_ms / 1000).time()
-    end_time_dt = datetime.fromtimestamp(epoch_end_time_ms / 1000).time()
+    # Extract time components from UTC-based epoch times
+    # These represent wall clock time encoded as UTC offset
+    # e.g., 57300000 ms = 15:55 UTC = 9:55 AM CST
+    start_time_dt = datetime.fromtimestamp(epoch_start_time_ms / 1000, tz=timezone.utc).time()
+    end_time_dt = datetime.fromtimestamp(epoch_end_time_ms / 1000, tz=timezone.utc).time()
 
     meetings = []
     current_date = start_date
@@ -174,11 +180,20 @@ def generate_recurring_meetings(
     while current_date <= end_date:
         # Check if current day is one of our target weekdays
         if current_date.weekday() in target_weekdays:
-            # Combine date with start/end times
-            meeting_start_datetime = datetime.combine(current_date, start_time_dt)
-            meeting_end_datetime = datetime.combine(current_date, end_time_dt)
+            # Combine date with start/end times, explicitly using Chicago timezone
+            meeting_start_datetime = datetime.combine(
+                current_date, 
+                start_time_dt,
+                tzinfo=chicago_tz
+            )
+            meeting_end_datetime = datetime.combine(
+                current_date, 
+                end_time_dt,
+                tzinfo=chicago_tz
+            )
 
             # Convert back to epoch milliseconds
+            # Now timezone-aware, will handle DST correctly
             meeting_start_ms = int(meeting_start_datetime.timestamp() * 1000)
             meeting_end_ms = int(meeting_end_datetime.timestamp() * 1000)
 
