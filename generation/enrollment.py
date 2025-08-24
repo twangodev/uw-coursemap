@@ -122,6 +122,16 @@ async def build_from_mega_query(
         return all_instructors, all_meetings
 
 
+def extract_time_as_cst_wall_clock(epoch_ms):
+    """Extract time from epoch assuming CST encoding of wall clock time.
+
+    The API encodes wall clock times using CST offset year-round,
+    so we decode with the same offset to get the correct local time.
+    """
+    CST = timezone(timedelta(hours=-6))
+    return datetime.fromtimestamp(epoch_ms / 1000, tz=CST).time()
+
+
 def generate_recurring_meetings(
     start_date_epoch_ms,
     end_date_epoch_ms,
@@ -169,12 +179,9 @@ def generate_recurring_meetings(
     ).date()
     end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=chicago_tz).date()
 
-    # Extract time components using CST offset (-6 hours)
-    CST_OFFSET = timezone(timedelta(hours=-6))
-    start_time_dt = datetime.fromtimestamp(
-        epoch_start_time_ms / 1000, tz=CST_OFFSET
-    ).time()
-    end_time_dt = datetime.fromtimestamp(epoch_end_time_ms / 1000, tz=CST_OFFSET).time()
+    # Extract time components from API's CST-encoded epochs
+    start_time_dt = extract_time_as_cst_wall_clock(epoch_start_time_ms)
+    end_time_dt = extract_time_as_cst_wall_clock(epoch_end_time_ms)
 
     meetings = []
     current_date = start_date
