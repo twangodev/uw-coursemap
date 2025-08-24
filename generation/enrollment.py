@@ -1,5 +1,5 @@
 import asyncio
-from datetime import timedelta, datetime, timezone
+from datetime import datetime, timedelta, timezone
 from json import JSONDecodeError
 from logging import getLogger
 from zoneinfo import ZoneInfo
@@ -169,13 +169,12 @@ def generate_recurring_meetings(
     ).date()
     end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=chicago_tz).date()
 
-    # Extract time components (API provides wall clock time as UTC offset)
+    # Extract time components using CST offset (-6 hours)
+    CST_OFFSET = timezone(timedelta(hours=-6))
     start_time_dt = datetime.fromtimestamp(
-        epoch_start_time_ms / 1000, tz=timezone.utc
+        epoch_start_time_ms / 1000, tz=CST_OFFSET
     ).time()
-    end_time_dt = datetime.fromtimestamp(
-        epoch_end_time_ms / 1000, tz=timezone.utc
-    ).time()
+    end_time_dt = datetime.fromtimestamp(epoch_end_time_ms / 1000, tz=CST_OFFSET).time()
 
     meetings = []
     current_date = start_date
