@@ -153,7 +153,7 @@ def generate_recurring_meetings(
         List of tuples containing (start_time_ms, end_time_ms) for each occurrence
     """
 
-    if not epoch_start_time_ms or not epoch_end_time_ms:
+    if epoch_start_time_ms is None or epoch_end_time_ms is None:
         return []
 
     # Define Chicago timezone
