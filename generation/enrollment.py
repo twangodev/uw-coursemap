@@ -1,7 +1,8 @@
 import asyncio
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta, timezone
 from json import JSONDecodeError
 from logging import getLogger
+from zoneinfo import ZoneInfo
 
 import requests
 from aiohttp_client_cache import CachedSession
@@ -121,6 +122,16 @@ async def build_from_mega_query(
         return all_instructors, all_meetings
 
 
+def extract_time_as_cst_wall_clock(epoch_ms):
+    """Extract time from epoch assuming CST encoding of wall clock time.
+
+    The API encodes wall clock times using CST offset year-round,
+    so we decode with the same offset to get the correct local time.
+    """
+    CST = timezone(timedelta(hours=-6))
+    return datetime.fromtimestamp(epoch_ms / 1000, tz=CST).time()
+
+
 def generate_recurring_meetings(
     start_date_epoch_ms,
     end_date_epoch_ms,
@@ -134,16 +145,19 @@ def generate_recurring_meetings(
     Args:
         start_date_epoch_ms: Start date for recurrence (full epoch timestamp)
         end_date_epoch_ms: End date for recurrence (full epoch timestamp)
-        epoch_start_time_ms: Meeting start time within day (epoch ms representing time of day)
-        epoch_end_time_ms: Meeting end time within day (epoch ms representing time of day)
+        epoch_start_time_ms: Meeting start time within day (epoch ms representing time of day in UTC)
+        epoch_end_time_ms: Meeting end time within day (epoch ms representing time of day in UTC)
         days_of_week: List of days as strings (e.g., ["MONDAY", "WEDNESDAY", "FRIDAY"])
 
     Returns:
         List of tuples containing (start_time_ms, end_time_ms) for each occurrence
     """
 
-    if not epoch_start_time_ms or not epoch_end_time_ms:
+    if epoch_start_time_ms is None or epoch_end_time_ms is None:
         return []
+
+    # Define Chicago timezone
+    chicago_tz = ZoneInfo("America/Chicago")
 
     # Map day names to weekday numbers (Monday=0, Sunday=6)
     day_mapping = {
@@ -159,13 +173,15 @@ def generate_recurring_meetings(
     # Convert day names to weekday numbers
     target_weekdays = [day_mapping[day.upper()] for day in days_of_week]
 
-    # Convert dates to datetime objects
-    start_date = datetime.fromtimestamp(start_date_epoch_ms / 1000).date()
-    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000).date()
+    # Convert dates using Chicago timezone
+    start_date = datetime.fromtimestamp(
+        start_date_epoch_ms / 1000, tz=chicago_tz
+    ).date()
+    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=chicago_tz).date()
 
-    # Extract time components from epoch times (assuming they represent time of day)
-    start_time_dt = datetime.fromtimestamp(epoch_start_time_ms / 1000).time()
-    end_time_dt = datetime.fromtimestamp(epoch_end_time_ms / 1000).time()
+    # Extract time components from API's CST-encoded epochs
+    start_time_dt = extract_time_as_cst_wall_clock(epoch_start_time_ms)
+    end_time_dt = extract_time_as_cst_wall_clock(epoch_end_time_ms)
 
     meetings = []
     current_date = start_date
@@ -174,11 +190,15 @@ def generate_recurring_meetings(
     while current_date <= end_date:
         # Check if current day is one of our target weekdays
         if current_date.weekday() in target_weekdays:
-            # Combine date with start/end times
-            meeting_start_datetime = datetime.combine(current_date, start_time_dt)
-            meeting_end_datetime = datetime.combine(current_date, end_time_dt)
+            # Combine date with time using Chicago timezone
+            meeting_start_datetime = datetime.combine(
+                current_date, start_time_dt, tzinfo=chicago_tz
+            )
+            meeting_end_datetime = datetime.combine(
+                current_date, end_time_dt, tzinfo=chicago_tz
+            )
 
-            # Convert back to epoch milliseconds
+            # Convert to epoch milliseconds (handles DST automatically)
             meeting_start_ms = int(meeting_start_datetime.timestamp() * 1000)
             meeting_end_ms = int(meeting_end_datetime.timestamp() * 1000)
 
