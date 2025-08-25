@@ -20,6 +20,19 @@ enrollment_package_base_url = (
 
 logger = getLogger(__name__)
 
+# Module-level constants to avoid repeated instantiation
+CHICAGO_TZ = ZoneInfo("America/Chicago")
+CST_TZ = timezone(timedelta(hours=-6))
+DAY_MAPPING = {
+    "MONDAY": 0,
+    "TUESDAY": 1,
+    "WEDNESDAY": 2,
+    "THURSDAY": 3,
+    "FRIDAY": 4,
+    "SATURDAY": 5,
+    "SUNDAY": 6,
+}
+
 
 def build_enrollment_package_base_url(term, subject_code, course_id):
     return f"{enrollment_package_base_url}/{term}/{subject_code}/{course_id}"
@@ -128,8 +141,45 @@ def extract_time_as_cst_wall_clock(epoch_ms):
     The API encodes wall clock times using CST offset year-round,
     so we decode with the same offset to get the correct local time.
     """
-    CST = timezone(timedelta(hours=-6))
-    return datetime.fromtimestamp(epoch_ms / 1000, tz=CST).time()
+    return datetime.fromtimestamp(epoch_ms / 1000, tz=CST_TZ).time()
+
+
+def convert_single_meeting(
+    meeting_date,
+    epoch_start_time_ms,
+    epoch_end_time_ms,
+):
+    """
+    Convert a single meeting/exam with proper timezone handling.
+
+    Args:
+        meeting_date: Date object for the meeting
+        epoch_start_time_ms: Meeting start time within day (epoch ms representing time of day)
+        epoch_end_time_ms: Meeting end time within day (epoch ms representing time of day)
+
+    Returns:
+        Tuple containing (start_time_ms, end_time_ms)
+    """
+    if epoch_start_time_ms is None or epoch_end_time_ms is None:
+        return None
+
+    # Extract time components from API's CST-encoded epochs
+    start_time_dt = extract_time_as_cst_wall_clock(epoch_start_time_ms)
+    end_time_dt = extract_time_as_cst_wall_clock(epoch_end_time_ms)
+
+    # Combine date with time using Chicago timezone
+    meeting_start_datetime = datetime.combine(
+        meeting_date, start_time_dt, tzinfo=CHICAGO_TZ
+    )
+    meeting_end_datetime = datetime.combine(
+        meeting_date, end_time_dt, tzinfo=CHICAGO_TZ
+    )
+
+    # Convert to epoch milliseconds (handles DST automatically)
+    meeting_start_ms = int(meeting_start_datetime.timestamp() * 1000)
+    meeting_end_ms = int(meeting_end_datetime.timestamp() * 1000)
+
+    return meeting_start_ms, meeting_end_ms
 
 
 def generate_recurring_meetings(
@@ -156,32 +206,14 @@ def generate_recurring_meetings(
     if epoch_start_time_ms is None or epoch_end_time_ms is None:
         return []
 
-    # Define Chicago timezone
-    chicago_tz = ZoneInfo("America/Chicago")
-
-    # Map day names to weekday numbers (Monday=0, Sunday=6)
-    day_mapping = {
-        "MONDAY": 0,
-        "TUESDAY": 1,
-        "WEDNESDAY": 2,
-        "THURSDAY": 3,
-        "FRIDAY": 4,
-        "SATURDAY": 5,
-        "SUNDAY": 6,
-    }
-
-    # Convert day names to weekday numbers
-    target_weekdays = [day_mapping[day.upper()] for day in days_of_week]
+    # Convert day names to weekday numbers using module-level constant
+    target_weekdays = [DAY_MAPPING[day.upper()] for day in days_of_week]
 
     # Convert dates using Chicago timezone
     start_date = datetime.fromtimestamp(
-        start_date_epoch_ms / 1000, tz=chicago_tz
+        start_date_epoch_ms / 1000, tz=CHICAGO_TZ
     ).date()
-    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=chicago_tz).date()
-
-    # Extract time components from API's CST-encoded epochs
-    start_time_dt = extract_time_as_cst_wall_clock(epoch_start_time_ms)
-    end_time_dt = extract_time_as_cst_wall_clock(epoch_end_time_ms)
+    end_date = datetime.fromtimestamp(end_date_epoch_ms / 1000, tz=CHICAGO_TZ).date()
 
     meetings = []
     current_date = start_date
@@ -190,19 +222,15 @@ def generate_recurring_meetings(
     while current_date <= end_date:
         # Check if current day is one of our target weekdays
         if current_date.weekday() in target_weekdays:
-            # Combine date with time using Chicago timezone
-            meeting_start_datetime = datetime.combine(
-                current_date, start_time_dt, tzinfo=chicago_tz
+            # Use the single meeting converter for consistent timezone handling
+            meeting_times = convert_single_meeting(
+                meeting_date=current_date,
+                epoch_start_time_ms=epoch_start_time_ms,
+                epoch_end_time_ms=epoch_end_time_ms,
             )
-            meeting_end_datetime = datetime.combine(
-                current_date, end_time_dt, tzinfo=chicago_tz
-            )
-
-            # Convert to epoch milliseconds (handles DST automatically)
-            meeting_start_ms = int(meeting_start_datetime.timestamp() * 1000)
-            meeting_end_ms = int(meeting_end_datetime.timestamp() * 1000)
-
-            meetings.append((meeting_start_ms, meeting_end_ms))
+            
+            if meeting_times:
+                meetings.append(meeting_times)
 
         # Move to next day
         current_date += timedelta(days=1)
@@ -310,30 +338,26 @@ async def process_hit(
                 start_time = meeting["meetingTimeStart"]
                 end_time = meeting["meetingTimeEnd"]
 
-                date = meeting.get("examDate")
-                if not days and date:  # Not a recurring meeting
-                    start_date_time = date + start_time
-                    end_date_time = date + end_time
-                    course_meeting = EnrollmentData.Meeting(
-                        start_time=start_date_time,
-                        end_time=end_date_time,
-                        type=meeting_type,
-                        location=None,  # No location for single meetings
-                        name=meeting_type,
-                        current_enrollment=current_enrollment,
-                        instructors=section_instructor_names,
-                        course_reference=course_ref,
+                exam_date = meeting.get("examDate")
+                if not days and exam_date:  # Single event (exam)
+                    # Convert exam date from epoch to date object
+                    exam_date_obj = datetime.fromtimestamp(exam_date / 1000, tz=CHICAGO_TZ).date()
+                    # Use proper timezone handling for single meetings
+                    single_meeting = convert_single_meeting(
+                        meeting_date=exam_date_obj,
+                        epoch_start_time_ms=start_time,
+                        epoch_end_time_ms=end_time,
                     )
-                    course_meetings.append(course_meeting)
-                    continue
-
-                all_meeting_occurrences = generate_recurring_meetings(
-                    start_date_epoch_ms=start_date,
-                    end_date_epoch_ms=end_date,
-                    epoch_start_time_ms=start_time,
-                    epoch_end_time_ms=end_time,
-                    days_of_week=days,
-                )
+                    all_meeting_occurrences = [single_meeting] if single_meeting else []
+                else:
+                    # Recurring meetings
+                    all_meeting_occurrences = generate_recurring_meetings(
+                        start_date_epoch_ms=start_date,
+                        end_date_epoch_ms=end_date,
+                        epoch_start_time_ms=start_time,
+                        epoch_end_time_ms=end_time,
+                        days_of_week=days,
+                    )
 
                 location = None
                 building = meeting.get("building")
