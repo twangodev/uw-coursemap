@@ -17,6 +17,7 @@
     CourseInstructors,
     CoursePrerequisites,
     CourseTrends,
+    CourseSchedule,
   } from "$lib/components/course/tabs/index.js";
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
@@ -29,6 +30,7 @@
     instructors: FullInstructorInformation[];
     prerequisiteElementDefinitions: ElementDefinition[];
     prerequisiteStyleEntries: StyleEntry[];
+    meetings?: any;
   }
 
   let {
@@ -39,6 +41,7 @@
     instructors,
     prerequisiteElementDefinitions,
     prerequisiteStyleEntries,
+    meetings,
   }: Props = $props();
 
   let value = $state("overview");
@@ -53,9 +56,10 @@
 <Tabs bind:value>
   <TabsList class="my-2">
     <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="trends">Trends</TabsTrigger>
-    <TabsTrigger value="instructors">Instructors</TabsTrigger>
+    <TabsTrigger value="schedule">Schedule</TabsTrigger>
     <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
+    <TabsTrigger value="instructors">Instructors</TabsTrigger>
+    <TabsTrigger value="trends">Trends</TabsTrigger>
   </TabsList>
   <div class="grid gap-4 lg:grid-cols-12">
     <CourseDetails {course} {selectedTerm} />
@@ -81,6 +85,9 @@
         {prerequisiteElementDefinitions}
         {prerequisiteStyleEntries}
       />
+    </TabsContent>
+    <TabsContent class="space-y-4 lg:col-span-9" value="schedule">
+      <CourseSchedule {course} {meetings} isVisible={value === "schedule"} />
     </TabsContent>
   </div>
 </Tabs>

@@ -13,6 +13,7 @@
     data.prerequisiteElementDefinitions,
   );
   let prerequisiteStyleEntries = $derived(data.prerequisiteStyleEntries);
+  let meetings = $derived(data.meetings);
 </script>
 
 <ContentWrapper>
@@ -25,5 +26,6 @@
     {terms}
     {prerequisiteElementDefinitions}
     {prerequisiteStyleEntries}
+    {meetings}
   />
 </ContentWrapper>
