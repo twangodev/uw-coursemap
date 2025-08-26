@@ -1,7 +1,7 @@
 import { formatInTimeZone } from 'date-fns-tz';
 import type { CourseMeeting, ScheduleEvent } from './types';
 import { MADISON_TIMEZONE } from './types';
-import { getSectionKey } from './section-utils';
+import { getSectionKey, generateCalendarId } from './section-utils';
 
 /**
  * Format a timestamp in Madison timezone
@@ -37,7 +37,7 @@ export function transformMeetingsToScheduleEvents(
     title: buildEventTitle(meeting),
     start: formatMadisonTime(meeting.start_time),
     end: formatMadisonTime(meeting.end_time),
-    calendarId: getSectionKey(meeting).toLowerCase().replace(/[^a-z0-9]/g, ''),
+    calendarId: generateCalendarId(getSectionKey(meeting)),
     people: meeting.instructors,
     location: meeting.location ? 
       `${meeting.location.building}${meeting.location.room ? ' ' + meeting.location.room : ''}` : 

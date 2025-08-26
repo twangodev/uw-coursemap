@@ -12,7 +12,7 @@ import { createEventModalPlugin } from '@schedule-x/event-modal';
 import type { ScheduleEvent } from './types';
 import { calculateDayBoundaries } from './schedule-boundaries';
 import { getMadisonTimeOffset } from './timezone-utils';
-import { getSectionKey } from './section-utils';
+import { getSectionKey, generateCalendarId } from './section-utils';
 import type { CourseMeeting } from './types';
 
 /**
@@ -52,7 +52,7 @@ function generateCalendars(meetings: CourseMeeting[]) {
   // Get unique section keys and maintain mapping
   meetings.forEach(meeting => {
     const sectionKey = getSectionKey(meeting);
-    const calendarId = sectionKey.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const calendarId = generateCalendarId(sectionKey);
     if (!sectionMap.has(calendarId)) {
       sectionMap.set(calendarId, sectionKey);
     }

@@ -21,6 +21,7 @@
 
   let { course, meetings }: Props = $props();
   
+  let open = $state(false);
   let selectedSections = $state<Set<string>>(new Set());
   
   const sortedGroups = $derived(() => {
@@ -55,7 +56,7 @@
   }
 </script>
 
-<Sheet.Root>
+<Sheet.Root bind:open>
   <Sheet.Trigger class="text-xs text-muted-foreground flex items-center gap-1 hover:text-foreground transition-colors">
     <Share2 class="h-3 w-3" />
     Export to your calendar

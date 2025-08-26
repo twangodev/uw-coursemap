@@ -57,3 +57,11 @@ export function filterMeetingsBySelection(
 ): CourseMeeting[] {
   return meetings.filter(meeting => selectedSections.has(getSectionKey(meeting)));
 }
+
+/**
+ * Generate a sanitized calendar ID from a section key
+ * Ensures consistency across the application
+ */
+export function generateCalendarId(sectionKey: string): string {
+  return sectionKey.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
