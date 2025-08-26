@@ -124,7 +124,7 @@ async def build_from_mega_query(
             # Group meetings by course identifier using the course_reference
             if meetings:
                 course_identifier = course_ref
-                all_meetings.setdefault(course_identifier, []).extend(meetings)
+                all_meetings.setdefault(course_identifier, set()).update(meetings)
 
         logger.info(
             f"Discovered {len(all_instructors)} unique instructors teaching in {term_name}"
@@ -298,7 +298,7 @@ async def process_hit(
         return None
 
     course_instructors = {}
-    course_meetings = []
+    course_meetings = set()
     section_count = len(data)
 
     logger.debug(f"Found {section_count} sections for {course_ref.get_identifier()}")
@@ -390,7 +390,7 @@ async def process_hit(
                         course_reference=course_ref,
                     )
 
-                    course_meetings.append(course_meeting)
+                    course_meetings.add(course_meeting)
 
     enrollment_data.instructors = course_instructors
     logger.debug(
