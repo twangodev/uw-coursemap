@@ -32,7 +32,7 @@
 
 {#if isNavigating}
   <div 
-    class="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm dark:bg-black/80"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
     aria-hidden="false"
     aria-label="Loading page"
     transition:fade={{ duration: 200, delay: 150 }}
