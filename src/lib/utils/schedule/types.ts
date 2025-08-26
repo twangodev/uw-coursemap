@@ -26,7 +26,7 @@ export interface ScheduleEvent {
   title: string;
   start: string; // Format: 'YYYY-MM-DD HH:MM'
   end: string;   // Format: 'YYYY-MM-DD HH:MM'
-  color: string;
+  calendarId: string; // References a calendar for color
   // Store additional metadata in a way that's compatible with Schedule-X
   // but also allows us to access our custom data
   people?: string[]; // instructors

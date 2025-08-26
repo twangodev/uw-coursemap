@@ -1,16 +1,7 @@
 import { formatInTimeZone } from 'date-fns-tz';
 import type { CourseMeeting, ScheduleEvent } from './types';
 import { MADISON_TIMEZONE } from './types';
-
-// Color mapping for different meeting types
-const MEETING_TYPE_COLORS: Record<string, string> = {
-  CLASS: '#3b82f6',      // blue
-  DISCUSSION: '#10b981',  // green
-  LAB: '#f59e0b',        // amber
-  EXAM: '#ef4444',       // red
-  SEMINAR: '#8b5cf6',    // purple
-  DEFAULT: '#6b7280'     // gray
-};
+import { getSectionKey } from './section-utils';
 
 /**
  * Format a timestamp in Madison timezone
@@ -46,7 +37,7 @@ export function transformMeetingsToScheduleEvents(
     title: buildEventTitle(meeting),
     start: formatMadisonTime(meeting.start_time),
     end: formatMadisonTime(meeting.end_time),
-    color: MEETING_TYPE_COLORS[meeting.type] || MEETING_TYPE_COLORS.DEFAULT,
+    calendarId: getSectionKey(meeting).toLowerCase().replace(/[^a-z0-9]/g, ''),
     people: meeting.instructors,
     location: meeting.location ? 
       `${meeting.location.building}${meeting.location.room ? ' ' + meeting.location.room : ''}` : 

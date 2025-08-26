@@ -22,7 +22,7 @@
   $effect(() => {
     if (isVisible && !hasInitialized && meetings) {
       const events = transformMeetingsToScheduleEvents(meetings);
-      calendarApp = createScheduleCalendarConfig(events, mode.current);
+      calendarApp = createScheduleCalendarConfig(events, meetings, mode.current);
       hasInitialized = true;
     }
   });
