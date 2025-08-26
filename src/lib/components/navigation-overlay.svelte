@@ -41,7 +41,7 @@
       <div class="relative h-6 w-64 overflow-hidden">
         {#key currentMessage}
           <span 
-            class="absolute inset-0 text-center text-sm font-medium text-muted-foreground"
+            class="absolute inset-0 text-center text-sm font-medium text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis px-2"
             in:fly={{ y: 20, duration: 300 }}
             out:fly={{ y: -20, duration: 300 }}
           >
