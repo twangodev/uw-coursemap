@@ -6,7 +6,7 @@
   import loadingConfig from "$lib/config/loading-messages.json";
   
   // Declarative navigation state
-  let isNavigating = $derived(!!navigating.to);
+  let isNavigating = $derived(!!navigating?.to);
   
   // Loading messages from config
   const loadingMessages = loadingConfig.messages;
@@ -33,7 +33,6 @@
 {#if isNavigating}
   <div 
     class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm"
-    aria-hidden="false"
     aria-label="Loading page"
     transition:fade={{ duration: 200, delay: 150 }}
   >
