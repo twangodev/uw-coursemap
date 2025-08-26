@@ -32,7 +32,7 @@ def chunk_meetings_by_building(course_ref_to_meetings, data_dir):
     all_meetings = []
     for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
-            all_meetings.extend(meetings)
+            all_meetings.extend(list(meetings))
 
     logger.info(f"Processing {len(all_meetings)} total meetings for building chunking")
 
@@ -84,7 +84,7 @@ def chunk_meetings_by_building_and_date(course_ref_to_meetings, data_dir):
     all_meetings = []
     for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
-            all_meetings.extend(meetings)
+            all_meetings.extend(list(meetings))
 
     logger.info(
         f"Processing {len(all_meetings)} total meetings for building and date chunking"
@@ -140,7 +140,7 @@ def chunk_meetings_by_instructor(course_ref_to_meetings, data_dir):
     all_meetings = []
     for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
-            all_meetings.extend(meetings)
+            all_meetings.extend(list(meetings))
 
     logger.info(
         f"Processing {len(all_meetings)} total meetings for instructor chunking"
@@ -190,7 +190,7 @@ def chunk_meetings_by_subject(course_ref_to_meetings, data_dir):
         # Use actual subjects from course reference (can have multiple subjects)
         for subject_code in course_reference.subjects:
             # Add all meetings for this course to each subject bucket
-            subject_meetings[subject_code].extend(meetings)
+            subject_meetings[subject_code].extend(list(meetings))
 
     # Write meetings for each subject to a single file
     total_files_written = 0
@@ -218,7 +218,7 @@ def chunk_meetings_by_date_only(course_ref_to_meetings, data_dir):
     all_meetings = []
     for course_reference, meetings in course_ref_to_meetings.items():
         if meetings:
-            all_meetings.extend(meetings)
+            all_meetings.extend(list(meetings))
 
     logger.info(f"Processing {len(all_meetings)} total meetings for pure date chunking")
 

@@ -196,6 +196,39 @@ class EnrollmentData(JsonSerializable):
                 else None,
             }
 
+        def __eq__(self, other):
+            if not isinstance(other, EnrollmentData.Meeting):
+                return False
+
+            # Extract section identifier (e.g., "LEC 002" from "LEC 002 #9")
+            self_section = self.name.split("#")[0].strip() if self.name else ""
+            other_section = other.name.split("#")[0].strip() if other.name else ""
+
+            # Compare key identifying attributes
+            # Note: We don't include course_reference to allow deduplication across cross-listed courses
+            return (
+                self_section == other_section
+                and self.type == other.type
+                and self.start_time == other.start_time
+                and self.end_time == other.end_time
+                and sorted(self.instructors) == sorted(other.instructors)
+            )
+
+        def __hash__(self):
+            # Extract section identifier for hashing
+            section = self.name.split("#")[0].strip() if self.name else ""
+
+            # Create a hashable representation of the meeting
+            return hash(
+                (
+                    section,
+                    self.type,
+                    self.start_time,
+                    self.end_time,
+                    tuple(sorted(self.instructors)),
+                )
+            )
+
     @classmethod
     def from_json(cls, data) -> "EnrollmentData":
         return EnrollmentData(

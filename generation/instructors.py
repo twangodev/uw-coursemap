@@ -606,7 +606,9 @@ async def gather_instructor_emails(terms, course_ref_to_course):
             continue
         emails, meetings = result  # Unpack the tuple returned by build_from_mega_query
         combined_emails.update(emails)
-        # Merge meetings, combining lists for the same course
+        # Merge meetings, combining sets for the same course
         for course_reference, course_meetings in meetings.items():
-            combined_meetings.setdefault(course_reference, []).extend(course_meetings)
+            combined_meetings.setdefault(course_reference, set()).update(
+                course_meetings
+            )
     return combined_emails, combined_meetings
