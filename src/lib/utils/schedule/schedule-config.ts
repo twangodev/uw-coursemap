@@ -14,16 +14,30 @@ import { calculateDayBoundaries } from './schedule-boundaries';
 import { getMadisonTimeOffset } from './timezone-utils';
 import { getSectionKey } from './section-utils';
 import type { CourseMeeting } from './types';
+import { TinyColor } from '@ctrl/tinycolor';
 
 /**
- * Generate a random color for a calendar
+ * Generate a deterministic color for a calendar based on section key
  */
-function getRandomColor() {
-  const hue = Math.floor(Math.random() * 360);
-  const main = `hsl(${hue}, 70%, 50%)`;
-  const container = `hsl(${hue}, 70%, 90%)`;
-  const onContainer = `hsl(${hue}, 70%, 20%)`;
-  return { main, container, onContainer };
+function getSectionColor(sectionKey: string) {
+  // Hash the section key to get a consistent hue
+  let hash = 0;
+  for (let i = 0; i < sectionKey.length; i++) {
+    hash = sectionKey.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash % 360);
+  
+  // Create base color with good saturation and medium lightness
+  const baseColor = new TinyColor({ h: hue, s: 70, l: 50 });
+  
+  // Generate calendar colors with proper contrast
+  return {
+    main: baseColor.toHexString(),
+    // Light background: lighten and desaturate for softer appearance
+    container: baseColor.clone().lighten(35).desaturate(30).toHexString(),
+    // Dark text: darken significantly for good contrast on light background
+    onContainer: baseColor.clone().darken(35).saturate(10).toHexString()
+  };
 }
 
 /**
@@ -31,18 +45,20 @@ function getRandomColor() {
  */
 function generateCalendars(meetings: CourseMeeting[]) {
   const calendars: Record<string, any> = {};
-  const sections = new Set<string>();
+  const sectionMap = new Map<string, string>();
   
-  // Get unique section keys
+  // Get unique section keys and maintain mapping
   meetings.forEach(meeting => {
     const sectionKey = getSectionKey(meeting);
     const calendarId = sectionKey.toLowerCase().replace(/[^a-z0-9]/g, '');
-    sections.add(calendarId);
+    if (!sectionMap.has(calendarId)) {
+      sectionMap.set(calendarId, sectionKey);
+    }
   });
   
-  // Create a calendar for each unique section
-  sections.forEach(calendarId => {
-    const colors = getRandomColor();
+  // Create a calendar for each unique section with deterministic colors
+  sectionMap.forEach((originalKey, calendarId) => {
+    const colors = getSectionColor(originalKey);
     calendars[calendarId] = {
       colorName: calendarId,
       lightColors: colors
