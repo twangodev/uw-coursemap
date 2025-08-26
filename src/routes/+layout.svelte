@@ -5,6 +5,7 @@
   import { ModeWatcher } from "mode-watcher";
   import { Toaster } from "$lib/components/ui/sonner";
   import { page } from "$app/state";
+  import NavigationOverlay from "$lib/components/navigation-overlay.svelte";
   import type { WebSite, WithContext } from "schema-dts";
   
   let { children, data } = $props();
@@ -90,6 +91,7 @@
 
 <Toaster />
 <ModeWatcher />
+<NavigationOverlay />
 <div class="flex h-screen min-h-screen flex-col">
   <Navbar />
   <main class="flex grow">
