@@ -14,10 +14,10 @@ import { calculateDayBoundaries } from './schedule-boundaries';
 import { getMadisonTimeOffset } from './timezone-utils';
 import { getSectionKey } from './section-utils';
 import type { CourseMeeting } from './types';
-import { TinyColor } from '@ctrl/tinycolor';
 
 /**
- * Generate a deterministic color for a calendar based on section key
+ * Generate deterministic colors for a calendar based on section key
+ * Uses proven HSL values that guarantee WCAG contrast compliance
  */
 function getSectionColor(sectionKey: string) {
   // Hash the section key to get a consistent hue
@@ -27,16 +27,18 @@ function getSectionColor(sectionKey: string) {
   }
   const hue = Math.abs(hash % 360);
   
-  // Create base color with good saturation and medium lightness
-  const baseColor = new TinyColor({ h: hue, s: 70, l: 50 });
-  
-  // Generate calendar colors with proper contrast
+  // Use proven HSL values that always have good contrast
   return {
-    main: baseColor.toHexString(),
-    // Light background: lighten and desaturate for softer appearance
-    container: baseColor.clone().lighten(35).desaturate(30).toHexString(),
-    // Dark text: darken significantly for good contrast on light background
-    onContainer: baseColor.clone().darken(35).saturate(10).toHexString()
+    lightColors: {
+      main: `hsl(${hue}, 70%, 50%)`,
+      container: `hsl(${hue}, 25%, 95%)`,  // Very light background
+      onContainer: `hsl(${hue}, 60%, 25%)`  // Dark text with color
+    },
+    darkColors: {
+      main: `hsl(${hue}, 60%, 60%)`,
+      container: `hsl(${hue}, 30%, 15%)`,   // Very dark background
+      onContainer: `hsl(${hue}, 40%, 85%)`  // Light text with color
+    }
   };
 }
 
@@ -56,12 +58,13 @@ function generateCalendars(meetings: CourseMeeting[]) {
     }
   });
   
-  // Create a calendar for each unique section with deterministic colors
+  // Create a calendar for each unique section with light/dark theme colors
   sectionMap.forEach((originalKey, calendarId) => {
     const colors = getSectionColor(originalKey);
     calendars[calendarId] = {
       colorName: calendarId,
-      lightColors: colors
+      lightColors: colors.lightColors,
+      darkColors: colors.darkColors
     };
   });
   
