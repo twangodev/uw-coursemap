@@ -108,7 +108,7 @@
     </ScrollArea>
     
     <Sheet.Footer>
-      <Button variant="outline" onclick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))}>
+      <Button variant="outline" onclick={() => open = false}>
         Cancel
       </Button>
       <Button 
