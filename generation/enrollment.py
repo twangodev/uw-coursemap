@@ -228,7 +228,7 @@ def generate_recurring_meetings(
                 epoch_start_time_ms=epoch_start_time_ms,
                 epoch_end_time_ms=epoch_end_time_ms,
             )
-            
+
             if meeting_times:
                 meetings.append(meeting_times)
 
@@ -341,7 +341,9 @@ async def process_hit(
                 exam_date = meeting.get("examDate")
                 if not days and exam_date:  # Single event (exam)
                     # Convert exam date from epoch to date object
-                    exam_date_obj = datetime.fromtimestamp(exam_date / 1000, tz=CHICAGO_TZ).date()
+                    exam_date_obj = datetime.fromtimestamp(
+                        exam_date / 1000, tz=CHICAGO_TZ
+                    ).date()
                     # Use proper timezone handling for single meetings
                     single_meeting = convert_single_meeting(
                         meeting_date=exam_date_obj,
