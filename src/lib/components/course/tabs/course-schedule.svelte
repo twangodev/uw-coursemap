@@ -16,14 +16,12 @@
 
   let { course, meetings, isVisible = false }: Props = $props();
   let calendarApp = $state<any>(null);
-  let hasInitialized = false;
   
-  // Initialize calendar when tab becomes visible for the first time
+  // Initialize calendar when tab becomes visible
   $effect(() => {
-    if (isVisible && !hasInitialized && meetings) {
+    if (isVisible && meetings && !calendarApp) {
       const events = transformMeetingsToScheduleEvents(meetings);
       calendarApp = createScheduleCalendarConfig(events, meetings, mode.current);
-      hasInitialized = true;
     }
   });
   
@@ -44,8 +42,12 @@
       </p>
       <CourseExportDialog {course} {meetings} />
     </div>
+  {:else if !meetings || meetings.length === 0}
+    <div class="flex items-center justify-center h-64">
+      <p class="text-muted-foreground">No schedule information available for this course.</p>
+    </div>
   {:else}
-    <div class="flex items-center justify-center h-full">
+    <div class="flex items-center justify-center h-64">
       <p class="text-muted-foreground">Loading calendar...</p>
     </div>
   {/if}
