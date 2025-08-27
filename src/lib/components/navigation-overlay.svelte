@@ -38,12 +38,12 @@
   >
     <div class="flex flex-col items-center gap-4">
       <LoaderCircle class="h-10 w-10 animate-spin text-primary" />
-      <div class="relative h-6 w-64 overflow-hidden">
+      <div class="relative h-12 w-80 flex items-center justify-center overflow-hidden">
         {#key currentMessage}
           <span 
-            class="absolute inset-0 text-center text-sm font-medium text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis px-2"
-            in:fly={{ y: 20, duration: 300 }}
-            out:fly={{ y: -20, duration: 300 }}
+            class="absolute text-center text-sm font-medium text-muted-foreground px-4"
+            in:fly={{ y: 20, duration: 200 }}
+            out:fly={{ y: -20, duration: 200 }}
           >
             {currentMessage}
           </span>
