@@ -23,7 +23,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
       - uses: actions/setup-python@v5
@@ -67,7 +67,7 @@ jobs:
       url: ${{ vars.DEPLOY_URL }}
     steps:
       - name: Checkout Deployment Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: twangodev/uw-coursemap-data
           token: ${{ secrets.PAT }}
@@ -103,7 +103,7 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
       - name: Bump Submodule
