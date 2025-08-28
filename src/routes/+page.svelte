@@ -9,6 +9,7 @@
   import RotatingTiltCard from "$lib/components/rotating-tilt-card.svelte";
   import QuickStatistics from "$lib/components/quick-statistics.svelte";
   import CallToAction from "$lib/components/call-to-action.svelte";
+  import { inView } from "$lib/actions/in-view";
 </script>
 
 <div class="w-full">
@@ -40,7 +41,7 @@
             Wisconsin-Madison.
           </p>
           <div class="py-4 md:pb-10">
-            <Button href="/explorer">Get Started</Button>
+            <Button href="/explorer" class="animate-fade-in [animation-delay:100] [animation-fill-mode:both]">Get Started</Button>
           </div>
         </div>
       </div>
@@ -50,8 +51,12 @@
   <RotatingTiltCard />
 
   <ContentWrapper>
-    <QuickStatistics />
-    <CallToAction />
+    <div use:inView={{ threshold: 0.3 }} class="opacity-0 translate-y-10 transition-all duration-800 [&.in-view]:opacity-100 [&.in-view]:translate-y-0">
+      <QuickStatistics />
+    </div>
+    <div use:inView={{ threshold: 0.5 }} class="opacity-0 scale-95 transition-all duration-600 [&.in-view]:opacity-100 [&.in-view]:scale-100">
+      <CallToAction />
+    </div>
   </ContentWrapper>
 </div>
 
