@@ -2,6 +2,7 @@
   import { slide, type SlideParams } from "svelte/transition";
   import { quadInOut } from "svelte/easing";
   import { Code, Database, Waypoints, Upload } from "@lucide/svelte";
+  import { inView } from "$lib/actions/in-view";
 
   const DISPLAY_DURATION = 5000;
 
@@ -91,7 +92,7 @@
   <div
     class="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4"
   >
-    <div class="space-y-3">
+    <div use:inView={{ threshold: 0.3 }} class="space-y-3 opacity-0 scale-95 transition-all duration-500 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Upload class="size-4" />
         <h3 class="text-sm font-medium">Upload</h3>
@@ -101,7 +102,7 @@
         completed courses.
       </p>
     </div>
-    <div class="space-y-2">
+    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-100 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Waypoints class="size-4" />
         <h3 class="text-sm font-medium">Visual First</h3>
@@ -111,7 +112,7 @@
         explore course offerings.
       </p>
     </div>
-    <div class="space-y-2">
+    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-200 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Code class="size-4" />
         <h3 class="text-sm font-medium">Open Source</h3>
@@ -121,7 +122,7 @@
         open-source project on GitHub.
       </p>
     </div>
-    <div class="space-y-2">
+    <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-300 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Database class="size-4" />
         <h3 class="text-sm font-medium">Data Friendly</h3>
