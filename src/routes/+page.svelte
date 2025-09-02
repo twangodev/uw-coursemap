@@ -41,7 +41,7 @@
             Wisconsin-Madison.
           </p>
           <div class="py-4 md:pb-10">
-            <Button href="/explorer" class="animate-fade-in [animation-delay:100] [animation-fill-mode:both]">Get Started</Button>
+            <Button href="/explorer" class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">Get Started</Button>
           </div>
         </div>
       </div>
