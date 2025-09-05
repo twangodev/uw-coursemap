@@ -37,6 +37,7 @@
   import Legend from "./legend.svelte";
   import { onMount } from "svelte";
   import HelpControl from "./help-control.svelte";
+    import { getData } from "$lib/localStorage.ts";
 
   interface Props {
     elementDefinitions: ElementDefinition[];
@@ -55,8 +56,13 @@
 
   onMount(() => {
     loadGraph();
-    // TODO: Implement transcript loading when available
-    takenCourses = [];
+    takenCourses = getData("takenCourses").map((course: any) => {
+      if (course.course_reference === undefined) {
+        return;
+      }
+
+      return courseReferenceToString(course.course_reference);
+    }) 
   });
 
   let {

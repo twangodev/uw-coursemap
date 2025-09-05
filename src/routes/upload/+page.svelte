@@ -81,9 +81,11 @@
       while ((matches = regex.exec(text)) !== null) {
         //remove all whitespace
         let courseInfo = matches[0].replace(/\s/g, "");
+        courseInfo = courseInfo.replace(/([A-Za-z]+)(\d+)/, '$1_$2')
+        console.log("Found course:", courseInfo);
 
         //if it has an X, it is a elective
-        if (courseInfo.match(/X\d\d/)) {
+        if (courseInfo.match(/X_\d\d/)) {
           continue;
         }
 

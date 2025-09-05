@@ -1,4 +1,6 @@
 import { env } from "$env/dynamic/public";
+import type { Course } from "./types/course";
+import type { SearchResponse } from "./types/search/searchApiResponse";
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 const PUBLIC_SEARCH_API_URL = env.PUBLIC_SEARCH_API_URL;
@@ -23,26 +25,28 @@ export async function search(query: string): Promise<Response> {
 
 export async function getCourse(courseCode: string) {
   try {
-    //split course subject and number
-    courseCode = courseCode.replace(/([A-Z]+)(\d{3})(.?)/, "$1 $2");
-
-    //seperate course info
-    let section = courseCode.split(" ")[0];
-    let number = parseInt(courseCode.split(" ")[1]);
-
-    //get the section data
-    const response = await apiFetch(`/courses/${section}.json`);
-    let subjectCourses = await response.json();
-
-    //get the specific course
-    for (const courseData of subjectCourses) {
-      if (courseData["course_reference"]["course_number"] == number) {
-        return courseData;
-      }
+    const response = await apiFetch(`/course/${courseCode}.json`);
+    if (response.ok) {
+      let res = await response.json();
+      if (res) return res;
     }
+    console.log("Course not found in main API, searching...");
+    console.log("courseCode:", courseCode);
+    // TODO: This is kinda scuffed but will work for now
+    const searchResponse = await search(courseCode);
+    const data: SearchResponse = await searchResponse.json();
 
-    //no course found
-    throw new Error("Could not find course ):\n" + courseCode);
+    console.log("data:",data);
+    const rawCourses = data.courses;
+    let targetCourse = rawCourses[0];
+    let course = {
+      "course_reference": {
+        "subjects": targetCourse.subjects,
+        "course_number": targetCourse.course_number
+      },
+      "course_title": targetCourse.course_title,
+    }
+    return course;
   } catch (e) {
     console.log(e);
     return null;
