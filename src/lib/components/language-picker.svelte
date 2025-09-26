@@ -2,7 +2,7 @@
   import { Languages, Check } from "@lucide/svelte";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { Button } from "$lib/components/ui/button";
-  import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime.js";
+  import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime";
   import { languages } from "$lib/config/languages.js";
 
   function handleLanguageChange(locale: Locale) {

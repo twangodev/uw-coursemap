@@ -1,4 +1,4 @@
-import type { Locale } from "$lib/paraglide/runtime.js";
+import type { Locale } from "$lib/paraglide/runtime";
 import type { Component } from "svelte";
 import { Us, Cn, Kr } from "svelte-flag-icons";
 

@@ -8,7 +8,7 @@
   import { Menu } from "@lucide/svelte";
   import LanguagePicker from "$lib/components/language-picker.svelte";
   import ModeToggle from "$lib/components/mode-toggle.svelte";
-  import * as m from "$lib/paraglide/messages.js";
+  import * as m from "$lib/paraglide/messages";
 
   let open = $state(false);
 </script>

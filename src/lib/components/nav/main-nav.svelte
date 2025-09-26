@@ -1,7 +1,7 @@
 <script lang="ts">
   import Logo from "$lib/components/logo.svelte";
   import { navigation } from "$lib/config/navigation.ts";
-  import * as m from "$lib/paraglide/messages.js";
+  import * as m from "$lib/paraglide/messages";
 
   import { page } from "$app/state";
 
