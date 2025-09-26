@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "generate": "tsx scripts/generate-version.ts",
-    "i18n:compile": "paraglide-js compile --project ./project.inlang",
+    "i18n:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
     "prepare": "npm run generate && npm run i18n:compile",
     "predev": "npm run generate",
     "dev": "vite dev",
