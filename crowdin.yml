@@ -27,12 +27,12 @@ files: [
     # Source files filter
     # e.g. "/resources/en/*.json"
     #
-    "source": "",
+    "source": "/messages/en.json",
 
     #
     # Translation files filter
     # e.g. "/resources/%two_letters_code%/%original_file_name%"
     #
-    "translation": "",
+    "translation": "/messages/%two_letters_code%.json",
   }
 ]
