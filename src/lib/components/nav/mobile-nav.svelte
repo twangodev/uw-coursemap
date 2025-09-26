@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { siteConfig } from "$lib/config/site.js";
   import * as Sheet from "$lib/components/ui/sheet";
   import { Button } from "$lib/components/ui/button";
   import MobileLink from "$lib/components/nav/mobile-link.svelte";
@@ -9,6 +8,7 @@
   import { Menu } from "@lucide/svelte";
   import LanguagePicker from "$lib/components/language-picker.svelte";
   import ModeToggle from "$lib/components/mode-toggle.svelte";
+  import * as m from "$lib/paraglide/messages.js";
 
   let open = $state(false);
 </script>
@@ -26,7 +26,7 @@
   <Sheet.Content side="left" class="pr-0">
     <MobileLink href="/" class="flex items-center" bind:open>
       <Logo class="mr-4 h-8 w-8" />
-      <span class="font-bold">{siteConfig.name}</span>
+      <span class="font-bold">{m["site.name"]()}</span>
     </MobileLink>
     <ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-1">
       <div class="flex flex-col space-y-3">
