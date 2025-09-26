@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "generate": "tsx scripts/generate-version.ts",
-    "prepare": "npm run generate && paraglide-js compile --project ./project.inlang",
-    "predev": "npm run prepare",
+    "i18n:compile": "paraglide-js compile --project ./project.inlang",
+    "prepare": "npm run generate && npm run i18n:compile",
+    "predev": "npm run generate",
     "dev": "vite dev",
     "dev:host": "vite dev --host",
     "prebuild": "npm run prepare",
@@ -21,8 +22,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "format": "prettier --write .",
-    "crowdin:download": "crowdin download",
-    "crowdin:upload": "crowdin upload sources"
+    "i18n:download": "crowdin download",
+    "i18n:upload": "crowdin upload sources"
   },
   "devDependencies": {
     "@carbon/charts-svelte": "^1.27.0",
