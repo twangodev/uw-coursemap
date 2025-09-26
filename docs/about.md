@@ -17,7 +17,7 @@ title: About
   <a href="https://www.gnu.org/licenses/agpl-3.0">
     <img alt="License" src="https://img.shields.io/github/license/twangodev/uw-coursemap" />
   </a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/uw-coursemap"><img src="https://badges.crowdin.net/uw-coursemap/localized.svg"></a>
+  <a title="Crowdin" target="_blank" href="https://crowdin.uwcourses.com/"><img src="https://badges.crowdin.net/uw-coursemap/localized.svg"></a>
   <img alt="Repo Size" src="https://img.shields.io/github/repo-size/twangodev/uw-coursemap" />
   <a href="https://cheesehacks.webdevuw.com/">
     <img alt="Cheesehacks-2024" src="https://img.shields.io/badge/Cheesehacks-2024-fec732" />
