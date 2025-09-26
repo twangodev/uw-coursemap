@@ -8,6 +8,7 @@
   import MobileNav from "$lib/components/nav/mobile-nav.svelte";
   import ModeToggle from "$lib/components/mode-toggle.svelte";
   import Github from "$lib/components/icons/github.svelte";
+  import LanguagePicker from "$lib/components/language-picker.svelte";
 </script>
 
 <header
@@ -42,6 +43,7 @@
             <span class="sr-only">GitHub</span>
           </div>
         </a>
+        <LanguagePicker />
         <ModeToggle />
       </nav>
     </div>

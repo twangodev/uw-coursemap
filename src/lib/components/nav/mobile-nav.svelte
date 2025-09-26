@@ -7,6 +7,8 @@
   import { navigation } from "$lib/config/navigation.ts";
   import { ScrollArea } from "$lib/components/ui/scroll-area";
   import { Menu } from "@lucide/svelte";
+  import LanguagePicker from "$lib/components/language-picker.svelte";
+  import ModeToggle from "$lib/components/mode-toggle.svelte";
 
   let open = $state(false);
 </script>
@@ -35,6 +37,12 @@
             </MobileLink>
           {/if}
         {/each}
+      </div>
+      <div class="mt-6 border-t pt-4">
+        <div class="flex items-center space-x-2">
+          <LanguagePicker />
+          <ModeToggle />
+        </div>
       </div>
     </ScrollArea>
   </Sheet.Content>
