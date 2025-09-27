@@ -1,6 +1,7 @@
 {
   "site": {
-    "name": "UW Course Map"
+    "name": "UW Course Map",
+    "disclaimer": "UW Course Map 与威斯康星大学麦迪逊分校无关联。"
   },
   "nav": {
     "home": "主页",
@@ -59,7 +60,6 @@
     "hero": {
       "title": "轻松探索课程",
       "description": "以可视化和交互式的方式探索威斯康星大学麦迪逊分校提供的课程。",
-      "disclaimer": "UW Course Map 与威斯康星大学麦迪逊分校无关联。",
       "getStarted": "开始使用"
     },
     "features": {
@@ -103,5 +103,31 @@
     "lastSynced": "{time}同步",
     "serviceStatus": "服务状态",
     "viewServiceStatus": "查看服务状态"
+  },
+  "explorer": {
+    "title": "探索",
+    "description": "从查找威斯康星大学麦迪逊分校提供的课程或项目开始。",
+    "frequentlyVisited": {
+      "title": "常访问页面",
+      "description": "不确定从哪里开始？这里有一些关于威斯康星大学麦迪逊分校提供的课程、教师和项目的有趣和随机的事实。"
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "最简单的课程",
+        "description": "如果您想上简单的课程，这些课程几乎可以保证您得到A。"
+      },
+      "mostRatedInstructors": {
+        "title": "评价最多的教师",
+        "description": "无论评分如何，谁在Rate My Professors上有最多的评价？我们有前100名。"
+      },
+      "universityGraph": {
+        "title": "大学图谱",
+        "description": "UW-Madison所有先修课程关系的可视化。计算量很大，可能需要一段时间才能加载。"
+      },
+      "requestFeature": {
+        "title": "请求其他事实",
+        "description": "如果您有任何有趣事实或功能的想法，请告诉我们！"
+      }
+    }
   }
 }

@@ -14,6 +14,8 @@
   } from "$lib/components/ui/card/index.js";
   import { Award, UserPen, Waypoints, Cookie } from "@lucide/svelte";
   import Github from "$lib/components/icons/github.svelte";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   let { data } = $props();
 
@@ -22,13 +24,12 @@
 
 <ContentWrapper>
   <PageHeader>
-    <PageHeaderHeading>Explorer</PageHeaderHeading>
+    <PageHeaderHeading>{m["explorer.title"]()}</PageHeaderHeading>
     <PageHeaderDescription class="text-muted-foreground">
-      Start by looking up a course or program offered by the University of
-      Wisconsin-Madison.
+      {m["explorer.description"]()}
     </PageHeaderDescription>
     <p class="text-primary text-center text-sm">
-      UW Course Map is not affiliated by the University of Wisconsin-Madison.
+      {m["site.disclaimer"]()}
     </p>
     <div
       class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10"
@@ -38,55 +39,50 @@
   </PageHeader>
   <section class="my-4">
     <div class="my-8">
-      <h2 class="my-2 text-4xl font-bold">Frequently Visited</h2>
+      <h2 class="my-2 text-4xl font-bold">{m["explorer.frequentlyVisited.title"]()}</h2>
       <p class="text-muted-foreground">
-        Not sure where to start? Here are some fun and random facts about the
-        courses, instructors, and programs offered by the University of
-        Wisconsin-Madison.
+        {m["explorer.frequentlyVisited.description"]()}
       </p>
     </div>
     <div
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
-      <a href="/courses/easiest" class="flex h-full">
+      <a href={localizeHref("/courses/easiest")} class="flex h-full">
         <Card>
           <CardHeader class="pb-3">
             <CardTitle class="flex truncate">
               <Award class="mr-2 size-4" />
-              Easiest Courses
+              {m["explorer.cards.easiestCourses.title"]()}
             </CardTitle>
           </CardHeader>
           <CardDescription class="px-6">
-            These classes are pretty much guaranteed to get you an A, if you
-            want to take an easy class.
+            {m["explorer.cards.easiestCourses.description"]()}
           </CardDescription>
         </Card>
       </a>
-      <a href="/instructors/by-rating-count" class="flex h-full">
+      <a href={localizeHref("/instructors/by-rating-count")} class="flex h-full">
         <Card>
           <CardHeader class="pb-3">
             <CardTitle class="flex truncate">
               <UserPen class="mr-2 size-4" />
-              Most Rated Instructors
+              {m["explorer.cards.mostRatedInstructors.title"]()}
             </CardTitle>
           </CardHeader>
           <CardDescription class="px-6">
-            Who has the most ratings on Rate My Professors, regardless of their
-            rating? We've got the top 100.
+            {m["explorer.cards.mostRatedInstructors.description"]()}
           </CardDescription>
         </Card>
       </a>
-      <a href="/explorer/all" class="flex h-full">
+      <a href={localizeHref("/explorer/all")} class="flex h-full">
         <Card>
           <CardHeader class="pb-3">
             <CardTitle class="flex truncate">
               <Waypoints class="mr-2 size-4" />
-              University Graph
+              {m["explorer.cards.universityGraph.title"]()}
             </CardTitle>
           </CardHeader>
           <CardDescription class="px-6">
-            All the prerequisite relations at UW-Madison, visualized. It's
-            computationally expensive, so it may take a while to load.
+            {m["explorer.cards.universityGraph.description"]()}
           </CardDescription>
         </Card>
       </a>
@@ -98,11 +94,11 @@
           <CardHeader class="pb-3">
             <CardTitle class="flex truncate">
               <Github class="mr-2 size-4" />
-              Request Another Fact
+              {m["explorer.cards.requestFeature.title"]()}
             </CardTitle>
           </CardHeader>
           <CardDescription class="px-6">
-            If you have an idea for a fun fact or feature, let us know!
+            {m["explorer.cards.requestFeature.description"]()}
           </CardDescription>
         </Card>
       </a>

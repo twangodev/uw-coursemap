@@ -1,6 +1,7 @@
 {
   "site": {
-    "name": "UW Course Map"
+    "name": "UW Course Map",
+    "disclaimer": "UW Course Map is not affiliated with the University of Wisconsin-Madison."
   },
   "nav": {
     "home": "Home",
@@ -59,7 +60,6 @@
     "hero": {
       "title": "Course exploration, made easy",
       "description": "Explore the courses offered by the UW-Madison in a visual and interactive way.",
-      "disclaimer": "UW Course Map is not affiliated with the University of Wisconsin-Madison.",
       "getStarted": "Get Started"
     },
     "features": {
@@ -103,5 +103,31 @@
     "lastSynced": "Last synced {time}",
     "serviceStatus": "Service Status",
     "viewServiceStatus": "View Service Status"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "description": "Start by looking up a course or program offered by the University of Wisconsin-Madison.",
+    "frequentlyVisited": {
+      "title": "Frequently Visited",
+      "description": "Not sure where to start? Here are some fun and random facts about the courses, instructors, and programs offered by the University of Wisconsin-Madison."
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "Easiest Courses",
+        "description": "These classes are pretty much guaranteed to get you an A, if you want to take an easy class."
+      },
+      "mostRatedInstructors": {
+        "title": "Most Rated Instructors",
+        "description": "Who has the most ratings on Rate My Professors, regardless of their rating? We've got the top 100."
+      },
+      "universityGraph": {
+        "title": "University Graph",
+        "description": "All the prerequisite relations at UW-Madison, visualized. It's computationally expensive, so it may take a while to load."
+      },
+      "requestFeature": {
+        "title": "Request Another Fact",
+        "description": "If you have an idea for a fun fact or feature, let us know!"
+      }
+    }
   }
 }

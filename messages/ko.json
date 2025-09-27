@@ -1,6 +1,7 @@
 {
   "site": {
-    "name": "UW Course Map"
+    "name": "UW Course Map",
+    "disclaimer": "UW Course Map은 위스콘신 대학교 매디슨과 제휴 관계가 아닙니다."
   },
   "nav": {
     "home": "홈",
@@ -59,7 +60,6 @@
     "hero": {
       "title": "쉽고 간편한 강의 탐색",
       "description": "위스콘신 대학교 매디슨의 강의를 시각적이고 상호작용적인 방식으로 탐색하세요.",
-      "disclaimer": "UW Course Map은 위스콘신 대학교 매디슨과 제휴 관계가 아닙니다.",
       "getStarted": "시작하기"
     },
     "features": {
@@ -103,5 +103,31 @@
     "lastSynced": "{time} 동기화됨",
     "serviceStatus": "서비스 상태",
     "viewServiceStatus": "서비스 상태 보기"
+  },
+  "explorer": {
+    "title": "탐색기",
+    "description": "위스콘신 대학교 매디슨에서 제공하는 강좌나 프로그램을 검색해보세요.",
+    "frequentlyVisited": {
+      "title": "자주 방문하는 페이지",
+      "description": "어디서부터 시작해야 할지 모르겠나요? 위스콘신 대학교 매디슨에서 제공하는 강좌, 교수진, 프로그램에 대한 재미있고 무작위한 사실들을 확인해보세요."
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "가장 쉬운 강좌들",
+        "description": "쉬운 수업을 듣고 싶다면 이 수업들은 거의 확실하게 A를 받을 수 있습니다."
+      },
+      "mostRatedInstructors": {
+        "title": "평가가 가장 많은 교수진",
+        "description": "평점과 상관없이 Rate My Professors에서 가장 많은 평가를 받은 교수는 누구일까요? 상위 100명을 확인하세요."
+      },
+      "universityGraph": {
+        "title": "대학 그래프",
+        "description": "UW-Madison의 모든 선수과목 관계를 시각화했습니다. 계산량이 많아 로딩에 시간이 걸릴 수 있습니다."
+      },
+      "requestFeature": {
+        "title": "다른 사실 요청하기",
+        "description": "재미있는 사실이나 기능에 대한 아이디어가 있으시면 알려주세요!"
+      }
+    }
   }
 }

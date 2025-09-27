@@ -38,7 +38,7 @@
             {m["home.hero.description"]()}
           </PageHeaderDescription>
           <p class="text-primary mt-3 text-center text-sm">
-            {m["home.hero.disclaimer"]()}
+            {m["site.disclaimer"]()}
           </p>
           <div class="py-4 md:pb-10">
             <Button href={localizeHref("/explorer")} class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">{m["home.hero.getStarted"]()}</Button>
