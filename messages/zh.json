@@ -129,5 +129,70 @@
         "description": "如果您有任何有趣事实或功能的想法，请告诉我们！"
       }
     }
+  },
+  "course": {
+    "tabs": {
+      "overview": "概览",
+      "schedule": "课程安排",
+      "prerequisites": "先修课程图",
+      "instructors": "教师",
+      "trends": "趋势"
+    },
+    "details": {
+      "courseDescription": "课程描述",
+      "prerequisites": "先修课程",
+      "satisfies": "满足要求",
+      "credits": "学分",
+      "offered": "开课时间",
+      "notReported": "未报告",
+      "creditsRange": "{min} 至 {max}"
+    },
+    "overview": {
+      "instructorsTitle": "教师 ({term})",
+      "sortedByRatings": "按评分排序，数据来自",
+      "rateMyProfessors": "Rate My Professors",
+      "showingInstructors": "显示 {total} 位教师中的 {shown} 位。",
+      "similarCourses": "相似课程",
+      "noDataAvailable": "暂无数据"
+    },
+    "dataCards": {
+      "gradePointAverage": "平均绩点",
+      "aRate": "A率",
+      "completionRate": "完成率",
+      "classSize": "班级规模",
+      "historical": "历史数据",
+      "notReported": "未报告",
+      "from": "相比{keyword}",
+      "noChange": "与{keyword}相比无变化",
+      "couldNotCalculate": "无法计算变化"
+    },
+    "schedule": {
+      "timezoneInfo": "所有时间均显示为美国/芝加哥时区。",
+      "noScheduleInfo": "该课程暂无课程安排信息。",
+      "loadingCalendar": "正在加载日历...",
+      "exportToCalendar": "导出到您的日历",
+      "exportTitle": "导出 {course} 课程安排",
+      "exportDescription": "选择您要导出的部分。该文件可用于Google日历、Apple日历、Outlook和其他日历应用。",
+      "meetings": "{count} 次课程",
+      "noInstructor": "无教师",
+      "cancel": "取消",
+      "downloadCalendarFile": "下载日历文件"
+    },
+    "instructors": {
+      "title": "教师",
+      "noInstructorsFound": "未找到教师。",
+      "showMore": "显示更多 ({count})",
+      "or": "或",
+      "showAll": "显示全部"
+    },
+    "prerequisites": {
+      "mapTitle": "课程先修图",
+      "mapDescription": "课程先修和相关课程的可视化展示。",
+      "mapNote": "注意：我们并未显示所有可能的先修关系，仅显示与该课程直接相关的部分。",
+      "viewOnDepartmentGraph": "在系部图中查看"
+    },
+    "trends": {
+      "noDataAvailable": "暂无数据"
+    }
   }
 }

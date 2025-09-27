@@ -2,6 +2,7 @@
   import { MoveRight, TrendingDown, TrendingUp } from "@lucide/svelte";
   import { cn } from "$lib/utils.ts";
   import NumberFlow from "@number-flow/svelte";
+  import { m } from "$lib/paraglide/messages";
 
   const calculateColorFromChange = (points: number | null) => {
     if (points === null || points === 0) {
@@ -52,12 +53,12 @@
     {#if points}
       <NumberFlow value={points} suffix=" " format={percentFormat} />
       <span class="line-clamp-1 break-all overflow-ellipsis"
-        >from {comparisonKeyword}</span
+        >{m["course.dataCards.from"]({ keyword: comparisonKeyword })}</span
       >
     {:else}
-      No change from {comparisonKeyword}
+      {m["course.dataCards.noChange"]({ keyword: comparisonKeyword })}
     {/if}
   {:else}
-    Could not calculate change
+    {m["course.dataCards.couldNotCalculate"]()}
   {/if}
 </p>

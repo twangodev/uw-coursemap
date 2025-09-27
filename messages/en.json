@@ -129,5 +129,70 @@
         "description": "If you have an idea for a fun fact or feature, let us know!"
       }
     }
+  },
+  "course": {
+    "tabs": {
+      "overview": "Overview",
+      "schedule": "Schedule",
+      "prerequisites": "Prerequisites Map",
+      "instructors": "Instructors",
+      "trends": "Trends"
+    },
+    "details": {
+      "courseDescription": "Course Description",
+      "prerequisites": "Prerequisites",
+      "satisfies": "Satisfies",
+      "credits": "Credits",
+      "offered": "Offered",
+      "notReported": "Not Reported",
+      "creditsRange": "{min} to {max}"
+    },
+    "overview": {
+      "instructorsTitle": "Instructors ({term})",
+      "sortedByRatings": "Sorted by ratings from",
+      "rateMyProfessors": "Rate My Professors",
+      "showingInstructors": "Showing {shown} of {total} instructors.",
+      "similarCourses": "Similar Courses",
+      "noDataAvailable": "No data available"
+    },
+    "dataCards": {
+      "gradePointAverage": "Grade Point Average",
+      "aRate": "A Rate",
+      "completionRate": "Completion Rate",
+      "classSize": "Class Size",
+      "historical": "Historical",
+      "notReported": "Not Reported",
+      "from": "from {keyword}",
+      "noChange": "No change from {keyword}",
+      "couldNotCalculate": "Could not calculate change"
+    },
+    "schedule": {
+      "timezoneInfo": "All times shown in America/Chicago timezone.",
+      "noScheduleInfo": "No schedule information available for this course.",
+      "loadingCalendar": "Loading calendar...",
+      "exportToCalendar": "Export to your calendar",
+      "exportTitle": "Export {course} Schedule",
+      "exportDescription": "Select which sections you want to export. The file will work with Google Calendar, Apple Calendar, Outlook, and other calendar apps.",
+      "meetings": "{count} meetings",
+      "noInstructor": "No Instructor",
+      "cancel": "Cancel",
+      "downloadCalendarFile": "Download Calendar File"
+    },
+    "instructors": {
+      "title": "Instructors",
+      "noInstructorsFound": "No instructors found.",
+      "showMore": "Show more ({count})",
+      "or": "or",
+      "showAll": "Show all"
+    },
+    "prerequisites": {
+      "mapTitle": "Course Prerequisites Map",
+      "mapDescription": "Visual representation of course prerequisites and related courses.",
+      "mapNote": "Note: We aren't showing all possible requisite relationships, only those that are directly relevant to the course.",
+      "viewOnDepartmentGraph": "View on Department Graph"
+    },
+    "trends": {
+      "noDataAvailable": "No data available"
+    }
   }
 }

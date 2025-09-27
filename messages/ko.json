@@ -129,5 +129,70 @@
         "description": "재미있는 사실이나 기능에 대한 아이디어가 있으시면 알려주세요!"
       }
     }
+  },
+  "course": {
+    "tabs": {
+      "overview": "개요",
+      "schedule": "일정",
+      "prerequisites": "선수과목 맵",
+      "instructors": "강사",
+      "trends": "동향"
+    },
+    "details": {
+      "courseDescription": "과목 설명",
+      "prerequisites": "선수과목",
+      "satisfies": "충족 요건",
+      "credits": "학점",
+      "offered": "개설 시기",
+      "notReported": "미보고",
+      "creditsRange": "{min} ~ {max}"
+    },
+    "overview": {
+      "instructorsTitle": "강사 ({term})",
+      "sortedByRatings": "다음 사이트의 평점순으로 정렬",
+      "rateMyProfessors": "Rate My Professors",
+      "showingInstructors": "총 {total}명 중 {shown}명의 강사 표시.",
+      "similarCourses": "유사 과목",
+      "noDataAvailable": "데이터 없음"
+    },
+    "dataCards": {
+      "gradePointAverage": "평점",
+      "aRate": "A 비율",
+      "completionRate": "수료율",
+      "classSize": "학급 규모",
+      "historical": "과거 데이터",
+      "notReported": "미보고",
+      "from": "{keyword} 대비",
+      "noChange": "{keyword} 대비 변화 없음",
+      "couldNotCalculate": "변화 계산 불가"
+    },
+    "schedule": {
+      "timezoneInfo": "모든 시간은 미국/시카고 시간대로 표시됩니다.",
+      "noScheduleInfo": "이 과목의 일정 정보가 없습니다.",
+      "loadingCalendar": "캘린더 로딩 중...",
+      "exportToCalendar": "캘린더로 내보내기",
+      "exportTitle": "{course} 일정 내보내기",
+      "exportDescription": "내보내기할 섹션을 선택하세요. 이 파일은 Google 캘린더, Apple 캘린더, Outlook 및 기타 캘린더 앱에서 사용할 수 있습니다.",
+      "meetings": "{count}회 수업",
+      "noInstructor": "강사 없음",
+      "cancel": "취소",
+      "downloadCalendarFile": "캘린더 파일 다운로드"
+    },
+    "instructors": {
+      "title": "강사",
+      "noInstructorsFound": "강사를 찾을 수 없습니다.",
+      "showMore": "더 보기 ({count})",
+      "or": "또는",
+      "showAll": "전체 보기"
+    },
+    "prerequisites": {
+      "mapTitle": "과목 선수과목 맵",
+      "mapDescription": "과목 선수과목 및 관련 과목의 시각적 표현.",
+      "mapNote": "참고: 가능한 모든 선수과목 관계를 표시하지 않고, 이 과목과 직접적으로 관련된 부분만 표시합니다.",
+      "viewOnDepartmentGraph": "학과 그래프에서 보기"
+    },
+    "trends": {
+      "noDataAvailable": "데이터 없음"
+    }
   }
 }
