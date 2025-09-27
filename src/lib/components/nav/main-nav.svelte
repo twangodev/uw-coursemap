@@ -21,10 +21,9 @@
   </a>
   <nav class="mx-6 flex items-center gap-6 text-sm">
     {#each navigation as item}
-      {@const localizedHref = item.href.startsWith('http') ? item.href : localizeHref(item.href)}
       <a
-        href={localizedHref}
-        class={`transition-colors ${currentPath === localizedHref?.toLowerCase() ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+        href={item.href}
+        class={`transition-colors ${currentPath === item.href?.toLowerCase() ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
       >
         {item.getTitle()}
       </a>
