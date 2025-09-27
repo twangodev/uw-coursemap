@@ -5,6 +5,7 @@
   import { getRandomCourses, search } from "$lib/api";
   import { writable } from "svelte/store";
   import CustomSearchInput from "$lib/components/custom-search-input.svelte";
+  import { m } from "$lib/paraglide/messages";
   import {
     searchResponseToIdentifier,
     type SearchResponse,
@@ -55,11 +56,11 @@
   function updateSearchOptions(options: SearchBarOptions) {
     // Prevent removing all options
     if (allOptionsAreDisabled(options)) {
-      toast.message("At least one option must be selected", {
-        description: "Please select at least one search option.",
+      toast.message(m["search.validation.atLeastOneOption"](), {
+        description: m["search.validation.selectOneOption"](),
         duration: 3000,
         cancel: {
-          label: "Hide",
+          label: m["search.tips.hideButton"](),
           onClick: () => {
             toast.dismiss();
           },
@@ -92,10 +93,10 @@
   let placeholderString = $derived(
     (() => {
       let options = [];
-      if ($searchOptions.showCourses) options.push("courses");
-      if ($searchOptions.showDepartments) options.push("departments");
-      if ($searchOptions.showInstructors) options.push("instructors");
-      return `Search ${options.join(", ")}...`;
+      if ($searchOptions.showCourses) options.push(m["search.placeholder.courses"]());
+      if ($searchOptions.showDepartments) options.push(m["search.placeholder.departments"]());
+      if ($searchOptions.showInstructors) options.push(m["search.placeholder.instructors"]());
+      return m["search.placeholder.full"]({ options: options.join(", ") });
     })(),
   );
 
@@ -126,11 +127,11 @@
 
   $effect(() => {
     if ($searchModalOpen && !fake) {
-      toast.message("Tip", {
-        description: "Hold shift to open course graph directly.",
+      toast.message(m["search.tips.tipTitle"](), {
+        description: m["search.tips.shiftToOpenGraph"](),
         duration: 3000,
         cancel: {
-          label: "Hide",
+          label: m["search.tips.hideButton"](),
           onClick: () => {
             toast.dismiss();
           },
@@ -222,7 +223,7 @@
   function getInstructorDetail(suggestion: UnifiedSearchResponse) {
     if (suggestion.type === "instructor") {
       const instructorSearch = suggestion.data as InstructorSearchResult;
-      return `${instructorSearch.position ?? "Position Unknown"} • ${instructorSearch.department ?? "Department Unknown"}`;
+      return `${instructorSearch.position ?? m["search.data.positionUnknown"]()} • ${instructorSearch.department ?? m["search.data.departmentUnknown"]()}`;
     }
     return "";
   }
@@ -264,18 +265,18 @@
         class="shrink-0 rounded-r-none border-r-0"
       >
         <Filter class="h-4 w-4" />
-        <span class="sr-only">Filter search</span>
+        <span class="sr-only">{m["search.filter.buttonLabel"]()}</span>
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="start" class="w-48">
-      <DropdownMenuLabel>Filter Search</DropdownMenuLabel>
+      <DropdownMenuLabel>{m["search.filter.dropdownLabel"]()}</DropdownMenuLabel>
       <DropdownMenuSeparator />
       {#each filterOptions as option}
         <DropdownMenuCheckboxItem
           checked={$searchOptions[option.id]}
           onCheckedChange={(checked) => handleOptionToggle(option.id, checked)}
         >
-          {option.label}
+          {m[`search.filter.options.${option.id === "showCourses" ? "courses" : option.id === "showDepartments" ? "departments" : "instructors"}`]()}
         </DropdownMenuCheckboxItem>
       {/each}
     </DropdownMenuContent>
@@ -293,7 +294,7 @@
     }}
   >
     <span class="hidden lg:inline-flex">{placeholderString}</span>
-    <span class="inline-flex lg:hidden">Search...</span>
+    <span class="inline-flex lg:hidden">{m["search.placeholder.short"]()}</span>
     <kbd
       class="bg-muted pointer-events-none absolute top-2 right-1.5 hidden h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none sm:flex"
     >
@@ -314,10 +315,10 @@
         {#if $searchOptions.showCourses}
           {#await randomCourses}
             <div class="py-6 text-center text-sm text-muted-foreground">
-              Loading suggestions...
+              {m["search.states.loading"]()}
             </div>
           {:then randomCourses}
-            <CommandGroup heading="Random Courses">
+            <CommandGroup heading={m["search.states.randomCoursesHeading"]()}>
               {#each randomCourses as suggestion}
                 <CommandItem
                   onSelect={() => {
@@ -339,16 +340,16 @@
             </CommandGroup>
           {:catch error}
             <div class="py-6 text-center text-sm">
-              Error loading random courses.
+              {m["search.states.error"]()}
             </div>
           {/await}
         {:else}
           <div class="py-6 text-center text-sm text-muted-foreground">
-            Type to search...
+            {m["search.states.typeToSearch"]()}
           </div>
         {/if}
       {:else if $results === 'loading'}
-        <CommandGroup heading="Searching...">
+        <CommandGroup heading={m["search.states.searching"]()}>
           {#each [1, 2, 3, 4] as i}
             <div class="relative flex cursor-default items-center gap-2 rounded-sm px-2 py-3 text-sm select-none">
               <Skeleton class="mr-3 h-4 w-4 shrink-0" />
@@ -372,10 +373,10 @@
       {:else if Array.isArray($results) && $results.length === 0}
         <!-- Empty results -->
         <div class="py-6 text-center text-sm text-muted-foreground">
-          No results found for "{searchQuery}"
+          {m["search.states.noResults"]({ query: searchQuery })}
         </div>
       {:else if Array.isArray($results)}
-        <CommandGroup heading="Results">
+        <CommandGroup heading={m["search.states.resultsHeading"]()}>
           {#each $results as suggestion}
             <CommandItem onSelect={() => handleSuggestionSelect(suggestion)}>
               {#if suggestion.type === "course"}

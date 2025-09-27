@@ -9,5 +9,45 @@
     "about": "关于",
     "toggleMenu": "切换菜单",
     "github": "GitHub"
+  },
+  "search": {
+    "placeholder": {
+      "full": "搜索{options}...",
+      "short": "搜索...",
+      "courses": "课程",
+      "departments": "院系",
+      "instructors": "教授"
+    },
+    "filter": {
+      "buttonLabel": "筛选搜索",
+      "dropdownLabel": "筛选搜索",
+      "options": {
+        "courses": "课程",
+        "departments": "院系",
+        "instructors": "教授"
+      }
+    },
+    "states": {
+      "loading": "加载推荐中...",
+      "searching": "搜索中...",
+      "typeToSearch": "输入以搜索...",
+      "noResults": "未找到与\"{query}\"相关的结果",
+      "error": "加载随机课程时出错。",
+      "resultsHeading": "搜索结果",
+      "randomCoursesHeading": "随机课程"
+    },
+    "tips": {
+      "shiftToOpenGraph": "按住 Shift 键点击可直接打开课程图表。",
+      "hideButton": "隐藏",
+      "tipTitle": "提示"
+    },
+    "validation": {
+      "atLeastOneOption": "必须选择至少一个选项",
+      "selectOneOption": "请选择至少一个搜索选项。"
+    },
+    "data": {
+      "positionUnknown": "职位未知",
+      "departmentUnknown": "院系未知"
+    }
   }
 }
