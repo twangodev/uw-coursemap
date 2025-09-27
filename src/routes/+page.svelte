@@ -11,6 +11,7 @@
   import CallToAction from "$lib/components/call-to-action.svelte";
   import { inView } from "$lib/actions/in-view";
   import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 </script>
 
 <div class="w-full">
@@ -40,7 +41,7 @@
             {m["home.hero.disclaimer"]()}
           </p>
           <div class="py-4 md:pb-10">
-            <Button href="/explorer" class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">{m["home.hero.getStarted"]()}</Button>
+            <Button href={localizeHref("/explorer")} class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">{m["home.hero.getStarted"]()}</Button>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
   import Logo from "$lib/components/logo.svelte";
   import { navigation } from "$lib/config/navigation.ts";
   import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   import { page } from "$app/state";
 
@@ -10,7 +11,7 @@
 
 <div class="mr-4 hidden md:flex">
   <a
-    href="/"
+    href={localizeHref("/")}
     class="flex items-center gap-4 text-lg font-semibold whitespace-nowrap md:text-lg"
   >
     <Logo />
@@ -20,9 +21,10 @@
   </a>
   <nav class="mx-6 flex items-center gap-6 text-sm">
     {#each navigation as item}
+      {@const localizedHref = item.href.startsWith('http') ? item.href : localizeHref(item.href)}
       <a
-        href={item.href}
-        class={`transition-colors ${currentPath === item.href?.toLowerCase() ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+        href={localizedHref}
+        class={`transition-colors ${currentPath === localizedHref?.toLowerCase() ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
       >
         {item.getTitle()}
       </a>
