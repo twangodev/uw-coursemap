@@ -10,6 +10,7 @@
     CardHeader,
     CardTitle,
   } from "$lib/components/ui/card/index.js";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   interface Props {
     course: Course;
@@ -18,7 +19,7 @@
   let { course }: Props = $props();
 </script>
 
-<a href="/courses/{sanitizeCourseToReferenceString(course.course_reference)}">
+<a href={localizeHref(`/courses/${sanitizeCourseToReferenceString(course.course_reference)}`)}>
   <Card class="w-full max-w-64 overflow-hidden">
     <CardHeader class="pb-0">
       <CardTitle class="truncate">{course.course_title}</CardTitle>

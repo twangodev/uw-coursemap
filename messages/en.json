@@ -193,6 +193,91 @@
     },
     "trends": {
       "noDataAvailable": "No data available"
+    },
+    "drawer": {
+      "viewCoursePage": "View Course Page"
+    }
+  },
+  "cytoscape": {
+    "toast": {
+      "showingCourses": "Showing all {subject} courses",
+      "hide": "Hide"
+    },
+    "progress": {
+      "loadingGraph": "Loading Graph...",
+      "fetchingData": "Fetching Graph Data...",
+      "stylingGraph": "Styling Graph...",
+      "loadingLayout": "Loading Layout...",
+      "loadingTooltips": "Loading Tooltips..."
+    },
+    "controls": {
+      "showCourseTitles": "Show Course Titles",
+      "showCourseCodes": "Show Course Codes",
+      "lockElements": "Lock Elements",
+      "unlockElements": "Unlock Elements",
+      "orderByPrerequisites": "Order Elements By Prerequisites",
+      "groupByDepartment": "Group Elements By Department",
+      "zoomIn": "Zoom In",
+      "zoomOut": "Zoom Out",
+      "fullscreen": "Fullscreen",
+      "help": "Help"
+    },
+    "help": {
+      "title": "Prerequisite Explorer Help",
+      "description": "Learn how to navigate and interact with the course dependency graph",
+      "quickStart": {
+        "title": "Quick Start",
+        "findCourses": "Find courses",
+        "findCoursesDesc": "Search with Ctrl+K or explore visually",
+        "viewPrerequisites": "View prerequisites",
+        "viewPrerequisitesDesc": "Hover to see dependency chains",
+        "pinPaths": "Pin paths",
+        "pinPathsDesc": "Double-tap to keep highlighted"
+      },
+      "courseColors": {
+        "title": "Course Colors",
+        "completed": "Completed",
+        "completedDesc": "Courses you've taken",
+        "available": "Available",
+        "availableDesc": "Courses with no prerequisites",
+        "locked": "Locked",
+        "lockedDesc": "Courses with unmet prerequisites"
+      },
+      "navigation": {
+        "title": "Navigation",
+        "controls": "Controls",
+        "pan": "Pan:",
+        "panDesc": "Drag empty space",
+        "zoom": "Zoom:",
+        "zoomDesc": "Scroll or pinch",
+        "select": "Select:",
+        "selectDesc": "{action} course",
+        "pin": "Pin:",
+        "pinDesc": "Double-tap course",
+        "click": "Click",
+        "tap": "Tap"
+      },
+      "graphControls": {
+        "title": "Graph Controls",
+        "toggleLabels": "Toggle Labels",
+        "toggleLabelsDesc": "Course codes ↔ titles",
+        "lockUnlock": "Lock/Unlock",
+        "lockUnlockDesc": "Drag nodes manually",
+        "layoutMode": "Layout Mode",
+        "layoutModeDesc": "Groups ↔ layers"
+      },
+      "proTips": {
+        "title": "Pro Tips",
+        "uploadTranscript": "Upload Transcript",
+        "uploadTranscriptDesc": "See completed courses in green",
+        "quickSearch": "Quick Search",
+        "quickSearchDesc": "Ctrl+K finds any course instantly",
+        "optimizedPaths": "Optimized Paths",
+        "optimizedPathsDesc": "Shows simplest prerequisites only",
+        "departmentView": "Department View",
+        "departmentViewDesc": "Group by department in layout"
+      },
+      "gotIt": "Got it"
     }
   }
 }

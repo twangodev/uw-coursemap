@@ -27,6 +27,8 @@
     DrawerHeader,
   } from "$lib/components/ui/drawer/index.js";
   import ClampedParagraph from "../clamped-paragraph.svelte";
+  import { localizeHref } from "$lib/paraglide/runtime";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     cy: cytoscape.Core | undefined;
@@ -166,12 +168,12 @@
     {#if selectedCourse}
       <DrawerFooter>
         <Button
-          href="/courses/{sanitizeCourseToReferenceString(
+          href={localizeHref(`/courses/${sanitizeCourseToReferenceString(
             selectedCourse.course_reference,
-          )}"
+          )}`)}
           target="_blank"
         >
-          View Course Page
+          {m["course.drawer.viewCoursePage"]()}
           <ArrowUpRight class="h-4 w-4" />
         </Button>
       </DrawerFooter>

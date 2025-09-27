@@ -193,6 +193,91 @@
     },
     "trends": {
       "noDataAvailable": "暂无数据"
+    },
+    "drawer": {
+      "viewCoursePage": "查看课程页面"
+    }
+  },
+  "cytoscape": {
+    "toast": {
+      "showingCourses": "显示所有 {subject} 课程",
+      "hide": "隐藏"
+    },
+    "progress": {
+      "loadingGraph": "加载图表中...",
+      "fetchingData": "获取图表数据中...",
+      "stylingGraph": "样式化图表中...",
+      "loadingLayout": "加载布局中...",
+      "loadingTooltips": "加载提示中..."
+    },
+    "controls": {
+      "showCourseTitles": "显示课程名称",
+      "showCourseCodes": "显示课程代码",
+      "lockElements": "锁定元素",
+      "unlockElements": "解锁元素",
+      "orderByPrerequisites": "按先修课程排序",
+      "groupByDepartment": "按院系分组",
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "fullscreen": "全屏",
+      "help": "帮助"
+    },
+    "help": {
+      "title": "先修课程浏览器帮助",
+      "description": "了解如何导航和与课程依赖图交互",
+      "quickStart": {
+        "title": "快速开始",
+        "findCourses": "查找课程",
+        "findCoursesDesc": "使用 Ctrl+K 搜索或视觉探索",
+        "viewPrerequisites": "查看先修课程",
+        "viewPrerequisitesDesc": "悬停查看依赖链",
+        "pinPaths": "固定路径",
+        "pinPathsDesc": "双击保持高亮"
+      },
+      "courseColors": {
+        "title": "课程颜色",
+        "completed": "已完成",
+        "completedDesc": "你已修过的课程",
+        "available": "可选",
+        "availableDesc": "无先修要求的课程",
+        "locked": "锁定",
+        "lockedDesc": "未满足先修要求的课程"
+      },
+      "navigation": {
+        "title": "导航",
+        "controls": "控制",
+        "pan": "平移：",
+        "panDesc": "拖拽空白区域",
+        "zoom": "缩放：",
+        "zoomDesc": "滚动或捏合",
+        "select": "选择：",
+        "selectDesc": "{action}课程",
+        "pin": "固定：",
+        "pinDesc": "双击课程",
+        "click": "点击",
+        "tap": "轻触"
+      },
+      "graphControls": {
+        "title": "图表控制",
+        "toggleLabels": "切换标签",
+        "toggleLabelsDesc": "课程代码 ↔ 名称",
+        "lockUnlock": "锁定/解锁",
+        "lockUnlockDesc": "手动拖动节点",
+        "layoutMode": "布局模式",
+        "layoutModeDesc": "分组 ↔ 分层"
+      },
+      "proTips": {
+        "title": "专业提示",
+        "uploadTranscript": "上传成绩单",
+        "uploadTranscriptDesc": "已完成课程显示为绿色",
+        "quickSearch": "快速搜索",
+        "quickSearchDesc": "Ctrl+K 即可快速找到任何课程",
+        "optimizedPaths": "优化路径",
+        "optimizedPathsDesc": "仅显示最简单的先修课程",
+        "departmentView": "院系视图",
+        "departmentViewDesc": "按院系分组布局"
+      },
+      "gotIt": "知道了"
     }
   }
 }

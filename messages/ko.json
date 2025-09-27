@@ -193,6 +193,91 @@
     },
     "trends": {
       "noDataAvailable": "데이터 없음"
+    },
+    "drawer": {
+      "viewCoursePage": "과목 페이지 보기"
+    }
+  },
+  "cytoscape": {
+    "toast": {
+      "showingCourses": "모든 {subject} 과목 표시",
+      "hide": "숨기기"
+    },
+    "progress": {
+      "loadingGraph": "그래프 로딩 중...",
+      "fetchingData": "그래프 데이터 가져오는 중...",
+      "stylingGraph": "그래프 스타일링 중...",
+      "loadingLayout": "레이아웃 로딩 중...",
+      "loadingTooltips": "툴팁 로딩 중..."
+    },
+    "controls": {
+      "showCourseTitles": "과목명 표시",
+      "showCourseCodes": "과목 코드 표시",
+      "lockElements": "요소 잠금",
+      "unlockElements": "요소 잠금 해제",
+      "orderByPrerequisites": "선수과목별 정렬",
+      "groupByDepartment": "학과별 그룹화",
+      "zoomIn": "확대",
+      "zoomOut": "축소",
+      "fullscreen": "전체 화면",
+      "help": "도움말"
+    },
+    "help": {
+      "title": "선수과목 탐색기 도움말",
+      "description": "과목 의존성 그래프 탐색 및 상호작용 방법",
+      "quickStart": {
+        "title": "빠른 시작",
+        "findCourses": "과목 찾기",
+        "findCoursesDesc": "Ctrl+K로 검색 또는 시각적 탐색",
+        "viewPrerequisites": "선수과목 보기",
+        "viewPrerequisitesDesc": "마우스 호버로 의존성 체인 확인",
+        "pinPaths": "경로 고정",
+        "pinPathsDesc": "더블 탭으로 강조 유지"
+      },
+      "courseColors": {
+        "title": "과목 색상",
+        "completed": "완료",
+        "completedDesc": "수강한 과목",
+        "available": "수강 가능",
+        "availableDesc": "선수과목 없는 과목",
+        "locked": "잠김",
+        "lockedDesc": "선수과목 미충족 과목"
+      },
+      "navigation": {
+        "title": "내비게이션",
+        "controls": "컨트롤",
+        "pan": "이동:",
+        "panDesc": "빈 공간 드래그",
+        "zoom": "확대/축소:",
+        "zoomDesc": "스크롤 또는 핀치",
+        "select": "선택:",
+        "selectDesc": "과목 {action}",
+        "pin": "고정:",
+        "pinDesc": "과목 더블 탭",
+        "click": "클릭",
+        "tap": "탭"
+      },
+      "graphControls": {
+        "title": "그래프 컨트롤",
+        "toggleLabels": "레이블 토글",
+        "toggleLabelsDesc": "과목 코드 ↔ 제목",
+        "lockUnlock": "잠금/잠금 해제",
+        "lockUnlockDesc": "노드 수동 드래그",
+        "layoutMode": "레이아웃 모드",
+        "layoutModeDesc": "그룹 ↔ 레이어"
+      },
+      "proTips": {
+        "title": "전문가 팁",
+        "uploadTranscript": "성적표 업로드",
+        "uploadTranscriptDesc": "완료된 과목을 녹색으로 표시",
+        "quickSearch": "빠른 검색",
+        "quickSearchDesc": "Ctrl+K로 모든 과목 즉시 찾기",
+        "optimizedPaths": "최적화된 경로",
+        "optimizedPathsDesc": "가장 단순한 선수과목만 표시",
+        "departmentView": "학과별 보기",
+        "departmentViewDesc": "학과별로 그룹화된 레이아웃"
+      },
+      "gotIt": "알겠습니다"
     }
   }
 }
