@@ -1,20 +1,21 @@
 import type { NavItem } from "$lib/types/nav.ts";
+import { m } from "$lib/paraglide/messages";
 
 export const navigation: NavItem[] = [
   {
-    title: "Home",
+    getTitle: m["nav.home"],
     href: "/",
   },
   {
-    title: "Explorer",
+    getTitle: m["nav.explorer"],
     href: "/explorer",
   },
   {
-    title: "Upload",
+    getTitle: m["nav.upload"],
     href: "/upload",
   },
   {
-    title: "About",
+    getTitle: m["nav.about"],
     href: "https://docs.uwcourses.com/about",
   },
 ];

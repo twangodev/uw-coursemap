@@ -8,7 +8,7 @@
   import { Menu } from "@lucide/svelte";
   import LanguagePicker from "$lib/components/language-picker.svelte";
   import ModeToggle from "$lib/components/mode-toggle.svelte";
-  import * as m from "$lib/paraglide/messages";
+  import { m } from "$lib/paraglide/messages";
 
   let open = $state(false);
 </script>
@@ -20,7 +20,7 @@
       class="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
     >
       <Menu />
-      <span class="sr-only">Toggle Menu</span>
+      <span class="sr-only">{m["nav.toggleMenu"]()}</span>
     </Button>
   </Sheet.Trigger>
   <Sheet.Content side="left" class="pr-0">
@@ -33,7 +33,7 @@
         {#each navigation as navItem}
           {#if navItem.href}
             <MobileLink href={navItem.href} bind:open class="text-foreground">
-              {navItem.title}
+              {navItem.getTitle()}
             </MobileLink>
           {/if}
         {/each}

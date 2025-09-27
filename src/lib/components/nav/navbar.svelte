@@ -9,6 +9,7 @@
   import ModeToggle from "$lib/components/mode-toggle.svelte";
   import Github from "$lib/components/icons/github.svelte";
   import LanguagePicker from "$lib/components/language-picker.svelte";
+  import { m } from "$lib/paraglide/messages";
 </script>
 
 <header
@@ -40,7 +41,7 @@
             )}
           >
             <Github class="h-5 w-5" />
-            <span class="sr-only">GitHub</span>
+            <span class="sr-only">{m["nav.github"]()}</span>
           </div>
         </a>
         <LanguagePicker />

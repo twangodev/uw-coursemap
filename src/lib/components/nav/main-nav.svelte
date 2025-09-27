@@ -1,7 +1,7 @@
 <script lang="ts">
   import Logo from "$lib/components/logo.svelte";
   import { navigation } from "$lib/config/navigation.ts";
-  import * as m from "$lib/paraglide/messages";
+  import { m } from "$lib/paraglide/messages";
 
   import { page } from "$app/state";
 
@@ -24,7 +24,7 @@
         href={item.href}
         class={`transition-colors ${currentPath === item.href?.toLowerCase() ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
       >
-        {item.title}
+        {item.getTitle()}
       </a>
     {/each}
   </nav>
