@@ -3,6 +3,7 @@ import type {
     InstructorSearchResponse,
     SubjectSearchResponse
 } from "$lib/types/search/searchApiResponse.ts";
+import { localizeHref } from "$lib/paraglide/runtime";
 
 type HrefResult<T> = T & {
     href: string,
@@ -25,9 +26,9 @@ export type UnifiedSearchResponse = {
 export function generateCourseSearchResults(courses: CourseSearchResponse[]): CourseSearchResult[] {
     return courses.map(course => ({
         ...course,
-        href: `/courses/${course.course_id}`,
+        href: localizeHref(`/courses/${course.course_id}`),
         explorerHref: Object.fromEntries(
-            course.subjects.map(subject => [subject, `/explorer/${subject}?focus=${course.course_id}`])
+            course.subjects.map(subject => [subject, localizeHref(`/explorer/${subject}?focus=${course.course_id}`)])
         )
     }));
 }
@@ -35,14 +36,14 @@ export function generateCourseSearchResults(courses: CourseSearchResponse[]): Co
 export function generateSubjectSearchResults(subjects: SubjectSearchResponse[]): SubjectSearchResult[] {
     return subjects.map(subject => ({
         ...subject,
-        href: `/explorer/${subject.subject_id}`
+        href: localizeHref(`/explorer/${subject.subject_id}`)
     }));
 }
 
 export function generateInstructorSearchResults(instructors: InstructorSearchResponse[]): InstructorSearchResult[] {
     return instructors.map(instructor => ({
         ...instructor,
-        href: `/instructors/${instructor.instructor_id}`
+        href: localizeHref(`/instructors/${instructor.instructor_id}`)
     }));
 }
 
