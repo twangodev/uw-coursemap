@@ -1,5 +1,5 @@
 import { env } from "$env/dynamic/public";
-import { format } from "timeago.js";
+import { formatTimeAgo } from "$lib/utils/timeago";
 
 const PUBLIC_API_URL = env.PUBLIC_API_URL;
 
@@ -12,11 +12,11 @@ export const load = async ({ fetch }) => {
         lastSynced: "unknown"
       };
     }
-    
+
     const data = await response.json();
     const updatedOn = new Date(data.updated_on);
-    const lastSynced = format(updatedOn);
-    
+    const lastSynced = formatTimeAgo(updatedOn);
+
     return {
       lastSynced
     };

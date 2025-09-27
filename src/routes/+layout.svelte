@@ -7,7 +7,7 @@
   import { page } from "$app/state";
   import NavigationOverlay from "$lib/components/navigation-overlay.svelte";
   import type { WebSite, WithContext } from "schema-dts";
-  
+
   let { children, data } = $props();
 
   const siteName = "UW Course Map";
@@ -89,13 +89,14 @@
   {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
-<Toaster />
 <ModeWatcher />
+<Toaster />
 <NavigationOverlay />
 <div class="flex h-screen min-h-screen flex-col">
-  <Navbar />
-  <main class="flex grow">
-    {@render children?.()}
-  </main>
-  <Footer lastSynced={data.lastSynced} />
+    <Navbar />
+    <main class="flex grow">
+        {@render children?.()}
+    </main>
+    <Footer lastSynced={data.lastSynced} />
 </div>
+

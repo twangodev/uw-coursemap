@@ -1,20 +1,22 @@
 import type { NavItem } from "$lib/types/nav.ts";
+import { m } from "$lib/paraglide/messages";
+import { localizeHref } from "$lib/paraglide/runtime";
 
 export const navigation: NavItem[] = [
   {
-    title: "Home",
-    href: "/",
+    getTitle: m["nav.home"],
+    href: localizeHref("/"),
   },
   {
-    title: "Explorer",
-    href: "/explorer",
+    getTitle: m["nav.explorer"],
+    href: localizeHref("/explorer"),
   },
   {
-    title: "Upload",
-    href: "/upload",
+    getTitle: m["nav.upload"],
+    href: localizeHref("/upload"),
   },
   {
-    title: "About",
+    getTitle: m["nav.about"],
     href: "https://docs.uwcourses.com/about",
   },
 ];

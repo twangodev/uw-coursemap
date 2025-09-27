@@ -10,6 +10,8 @@
   import QuickStatistics from "$lib/components/quick-statistics.svelte";
   import CallToAction from "$lib/components/call-to-action.svelte";
   import { inView } from "$lib/actions/in-view";
+  import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 </script>
 
 <div class="w-full">
@@ -31,17 +33,15 @@
       <div class="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
         <div class="relative z-10 mx-auto text-center">
           <Announcement />
-          <PageHeaderHeading>Course exploration, made easy</PageHeaderHeading>
+          <PageHeaderHeading>{m["home.hero.title"]()}</PageHeaderHeading>
           <PageHeaderDescription>
-            Explore the courses offered by the UW-Madison in a visual and
-            interactive way.
+            {m["home.hero.description"]()}
           </PageHeaderDescription>
           <p class="text-primary mt-3 text-center text-sm">
-            UW Course Map is not affiliated with the University of
-            Wisconsin-Madison.
+            {m["site.disclaimer"]()}
           </p>
           <div class="py-4 md:pb-10">
-            <Button href="/explorer" class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">Get Started</Button>
+            <Button href={localizeHref("/explorer")} class="animate-fade-in [animation-delay:100ms] [animation-fill-mode:both]">{m["home.hero.getStarted"]()}</Button>
           </div>
         </div>
       </div>

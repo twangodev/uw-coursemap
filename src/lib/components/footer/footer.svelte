@@ -1,6 +1,7 @@
 <script lang="ts">
   import FooterLink from "$lib/components/footer/footer-link.svelte";
   import { VERSION_INFO } from "$lib/generated/version";
+  import { m } from "$lib/paraglide/messages";
 
   const { tag, short } = VERSION_INFO;
   
@@ -21,13 +22,13 @@
       class="flex flex-col gap-1 text-muted-foreground text-center text-sm leading-loose text-balance md:text-left "
     >
       <p>
-        Made by
-        <FooterLink href="https://twango.dev">James Ding</FooterLink>
-        and other
-        <FooterLink href="https://docs.uwcourses.com/team">contributors</FooterLink>
+        {@html m["footer.madeBy"]({
+          author: `<a href="https://twango.dev" target="_blank" class="font-medium underline underline-offset-4">James Ding</a>`,
+          contributors: `<a href="https://docs.uwcourses.com/team" target="_blank" class="font-medium underline underline-offset-4">${m["footer.contributors"]()}</a>`
+        })}
       </p>
       <p class="text-xs">
-        Last synced {lastSynced} •
+        {m["footer.lastSynced"]({ time: lastSynced })} •
         <FooterLink href="https://github.com/twangodev/uw-coursemap/releases/tag/{tag}">{tag}</FooterLink>
         -
         <FooterLink href="https://github.com/twangodev/uw-coursemap/commit/{short}">{short}</FooterLink>
@@ -38,9 +39,9 @@
     >
       <div class="flex items-center justify-center gap-2 sm:justify-end">
         <span class="relative flex">
-          <img src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping" alt="Service Status" />
+          <img src="https://kener.twango.dev/badge/uw-coursemap/dot?animate=ping" alt={m["footer.serviceStatus"]()} />
         </span>
-        <FooterLink href="https://kener.twango.dev/?group=uw-coursemap">View Service Status</FooterLink>
+        <FooterLink href="https://kener.twango.dev/?group=uw-coursemap">{m["footer.viewServiceStatus"]()}</FooterLink>
       </div>
     </div>
   </div>

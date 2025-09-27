@@ -1,0 +1,133 @@
+{
+  "site": {
+    "name": "UW Course Map",
+    "disclaimer": "UW Course Map is not affiliated with the University of Wisconsin-Madison."
+  },
+  "nav": {
+    "home": "Home",
+    "explorer": "Explorer",
+    "upload": "Upload",
+    "about": "About",
+    "toggleMenu": "Toggle Menu",
+    "github": "GitHub"
+  },
+  "search": {
+    "placeholder": {
+      "full": "Search {options}...",
+      "short": "Search...",
+      "courses": "courses",
+      "departments": "departments",
+      "instructors": "instructors"
+    },
+    "filter": {
+      "buttonLabel": "Filter search",
+      "dropdownLabel": "Filter Search",
+      "options": {
+        "courses": "Courses",
+        "departments": "Departments",
+        "instructors": "Instructors"
+      }
+    },
+    "states": {
+      "loading": "Loading suggestions...",
+      "searching": "Searching...",
+      "typeToSearch": "Type to search...",
+      "noResults": "No results found for \"{query}\"",
+      "error": "Error loading random courses.",
+      "resultsHeading": "Results",
+      "randomCoursesHeading": "Random Courses"
+    },
+    "tips": {
+      "shiftToOpenGraph": "Hold shift to open course graph directly.",
+      "hideButton": "Hide",
+      "tipTitle": "Tip"
+    },
+    "validation": {
+      "atLeastOneOption": "At least one option must be selected",
+      "selectOneOption": "Please select at least one search option."
+    },
+    "data": {
+      "positionUnknown": "Position Unknown",
+      "departmentUnknown": "Department Unknown"
+    }
+  },
+  "banner": {
+    "announcement": "We're still actively developing this site. If you encounter any issues, please report them!",
+    "linkText": "Report an issue"
+  },
+  "announcement": "We just launched! Please star us on GitHub",
+  "home": {
+    "hero": {
+      "title": "Course exploration, made easy",
+      "description": "Explore the courses offered by the UW-Madison in a visual and interactive way.",
+      "getStarted": "Get Started"
+    },
+    "features": {
+      "upload": {
+        "title": "Upload",
+        "description": "Upload your transcript to automatically analyze and visualize your completed courses."
+      },
+      "visualFirst": {
+        "title": "Visual First",
+        "description": "View an interactive map of a department and course relationships to explore course offerings."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Built by UW-Madison students, for students. Contribute to our open-source project on GitHub."
+      },
+      "dataFriendly": {
+        "title": "Data Friendly",
+        "description": "Download or immediately access our data via API to build your own tools and insights."
+      }
+    },
+    "cta": {
+      "title": "Start Exploring Courses",
+      "description": "Start browsing UW's courses and our course maps, or head over to our GitHub to see our roadmap and contribute to the project.",
+      "getStarted": "Get Started",
+      "github": "GitHub"
+    },
+    "statistics": {
+      "title": "Aggregated Statistics",
+      "subtitle": "Dynamic Insights from Multiple Sources",
+      "description": "UW Course Map brings everything into one place—pulling data from Rate My Professor, Madgrades, UW-Madison's Course & Enroll, Course Guide, and more—so you can view key metrics (GPA, prerequisite paths, average ratings, distributions, etc.) all in a single dashboard.",
+      "gradesGiven": "Grades Given",
+      "totalRequisites": "Total Requisites",
+      "totalInstructors": "Total Instructors",
+      "totalCourses": "Total Courses",
+      "totalComments": "Total Comments"
+    }
+  },
+  "footer": {
+    "madeBy": "Made by {author} and other {contributors}",
+    "contributors": "contributors",
+    "lastSynced": "Last synced {time}",
+    "serviceStatus": "Service Status",
+    "viewServiceStatus": "View Service Status"
+  },
+  "explorer": {
+    "title": "Explorer",
+    "description": "Start by looking up a course or program offered by the University of Wisconsin-Madison.",
+    "frequentlyVisited": {
+      "title": "Frequently Visited",
+      "description": "Not sure where to start? Here are some fun and random facts about the courses, instructors, and programs offered by the University of Wisconsin-Madison."
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "Easiest Courses",
+        "description": "These classes are pretty much guaranteed to get you an A, if you want to take an easy class."
+      },
+      "mostRatedInstructors": {
+        "title": "Most Rated Instructors",
+        "description": "Who has the most ratings on Rate My Professors, regardless of their rating? We've got the top 100."
+      },
+      "universityGraph": {
+        "title": "University Graph",
+        "description": "All the prerequisite relations at UW-Madison, visualized. It's computationally expensive, so it may take a while to load."
+      },
+      "requestFeature": {
+        "title": "Request Another Fact",
+        "description": "If you have an idea for a fun fact or feature, let us know!"
+      }
+    }
+  }
+}

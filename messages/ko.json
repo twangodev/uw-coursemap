@@ -1,0 +1,133 @@
+{
+  "site": {
+    "name": "UW Course Map",
+    "disclaimer": "UW Course Map은 위스콘신 대학교 매디슨과 제휴 관계가 아닙니다."
+  },
+  "nav": {
+    "home": "홈",
+    "explorer": "탐색기",
+    "upload": "업로드",
+    "about": "소개",
+    "toggleMenu": "메뉴 전환",
+    "github": "GitHub"
+  },
+  "search": {
+    "placeholder": {
+      "full": "{options} 검색...",
+      "short": "검색...",
+      "courses": "강의",
+      "departments": "학과",
+      "instructors": "교수"
+    },
+    "filter": {
+      "buttonLabel": "검색 필터",
+      "dropdownLabel": "검색 필터",
+      "options": {
+        "courses": "강의",
+        "departments": "학과",
+        "instructors": "교수"
+      }
+    },
+    "states": {
+      "loading": "추천 불러오는 중...",
+      "searching": "검색 중...",
+      "typeToSearch": "검색어를 입력하세요...",
+      "noResults": "\"{query}\"에 대한 검색 결과가 없습니다",
+      "error": "임의 강의를 불러오는 중 오류가 발생했습니다.",
+      "resultsHeading": "검색 결과",
+      "randomCoursesHeading": "임의 강의"
+    },
+    "tips": {
+      "shiftToOpenGraph": "Shift 키를 누른 상태로 클릭하면 강의 그래프가 바로 열립니다.",
+      "hideButton": "숨기기",
+      "tipTitle": "팁"
+    },
+    "validation": {
+      "atLeastOneOption": "최소 하나의 옵션을 선택해야 합니다",
+      "selectOneOption": "최소 하나의 검색 옵션을 선택해주세요."
+    },
+    "data": {
+      "positionUnknown": "직책 정보 없음",
+      "departmentUnknown": "학과 정보 없음"
+    }
+  },
+  "banner": {
+    "announcement": "현재 이 사이트는 활발히 개발 중입니다. 문제를 발견하시면 신고해 주세요!",
+    "linkText": "문제 신고하기"
+  },
+  "announcement": "방금 출시했습니다! GitHub에서 별표를 눌러주세요",
+  "home": {
+    "hero": {
+      "title": "쉽고 간편한 강의 탐색",
+      "description": "위스콘신 대학교 매디슨의 강의를 시각적이고 상호작용적인 방식으로 탐색하세요.",
+      "getStarted": "시작하기"
+    },
+    "features": {
+      "upload": {
+        "title": "업로드",
+        "description": "성적표를 업로드하여 수강 완료한 강의를 자동으로 분석하고 시각화하세요."
+      },
+      "visualFirst": {
+        "title": "시각 중심",
+        "description": "학과 및 강의 관계의 대화형 지도를 보며 강의 제공을 탐색하세요."
+      },
+      "openSource": {
+        "title": "오픈 소스",
+        "description": "위스콘신 대학교 매디슨 학생들이 학생들을 위해 제작했습니다. GitHub에서 오픈 소스 프로젝트에 기여하세요."
+      },
+      "dataFriendly": {
+        "title": "데이터 친화적",
+        "description": "API를 통해 데이터를 다운로드하거나 즉시 액세스하여 자신만의 도구와 인사이트를 구축하세요."
+      }
+    },
+    "cta": {
+      "title": "강의 탐색 시작하기",
+      "description": "위스콘신 대학교의 강의와 강의 지도를 둘러보거나 GitHub에서 로드맵을 확인하고 프로젝트에 기여하세요.",
+      "getStarted": "시작하기",
+      "github": "GitHub"
+    },
+    "statistics": {
+      "title": "통합 통계",
+      "subtitle": "다양한 출처의 동적 인사이트",
+      "description": "UW Course Map은 Rate My Professor, Madgrades, UW-Madison의 Course & Enroll, Course Guide 등에서 데이터를 가져와 모든 것을 한 곳에 모아 주요 지표(GPA, 선수과목 경로, 평균 평점, 분포 등)를 하나의 대시보드에서 볼 수 있도록 합니다.",
+      "gradesGiven": "부여된 성적",
+      "totalRequisites": "전체 필수과목",
+      "totalInstructors": "전체 교수진",
+      "totalCourses": "전체 강의",
+      "totalComments": "전체 댓글"
+    }
+  },
+  "footer": {
+    "madeBy": "{author} 및 기타 {contributors}가 제작",
+    "contributors": "기여자들",
+    "lastSynced": "{time} 동기화됨",
+    "serviceStatus": "서비스 상태",
+    "viewServiceStatus": "서비스 상태 보기"
+  },
+  "explorer": {
+    "title": "탐색기",
+    "description": "위스콘신 대학교 매디슨에서 제공하는 강좌나 프로그램을 검색해보세요.",
+    "frequentlyVisited": {
+      "title": "자주 방문하는 페이지",
+      "description": "어디서부터 시작해야 할지 모르겠나요? 위스콘신 대학교 매디슨에서 제공하는 강좌, 교수진, 프로그램에 대한 재미있고 무작위한 사실들을 확인해보세요."
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "가장 쉬운 강좌들",
+        "description": "쉬운 수업을 듣고 싶다면 이 수업들은 거의 확실하게 A를 받을 수 있습니다."
+      },
+      "mostRatedInstructors": {
+        "title": "평가가 가장 많은 교수진",
+        "description": "평점과 상관없이 Rate My Professors에서 가장 많은 평가를 받은 교수는 누구일까요? 상위 100명을 확인하세요."
+      },
+      "universityGraph": {
+        "title": "대학 그래프",
+        "description": "UW-Madison의 모든 선수과목 관계를 시각화했습니다. 계산량이 많아 로딩에 시간이 걸릴 수 있습니다."
+      },
+      "requestFeature": {
+        "title": "다른 사실 요청하기",
+        "description": "재미있는 사실이나 기능에 대한 아이디어가 있으시면 알려주세요!"
+      }
+    }
+  }
+}

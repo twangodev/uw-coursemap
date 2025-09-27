@@ -3,6 +3,7 @@
   import { quadInOut } from "svelte/easing";
   import { Code, Database, Waypoints, Upload } from "@lucide/svelte";
   import { inView } from "$lib/actions/in-view";
+  import { m } from "$lib/paraglide/messages";
 
   const DISPLAY_DURATION = 5000;
 
@@ -95,41 +96,37 @@
     <div use:inView={{ threshold: 0.3 }} class="space-y-3 opacity-0 scale-95 transition-all duration-500 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Upload class="size-4" />
-        <h3 class="text-sm font-medium">Upload</h3>
+        <h3 class="text-sm font-medium">{m["home.features.upload.title"]()}</h3>
       </div>
       <p class="text-muted-foreground text-sm">
-        Upload your transcript to automatically analyze and visualize your
-        completed courses.
+        {m["home.features.upload.description"]()}
       </p>
     </div>
     <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-100 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Waypoints class="size-4" />
-        <h3 class="text-sm font-medium">Visual First</h3>
+        <h3 class="text-sm font-medium">{m["home.features.visualFirst.title"]()}</h3>
       </div>
       <p class="text-muted-foreground text-sm">
-        View an interactive map of a department and course relationships to
-        explore course offerings.
+        {m["home.features.visualFirst.description"]()}
       </p>
     </div>
     <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-200 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Code class="size-4" />
-        <h3 class="text-sm font-medium">Open Source</h3>
+        <h3 class="text-sm font-medium">{m["home.features.openSource.title"]()}</h3>
       </div>
       <p class="text-muted-foreground text-sm">
-        Built by UW-Madison students, for students. Contribute to our
-        open-source project on GitHub.
+        {m["home.features.openSource.description"]()}
       </p>
     </div>
     <div use:inView={{ threshold: 0.3 }} class="space-y-2 opacity-0 scale-95 transition-all duration-500 delay-300 [&.in-view]:opacity-100 [&.in-view]:scale-100">
       <div class="flex items-center gap-2">
         <Database class="size-4" />
-        <h3 class="text-sm font-medium">Data Friendly</h3>
+        <h3 class="text-sm font-medium">{m["home.features.dataFriendly.title"]()}</h3>
       </div>
       <p class="text-muted-foreground text-sm">
-        Download or immediately access our data via API to build your own tools
-        and insights.
+        {m["home.features.dataFriendly.description"]()}
       </p>
     </div>
   </div>

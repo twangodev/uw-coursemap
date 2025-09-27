@@ -1,4 +1,4 @@
 export type NavItem = {
-  title: string;
+  getTitle: () => string;
   href?: string;
 };

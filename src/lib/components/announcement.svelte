@@ -2,6 +2,7 @@
   import { cn } from "$lib/utils.js";
   import { ArrowUpRight, Star } from "@lucide/svelte";
   import { Separator } from "$lib/components/ui/separator";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     class?: string | undefined | null;
@@ -22,6 +23,6 @@
 >
   <Star class="size-4" />
   <Separator class="mx-2 h-4" orientation="vertical" />
-  <span>We just launched! Please star us on GitHub</span>
+  <span>{m.announcement()}</span>
   <ArrowUpRight class="ml-1 size-4" />
 </a>
