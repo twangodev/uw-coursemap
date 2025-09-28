@@ -19,7 +19,7 @@
   <a href="https://github.com/twangodev/uw-coursemap/actions/workflows/node.js.yml" target="_blank"><img alt="Node.js CI" src="https://github.com/twangodev/uw-coursemap/actions/workflows/node.js.yml/badge.svg"></a>
   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/twangodev/uw-coursemap">
   <a href="https://www.gnu.org/licenses/agpl-3.0"><img alt="GitHub License" src="https://img.shields.io/github/license/twangodev/uw-coursemap"/></a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.uwcourses.com/"><img src="https://badges.crowdin.net/uw-coursemap/localized.svg"></a>
+  <a title="Crowdin" target="_blank" href="https://crowdin.uwcourses.com/"><img alt="Crowdin localization" src="https://badges.crowdin.net/uw-coursemap/localized.svg"></a>
   <img alt="Repository Size" src="https://img.shields.io/github/repo-size/twangodev/uw-coursemap"/>
   <a href="https://cheesehacks.webdevuw.com/" target="_blank"><img alt="Cheesehacks 2024" src="https://img.shields.io/badge/Cheesehacks-2024-fec732"/></a>
 </p>
