@@ -5,18 +5,25 @@ import { localizeHref } from "$lib/paraglide/runtime";
 export const navigation: NavItem[] = [
   {
     getTitle: m["nav.home"],
-    href: localizeHref("/"),
+    href: "/",
   },
   {
     getTitle: m["nav.explorer"],
-    href: localizeHref("/explorer"),
+    href: "/explorer",
   },
   {
     getTitle: m["nav.upload"],
-    href: localizeHref("/upload"),
+    href: "/upload",
   },
   {
     getTitle: m["nav.about"],
     href: "https://docs.uwcourses.com/about",
   },
 ];
+
+export function getLocalizedNavigation(): NavItem[] {
+  return navigation.map(item => ({
+    ...item,
+    href: item.href.startsWith('http') ? item.href : localizeHref(item.href)
+  }));
+}

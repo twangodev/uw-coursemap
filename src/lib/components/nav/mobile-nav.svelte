@@ -3,14 +3,17 @@
   import { Button } from "$lib/components/ui/button";
   import MobileLink from "$lib/components/nav/mobile-link.svelte";
   import Logo from "$lib/components/logo.svelte";
-  import { navigation } from "$lib/config/navigation.ts";
+  import { getLocalizedNavigation } from "$lib/config/navigation.ts";
   import { ScrollArea } from "$lib/components/ui/scroll-area";
   import { Menu } from "@lucide/svelte";
   import LanguagePicker from "$lib/components/language-picker.svelte";
   import ModeToggle from "$lib/components/mode-toggle.svelte";
   import { m } from "$lib/paraglide/messages";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   let open = $state(false);
+  let localizedNavigation = $derived.by(getLocalizedNavigation);
+  let localizedHomeHref = $derived(localizeHref("/"));
 </script>
 
 <Sheet.Root bind:open>
@@ -24,13 +27,13 @@
     </Button>
   </Sheet.Trigger>
   <Sheet.Content side="left" class="pr-0">
-    <MobileLink href="/" class="flex items-center" bind:open>
+    <MobileLink href={localizedHomeHref} class="flex items-center" bind:open>
       <Logo class="mr-4 h-8 w-8" />
       <span class="font-bold">{m["site.name"]()}</span>
     </MobileLink>
     <ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-1">
       <div class="flex flex-col space-y-3">
-        {#each navigation as navItem}
+        {#each localizedNavigation as navItem}
           {#if navItem.href}
             <MobileLink href={navItem.href} bind:open class="text-foreground">
               {navItem.getTitle()}
