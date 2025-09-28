@@ -35,17 +35,19 @@
   const description = $derived(customDescription || siteDescription);
   const ogImage = $derived(customOgImage || defaultOgImage);
 
-  // Get canonical path (delocalized)
-  const canonicalPath = $derived(deLocalizeHref(page.url.pathname + page.url.search));
-  const canonicalUrl = $derived(`${siteUrl}${canonicalPath}`);
+  // Canonical URL is simply the current page
+  const canonicalUrl = $derived(`${siteUrl}${page.url.pathname}${page.url.search}`);
+
+  // Get base path for generating alternates
+  const basePath = $derived(deLocalizeHref(page.url.pathname + page.url.search));
 
   // Generate hreflang URLs for all languages
   const languageAlternates = $derived(
     locales.map(locale => ({
       hrefLang: getHrefLang(locale),
       href: locale === baseLocale
-        ? `${siteUrl}${canonicalPath}`
-        : `${siteUrl}${localizeHref(canonicalPath, { locale })}`
+        ? `${siteUrl}${basePath}`
+        : `${siteUrl}${localizeHref(basePath, { locale })}`
     }))
   );
 
@@ -117,7 +119,7 @@
 
 <!-- Add hreflang x-default and og:locale:alternate -->
 <svelte:head>
-  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${canonicalPath}`} />
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${basePath}`} />
 
   <!-- Add og:locale:alternate for other languages -->
   {#each locales.filter(l => l !== currentLocale) as locale}
