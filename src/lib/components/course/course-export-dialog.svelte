@@ -99,7 +99,7 @@
                     ({m["course.schedule.meetings"]({ count: sectionMeetings.length })})
                   </span>
                 </div>
-                {#if instructorName && instructorName !== m["course.schedule.noInstructor"]()}
+                {#if instructorName}
                   <div class="text-xs text-muted-foreground mt-0.5">
                     {instructorName}
                   </div>
