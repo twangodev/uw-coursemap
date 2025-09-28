@@ -4,6 +4,7 @@
   import { page } from "$app/state";
   import type { WebSite, WithContext } from "schema-dts";
   import { getOgLocale, getHrefLang } from "$lib/config/languages";
+  import * as m from "$lib/paraglide/messages";
 
   interface Props {
     subtitle?: string;
@@ -19,9 +20,9 @@
     jsonLd: customJsonLd = []
   }: Props = $props();
 
-  // Site configuration
-  const siteName = "UW Course Map";
-  const siteDescription = "Explore the courses offered by the UW-Madison in a visual and interactive way.";
+  // Site configuration (internationalized)
+  const siteName = $derived(m['site.name']());
+  const siteDescription = $derived(m['site.description']());
   const siteUrl = "https://uwcourses.com";
   const defaultOgImage = "https://uwcourses.com/uw-coursemap-logo.svg";
 
@@ -49,7 +50,7 @@
   );
 
   // Default structured data for the website
-  const websiteSchema: WithContext<WebSite> = {
+  const websiteSchema = $derived<WithContext<WebSite>>({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
@@ -63,7 +64,7 @@
       },
       query: "required name=search_term_string"
     }
-  };
+  });
 
   // Combine structured data
   const jsonLd = $derived([websiteSchema, ...customJsonLd]);
