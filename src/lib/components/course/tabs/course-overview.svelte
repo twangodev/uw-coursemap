@@ -24,6 +24,7 @@
     CompletionRateDataCard,
     GPADataCard,
   } from "$lib/components/data-card/index.js";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -126,23 +127,26 @@
           {terms}
         />
       {:else}
-        <p class="text-center">No data available</p>
+        <p class="text-center">{m["course.overview.noDataAvailable"]()}</p>
       {/if}
     </CardContent>
   </Card>
   <Card class="lg:col-span-3">
     <CardHeader>
       <CardTitle
-        >Instructors ({selectedTerm ? terms[selectedTerm] : ""})</CardTitle
+        >{m["course.overview.instructorsTitle"]({
+          term: selectedTerm ? terms[selectedTerm] : ""
+        })}</CardTitle
       >
       <CardDescription class="flex">
-        Sorted by ratings from
+        {m["course.overview.sortedByRatings"]()}
         <a
           class="ml-1 flex items-center font-medium underline-offset-4 hover:underline"
           href="https://www.ratemyprofessors.com/"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          Rate My Professors
+          {m["course.overview.rateMyProfessors"]()}
           <ArrowUpRight class="inline h-4 w-4" />
         </a>
       </CardDescription>
@@ -159,7 +163,10 @@
             class="text-muted-foreground flex items-center space-x-1 text-center text-xs hover:cursor-pointer hover:underline"
             onclick={goToInstructors}
           >
-            <span>Showing 3 of {instructors.length} instructors.</span>
+            <span>{m["course.overview.showingInstructors"]({
+              shown: 3,
+              total: instructors.length
+            })}</span>
             <ArrowUpRight class="h-3.5 w-3.5" />
           </button>
         </div>
@@ -167,7 +174,7 @@
     </CardContent>
   </Card>
   <div class="md:col-span-2 lg:col-span-7">
-    <h2 class="my-4 text-2xl font-bold">Similar Courses</h2>
+    <h2 class="my-4 text-2xl font-bold">{m["course.overview.similarCourses"]()}</h2>
     <CourseCarousel courses={similarCourses} />
   </div>
 </div>

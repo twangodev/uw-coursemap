@@ -7,12 +7,13 @@
   import type { CourseMeeting } from '$lib/utils/schedule/types';
   import { courseReferenceToString } from '$lib/types/course';
   import { generateICS, downloadICS } from '$lib/utils/schedule/ics-generator';
-  import { 
-    groupMeetingsBySection, 
-    sortSectionGroups, 
-    parseSectionKey, 
-    filterMeetingsBySelection 
+  import {
+    groupMeetingsBySection,
+    sortSectionGroups,
+    parseSectionKey,
+    filterMeetingsBySelection
   } from '$lib/utils/schedule/section-utils';
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -59,13 +60,15 @@
 <Sheet.Root bind:open>
   <Sheet.Trigger class="text-xs text-muted-foreground flex items-center gap-1 hover:text-foreground transition-colors">
     <Share2 class="h-3 w-3" />
-    Export to your calendar
+    {m["course.schedule.exportToCalendar"]()}
   </Sheet.Trigger>
   <Sheet.Content side="right" class="w-full sm:max-w-md flex flex-col">
     <Sheet.Header>
-      <Sheet.Title>Export {courseReferenceToString(course.course_reference)} Schedule</Sheet.Title>
+      <Sheet.Title>{m["course.schedule.exportTitle"]({
+        course: courseReferenceToString(course.course_reference)
+      })}</Sheet.Title>
       <Sheet.Description>
-        Select which sections you want to export. The file will work with Google Calendar, Apple Calendar, Outlook, and other calendar apps.
+        {m["course.schedule.exportDescription"]()}
       </Sheet.Description>
     </Sheet.Header>
     
@@ -93,10 +96,10 @@
                 <div>
                   <span class="font-medium">{sectionName}</span>
                   <span class="text-muted-foreground ml-2 text-sm">
-                    ({sectionMeetings.length} meetings)
+                    ({m["course.schedule.meetings"]({ count: sectionMeetings.length })})
                   </span>
                 </div>
-                {#if instructorName && instructorName !== 'No Instructor'}
+                {#if instructorName}
                   <div class="text-xs text-muted-foreground mt-0.5">
                     {instructorName}
                   </div>
@@ -110,13 +113,13 @@
     
     <Sheet.Footer>
       <Button variant="outline" onclick={() => open = false}>
-        Cancel
+        {m["course.schedule.cancel"]()}
       </Button>
       <Button 
         onclick={handleExport}
         disabled={selectedSections.size === 0}
       >
-        Download Calendar File
+        {m["course.schedule.downloadCalendarFile"]()}
       </Button>
     </Sheet.Footer>
   </Sheet.Content>

@@ -5,18 +5,18 @@ import type { CourseMeeting } from './types';
  */
 export function getSectionKey(meeting: CourseMeeting): string {
   const baseSectionName = meeting.name.split('#')[0].trim();
-  const instructorKey = meeting.instructors?.length > 0 
+  const instructorKey = meeting.instructors?.length > 0
     ? meeting.instructors.join(', ')
-    : 'No Instructor';
+    : '';
   return `${baseSectionName}|${instructorKey}`;
 }
 
 /**
  * Parses a section key back into section name and instructor
  */
-export function parseSectionKey(key: string): { sectionName: string; instructorName: string } {
+export function parseSectionKey(key: string): { sectionName: string; instructorName: string | null } {
   const [sectionName, instructorName] = key.split('|');
-  return { sectionName, instructorName };
+  return { sectionName, instructorName: instructorName || null };
 }
 
 /**

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { GenericDataCard } from "$lib/components/data-card/index.js";
   import { Users } from "@lucide/svelte";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     termClassSize: number | null;
@@ -11,9 +12,9 @@
 </script>
 
 <GenericDataCard
-  title="Class Size"
+  title={m["course.dataCards.classSize"]()}
   icon={Users}
   value={termClassSize}
   reference={cumulativeAverageClassSize}
-  comparisonKeyword="Historical"
+  comparisonKeyword={m["course.dataCards.historical"]()}
 />

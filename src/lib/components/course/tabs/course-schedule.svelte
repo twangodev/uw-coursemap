@@ -7,6 +7,7 @@
   import { transformMeetingsToScheduleEvents } from '$lib/utils/schedule/meeting-transformer';
   import { createScheduleCalendarConfig } from '$lib/utils/schedule/schedule-config';
   import CourseExportDialog from '../course-export-dialog.svelte';
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -38,17 +39,17 @@
     <ScheduleXCalendar {calendarApp}/>
     <div class="flex justify-between items-center mt-2">
       <p class="text-xs text-muted-foreground">
-        All times shown in America/Chicago timezone.
+        {m["course.schedule.timezoneInfo"]()}
       </p>
       <CourseExportDialog {course} {meetings} />
     </div>
   {:else if !meetings || meetings.length === 0}
     <div class="flex items-center justify-center h-64">
-      <p class="text-muted-foreground">No schedule information available for this course.</p>
+      <p class="text-muted-foreground">{m["course.schedule.noScheduleInfo"]()}</p>
     </div>
   {:else}
     <div class="flex items-center justify-center h-64">
-      <p class="text-muted-foreground">Loading calendar...</p>
+      <p class="text-muted-foreground">{m["course.schedule.loadingCalendar"]()}</p>
     </div>
   {/if}
 </div>

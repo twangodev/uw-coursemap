@@ -37,7 +37,8 @@
   import Legend from "./legend.svelte";
   import { onMount } from "svelte";
   import HelpControl from "./help-control.svelte";
-    import { getData } from "$lib/localStorage.ts";
+  import { getData } from "$lib/localStorage.ts";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     elementDefinitions: ElementDefinition[];
@@ -79,7 +80,7 @@
 
   let sheetOpen = $state(false);
   let progress = $state({
-    text: "Loading Graph...",
+    text: m["cytoscape.progress.loadingGraph"](),
     number: 10,
   });
 
@@ -136,24 +137,24 @@
   }
   const loadGraph = $derived(async () => {
     progress = {
-      text: "Fetching Graph Data...",
+      text: m["cytoscape.progress.fetchingData"](),
       number: 25,
     };
 
     progress = {
-      text: "Styling Graph...",
+      text: m["cytoscape.progress.stylingGraph"](),
       number: 50,
     };
 
     progress = {
-      text: "Loading Layout...",
+      text: m["cytoscape.progress.loadingLayout"](),
       number: 55,
     };
 
     cytoscape.use(cytoscapeFcose);
 
     progress = {
-      text: "Loading Tooltips...",
+      text: m["cytoscape.progress.loadingTooltips"](),
       number: 60,
     };
 

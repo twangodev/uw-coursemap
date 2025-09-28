@@ -10,6 +10,7 @@
   } from "$lib/components/ui/hover-card/index.js";
   import HoverLinkedRequisiteContent from "./hover-linked-requisite-content.svelte";
   import ClampedParagraph from "$lib/components/clamped-paragraph.svelte";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   interface Props {
     course: Course;
@@ -29,7 +30,7 @@
       <HoverCard>
         <HoverCardTrigger>
           <a
-            href="/courses/{sanitizeCourseToReferenceString(item)}"
+            href={localizeHref(`/courses/${sanitizeCourseToReferenceString(item)}`)}
             class="underline-offset-2 hover:underline focus-visible:outline-2"
           >
             {courseReferenceToString(item)}

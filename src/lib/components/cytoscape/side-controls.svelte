@@ -13,6 +13,7 @@
   import IconTooltipStateWrapper from "../icon-toolips/icon-tooltip-state-wrapper.svelte";
   import IconTootipWrapper from "../icon-toolips/icon-tootip-wrapper.svelte";
   import { LayoutType } from "$lib/components/cytoscape/graph-layout.ts";
+  import { m } from "$lib/paraglide/messages";
 
   let {
     elementsAreDraggable = $bindable<boolean>(),
@@ -63,8 +64,8 @@
   <IconTooltipStateWrapper
     state={showCodeLabels}
     onclick={toggleShowCodeLabels}
-    activeTooltip="Show Course Titles"
-    inactiveTooltip="Show Course Codes"
+    activeTooltip={m["cytoscape.controls.showCourseTitles"]()}
+    inactiveTooltip={m["cytoscape.controls.showCourseCodes"]()}
   >
     {#snippet active()}
       <LucideHash class="h-5 w-5" />
@@ -77,8 +78,8 @@
   <IconTooltipStateWrapper
     state={elementsAreDraggable}
     onclick={toggleDraggableElements}
-    activeTooltip="Lock Elements"
-    inactiveTooltip="Unlock Elements"
+    activeTooltip={m["cytoscape.controls.lockElements"]()}
+    inactiveTooltip={m["cytoscape.controls.unlockElements"]()}
   >
     {#snippet active()}
       <LockKeyholeOpen class="h-5 w-5" />
@@ -91,8 +92,8 @@
   <IconTooltipStateWrapper
     state={layoutType === LayoutType.GROUPED}
     onclick={toggleLayoutType}
-    activeTooltip="Order Elements By Prerequisites"
-    inactiveTooltip="Group Elements By Department"
+    activeTooltip={m["cytoscape.controls.orderByPrerequisites"]()}
+    inactiveTooltip={m["cytoscape.controls.groupByDepartment"]()}
   >
     {#snippet active()}
       <Group class="h-5 w-5" />
@@ -102,15 +103,15 @@
     {/snippet}
   </IconTooltipStateWrapper>
 
-  <IconTootipWrapper tooltip="Zoom In" onclick={zoomIn}>
+  <IconTootipWrapper tooltip={m["cytoscape.controls.zoomIn"]()} onclick={zoomIn}>
     <LucidePlus class="h-5 w-5" />
   </IconTootipWrapper>
 
-  <IconTootipWrapper tooltip="Zoom Out" onclick={zoomOut}>
+  <IconTootipWrapper tooltip={m["cytoscape.controls.zoomOut"]()} onclick={zoomOut}>
     <LucideMinus class="h-5 w-5" />
   </IconTootipWrapper>
 
-  <IconTootipWrapper tooltip="Fullscreen" onclick={toggleFullscreen}>
+  <IconTootipWrapper tooltip={m["cytoscape.controls.fullscreen"]()} onclick={toggleFullscreen}>
     <LucideFullscreen class="h-5 w-5" />
   </IconTootipWrapper>
 </div>

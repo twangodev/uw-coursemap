@@ -4,25 +4,32 @@
   "type": "module",
   "scripts": {
     "generate": "tsx scripts/generate-version.ts",
+    "i18n:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
+    "codegen": "npm run generate && npm run i18n:compile",
     "predev": "npm run generate",
     "dev": "vite dev",
     "dev:host": "vite dev --host",
-    "prebuild": "npm run generate",
+    "prebuild": "npm run codegen",
     "build": "vite build",
     "preview": "vite preview",
-    "precheck": "npm run generate",
+    "precheck": "npm run codegen",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "pretest": "npm run generate",
+    "pretest": "npm run codegen",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "i18n:download": "crowdin download",
+    "i18n:upload": "crowdin upload sources"
   },
   "devDependencies": {
     "@carbon/charts-svelte": "^1.27.0",
+    "@crowdin/cli": "^4.11.0",
+    "@inlang/paraglide-js": "^2.0.0",
+    "@inlang/paraglide-sveltekit": "^0.16.1",
     "@internationalized/date": "^3.9.0",
     "@lucide/svelte": "^0.542.0",
     "@number-flow/svelte": "^0.3.9",
@@ -55,6 +62,7 @@
     "schema-dts": "^1.1.5",
     "svelte": "5.38.10",
     "svelte-check": "^4.3.1",
+    "svelte-meta-tags": "^4.4.1",
     "svelte-motion": "^0.12.2",
     "svelte-preprocess": "^6.0.3",
     "svelte-sonner": "^1.0.5",
@@ -92,6 +100,7 @@
     "ics": "^3.8.1",
     "pdfjs-dist": "^4.10.38",
     "stopword": "^3.1.5",
+    "svelte-flag-icons": "^2.0.2",
     "tippy.js": "^6.3.7"
   }
 }

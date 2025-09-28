@@ -9,6 +9,7 @@
   import { Change } from "$lib/components/data-card/index.ts";
   import type { Component } from "svelte";
   import NumberFlow from "@number-flow/svelte";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     title: string;
@@ -58,7 +59,7 @@
       {#if value}
         <NumberFlow {value} {suffix} {format} />
       {:else}
-        Not Reported
+        {m["course.dataCards.notReported"]()}
       {/if}
     </div>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { GenericDataCard } from "$lib/components/data-card/index.js";
   import { BookPlus } from "@lucide/svelte";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     termGPA: number | null;
@@ -26,10 +27,10 @@
 </script>
 
 <GenericDataCard
-  title="Grade Point Average"
+  title={m["course.dataCards.gradePointAverage"]()}
   icon={BookPlus}
   class={calculateColorFromGPA(termGPA)}
   value={termGPA}
   reference={cumulativeGPA}
-  comparisonKeyword="Historical"
+  comparisonKeyword={m["course.dataCards.historical"]()}
 />

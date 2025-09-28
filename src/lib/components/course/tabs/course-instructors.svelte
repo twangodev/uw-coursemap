@@ -10,6 +10,7 @@
   import InstructorWordCloud from "$lib/components/charts/instructor-word-cloud.svelte";
   import { ArrowUpRight } from "@lucide/svelte";
   import type { FullInstructorInformation } from "$lib/types/instructor.ts";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     instructors: FullInstructorInformation[];
@@ -33,22 +34,22 @@
 
 <Card>
   <CardHeader>
-    <CardTitle>Instructors</CardTitle>
+    <CardTitle>{m["course.instructors.title"]()}</CardTitle>
     <CardDescription class="flex">
-      Sorted by ratings from
+      {m["course.overview.sortedByRatings"]()}
       <a
         class="ml-1 flex items-center font-medium underline-offset-4 hover:underline"
         href="https://www.ratemyprofessors.com/"
         target="_blank"
       >
-        Rate My Professors
+        {m["course.overview.rateMyProfessors"]()}
         <ArrowUpRight class="inline h-4 w-4" />
       </a>
     </CardDescription>
   </CardHeader>
   <CardContent>
     {#if instructors.length === 0}
-      <p class="text-center">No instructors found.</p>
+      <p class="text-center">{m["course.instructors.noInstructorsFound"]()}</p>
     {/if}
     {#key instructors}
       {#each instructors.slice(0, safeShowMax) as instructor}
@@ -65,14 +66,14 @@
           class="text-center hover:cursor-pointer hover:underline"
           onclick={showMore}
         >
-          Show more ({instructors.length - showMax})
+          {m["course.instructors.showMore"]({ count: instructors.length - showMax })}
         </button>
-        <span class="px-1">or</span>
+        <span class="px-1">{m["course.instructors.or"]()}</span>
         <button
           class="text-center hover:cursor-pointer hover:underline"
           onclick={() => (showMax = instructors.length)}
         >
-          Show all
+          {m["course.instructors.showAll"]()}
         </button>
       </div>
     {/if}

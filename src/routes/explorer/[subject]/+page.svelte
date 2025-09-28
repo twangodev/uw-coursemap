@@ -4,6 +4,7 @@
   import { env } from "$env/dynamic/public";
   import { onMount } from "svelte";
   import { toast } from "svelte-sonner";
+  import { m } from "$lib/paraglide/messages";
 
   let subject = $derived(page.params.subject?.toUpperCase() ?? '');
 
@@ -13,10 +14,10 @@
   let styleEntries = $derived(data.styleEntries);
 
   onMount(() => {
-    toast.message(`Showing all ${subject} courses`, {
+    toast.message(m["cytoscape.toast.showingCourses"]({ subject }), {
       duration: 5000,
       cancel: {
-        label: "Hide",
+        label: m["cytoscape.toast.hide"](),
         onClick: () => {
           toast.dismiss();
         },
