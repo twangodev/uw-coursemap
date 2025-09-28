@@ -144,6 +144,7 @@
           class="ml-1 flex items-center font-medium underline-offset-4 hover:underline"
           href="https://www.ratemyprofessors.com/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           {m["course.overview.rateMyProfessors"]()}
           <ArrowUpRight class="inline h-4 w-4" />
