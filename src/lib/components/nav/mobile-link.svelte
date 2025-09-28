@@ -20,7 +20,7 @@
 </script>
 
 <a
-  href={href}
+  {href}
   class={cn(
     page.url.pathname === href ? "text-foreground" : "text-foreground/60",
     className,
