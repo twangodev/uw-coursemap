@@ -1,6 +1,7 @@
 <script lang="ts">
   import { GenericDataCard } from "$lib/components/data-card/index.js";
   import { BookA } from "@lucide/svelte";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     termARate: number | null;
@@ -11,10 +12,10 @@
 </script>
 
 <GenericDataCard
-  title="A Rate"
+  title={m["course.dataCards.aRate"]()}
   icon={BookA}
   value={termARate}
   suffix="%"
   reference={cumulativeARate}
-  comparisonKeyword="Historical"
+  comparisonKeyword={m["course.dataCards.historical"]()}
 />

@@ -4,6 +4,7 @@
   import type { QuickStatistics } from "$lib/types/misc.ts";
   import { Marquee } from "$lib/components/ui/marquee/index.js";
   import { inView } from "$lib/actions/in-view";
+  import { m } from "$lib/paraglide/messages";
 
   let quickStatistics = $state<QuickStatistics | undefined>(undefined);
 
@@ -11,23 +12,23 @@
 
   let stats = $derived([
     {
-      name: "Total Courses",
+      name: m["home.statistics.totalCourses"](),
       value: formatNumber(quickStatistics?.total_courses || 0),
     },
     {
-      name: "Grades Given",
+      name: m["home.statistics.gradesGiven"](),
       value: formatNumber(quickStatistics?.total_grades_given?.total || 0),
     },
     {
-      name: "Total Instructors",
+      name: m["home.statistics.totalInstructors"](),
       value: formatNumber(quickStatistics?.total_instructors || 0),
     },
     {
-      name: "Total Comments",
+      name: m["home.statistics.totalComments"](),
       value: formatNumber(quickStatistics?.total_ratings || 0),
     },
     {
-      name: "Total Requisites",
+      name: m["home.statistics.totalRequisites"](),
       value: formatNumber(quickStatistics?.total_detected_requisites || "N/A"),
     },
   ]);
@@ -69,20 +70,17 @@
   >
     <span
       class="bg-gradient-to-b from-rose-500 to-rose-600 bg-clip-text text-transparent dark:from-rose-200 dark:to-rose-400"
-      >Aggregated Statistics</span
+      >{m["home.statistics.title"]()}</span
     >
   </span>
   <h2
     id="features-title"
     class="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl dark:from-gray-50 dark:to-gray-300 opacity-0 animate-fade-up [animation-delay:100ms] [animation-fill-mode:forwards] [&.in-view]:opacity-100"
   >
-    Dynamic Insights from Multiple Sources
+    {m["home.statistics.subtitle"]()}
   </h2>
   <p class="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400 opacity-0 animate-fade-up [animation-delay:200ms] [animation-fill-mode:forwards] [&.in-view]:opacity-100">
-    UW Course Map brings everything into one place—pulling data from Rate My
-    Professor, Madgrades, UW-Madison's Course &amp; Enroll, Course Guide, and
-    more—so you can view key metrics (GPA, prerequisite paths, average ratings,
-    distributions, etc.) all in a single dashboard.
+    {m["home.statistics.description"]()}
   </p>
   <dl class="mt-12 border-y border-gray-200 py-14 dark:border-gray-800">
     <Marquee pauseOnHover class="[--duration:30s]">

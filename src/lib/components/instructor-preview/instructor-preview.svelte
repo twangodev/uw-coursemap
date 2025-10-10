@@ -6,6 +6,7 @@
   import { slide } from "svelte/transition";
   import { slideParams } from "$lib/transitions.ts";
   import { Badge } from "$lib/components/ui/badge";
+  import { localizeHref } from "$lib/paraglide/runtime";
 
   interface Props {
     instructor: FullInstructorInformation;
@@ -31,7 +32,7 @@
   <a
     class="hover:bg-muted flex items-center justify-between rounded-lg p-2 transition-colors"
     target="_blank"
-    href="/instructors/{name.replaceAll(' ', '_').replaceAll('/', '_')}"
+    href={localizeHref(`/instructors/${name.replaceAll(' ', '_').replaceAll('/', '_')}`)}
   >
     <div class="flex items-center overflow-hidden">
       {#if rank}

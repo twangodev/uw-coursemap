@@ -15,6 +15,7 @@
   import { Button } from "$lib/components/ui/button/index.js";
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -33,13 +34,12 @@
   <CardHeader>
     <div class="flex items-center justify-between">
       <div>
-        <CardTitle>Course Prerequisites Map</CardTitle>
+        <CardTitle>{m["course.prerequisites.mapTitle"]()}</CardTitle>
         <CardDescription>
-          Visual representation of course prerequisites and related courses.
+          {m["course.prerequisites.mapDescription"]()}
         </CardDescription>
         <CardDescription>
-          Note: We aren't showing all possible requisite relationships, only
-          those that are directly relevant to the course.
+          {m["course.prerequisites.mapNote"]()}
         </CardDescription>
       </div>
       <Button
@@ -52,7 +52,7 @@
         variant="outline"
       >
         <BookOpen class="h-4 w-4" />
-        View on Department Graph
+        {m["course.prerequisites.viewOnDepartmentGraph"]()}
       </Button>
     </div>
   </CardHeader>

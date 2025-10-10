@@ -1,0 +1,284 @@
+{
+  "site": {
+    "name": "UW Course Map",
+    "description": "以视觉化和互动式的方式探索UW-Madison提供的课程。",
+    "disclaimer": "UW Course Map 与威斯康星大学麦迪逊分校无关联。"
+  },
+  "nav": {
+    "home": "主页",
+    "explorer": "探索",
+    "upload": "上传",
+    "about": "关于",
+    "toggleMenu": "切换菜单",
+    "github": "GitHub"
+  },
+  "search": {
+    "placeholder": {
+      "full": "搜索{options}...",
+      "short": "搜索...",
+      "courses": "课程",
+      "departments": "院系",
+      "instructors": "教授"
+    },
+    "filter": {
+      "buttonLabel": "筛选搜索",
+      "dropdownLabel": "筛选搜索",
+      "options": {
+        "courses": "课程",
+        "departments": "院系",
+        "instructors": "教授"
+      }
+    },
+    "states": {
+      "loading": "加载推荐中...",
+      "searching": "搜索中...",
+      "typeToSearch": "输入以搜索...",
+      "noResults": "未找到与\"{query}\"相关的结果",
+      "error": "加载随机课程时出错。",
+      "resultsHeading": "搜索结果",
+      "randomCoursesHeading": "随机课程"
+    },
+    "tips": {
+      "shiftToOpenGraph": "按住 Shift 键点击可直接打开课程图表。",
+      "hideButton": "隐藏",
+      "tipTitle": "提示"
+    },
+    "validation": {
+      "atLeastOneOption": "必须选择至少一个选项",
+      "selectOneOption": "请选择至少一个搜索选项。"
+    },
+    "data": {
+      "positionUnknown": "职位未知",
+      "departmentUnknown": "院系未知"
+    }
+  },
+  "banner": {
+    "announcement": "我们仍在积极开发此网站。如果您遇到任何问题，请报告给我们！",
+    "linkText": "报告问题"
+  },
+  "announcement": "我们刚刚发布！请在 GitHub 上给我们加星",
+  "home": {
+    "hero": {
+      "title": "轻松探索课程",
+      "description": "以可视化和交互式的方式探索威斯康星大学麦迪逊分校提供的课程。",
+      "getStarted": "开始使用"
+    },
+    "features": {
+      "upload": {
+        "title": "上传",
+        "description": "上传您的成绩单，自动分析和可视化您已完成的课程。"
+      },
+      "visualFirst": {
+        "title": "视觉优先",
+        "description": "查看院系和课程关系的交互式地图，探索课程设置。"
+      },
+      "openSource": {
+        "title": "开源",
+        "description": "由威斯康星大学麦迪逊分校的学生为学生打造。在 GitHub 上为我们的开源项目做出贡献。"
+      },
+      "dataFriendly": {
+        "title": "数据友好",
+        "description": "通过 API 下载或立即访问我们的数据，构建您自己的工具和见解。"
+      }
+    },
+    "cta": {
+      "title": "开始探索课程",
+      "description": "开始浏览威斯康星大学的课程和我们的课程地图，或前往我们的 GitHub 查看路线图并为项目做出贡献。",
+      "getStarted": "开始使用",
+      "github": "GitHub"
+    },
+    "statistics": {
+      "title": "聚合统计",
+      "subtitle": "来自多个来源的动态洞察",
+      "description": "UW Course Map 将所有数据汇集在一起——从 Rate My Professor、Madgrades、UW-Madison 的 Course & Enroll、Course Guide 等平台提取数据——让您可以在单一仪表板中查看关键指标（GPA、先修课程路径、平均评分、分布等）。",
+      "gradesGiven": "已评成绩",
+      "totalRequisites": "总必修课程",
+      "totalInstructors": "总教师人数",
+      "totalCourses": "总课程数",
+      "totalComments": "总评论数"
+    }
+  },
+  "footer": {
+    "madeBy": "由 {author} 和其他{contributors}制作",
+    "contributors": "贡献者",
+    "lastSynced": "{time}同步",
+    "serviceStatus": "服务状态",
+    "viewServiceStatus": "查看服务状态"
+  },
+  "explorer": {
+    "title": "探索",
+    "description": "从查找威斯康星大学麦迪逊分校提供的课程或项目开始。",
+    "frequentlyVisited": {
+      "title": "常访问页面",
+      "description": "不确定从哪里开始？这里有一些关于威斯康星大学麦迪逊分校提供的课程、教师和项目的有趣和随机的事实。"
+    },
+    "cards": {
+      "easiestCourses": {
+        "title": "最简单的课程",
+        "description": "如果您想上简单的课程，这些课程几乎可以保证您得到A。"
+      },
+      "mostRatedInstructors": {
+        "title": "评价最多的教师",
+        "description": "无论评分如何，谁在Rate My Professors上有最多的评价？我们有前100名。"
+      },
+      "universityGraph": {
+        "title": "大学图谱",
+        "description": "UW-Madison所有先修课程关系的可视化。计算量很大，可能需要一段时间才能加载。"
+      },
+      "requestFeature": {
+        "title": "请求其他事实",
+        "description": "如果您有任何有趣事实或功能的想法，请告诉我们！"
+      }
+    }
+  },
+  "course": {
+    "tabs": {
+      "overview": "概览",
+      "schedule": "课程安排",
+      "prerequisites": "先修课程图",
+      "instructors": "教师",
+      "trends": "趋势"
+    },
+    "details": {
+      "courseDescription": "课程描述",
+      "prerequisites": "先修课程",
+      "satisfies": "满足要求",
+      "credits": "学分",
+      "offered": "开课时间",
+      "notReported": "未报告",
+      "creditsRange": "{min} 至 {max}"
+    },
+    "overview": {
+      "instructorsTitle": "教师 ({term})",
+      "sortedByRatings": "按评分排序，数据来自",
+      "rateMyProfessors": "Rate My Professors",
+      "showingInstructors": "显示 {total} 位教师中的 {shown} 位。",
+      "similarCourses": "相似课程",
+      "noDataAvailable": "暂无数据"
+    },
+    "dataCards": {
+      "gradePointAverage": "平均绩点",
+      "aRate": "A率",
+      "completionRate": "完成率",
+      "classSize": "班级规模",
+      "historical": "历史数据",
+      "notReported": "未报告",
+      "from": "相比{keyword}",
+      "noChange": "与{keyword}相比无变化",
+      "couldNotCalculate": "无法计算变化"
+    },
+    "schedule": {
+      "timezoneInfo": "所有时间均显示为美国/芝加哥时区。",
+      "noScheduleInfo": "该课程暂无课程安排信息。",
+      "loadingCalendar": "正在加载日历...",
+      "exportToCalendar": "导出到您的日历",
+      "exportTitle": "导出 {course} 课程安排",
+      "exportDescription": "选择您要导出的部分。该文件可用于Google日历、Apple日历、Outlook和其他日历应用。",
+      "meetings": "{count} 次课程",
+      "noInstructor": "无教师",
+      "cancel": "取消",
+      "downloadCalendarFile": "下载日历文件"
+    },
+    "instructors": {
+      "title": "教师",
+      "noInstructorsFound": "未找到教师。",
+      "showMore": "显示更多 ({count})",
+      "or": "或",
+      "showAll": "显示全部"
+    },
+    "prerequisites": {
+      "mapTitle": "课程先修图",
+      "mapDescription": "课程先修和相关课程的可视化展示。",
+      "mapNote": "注意：我们并未显示所有可能的先修关系，仅显示与该课程直接相关的部分。",
+      "viewOnDepartmentGraph": "在系部图中查看"
+    },
+    "trends": {
+      "noDataAvailable": "暂无数据"
+    },
+    "drawer": {
+      "viewCoursePage": "查看课程页面"
+    }
+  },
+  "cytoscape": {
+    "toast": {
+      "showingCourses": "显示所有 {subject} 课程",
+      "hide": "隐藏"
+    },
+    "progress": {
+      "loadingGraph": "加载图表中...",
+      "fetchingData": "获取图表数据中...",
+      "stylingGraph": "样式化图表中...",
+      "loadingLayout": "加载布局中...",
+      "loadingTooltips": "加载提示中..."
+    },
+    "controls": {
+      "showCourseTitles": "显示课程名称",
+      "showCourseCodes": "显示课程代码",
+      "lockElements": "锁定元素",
+      "unlockElements": "解锁元素",
+      "orderByPrerequisites": "按先修课程排序",
+      "groupByDepartment": "按院系分组",
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "fullscreen": "全屏",
+      "help": "帮助"
+    },
+    "help": {
+      "title": "先修课程浏览器帮助",
+      "description": "了解如何导航和与课程依赖图交互",
+      "quickStart": {
+        "title": "快速开始",
+        "findCourses": "查找课程",
+        "findCoursesDesc": "使用 Ctrl+K 搜索或视觉探索",
+        "viewPrerequisites": "查看先修课程",
+        "viewPrerequisitesDesc": "悬停查看依赖链",
+        "pinPaths": "固定路径",
+        "pinPathsDesc": "双击保持高亮"
+      },
+      "courseColors": {
+        "title": "课程颜色",
+        "completed": "已完成",
+        "completedDesc": "你已修过的课程",
+        "available": "可选",
+        "availableDesc": "无先修要求的课程",
+        "locked": "锁定",
+        "lockedDesc": "未满足先修要求的课程"
+      },
+      "navigation": {
+        "title": "导航",
+        "controls": "控制",
+        "pan": "平移：",
+        "panDesc": "拖拽空白区域",
+        "zoom": "缩放：",
+        "zoomDesc": "滚动或捏合",
+        "select": "选择：",
+        "selectDesc": "{action}课程",
+        "pin": "固定：",
+        "pinDesc": "双击课程",
+        "click": "点击",
+        "tap": "轻触"
+      },
+      "graphControls": {
+        "title": "图表控制",
+        "toggleLabels": "切换标签",
+        "toggleLabelsDesc": "课程代码 ↔ 名称",
+        "lockUnlock": "锁定/解锁",
+        "lockUnlockDesc": "手动拖动节点",
+        "layoutMode": "布局模式",
+        "layoutModeDesc": "分组 ↔ 分层"
+      },
+      "proTips": {
+        "title": "专业提示",
+        "uploadTranscript": "上传成绩单",
+        "uploadTranscriptDesc": "已完成课程显示为绿色",
+        "quickSearch": "快速搜索",
+        "quickSearchDesc": "Ctrl+K 即可快速找到任何课程",
+        "optimizedPaths": "优化路径",
+        "optimizedPathsDesc": "仅显示最简单的先修课程",
+        "departmentView": "院系视图",
+        "departmentViewDesc": "按院系分组布局"
+      },
+      "gotIt": "知道了"
+    }
+  }
+}

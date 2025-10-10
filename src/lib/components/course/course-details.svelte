@@ -15,6 +15,7 @@
   import ClampedParagraph from "../clamped-paragraph.svelte";
   import LinkedPrerequisites from "./linked-prerequisites.svelte";
   import SatisfiedRequisites from "./satisfied-requisites.svelte";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -47,18 +48,21 @@
   const getCreditCount = (course: Course) => {
     const creditCount = getLatestEnrollmentData(course)?.credit_count;
     if (!creditCount) {
-      return "Not Reported";
+      return m["course.details.notReported"]();
     }
 
     if (creditCount[0] === creditCount[1]) {
       return `${creditCount[0]}`;
     } else {
-      return `${creditCount[0]} to ${creditCount[1]}`;
+      return m["course.details.creditsRange"]({
+        min: creditCount[0],
+        max: creditCount[1]
+      });
     }
   };
 
   const getNormallyOffered = (course: Course) => {
-    return getLatestEnrollmentData(course)?.typically_offered ?? "Not Reported";
+    return getLatestEnrollmentData(course)?.typically_offered ?? m["course.details.notReported"]();
   };
 </script>
 
@@ -67,7 +71,7 @@
     <CardHeader
       class="flex flex-row items-center justify-between space-y-0 pb-2"
     >
-      <CardTitle class="text-base font-medium">Course Description</CardTitle>
+      <CardTitle class="text-base font-medium">{m["course.details.courseDescription"]()}</CardTitle>
       <Info class="text-muted-foreground h-4 w-4" />
     </CardHeader>
     <CardContent>
@@ -78,7 +82,7 @@
     <CardHeader
       class="flex flex-row items-center justify-between space-y-0 pb-2"
     >
-      <CardTitle class="text-base font-medium">Prerequisties</CardTitle>
+      <CardTitle class="text-base font-medium">{m["course.details.prerequisites"]()}</CardTitle>
       <BookOpen class="text-muted-foreground h-4 w-4" />
     </CardHeader>
     {#key course}
@@ -90,7 +94,7 @@
       <CardHeader
         class="flex flex-row items-center justify-between space-y-0 pb-2"
       >
-        <CardTitle class="text-base font-medium">Satisfies</CardTitle>
+        <CardTitle class="text-base font-medium">{m["course.details.satisfies"]()}</CardTitle>
         <BookOpen class="text-muted-foreground h-4 w-4" />
       </CardHeader>
       <CardContent>
@@ -104,7 +108,7 @@
         <CardHeader
           class="flex flex-row items-center justify-between space-y-0 pb-2"
         >
-          <CardTitle class="text-base font-medium">Credits</CardTitle>
+          <CardTitle class="text-base font-medium">{m["course.details.credits"]()}</CardTitle>
           <ClipboardCheck class="text-muted-foreground h-4 w-4" />
         </CardHeader>
         <CardContent>
@@ -115,7 +119,7 @@
         <CardHeader
           class="flex flex-row items-center justify-between space-y-0 pb-2"
         >
-          <CardTitle class="text-base font-medium">Offered</CardTitle>
+          <CardTitle class="text-base font-medium">{m["course.details.offered"]()}</CardTitle>
           <CalendarRange class="text-muted-foreground h-4 w-4" />
         </CardHeader>
         <CardContent>

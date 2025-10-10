@@ -21,6 +21,7 @@
   } from "$lib/components/course/tabs/index.js";
   import type { ElementDefinition } from "cytoscape";
   import type { StyleEntry } from "$lib/components/cytoscape/graph-styles.ts";
+  import { m } from "$lib/paraglide/messages";
 
   interface Props {
     course: Course;
@@ -55,11 +56,11 @@
 
 <Tabs bind:value>
   <TabsList class="my-2">
-    <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="schedule">Schedule</TabsTrigger>
-    <TabsTrigger value="prerequisites">Prerequisites Map</TabsTrigger>
-    <TabsTrigger value="instructors">Instructors</TabsTrigger>
-    <TabsTrigger value="trends">Trends</TabsTrigger>
+    <TabsTrigger value="overview">{m["course.tabs.overview"]()}</TabsTrigger>
+    <TabsTrigger value="schedule">{m["course.tabs.schedule"]()}</TabsTrigger>
+    <TabsTrigger value="prerequisites">{m["course.tabs.prerequisites"]()}</TabsTrigger>
+    <TabsTrigger value="instructors">{m["course.tabs.instructors"]()}</TabsTrigger>
+    <TabsTrigger value="trends">{m["course.tabs.trends"]()}</TabsTrigger>
   </TabsList>
   <div class="grid gap-4 lg:grid-cols-12">
     <CourseDetails {course} {selectedTerm} />
