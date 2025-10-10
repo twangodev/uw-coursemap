@@ -142,7 +142,7 @@ async function fetchContributors(
       if (stat.weeks) {
         // Sum up additions and subtract deletions across all weeks
         lines = stat.weeks.reduce(
-          (sum: any, week: { a: any; d: number }) => sum + week.a - week.d,
+          (sum: number, week: { a: number; d: number }) => sum + week.a - week.d,
           0,
         );
       }
