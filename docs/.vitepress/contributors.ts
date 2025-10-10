@@ -208,7 +208,10 @@ async function fetchUserProfile(username: string): Promise<UserProfile> {
     // Fetch basic profile and social accounts in parallel
     const [profileResponse, socialAccountsResponse] = await Promise.all([
       octokit.request("GET /users/{username}", { username }),
-      octokit.request("GET /users/{username}/social_accounts", { username }).catch(() => ({ data: [] })),
+      octokit.request("GET /users/{username}/social_accounts", { username }).catch((error) => {
+        console.warn(`Failed to fetch social accounts for ${username}:`, error);
+        return { data: [] };
+      }),
     ]);
 
     return {
