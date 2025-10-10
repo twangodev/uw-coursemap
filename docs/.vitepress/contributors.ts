@@ -243,7 +243,7 @@ async function fetchCollaborators(): Promise<Collaborator[]> {
   );
 
   try {
-    const response = await octokit.request(
+    const collaborators = await octokit.paginate(
       "GET /repos/{owner}/{repo}/collaborators",
       {
         owner: "twangodev",
@@ -253,15 +253,15 @@ async function fetchCollaborators(): Promise<Collaborator[]> {
       },
     );
 
-    console.log(`Successfully fetched ${response.data.length} collaborators`);
+    console.log(`Successfully fetched ${collaborators.length} collaborators`);
 
     // Log each collaborator
-    response.data.forEach((collab) => {
+    collaborators.forEach((collab) => {
       const role = formatRole(collab.role_name) || formatPermissions(collab.permissions);
       console.log(`Discovered collaborator: ${collab.login} - Role: ${role}`);
     });
 
-    return response.data as Collaborator[];
+    return collaborators as Collaborator[];
   } catch (error) {
     console.error("Error fetching GitHub collaborators:", error);
     return [];
