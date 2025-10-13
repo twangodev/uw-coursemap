@@ -5,35 +5,61 @@
 
 version: 2
 updates:
+  # Generation project (Python/uv)
   - package-ecosystem: "uv"
     directory: "/generation/"
-    open-pull-requests-limit: 1000
     schedule:
       interval: "daily"
+    groups:
+      generation-dependencies:
+        patterns:
+          - "*"
 
+  # Search project (Python/uv)
   - package-ecosystem: "uv"
     directory: "/search/"
-    open-pull-requests-limit: 1000
     schedule:
       interval: "daily"
+    groups:
+      search-dependencies:
+        patterns:
+          - "*"
 
+  # Frontend project (npm)
   - package-ecosystem: "npm"
     directory: "/"
-    open-pull-requests-limit: 1000
     schedule:
       interval: "daily"
+    groups:
+      frontend-dependencies:
+        patterns:
+          - "*"
 
+  # Infrastructure (Docker)
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      infrastructure-dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "docker-compose"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      infrastructure-dependencies:
+        patterns:
+          - "*"
 
+  # CI/CD (GitHub Actions)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      ci-dependencies:
+        patterns:
+          - "*"
