@@ -1,5 +1,5 @@
 import type { Course } from "$lib/types/course.ts";
-import { courseReferenceToString } from "$lib/types/course.ts";
+import { courseReferenceToString, getLatestTermKey } from "$lib/types/course.ts";
 import { calculateGradePointAverage, calculateARate } from "$lib/types/madgrades.ts";
 import { generateOgImageUrl } from "$lib/seo/og-image";
 
@@ -7,8 +7,8 @@ import { generateOgImageUrl } from "$lib/seo/og-image";
  * Generate a simple, informative meta description for a course
  */
 export function generateCourseMetaDescription(course: Course): string {
-  const latestTermKey = Object.keys(course.term_data).sort().reverse()[0];
-  const enrollment = course.term_data[latestTermKey]?.enrollment_data;
+  const latestTermKey = getLatestTermKey(course);
+  const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
   
   // Pre-calculate all values
   const base = course.description || `${courseReferenceToString(course.course_reference)}: ${course.course_title}`;
@@ -41,8 +41,8 @@ export function generateCourseTitle(course: Course): string {
  */
 export function generateCourseOgImage(course: Course): string {
   const courseCode = courseReferenceToString(course.course_reference);
-  const latestTermKey = Object.keys(course.term_data).sort().reverse()[0];
-  const enrollment = course.term_data[latestTermKey]?.enrollment_data;
+  const latestTermKey = getLatestTermKey(course);
+  const enrollment = latestTermKey ? course.term_data[latestTermKey]?.enrollment_data : null;
 
   // Build description with credits, GPA, A-rate, and badges
   const descriptionParts: string[] = [];
