@@ -5,6 +5,7 @@
   import type { WebSite, WithContext } from "schema-dts";
   import { getOgLocale, getHrefLang } from "$lib/config/languages";
   import * as m from "$lib/paraglide/messages";
+  import { generateDefaultOgImage } from "$lib/seo/og-image";
 
   interface Props {
     subtitle?: string;
@@ -24,7 +25,7 @@
   const siteName = $derived(m['site.name']());
   const siteDescription = $derived(m['site.description']());
   const siteUrl = "https://uwcourses.com";
-  const defaultOgImage = "https://uwcourses.com/uw-coursemap-logo.svg";
+  const defaultOgImage = generateDefaultOgImage();
 
   // Get current locale and SEO formats (reactive)
   const currentLocale = $derived(getLocale());

@@ -1,11 +1,20 @@
 import { env } from "$env/dynamic/public";
 import { error } from "@sveltejs/kit";
 import type { ElementDefinition } from "cytoscape";
+import { generateOgImageUrl } from "$lib/seo/og-image";
 
 const { PUBLIC_API_URL } = env;
 
 export const load = async ({ params, fetch }) => {
   let subject = params.subject.toUpperCase();
+
+  // Fetch subjects to get full name
+  const subjectsResponse = await fetch(`${PUBLIC_API_URL}/subjects.json`);
+  let subjectFullName = subject;
+  if (subjectsResponse.ok) {
+    const subjects = await subjectsResponse.json();
+    subjectFullName = subjects[subject] || subject;
+  }
 
   const elementDefinitionsResponse = await fetch(
     `${PUBLIC_API_URL}/graphs/${subject}.json`,
@@ -35,8 +44,16 @@ export const load = async ({ params, fetch }) => {
     );
   const styleEntries = await styleEntriesResponse.json();
 
+  const ogImage = generateOgImageUrl({
+    title: subject,
+    subtitle: subjectFullName,
+    description: `${subjectFullName} course map and prerequisites at UW-Madison`,
+  });
+
   return {
-    elementDefinitions: elementDefinitions,
-    styleEntries: styleEntries,
+    subtitle: `${subject} - Explorer`,
+    ogImage,
+    elementDefinitions,
+    styleEntries,
   };
 };
