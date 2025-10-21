@@ -47,7 +47,7 @@ export const load = async ({ params, fetch }) => {
   const ogImage = generateOgImageUrl({
     title: subject,
     subtitle: subjectFullName,
-    description: `Course map and prerequisites at UW-Madison`,
+    description: `${subjectFullName} course map and prerequisites at UW-Madison`,
   });
 
   return {
