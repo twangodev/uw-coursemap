@@ -40,9 +40,9 @@ export const load = async ({ params, fetch }) => {
 
   return {
     subtitle: pageTitle,
-    description: description,
-    ogImage: ogImage,
-    instructor: instructor,
+    description,
+    ogImage,
+    instructor,
     jsonLd: [jsonLd],
   };
 };

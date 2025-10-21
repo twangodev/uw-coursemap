@@ -52,8 +52,8 @@ export const load = async ({ params, fetch }) => {
 
   return {
     subtitle: `${subject} - Explorer`,
-    ogImage: ogImage,
-    elementDefinitions: elementDefinitions,
-    styleEntries: styleEntries,
+    ogImage,
+    elementDefinitions,
+    styleEntries,
   };
 };
