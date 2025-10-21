@@ -26,7 +26,7 @@ export function generateOgImageUrl(options: OgImageOptions): string {
   });
 
   if (options.subtitle) {
-    params.set('subtitle', options.subtitle);
+    params.set("subtitle", options.subtitle);
   }
 
   return `${OG_IMAGE_BASE_URL}?${params.toString()}`;
