@@ -19,7 +19,7 @@ export const load = async ({ fetch }) => {
 
   return {
     subtitle: "Explorer",
-    ogImage: ogImage,
-    subjects: subjects,
+    ogImage,
+    subjects,
   };
 };
