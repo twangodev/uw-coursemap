@@ -1,4 +1,5 @@
 import { env } from "$env/dynamic/public";
+import { generateOgImageUrl } from "$lib/seo/og-image";
 
 const { PUBLIC_API_URL } = env;
 
@@ -10,8 +11,15 @@ export const load = async ({ fetch }) => {
     await subjectResponse.json(),
   );
 
+  const ogImage = generateOgImageUrl({
+    title: "Course Explorer",
+    subtitle: "UW-Madison",
+    description: "Explore 10,000+ courses across 190+ departments",
+  });
+
   return {
     subtitle: "Explorer",
+    ogImage: ogImage,
     subjects: subjects,
   };
 };
