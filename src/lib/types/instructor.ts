@@ -126,6 +126,7 @@ export async function getFullInstructorInformation(
             official_name: null,
             position: null,
             rmp_data: null,
+            courses_taught: [],
           };
     rawInstructors.push(data);
   }
