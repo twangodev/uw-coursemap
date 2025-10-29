@@ -12,6 +12,7 @@
     University,
     GraduationCap,
     Mail,
+    Book,
   } from "@lucide/svelte";
 
   interface Props {
@@ -79,7 +80,7 @@
       class="flex flex-row items-center justify-between space-y-0 pb-2"
     >
       <CardTitle class="text-base font-medium">Courses Taught</CardTitle>
-      <University class="text-muted-foreground h-4 w-4" />
+      <Book class="text-muted-foreground h-4 w-4" />
     </CardHeader>
     <CardContent>
       <p class="text-sm break-words">{instructor.courses_taught}</p>
