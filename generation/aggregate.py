@@ -350,7 +350,7 @@ def aggregate_instructors(
                     term_data.grade_data
                 )
 
-                instructor.courses_taught.add(course_reference.get_identifier())
+                instructor.courses_taught.add(course_reference)
                 instructor.cumulative_grade_data = grade_data_summation
 
     instructor_statistics = {
