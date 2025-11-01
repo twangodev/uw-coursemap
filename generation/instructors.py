@@ -198,7 +198,9 @@ class FullInstructor(JsonSerializable):
 
         courses_taught = json_data.get("courses_taught", None)
         if courses_taught:
-            courses_taught = set(courses_taught)
+            courses_taught = {
+                Course.Reference.from_json(course_ref) for course_ref in courses_taught
+            }
 
         return FullInstructor(
             name=json_data["name"],
@@ -221,7 +223,7 @@ class FullInstructor(JsonSerializable):
             "department": self.department,
             "credentials": self.credentials,
             "official_name": self.official_name,
-            "courses_taught": list(self.courses_taught)
+            "courses_taught": [course_ref.to_dict() for course_ref in self.courses_taught]
             if self.courses_taught
             else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict()
