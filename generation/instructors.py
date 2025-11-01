@@ -223,7 +223,9 @@ class FullInstructor(JsonSerializable):
             "department": self.department,
             "credentials": self.credentials,
             "official_name": self.official_name,
-            "courses_taught": [course_ref.to_dict() for course_ref in self.courses_taught]
+            "courses_taught": [
+                course_ref.to_dict() for course_ref in self.courses_taught
+            ]
             if self.courses_taught
             else None,
             "cumulative_grade_data": self.cumulative_grade_data.to_dict()
