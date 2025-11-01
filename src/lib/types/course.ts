@@ -71,6 +71,15 @@ export async function courseReferenceToCourse(
   return await courseReferenceStringToCourse(sanitizedCourseReferenceToString);
 }
 
+/**
+ * Get the latest term key from a course's term data
+ * Returns null if no terms exist
+ */
+export function getLatestTermKey(course: Course): string | null {
+  const termKeys = Object.keys(course.term_data).sort().reverse();
+  return termKeys.length > 0 ? termKeys[0] : null;
+}
+
 export function getInstructorsWithEmail(
   course: Course | undefined,
   term: string,
@@ -101,7 +110,8 @@ export function getInstructorsWithEmail(
 }
 
 export function getLatestInstructorNames(course: Course) {
-  const latestTerm = Object.keys(course.term_data).sort().reverse()[0];
+  const latestTerm = getLatestTermKey(course);
+  if (!latestTerm) return [];
   const instructorsWithEmail = getInstructorsWithEmail(course, latestTerm);
   return Object.keys(instructorsWithEmail);
 }
