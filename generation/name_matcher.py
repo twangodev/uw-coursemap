@@ -134,6 +134,12 @@ def calculate_name_match_score(
     Returns:
         Match score 0-100, where 100 is perfect match
     """
+    # Validate inputs - empty names should not match
+    if not query_last or not candidate_last:
+        return 0.0
+    if not query_first or not candidate_first:
+        return 0.0
+
     # Last name matching
     if require_exact_last:
         # Exact match required for last name
@@ -153,7 +159,7 @@ def calculate_name_match_score(
     # - Extra tokens (John vs John A.)
     first_score = fuzz.token_set_ratio(query_first, candidate_first)
 
-    # Weighted average: last name is more important
+    # Weighted average: first name is more important
     # 70% first name, 30% last name
     final_score = (first_score * 0.7) + (last_score * 0.3)
 
@@ -178,7 +184,17 @@ def find_best_name_match(
     Returns:
         MatchResult with the best matching candidate name
     """
+    # Validate inputs
+    if not candidates:
+        logger.debug(f"No candidates provided for '{query_name}'")
+        return MatchResult(matched_item=None, confidence=0.0)
+
     query_first, query_last = parse_name(query_name)
+
+    # Validate query name was successfully parsed
+    if not query_first or not query_last:
+        logger.debug(f"Invalid query name: '{query_name}' - missing first or last name")
+        return MatchResult(matched_item=None, confidence=0.0)
 
     best_match = None
     best_score = 0.0
@@ -231,7 +247,17 @@ def find_best_structured_match(
     Returns:
         MatchResult with the best matching candidate dictionary
     """
+    # Validate inputs
+    if not candidates:
+        logger.debug(f"No candidates provided for '{query_name}'")
+        return MatchResult(matched_item=None, confidence=0.0)
+
     query_first, query_last = parse_name(query_name)
+
+    # Validate query name was successfully parsed
+    if not query_first or not query_last:
+        logger.debug(f"Invalid query name: '{query_name}' - missing first or last name")
+        return MatchResult(matched_item=None, confidence=0.0)
 
     best_match = None
     best_score = 0.0
@@ -256,9 +282,7 @@ def find_best_structured_match(
         )
         return MatchResult(matched_item=None, confidence=best_score)
 
-    matched_name = (
-        f"{best_match.get(first_name_key, '')} {best_match.get(last_name_key, '')}"
-    )
+    matched_name = f"{best_match.get(first_name_key, '')} {best_match.get(last_name_key, '')}".strip()
     logger.debug(
         f"Matched '{query_name}' to structured item '{matched_name}' with confidence {best_score:.2f}"
     )
