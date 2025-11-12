@@ -11,8 +11,6 @@ from aiohttp import DummyCookieJar
 from aiohttp_client_cache import CachedSession
 from bs4 import BeautifulSoup
 from diskcache import Cache
-from nameparser import HumanName
-from rapidfuzz import fuzz
 from tqdm.asyncio import tqdm
 
 from aio_cache import get_aio_cache
@@ -20,6 +18,7 @@ from course import Course
 from enrollment import build_from_mega_query
 from enrollment_data import GradeData
 from json_serializable import JsonSerializable
+from name_matcher import find_best_structured_match, find_best_name_match
 
 faculty_url = "https://guide.wisc.edu/faculty/"
 
@@ -295,18 +294,28 @@ async def get_rating(
         logger.error(f"Failed to fetch or decode JSON response for {name}: {e}")
         return None
 
-    # Parse the results to find a matching teacher
-    results = data["data"]["newSearch"]["teachers"]["edges"]
-    for item in results:
-        result = item["node"]
-        # Simple matching: check if both first and last names appear in the name string
-        if (
-            result["firstName"].lower() in name.lower()
-            and result["lastName"].lower() in name.lower()
-        ):
-            return RMPData.from_rmp_data(result)
+    # Parse the results to find the best matching teacher
+    edges = data["data"]["newSearch"]["teachers"]["edges"]
+    candidates = [item["node"] for item in edges]
 
-    logger.debug(f"Failed to find rating for {name}")
+    # Use universal name matcher to find best match
+    match_result = find_best_structured_match(
+        query_name=name,
+        candidates=candidates,
+        first_name_key="firstName",
+        last_name_key="lastName",
+        threshold=80.0,
+        require_exact_last=True,
+    )
+
+    if match_result.is_match:
+        logger.debug(
+            f"Matched '{name}' to RMP profile '{match_result.matched_name}' "
+            f"(confidence: {match_result.confidence:.2f})"
+        )
+        return RMPData.from_rmp_data(match_result.matched_item)
+
+    logger.debug(f"No RMP match found for '{name}'")
     return None
 
 
@@ -380,38 +389,40 @@ null_sentinel = object()
 def match_name(
     student_name, official_names, cache_dir, query_cache_group, threshold=80
 ):
+    """
+    Match an instructor name against a list of official names.
+
+    Uses disk cache for performance and delegates to universal name matcher.
+
+    Args:
+        student_name: Name to match
+        official_names: Set or list of official names to match against
+        cache_dir: Directory for disk cache
+        query_cache_group: Cache group identifier (e.g., "rmp", "instructors")
+        threshold: Minimum confidence score (0-100) required for match
+
+    Returns:
+        Matched name string or None if no match found
+    """
     cache = get_match_cache(cache_dir)
     cache_key = f"{query_cache_group}:{student_name.strip().upper()}"
 
+    # Check cache first
     cache_entry = cache.get(cache_key, default=null_sentinel)
     if cache_entry is not null_sentinel:
         return cache_entry
 
-    # Parse and normalize the student name.
-    student_parsed = HumanName(student_name)
-    student_first = student_parsed.first.upper().strip()
-    student_last = student_parsed.last.upper().strip()
+    # Use universal name matcher
+    match_result = find_best_name_match(
+        query_name=student_name,
+        candidates=list(official_names),
+        threshold=threshold,
+        require_exact_last=True,
+    )
 
-    best_match = None
-    best_score = 0
+    result = match_result.matched_item if match_result.is_match else None
 
-    for candidate in official_names:
-        candidate_parsed = HumanName(candidate)
-        candidate_first = candidate_parsed.first.upper().strip()
-        candidate_last = candidate_parsed.last.upper().strip()
-
-        # Filter: if the last names don't match exactly, skip this candidate.
-        if student_last != candidate_last:
-            continue
-
-        # Use fuzzy matching on the first name.
-        score = fuzz.token_set_ratio(student_first, candidate_first)
-        if score > best_score:
-            best_score = score
-            best_match = candidate
-
-    result = best_match if best_score >= threshold else None
-
+    # Cache the result
     cache.set(cache_key, result)
     return result
 
