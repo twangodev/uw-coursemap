@@ -7,12 +7,14 @@
     CardTitle,
   } from "$lib/components/ui/card/index.js";
   import type { Course } from "$lib/types/course.ts";
+  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
 
   interface Props {
     course: Course;
+    instructors: FullInstructorInformation[];
   }
 
-  let { course }: Props = $props();
+  let { course, instructors }: Props = $props();
 
   let summary = $state('');
   let loading = $state(false);
@@ -24,6 +26,15 @@
     summary = '';
 
     try {
+      // Format instructor data for the API
+      const instructorStats = instructors.map(instructor => ({
+        name: instructor.name,
+        rating: instructor.rmp_data?.average_rating,
+        difficulty: instructor.rmp_data?.average_difficulty,
+        wouldTakeAgain: instructor.rmp_data?.would_take_again_percent,
+        numRatings: instructor.rmp_data?.num_ratings,
+      })).filter(i => i.rating !== undefined);
+
       const response = await fetch('/api/summarize', {
         method: 'POST',
         headers: {
@@ -34,6 +45,7 @@
           courseDescription: course.description,
           courseNumber: course.course_reference.course_number,
           subject: course.course_reference.subjects[0],
+          instructors: instructorStats,
         }),
       });
 
@@ -103,9 +115,23 @@
           <span class="text-sm text-muted-foreground">Generating summary...</span>
         </div>
       {:else if summary}
-        <p class="text-sm break-words">
-          {summary}{#if loading}<span class="animate-pulse">▊</span>{/if}
-        </p>
+        <div class="space-y-3">
+          <p class="text-sm break-words">
+            {summary}{#if loading}<span class="animate-pulse">▊</span>{/if}
+          </p>
+          <div class="flex items-center justify-end gap-1.5 pt-1">
+            <span class="text-xs text-muted-foreground">Powered by</span>
+            <a
+              href="https://claude.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="claude-link text-xs font-medium hover:underline flex items-center gap-1"
+            >
+              Claude
+              <Sparkles class="h-3 w-3" />
+            </a>
+          </div>
+        </div>
       {:else if error}
         <div class="rounded-md bg-destructive/10 p-3">
           <p class="text-sm text-destructive">{error}</p>
@@ -134,6 +160,15 @@
 
   .rainbow-border-wrapper :global(.card) {
     border: none;
+  }
+
+  .claude-link {
+    color: #CC785C;
+    transition: opacity 0.2s ease;
+  }
+
+  .claude-link:hover {
+    opacity: 0.8;
   }
 
   @keyframes shimmer {

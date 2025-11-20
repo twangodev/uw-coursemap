@@ -12,6 +12,7 @@
     CardTitle,
   } from "$lib/components/ui/card/index.js";
   import type { Course } from "$lib/types/course.ts";
+  import type { FullInstructorInformation } from "$lib/types/instructor.ts";
   import ClampedParagraph from "../clamped-paragraph.svelte";
   import LinkedPrerequisites from "./linked-prerequisites.svelte";
   import SatisfiedRequisites from "./satisfied-requisites.svelte";
@@ -21,9 +22,10 @@
   interface Props {
     course: Course;
     selectedTerm: string | undefined;
+    instructors: FullInstructorInformation[];
   }
 
-  let { course, selectedTerm }: Props = $props();
+  let { course, selectedTerm, instructors }: Props = $props();
 
   function termsWithEnrollmentData(course: Course) {
     const allTerms = Object.keys(course?.term_data ?? {}).sort(
@@ -129,5 +131,5 @@
       </div>
     </div>
   </Card>
-  <CourseSummary {course} />
+  <CourseSummary {course} {instructors} />
 </div>
