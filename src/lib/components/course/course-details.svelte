@@ -15,6 +15,7 @@
   import ClampedParagraph from "../clamped-paragraph.svelte";
   import LinkedPrerequisites from "./linked-prerequisites.svelte";
   import SatisfiedRequisites from "./satisfied-requisites.svelte";
+  import CourseSummary from "./course-summary.svelte";
   import { m } from "$lib/paraglide/messages";
 
   interface Props {
@@ -128,4 +129,5 @@
       </div>
     </div>
   </Card>
+  <CourseSummary {course} />
 </div>
