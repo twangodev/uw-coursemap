@@ -5,61 +5,54 @@
 
 version: 2
 updates:
-  # Generation project (Python/uv)
+
   - package-ecosystem: "uv"
     directory: "/generation/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
-      generation-dependencies:
-        patterns:
-          - "*"
+      generation:
+        update-types:
+          - "minor"
+          - "patch"
 
-  # Search project (Python/uv)
   - package-ecosystem: "uv"
     directory: "/search/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
-      search-dependencies:
-        patterns:
-          - "*"
+      search:
+        update-types:
+          - "minor"
+          - "patch"
 
-  # Frontend project (npm)
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
-      frontend-dependencies:
-        patterns:
-          - "*"
+      frontend-production:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      frontend-development:
+        dependency-type: "development"
 
-  # Infrastructure (Docker)
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
-      infrastructure-dependencies:
+      docker:
         patterns:
           - "*"
 
-  - package-ecosystem: "docker-compose"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    groups:
-      infrastructure-dependencies:
-        patterns:
-          - "*"
-
-  # CI/CD (GitHub Actions)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     groups:
-      ci-dependencies:
+      ci:
         patterns:
           - "*"
